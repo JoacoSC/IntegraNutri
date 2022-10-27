@@ -1,0 +1,389 @@
+@import "../../../assets/fonts/Metropolis/stylesheet.css";
+
+:root{
+
+    /* Colores */
+    --clr-primary: #452372;
+    --clr-btn-primary: #9D8FAD;
+    --clr-btn-primary-hover: #FFFFFF;
+    --clr-btn-secondary: #6D22D0;
+    
+    /* Font Size */
+    font-size: 16px;
+
+    /* Ellipse width */
+    --ellipse-width: 3rem;
+
+    /* Svg */
+    --arrow-dropdown: url(../../../assets/imgs/patient/arrow_drop_down.svg);
+    --weight-icon: url(../../../assets/imgs/patient/weight_icon.svg);
+    --stature-icon: url(../../../assets/imgs/patient/stature_icon.svg);
+
+    /* Animation curve */
+    --animation-curve: cubic-bezier(0.34, 1.36, 0.2, 1);
+
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+
+    /* Font family */
+    font-family: "Metropolis", sans-serif;
+
+}
+
+.content-wrapper{
+    display: grid;
+    grid-template-columns: 120px auto;
+}
+
+.main-content{
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+/* ************* Patient card ************** */
+
+/* ************* Patient info ************** */
+.patient-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    margin: 4rem auto 1rem;
+    border: 1px solid #ECEDED;
+    border-radius: 20px;
+}
+
+.patient-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 2rem;
+    border-right: 1px solid #ECEDED;
+    border-radius: 20px 0px 0px 20px;
+    background-image: linear-gradient(to left bottom, #ffc6ff, #ffc3ec, #ffc2da, #ffc3cc, #ffc5c1);
+
+}
+
+.patient-avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: #627CE7;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: white;
+}
+
+.patient-name{
+    margin-top: 0.8rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.patient-consultation-time{
+    margin-top: 0.2rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+/* ************* Patient info ************** */
+
+/* **************** Patient weight ****************** */
+
+.patient-weight{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 4rem 0 2rem;
+    border-right: 1px solid #ECEDED;
+}
+
+.weight-icon{
+    position: relative;
+    width: 43px;
+    height: 43px;
+}
+
+.weight-icon svg{
+    margin-top: 0.3rem;
+    padding-bottom: 0;
+    padding-bottom: 0.4rem;
+}
+
+.weight-title{
+    margin-top: 0.8rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.weight{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 0.7rem;
+}
+.weight-value{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+.weight-kg{
+    margin: 0.3rem 0.3rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* **************** Patient weight ****************** */
+
+/* **************** Patient stature ****************** */
+
+.patient-stature{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 4rem 0 2rem;
+}
+
+.stature-icon{
+    position: relative;
+    width: 43px;
+    height: 43px;
+}
+
+.stature-icon svg{
+    margin-top: 0.3rem;
+    padding-bottom: 0;
+    padding-bottom: 0.4rem;
+}
+
+.stature-title{
+    margin-top: 0.8rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.stature{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 0.7rem;
+}
+.stature-value{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+.stature-cm{
+    margin: 0.3rem 0.3rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* **************** Patient stature ****************** */
+
+/* ************* Patient card ************** */
+
+.accordion-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin: 3rem;
+}
+
+.accordion{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ECEDED;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+}
+
+.accordion-label{
+    position: relative;
+    display: block;
+    background-color: var(--clr-primary);
+    border-radius: 20px;
+    padding: 1.2rem 2rem;
+    font-family: "Metropolis", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: white;
+    transition: all 150ms ease;
+    cursor: pointer;
+}
+
+.accordion-label::after{
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 0.8rem;
+    right: 20px;
+    background-image: var(--arrow-dropdown);
+    transition: all 150ms ease;
+}
+
+.accordion-content{
+    padding: 0rem 2rem;
+    font-family: "Metropolis", sans-serif;
+    font-size: 1rem;
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 150ms ease;
+}
+
+.accordion-input{
+    display: none;
+}
+
+.accordion-input:checked ~ .accordion-content{
+    opacity: 1;
+    height: auto;
+    padding: 1.2rem 2rem;
+}
+
+.accordion-input:checked ~ .accordion-label::after{
+    transform: rotate(180deg);
+}
+
+.accordion-input:checked ~ .accordion-label{
+    
+    border-radius: 20px 20px 0px 0px;
+}
+
+/* *********** Navbar ************ */
+
+.nav__list{
+    position: fixed;
+    background: var(--clr-primary);
+    box-shadow: 0px 0px 10px #7b7b7b;
+    padding: 1rem 0;
+    width: 5rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+    z-index: 99;
+}
+
+.nav__item__logo{
+    list-style: none;
+    position: relative;
+    margin-bottom: 1.5rem;
+    transition: all 150ms ease;
+}
+
+.logo-item:hover{
+    transition: all 150ms ease;
+    transform: scale(1.05);
+}
+
+.nav__item{
+    list-style: none;
+    position: relative;
+    z-index: 99;
+}
+
+.nav__item::before{
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(50% + 2.5rem);
+    top: -0.35rem;
+    background: var(--clr-primary);
+    color: white;
+    padding: 0.6rem;
+    border-radius: var(--radius);
+    transition: all 150ms ease;
+    opacity: 0;
+    scale: 0;
+    
+}
+
+.nav__item::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: transparent;
+    left: calc(50% + 5.5rem);
+    top: 0.35rem;
+    transition: all 150ms ease;
+    transform: rotate(45deg);
+    opacity: 0;
+    scale: 0;
+}
+
+.nav__item:hover::after{
+    opacity: 1;
+    scale: 1;
+    left: calc(50% + 3.4rem);
+    background-color: var(--clr-primary);
+}
+
+.nav__item:hover::before{
+    opacity: 1;
+    scale: 1;
+    left: calc(50% + 3.7rem);
+}
+
+.nav__item:hover img{
+    filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(2%) hue-rotate(359deg) brightness(111%) contrast(101%);
+}
+
+.nav__item img{
+    transition: all 500ms ease;
+}
+
+.btn-ellipse{
+    position: relative;
+}
+
+.btn-ellipse::before{
+    content: "";
+    width: 2.5rem;
+    height: 2.5rem;
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+    left: calc(50% - 1.25rem);
+    top: calc(50% - 2.2rem);
+    z-index: -1;
+    opacity: 0;
+    transition: all 200ms ease-in;
+}
+
+.nav__item a:focus > .btn-ellipse::before{
+    opacity: 1;
+}
+
+.nav__item a:focus > img{
+    filter: brightness(0) saturate(100%) invert(16%) sepia(73%) saturate(1372%) hue-rotate(242deg) brightness(93%) contrast(101%);
+}
+
+/* *********** Navbar ************ */
