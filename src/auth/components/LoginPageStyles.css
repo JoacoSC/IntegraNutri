@@ -1,0 +1,333 @@
+@import "../../../assets/fonts/Metropolis/stylesheet.css";
+
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 16px;
+    --clr-graylight: #cfd8dc;
+    --clr-graymed: #90a4ae;
+
+    --radius: 10em;
+
+    --animation-curve: cubic-bezier(0.34, 1.36, 0.2, 1);
+
+    /* --nutri-icon: url(../../imgs/auth/login/nutritionist_icon.svg); */
+    --nutri-grey-icon: url(../../../assets/imgs/auth/nutritionist_icon_grey.svg);
+    --nutri-icon-text: url(../../../assets/imgs/auth/nutritionist_text_and_icon.svg);
+    /* --nutri-icon-text: url(../../imgs/auth/login/nutritionist_text_and_icon.svg); */
+    
+    /* --patient-icon: url(../../imgs/auth/login/patient_icon.svg); */
+    --patient-grey-icon: url(../../../assets/imgs/auth/patient_icon_grey.svg);
+    --patient-icon-text: url(../../../assets/imgs/auth/patient_text_and_icon.svg);
+
+}
+
+body{
+    margin:0;
+    font-family: "Metropolis", sans-serif;
+
+}
+
+.wrapper-main{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+}
+
+.background{
+    display: flex;
+    align-items: center;
+    background-image: url(../assets/imgs/auth/Fondo.svg);
+    background-repeat: no-repeat;
+}
+
+.background-title{
+    margin-left: 5vw;
+    margin-right: 10vw;
+    font-size: 4rem;
+    font-weight: 300;
+    color: white;
+    text-shadow: 1px 1px 10px rgb(78, 78, 78);
+}
+
+.container{
+    background-color: #EFF3FC;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    padding-bottom: 3rem;
+}
+
+.container-top ul{
+    /* margin-top: 2em; */
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 7rem;
+    padding: 0;
+}
+
+.container-top ul li{
+    padding-right: 3rem;
+}
+
+li:first-child{
+    margin-right: auto;
+    margin-left: 3rem;
+}
+
+.header{
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    color: #000;
+
+}
+
+.container-form{
+    margin-left: 3rem;
+    margin-right: 3rem;
+    display: grid;
+    grid-template-rows: repeat(4, 5rem);
+    row-gap: 1rem;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    height: 75px;
+}
+
+.input-label{
+    color: #909398;
+    margin-bottom: .8rem;
+    margin-top: .5rem;
+}
+
+.form-btn{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-register{    
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+    height: 3rem;
+    width: 8rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: 1px 0px 6px 1px rgba(233,238,253,0.75);
+    transition: 500ms ease all;
+}
+
+.btn-register:hover{
+    background-color: #fbfbfb;
+    transform:scale(0.97);
+}
+
+.btn-register:focus{
+    outline: none;
+    border: 1px solid rgba(163,32,211, 1);
+}
+
+.btn-login{
+    background-color: #a320d3;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+    height: 4rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: 1px 0px 6px 1px rgba(233,238,253,0.75);
+    transition: 500ms ease all;
+}
+
+.btn-login:hover{
+    transform:scale(0.98);
+    background-color: #700b95;
+}
+
+.btn-login:focus{
+    outline: none;
+    border: 1px solid rgba(163,32,211, 1);
+}
+
+.input-text-style{
+    padding: 0;
+    border: none;
+    height: 3rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: 1px 0px 6px 1px rgba(233,238,253,0.75);
+    transition: 150ms all ease-in;
+}
+
+.input-text-style:focus{
+    outline: none;
+    border: 1px solid rgba(163,32,211, 1);
+}
+
+.form-switch-item{
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    position: relative;
+}
+
+.form-switch-item::before{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    content: "Soy nutricionista";
+    position: absolute;
+    left: 4rem;
+    top: 1.6rem;
+    opacity: 1;
+    color: rgb(137, 137, 137);
+}
+
+.form-switch-item-icon{
+    position: relative;
+}
+
+.form-switch-item-icon::before{
+    content: var(--nutri-grey-icon);
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 1rem;
+    left: 1.8rem;
+}
+
+.form-switch-item-icon::after{
+    content: var(--patient-grey-icon);
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 1.2rem;
+    right: 10rem;
+}
+
+.form-switch-item::after{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    content: "Soy paciente";
+    position: absolute;
+    right: 3rem;
+    top: 1.6rem;
+    opacity: 1;
+    color: rgb(137, 137, 137);
+}
+
+.switch-container{
+    display: flex;
+    flex-direction: column;
+    height: 4rem;
+    border-radius: 10px;
+    background: white;
+    
+}
+
+/* .switch-color{
+    width: 9rem;
+    height: 3.4rem;
+    left: 0.5rem;
+    top: 0.4rem;
+    background: var(--clr-graylight);
+    border-radius: var(--radius);
+    position: absolute;
+    transition: all 500ms var(--animation-curve);
+} */
+
+.switch-container label{
+    width: 45%;
+    height: 2.7rem;
+    border-radius: 10px;
+    background: #f4f8ff;
+    position: absolute;
+    top: .7rem;
+    left: .7rem;
+    z-index: 50;
+    cursor: pointer;
+}
+
+.switch-container label::before{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    content: var(--nutri-icon-text);
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    color: black;
+    transition: all 1s var(--animation-curve);
+}
+
+
+.switch-container label::after{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    content: var(--patient-icon-text);
+    position: absolute;
+    left: 2rem;
+    top: 0.7rem;
+    opacity: 0;
+    color: black;
+    transition: all 1s var(--animation-curve);
+}
+
+#switch:checked ~ label::before{
+    opacity: 0;
+}
+
+#switch:checked ~ label::after{
+    opacity: 1;
+}
+
+#switch:checked ~ label{
+    transform: translateX(14rem);
+}
+
+/* #switch:checked ~ .switch-color{
+    background: #00e676;
+} */
+
+#switch ~ label{
+    transition: all 700ms var(--animation-curve);
+}
+
+.switch-container input{
+    display: none;
+}
+
+@media screen and (max-width: 1007.98px)  {
+    
+    .wrapper-main{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .background-title{
+        margin-left: 4rem;
+    }
+}

@@ -1,0 +1,32 @@
+TODOs:
+
+Implementar RegisterPage en React
+Implementar LoginPage en React
+Implementar JournalPage en React
+Implementar PatientPage en React
+Aplicar rutas en React
+Habilitar funcionalidades del RegisterPage (capturar datos del formulario al presionar el botón Registrar)
+Habilitar funcionalidades del LoginPage (capturar datos del formulario al presionar el botón Iniciar Sesión)
+Habilitar funcionalidades del JournalPage (
+    desplegar modal para registrar paciente al presionar boton espontaneo y capturar los datos del formulario,
+    desarrollar calendario con la opción de navegar entre los días,
+    habilitar hacer clic sobre un paciente para ver y poder editar su información en la PatientPage,
+    habilitar editar horas de consulta del día con el botón Editar
+    )
+Habilitar funcionalidades del PatientPage (
+    editar la anamnesis, indicaciones, etc. del paciente,
+    habilitar ingresar datos para generar los gráficos,
+    generar los gráficos,
+)
+Implementar ingreso del paciente a su PatientPage
+Conectar con base de datos de Firebase(
+    registro nuevos usuarios a través de RegisterPage,
+    consultar información del usuario a través de LoginPage,
+    traer nombre del nutricionista e información sus pacientes y consultas a través del JournalPage,
+    traer información del paciente, anamnesis, indicaciones, etc. a través del PatientPage,
+)
+Habilitar apartado de "Olvidé mi contraseña" en LoginPage
+
+EXTRAS:
+Validar información del RegisterPage (RUT, email, contraseña)
+

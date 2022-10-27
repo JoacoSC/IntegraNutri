@@ -1,0 +1,489 @@
+@import "../../../assets/fonts/Metropolis/stylesheet.css";
+
+:root{
+
+    /* Colores */
+    --clr-primary: #452372;
+    --clr-btn-primary: #9D8FAD;
+    --clr-btn-primary-hover: #FFFFFF;
+    --clr-btn-secondary: #6D22D0;
+    --clr-btn-secondary-hover: #6821c6;
+    --clr-btn-secondary-active: #7d37d8;
+    --clr-day-ellipse-primary: rgba(164, 164, 164, 0.25);
+    --clr-day-ellipse-active: #FFBCB1;
+
+    /* Border radius */
+
+    --radius: 0.2rem;
+
+    /* Font Size */
+
+    font-size: 16px;
+
+    /* Svg */
+
+    --btn-add-icon: url(../../../assets/imgs/journal/btn-add.svg);
+    --time-icon: url(../../../assets/imgs/journal/time.svg);
+    --edit-icon: url(../../../assets/imgs/journal/edit.svg);
+    --empty-bg: url(../../../assets/imgs/journal/empty-background.svg);
+
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* width */
+/* ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+} */
+  
+/* Track */
+/* ::-webkit-scrollbar-track {
+    background: rgba(49, 49, 49, 0.1);
+} */
+   
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 20px;
+} */
+  
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+    background: #777; 
+} */
+
+
+body{
+
+    /* Font family */
+    font-family: "Metropolis", sans-serif;
+
+}
+
+.content-wrapper{
+    display: grid;
+    grid-template-columns: 120px auto;
+}
+
+.main-welcome{
+    margin-top: 3rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.next-consultation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 2rem;
+    margin-top: 3rem;
+}
+
+.btn-spontaneous{
+    appearance: none;
+    position: relative;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.9rem;
+    padding-left: 2.8rem;
+    margin-left: auto;
+    margin-right: 3rem;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-spontaneous:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-hover);
+}
+
+.btn-spontaneous:active{
+    transform: scale(0.96);
+    background: var(--clr-btn-secondary-active);
+}
+
+.btn-spontaneous::before{
+    position: absolute;
+    content: var(--btn-add-icon);
+    top: 0.4rem;
+    left: 0.8rem;
+}
+
+/* *********** Navbar ************ */
+
+.nav__list{
+    position: fixed;
+    background: var(--clr-primary);
+    box-shadow: 0px 0px 10px #7b7b7b;
+    padding: 1rem 0;
+    width: 5rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+    z-index: 99;
+}
+
+.nav__item__logo{
+    list-style: none;
+    position: relative;
+    margin-bottom: 1.5rem;
+    transition: all 150ms ease;
+}
+
+.logo-item:hover{
+    transition: all 150ms ease;
+    transform: scale(1.05);
+}
+
+.nav__item{
+    list-style: none;
+    position: relative;
+    z-index: 99;
+}
+
+.nav__item::before{
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(50% + 2.5rem);
+    top: -0.35rem;
+    background: var(--clr-primary);
+    color: white;
+    padding: 0.6rem;
+    border-radius: var(--radius);
+    transition: all 150ms ease;
+    opacity: 0;
+    scale: 0;
+    
+}
+
+.nav__item::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: transparent;
+    left: calc(50% + 5.5rem);
+    top: 0.35rem;
+    transition: all 150ms ease;
+    transform: rotate(45deg);
+    opacity: 0;
+    scale: 0;
+}
+
+.nav__item:hover::after{
+    opacity: 1;
+    scale: 1;
+    left: calc(50% + 3.4rem);
+    background-color: var(--clr-primary);
+}
+
+.nav__item:hover::before{
+    opacity: 1;
+    scale: 1;
+    left: calc(50% + 3.7rem);
+}
+
+.nav__item:hover img{
+    filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(2%) hue-rotate(359deg) brightness(111%) contrast(101%);
+}
+
+.nav__item img{
+    transition: all 500ms ease;
+}
+
+.btn-ellipse{
+    position: relative;
+}
+
+.btn-ellipse::before{
+    content: "";
+    width: 2.5rem;
+    height: 2.5rem;
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+    left: calc(50% - 1.25rem);
+    top: calc(50% - 2.2rem);
+    z-index: -1;
+    opacity: 0;
+    transition: all 200ms ease-in;
+}
+
+.nav__item a:focus > .btn-ellipse::before{
+    opacity: 1;
+}
+
+.nav__item a:focus > img{
+    filter: brightness(0) saturate(100%) invert(16%) sepia(73%) saturate(1372%) hue-rotate(242deg) brightness(93%) contrast(101%);
+}
+
+/* *********** Navbar ************ */
+
+/* *********** Journal ************ */
+
+.journal{
+    display: grid;
+    height: auto;
+    margin: 2rem 3rem 2rem 2rem;
+    background-color: var(--clr-primary);
+    border-radius: 30px;
+}
+
+.month-days{
+    display: flex;
+    flex-direction: row;
+    gap: 3.5rem;
+    margin: 2rem 3rem 1rem;
+}
+
+.day{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.day-ellipse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--clr-day-ellipse-primary);
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+.day-label{
+    margin-top: 0.4rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.month-line{
+    height: 2px;
+    background-color: #55367F;
+    margin: 0 3rem;
+
+}
+
+.today{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 3rem;
+}
+
+.today-label{
+    font-family: "Metropolis", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+}
+
+.patient-number{
+    font-family: "Metropolis", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #D7CAEA;
+}
+
+.today-consultations{
+    display: flex;
+    flex-direction: column;
+}
+
+.time{
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    margin: 0 3rem;
+    align-items: center;
+}
+
+.hour-wrapper{
+    display: flex;
+    flex-direction: column;
+    max-width: 60px;
+}
+.hour{
+    margin-left: auto;
+    margin-right: 1rem;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+}
+.ampm{
+    margin-left: auto;
+    margin-right: 1rem;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #7E6B98;
+}
+
+.hr{
+    height: 2px;
+    background-color: #55367F;
+}
+
+.consultation-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    margin: 0 3rem;
+}
+
+.consultation-info{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #627CE7;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+}
+
+.patient-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.patient-name{
+    font-family: "Metropolis", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+.consultation-hour{
+    position: relative;
+    margin-left: 1.5rem;
+    margin-top: 0.4rem;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #676161;
+}
+
+.consultation-hour::before{
+    position: absolute;
+    top: -0.1rem;
+    left: -1.5rem;
+    content: var(--time-icon);
+}
+
+.empty-consultation{
+    background: var(--empty-bg);
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.empty-consultation-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+    font-family: "Metropolis", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+}
+
+.btn-edit{
+    position: relative;
+    appearance: none;
+    display: flex;
+    margin: 1rem 3rem 2rem auto ;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 50%;
+    background: rgba(164, 164, 164, 0.25);
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-edit::before{
+    position: absolute;
+    content: var(--edit-icon);
+    top: 10px;
+    left: 11px;
+}
+
+.btn-edit:hover{
+    transform: scale(0.97);
+    background: rgba(213, 213, 213, 0.4);
+}
+
+.btn-edit:active{
+    transform: scale(0.94);
+    background: rgba(213, 213, 213, 0.2);
+}
+/* *********** Journal ************ */
+
+/* *********** Media Queries ************ */
+/* 
+@media screen and (max-height: 849.98px)  {
+
+    .nav__list{
+        position: fixed;
+        background: var(--clr-primary);
+        box-shadow: 0px 0px 10px #7b7b7b;
+        padding: 1rem 0;
+        width: 6rem;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        z-index: 99;
+    }
+
+    .nav__item img{
+        padding-bottom: 0;
+        padding-bottom: 0.4rem;
+    }
+} */
+
+
+/* *********** Media Queries ************ */

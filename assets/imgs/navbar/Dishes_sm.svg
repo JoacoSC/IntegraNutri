@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33" height="23" fill="none" viewBox="0 0 33 23">
+  <ellipse cx="17.284" cy="11" stroke="#9D8FAD" stroke-width="2" rx="9.014" ry="9.2"/>
+  <path stroke="#9D8FAD" stroke-linecap="round" stroke-width="2" d="M17.284 5c-.772 0-1.537.155-2.25.457a5.872 5.872 0 0 0-1.907 1.3 6.01 6.01 0 0 0-1.274 1.947A6.108 6.108 0 0 0 11.405 11"/>
+  <path stroke="#9D8FAD" stroke-width="1.5" d="M29.35 21v-8.5a.5.5 0 0 1 1 0V21a.5.5 0 0 1-1 0Z"/>
+  <path stroke="#9D8FAD" stroke-width="1.5" d="M28 10.296V3.163a1.279 1.279 0 0 1 2.093-.987l1.023.845c.144.118.267.26.363.42l.188.309c.204.338.204.762 0 1.1a1.061 1.061 0 0 0 0 1.1c.204.338.204.762 0 1.1a1.061 1.061 0 0 0 0 1.1c.204.338.204.762 0 1.1l-.051.084c-.18.296-.225.656-.125.988l.008.025A1.281 1.281 0 0 1 30.273 12h-.57c-.94 0-1.703-.763-1.703-1.704ZM3.5 21V10a.5.5 0 0 1 1 0v11a.5.5 0 0 1-1 0Z"/>
+  <path stroke="#9D8FAD" stroke-linecap="round" stroke-width="1.5" d="M5 2.5v5.086a1 1 0 0 0 .293.707v0c.63.63 1.707.184 1.707-.707V2"/>
+  <path stroke="#9D8FAD" stroke-linecap="round" stroke-width="1.5" d="M4.5 9.5H5a2 2 0 0 0 2-2V2M3.5 9.5H3a2 2 0 0 1-2-2V2"/>
+  <path stroke="#9D8FAD" stroke-linecap="round" stroke-width="1.5" d="M1 2.5v5.086a1 1 0 0 0 .293.707v0c.63.63 1.707.184 1.707-.707V2m0 .5v5.086a1 1 0 0 0 .293.707v0c.63.63 1.707.184 1.707-.707V2M2 9h4"/>
+</svg>
