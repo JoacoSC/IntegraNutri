@@ -1,8 +1,21 @@
+import { useForm } from '../../hooks'
 import '../components'
 
 export const LoginPage = () => {
 
+    const { email, password, onInputChange } = useForm({
+        email: '',
+        password: '',
+    });
+
+    const onSubmit = ( event ) => {
+        event.preventDefault();
+
+        console.log({ email, password });
+    }
+
     const logo = "../../../assets/imgs/auth/Logo.svg"
+
   return (
     <>
         <section className="wrapper-main">
@@ -27,7 +40,9 @@ export const LoginPage = () => {
             <div className="header">
                 <h1 className="">Login</h1>
             </div>
-            <div className="container-form">                
+            <div className="container-form">
+            <form onSubmit={ onSubmit }>
+
                 <div className="form-switch-item">
                     <div className="form-switch-item-icon"></div>
                     <div className="switch-container">
@@ -46,17 +61,18 @@ export const LoginPage = () => {
                 </div>
                 <div className="form-item">
                     <label className="input-label">Email</label>
-                    <input className="input-text-style" type="email"/>
+                    <input className="input-text-style" type="email" name="email" value={ email } onChange={ onInputChange }/>
                 </div>
                 <div className="form-item">
                     <label className="input-label">Contraseña</label>
-                    <input className="input-text-style" type="password"/>
+                    <input className="input-text-style" type="password" name="password" value={ password } onChange={ onInputChange }/>
                 </div>
                 <div className="form-btn">
-                    <button className="btn-login">
+                    <button className="btn-login" type="submit">
                         Iniciar Sesión
                     </button>
                 </div>
+            </form>                
             </div>
 
         </div>

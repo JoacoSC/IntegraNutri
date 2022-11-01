@@ -14,21 +14,26 @@ export const AppRouter = () => {
             <PublicRoute>
               <AuthRoutes/>
             </PublicRoute>
-            }/>
+          }/>
 
-            <Route path="nutritionist/*" element={ 
-              <PrivateRoute>
-                <NutritionistRoutes />
-              </PrivateRoute>
-            }/>
+          <Route path="nutritionist/*" element={ 
+            <PrivateRoute>
+              <NutritionistRoutes />
+            </PrivateRoute>
+          }/>
 
-            <Route path="patient/*" element={ 
-              <PrivateRoute>
-                <PatientRoutes />
-              </PrivateRoute>
-            }/>
+          <Route path="patient/*" element={ 
+            <PrivateRoute>
+              <PatientRoutes />
+            </PrivateRoute>
+          }/>
 
-        </Routes>
+          <Route path="/*" element={
+            <PublicRoute>
+              <AuthRoutes/>
+            </PublicRoute>
+          }/>
+      </Routes>
     </>
   )
 }
