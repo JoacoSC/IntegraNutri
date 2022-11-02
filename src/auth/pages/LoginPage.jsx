@@ -1,17 +1,24 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks'
 import '../components'
 
 export const LoginPage = () => {
 
-    const { email, password, onInputChange } = useForm({
-        email: '',
-        password: '',
-    });
+    const { email, password, onInputChange } = useForm();
+
+    const [isChecked, setIsChecked] = useState( true );
+
+    // const isChecked = true;
 
     const onSubmit = ( event ) => {
         event.preventDefault();
 
-        console.log({ email, password });
+        console.log({ email, password, isChecked });
+    }
+
+    const onCheckBox = () => {
+        setIsChecked(isChecked => !isChecked);
     }
 
     const logo = "../../../assets/imgs/auth/Logo.svg"
@@ -32,7 +39,15 @@ export const LoginPage = () => {
 
                     </li>
                     <li>
-                        <button className="btn-register" type="button">Registrarse</button>
+                        {/* <Link className="btn-register" type="button" onClick={ onButtonRegister }>
+                            Registrarse
+                        </Link> */}
+                        <Link to="/auth/register" className="link-no-decoration">
+                            <div className="btn-link-register">
+                                    Registrarse
+
+                            </div>
+                        </Link>
 
                     </li>
                 </ul>
@@ -40,40 +55,40 @@ export const LoginPage = () => {
             <div className="header">
                 <h1 className="">Login</h1>
             </div>
-            <div className="container-form">
             <form onSubmit={ onSubmit }>
+                <div className="container-form">
 
-                <div className="form-switch-item">
-                    <div className="form-switch-item-icon"></div>
-                    <div className="switch-container">
+                    <div className="form-switch-item">
+                        <div className="form-switch-item-icon"></div>
+                        <div className="switch-container">
 
-                        <input type="checkbox" id="switch"/>
-                        <div className="switch-color"></div>
-                        <label htmlFor="switch">
-                            <div className="label-icon"></div>
-                            <i className="switch-off"></i>
-                            <i className="switch-on"></i>
-                        </label>
-                        
+                            <input type="checkbox" id="switch" name="user_type" onChange={ onInputChange } onClick={ onCheckBox } />
+                            <div className="switch-color"></div>
+                            <label htmlFor="switch">
+                                <div className="label-icon"></div>
+                                <i className="switch-off"></i>
+                                <i className="switch-on"></i>
+                            </label>
+                            
 
 
+                        </div>
+                    </div>
+                    <div className="form-item">
+                        <label className="input-label">Email</label>
+                        <input className="input-text-style" type="email" name="email" onChange={ onInputChange }/>
+                    </div>
+                    <div className="form-item">
+                        <label className="input-label">Contraseña</label>
+                        <input className="input-text-style" type="password" name="password" onChange={ onInputChange }/>
+                    </div>
+                    <div className="form-btn">
+                        <button className="btn-login" type="submit">
+                            Iniciar Sesión
+                        </button>
                     </div>
                 </div>
-                <div className="form-item">
-                    <label className="input-label">Email</label>
-                    <input className="input-text-style" type="email" name="email" value={ email } onChange={ onInputChange }/>
-                </div>
-                <div className="form-item">
-                    <label className="input-label">Contraseña</label>
-                    <input className="input-text-style" type="password" name="password" value={ password } onChange={ onInputChange }/>
-                </div>
-                <div className="form-btn">
-                    <button className="btn-login" type="submit">
-                        Iniciar Sesión
-                    </button>
-                </div>
             </form>                
-            </div>
 
         </div>
         

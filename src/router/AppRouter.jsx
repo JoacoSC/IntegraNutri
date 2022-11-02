@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom"
-import { LoginPage } from "../auth/pages"
 import { AuthRoutes } from "../auth/routes/AuthRoutes"
 import { NutritionistRoutes } from "../nutritionist/routes/NutritionistRoutes"
 import { PatientRoutes } from "../patient/routes/PatientRoutes"
