@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 
 export const PublicRoute = ({ children }) => {
   
-    const isLogged = false;
+    const isLogged = true;
 
     return ( !isLogged )
     ? children

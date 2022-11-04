@@ -73,7 +73,7 @@ body{
     padding-right: 3rem;
 }
 
-li:first-child{
+.container-top li:first-child{
     margin-right: auto;
     margin-left: 3rem;
 }
