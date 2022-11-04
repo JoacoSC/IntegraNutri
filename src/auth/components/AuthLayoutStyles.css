@@ -6,6 +6,22 @@
 
 :root{
     font-size: 16px;
+    --clr-graylight: #cfd8dc;
+    --clr-graymed: #90a4ae;
+
+    --radius: 10em;
+
+    --animation-curve: cubic-bezier(0.34, 1.36, 0.2, 1);
+
+    /* --nutri-icon: url(../../imgs/auth/login/nutritionist_icon.svg); */
+    --nutri-grey-icon: url(../../../assets/imgs/auth/nutritionist_icon_grey.svg);
+    --nutri-icon-text: url(../../../assets/imgs/auth/nutritionist_text_and_icon.svg);
+    /* --nutri-icon-text: url(../../imgs/auth/login/nutritionist_text_and_icon.svg); */
+    
+    /* --patient-icon: url(../../imgs/auth/login/patient_icon.svg); */
+    --patient-grey-icon: url(../../../assets/imgs/auth/patient_icon_grey.svg);
+    --patient-icon-text: url(../../../assets/imgs/auth/patient_text_and_icon.svg);
+
 }
 
 body{
@@ -14,13 +30,8 @@ body{
 
 }
 
-.font {
-    font-family: "Metropolis";
-    font-weight: bold;
-}
-
 .wrapper-main{
-    /* height: 100vh; */
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 6fr 5fr;
 }
@@ -28,13 +39,13 @@ body{
 .background{
     display: flex;
     align-items: center;
-    background-image: url(../../../assets/imgs/auth/Fondo.svg);
+    background-image: url(../assets/imgs/auth/Fondo.svg);
     background-repeat: no-repeat;
 }
 
 .background-title{
-    margin-left: 8rem;
-    margin-right: 12rem;
+    margin-left: 5vw;
+    margin-right: 10vw;
     font-size: 4rem;
     font-weight: 300;
     color: white;
@@ -80,7 +91,7 @@ li:first-child{
     margin-left: 3rem;
     margin-right: 3rem;
     display: grid;
-    grid-template-rows: repeat(10, 4rem);
+    grid-template-rows: repeat(4, 5rem);
     row-gap: 1rem;
 }
 
@@ -96,13 +107,15 @@ li:first-child{
     margin-top: .5rem;
 }
 
-.w-50{
-    width: 50%;
+.form-btn{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.form-group{
-    display: flex;
-    flex-direction: row;
+.w-50{
+    width: 50%;
 }
 
 .pr-8{
@@ -119,6 +132,11 @@ li:first-child{
     flex-direction: column;
 }
 
+.form-group{
+    display: flex;
+    flex-direction: row;
+}
+
 .link-no-decoration{
     text-decoration: none;
     color: black;
@@ -128,7 +146,16 @@ li:first-child{
     font-size: 16px;
 }
 
-.btn-link-login{
+.btn-title a{
+    text-decoration: none;
+    color: black;
+    text-decoration: none;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.btn-title{
     padding: 1rem;
     text-align: center;
     background-color: rgb(255, 255, 255);
@@ -141,17 +168,17 @@ li:first-child{
     transition: 500ms ease all;
 }
 
-.btn-link-login:hover{
+.btn-title:hover{
     background-color: #fbfbfb;
     transform:scale(0.97);
 }
 
-.btn-link-login:focus{
+.btn-title:focus{
     outline: none;
     border: 1px solid rgba(163,32,211, 1);
 }
 
-.btn-register{    
+.btn-submit{
     background-color: #a320d3;
     border: none;
     color: white;
@@ -168,42 +195,15 @@ li:first-child{
     transition: 500ms ease all;
 }
 
-.btn-register:hover{
+.btn-submit:hover{
     transform:scale(0.98);
     background-color: #700b95;
 }
 
-.btn-register:focus{
+.btn-submit:focus{
     outline: none;
     border: 1px solid rgba(163,32,211, 1);
 }
-/* 
-.btn-login{
-    background-color: rgb(255, 255, 255);
-    border: none;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 25px;
-    height: 3rem;
-    width: 8rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    box-shadow: 1px 0px 6px 1px rgba(233,238,253,0.75);
-    transition: 500ms ease all;
-}
-
-.btn-login:hover{
-    background-color: #fbfbfb;
-    transform:scale(0.97);
-}
-
-.btn-login:focus{
-    outline: none;
-    border: 1px solid rgba(163,32,211, 1);
-} */
 
 .input-text-style{
     padding: 0;
@@ -223,6 +223,128 @@ li:first-child{
     outline: none;
     border: 1px solid rgba(163,32,211, 1);
 }
+
+.form-switch-item{
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    position: relative;
+}
+
+.form-switch-item::before{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    content: "Soy nutricionista";
+    position: absolute;
+    left: 4rem;
+    top: 1.6rem;
+    opacity: 1;
+    color: rgb(137, 137, 137);
+}
+
+.form-switch-item-icon{
+    position: relative;
+}
+
+.form-switch-item-icon::before{
+    content: var(--nutri-grey-icon);
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 1rem;
+    left: 1.8rem;
+}
+
+.form-switch-item-icon::after{
+    content: var(--patient-grey-icon);
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 1.2rem;
+    right: 10rem;
+}
+
+.form-switch-item::after{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    content: "Soy paciente";
+    position: absolute;
+    right: 3rem;
+    top: 1.6rem;
+    opacity: 1;
+    color: rgb(137, 137, 137);
+}
+
+.switch-container{
+    display: flex;
+    flex-direction: column;
+    height: 4rem;
+    border-radius: 10px;
+    background: white;
+    
+}
+
+.switch-container label{
+    width: 45%;
+    height: 2.7rem;
+    border-radius: 10px;
+    background: #f4f8ff;
+    position: absolute;
+    top: .7rem;
+    left: .7rem;
+    z-index: 50;
+    cursor: pointer;
+}
+
+.switch-container label::before{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    content: var(--nutri-icon-text);
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    color: black;
+    transition: all 1s var(--animation-curve);
+}
+
+
+.switch-container label::after{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    content: var(--patient-icon-text);
+    position: absolute;
+    left: 2rem;
+    top: 0.7rem;
+    opacity: 0;
+    color: black;
+    transition: all 1s var(--animation-curve);
+}
+
+#switch:checked ~ label::before{
+    opacity: 0;
+}
+
+#switch:checked ~ label::after{
+    opacity: 1;
+}
+
+#switch:checked ~ label{
+    transform: translateX(14rem);
+}
+
+#switch ~ label{
+    transition: all 700ms var(--animation-curve);
+}
+
+.switch-container input{
+    display: none;
+}
+
 
 .input-date{
 
@@ -256,9 +378,9 @@ li:first-child{
     position: relative;
 }
 
-/* .phone-code-padding{
+.phone-code-padding{
     padding-left: 7.5rem;
-} */
+}
 
 .phone-code::before{
     height: 30px;
@@ -271,8 +393,7 @@ li:first-child{
     left: 0.7rem;
 }
 
-
-@media screen and (max-width: 991.98px)  {
+@media screen and (max-width: 1007.98px)  {
     
     .wrapper-main{
         height: 100vh;
