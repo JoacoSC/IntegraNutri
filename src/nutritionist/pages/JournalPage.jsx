@@ -1,4 +1,5 @@
 import { AppLayout } from '../../layout/AppLayout';
+import { ModalPacienteEspontaneo } from '../../ui'
 
 export const JournalPage = () => {
   return (
@@ -13,7 +14,7 @@ export const JournalPage = () => {
                 </div>
                 <div className="next-consultation">
                     <h3>Próximas consultas</h3>
-                    <button className="btn-spontaneous" type="button">Agregar espontáneo</button>
+                    <ModalPacienteEspontaneo/>
                 </div>
                 <div className="journal">
                     <div className="month-days">
