@@ -1,8 +1,38 @@
+import { useEffect, useState } from 'react';
+import { add, format, getUnixTime } from 'date-fns'
+import { es } from 'date-fns/locale'
+
 import { AppLayout } from '../../layout/AppLayout';
 import { ModalPacienteEspontaneo } from '../../ui'
+import { setDefaultOptions } from 'date-fns/esm';
+
 
 export const JournalPage = () => {
-  return (
+    
+    const [daysArray, setDaysArray] = useState([ new Date() ]);
+    
+    const daysRange = 60;
+    
+    useEffect(() => {
+        const array = []
+        
+        for (let i = 0; i < daysRange; i++) {
+            array.push(add(new Date(), { days: i }));
+        }
+        
+        setDaysArray(array)
+        
+    }, []);
+    
+    setDefaultOptions({ locale: es })
+
+    const capitalizeFirst = str => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    };
+
+    console.log( capitalizeFirst(format(daysArray[0], "eee")) );
+
+    return (
     
         <AppLayout>
 
@@ -18,26 +48,14 @@ export const JournalPage = () => {
                 </div>
                 <div className="journal">
                     <div className="month-days">
-                        <div className="day">
-                            <div className="day-ellipse">26</div>
-                            <div className="day-label">Lun</div>
-                        </div>
-                        <div className="day">
-                            <div className="day-ellipse">27</div>
-                            <div className="day-label">Mar</div>
-                        </div>
-                        <div className="day">
-                            <div className="day-ellipse">28</div>
-                            <div className="day-label">Mie</div>
-                        </div>
-                        <div className="day">
-                            <div className="day-ellipse">29</div>
-                            <div className="day-label">Jue</div>
-                        </div>
-                        <div className="day">
-                            <div className="day-ellipse">30</div>
-                            <div className="day-label">Vie</div>
-                        </div>
+                        { daysArray.map( day => (
+
+                            <div className="day" key={ getUnixTime(day) }>
+                                {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
+                                <div className="day-ellipse">{ format( day, "dd") }</div>
+                                <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div>
+                            </div>
+                        ))}
                     </div>
                     <div className="month-line"></div>
                     <div className="today">
