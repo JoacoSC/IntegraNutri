@@ -9,7 +9,9 @@ import { setDefaultOptions } from 'date-fns/esm';
 
 export const JournalPage = () => {
     
-    const [daysArray, setDaysArray] = useState([ new Date() ]);
+    const [ daysArray, setDaysArray ] = useState([ new Date() ]);
+
+    const [currentDay, setCurrentDay] = useState( new Date() );
     
     const daysRange = 60;
     
@@ -30,7 +32,11 @@ export const JournalPage = () => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     };
 
-    console.log( capitalizeFirst(format(daysArray[0], "eee")) );
+    const handleCurrentDay = ( key ) => {
+        
+        const currentDay = daysArray[ key ];
+        setCurrentDay( currentDay );
+    }
 
     return (
     
@@ -48,18 +54,18 @@ export const JournalPage = () => {
                 </div>
                 <div className="journal">
                     <div className="month-days">
-                        { daysArray.map( day => (
+                        { daysArray.map( (day, index) => (
 
-                            <div className="day" key={ getUnixTime(day) }>
+                            <div className="day" key={ index }>
                                 {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                <div className="day-ellipse">{ format( day, "dd") }</div>
+                                <div className="day-ellipse" onClick={ () => handleCurrentDay( index ) }>{ format( day, "dd") }</div>
                                 <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div>
                             </div>
                         ))}
                     </div>
                     <div className="month-line"></div>
                     <div className="today">
-                        <div className="today-label">Martes 27</div>
+                        <div className="today-label">{ capitalizeFirst(format( currentDay, "PPPP"))}</div>
                         <div className="patient-number">8 Pacientes</div>
                     </div>
                     <div className="today-consultations">
