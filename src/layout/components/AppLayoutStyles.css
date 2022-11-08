@@ -46,6 +46,30 @@
     padding: 0;
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+scrollbar-width: auto;
+scrollbar-color: #e6d4fe var(--clr-day-ellipse-primary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+width: 10px;
+height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+background: #d9c3f8;
+border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: #6D22D0;
+border-radius: 10px;
+border: 0px none #ffffff;
+}
+
 body{
     font-family: "Metropolis", sans-serif;
 }
