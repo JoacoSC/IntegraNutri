@@ -111,7 +111,7 @@ export const ModalPacienteEspontaneo = () => {
                         </div>
                         <div className="form-btn">
                             <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) }>
-                                Registrarse
+                                Registrar
                             </button>
                         </div>
                     </div>

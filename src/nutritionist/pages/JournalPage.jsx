@@ -6,6 +6,7 @@ import { AppLayout } from '../../layout/AppLayout';
 import { ModalPacienteEspontaneo } from '../../ui'
 import { setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
+import { ModalEditJournal } from '../../ui/ModalEditJournal';
 
 
 export const JournalPage = () => {
@@ -147,11 +148,11 @@ export const JournalPage = () => {
                                         <div className="consultation-hour">11:00 - 12:00</div>
                                     </div>
                                 </Link>
-                                
+
                             </div>
                         </div>
                     </div>
-                    <button className="btn-edit" type="button"></button>
+                    <ModalEditJournal/>
                 </div>
             </div>
         </AppLayout>
