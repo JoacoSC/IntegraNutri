@@ -5,6 +5,7 @@ import { es } from 'date-fns/locale'
 import { AppLayout } from '../../layout/AppLayout';
 import { ModalPacienteEspontaneo } from '../../ui'
 import { setDefaultOptions } from 'date-fns/esm';
+import { Link } from 'react-router-dom';
 
 
 export const JournalPage = () => {
@@ -79,13 +80,15 @@ export const JournalPage = () => {
                             </div>
                             <div className="consultation-wrapper">
                                 <div className="blank-space"></div>
-                                <div className="consultation-info">
-                                    <div className="avatar">LA</div>
-                                    <div className="patient-info">
-                                        <div className="patient-name">Logan Anderson</div>
-                                        <div className="consultation-hour">8:00 - 9:00</div>
-                                    </div>
-                                </div>
+
+                                    <Link to="../patient" className="consultation-info">
+                                        <div className="avatar">LA</div>
+                                        <div className="patient-info">
+                                            <div className="patient-name">Logan Anderson</div>
+                                            <div className="consultation-hour">8:00 - 9:00</div>
+                                        </div>
+                                    </Link>
+
                             </div>
                         </div>
                         <div className="consultation">
@@ -98,13 +101,15 @@ export const JournalPage = () => {
                             </div>
                             <div className="consultation-wrapper">
                                 <div className="blank-space"></div>
-                                <div className="consultation-info">
+
+                                <Link to="../patient" className="consultation-info">
                                     <div className="avatar">LC</div>
                                     <div className="patient-info">
                                         <div className="patient-name">Leonard Campbell</div>
                                         <div className="consultation-hour">9:00 - 9:30</div>
                                     </div>
-                                </div>
+                                </Link>
+
                             </div>
                         </div>
                         <div className="consultation">
@@ -134,13 +139,15 @@ export const JournalPage = () => {
                             </div>
                             <div className="consultation-wrapper">
                                 <div className="blank-space"></div>
-                                <div className="consultation-info">
+
+                                <Link to="../patient" className="consultation-info">
                                     <div className="avatar">LA</div>
                                     <div className="patient-info">
                                         <div className="patient-name">Logan Anderson</div>
                                         <div className="consultation-hour">11:00 - 12:00</div>
                                     </div>
-                                </div>
+                                </Link>
+                                
                             </div>
                         </div>
                     </div>

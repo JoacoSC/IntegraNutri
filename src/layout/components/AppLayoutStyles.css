@@ -279,6 +279,7 @@ body{
     background-color: white;
     border-radius: 50px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .avatar{

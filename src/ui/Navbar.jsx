@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './components';
 
 export const Navbar = () => {
@@ -10,10 +11,10 @@ export const Navbar = () => {
               </a>
           </li>
           <li className="nav__item" data-tooltip="Inicio">
-              <a href="#">
+              <Link to="../">
                   <img src="../../assets/imgs/navbar/Home_sm.svg" className="filter-clr" alt="Icono Inicio"/>
                   <div className="btn-ellipse"></div>
-              </a>
+              </Link>
           </li>
           <li className="nav__item" data-tooltip="Calendario">
               <a href="#">
