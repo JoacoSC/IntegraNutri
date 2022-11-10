@@ -94,4 +94,11 @@
 .ReactModal__Overlay--before-close {
     opacity: 0;
 }
+
+.edit-journal-label{
+    color: #909398;
+    margin-bottom: .8rem;
+    margin-top: 2rem;
+    min-width: 20rem;
+}
 /* ************** Modal *****************/

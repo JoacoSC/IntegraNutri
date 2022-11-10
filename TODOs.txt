@@ -30,3 +30,22 @@ Habilitar apartado de "Olvidé mi contraseña" en LoginPage
 EXTRAS:
 Validar información del RegisterPage (RUT, email, contraseña)
 
+----------------------------------------------------------------
+10 de Noviembre
+
+-tengo que construir el consultationSlot a traves del store
+-despues de eso, puedo enviar los nuevos valores del ModalEdit al
+ store para que así se actualice automaticamente los consultationSlots
+...
+-tambien debiera construir las consultas como objetos en el store,
+entonces tendría que comparar alguna propiedad "consultationTime"
+o algo así, para posicionar correctamente la consulta en el Journal
+
+-el ModalEdit debería validar que no haya consultas agendadas para ese
+día antes de hacer algun cambio, o bien, debería deshabilitar el boton
+si hay consultas en el día actual o posteriores. También podría aplicar
+una alerta que diga "Si desea modificar su horario de consultas, y
+tiene consultas agendadas para mas adelante, estas se podrían eliminar, por favor asegúrese de reagendarlas
+de acuerdo al nuevo horario de consultas."
+
+CON ESO LA AGENDA DEBERÍA ESTAR LISTA!!!!!!
