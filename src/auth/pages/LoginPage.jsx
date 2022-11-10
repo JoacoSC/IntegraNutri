@@ -1,13 +1,18 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useForm } from '../../hooks'
+import { checkingAuthentication } from '../../store/auth';
 
 import { AuthLayout } from '../layout/AuthLayout';
 
 export const LoginPage = () => {
 
+    const [isChecked, setIsChecked] = useState( true );
+
+    const dispatch = useDispatch();
+
     const { email, password, onInputChange } = useForm();
 
-    const [isChecked, setIsChecked] = useState( true );
 
     // const isChecked = true;
 
@@ -15,6 +20,7 @@ export const LoginPage = () => {
         event.preventDefault();
 
         console.log({ email, password, isChecked });
+        dispatch( checkingAuthentication() ) ;
     }
 
     const onCheckBox = () => {
