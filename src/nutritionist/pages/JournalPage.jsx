@@ -1,21 +1,45 @@
 import { useEffect, useState } from 'react';
-import { add, format, getUnixTime } from 'date-fns'
+import { add, format, getUnixTime, set, setHours, setMinutes, setSeconds } from 'date-fns'
 import { es } from 'date-fns/locale'
 
 import { AppLayout } from '../../layout/AppLayout';
 import { ModalPacienteEspontaneo } from '../../ui'
-import { setDefaultOptions } from 'date-fns/esm';
+import { addHours, setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
+import { useSelector } from 'react-redux';
 
 
 export const JournalPage = () => {
+
+    setDefaultOptions({ locale: es })
+
+    const { workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay } = useSelector( state => state.journal )
     
     const [ daysArray, setDaysArray ] = useState([ new Date() ]);
 
-    const [currentDay, setCurrentDay] = useState( new Date() );
+    const [currentDay, setCurrentDay] = useState( set( new Date(), { hours: workingDayStartHours, minutes: workingDayStartMinutes, seconds: 0, miliseconds: 0} ) );
+
+    const [consultationsArray, setConsultationsArray] = useState([]);
+
+    const consultation = {
+        consultationStartTime: 0,
+        consultationDuration: 0,
+        isTaken: false,
+    }
     
     const daysRange = 60;
+
+    const capitalizeFirst = str => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    };
+
+    const handleCurrentDay = ( key ) => {
+        
+        const currentDay = daysArray[ key ];
+        const formattedCurrentDay = set( currentDay, { hours: workingDayStartHours, minutes: workingDayStartMinutes, seconds: 0, miliseconds: 0} )
+        setCurrentDay( formattedCurrentDay );
+    }
     
     useEffect(() => {
         const array = []
@@ -27,18 +51,21 @@ export const JournalPage = () => {
         setDaysArray(array)
         
     }, []);
-    
-    setDefaultOptions({ locale: es })
+ 
+    useEffect(() => {
+        const array = []
+        let tempCurrentDay = currentDay
+        array[0] = currentDay
 
-    const capitalizeFirst = str => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    };
+        for (let i = 1; i < consultationsPerDay; i++) {
+            tempCurrentDay = add( tempCurrentDay, { hours: consultationHours, minutes: consultationMinutes})
+            array[i] = tempCurrentDay
+            
+        }
+        setConsultationsArray( array )
+    }, [])
 
-    const handleCurrentDay = ( key ) => {
-        
-        const currentDay = daysArray[ key ];
-        setCurrentDay( currentDay );
-    }
+    console.log( consultationsArray )
 
     return (
     
@@ -71,86 +98,38 @@ export const JournalPage = () => {
                         <div className="patient-number">8 Pacientes</div>
                     </div>
                     <div className="today-consultations">
-                        <div className="consultation">
+                    { consultationsArray.map( ( consultation, index ) => (
+                                    
+                        <div className="consultation" key={ index }>
                             <div className="time">
                                 <div className="hour-wrapper">
-                                    <div className="hour">08:00</div>
-                                    <div className="ampm">AM</div>
+                                    <div className="hour">{ format( consultation, "hh")}:{format( consultation, "mm")}</div>
+                                    <div className="ampm">{format( consultation, "aa")}</div>
                                 </div>
                                 <div className="hr"></div>
                             </div>
                             <div className="consultation-wrapper">
                                 <div className="blank-space"></div>
+                                
 
-                                    <Link to="../patient" className="consultation-info">
-                                        <div className="avatar">LA</div>
-                                        <div className="patient-info">
-                                            <div className="patient-name">Logan Anderson</div>
-                                            <div className="consultation-hour">8:00 - 9:00</div>
-                                        </div>
-                                    </Link>
-
-                            </div>
-                        </div>
-                        <div className="consultation">
-                            <div className="time">
-                                <div className="hour-wrapper">
-                                    <div className="hour">09:00</div>
-                                    <div className="ampm">AM</div>
-                                </div>
-                                <div className="hr"></div>
-                            </div>
-                            <div className="consultation-wrapper">
-                                <div className="blank-space"></div>
-
-                                <Link to="../patient" className="consultation-info">
-                                    <div className="avatar">LC</div>
+                                {/* <Link to="../patient" className="consultation-info">
+                                    <div className="avatar">LA</div>
                                     <div className="patient-info">
-                                        <div className="patient-name">Leonard Campbell</div>
-                                        <div className="consultation-hour">9:00 - 9:30</div>
+                                        <div className="patient-name">Logan Anderson</div>
+                                        <div className="consultation-hour">8:00 - 9:00</div>
                                     </div>
-                                </Link>
-
-                            </div>
-                        </div>
-                        <div className="consultation">
-                            <div className="time">
-                                <div className="hour-wrapper">
-                                    <div className="hour">10:00</div>
-                                    <div className="ampm">AM</div>
-                                </div>
-                                <div className="hr"></div>
-                            </div>
-                            <div className="consultation-wrapper">
-                                <div className="blank-space"></div>
+                                </Link> */}
                                 <div className="empty-consultation">
                                     <div className="empty-consultation-text">
                                         Hora disponible
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="consultation">
-                            <div className="time">
-                                <div className="hour-wrapper">
-                                    <div className="hour">11:00</div>
-                                    <div className="ampm">AM</div>
-                                </div>
-                                <div className="hr"></div>
-                            </div>
-                            <div className="consultation-wrapper">
-                                <div className="blank-space"></div>
-
-                                <Link to="../patient" className="consultation-info">
-                                    <div className="avatar">LA</div>
-                                    <div className="patient-info">
-                                        <div className="patient-name">Logan Anderson</div>
-                                        <div className="consultation-hour">11:00 - 12:00</div>
-                                    </div>
-                                </Link>
 
                             </div>
                         </div>
+                    
+                    ))}
+                        
                     </div>
                     <ModalEditJournal/>
                 </div>

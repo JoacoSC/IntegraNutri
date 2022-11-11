@@ -10,9 +10,9 @@ export const ModalEditJournal = () => {
 
     const [openModal, setOpenModal] = useState(false);
 
-    const { workingDayHours, workingDayMinutes, consultationHours, consultationMinutes, consultationAmount, onInputChange } = useForm({
-        workingDayHours: '08',
-        workingDayMinutes: '00',
+    const { workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationAmount, onInputChange } = useForm({
+        workingDayStartHours: '08',
+        workingDayStartMinutes: '00',
         consultationHours: '00',
         consultationMinutes: '15',
         consultationAmount: '8',
@@ -20,7 +20,8 @@ export const ModalEditJournal = () => {
 
     const onSubmit = ( event ) => {
         event.preventDefault();
-        console.log({ workingDayHours, workingDayMinutes, consultationHours, consultationMinutes, consultationAmount });
+        console.log({ workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationAmount });
+        
     }
 
     return (
@@ -52,17 +53,17 @@ export const ModalEditJournal = () => {
                             <label className="edit-journal-label">Hora de inicio de la jornada:</label>
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Hora</label>
-                                <select className="select-style" defaultValue={ workingDayHours } name="workingDayHours" onChange={ onInputChange }>
-                                    <option value="00">00</option>
-                                    <option value="01">01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
-                                    <option value="07">07</option>
-                                    <option value="08">08</option>
-                                    <option value="09">09</option>
+                                <select className="select-style" defaultValue={ workingDayStartHours } name="workingDayStartHours" onChange={ onInputChange }>
+                                    <option value="0">00</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                    <option value="7">07</option>
+                                    <option value="8">08</option>
+                                    <option value="9">09</option>
                                     <option value="10">10</option>
                                     <option value="11">11</option>
                                     <option value="12">12</option>
@@ -77,15 +78,14 @@ export const ModalEditJournal = () => {
                                     <option value="21">21</option>
                                     <option value="22">22</option>
                                     <option value="23">23</option>
-                                    <option value="24">24</option>
                                     
                                 </select>
                             </div>
                             <div className="form-item w-50 pl-8">
                             <label className="input-label">Minutos</label>
-                                <select className="select-style" placeholder="00" name="workingDayMinutes" onChange={ onInputChange }>
-                                    <option value="00">00</option>
-                                    <option value="05">05</option>
+                                <select className="select-style" placeholder="00" name="workingDayStartMinutes" onChange={ onInputChange }>
+                                    <option value="0">00</option>
+                                    <option value="5">05</option>
                                     <option value="10">10</option>
                                     <option value="15">15</option>
                                     <option value="20">20</option>
