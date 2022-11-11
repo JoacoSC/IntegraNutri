@@ -5,14 +5,19 @@ export const journalSlice = createSlice({
     initialState: {
         workingDayStartHours: 8,
         workingDayStartMinutes: 0,
-        consultationHours: 0,
-        consultationMinutes: 30,
-        consultationsPerDay: 14,
+        consultationHours: 1,
+        consultationMinutes: 0,
+        consultationsPerDay: 11,
 
     },
     reducers: {
-        editJournal: (state, /* action */ ) => {
-            state.counter += 1;
+        editJournal: (state, { payload } ) => {
+            
+            state.workingDayStartHours = payload.workingDayStartHours;
+            state.workingDayStartMinutes = payload.workingDayStartMinutes;
+            state.consultationHours = payload.consultationHours;
+            state.consultationMinutes = payload.consultationMinutes;
+            state.consultationsPerDay = payload.consultationsPerDay;
         },
     }
 });

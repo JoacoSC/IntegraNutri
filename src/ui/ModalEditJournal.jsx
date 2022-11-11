@@ -1,26 +1,31 @@
 import { useState } from "react";
 import Modal from 'react-modal';
+import { useDispatch } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 
 import { useForm } from "../hooks";
+import { startEditJournal } from "../store/journal";
 
 import './components';
 
-export const ModalEditJournal = () => {
+export const ModalEditJournal = ( { setIsEditingJournal } ) => {
 
     const [openModal, setOpenModal] = useState(false);
 
-    const { workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationAmount, onInputChange } = useForm({
-        workingDayStartHours: '08',
-        workingDayStartMinutes: '00',
-        consultationHours: '00',
-        consultationMinutes: '15',
-        consultationAmount: '8',
+    const dispatch = useDispatch()
+
+    const { workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay, onInputChange, formState } = useForm({
+        workingDayStartHours: 8,
+        workingDayStartMinutes: 0,
+        consultationHours: 0,
+        consultationMinutes: 15,
+        consultationsPerDay: 8,
     });
 
     const onSubmit = ( event ) => {
         event.preventDefault();
-        console.log({ workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationAmount });
+        console.log({ workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay });
+        dispatch( startEditJournal( workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay ) );
         
     }
 
@@ -128,7 +133,7 @@ export const ModalEditJournal = () => {
                             <label className="edit-journal-label">Cantidad de consultas en la jornada:</label>
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Consultas</label>
-                                <select className="select-style" defaultValue={ consultationAmount } name="consultationAmount" onChange={ onInputChange }>
+                                <select className="select-style" defaultValue={ consultationsPerDay } name="consultationsPerDay" onChange={ onInputChange }>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>

@@ -20,13 +20,9 @@ export const JournalPage = () => {
 
     const [currentDay, setCurrentDay] = useState( set( new Date(), { hours: workingDayStartHours, minutes: workingDayStartMinutes, seconds: 0, miliseconds: 0} ) );
 
-    const [consultationsArray, setConsultationsArray] = useState([]);
+    const [consultationSlotsArray, setConsultationSlotsArray] = useState([]);
 
-    const consultation = {
-        consultationStartTime: 0,
-        consultationDuration: 0,
-        isTaken: false,
-    }
+    const [isEditingJournal, setIsEditingJournal] = useState(false)
     
     const daysRange = 60;
 
@@ -62,10 +58,8 @@ export const JournalPage = () => {
             array[i] = tempCurrentDay
             
         }
-        setConsultationsArray( array )
-    }, [])
-
-    console.log( consultationsArray )
+        setConsultationSlotsArray( array )
+    }, [ currentDay ])
 
     return (
     
@@ -79,7 +73,7 @@ export const JournalPage = () => {
                 </div>
                 <div className="next-consultation">
                     <h3>Próximas consultas</h3>
-                    <ModalPacienteEspontaneo/>
+                    <ModalPacienteEspontaneo setIsEditingJournal={ setIsEditingJournal } />
                 </div>
                 <div className="journal">
                     <div className="month-days">
@@ -98,37 +92,39 @@ export const JournalPage = () => {
                         <div className="patient-number">8 Pacientes</div>
                     </div>
                     <div className="today-consultations">
-                    { consultationsArray.map( ( consultation, index ) => (
+
+                        { consultationSlotsArray.map( ( consultationSlot, index ) => (
+                                        
+                            <div className="consultation" key={ index }>
+                                <div className="time">
+                                    <div className="hour-wrapper">
+                                        <div className="hour">{ format( consultationSlot, "hh")}:{format( consultationSlot, "mm")}</div>
+                                        <div className="ampm">{format( consultationSlot, "aa")}</div>
+                                    </div>
+                                    <div className="hr"></div>
+                                </div>
+                                <div className="consultation-wrapper">
+                                    <div className="blank-space"></div>
                                     
-                        <div className="consultation" key={ index }>
-                            <div className="time">
-                                <div className="hour-wrapper">
-                                    <div className="hour">{ format( consultation, "hh")}:{format( consultation, "mm")}</div>
-                                    <div className="ampm">{format( consultation, "aa")}</div>
-                                </div>
-                                <div className="hr"></div>
-                            </div>
-                            <div className="consultation-wrapper">
-                                <div className="blank-space"></div>
-                                
 
-                                {/* <Link to="../patient" className="consultation-info">
-                                    <div className="avatar">LA</div>
-                                    <div className="patient-info">
-                                        <div className="patient-name">Logan Anderson</div>
-                                        <div className="consultation-hour">8:00 - 9:00</div>
+                                    {/* <Link to="../patient" className="consultation-info">
+                                        <div className="avatar">LA</div>
+                                        <div className="patient-info">
+                                            <div className="patient-name">Logan Anderson</div>
+                                            <div className="consultation-hour">8:00 - 9:00</div>
+                                        </div>
+                                    </Link> */}
+                                    
+                                    <div className="empty-consultation">
+                                        <div className="empty-consultation-text">
+                                            Hora disponible
+                                        </div>
                                     </div>
-                                </Link> */}
-                                <div className="empty-consultation">
-                                    <div className="empty-consultation-text">
-                                        Hora disponible
-                                    </div>
-                                </div>
 
+                                </div>
                             </div>
-                        </div>
-                    
-                    ))}
+                        
+                        ))}
                         
                     </div>
                     <ModalEditJournal/>
