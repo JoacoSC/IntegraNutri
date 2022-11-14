@@ -7,12 +7,12 @@ import { getFirestore } from 'firebase/firestore/lite'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDNQHDg_HeiYj1wNKpMy-VWbR1gY5sIwuc",
-  authDomain: "nutritionistapp-a47b7.firebaseapp.com",
-  projectId: "nutritionistapp-a47b7",
-  storageBucket: "nutritionistapp-a47b7.appspot.com",
-  messagingSenderId: "261560736527",
-  appId: "1:261560736527:web:6d1d97e187d2fda304fc7a"
+  apiKey: "AIzaSyBvgvhfFMz5cpytuH41fF1-b2RRdYQo-lA",
+  authDomain: "integranutri-e09c7.firebaseapp.com",
+  projectId: "integranutri-e09c7",
+  storageBucket: "integranutri-e09c7.appspot.com",
+  messagingSenderId: "32536405906",
+  appId: "1:32536405906:web:714b7299c3f9c78595c34b"
 };
 
 // Initialize Firebase

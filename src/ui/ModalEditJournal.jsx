@@ -18,7 +18,7 @@ export const ModalEditJournal = ( { setIsEditingJournal } ) => {
         workingDayStartHours: 8,
         workingDayStartMinutes: 0,
         consultationHours: 0,
-        consultationMinutes: 15,
+        consultationMinutes: 0,
         consultationsPerDay: 8,
     });
 
@@ -116,7 +116,8 @@ export const ModalEditJournal = ( { setIsEditingJournal } ) => {
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Minutos</label>
-                                <select className="select-style" name="consultationMinutes" onChange={ onInputChange }>
+                                <select className="select-style" defaultValue={ consultationMinutes } name="consultationMinutes" onChange={ onInputChange }>
+                                    <option value="0">00</option>
                                     <option value="15">15</option>
                                     <option value="20">20</option>
                                     <option value="25">25</option>

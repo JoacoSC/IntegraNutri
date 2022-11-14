@@ -62,6 +62,12 @@ export const LoginPage = () => {
                             Iniciar Sesión
                         </button>
                     </div>
+                    <div className="form-btn">
+                        <button className="btn-google-login">
+                            <img className="btn-google-login-img" src="../../../assets/imgs/auth/google_logo.svg" alt="Logo de Google" />
+                            Ingresar con Gmail
+                        </button>
+                    </div>
                 </div>
             </form>
 

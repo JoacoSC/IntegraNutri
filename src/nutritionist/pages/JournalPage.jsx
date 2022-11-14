@@ -107,19 +107,19 @@ export const JournalPage = () => {
                                     <div className="blank-space"></div>
                                     
 
-                                    {/* <Link to="../patient" className="consultation-info">
+                                    <Link to="../patient" className="consultation-info">
                                         <div className="avatar">LA</div>
                                         <div className="patient-info">
                                             <div className="patient-name">Logan Anderson</div>
                                             <div className="consultation-hour">8:00 - 9:00</div>
                                         </div>
-                                    </Link> */}
+                                    </Link>
                                     
-                                    <div className="empty-consultation">
+                                    {/* <div className="empty-consultation">
                                         <div className="empty-consultation-text">
                                             Hora disponible
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                 </div>
                             </div>

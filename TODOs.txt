@@ -36,7 +36,8 @@ Validar información del RegisterPage (RUT, email, contraseña)
 -tengo que construir el consultationSlot a traves del store
 -despues de eso, puedo enviar los nuevos valores del ModalEdit al
  store para que así se actualice automaticamente los consultationSlots
-...
+... LISTO ...
+
 -tambien debiera construir las consultas como objetos en el store,
 entonces tendría que comparar alguna propiedad "consultationTime"
 o algo así, para posicionar correctamente la consulta en el Journal
