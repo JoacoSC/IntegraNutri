@@ -8,7 +8,7 @@ import { startEditJournal } from "../store/journal";
 
 import './components';
 
-export const ModalEditJournal = ( { setIsEditingJournal } ) => {
+export const ModalEditJournal = () => {
 
     const [openModal, setOpenModal] = useState(false);
 

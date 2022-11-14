@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { add, format, getUnixTime, set, setHours, setMinutes, setSeconds } from 'date-fns'
 import { es } from 'date-fns/locale'
 
@@ -8,6 +8,7 @@ import { addHours, setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
 import { useSelector } from 'react-redux';
+
 
 
 export const JournalPage = () => {
@@ -22,7 +23,7 @@ export const JournalPage = () => {
 
     const [consultationSlotsArray, setConsultationSlotsArray] = useState([]);
 
-    const [isEditingJournal, setIsEditingJournal] = useState(false)
+    // const [isEditingJournal, setIsEditingJournal] = useMemo( () => /* ALGO */  );
     
     const daysRange = 60;
 
@@ -73,7 +74,7 @@ export const JournalPage = () => {
                 </div>
                 <div className="next-consultation">
                     <h3>Próximas consultas</h3>
-                    <ModalPacienteEspontaneo setIsEditingJournal={ setIsEditingJournal } />
+                    <ModalPacienteEspontaneo />
                 </div>
                 <div className="journal">
                     <div className="month-days">

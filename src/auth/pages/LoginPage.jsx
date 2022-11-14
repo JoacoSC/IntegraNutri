@@ -1,30 +1,37 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks'
-import { checkingAuthentication } from '../../store/auth';
+import { checkingAuthentication, startGoogleSingIn } from '../../store/auth';
 
 import { AuthLayout } from '../layout/AuthLayout';
 
 export const LoginPage = () => {
 
-    const [isChecked, setIsChecked] = useState( true );
+    const { status } = useSelector( state => state.auth )
+
+    const [isNutritionist, setIsNutritionist] = useState( true );
 
     const dispatch = useDispatch();
 
     const { email, password, onInputChange } = useForm();
 
+    const isAuthenticating = useMemo( () => status === 'checking', [ status ]);
 
-    // const isChecked = true;
+    // const isNutritionist = true;
+
+    const onCheckBox = () => {
+        setIsNutritionist(isNutritionist => !isNutritionist);
+    }
 
     const onSubmit = ( event ) => {
         event.preventDefault();
 
-        console.log({ email, password, isChecked });
+        // console.log({ email, password, isNutritionist });
         dispatch( checkingAuthentication() ) ;
     }
 
-    const onCheckBox = () => {
-        setIsChecked(isChecked => !isChecked);
+    const onGoogleSingIn = () => {
+        dispatch( startGoogleSingIn( isNutritionist ) );
     }
 
   return (
@@ -58,12 +65,20 @@ export const LoginPage = () => {
                         <input className="input-text-style" type="password" name="password" onChange={ onInputChange }/>
                     </div>
                     <div className="form-btn">
-                        <button className="btn-submit" type="submit">
+                        <button
+                            className="btn-submit"
+                            type="submit"
+                            disabled={ isAuthenticating }
+                        >
                             Iniciar Sesión
                         </button>
                     </div>
                     <div className="form-btn">
-                        <button className="btn-google-login">
+                        <button
+                            className="btn-google-login"
+                            onClick={ onGoogleSingIn }
+                            disabled={ isAuthenticating }
+                        >
                             <img className="btn-google-login-img" src="../../../assets/imgs/auth/google_logo.svg" alt="Logo de Google" />
                             Ingresar con Gmail
                         </button>
