@@ -1,18 +1,35 @@
+import { useDispatch } from 'react-redux';
 import { useRut } from 'react-rut-formatter';
+import { addDays, fromUnixTime, getUnixTime, set } from 'date-fns'
+
 import { useForm } from '../../hooks';
+import { startCreatingUserWithEmailPassword } from '../../store/auth';
 
 import { AuthLayout } from '../layout/AuthLayout';
 
 export const RegisterPage = () => {
 
-    const { name, fatherName, motherName, date, email, password, confirm_password, region, comuna, address, phone, genero, onInputChange } = useForm();
+    const dispatch = useDispatch();
+
+    const { name, fatherName, motherName, birthday, email, password, confirm_password, region, city, address, phone, gender, onInputChange, formState } = useForm();
+    // const {  onInputChange, formState } = useForm();
 
     const { isValid, rut, updateRut } = useRut();
 
     const onSubmit = ( event ) => {
         event.preventDefault();
 
-        console.log({ name, fatherName, motherName, rut, isValid, date, email, password, confirm_password, region, comuna, address, phone, genero });
+        const rawRut = rut.raw;
+
+        const displayName = name + " " + fatherName + " " + motherName;
+
+        const formattedBirthday = addDays( set( new Date( birthday ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 );
+
+        const unixBirthday = getUnixTime( formattedBirthday );
+
+        if ( !isValid ) return;
+
+        dispatch ( startCreatingUserWithEmailPassword({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
     }
     
     return (
@@ -43,7 +60,7 @@ export const RegisterPage = () => {
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Fecha de Nacimiento</label>
-                                <input className="input-text-style input-date" type="date" name="date" onChange={ onInputChange }/>
+                                <input className="input-text-style input-date" type="date" name="birthday" onChange={ onInputChange }/>
                                 <span className="input-date-icon"></span>
                             </div>                
                         </div>
@@ -69,7 +86,7 @@ export const RegisterPage = () => {
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Comuna</label>
-                                <select className="select-style" name="comuna" onChange={ onInputChange }>
+                                <select className="select-style" name="city" onChange={ onInputChange }>
                                     <option value="Llay llay">Llay llay</option>
                                     <option value="San Felipe">San felipe</option>
                                 </select>
@@ -85,7 +102,7 @@ export const RegisterPage = () => {
                         </div>
                         <div className="form-item">
                             <label className="input-label">Género</label>
-                            <select className="select-style" name="genero" onChange={ onInputChange }>
+                            <select className="select-style" name="gender" onChange={ onInputChange }>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="No binario">No binario</option>

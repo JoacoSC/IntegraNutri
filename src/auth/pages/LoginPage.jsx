@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks'
-import { checkingAuthentication, startGoogleSingIn } from '../../store/auth';
+import { startGoogleSingIn, startLoginWithEmailPassword } from '../../store/auth';
 
 import { AuthLayout } from '../layout/AuthLayout';
 
@@ -27,7 +27,7 @@ export const LoginPage = () => {
         event.preventDefault();
 
         // console.log({ email, password, isNutritionist });
-        dispatch( checkingAuthentication() ) ;
+        dispatch( startLoginWithEmailPassword({ email, password }) ) ;
     }
 
     const onGoogleSingIn = () => {

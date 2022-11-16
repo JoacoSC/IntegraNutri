@@ -30,6 +30,7 @@
     /* Svg */    
     
     --btn-add-icon: url(../../../assets/imgs/journal/btn-add.svg);
+    --btn-logout: url(../../../assets/imgs/journal/logout.svg);
     --time-icon: url(../../../assets/imgs/journal/time.svg);
     --edit-icon: url(../../../assets/imgs/journal/edit.svg);
     --empty-bg: url(../../../assets/imgs/journal/empty-background.svg);
@@ -89,7 +90,7 @@ body{
 /* ************* Nutritionist Page ************** */
 
 .main-welcome{
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-left: 2rem;
     display: flex;
     flex-direction: column;
@@ -102,6 +103,46 @@ body{
     align-items: center;
     margin-left: 2rem;
     margin-top: 3rem;
+}
+
+.logout{
+    margin-top: 1rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.btn-logout{
+    appearance: none;
+    position: relative;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.9rem;
+    padding-left: 2.8rem;
+    margin-left: auto;
+    margin-right: 3rem;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-logout:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-hover);
+}
+
+.btn-logout:active{
+    transform: scale(0.96);
+    background: var(--clr-btn-secondary-active);
+}
+
+.btn-logout::before{
+    position: absolute;
+    content: var(--btn-logout);
+    top: 0.4rem;
+    left: 0.8rem;
 }
 
 .btn-spontaneous{

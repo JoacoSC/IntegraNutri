@@ -1,19 +1,24 @@
 import { useEffect, useState, useMemo } from 'react';
-import { add, format, getUnixTime, set, setHours, setMinutes, setSeconds } from 'date-fns'
+import { useDispatch, useSelector } from 'react-redux';
 import { es } from 'date-fns/locale'
+import { add, format, getUnixTime, set, setHours, setMinutes, setSeconds } from 'date-fns'
 
+import { startLogout } from '../../store/auth';
 import { AppLayout } from '../../layout/AppLayout';
 import { ModalPacienteEspontaneo } from '../../ui'
 import { addHours, setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
-import { useSelector } from 'react-redux';
 
 
 
 export const JournalPage = () => {
 
     setDefaultOptions({ locale: es })
+
+    const dispatch = useDispatch();
+
+    const { displayName } = useSelector( state => state.auth )
 
     const { workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay } = useSelector( state => state.journal )
     
@@ -36,6 +41,12 @@ export const JournalPage = () => {
         const currentDay = daysArray[ key ];
         const formattedCurrentDay = set( currentDay, { hours: workingDayStartHours, minutes: workingDayStartMinutes, seconds: 0, miliseconds: 0} )
         setCurrentDay( formattedCurrentDay );
+    }
+
+    const onLogout = () => {
+        
+        dispatch( startLogout() );
+
     }
     
     useEffect(() => {
@@ -67,8 +78,13 @@ export const JournalPage = () => {
         <AppLayout>
 
             <div className="main">
+                <div className="logout">
+                    <button className="btn-logout" type="button" onClick={ onLogout }>
+                        Cerrar sesión
+                    </button>
+                </div>
                 <div className="main-welcome">
-                    <h1>Dr. Galleguillos</h1>
+                    <h1>Dr. { displayName }</h1>
                     <p>Hola doctor, echemos un vistazo a sus pacientes de hoy</p>
 
                 </div>
