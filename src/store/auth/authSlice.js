@@ -5,6 +5,7 @@ export const authSlice = createSlice({
     initialState: {
         status: 'checking', //'not-authenticated', 'authenticated', 'checking'
         isLogged: false,
+        isRegisteringPatient: false,
         uid: null,
         email: null,
         displayName: null,
@@ -16,6 +17,7 @@ export const authSlice = createSlice({
 
             state.status = 'authenticated'; //'not-authenticated', 'authenticated', 'checking'
             state.isLogged = true,
+            state.isRegisteringPatient = false,
             state.uid = payload.uid;
             state.email = payload.email;
             state.displayName = payload.displayName;
@@ -26,6 +28,7 @@ export const authSlice = createSlice({
             
             state.status = 'not-authenticated'; //'not-authenticated', 'authenticated', 'checking'
             state.isLogged = false,
+            state.isRegisteringPatient = false,
             state.uid = null;
             state.email = null;
             state.displayName = null;
@@ -34,6 +37,9 @@ export const authSlice = createSlice({
         },
         checkingCredentials: ( state ) => {
             state.status = 'checking';
+        },
+        isRegisteringPatient: ( state, { payload } ) => {
+            state.isRegisteringPatient = payload.isRegisteringPatient;
         }
     }
 });
@@ -44,5 +50,6 @@ export const {
     login,
     logout,
     checkingCredentials,
+    isRegisteringPatient,
 
 } = authSlice.actions;

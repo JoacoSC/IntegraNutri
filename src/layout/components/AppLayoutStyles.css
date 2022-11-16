@@ -415,6 +415,15 @@ body{
     background: rgba(213, 213, 213, 0.2);
 }
 /* *********** Journal ************ */
+/* *********** My Patients ************ */
+.main-patient-list{
+    display: grid;
+    height: auto;
+    margin: 2rem 3rem 2rem 2rem;
+    background-color: var(--clr-primary);
+    border-radius: 30px;
+}
+/* *********** My Patients ************ */
 
 /* ************* Nutritionist Page ************** */
 

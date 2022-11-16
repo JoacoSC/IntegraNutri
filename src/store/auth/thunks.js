@@ -54,6 +54,36 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rawRut, unixBi
     }
 }
 
+export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) => {
+    return async( dispatch ) => {
+
+        // dispatch( checkingCredentials() );
+        
+        const newUser = {
+            rut: rawRut,
+            displayName,
+            unixBirthday,
+            region,
+            city,
+            address,
+            phone,
+            gender,
+        }
+
+        const { uid, ok, errorMessage } = await registerUserWithEmailPassword( displayName, email, password );
+
+        if ( !ok ) return dispatch( logout({ errorMessage }) );
+
+        const newDoc = doc( collection( FirebaseDB, `users/${ uid }/patients` ) );
+
+        await setDoc( newDoc, newUser );
+
+        // dispatch( login({ uid, displayName }))
+
+        
+    }
+}
+
 export const startLoginWithEmailPassword = ({ email, password }) => {
     return async( dispatch ) => {
 

@@ -16,6 +16,12 @@ export const Navbar = () => {
                   <div className="btn-ellipse"></div>
               </Link>
           </li>
+          <li className="nav__item" data-tooltip="Pacientes">
+                <Link to="../myPatients">
+                  <img src="../../assets/imgs/navbar/Patients.svg" className="filter-clr" alt="Icono Pacientes"/>
+                  <div className="btn-ellipse"></div>
+                </Link>
+          </li>
           <li className="nav__item" data-tooltip="Calendario">
               <a href="#">
                   <img src="../../assets/imgs/navbar/Calendar_sm.svg" className="filter-clr" alt="Icono Calendario"/>
