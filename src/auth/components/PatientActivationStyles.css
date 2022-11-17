@@ -1,0 +1,27 @@
+@import "../../../assets/fonts/Metropolis/stylesheet.css";
+
+*{
+    box-sizing: border-box;
+}
+
+.activation-background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../assets/imgs/auth/Fondo.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.activation-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 60vw;
+    background-color: #EFF3FC;
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 1px 0px 6px 1px rgba(205, 205, 205, 0.75);
+}

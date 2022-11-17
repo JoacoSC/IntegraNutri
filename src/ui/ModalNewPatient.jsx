@@ -48,6 +48,8 @@ export const ModalNewPatient = () => {
 
         const displayName = name + " " + fatherName + " " + motherName;
 
+        const a = `Hola ${ name }`
+
         const formattedBirthday = addDays( set( new Date( birthday ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 );
 
         const unixBirthday = getUnixTime( formattedBirthday );
@@ -56,11 +58,15 @@ export const ModalNewPatient = () => {
 
         dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
 
-        console.log(form)
-        console.log("-----soy un separador")
-        console.log(form.current)
+        const templateParams = {
+            name,
+            email,
+            password
+        }
 
-        emailjs.sendForm('service_xueiflu', 'template_lf0jvcb', form.current, '41EFlO3aJuRq71GVI')
+        console.log( templateParams )
+
+        emailjs.send('service_xueiflu', 'template_lf0jvcb', templateParams, '41EFlO3aJuRq71GVI')
         .then((result) => {
             console.log(result.text);
         }, (error) => {
@@ -71,6 +77,7 @@ export const ModalNewPatient = () => {
 
     return (
         <>
+            
             <button className="btn-spontaneous" type="button" onClick={() => setOpenModal(true)}>
                 Agregar paciente
             </button>
