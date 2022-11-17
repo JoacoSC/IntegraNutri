@@ -72,7 +72,6 @@ export const ModalNewPatient = () => {
         }, (error) => {
             console.log(error.text);
         });
-
     }
 
     return (
