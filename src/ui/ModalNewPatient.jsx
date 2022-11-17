@@ -1,16 +1,23 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from 'react-modal';
 import { useRut } from "react-rut-formatter";
 import { CSSTransition } from "react-transition-group";
+import emailjs from "@emailjs/browser";
+
 
 import { useForm } from "../hooks";
 import { startCreatingPatient } from "../store/auth";
 
 import './components';
 import { addDays, getUnixTime, set } from "date-fns";
+import { useEffect } from "react";
 
 export const ModalNewPatient = () => {
+
+    const { uid } = useSelector( state => state.auth );
+
+    const form = useRef();
 
     const dispatch = useDispatch();
 
@@ -20,10 +27,22 @@ export const ModalNewPatient = () => {
 
     const { isValid, rut, updateRut } = useRut();
 
+    const generatePassword = ( length ) => {
+        let result           = '';
+        let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let charactersLength = characters.length;
+        for ( let i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
+    const password = generatePassword( 10 );
+
     const onSubmit = ( event ) => {
         event.preventDefault();
-
-        console.log({ name, fatherName, motherName, rut, isValid, birthday, email, region, city, address, phone, gender });
+        
+        console.log({ uid, name, fatherName, motherName, rut, isValid, birthday, email, password, region, city, address, phone, gender });
 
         const rawRut = rut.raw;
 
@@ -33,11 +52,21 @@ export const ModalNewPatient = () => {
 
         const unixBirthday = getUnixTime( formattedBirthday );
 
-        const password = "123456";
-
         if ( !isValid ) return;
 
         dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
+
+        console.log(form)
+        console.log("-----soy un separador")
+        console.log(form.current)
+
+        emailjs.sendForm('service_xueiflu', 'template_lf0jvcb', form.current, '41EFlO3aJuRq71GVI')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+
     }
 
     return (
@@ -64,7 +93,7 @@ export const ModalNewPatient = () => {
                     Agregar paciente
                 </h1>
 
-                <form onSubmit={ onSubmit }>
+                <form ref={form} onSubmit={ onSubmit }>
                     <div className="container-form" onSubmit={ onSubmit }>
 
                         <div className="form-item">
@@ -95,6 +124,14 @@ export const ModalNewPatient = () => {
                         <div className="form-item">
                             <label className="input-label">Email</label>
                             <input className="input-text-style" type="email" name="email" onChange={ onInputChange }/>
+                        </div>
+                        <div className="form-item">
+                            <label className="input-label">Password</label>
+                            <input className="input-text-style" type="text" name="password" value={ password } onChange={ onInputChange }/>
+                        </div>
+                        <div className="form-item">
+                            <label className="input-label">UID</label>
+                            <input className="input-text-style" type="text" name="uid" value={ uid } onChange={ onInputChange }/>
                         </div>
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">

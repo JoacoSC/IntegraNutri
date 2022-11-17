@@ -50,3 +50,15 @@ tiene consultas agendadas para mas adelante, estas se podrían eliminar, por fav
 de acuerdo al nuevo horario de consultas."
 
 CON ESO LA AGENDA DEBERÍA ESTAR LISTA!!!!!!
+
+
+
+-----------------------------------------------------------------
+16-11-2022
+
+-Estoy registrando los datos de un nuevo paciente a través del ModalNewPatient,
+pero al registrar un Paciente, la sesión del Nutricionista se cierra.
+-Una solución debería ser, almacenar la información del paciente en la base de datos 
+del nutricionista, y cuando acceda se debería crear el usuario en el Firebase Authentication.
+-Para esto tendría que enviar el UID del nutricionista y el UID del paciente en un correo de 
+verificación al paciente, para que pueda usar esa info para acceder al Firestore Database.

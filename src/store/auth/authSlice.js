@@ -38,8 +38,8 @@ export const authSlice = createSlice({
         checkingCredentials: ( state ) => {
             state.status = 'checking';
         },
-        isRegisteringPatient: ( state, { payload } ) => {
-            state.isRegisteringPatient = payload.isRegisteringPatient;
+        isRegisteringPatient: ( state, payload ) => {
+            state.isRegisteringPatient = payload;
         }
     }
 });

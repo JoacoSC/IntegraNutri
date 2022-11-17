@@ -1,7 +1,7 @@
 import { collection, doc, setDoc } from "firebase/firestore/lite";
-import { FirebaseDB } from "../../firebase/config";
+import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
 import { loginWithEmailPassword, logoutFirebase, registerUserWithEmailPassword, signInWithGoogle } from "../../firebase/providers";
-import { checkingCredentials, logout, login } from "./";
+import { checkingCredentials, logout, login, isRegisteringPatient } from "./";
 
 export const checkingAuthentication = ( email, password ) => {
     
@@ -58,11 +58,15 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
     return async( dispatch ) => {
 
         // dispatch( checkingCredentials() );
+        dispatch( isRegisteringPatient( true ) );
+
         
         const newUser = {
             rut: rawRut,
             displayName,
             unixBirthday,
+            email,
+            password,
             region,
             city,
             address,
@@ -70,16 +74,13 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
             gender,
         }
 
-        const { uid, ok, errorMessage } = await registerUserWithEmailPassword( displayName, email, password );
-
-        if ( !ok ) return dispatch( logout({ errorMessage }) );
+        const uid = FirebaseAuth.currentUser.uid;
 
         const newDoc = doc( collection( FirebaseDB, `users/${ uid }/patients` ) );
 
         await setDoc( newDoc, newUser );
 
-        // dispatch( login({ uid, displayName }))
-
+        dispatch( isRegisteringPatient( false ) );
         
     }
 }
