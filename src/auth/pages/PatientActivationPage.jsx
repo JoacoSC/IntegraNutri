@@ -1,14 +1,21 @@
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
+
+import { startCreatingPatientFromEmail } from "../../store/auth";
 import '../components/PatientActivationStyles.css';
 
 export const PatientActivationPage = () => {
 
     const location = useLocation();
 
-    const { email = '', password = '' } = queryString.parse( location.search );
+    const dispatch = useDispatch();
 
-    console.log( email, password);
+    const { email = '', password = '', uid = '', patientUID = '' } = queryString.parse( location.search );
+
+    console.log( email, password, uid, patientUID );
+
+    dispatch( startCreatingPatientFromEmail( email, password, uid, patientUID ) );
 
     return (
     <>

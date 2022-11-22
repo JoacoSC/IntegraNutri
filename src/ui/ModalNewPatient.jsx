@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Modal from 'react-modal';
 import { useRut } from "react-rut-formatter";
 import { CSSTransition } from "react-transition-group";
-import emailjs from "@emailjs/browser";
 
 
 import { useForm } from "../hooks";
@@ -58,20 +57,6 @@ export const ModalNewPatient = () => {
 
         dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
 
-        const templateParams = {
-            name,
-            email,
-            password
-        }
-
-        console.log( templateParams )
-
-        emailjs.send('service_xueiflu', 'template_lf0jvcb', templateParams, '41EFlO3aJuRq71GVI')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
-        });
     }
 
     return (

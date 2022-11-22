@@ -65,16 +65,51 @@ export const registerUserWithEmailPassword = async( displayName, email, password
     }
 }
 
+export const registerPatientFromEmail = async( patientUID, email, password, uid ) => {
+    try {
+
+        const displayName = patientUID;
+
+        const photoURL = uid;
+        
+        const resp = await createUserWithEmailAndPassword( FirebaseAuth, email, password );
+
+        const { result_uid } = resp.user;
+
+        updateProfile( FirebaseAuth.currentUser, { displayName, photoURL });
+
+        return{
+            ok: true,
+            result_uid, email, displayName, photoURL
+        }
+
+    } catch (error) {
+
+        console.log(error)
+        // Handle Errors here.
+        
+        const errorMessage = error.message;
+
+        // console.log({ errorCode, errorMessage })
+        
+        return{
+            ok: false,
+            errorMessage
+
+        }
+    }
+}
+
 export const loginWithEmailPassword = async({ email, password }) => {
     try {
 
         const resp = await signInWithEmailAndPassword( FirebaseAuth, email, password );
 
-        const { uid, displayName } = resp.user;
+        const { uid, displayName, photoURL } = resp.user;
 
         return{
             ok: true,
-            uid, displayName
+            uid, displayName, photoURL
         }
         
     } catch (error) {

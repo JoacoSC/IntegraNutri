@@ -1,7 +1,9 @@
 import { collection, doc, setDoc } from "firebase/firestore/lite";
 import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
-import { loginWithEmailPassword, logoutFirebase, registerUserWithEmailPassword, signInWithGoogle } from "../../firebase/providers";
-import { checkingCredentials, logout, login, isRegisteringPatient } from "./";
+import { loginWithEmailPassword, logoutFirebase, registerPatientFromEmail, registerUserWithEmailPassword, signInWithGoogle } from "../../firebase/providers";
+import emailjs from "@emailjs/browser";
+
+import { checkingCredentials, logout, login, isRegisteringPatient, registeredPatientUID } from "./";
 
 export const checkingAuthentication = ( email, password ) => {
     
@@ -80,7 +82,43 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
 
         await setDoc( newDoc, newUser );
 
+        const patientUID = newDoc._key.path.segments[3];
+        
+        dispatch( registeredPatientUID( patientUID ) );
+
+        const templateParams = {
+            displayName,
+            email,
+            password,
+            uid,
+            patientUID,
+
+        }
+
+        console.log( templateParams )
+
+        emailjs.send('service_xueiflu', 'template_lf0jvcb', templateParams, '41EFlO3aJuRq71GVI')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+
         dispatch( isRegisteringPatient( false ) );
+        
+    }
+}
+
+export const startCreatingPatientFromEmail = ( email, password, uid, patientUID ) => {
+    return async( dispatch ) => {
+
+        console.log( email, password )
+        
+        const { result_uid, ok, errorMessage, displayName, photoURL } = await registerPatientFromEmail( patientUID, email, password, uid );
+
+        if ( !ok ) return dispatch( logout({ errorMessage }) );
+
+        console.log( `Usuario creado con exito: Authentication-UID:${ uid } - patientUID: ${ displayName } - NutriUID: ${ photoURL }` )
         
     }
 }
