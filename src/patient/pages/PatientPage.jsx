@@ -1,11 +1,27 @@
+import { useDispatch } from "react-redux";
 import { AppLayout } from "../../layout/AppLayout";
+import { startLogout } from "../../store/auth";
 
 export const PatientPage = () => {
+
+    const dispatch = useDispatch();
+    
+    const onLogout = () => {
+            
+        dispatch( startLogout() );
+    
+    }
+
     return (
         <>
             <AppLayout>
 
                 <div className="main-content">
+                    <div className="logout">
+                        <button className="btn-logout" type="button" onClick={ onLogout }>
+                            Cerrar sesión
+                        </button>
+                    </div>
                     <div className="patient-card">
                         <div className="patient-data">
                             <div className="patient-avatar">LA</div>

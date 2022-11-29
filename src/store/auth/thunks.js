@@ -1,9 +1,10 @@
-import { collection, doc, setDoc } from "firebase/firestore/lite";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore/lite";
 import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
 import { loginWithEmailPassword, logoutFirebase, registerPatientFromEmail, registerUserWithEmailPassword, signInWithGoogle } from "../../firebase/providers";
 import emailjs from "@emailjs/browser";
 
-import { checkingCredentials, logout, login, isRegisteringPatient, registeredPatientUID } from "./";
+import { checkingCredentials, logout, login, isRegisteringPatient, registeredPatientUID, setIsNutritionistStatus } from "./";
+import { loadUserInfo } from "../../helpers/loadUserInfo";
 
 export const checkingAuthentication = ( email, password ) => {
     
@@ -12,15 +13,31 @@ export const checkingAuthentication = ( email, password ) => {
     }
 }
 
-export const startGoogleSingIn = ( isNutritionist ) => {
+export const startGoogleSignIn = ( isNutritionist ) => {
     return async( dispatch ) => {
 
         dispatch( checkingCredentials() );
+
+        const newUser = {
+            rut: rawRut,
+            displayName,
+            unixBirthday,
+            region,
+            city,
+            address,
+            phone,
+            gender,
+            isNutritionist: true,
+        }
 
         const result = await signInWithGoogle();
         const completeResult = { ...result, isNutritionist };
         
         if( !completeResult.ok ) return dispatch( logout( result ) );
+
+        const newDoc = doc( collection( FirebaseDB, `users/${ uid }/userData` ) );
+
+        await setDoc( newDoc, newUser );
 
         dispatch( login( result ) )
     }
@@ -40,6 +57,7 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rawRut, unixBi
             address,
             phone,
             gender,
+            isNutritionist: true,
         }
 
         const { uid, ok, errorMessage } = await registerUserWithEmailPassword( displayName, email, password );
@@ -74,6 +92,7 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
             address,
             phone,
             gender,
+            isNutritionist: false,
         }
 
         const uid = FirebaseAuth.currentUser.uid;
@@ -130,8 +149,8 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
 
         const result = await loginWithEmailPassword({ email, password })
 
-        if ( !result.ok ) return dispatch( logout( result ) );
-        dispatch( login( result ))
+        // if ( !result.ok ) return dispatch( logout( result ) );
+        // dispatch( login( result ))
     }
 
 }
@@ -142,5 +161,30 @@ export const startLogout = () => {
         await logoutFirebase();
 
         dispatch( logout() );
+    }
+}
+
+export const redirectNutritionistOrPatient = ( uid ) => {
+    return async( dispatch ) => {
+
+        const collectionRef = collection( FirebaseDB, `users/${ uid }/userData` );
+        const docs = await getDocs( collectionRef );
+
+        let nutriBoolean = undefined;
+
+        docs.forEach( doc => {
+            nutriBoolean = doc.data().isNutritionist ;
+        })
+
+        // console.log(nutriBoolean)
+
+        if (nutriBoolean === undefined || nutriBoolean === false){
+            nutriBoolean = false;
+            dispatch( setIsNutritionistStatus(nutriBoolean) )
+            
+        }else{
+            dispatch( setIsNutritionistStatus(nutriBoolean) )
+        }
+
     }
 }

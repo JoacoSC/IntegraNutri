@@ -6,14 +6,16 @@ import { AuthRoutes } from "../auth/routes/AuthRoutes"
 import { FirebaseAuth } from "../firebase/config"
 import { NutritionistRoutes } from "../nutritionist/routes/NutritionistRoutes"
 import { PatientRoutes } from "../patient/routes/PatientRoutes"
-import { login, logout } from "../store/auth"
+import { login, logout, redirectNutritionistOrPatient } from "../store/auth"
 import { PrivateRoute } from "./PrivateRoute"
 import { PublicRoute } from "./PublicRoute"
 
 export const AppRouter = () => {
 
-  const { status } = useSelector( state => state.auth );
+  const { isLogged, uid } = useSelector( state => state.auth );
+  const { isNutritionistStatus } = useSelector( state => state.auth );
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     
@@ -21,7 +23,13 @@ export const AppRouter = () => {
       if ( !user ) return dispatch( logout() );
 
       const { uid, email, displayName } = user;
-      dispatch( login({ uid, email, displayName }))
+      
+      dispatch( login({ uid, email, displayName }) );
+
+      dispatch( redirectNutritionistOrPatient( uid ) );
+
+      // dispatch(  ) TODO: aqui tengo que obtener la informacion del usuario actual y almacenarla en el store
+
     })
 
   }, [])

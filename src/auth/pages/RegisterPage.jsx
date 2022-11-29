@@ -21,6 +21,8 @@ export const RegisterPage = () => {
 
         const rawRut = rut.raw;
 
+        console.log( rut )
+
         const displayName = name + " " + fatherName + " " + motherName;
 
         const formattedBirthday = addDays( set( new Date( birthday ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 );

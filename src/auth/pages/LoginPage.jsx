@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks'
-import { startGoogleSingIn, startLoginWithEmailPassword } from '../../store/auth';
+import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
 import { AuthLayout } from '../layout/AuthLayout';
 
@@ -27,11 +27,11 @@ export const LoginPage = () => {
         event.preventDefault();
 
         // console.log({ email, password, isNutritionist });
-        dispatch( startLoginWithEmailPassword({ email, password }) ) ;
+        dispatch( startLoginWithEmailPassword({ email, password, isNutritionist }) ) ;
     }
 
     const onGoogleSingIn = () => {
-        dispatch( startGoogleSingIn( isNutritionist ) );
+        dispatch( startGoogleSignIn( isNutritionist ) );
     }
 
   return (
@@ -73,16 +73,16 @@ export const LoginPage = () => {
                             Iniciar Sesión
                         </button>
                     </div>
-                    <div className="form-btn">
+                    {/* <div className="form-btn">
                         <button
                             className="btn-google-login"
-                            onClick={ onGoogleSingIn }
+                            onClick={ onGoogleSignIn }
                             disabled={ isAuthenticating }
                         >
                             <img className="btn-google-login-img" src="../../../assets/imgs/auth/google_logo.svg" alt="Logo de Google" />
                             Ingresar con Gmail
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </form>
 
