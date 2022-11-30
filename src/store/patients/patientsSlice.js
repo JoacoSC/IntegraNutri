@@ -7,7 +7,6 @@ export const patientsSlice = createSlice({
     },
     reducers: {
         setMyPatients: (state, action ) => {
-            console.log(action)
             state.patients = action.payload;
         },
     }

@@ -16,9 +16,11 @@ export const MyPatientsPage = () => {
 
     setDefaultOptions({ locale: es })
 
-    const dispatch = useDispatch();
-
     const { displayName } = useSelector( state => state.auth )
+
+    const { patients } = useSelector( state => state.patients )
+    
+    const dispatch = useDispatch();
 
     const onLogout = () => {
         
@@ -44,11 +46,24 @@ export const MyPatientsPage = () => {
                     <ModalNewPatient />
                 </div>
                 <div className="main-patient-list">
-                    <h1>Hola Mundo</h1>
-                    <h1>Hola Mundo</h1>
-                    <h1>Hola Mundo</h1>
-                    <h1>Hola Mundo</h1>
-                    <h1>Hola Mundo</h1>
+                       
+                    <div className="patients-wrapper">
+                    {
+                        patients.map(( patient ) => (
+
+                            <Link to="../patient" className="patient-item" key={ patient.id }>
+                                <div className="avatar">LA</div>
+                                <div className="patient-info-wrapper">
+                                    <div className="patient-name">{ patient.displayName }</div>
+                                    <div className="patient-info">{ patient.rut }</div>
+                                </div>
+                            </Link>
+
+                        ))
+                    }
+
+                    </div>
+
                 </div>
             </div>
         </AppLayout>

@@ -15,8 +15,6 @@ export const startLoadingMyPatients = ( uid ) => {
             patients.push({ id: doc.id, ...doc.data() });
         });
 
-        console.log( patients );
-
         dispatch( setMyPatients( patients ) )
 
     }
