@@ -7,6 +7,7 @@ import { FirebaseAuth } from "../firebase/config"
 import { NutritionistRoutes } from "../nutritionist/routes/NutritionistRoutes"
 import { PatientRoutes } from "../patient/routes/PatientRoutes"
 import { login, logout, redirectNutritionistOrPatient } from "../store/auth"
+import { startLoadingUserInfo } from "../store/userInfo"
 import { PrivateRoute } from "./PrivateRoute"
 import { PublicRoute } from "./PublicRoute"
 
@@ -27,6 +28,8 @@ export const AppRouter = () => {
       dispatch( login({ uid, email, displayName }) );
 
       dispatch( redirectNutritionistOrPatient( uid ) );
+
+      dispatch( startLoadingUserInfo( uid ) );
 
       // dispatch(  ) TODO: aqui tengo que obtener la informacion del usuario actual y almacenarla en el store
 

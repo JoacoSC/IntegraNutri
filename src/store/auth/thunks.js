@@ -5,6 +5,7 @@ import emailjs from "@emailjs/browser";
 
 import { checkingCredentials, logout, login, isRegisteringPatient, registeredPatientUID, setIsNutritionistStatus } from "./";
 import { loadUserInfo } from "../../helpers/loadUserInfo";
+import { wipeUserInfo } from "../userInfo";
 
 export const checkingAuthentication = ( email, password ) => {
     
@@ -161,6 +162,8 @@ export const startLogout = () => {
         await logoutFirebase();
 
         dispatch( logout() );
+        dispatch( wipeUserInfo() );
+
     }
 }
 
@@ -188,3 +191,4 @@ export const redirectNutritionistOrPatient = ( uid ) => {
 
     }
 }
+
