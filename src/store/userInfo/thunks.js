@@ -5,7 +5,7 @@ import { setUserInfo } from "./";
 
 
 export const startLoadingUserInfo = ( uid ) => {
-    return async( dispatch, getState ) => {
+    return async( dispatch ) => {
 
         const collectionRef = collection( FirebaseDB, `users/${ uid }/userData` );
         const docs = await getDocs( collectionRef );
@@ -17,7 +17,7 @@ export const startLoadingUserInfo = ( uid ) => {
         });
         
 
-        console.log(userInfo);
+        // console.log(userInfo);
 
         dispatch( setUserInfo( userInfo ) )
 

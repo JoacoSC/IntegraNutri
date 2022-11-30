@@ -15,7 +15,6 @@ export const userInfoSlice = createSlice({
     },
     reducers: {
         setUserInfo: (state, { payload } ) => {
-            console.log( payload )
             state.address = payload.address;
             state.city = payload.city;
             state.displayName = payload.displayName;
