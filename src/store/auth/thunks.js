@@ -94,6 +94,8 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
             phone,
             gender,
             isNutritionist: false,
+            emailActivated: false,
+            nextConsultation: null,
         }
 
         const uid = FirebaseAuth.currentUser.uid;
@@ -139,6 +141,11 @@ export const startCreatingPatientFromEmail = ( email, password, uid, patientUID 
         if ( !ok ) return dispatch( logout({ errorMessage }) );
 
         console.log( `Usuario creado con exito: Authentication-UID:${ uid } - patientUID: ${ displayName } - NutriUID: ${ photoURL }` )
+
+        // TODO: Aquí debo hacer un dispatch para cambiar el estado de emailActivated a TRUE en FireStore
+        // TODO: Aquí debo hacer un dispatch para cambiar el estado de emailActivated a TRUE en FireStore
+        // TODO: Aquí debo hacer un dispatch para cambiar el estado de emailActivated a TRUE en FireStore
+        // TODO: Aquí debo hacer un dispatch para cambiar el estado de emailActivated a TRUE en FireStore
         
     }
 }

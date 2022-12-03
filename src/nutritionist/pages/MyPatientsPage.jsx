@@ -1,14 +1,10 @@
-import { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { es } from 'date-fns/locale'
-import { add, format, getUnixTime, set, setHours, setMinutes, setSeconds } from 'date-fns'
 
 import { startLogout } from '../../store/auth';
 import { AppLayout } from '../../layout/AppLayout';
-import { ModalPacienteEspontaneo } from '../../ui'
-import { addHours, setDefaultOptions } from 'date-fns/esm';
-import { Link } from 'react-router-dom';
-import { ModalNewPatient } from '../../ui/ModalNewPatient';
+import { setDefaultOptions } from 'date-fns/esm';
+import { ModalNewPatient, ModalNewConsultation } from '../../ui';
 
 
 
@@ -27,11 +23,12 @@ export const MyPatientsPage = () => {
         dispatch( startLogout() );
 
     }
+    console.log(patients.length)
 
     return (
     
         <AppLayout>
-
+        
             <div className="main">
                 <div className="logout">
                     <button className="btn-logout" type="button" onClick={ onLogout }>
@@ -49,15 +46,25 @@ export const MyPatientsPage = () => {
                        
                     <div className="patients-wrapper">
                     {
-                        patients.map(( patient ) => (
+                        ( patients.length === 0 )
 
-                            <Link to="../patient" className="patient-item" key={ patient.id }>
-                                <div className="avatar">LA</div>
+                        ?   <div className="no-patients">
+                                <div className="patient-info-wrapper">
+                                    <div className="patient-name">No tienes pacientes registrados!</div>
+                                    <div className="patient-info"></div>
+                                </div>
+                            </div>
+                            
+                        :   patients.map(( patient ) => (
+
+                            <div className="patient-item" key={ patient.id }>
+                                <div className="avatar">{ patient.displayName.substring(0,2) }</div>
                                 <div className="patient-info-wrapper">
                                     <div className="patient-name">{ patient.displayName }</div>
-                                    <div className="patient-info">{ patient.rut }</div>
+                                    <div className="patient-info">{ patient.rut +" "+ patient.city +", "+ patient.region }</div>
                                 </div>
-                            </Link>
+                                <ModalNewConsultation />
+                            </div>
 
                         ))
                     }

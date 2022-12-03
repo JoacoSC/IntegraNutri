@@ -32,6 +32,19 @@ export const JournalPage = () => {
     
     const daysRange = 60;
 
+    // TODO:
+    // TODO:
+    // TODO:
+    // TODO:
+    // TODO:
+
+    // console.log(consultationSlotsArray) este array trae la fecha y hora exacta de cada Slot
+    // Por lo tanto debería comparar cada valor con un array de consultas (que también debo crear y almacenar en la base de datos)
+    // Tendría que crear una propiedad nextConsultation para cada paciente, y ahí almacenar la próxima consulta
+    // Además, tendría que agregar ese valor en el formulario para agregar un paciente espontáneo, y eso quedaría listo
+    // También, debería buscar todos los pacientes del nutricionista al iniciar sesión, luego consultar todas las nextConsultation de los pacientes
+    // Y con eso, comparar en el consultationSlotsArray para ver cuál Slot llenar.
+
     const capitalizeFirst = str => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     };

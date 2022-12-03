@@ -427,14 +427,14 @@ body{
 .patients-wrapper{
     display: flex;
     flex-direction: column;
-    padding: 0rem 2rem 1rem 2rem ;
+    padding: 0rem 2rem 2rem 2rem ;
 }
 
 .patient-item{
     display: flex;
     gap: 2rem;
     width: 100%;
-    margin-top: 1rem;;
+    margin-top: 2rem;;
     padding: 1rem;
     background-color: white;
     border-radius: 50px;
@@ -444,6 +444,53 @@ body{
 
 .patient-info{
     margin-top: 0.4rem;
+}
+
+.no-patients{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 2rem;;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+.btn-new-consultation{
+    appearance: none;
+    position: relative;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.9rem;
+    padding-left: 2.8rem;
+    margin: 0.5rem 1rem 0.5rem auto;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-new-consultation:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-hover);
+}
+
+.btn-new-consultation:active{
+    transform: scale(0.96);
+    background: var(--clr-btn-secondary-active);
+}
+
+.btn-new-consultation::before{
+    position: absolute;
+    content: var(--btn-add-icon);
+    top: 0.4rem;
+    left: 0.8rem;
 }
 /* *********** My Patients ************ */
 
