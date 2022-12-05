@@ -62,3 +62,8 @@ pero al registrar un Paciente, la sesión del Nutricionista se cierra.
 del nutricionista, y cuando acceda se debería crear el usuario en el Firebase Authentication.
 -Para esto tendría que enviar el UID del nutricionista y el UID del paciente en un correo de 
 verificación al paciente, para que pueda usar esa info para acceder al Firestore Database.
+
+-------------------------------------------------------------------
+05-12-2022
+
+-Test después de hacer un PULL desde github, desde un computador nuevo.
