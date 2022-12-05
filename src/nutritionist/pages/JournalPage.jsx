@@ -20,11 +20,24 @@ export const JournalPage = () => {
 
     const { displayName } = useSelector( state => state.auth )
 
-    const { workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay } = useSelector( state => state.journal )
+    const {
+      workingDayStartHours,
+      workingDayStartMinutes,
+      consultationHours,
+      consultationMinutes,
+      consultationsPerDay,
+    } = useSelector((state) => state.journal);
     
     const [ daysArray, setDaysArray ] = useState([ new Date() ]);
 
-    const [currentDay, setCurrentDay] = useState( set( new Date(), { hours: workingDayStartHours, minutes: workingDayStartMinutes, seconds: 0, miliseconds: 0} ) );
+    const [currentDay, setCurrentDay] = useState(
+      set(new Date(), {
+        hours: workingDayStartHours,
+        minutes: workingDayStartMinutes,
+        seconds: 0,
+        miliseconds: 0,
+      })
+    );
 
     const [consultationSlotsArray, setConsultationSlotsArray] = useState([]);
 
@@ -52,7 +65,12 @@ export const JournalPage = () => {
     const handleCurrentDay = ( key ) => {
         
         const currentDay = daysArray[ key ];
-        const formattedCurrentDay = set( currentDay, { hours: workingDayStartHours, minutes: workingDayStartMinutes, seconds: 0, miliseconds: 0} )
+        const formattedCurrentDay = set(currentDay, {
+          hours: workingDayStartHours,
+          minutes: workingDayStartMinutes,
+          seconds: 0,
+          miliseconds: 0,
+        });
         setCurrentDay( formattedCurrentDay );
     }
 
@@ -79,7 +97,10 @@ export const JournalPage = () => {
         array[0] = currentDay
 
         for (let i = 1; i < consultationsPerDay; i++) {
-            tempCurrentDay = add( tempCurrentDay, { hours: consultationHours, minutes: consultationMinutes})
+            tempCurrentDay = add(tempCurrentDay, {
+              hours: consultationHours,
+              minutes: consultationMinutes,
+            });
             array[i] = tempCurrentDay
             
         }
