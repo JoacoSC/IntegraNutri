@@ -67,3 +67,4 @@ verificación al paciente, para que pueda usar esa info para acceder al Firestor
 05-12-2022
 
 -Test después de hacer un PULL desde github, desde un computador nuevo.
+-Otra prueba...
