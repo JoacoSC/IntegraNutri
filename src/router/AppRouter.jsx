@@ -14,6 +14,7 @@ import { PatientRoutes } from "../patient/routes/PatientRoutes"
 import { login, logout, redirectNutritionistOrPatient } from "../store/auth"
 import { startLoadingMyPatients } from "../store/patients"
 import { startLoadingUserInfo } from "../store/userInfo"
+import { startLoadingMyJournal } from "../store/journal"
 
 export const AppRouter = () => {
 
@@ -36,6 +37,12 @@ export const AppRouter = () => {
       dispatch( startLoadingUserInfo( uid ) );
 
       dispatch ( startLoadingMyPatients( uid ) );
+
+      dispatch ( startLoadingMyJournal( uid ) );
+
+      // TODO: Aquí, después de cargar toda la información necesaria, debería poner algo como un checkingAuthentication(),
+      // para aplicar una pantalla de carga que desaparezca cuando toda la informacion esté cargada apropiadamente en el store.
+      // Debería actualizar la página de alguna forma, para aplicar los horarios corresponientes de la agenda 
 
 
     })

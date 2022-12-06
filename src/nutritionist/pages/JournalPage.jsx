@@ -27,6 +27,12 @@ export const JournalPage = () => {
       consultationMinutes,
       consultationsPerDay,
     } = useSelector((state) => state.journal);
+
+    console.log(workingDayStartHours,
+        workingDayStartMinutes,
+        consultationHours,
+        consultationMinutes,
+        consultationsPerDay)
     
     const [ daysArray, setDaysArray ] = useState([ new Date() ]);
 

@@ -22,40 +22,16 @@ export const ModalNewConsultation = () => {
 
     const [openModal, setOpenModal] = useState(false);
 
-    const { name, fatherName, motherName, birthday, email, region, city, address, phone, gender, onInputChange } = useForm();
-
-    const { isValid, rut, updateRut } = useRut();
-
-    const generatePassword = ( length ) => {
-        let result           = '';
-        let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        let charactersLength = characters.length;
-        for ( let i = 0; i < length; i++ ) {
-            result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        return result;
-    }
-
-    const password = generatePassword( 10 );
+    const { consultationTime, consultationDate, onInputChange } = useForm();
 
     const onSubmit = ( event ) => {
         event.preventDefault();
         
-        console.log({ uid, name, fatherName, motherName, rut, isValid, birthday, email, password, region, city, address, phone, gender });
+        console.log({ consultationTime, consultationDate });
 
-        const rawRut = rut.raw;
+        // const formattedBirthday = addDays( set( new Date( birthday ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 );
 
-        const displayName = name + " " + fatherName + " " + motherName;
-
-        const a = `Hola ${ name }`
-
-        const formattedBirthday = addDays( set( new Date( birthday ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 );
-
-        const unixBirthday = getUnixTime( formattedBirthday );
-
-        if ( !isValid ) return;
-
-        dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
+        // const unixBirthday = getUnixTime( formattedBirthday );
 
     }
 
@@ -90,23 +66,23 @@ export const ModalNewConsultation = () => {
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Fecha de la consulta</label>
-                                <input className="input-text-style input-date" type="date" name="consultation-date" onChange={ onInputChange }/>
+                                <input className="input-text-style input-date" type="date" name="consultationDate" onChange={ onInputChange }/>
                                 <span className="input-date-icon"></span>
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Hora de la consulta</label>
-                                <select className="select-style" name="consultation-time" onChange={ onInputChange }>
-                                    <option value="Region de Valparaiso">8:00</option>
-                                    <option value="Region de Valparaiso">9:00</option>
-                                    <option value="Region de Valparaiso">10:00</option>
-                                    <option value="Region de Valparaiso">11:00</option>
-                                    <option value="Region de Valparaiso">12:00</option>
-                                    <option value="Region de Valparaiso">13:00</option>
-                                    <option value="Region de Valparaiso">14:00</option>
-                                    <option value="Region de Valparaiso">15:00</option>
-                                    <option value="Region de Valparaiso">16:00</option>
-                                    <option value="Region de Valparaiso">17:00</option>
-                                    <option value="Region de Valparaiso">18:00</option>
+                                <select className="select-style" name="consultationTime" onChange={ onInputChange }>
+                                    <option value="8:00">8:00</option>
+                                    <option value="9:00">9:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="18:00">18:00</option>
                                 </select>
                             </div>
                         </div>

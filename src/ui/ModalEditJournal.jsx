@@ -29,6 +29,11 @@ export const ModalEditJournal = () => {
         
     }
 
+    // TODO:
+    // TODO:
+    // TODO:
+    // Tengo que enviar los datos del nuevo horario de la agenda a la FireStore, y de ahí cargarla al store, no como lo estoy haciendo actualmente.
+
     return (
         <>
             <button className="btn-edit" type="button" onClick={() => setOpenModal(true)}></button>

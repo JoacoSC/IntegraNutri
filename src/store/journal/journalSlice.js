@@ -19,9 +19,20 @@ export const journalSlice = createSlice({
             state.consultationMinutes = payload.consultationMinutes;
             state.consultationsPerDay = payload.consultationsPerDay;
         },
+        setMyJournal: (state, { payload } ) => {
+
+            state.workingDayStartHours = payload.workingDayStartHours;
+            state.workingDayStartMinutes = payload.workingDayStartMinutes;
+            state.consultationHours = payload.consultationHours;
+            state.consultationMinutes = payload.consultationMinutes;
+            state.consultationsPerDay = payload.consultationsPerDay;
+        },
     }
 });
 
 
 // Action creators are generated for each case reducer function
-export const { editJournal } = journalSlice.actions;
+export const {
+    editJournal,
+    setMyJournal,
+    } = journalSlice.actions;
