@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { es } from 'date-fns/locale'
-import { add, format, getUnixTime, set, setHours, setMinutes, setSeconds } from 'date-fns'
+import { add, format, fromUnixTime, getUnixTime, set, setHours, setMinutes, setSeconds } from 'date-fns'
 
 import { startLogout } from '../../store/auth';
 import { AppLayout } from '../../layout/AppLayout';
@@ -19,6 +19,8 @@ export const JournalPage = () => {
     const dispatch = useDispatch();
 
     const { displayName } = useSelector( state => state.auth )
+    
+    const { patients } = useSelector( state => state.patients )
 
     const {
       workingDayStartHours,
@@ -50,6 +52,8 @@ export const JournalPage = () => {
     // const [isEditingJournal, setIsEditingJournal] = useMemo( () => /* ALGO */  );
     
     const daysRange = 60;
+
+    console.log(consultationSlotsArray)
 
     // TODO:
     // TODO:
@@ -96,22 +100,40 @@ export const JournalPage = () => {
         setDaysArray(array)
         
     }, []);
+
+    useEffect(() => {
+        
+        const array = []
+
+        console.log(patients)
+        
+        patients.forEach(function callback(patient, index) {
+            console.log(`${index}: ${patient.nextConsultation}`);
+          });
+        
+        // setDaysArray(array)
+
+    }, [])
+
  
     useEffect(() => {
         const array = []
         let tempCurrentDay = currentDay
-        array[0] = currentDay
+        array[0] = getUnixTime(currentDay)
 
         for (let i = 1; i < consultationsPerDay; i++) {
             tempCurrentDay = add(tempCurrentDay, {
               hours: consultationHours,
               minutes: consultationMinutes,
             });
-            array[i] = tempCurrentDay
+            array[i] = getUnixTime(tempCurrentDay)
+            console.log(array[i])
             
         }
         setConsultationSlotsArray( array )
     }, [ currentDay ])
+
+    
 
     return (
     
@@ -151,26 +173,40 @@ export const JournalPage = () => {
                     <div className="today-consultations">
 
                         { consultationSlotsArray.map( ( consultationSlot, index ) => (
-                                        
+
                             <div className="consultation" key={ index }>
                                 <div className="time">
                                     <div className="hour-wrapper">
-                                        <div className="hour">{ format( consultationSlot, "hh")}:{format( consultationSlot, "mm")}</div>
-                                        <div className="ampm">{format( consultationSlot, "aa")}</div>
+                                        <div className="hour">{ format( fromUnixTime(consultationSlot), "hh")}:{format( fromUnixTime(consultationSlot), "mm")}</div>
+                                        <div className="ampm">{format( fromUnixTime(consultationSlot), "aa")}</div>
                                     </div>
                                     <div className="hr"></div>
                                 </div>
                                 <div className="consultation-wrapper">
                                     <div className="blank-space"></div>
+
+                                    {
+                                        
+                                    }
+                                        {/* <div className="empty-consultation">
+                                                <div className="empty-consultation-text">
+                                                    Hora disponible
+                                                </div>
+                                            </div> */}
+                                        {/* <div className="patient-info">{ 
+                                            ( consultationSlot == patient.nextConsultation )
+                                            ? 'Son iguales!!'
+                                            : 'No son iguales :('
+                                        }</div> */}
                                     
 
-                                    <Link to="../patient" className="consultation-info">
+                                    {/* <Link to="../patient" className="consultation-info">
                                         <div className="avatar">LA</div>
                                         <div className="patient-info">
                                             <div className="patient-name">Logan Anderson</div>
                                             <div className="consultation-hour">8:00 - 9:00</div>
                                         </div>
-                                    </Link>
+                                    </Link> */}
                                     
                                     {/* <div className="empty-consultation">
                                         <div className="empty-consultation-text">

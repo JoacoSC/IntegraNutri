@@ -5,6 +5,7 @@ import { startLogout } from '../../store/auth';
 import { AppLayout } from '../../layout/AppLayout';
 import { setDefaultOptions } from 'date-fns/esm';
 import { ModalNewPatient, ModalNewConsultation } from '../../ui';
+import { getUnixTime, set } from 'date-fns';
 
 
 
@@ -24,6 +25,11 @@ export const MyPatientsPage = () => {
 
     }
     console.log(patients.length)
+
+    const ConsultationSlot1 = getUnixTime(set( new Date(), { hours: 18, minutes: 30, seconds: 0, miliseconds: 0} ));
+    console.log(ConsultationSlot1)
+    const ConsultationSlot2 = getUnixTime(set( new Date(), { hours: 19, minutes: 30, seconds: 0, miliseconds: 0} ));
+    console.log(ConsultationSlot2)
 
     return (
     
@@ -62,6 +68,20 @@ export const MyPatientsPage = () => {
                                 <div className="patient-info-wrapper">
                                     <div className="patient-name">{ patient.displayName }</div>
                                     <div className="patient-info">{ patient.rut +" "+ patient.city +", "+ patient.region }</div>
+                                    <div className="patient-info">{ ConsultationSlot1 }</div>
+                                    <div className="patient-info">{ ConsultationSlot2 }</div>
+                                    <div className="patient-info">{ patient.nextConsultation }</div>
+                                    <div className="patient-info">{ 
+                                        ( ConsultationSlot1 == patient.nextConsultation )
+                                        ? 'Son iguales!!'
+                                        : 'No son iguales :('
+                                    }</div>
+                                    <div className="patient-info">{ 
+                                        ( ConsultationSlot2 == patient.nextConsultation )
+                                        ? 'Son iguales!!'
+                                        : 'No son iguales :('
+                                    }</div>
+                                    
                                 </div>
                                 <ModalNewConsultation />
                             </div>

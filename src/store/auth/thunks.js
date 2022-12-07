@@ -75,7 +75,7 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rawRut, unixBi
     }
 }
 
-export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) => {
+export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender, nextConsultation }) => {
     return async( dispatch ) => {
 
         // dispatch( checkingCredentials() );
@@ -95,7 +95,7 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
             gender,
             isNutritionist: false,
             emailActivated: false,
-            nextConsultation: null,
+            nextConsultation,
         }
 
         const uid = FirebaseAuth.currentUser.uid;
