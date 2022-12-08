@@ -30,11 +30,11 @@ export const JournalPage = () => {
       consultationsPerDay,
     } = useSelector((state) => state.journal);
 
-    console.log(workingDayStartHours,
-        workingDayStartMinutes,
-        consultationHours,
-        consultationMinutes,
-        consultationsPerDay)
+    // console.log(workingDayStartHours,
+    //     workingDayStartMinutes,
+    //     consultationHours,
+    //     consultationMinutes,
+    //     consultationsPerDay)
     
     const [ daysArray, setDaysArray ] = useState([ new Date() ]);
 
@@ -53,7 +53,7 @@ export const JournalPage = () => {
     
     const daysRange = 60;
 
-    console.log(consultationSlotsArray)
+    // console.log(consultationSlotsArray)
 
     // TODO:
     // TODO:
@@ -100,20 +100,42 @@ export const JournalPage = () => {
         setDaysArray(array)
         
     }, []);
-
-    useEffect(() => {
         
-        const array = []
 
-        console.log(patients)
+    // const hora = getUnixTime(set(new Date(), {
+    //     hours: 12,
+    //     minutes: 30,
+    //     seconds: 0,
+    //     miliseconds: 0,
+    //     }))
+
+    // console.log(hora)
+    // console.log(fromUnixTime(1670585400))
+    
+    // console.log(patients)
+    
+    patients.forEach(function callback(patient, patientIndex) {
+
+        // console.log(`${patientIndex}: ${patient.nextConsultation}`);
+        // console.log(consultationSlotsArray)
+
+        consultationSlotsArray.forEach(function callback(consultationSlot, consultationIndex) {
         
-        patients.forEach(function callback(patient, index) {
-            console.log(`${index}: ${patient.nextConsultation}`);
-          });
+            // console.log(consultationSlot)
+            if (consultationSlot == patient.nextConsultation) {
+                console.log(`${consultationIndex}: ${consultationIndex} - ${patientIndex}: ${patient.nextConsultation}`)
+                consultationSlotsArray[consultationIndex] = {...consultationSlot, patient }
+                console.log(consultationSlot)
+            }
+            
+        });
+        
+    });
+
+    console.log(consultationSlotsArray)
         
         // setDaysArray(array)
 
-    }, [])
 
  
     useEffect(() => {
@@ -127,7 +149,7 @@ export const JournalPage = () => {
               minutes: consultationMinutes,
             });
             array[i] = getUnixTime(tempCurrentDay)
-            console.log(array[i])
+            // console.log(array[i])
             
         }
         setConsultationSlotsArray( array )
@@ -177,8 +199,15 @@ export const JournalPage = () => {
                             <div className="consultation" key={ index }>
                                 <div className="time">
                                     <div className="hour-wrapper">
-                                        <div className="hour">{ format( fromUnixTime(consultationSlot), "hh")}:{format( fromUnixTime(consultationSlot), "mm")}</div>
-                                        <div className="ampm">{format( fromUnixTime(consultationSlot), "aa")}</div>
+                                        {
+                                            ( consultationSlot.patient != null )
+                                            ?   <div><div className="hour">{ format( fromUnixTime(consultationSlot.patient.nextConsultation), "hh")}:{format( fromUnixTime(consultationSlot.patient.nextConsultation), "mm")}</div>
+                                                <div className="ampm">{format( fromUnixTime(consultationSlot.patient.nextConsultation), "aa")}</div></div>
+                                                
+                                            :   <div><div className="hour">{ format( fromUnixTime(consultationSlot), "hh")}:{format( fromUnixTime(consultationSlot), "mm")}</div>
+                                                <div className="ampm">{format( fromUnixTime(consultationSlot), "aa")}</div></div>
+                                        }
+                                        
                                     </div>
                                     <div className="hr"></div>
                                 </div>
@@ -186,33 +215,21 @@ export const JournalPage = () => {
                                     <div className="blank-space"></div>
 
                                     {
-                                        
-                                    }
-                                        {/* <div className="empty-consultation">
+                                        (consultationSlot.patient != undefined )
+                                        ?   <Link to="../patient" className="consultation-info">
+                                                <div className="avatar">LA</div>
+                                                <div className="patient-info">
+                                                    <div className="patient-name">{ consultationSlot.patient.displayName }</div>
+                                                    <div className="consultation-hour">8:00 - 9:00</div>
+                                                </div>
+                                            </Link>
+
+                                        : <div className="empty-consultation">
                                                 <div className="empty-consultation-text">
                                                     Hora disponible
                                                 </div>
-                                            </div> */}
-                                        {/* <div className="patient-info">{ 
-                                            ( consultationSlot == patient.nextConsultation )
-                                            ? 'Son iguales!!'
-                                            : 'No son iguales :('
-                                        }</div> */}
-                                    
-
-                                    {/* <Link to="../patient" className="consultation-info">
-                                        <div className="avatar">LA</div>
-                                        <div className="patient-info">
-                                            <div className="patient-name">Logan Anderson</div>
-                                            <div className="consultation-hour">8:00 - 9:00</div>
-                                        </div>
-                                    </Link> */}
-                                    
-                                    {/* <div className="empty-consultation">
-                                        <div className="empty-consultation-text">
-                                            Hora disponible
-                                        </div>
-                                    </div> */}
+                                            </div>
+                                    }
 
                                 </div>
                             </div>
