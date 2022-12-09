@@ -461,17 +461,20 @@ body{
 }
 
 .btn-new-consultation{
+    width: 100%;
+    max-width: 20%;
+    display: flex;
     appearance: none;
     position: relative;
+    justify-content: center;
+    align-items: center;
     font-family: "Metropolis", sans-serif;
     font-size: 0.8rem;
     background: var(--clr-btn-secondary);
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 0.9rem;
-    padding-left: 2.8rem;
-    margin: 0.5rem 1rem 0.5rem auto;
+    margin: 2.5rem 0rem 0.5rem 1rem;
     cursor: pointer;
     transition: all 150ms ease;
 }
@@ -486,13 +489,15 @@ body{
     background: var(--clr-btn-secondary-active);
 }
 
-.btn-new-consultation::before{
-    position: absolute;
-    content: var(--btn-add-icon);
-    top: 0.4rem;
-    left: 0.8rem;
-}
 /* *********** My Patients ************ */
+
+/* *********** New Consultation Modal ************ */
+
+.input-rut{
+    width: 80%;
+}
+
+/* *********** New Consultation Modal ************ */
 
 /* ************* Nutritionist Page ************** */
 

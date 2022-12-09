@@ -68,22 +68,22 @@ export const MyPatientsPage = () => {
                                 <div className="patient-info-wrapper">
                                     <div className="patient-name">{ patient.displayName }</div>
                                     <div className="patient-info">{ patient.rut +" "+ patient.city +", "+ patient.region }</div>
-                                    <div className="patient-info">{ ConsultationSlot1 }</div>
-                                    <div className="patient-info">{ ConsultationSlot2 }</div>
-                                    <div className="patient-info">{ patient.nextConsultation }</div>
-                                    <div className="patient-info">{ 
+                                    {/* <div className="patient-info">{ ConsultationSlot1 }</div> */}
+                                    {/* <div className="patient-info">{ ConsultationSlot2 }</div> */}
+                                    {/* <div className="patient-info">{ patient.nextConsultation }</div> */}
+                                    {/* <div className="patient-info">{ 
                                         ( ConsultationSlot1 == patient.nextConsultation )
                                         ? 'Son iguales!!'
                                         : 'No son iguales :('
-                                    }</div>
-                                    <div className="patient-info">{ 
+                                    }</div> */}
+                                    {/* <div className="patient-info">{ 
                                         ( ConsultationSlot2 == patient.nextConsultation )
                                         ? 'Son iguales!!'
                                         : 'No son iguales :('
-                                    }</div>
+                                    }</div> */}
                                     
                                 </div>
-                                <ModalNewConsultation />
+                                {/* <ModalNewConsultation /> */}
                             </div>
 
                         ))

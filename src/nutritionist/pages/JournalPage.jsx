@@ -5,7 +5,7 @@ import { add, format, fromUnixTime, getUnixTime, set, setHours, setMinutes, setS
 
 import { startLogout } from '../../store/auth';
 import { AppLayout } from '../../layout/AppLayout';
-import { ModalPacienteEspontaneo } from '../../ui'
+import { ModalNewConsultation, ModalPacienteEspontaneo } from '../../ui'
 import { addHours, setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
@@ -155,6 +155,11 @@ export const JournalPage = () => {
         setConsultationSlotsArray( array )
     }, [ currentDay ])
 
+    // const onNewConsultation = ( consultationSlot ) => {
+    //     console.log( fromUnixTime( consultationSlot ) )
+
+    // }
+
     
 
     return (
@@ -224,11 +229,7 @@ export const JournalPage = () => {
                                                 </div>
                                             </Link>
 
-                                        : <div className="empty-consultation">
-                                                <div className="empty-consultation-text">
-                                                    Hora disponible
-                                                </div>
-                                            </div>
+                                        :   <ModalNewConsultation consultationSlot = { consultationSlot }/>
                                     }
 
                                 </div>

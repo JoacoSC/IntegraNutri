@@ -9,14 +9,16 @@ import { useForm } from "../hooks";
 import { startCreatingPatient } from "../store/auth";
 
 import './components';
-import { addDays, getUnixTime, set } from "date-fns";
+import { addDays, format, fromUnixTime, getUnixTime, set } from "date-fns";
 import { useEffect } from "react";
 
-export const ModalNewConsultation = () => {
+export const ModalNewConsultation = ({ consultationSlot }) => {
 
     const { uid } = useSelector( state => state.auth );
 
-    const form = useRef();
+    const { patients } = useSelector( state => state.patients );
+
+    const [currentPatient, setCurrentPatient] = useState()
 
     const dispatch = useDispatch();
 
@@ -24,10 +26,14 @@ export const ModalNewConsultation = () => {
 
     const { consultationTime, consultationDate, onInputChange } = useForm();
 
+    const { isValid, rut, updateRut } = useRut();
+
     const onSubmit = ( event ) => {
         event.preventDefault();
+
+        console.log('first')
         
-        console.log({ consultationTime, consultationDate });
+        // console.log({ consultationTime, consultationDate });
 
         // const formattedBirthday = addDays( set( new Date( birthday ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 );
 
@@ -35,12 +41,37 @@ export const ModalNewConsultation = () => {
 
     }
 
+    const onRutSubmit = ( event ) => {
+
+        event.preventDefault();
+
+        // console.log(patients);
+
+        // console.log(rut.raw);
+        let tempPatient
+
+        patients.forEach(patient => {
+            if (patient.rut === rut.raw) {
+
+                tempPatient = patient;
+            }
+        });
+
+        console.log(tempPatient)
+    }
+
+    
+
+    // console.log( fromUnixTime(consultationSlot) )
+
     return (
         <>
             
-            <button className="btn-new-consultation" type="button" onClick={() => setOpenModal(true)}>
-                Agendar una hora
-            </button>
+            <div className="empty-consultation" onClick={() => setOpenModal(true)}>
+                <div className="empty-consultation-text">
+                    Hora disponible
+                </div>
+            </div>
             <CSSTransition
                 timeout={300}
                 classNames="overlay"
@@ -57,38 +88,38 @@ export const ModalNewConsultation = () => {
                     </svg>
                 </div>
                 <h1 className="modal-header">
-                    Agendar una hora
+                    Agendar consulta: { format( fromUnixTime(consultationSlot), "dd-MM-yyyy hh:mm") }
                 </h1>
 
-                <form ref={form} onSubmit={ onSubmit }>
-                    <div className="container-form" onSubmit={ onSubmit }>
+                <form onSubmit={ onRutSubmit }>
+                    <div className="container-form">
 
                         <div className="form-group">
-                            <div className="form-item w-50 pr-8">
-                                <label className="input-label">Fecha de la consulta</label>
-                                <input className="input-text-style input-date" type="date" name="consultationDate" onChange={ onInputChange }/>
-                                <span className="input-date-icon"></span>
+                            <div className="form-item input-rut">
+                                <label className="input-label">RUT</label>
+                                <input className="input-text-style" type="text" name="rut" value={ rut.formatted } onChange={ (e) => updateRut(e.target.value) }/>
                             </div>
-                            <div className="form-item w-50 pl-8">
-                                <label className="input-label">Hora de la consulta</label>
-                                <select className="select-style" name="consultationTime" onChange={ onInputChange }>
-                                    <option value="8:00">8:00</option>
-                                    <option value="9:00">9:00</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="18:00">18:00</option>
-                                </select>
+                            <button className="btn-new-consultation" type="submit">
+                                Consultar
+                            </button>                
+                        </div>                        
+                    </div>
+                </form>
+                <form>
+                    <div className="container-form">
+
+                        {/* <div className="form-group">
+                            <div className="form-item input-rut">
+                                <label className="input-label">RUT</label>
+                                <input className="input-text-style" type="text" name="rut" value={ rut.formatted } onChange={ (e) => updateRut(e.target.value) }/>
                             </div>
-                        </div>
+                            <button className="btn-new-consultation">
+                                Consultar
+                            </button>                
+                        </div>                       */}
                         
                         <div className="form-btn">
-                            <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) }>
+                            <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) } disabled>
                                 Registrar
                             </button>
                         </div>
