@@ -11,6 +11,8 @@ import { startCreatingPatient } from "../store/auth";
 import './components';
 import { addDays, format, fromUnixTime, getUnixTime, set } from "date-fns";
 import { useEffect } from "react";
+import { startLoadingMyPatients, uploadPatientNewConsultation } from "../store/patients";
+import { startLoadingMyJournal } from "../store/journal";
 
 export const ModalNewConsultation = ({ consultationSlot }) => {
 
@@ -30,10 +32,16 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
     const { isValid, rut, updateRut } = useRut();
 
-    const onSubmit = ( event ) => {
+    const onNewConsultationSubmit = ( event ) => {
         event.preventDefault();
 
-        console.log('first')
+        // console.log(currentPatient);
+        // console.log(currentPatient.id);
+
+
+        dispatch( uploadPatientNewConsultation( consultationSlot, currentPatient.id ) );
+
+        // dispatch ( startLoadingMyPatients( uid ) );
         
         // console.log({ consultationTime, consultationDate });
 
@@ -169,7 +177,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                     }
                     </div>
                 </form>
-                <form>
+                <form onSubmit={ onNewConsultationSubmit }>
                     <div className="container-new-consultation">
 
                         {/* <div className="form-group">
@@ -183,8 +191,11 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                         </div>                       */}
                         
                         <div className="form-btn">
-                            <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) } disabled>
+                            <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) }>
                                 Registrar
+                                {/* TODO:
+                                    Solo falta tomar la hora de consulta y enviarla al paciente en la base de datos
+                                 */}
                             </button>
                         </div>
                     </div>

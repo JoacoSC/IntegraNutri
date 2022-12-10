@@ -9,6 +9,7 @@ import { ModalNewConsultation, ModalPacienteEspontaneo } from '../../ui'
 import { addHours, setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
+import { startLoadingMyJournal } from '../../store/journal';
 
 
 
@@ -18,7 +19,7 @@ export const JournalPage = () => {
 
     const dispatch = useDispatch();
 
-    const { displayName } = useSelector( state => state.auth )
+    const { uid, displayName } = useSelector( state => state.auth )
     
     const { patients } = useSelector( state => state.patients )
 
@@ -103,7 +104,7 @@ export const JournalPage = () => {
         
 
     // const hora = getUnixTime(set(new Date(), {
-    //     hours: 12,
+    //     hours: 9,
     //     minutes: 30,
     //     seconds: 0,
     //     miliseconds: 0,
@@ -133,6 +134,9 @@ export const JournalPage = () => {
     });
 
     console.log(consultationSlotsArray)
+
+    // dispatch ( startLoadingMyJournal( uid ) );
+    
         
         // setDaysArray(array)
 
