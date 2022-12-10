@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { es } from 'date-fns/locale'
 import { add, format, fromUnixTime, getUnixTime, set, setHours, setMinutes, setSeconds } from 'date-fns'
@@ -50,24 +50,14 @@ export const JournalPage = () => {
 
     const [consultationSlotsArray, setConsultationSlotsArray] = useState([]);
 
+    const daysRef = useRef( new Array() );
+
     // const [isEditingJournal, setIsEditingJournal] = useMemo( () => /* ALGO */  );
     
     const daysRange = 60;
 
     // console.log(consultationSlotsArray)
 
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO:
-
-    // console.log(consultationSlotsArray) este array trae la fecha y hora exacta de cada Slot
-    // Por lo tanto debería comparar cada valor con un array de consultas (que también debo crear y almacenar en la base de datos)
-    // Tendría que crear una propiedad nextConsultation para cada paciente, y ahí almacenar la próxima consulta
-    // Además, tendría que agregar ese valor en el formulario para agregar un paciente espontáneo, y eso quedaría listo
-    // También, debería buscar todos los pacientes del nutricionista al iniciar sesión, luego consultar todas las nextConsultation de los pacientes
-    // Y con eso, comparar en el consultationSlotsArray para ver cuál Slot llenar.
 
     const capitalizeFirst = str => {
         return str.charAt(0).toUpperCase() + str.slice(1);
@@ -124,16 +114,16 @@ export const JournalPage = () => {
         
             // console.log(consultationSlot)
             if (consultationSlot == patient.nextConsultation) {
-                console.log(`${consultationIndex}: ${consultationIndex} - ${patientIndex}: ${patient.nextConsultation}`)
+                // console.log(`${consultationIndex}: ${consultationIndex} - ${patientIndex}: ${patient.nextConsultation}`)
                 consultationSlotsArray[consultationIndex] = {...consultationSlot, patient }
-                console.log(consultationSlot)
+                // console.log(consultationSlot)
             }
             
         });
         
     });
 
-    console.log(consultationSlotsArray)
+    // console.log(consultationSlotsArray)
 
     // dispatch ( startLoadingMyJournal( uid ) );
     
@@ -164,6 +154,11 @@ export const JournalPage = () => {
 
     // }
 
+    useEffect(() => {
+
+        daysRef.current[0].click();
+    
+    }, [patients])
     
 
     return (
@@ -191,7 +186,7 @@ export const JournalPage = () => {
 
                             <div className="day" key={ index }>
                                 {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                <div className="day-ellipse" onClick={ () => handleCurrentDay( index ) }>{ format( day, "dd") }</div>
+                                <div className="day-ellipse" ref={(element) => daysRef.current.push(element)} onClick={ () => handleCurrentDay( index ) }>{ format( day, "dd") }</div>
                                 <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div>
                             </div>
                         ))}

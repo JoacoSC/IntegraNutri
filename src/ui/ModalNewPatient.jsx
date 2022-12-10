@@ -55,6 +55,8 @@ export const ModalNewPatient = () => {
 
         const nextConsultation = getUnixTime(set( new Date(), { hours: 18, minutes: 30, seconds: 0, miliseconds: 0} ));
 
+        console.log(isValid)
+
         if ( !isValid ) return;
 
         dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender, nextConsultation }) )

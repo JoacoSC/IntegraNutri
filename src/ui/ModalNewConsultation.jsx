@@ -41,7 +41,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         dispatch( uploadPatientNewConsultation( consultationSlot, currentPatient.id ) );
 
-        // dispatch ( startLoadingMyPatients( uid ) );
+        dispatch ( startLoadingMyPatients( uid ) );
         
         // console.log({ consultationTime, consultationDate });
 
@@ -71,10 +71,10 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
         setIsFirstQuery(false);
     }
     
-    useEffect(() => {
-        console.log(currentPatient)
+    // useEffect(() => {
+    //     console.log(currentPatient)
         
-    }, [currentPatient])
+    // }, [currentPatient])
     
 
     

@@ -18,6 +18,13 @@ export const ModalPacienteEspontaneo = () => {
     const onSubmit = ( event ) => {
         event.preventDefault();
         console.log({ name, fatherName, motherName, rut, isValid, date, email, region, comuna, address, phone, genero });
+
+        // TODO:
+        // TODO:
+        // TODO:
+        // TODO:
+        // Tengo que capturar los datos para registrar al paciente y asignarle una hora de consulta de inmediato.
+        // Debería tener todo listo para eso, sería solo agregar los dispatch correspondientes
     }
 
     return (
