@@ -18,7 +18,9 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
     const { patients } = useSelector( state => state.patients );
 
-    const [currentPatient, setCurrentPatient] = useState()
+    const [currentPatient, setCurrentPatient] = useState();
+
+    const [isFirstQuery, setIsFirstQuery] = useState(true);
 
     const dispatch = useDispatch();
 
@@ -57,8 +59,15 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
             }
         });
 
-        console.log(tempPatient)
+        setCurrentPatient( tempPatient );
+        setIsFirstQuery(false);
     }
+    
+    useEffect(() => {
+        console.log(currentPatient)
+        
+    }, [currentPatient])
+    
 
     
 
@@ -92,9 +101,9 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                 </h1>
 
                 <form onSubmit={ onRutSubmit }>
-                    <div className="container-form">
+                    <div className="container-new-consultation">
 
-                        <div className="form-group">
+                        <div className="new-consultation-form-group">
                             <div className="form-item input-rut">
                                 <label className="input-label">RUT</label>
                                 <input className="input-text-style" type="text" name="rut" value={ rut.formatted } onChange={ (e) => updateRut(e.target.value) }/>
@@ -102,11 +111,66 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                             <button className="btn-new-consultation" type="submit">
                                 Consultar
                             </button>                
-                        </div>                        
+                        </div>
+                    
+                    {
+                        ( isFirstQuery === true )
+                        ? ''
+                        :   ( currentPatient !== undefined )
+                            ?   <div>
+                                    
+                                    <div className="form-item">
+                                        <label className="input-label">Nombre</label>
+                                        <input className="input-text-style" type="text" name="name" value={ currentPatient.displayName } readOnly/>
+                                    </div>
+                                    <div className="form-group">
+                                        <div className="form-item w-50 pr-8">
+                                            <label className="input-label">RUT</label>
+                                            <input className="input-text-style" type="text" name="rut" value={ rut.formatted } readOnly/>
+                                        </div>
+                                        <div className="form-item w-50 pl-8">
+                                            <label className="input-label">Fecha de Nacimiento</label>
+                                            <input className="input-text-style" type="text" name="birthday" value={ format(fromUnixTime(currentPatient.unixBirthday), "dd/MM/yyyy") } readOnly/>
+                                            <span className="input-date-icon"></span>
+                                        </div>                
+                                    </div>
+                                    <div className="form-item">
+                                        <label className="input-label">Email</label>
+                                        <input className="input-text-style" type="email" name="email" value={ currentPatient.email } readOnly/>
+                                    </div>
+                                    <div className="form-group">
+                                        <div className="form-item w-50 pr-8">
+                                            <label className="input-label">Región</label>
+                                            <input className="input-text-style" type="text" name="region" value={ currentPatient.region } readOnly/>
+                                        </div>
+                                        <div className="form-item w-50 pl-8">
+                                            <label className="input-label">Comuna</label>
+                                            <input className="input-text-style" type="text" name="city" value={ currentPatient.city } readOnly/>
+                                        </div>      
+                                    </div>
+                                    <div className="form-item">
+                                        <label className="input-label">Dirección</label>
+                                        <input className="input-text-style" type="text" name="address" value={ currentPatient.address } readOnly/>
+                                    </div>
+                                    <div className="form-item phone-code">
+                                        <label className="input-label">Teléfono</label>
+                                        <input className="input-text-style phone-code-padding" type="text" name="phone" value={ currentPatient.phone } readOnly/>
+                                    </div>
+                                    <div className="form-item">
+                                        <label className="input-label">Género</label>
+                                        <input className="input-text-style" type="text" name="gender" value={ currentPatient.gender } readOnly/>
+                                    </div>
+                                </div>
+                            :   <div>
+                                    <div className="form-item">
+                                        <label className="input-label">No se encontraron pacientes con ese RUT :(</label>
+                                    </div>
+                                </div>
+                    }
                     </div>
                 </form>
                 <form>
-                    <div className="container-form">
+                    <div className="container-new-consultation">
 
                         {/* <div className="form-group">
                             <div className="form-item input-rut">
