@@ -53,7 +53,7 @@ export const ModalNewPatient = () => {
 
         const unixBirthday = getUnixTime( formattedBirthday );
 
-        const nextConsultation = getUnixTime(set( new Date(), { hours: 18, minutes: 30, seconds: 0, miliseconds: 0} ));
+        // const nextConsultation = getUnixTime(set( new Date(), { hours: 18, minutes: 30, seconds: 0, miliseconds: 0} ));
 
         console.log(isValid)
 

@@ -98,6 +98,8 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
             nextConsultation,
         }
 
+        console.log(newUser)
+
         const uid = FirebaseAuth.currentUser.uid;
 
         const newDoc = doc( collection( FirebaseDB, `users/${ uid }/patients` ) );

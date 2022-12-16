@@ -116,6 +116,14 @@
     margin-right: 3rem;
 }
 
+.vertical-separator{
+    width: 1px;
+    height: 50px;
+    margin-top: 35px;
+    margin-left: 1rem;
+    background-color: rgba(0, 0, 0, 0.492);
+}
+
 .input-rut{
     width: 80%;
 }

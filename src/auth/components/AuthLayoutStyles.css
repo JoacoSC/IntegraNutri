@@ -124,8 +124,16 @@ body{
     padding-right: .8rem;
 }
 
+.mr-8{
+    margin-right: .8rem;
+}
+
 .pl-8{
     padding-left: .8rem;
+}
+
+.ml-8{
+    margin-left: .8rem;
 }
 
 .form-btn{
