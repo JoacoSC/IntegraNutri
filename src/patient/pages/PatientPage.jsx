@@ -1,10 +1,29 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import queryString from "query-string";
+
 import { AppLayout } from "../../layout/AppLayout";
 import { startLogout } from "../../store/auth";
+import { useLocation } from "react-router-dom";
+import { startLoadingCurrentPatient } from "../../store/currentPatient";
 
 export const PatientPage = () => {
 
+    const { uid } = useSelector( state => state.auth )
+
+    const { displayName } = useSelector( state => state.currentPatient )
+
     const dispatch = useDispatch();
+
+    const location = useLocation();
+
+    const { patientID = '' } = queryString.parse( location.search );
+
+    console.log( patientID );
+
+    console.log( uid )
+
+    dispatch( startLoadingCurrentPatient( uid, patientID ) )
     
     const onLogout = () => {
             
@@ -24,8 +43,8 @@ export const PatientPage = () => {
                     </div>
                     <div className="patient-card">
                         <div className="patient-data">
-                            <div className="patient-avatar">LA</div>
-                            <div className="patient-name">Logan Anderson</div>
+                            <div className="patient-avatar">{ displayName.substring(0,2) }</div>
+                            <div className="patient-name">{ displayName }</div>
                             <div className="patient-consultation-time">8:00 - 9:00</div>
                         </div>
                         <div className="patient-weight">

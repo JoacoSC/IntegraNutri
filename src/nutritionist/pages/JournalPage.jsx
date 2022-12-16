@@ -220,8 +220,8 @@ export const JournalPage = () => {
 
                                     {
                                         (consultationSlot.patient != undefined )
-                                        ?   <Link to="../patient" className="consultation-info">
-                                                <div className="avatar">LA</div>
+                                        ?   <Link to={'../patient?patientID='+consultationSlot.patient.id} className="consultation-info">
+                                                <div className="avatar">{ consultationSlot.patient.displayName.substring(0,2) }</div>
                                                 <div className="patient-info">
                                                     <div className="patient-name">{ consultationSlot.patient.displayName }</div>
                                                     <div className="consultation-hour">8:00 - 9:00</div>
