@@ -17,6 +17,8 @@ export const authSlice = createSlice({
     reducers: {
         login: ( state, { payload }) => {
 
+            console.log(payload)
+
             state.status = 'authenticated'; //'not-authenticated', 'authenticated', 'checking'
             state.isLogged = true,
             state.isRegisteringPatient = false,

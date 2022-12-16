@@ -5,13 +5,13 @@ import queryString from "query-string";
 import { AppLayout } from "../../layout/AppLayout";
 import { startLogout } from "../../store/auth";
 import { useLocation } from "react-router-dom";
-import { startLoadingCurrentPatient } from "../../store/currentPatient";
+import { startLoadingCurrentPatient, startLoadingPatientInfo } from "../../store/currentPatient";
 
 export const PatientPage = () => {
 
-    const { uid } = useSelector( state => state.auth )
+    const { uid, displayName, photoURL } = useSelector( state => state.auth )
 
-    const { displayName } = useSelector( state => state.currentPatient )
+    const { patientName } = useSelector( state => state.currentPatient )
 
     const dispatch = useDispatch();
 
@@ -19,11 +19,14 @@ export const PatientPage = () => {
 
     const { patientID = '' } = queryString.parse( location.search );
 
-    console.log( patientID );
+    if( patientID === '' ){
 
-    console.log( uid )
+        dispatch( startLoadingPatientInfo( displayName, photoURL ) )
 
-    dispatch( startLoadingCurrentPatient( uid, patientID ) )
+    }else{
+
+        dispatch( startLoadingCurrentPatient( uid, patientID ) )
+    }
     
     const onLogout = () => {
             
@@ -43,8 +46,8 @@ export const PatientPage = () => {
                     </div>
                     <div className="patient-card">
                         <div className="patient-data">
-                            <div className="patient-avatar">{ displayName.substring(0,2) }</div>
-                            <div className="patient-name">{ displayName }</div>
+                            <div className="patient-avatar">{ patientName.substring(0,2) }</div>
+                            <div className="patient-name">{ patientName }</div>
                             <div className="patient-consultation-time">8:00 - 9:00</div>
                         </div>
                         <div className="patient-weight">

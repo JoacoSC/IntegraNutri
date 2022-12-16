@@ -6,7 +6,7 @@ export const currentPatientSlice = createSlice({
         id: null,
         address: null,
         city: null,
-        displayName: 'Paciente',
+        patientName: 'Paciente',
         email: null,
         emailActivated: null,
         gender: null,
@@ -21,7 +21,7 @@ export const currentPatientSlice = createSlice({
             state.id = payload.id;
             state.address = payload.address;
             state.city = payload.city;
-            state.displayName = payload.displayName;
+            state.patientName = payload.displayName;
             state.email = payload.email;
             state.emailActivated = payload.emailActivated;
             state.gender = payload.gender;

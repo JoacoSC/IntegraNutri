@@ -15,3 +15,16 @@ export const startLoadingCurrentPatient = ( uid, patientID ) => {
 
     }
 }
+
+export const startLoadingPatientInfo = ( displayName, photoURL ) => {
+    return async( dispatch ) => {
+
+        const collectionRef = doc( FirebaseDB, `users/${ photoURL }/patients/${ displayName }` );
+        const result = await getDoc( collectionRef );
+
+        const currentPatient = result.data()
+        
+        dispatch( setCurrentPatient( currentPatient ) )
+
+    }
+}

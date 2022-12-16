@@ -28,9 +28,9 @@ export const AppRouter = () => {
     onAuthStateChanged( FirebaseAuth, async( user ) => {
       if ( !user ) return dispatch( logout() );
 
-      const { uid, email, displayName } = user;
+      const { uid, email, displayName, photoURL } = user;
       
-      dispatch( login({ uid, email, displayName }) );
+      dispatch( login({ uid, email, displayName, photoURL }) );
 
       dispatch( redirectNutritionistOrPatient( uid ) );
 
