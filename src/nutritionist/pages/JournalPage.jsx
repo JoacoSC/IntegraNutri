@@ -178,7 +178,7 @@ export const JournalPage = () => {
                 </div>
                 <div className="next-consultation">
                     <h3>Próximas consultas</h3>
-                    <ModalPacienteEspontaneo />
+                    {/* <ModalPacienteEspontaneo /> */}
                 </div>
                 <div className="journal">
                     <div className="month-days">
