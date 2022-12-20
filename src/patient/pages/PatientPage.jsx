@@ -7,6 +7,7 @@ import { startLogout } from "../../store/auth";
 import { useLocation } from "react-router-dom";
 import { startLoadingCurrentPatient, startLoadingPatientInfo } from "../../store/currentPatient";
 import { useForm } from "../../hooks";
+import { add, format, fromUnixTime } from "date-fns";
 
 export const PatientPage = () => {
 
@@ -22,7 +23,9 @@ export const PatientPage = () => {
 
     const { uid, displayName, photoURL } = useSelector( state => state.auth )
 
-    const { patientName } = useSelector( state => state.currentPatient )
+    const { patientName, nextConsultation } = useSelector( state => state.currentPatient )
+
+    const { consultationHours, consultationMinutes } = useSelector( state => state.journal )
 
     const dispatch = useDispatch();
 
@@ -83,7 +86,13 @@ export const PatientPage = () => {
                         <div className="patient-data">
                             <div className="patient-avatar">{ patientName.substring(0,2) }</div>
                             <div className="patient-name">{ patientName }</div>
-                            <div className="patient-consultation-time">8:00 - 9:00</div>
+                            <div className="patient-consultation-time">
+                                { 
+                                    (nextConsultation !== null)
+                                    ? format( fromUnixTime( nextConsultation ), "hh:mm" ) + " - " + format( add(fromUnixTime( nextConsultation ), { hours: consultationHours, minutes: consultationMinutes }), "hh:mm" )
+                                    : "hh:mm"
+                                }
+                            </div>
                         </div>
                         <form className="form-style" onSubmit={ onWeightStatureSubmit } >
 
