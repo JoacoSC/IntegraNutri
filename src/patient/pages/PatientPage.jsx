@@ -1,23 +1,25 @@
+import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import { add, format, fromUnixTime } from "date-fns";
 import queryString from "query-string";
 
-import { AppLayout } from "../../layout/AppLayout";
-import { startLogout } from "../../store/auth";
-import { useLocation } from "react-router-dom";
-import { startLoadingCurrentPatient, startLoadingPatientInfo } from "../../store/currentPatient";
 import { useForm } from "../../hooks";
-import { add, format, fromUnixTime } from "date-fns";
+import { startLogout } from "../../store/auth";
+import { startLoadingCurrentPatient, startLoadingPatientInfo, startUpdatingCurrentPatient, updateCurrentPatient } from "../../store/currentPatient";
+
+import { AppLayout } from "../../layout/AppLayout";
+import { useEffect } from "react";
 
 export const PatientPage = () => {
 
     const defaultPatient = {
         weight: 9.9,
         stature: 102,
-        anamnesis: "Escribe aquí :)",
+        anamnesis: "Fugiat esse velit reprehenderit quis qui amet quis irure Lorem incididunt enim eu ullamco incididunt. Pariatur reprehenderit tempor sit eiusmod qui aute irure magna do officia ea quis. Velit officia laboris mollit in in eu ea proident Lorem anim nostrud velit veniam.Officia amet nulla ex deserunt mollit reprehenderit. Laborum est dolor incididunt mollit non aliqua ex nulla Lorem nostrud anim sint veniam ea. Occaecat irure nostrud quis sunt dolore commodo non esse officia excepteur consequat in cillum aute.Ad officia Lorem aliqua anim mollit ipsum elit dolore incididunt elit quis. Magna enim esse nostrud nostrud aliquip aute laborum cupidatat ad dolor nisi ad ea. Minim reprehenderit ut enim enim magna eiusmod pariatur ullamco sunt aliqua dolor ad nostrud.Incididunt ea sit consequat aliquip ex esse dolor. Est fugiat aliqua culpa aliqua fugiat duis consequat excepteur adipisicing commodo magna. Ipsum id eu quis sint enim nostrud dolore consequat esse. Laboris ex aliquip enim aliqua incididunt fugiat enim sit velit ex ut pariatur deserunt. Et tempor irure aliquip commodo id dolor excepteur amet deserunt sit voluptate.",
         physical_exam: "Escribe aquí :)",
         diagnosis: "Escribe aquí :)",
-        indications: "Escribe aquí :))))))",
+        indications: "Escribe aquí :)",
         graphs: "Escribe aquí :)",
     }
 
@@ -35,14 +37,18 @@ export const PatientPage = () => {
 
     const { patientID = '' } = queryString.parse( location.search );
 
-    if( patientID === '' ){
+    useEffect(() => {
+        
+        if( patientID === '' ){
 
-        dispatch( startLoadingPatientInfo( displayName, photoURL ) )
-
-    }else{
-
-        dispatch( startLoadingCurrentPatient( uid, patientID ) )
-    }
+            dispatch( startLoadingPatientInfo( displayName, photoURL ) )
+    
+        }else{
+    
+            dispatch( startLoadingCurrentPatient( uid, patientID ) )
+        }
+    
+    }, [patientID])
     
     const onLogout = () => {
             
@@ -64,6 +70,9 @@ export const PatientPage = () => {
         console.log(physical_exam)
         console.log(diagnosis)
         console.log(indications)
+
+        dispatch( updateCurrentPatient({ anamnesis, physical_exam, diagnosis, indications }) )
+        dispatch( startUpdatingCurrentPatient( uid, patientID, anamnesis, physical_exam, diagnosis, indications ) )
     }
 
     const Lorem = "Escribe aquí :)";
@@ -86,10 +95,18 @@ export const PatientPage = () => {
                         <div className="patient-data">
                             <div className="patient-avatar">{ patientName.substring(0,2) }</div>
                             <div className="patient-name">{ patientName }</div>
+                            <div className="patient-consultation-time"></div>
                             <div className="patient-consultation-time">
                                 { 
                                     (nextConsultation !== null)
                                     ? format( fromUnixTime( nextConsultation ), "hh:mm" ) + " - " + format( add(fromUnixTime( nextConsultation ), { hours: consultationHours, minutes: consultationMinutes }), "hh:mm" )
+                                    : "hh:mm"
+                                }
+                            </div>
+                            <div className="patient-consultation-time">
+                                { 
+                                    (nextConsultation !== null)
+                                    ? format( fromUnixTime( nextConsultation ), "dd/MMM/yyyy" )
                                     : "hh:mm"
                                 }
                             </div>
@@ -126,41 +143,46 @@ export const PatientPage = () => {
                         <form onSubmit={ onPatientConsultationSubmit }>
                             <div className="left-container">
                                 <div className="accordion">
-                                    <input className="accordion-input" type="checkbox" name="patient_accordion" id="anamnesis"/>
+                                    <input className="accordion-input" type="checkbox" defaultChecked name="patient_accordion" id="anamnesis"/>
                                     <label className="accordion-label" htmlFor="anamnesis">Anamnesis</label>
                                     <div className="accordion-content">
                                         <textarea className="input-text-patient-page" name="anamnesis" spellCheck={ false } defaultValue={ defaultPatient.anamnesis } onChange={ onInputChange }></textarea>
                                     {/* <input className="input-text-patient-page" type="text" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione at praesentium sed rerum voluptatibus quo aut aspernatur temporibus corrupti eos consequuntur quidem nam quisquam esse dolor, illo tenetur libero repudiandae nulla, recusandae autem. Molestias quam saepe officia dolor nulla eos, eaque aliquam quaerat adipisci recusandae inventore sit maxime possimus asperiores quas omnis debitis non accusamus. Laborum, aspernatur numquam obcaecati tempora quo, assumenda minima, nostrum dolorum eveniet quasi optio quae blanditiis ducimus. Voluptatibus aut aperiam quis quasi ipsum perferendis sapiente nulla itaque" name="name"/> */}
                                         {/* <input type="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore quis repellendus veniam unde sit, laboriosam, perspiciatis ullam voluptate, dolor tempore. Quisquam, numquam? Vero nesciunt dignissimos possimus laborum accusantium veniam maxime, delectus assumenda aspernatur, illo unde modi optio quia non magni consequatur reprehenderit eveniet ad! Eveniet consectetur minima aperiam corporis maxime perspiciatis, velit similique fugit quasi, est quaerat consequatur qui laborum deleniti eos necessitatibus quas reiciendis quibusdam nam aut excepturi repellat aliquam obcaecati voluptatum? Veniam, provident consequuntur itaque recusandae ad dicta facere quam culpa molestiae vel corporis nesciunt, exercitationem corrupti repellendus cum rerum perferendis eaque distinctio tenetur quibusdam! Eius, voluptates.</input> */}
-                                    </div>
                                     <button className="btn-save-changes" type="submit"></button>
+                                    </div>
                                 </div>
                                 <div className="accordion">
-                                    <input className="accordion-input" type="checkbox" name="patient_accordion" id="examen_fisico"/>
+                                    <input className="accordion-input" type="checkbox" defaultChecked name="patient_accordion" id="examen_fisico"/>
                                     <label className="accordion-label" htmlFor="examen_fisico">Examen físico</label>
                                     <div className="accordion-content">
                                         <textarea className="input-text-patient-page" name="physical_exam" spellCheck={ false } defaultValue={ defaultPatient.physical_exam } onChange={ onInputChange }></textarea>
+                                        <button className="btn-save-changes" type="submit"></button>
                                     </div>
                                 </div>
                                 <div className="accordion">
-                                    <input className="accordion-input" type="checkbox" name="patient_accordion" id="diagnostico"/>
+                                    <input className="accordion-input" type="checkbox" defaultChecked name="patient_accordion" id="diagnostico"/>
                                     <label className="accordion-label" htmlFor="diagnostico">Diagnóstico</label>
                                     <div className="accordion-content">
                                         <textarea className="input-text-patient-page" name="diagnosis" spellCheck={ false } defaultValue={ defaultPatient.diagnosis } onChange={ onInputChange }></textarea>
+                                        <button className="btn-save-changes" type="submit"></button>
                                     </div>
                                 </div>
                             </div>
                         </form>
                         <div className="right-container">
+                        <form onSubmit={ onPatientConsultationSubmit }>
                             <div className="accordion">
-                                <input className="accordion-input" type="checkbox" name="patient_accordion" id="indicaciones"/>
+                                <input className="accordion-input" type="checkbox" defaultChecked name="patient_accordion" id="indicaciones"/>
                                 <label className="accordion-label" htmlFor="indicaciones">Indicaciones</label>
                                 <div className="accordion-content">
                                     <textarea className="input-text-patient-page" name="indications" spellCheck={ false } defaultValue={ defaultPatient.indications } onChange={ onInputChange }></textarea>
+                                    <button className="btn-save-changes" type="submit"></button>
                                 </div>
                             </div>
+                        </form>
                             <div className="accordion">
-                                <input className="accordion-input" type="checkbox" name="patient_accordion" id="graficos"/>
+                                <input className="accordion-input" type="checkbox" defaultChecked name="patient_accordion" id="graficos"/>
                                 <label className="accordion-label" htmlFor="graficos">Gráficos</label>
                                 <div className="accordion-content">
                                     <textarea className="input-text-patient-page" name="graphs" spellCheck={ false } defaultValue={ defaultPatient.graphs } onChange={ onInputChange }></textarea>

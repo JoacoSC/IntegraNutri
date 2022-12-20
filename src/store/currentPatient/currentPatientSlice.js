@@ -15,6 +15,10 @@ export const currentPatientSlice = createSlice({
         region: null,
         rut: null,
         unixBirthday: null,
+        anamnesis: null,
+        physical_exam: null,
+        diagnosis: null,
+        indications: null,
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -31,9 +35,19 @@ export const currentPatientSlice = createSlice({
             state.rut = payload.rut;
             state.unixBirthday = payload.unixBirthday;
         },
+
+        updateCurrentPatient: (state,{ payload }) => {
+            state.anamnesis = payload.anamnesis;
+            state.physical_exam = payload.physical_exam;
+            state.diagnosis = payload.diagnosis;
+            state.indications = payload.indications;
+        },
     }
 });
 
 
 // Action creators are generated for each case reducer function
-export const { setCurrentPatient } = currentPatientSlice.actions;
+export const {
+    setCurrentPatient,
+    updateCurrentPatient
+} = currentPatientSlice.actions;
