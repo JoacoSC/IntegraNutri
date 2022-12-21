@@ -90,6 +90,13 @@ export const PatientPage = () => {
     
     }
 
+    // TODO:
+    // TODO:
+    // TODO:
+    // TODO:
+    // TODO:
+    // DEBO IMPEDIR QUE EL USUARIO PACIENTE PUEDA HACER DISPATCH DE INFORMACION. DEBE SER INFO DE SOLO LECTURA PARA EL PACIENTE
+
     const onAnamnesisSubmit = ( event ) => {
         event.preventDefault();
 
