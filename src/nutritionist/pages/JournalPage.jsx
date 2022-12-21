@@ -10,6 +10,7 @@ import { addHours, setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
 import { startLoadingMyJournal } from '../../store/journal';
+import { clearCurrentPatient } from '../../store/currentPatient';
 
 
 
@@ -157,8 +158,11 @@ export const JournalPage = () => {
     useEffect(() => {
 
         daysRef.current[0].click();
+        dispatch( clearCurrentPatient() );
     
     }, [patients])
+
+    
     
 
     return (

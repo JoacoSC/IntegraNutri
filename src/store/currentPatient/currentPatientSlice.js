@@ -19,6 +19,8 @@ export const currentPatientSlice = createSlice({
         physical_exam: null,
         diagnosis: null,
         indications: null,
+        weight: null,
+        stature: null,
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -34,13 +36,57 @@ export const currentPatientSlice = createSlice({
             state.region = payload.region;
             state.rut = payload.rut;
             state.unixBirthday = payload.unixBirthday;
-        },
-
-        updateCurrentPatient: (state,{ payload }) => {
             state.anamnesis = payload.anamnesis;
             state.physical_exam = payload.physical_exam;
             state.diagnosis = payload.diagnosis;
             state.indications = payload.indications;
+            state.weight = payload.weight;
+            state.stature = payload.stature;
+        },
+
+        updateCurrentPatientAnamnesis: (state,{ payload }) => {
+            state.anamnesis = payload.formAnamnesis;
+        },
+
+        updateCurrentPatientPhysical_exam: (state,{ payload }) => {
+            state.physical_exam = payload.formPhysical_exam;
+        },
+
+        updateCurrentPatientDiagnosis: (state,{ payload }) => {
+            state.diagnosis = payload.formDiagnosis;
+        },
+
+        updateCurrentPatientIndications: (state,{ payload }) => {
+            state.indications = payload.formIndications;
+        },
+
+        updateCurrentPatientWeight: (state,{ payload }) => {
+            state.weight = payload.formWeight;
+        },
+
+        updateCurrentPatientStature: (state,{ payload }) => {
+            state.stature = payload.formStature;
+        },
+
+        clearCurrentPatient: ( state ) => {
+            state.id = null;
+            state.address = null;
+            state.city = null;
+            state.patientName = "Paciente";
+            state.email = null;
+            state.emailActivated = null;
+            state.gender = null;
+            state.nextConsultation = null;
+            state.phone = null;
+            state.region = null;
+            state.rut = null;
+            state.unixBirthday = null;
+            state.anamnesis = null;
+            state.physical_exam = null;
+            state.diagnosis = null;
+            state.indications = null;
+            state.weight = null;
+            state.stature = null;
         },
     }
 });
@@ -49,5 +95,12 @@ export const currentPatientSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const {
     setCurrentPatient,
-    updateCurrentPatient
+    updateCurrentPatientAnamnesis,
+    updateCurrentPatientPhysical_exam,
+    updateCurrentPatientDiagnosis,
+    updateCurrentPatientIndications,
+    clearCurrentPatient,
+    updateCurrentPatientWeight,
+    updateCurrentPatientStature,
+
 } = currentPatientSlice.actions;
