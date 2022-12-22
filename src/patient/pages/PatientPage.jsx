@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { add, format, fromUnixTime } from "date-fns";
+import { add, addDays, format, fromUnixTime, getUnixTime, sub } from "date-fns";
 import queryString from "query-string";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
@@ -45,6 +45,7 @@ export const PatientPage = () => {
       indications,
       weight,
       stature,
+      unixBirthday
     } = useSelector((state) => state.currentPatient);
 
     const [userData, setUserData] = useState({
@@ -68,17 +69,43 @@ export const PatientPage = () => {
     const options = {
         maintainAspectRatio : false,
         plugins: {
-          legend: {
+        legend: {
             position: 'top',
-          },
-          title: {
+        },
+        title: {
             display: true,
             text: 'Gráfico P/E del paciente',
-          },
         },
-      };
-    
+        },
+    };
+
+    const age = () => {
+        var d1 = fromUnixTime( unixBirthday ).getDate();
+        var m1 = fromUnixTime( unixBirthday ).getMonth();
+        var y1 = fromUnixTime( unixBirthday ).getFullYear();
+        var date = new Date();
+        var d2 = date.getDate();
+        var m2 = date.getMonth();
+        var y2 = date.getFullYear();
+        var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (d1 > d2) {
+            d2 = d2 + month[m2 - 1];
+            m2 = m2 - 1;
+        }
+        if (m1 > m2) {
+            m2 = m2 + 12;
+            y2 = y2 - 1;
+        }
+        var d = d2 - d1;
+        var m = m2 - m1;
+        var y = y2 - y1;
+        return y + " años " + m + " meses " + d + " días";
+    }
+
+    console.log( fromUnixTime( unixBirthday ) )
+
     const defaultPatient = {
+        unixAge: 0,
         weight: 0,
         stature: 0,
         anamnesis: anamnesis,
@@ -267,6 +294,29 @@ export const PatientPage = () => {
                         <div className="stature-cm">Cm</div>
                     </div>
                     </form>
+                </div>
+                <div className="patient-age">
+                    <div className="age-icon">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="43"
+                        height="43"
+                        fill="none"
+                        viewBox="0 0 43 43"
+                    >
+                        <circle cx="21.5" cy="21.5" r="21.5" fill="#FFF3F1" />
+                        <path
+                        fill="#FF8976"
+                        d="m18 12-.707-.707.707-.707.707.707L18 12Zm1 15a1 1 0 1 1-2 0h2Zm-6.707-10.707 5-5 1.414 1.414-5 5-1.414-1.414Zm6.414-5 5 5-1.414 1.414-5-5 1.414-1.414ZM19 12v15h-2V12h2Zm7 20-.707.707.707.707.707-.707L26 32Zm1-15a1 1 0 1 0-2 0h2Zm-6.707 10.707 5 5 1.414-1.414-5-5-1.414 1.414Zm6.414 5 5-5-1.414-1.414-5 5 1.414 1.414ZM27 32V17h-2v15h2Z"
+                        />
+                    </svg>
+                    </div>
+                    <div className="age-title">Edad</div>
+                    <div className="age">
+                        <p className="age-value">
+                            { age() }
+                        </p>
+                    </div>
                 </div>
                 <button type="submit" hidden></button>
                 </div>

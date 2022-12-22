@@ -591,6 +591,7 @@ body{
     justify-content: center;
     height: 100%;
     padding: 0 4rem 0 2rem;
+    border-right: 1px solid #ECEDED;
 }
 
 .stature-icon{
@@ -638,6 +639,61 @@ body{
 }
 
 /* **************** Patient stature ****************** */
+/* **************** Patient age ****************** */
+
+.patient-age{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 4rem 0 2rem;
+}
+
+.age-icon{
+    position: relative;
+    width: 43px;
+    height: 43px;
+}
+
+.age-icon svg{
+    margin-top: 0.3rem;
+    padding-bottom: 0;
+    padding-bottom: 0.4rem;
+}
+
+.age-title{
+    margin-top: 0.8rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.age{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 0.7rem;
+}
+.age-value{
+    display: flex;
+    border: none;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.age-value:focus{
+    outline: none;
+    border: 1px solid rgba(163,32,211, 1);
+}
+
+.age-cm{
+    margin: 0.3rem 0.3rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* **************** Patient age ****************** */
 
 /* ************* Patient card ************** */
 
@@ -728,6 +784,8 @@ body{
 
 .canvas{
     position: relative;
+    height: 100%;
+    min-height: 300px;
     margin: auto;
     width: 40vw;
     padding: 0.5rem 1.5rem 1.5rem 1.5rem;
