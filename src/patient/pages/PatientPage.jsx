@@ -1,8 +1,12 @@
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { add, format, fromUnixTime } from "date-fns";
 import queryString from "query-string";
+import { Line } from "react-chartjs-2";
+import { Chart as ChartJS } from "chart.js/auto";
+
 
 import { useForm } from "../../hooks";
 import { startLogout } from "../../store/auth";
@@ -24,7 +28,8 @@ import {
 } from "../../store/currentPatient";
 
 import { AppLayout } from "../../layout/AppLayout";
-import { useEffect } from "react";
+import { UserData } from "../../data";
+
 
 export const PatientPage = () => {
 
@@ -41,6 +46,37 @@ export const PatientPage = () => {
       weight,
       stature,
     } = useSelector((state) => state.currentPatient);
+
+    const [userData, setUserData] = useState({
+        labels: UserData.map( (data) => data.year ),
+        datasets: [
+            {
+                label: "Users Gained",
+                data: UserData.map( (data) => data.userGain ),
+                borderColor: 'rgb(109, 34, 208)',
+                backgroundColor: 'rgba(109, 34, 208)',
+            },
+            {
+                label: "Users Lost",
+                data: UserData.map( (data) => data.userLost ),
+                borderColor: 'rgb(255, 188, 177)',
+                backgroundColor: 'rgba(255, 188, 177)',
+            },
+        ]
+    });
+
+    const options = {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Chart.js Line Chart',
+          },
+        },
+      };
     
     const defaultPatient = {
         weight: 0,
@@ -376,13 +412,7 @@ export const PatientPage = () => {
                         Gráficos
                     </label>
                     <div className="accordion-content">
-                        <textarea
-                        className="input-text-patient-page"
-                        name="graphs"
-                        spellCheck={false}
-                        defaultValue={defaultPatient.graphs}
-                        onChange={onInputChange}
-                        ></textarea>
+                        <Line data={ userData } options={ options } />
                     </div>
                     </div>
                 </div>
