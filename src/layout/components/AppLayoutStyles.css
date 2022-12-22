@@ -6,11 +6,11 @@
     --clr-primary: #452372;
     --clr-btn-primary: #9D8FAD;
     --clr-btn-primary-hover: #FFFFFF;
-    --clr-btn-secondary: #6D22D0;
+    --clr-btn-secondary: rgb(109, 34, 208);
     --clr-btn-secondary-hover: #6821c6;
     --clr-btn-secondary-active: #7d37d8;
     --clr-day-ellipse-primary: rgba(164, 164, 164, 0.25);
-    --clr-day-ellipse-active: #FFBCB1;
+    --clr-day-ellipse-active: rgb(255, 188, 177);
 
     /* Border radius */
 
@@ -726,8 +726,11 @@ body{
     transition: 150ms all ease-in;
 }
 
-textarea {
-
+.canvas{
+    position: relative;
+    margin: auto;
+    width: 40vw;
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
 }
 
 .input-text-patient-page:focus{

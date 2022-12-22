@@ -66,14 +66,14 @@ export const PatientPage = () => {
     });
 
     const options = {
-        responsive: true,
+        maintainAspectRatio : false,
         plugins: {
           legend: {
             position: 'top',
           },
           title: {
             display: true,
-            text: 'Chart.js Line Chart',
+            text: 'Gráfico P/E del paciente',
           },
         },
       };
@@ -412,7 +412,10 @@ export const PatientPage = () => {
                         Gráficos
                     </label>
                     <div className="accordion-content">
-                        <Line data={ userData } options={ options } />
+                        <div className="canvas">
+                            <Line data={ userData } options={ options } />
+
+                        </div>
                     </div>
                     </div>
                 </div>
