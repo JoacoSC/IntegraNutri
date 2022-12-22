@@ -10,7 +10,7 @@ export const NutritionistRoutes = () => {
   const { isNutritionistStatus } = useSelector( state => state.auth );
   const dispatch = useDispatch();
 
-  console.log( isNutritionistStatus )
+  // console.log( isNutritionistStatus )
 
   if (isNutritionistStatus === false) return <PatientRoutes />;
 

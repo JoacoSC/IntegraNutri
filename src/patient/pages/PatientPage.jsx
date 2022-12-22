@@ -29,7 +29,7 @@ import { useEffect } from "react";
 export const PatientPage = () => {
 
     
-    const { uid, displayName, photoURL } = useSelector( state => state.auth )
+    const { uid, displayName, photoURL, isNutritionistStatus } = useSelector( state => state.auth )
     
     const {
       patientName,
@@ -89,13 +89,6 @@ export const PatientPage = () => {
         dispatch( startLogout() );
     
     }
-
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO:
-    // DEBO IMPEDIR QUE EL USUARIO PACIENTE PUEDA HACER DISPATCH DE INFORMACION. DEBE SER INFO DE SOLO LECTURA PARA EL PACIENTE
 
     const onAnamnesisSubmit = ( event ) => {
         event.preventDefault();
@@ -202,6 +195,7 @@ export const PatientPage = () => {
                         type="text"
                         defaultValue={weight}
                         onChange={onInputChange}
+                        readOnly={ !isNutritionistStatus }
                         />
                         <div className="weight-kg">Kg</div>
                     </div>
@@ -232,6 +226,7 @@ export const PatientPage = () => {
                         type="text"
                         defaultValue={stature}
                         onChange={onInputChange}
+                        readOnly={ !isNutritionistStatus }
                         />
                         <div className="stature-cm">Cm</div>
                     </div>
@@ -260,13 +255,17 @@ export const PatientPage = () => {
                             spellCheck={false}
                             defaultValue={defaultPatient.anamnesis}
                             onChange={onInputChange}
+                            readOnly={ !isNutritionistStatus }
                         ></textarea>
                         {/* <input className="input-text-patient-page" type="text" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione at praesentium sed rerum voluptatibus quo aut aspernatur temporibus corrupti eos consequuntur quidem nam quisquam esse dolor, illo tenetur libero repudiandae nulla, recusandae autem. Molestias quam saepe officia dolor nulla eos, eaque aliquam quaerat adipisci recusandae inventore sit maxime possimus asperiores quas omnis debitis non accusamus. Laborum, aspernatur numquam obcaecati tempora quo, assumenda minima, nostrum dolorum eveniet quasi optio quae blanditiis ducimus. Voluptatibus aut aperiam quis quasi ipsum perferendis sapiente nulla itaque" name="name"/> */}
                         {/* <input type="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore quis repellendus veniam unde sit, laboriosam, perspiciatis ullam voluptate, dolor tempore. Quisquam, numquam? Vero nesciunt dignissimos possimus laborum accusantium veniam maxime, delectus assumenda aspernatur, illo unde modi optio quia non magni consequatur reprehenderit eveniet ad! Eveniet consectetur minima aperiam corporis maxime perspiciatis, velit similique fugit quasi, est quaerat consequatur qui laborum deleniti eos necessitatibus quas reiciendis quibusdam nam aut excepturi repellat aliquam obcaecati voluptatum? Veniam, provident consequuntur itaque recusandae ad dicta facere quam culpa molestiae vel corporis nesciunt, exercitationem corrupti repellendus cum rerum perferendis eaque distinctio tenetur quibusdam! Eius, voluptates.</input> */}
-                        <button
-                            className="btn-save-changes"
-                            type="submit"
-                        ></button>
+                        {   ( isNutritionistStatus )
+                            ?   <button
+                                className="btn-save-changes"
+                                type="submit"
+                                ></button>
+                            : null
+                        }
                         </div>
                     </div>
                     </form>
@@ -289,11 +288,15 @@ export const PatientPage = () => {
                             spellCheck={false}
                             defaultValue={defaultPatient.physical_exam}
                             onChange={onInputChange}
+                            readOnly={ !isNutritionistStatus }
                         ></textarea>
-                        <button
-                            className="btn-save-changes"
-                            type="submit"
-                        ></button>
+                        {   ( isNutritionistStatus )
+                            ?   <button
+                                className="btn-save-changes"
+                                type="submit"
+                                ></button>
+                            : null
+                        }
                         </div>
                     </div>
                     </form>
@@ -316,11 +319,15 @@ export const PatientPage = () => {
                             spellCheck={false}
                             defaultValue={defaultPatient.diagnosis}
                             onChange={onInputChange}
+                            readOnly={ !isNutritionistStatus }
                         ></textarea>
-                        <button
-                            className="btn-save-changes"
-                            type="submit"
-                        ></button>
+                        {   ( isNutritionistStatus )
+                            ?   <button
+                                className="btn-save-changes"
+                                type="submit"
+                                ></button>
+                            : null
+                        }
                         </div>
                     </div>
                     </form>
@@ -345,11 +352,15 @@ export const PatientPage = () => {
                             spellCheck={false}
                             defaultValue={defaultPatient.indications}
                             onChange={onInputChange}
+                            readOnly={ !isNutritionistStatus }
                         ></textarea>
-                        <button
-                            className="btn-save-changes"
-                            type="submit"
-                        ></button>
+                        {   ( isNutritionistStatus )
+                            ?   <button
+                                className="btn-save-changes"
+                                type="submit"
+                                ></button>
+                            : null
+                        }
                         </div>
                     </div>
                     </form>

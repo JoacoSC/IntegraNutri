@@ -720,10 +720,14 @@ body{
     font-weight: 500;
     font-size: 18px;
     padding-left: 1rem;
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 20px 20px;
     border: 1px solid rgba(0, 0, 0, 0);
     box-shadow: 1px 0px 6px 1px rgba(233,238,253,0.75);
     transition: 150ms all ease-in;
+}
+
+textarea {
+
 }
 
 .input-text-patient-page:focus{
