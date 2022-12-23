@@ -162,8 +162,13 @@ export const JournalPage = () => {
     
     }, [patients])
 
-    
-    
+    let patientsNumber = 0;
+
+    consultationSlotsArray.map(( consultationSlot ) => (
+        ( consultationSlot.patient != null )
+        ? patientsNumber += 1
+        : null
+    ))
 
     return (
     
@@ -198,7 +203,16 @@ export const JournalPage = () => {
                     <div className="month-line"></div>
                     <div className="today">
                         <div className="today-label">{ capitalizeFirst(format( currentDay, "PPPP"))}</div>
-                        <div className="patient-number">8 Pacientes</div>
+                        <div className="patient-number">
+                            {
+                                ( patientsNumber > 0 )
+                                    ?   (patientsNumber > 1) 
+                                        ?   `${ patientsNumber } pacientes`
+                                        :   `${ patientsNumber } paciente`
+                                    :   'No hay pacientes para hoy'
+                                
+                            }
+                        </div>
                     </div>
                     <div className="today-consultations">
 
@@ -228,7 +242,17 @@ export const JournalPage = () => {
                                                 <div className="avatar">{ consultationSlot.patient.displayName.substring(0,2) }</div>
                                                 <div className="patient-info">
                                                     <div className="patient-name">{ consultationSlot.patient.displayName }</div>
-                                                    <div className="consultation-hour">8:00 - 9:00</div>
+                                                    <div className="consultation-hour">
+                                                        {format(fromUnixTime(consultationSlot.patient.nextConsultation), "hh:mm") +
+                                                        " - " +
+                                                        format(
+                                                            add(fromUnixTime(consultationSlot.patient.nextConsultation), {
+                                                            hours: consultationHours,
+                                                            minutes: consultationMinutes,
+                                                            }),
+                                                            "hh:mm"
+                                                        )}
+                                                    </div>
                                                 </div>
                                             </Link>
 
