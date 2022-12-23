@@ -39,6 +39,7 @@
     --arrow-dropdown: url(../../../assets/imgs/patient/arrow_drop_down.svg);
     --weight-icon: url(../../../assets/imgs/patient/weight_icon.svg);
     --stature-icon: url(../../../assets/imgs/patient/stature_icon.svg);
+    --age-icon: url(../../../assets/imgs/patient/age_icon.svg);
 
 }
 
@@ -566,7 +567,7 @@ body{
     border: none;
     font-family: "Metropolis", sans-serif;
     font-weight: 700;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
 }
 
 .weight-value:focus{
@@ -623,7 +624,7 @@ body{
     border: none;
     font-family: "Metropolis", sans-serif;
     font-weight: 700;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
 }
 
 .stature-value:focus{

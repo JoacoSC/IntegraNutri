@@ -79,15 +79,15 @@ export const PatientPage = () => {
         },
     };
 
-    const age = () => {
-        var d1 = fromUnixTime( unixBirthday ).getDate();
-        var m1 = fromUnixTime( unixBirthday ).getMonth();
-        var y1 = fromUnixTime( unixBirthday ).getFullYear();
-        var date = new Date();
-        var d2 = date.getDate();
-        var m2 = date.getMonth();
-        var y2 = date.getFullYear();
-        var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const calculateAge = () => {
+        let d1 = fromUnixTime( unixBirthday ).getDate();
+        let m1 = fromUnixTime( unixBirthday ).getMonth();
+        let y1 = fromUnixTime( unixBirthday ).getFullYear();
+        let date = new Date();
+        let d2 = date.getDate();
+        let m2 = date.getMonth();
+        let y2 = date.getFullYear();
+        let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         if (d1 > d2) {
             d2 = d2 + month[m2 - 1];
             m2 = m2 - 1;
@@ -96,9 +96,9 @@ export const PatientPage = () => {
             m2 = m2 + 12;
             y2 = y2 - 1;
         }
-        var d = d2 - d1;
-        var m = m2 - m1;
-        var y = y2 - y1;
+        let d = d2 - d1;
+        let m = m2 - m1;
+        let y = y2 - y1;
         return y + " años " + m + " meses " + d + " días";
     }
 
@@ -260,7 +260,7 @@ export const PatientPage = () => {
                         onChange={onInputChange}
                         readOnly={ !isNutritionistStatus }
                         />
-                        <div className="weight-kg">Kg</div>
+                        <div className="weight-value">Kg</div>
                     </div>
                     </form>
                 </div>
@@ -291,30 +291,29 @@ export const PatientPage = () => {
                         onChange={onInputChange}
                         readOnly={ !isNutritionistStatus }
                         />
-                        <div className="stature-cm">Cm</div>
+                        <div className="stature-value">Cm</div>
                     </div>
                     </form>
                 </div>
                 <div className="patient-age">
                     <div className="age-icon">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="43"
-                        height="43"
-                        fill="none"
-                        viewBox="0 0 43 43"
-                    >
-                        <circle cx="21.5" cy="21.5" r="21.5" fill="#FFF3F1" />
-                        <path
-                        fill="#FF8976"
-                        d="m18 12-.707-.707.707-.707.707.707L18 12Zm1 15a1 1 0 1 1-2 0h2Zm-6.707-10.707 5-5 1.414 1.414-5 5-1.414-1.414Zm6.414-5 5 5-1.414 1.414-5-5 1.414-1.414ZM19 12v15h-2V12h2Zm7 20-.707.707.707.707.707-.707L26 32Zm1-15a1 1 0 1 0-2 0h2Zm-6.707 10.707 5 5 1.414-1.414-5-5-1.414 1.414Zm6.414 5 5-5-1.414-1.414-5 5 1.414 1.414ZM27 32V17h-2v15h2Z"
-                        />
-                    </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
+                            <circle cx="21.5" cy="21.5" r="21.5" fill="#DBFFD6"/>
+                            <circle cx="20" cy="17" r="4" stroke="#5EC151" stroke-linecap="round" stroke-width="2"/>
+                            <path fill="#5EC151" fill-rule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clip-rule="evenodd"/>
+                            <rect width="9" height="8" x="22" y="23" stroke="#5EC151" stroke-width="2" rx="2"/>
+                            <path fill="#5EC151" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
+                            <path stroke="#5EC151" stroke-linecap="round" stroke-width="2" d="M24 22v1m5-1v1"/>
+                            <rect width="2" height="1" x="24" y="26" fill="#5EC151" rx=".5"/>
+                            <rect width="2" height="1" x="24" y="28" fill="#5EC151" rx=".5"/>
+                            <rect width="2" height="1" x="27" y="26" fill="#5EC151" rx=".5"/>
+                            <rect width="2" height="1" x="27" y="28" fill="#5EC151" rx=".5"/>
+                        </svg>
                     </div>
                     <div className="age-title">Edad</div>
                     <div className="age">
                         <p className="age-value">
-                            { age() }
+                            { calculateAge() }
                         </p>
                     </div>
                 </div>
