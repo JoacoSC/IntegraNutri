@@ -28,7 +28,7 @@ import {
 } from "../../store/currentPatient";
 
 import { AppLayout } from "../../layout/AppLayout";
-import { UserData } from "../../data";
+import { GirlsFromBirthToFiveYears } from "../../data";
 
 
 export const PatientPage = () => {
@@ -49,19 +49,13 @@ export const PatientPage = () => {
     } = useSelector((state) => state.currentPatient);
 
     const [userData, setUserData] = useState({
-        labels: UserData.map( (data) => data.year ),
+        labels: GirlsFromBirthToFiveYears.map( (data) => data.months ),
         datasets: [
             {
-                label: "Users Gained",
-                data: UserData.map( (data) => data.userGain ),
-                borderColor: 'rgb(109, 34, 208)',
-                backgroundColor: 'rgba(109, 34, 208)',
-            },
-            {
-                label: "Users Lost",
-                data: UserData.map( (data) => data.userLost ),
-                borderColor: 'rgb(255, 188, 177)',
-                backgroundColor: 'rgba(255, 188, 177)',
+                label: "-2DE",
+                data: GirlsFromBirthToFiveYears.map( (data) => data.Minus2DE ),
+                borderColor: '#00AEEF',
+                backgroundColor: '#00AEEF',
             },
         ]
     });
@@ -101,8 +95,6 @@ export const PatientPage = () => {
         let y = y2 - y1;
         return y + " años " + m + " meses " + d + " días";
     }
-
-    console.log( fromUnixTime( unixBirthday ) )
 
     const defaultPatient = {
         unixAge: 0,
@@ -260,7 +252,7 @@ export const PatientPage = () => {
                         onChange={onInputChange}
                         readOnly={ !isNutritionistStatus }
                         />
-                        <div className="weight-value">Kg</div>
+                        <div className="weight-kg">Kg</div>
                     </div>
                     </form>
                 </div>
@@ -291,7 +283,7 @@ export const PatientPage = () => {
                         onChange={onInputChange}
                         readOnly={ !isNutritionistStatus }
                         />
-                        <div className="stature-value">Cm</div>
+                        <div className="stature-cm">Cm</div>
                     </div>
                     </form>
                 </div>
@@ -299,11 +291,11 @@ export const PatientPage = () => {
                     <div className="age-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
                             <circle cx="21.5" cy="21.5" r="21.5" fill="#DBFFD6"/>
-                            <circle cx="20" cy="17" r="4" stroke="#5EC151" stroke-linecap="round" stroke-width="2"/>
-                            <path fill="#5EC151" fill-rule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clip-rule="evenodd"/>
-                            <rect width="9" height="8" x="22" y="23" stroke="#5EC151" stroke-width="2" rx="2"/>
+                            <circle cx="20" cy="17" r="4" stroke="#5EC151" strokeLinecap="round" strokeWidth="2"/>
+                            <path fill="#5EC151" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
+                            <rect width="9" height="8" x="22" y="23" stroke="#5EC151" strokeWidth="2" rx="2"/>
                             <path fill="#5EC151" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
-                            <path stroke="#5EC151" stroke-linecap="round" stroke-width="2" d="M24 22v1m5-1v1"/>
+                            <path stroke="#5EC151" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
                             <rect width="2" height="1" x="24" y="26" fill="#5EC151" rx=".5"/>
                             <rect width="2" height="1" x="24" y="28" fill="#5EC151" rx=".5"/>
                             <rect width="2" height="1" x="27" y="26" fill="#5EC151" rx=".5"/>
@@ -326,7 +318,7 @@ export const PatientPage = () => {
                         <input
                         className="accordion-input"
                         type="checkbox"
-                        defaultChecked
+                        // defaultChecked
                         name="patient_accordion"
                         id="anamnesis"
                         />
@@ -359,7 +351,7 @@ export const PatientPage = () => {
                         <input
                         className="accordion-input"
                         type="checkbox"
-                        defaultChecked
+                        // defaultChecked
                         name="patient_accordion"
                         id="examen_fisico"
                         />
@@ -390,7 +382,7 @@ export const PatientPage = () => {
                         <input
                         className="accordion-input"
                         type="checkbox"
-                        defaultChecked
+                        // defaultChecked
                         name="patient_accordion"
                         id="diagnostico"
                         />
@@ -423,7 +415,7 @@ export const PatientPage = () => {
                         <input
                         className="accordion-input"
                         type="checkbox"
-                        defaultChecked
+                        // defaultChecked
                         name="patient_accordion"
                         id="indicaciones"
                         />

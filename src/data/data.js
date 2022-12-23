@@ -1,32 +1,58 @@
-export const UserData = [
+export const GirlsFromBirthToFiveYears = [
+    {
+      id: 0,
+      months: '0',
+      Minus2DE: 2.4,
+    },
     {
       id: 1,
-      year: 2016,
-      userGain: 40000,
-      userLost: 11823,
+      months: '1 Mes',
+      Minus2DE: 3.2,
     },
     {
       id: 2,
-      year: 2017,
-      userGain: 45677,
-      userLost: 22345,
+      months: '2 Meses',
+      Minus2DE: 3.9,
     },
     {
       id: 3,
-      year: 2018,
-      userGain: 78888,
-      userLost: 13555,
+      months: '3 Meses',
+      Minus2DE: 4.5,
     },
     {
       id: 4,
-      year: 2019,
-      userGain: 50000,
-      userLost: 24555,
+      months: '4 Meses',
+      Minus2DE: 5.0,
     },
     {
       id: 5,
-      year: 2020,
-      userGain: 4300,
-      userLost: 1234,
+      months: '5 Meses',
+      Minus2DE: 5.4,
     },
+    {
+      id: 6,
+      months: '6 Meses',
+      Minus2DE: 5.7,
+    },
+    {
+      id: 7,
+      months: '7 Meses',
+      Minus2DE: 6.0,
+    },
+    {
+      id: 8,
+      months: '8 Meses',
+      Minus2DE: 6.3,
+    },
+    {
+      id: 9,
+      months: '9 Meses',
+      Minus2DE: 6.5,
+    },
+    {
+      id: 10,
+      months: '10 Meses',
+      Minus2DE: 6.7,
+    },
+    
   ];
