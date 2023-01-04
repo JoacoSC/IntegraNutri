@@ -31,6 +31,7 @@
     
     --btn-add-icon: url(../../../assets/imgs/journal/btn-add.svg);
     --btn-logout: url(../../../assets/imgs/journal/logout.svg);
+    --btn-refresh: url(../../../assets/imgs/patient/refresh_icon.svg);
     --time-icon: url(../../../assets/imgs/journal/time.svg);
     --edit-icon: url(../../../assets/imgs/journal/edit.svg);
     --save-icon: url(../../../assets/imgs/patient/save.svg);
@@ -143,7 +144,7 @@ body{
 .btn-logout::before{
     position: absolute;
     content: var(--btn-logout);
-    top: 0.4rem;
+    top: 0.5rem;
     left: 0.8rem;
 }
 
@@ -473,7 +474,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10rem;
+    height: auto;
     margin: 4rem auto 1rem;
     border: 1px solid #ECEDED;
     border-radius: 20px;
@@ -533,8 +534,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 180px;
     height: 100%;
-    padding: 0 0 0 2rem;
+    padding: 2rem 0 1rem 2rem;
     border-right: 1px solid #ECEDED;
 }
 
@@ -545,16 +547,30 @@ body{
 }
 
 .weight-icon svg{
-    margin-top: 0.3rem;
     padding-bottom: 0;
     padding-bottom: 0.4rem;
 }
 
 .weight-title{
+    display: flex;
     margin-top: 0.8rem;
     font-family: "Metropolis", sans-serif;
     font-weight: 600;
     font-size: 1rem;
+}
+
+.weight-indicator-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem;
+    margin-left: 1rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    background-color: #FFF3F1;
+    color: #FF8976;
+    border-radius: 10px;
 }
 
 .weight{
@@ -563,7 +579,6 @@ body{
     margin-top: 0.7rem;
 }
 .weight-value{
-    width: 100px;
     border: none;
     font-family: "Metropolis", sans-serif;
     font-weight: 700;
@@ -576,10 +591,80 @@ body{
 }
 
 .weight-kg{
-    margin: 0.3rem 1rem 0 0.3rem;
+    margin: 0.3rem 1rem 0 1rem;
     font-family: "Metropolis", sans-serif;
     font-weight: 700;
     font-size: 1.6rem;
+}
+
+.weight-update-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.weight-update-btn:hover{
+    background: var(--clr-btn-secondary-hover);
+}
+
+.weight-update-btn:active{
+    background: var(--clr-btn-secondary-active);
+}
+
+.weight-update-btn::before{
+    content: attr(data-tooltip);
+    position: absolute;
+    left: -1.5rem;
+    top: calc(50% + 1rem);
+    background: var(--clr-primary);
+    color: white;
+    padding: 0.6rem;
+    border-radius: var(--radius);
+    transition: all 150ms ease;
+    opacity: 0;
+    scale: 0;
+    
+}
+
+.weight-update-btn::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: transparent;
+    left: 0.6rem;
+    top: 2.5rem;
+    transition: all 150ms ease;
+    transform: rotate(45deg);
+    opacity: 0;
+    scale: 0;
+}
+
+.weight-update-btn:hover::after{
+    opacity: 1;
+    scale: 1;
+    top: calc(50% + 1.7rem);
+    background-color: var(--clr-primary);
+}
+
+.weight-update-btn:hover::before{
+    opacity: 1;
+    scale: 1;
+    top: calc(50% + 2rem);
 }
 
 /* **************** Patient weight ****************** */
@@ -590,8 +675,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 180px;
     height: 100%;
-    padding: 0 0 0 2rem;
+    padding: 2rem 0 1rem 2rem;
     border-right: 1px solid #ECEDED;
 }
 
@@ -602,7 +688,6 @@ body{
 }
 
 .stature-icon svg{
-    margin-top: 0.3rem;
     padding-bottom: 0;
     padding-bottom: 0.4rem;
 }
@@ -620,7 +705,6 @@ body{
     margin-top: 0.7rem;
 }
 .stature-value{
-    width: 100px;
     border: none;
     font-family: "Metropolis", sans-serif;
     font-weight: 700;
@@ -633,10 +717,80 @@ body{
 }
 
 .stature-cm{
-    margin: 0.3rem 1rem 0 0.3rem;
+    margin: 0.3rem 1rem 0 1rem;
     font-family: "Metropolis", sans-serif;
     font-weight: 700;
     font-size: 1.6rem;
+}
+
+.stature-update-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.stature-update-btn:hover{
+    background: var(--clr-btn-secondary-hover);
+}
+
+.stature-update-btn:active{
+    background: var(--clr-btn-secondary-active);
+}
+
+.stature-update-btn::before{
+    content: attr(data-tooltip);
+    position: absolute;
+    left: -1.5rem;
+    top: calc(50% + 1rem);
+    background: var(--clr-primary);
+    color: white;
+    padding: 0.6rem;
+    border-radius: var(--radius);
+    transition: all 150ms ease;
+    opacity: 0;
+    scale: 0;
+    
+}
+
+.stature-update-btn::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: transparent;
+    left: 0.6rem;
+    top: 2.5rem;
+    transition: all 150ms ease;
+    transform: rotate(45deg);
+    opacity: 0;
+    scale: 0;
+}
+
+.stature-update-btn:hover::after{
+    opacity: 1;
+    scale: 1;
+    top: calc(50% + 1.7rem);
+    background-color: var(--clr-primary);
+}
+
+.stature-update-btn:hover::before{
+    opacity: 1;
+    scale: 1;
+    top: calc(50% + 2rem);
 }
 
 /* **************** Patient stature ****************** */
@@ -647,7 +801,7 @@ body{
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    padding: 0 0 0 2rem;
+    padding: 2rem 0 1rem 2rem;
 }
 
 .age-icon{
@@ -657,7 +811,6 @@ body{
 }
 
 .age-icon svg{
-    margin-top: 0.3rem;
     padding-bottom: 0;
     padding-bottom: 0.4rem;
 }
@@ -676,7 +829,7 @@ body{
 }
 .age-value{
     display: flex;
-    margin: 0.3rem 1rem 0 0.3rem;
+    margin: 0.3rem 1rem 0 0rem;
     border: none;
     font-family: "Metropolis", sans-serif;
     font-weight: 700;
@@ -701,7 +854,7 @@ body{
 
 .accordion-container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1.5fr;
     gap: 4rem;
     margin: 3rem;
 }
@@ -790,7 +943,7 @@ body{
     min-height: 300px;
     margin: auto;
     width: 40vw;
-    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    /* padding: 0.5rem 1.5rem 1.5rem 1.5rem; */
 }
 
 .input-text-patient-page:focus{

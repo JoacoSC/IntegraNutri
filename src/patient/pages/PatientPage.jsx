@@ -6,6 +6,7 @@ import { add, addDays, format, fromUnixTime, getUnixTime, sub } from "date-fns";
 import queryString from "query-string";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
+import { faker } from '@faker-js/faker';
 
 
 import { useForm } from "../../hooks";
@@ -28,7 +29,8 @@ import {
 } from "../../store/currentPatient";
 
 import { AppLayout } from "../../layout/AppLayout";
-import { GirlsFromBirthToFiveYears } from "../../data";
+import { GirlsFromBirthToTwoYears, PatientData } from "../../data";
+import { ModalUpdatePatientValues } from "../../ui/ModalUpdatePatientValues";
 
 
 export const PatientPage = () => {
@@ -48,27 +50,79 @@ export const PatientPage = () => {
       unixBirthday
     } = useSelector((state) => state.currentPatient);
 
-    const [userData, setUserData] = useState({
-        labels: GirlsFromBirthToFiveYears.map( (data) => data.months ),
+    const [showHideReferenceChart, setShowHideReferenceChart] = useState(true)
+
+    const [referenceData, setReferenceData] = useState({
+        labels: GirlsFromBirthToTwoYears.map( (data) => data.months ),
         datasets: [
             {
-                label: "-2DE",
-                data: GirlsFromBirthToFiveYears.map( (data) => data.Minus2DE ),
-                borderColor: '#00AEEF',
-                backgroundColor: '#00AEEF',
+                label: "-2DE (Kg)",
+                data: GirlsFromBirthToTwoYears.map( (data) => data.Minus2DE ),
+                borderColor: 'rgba(0,174,239, 0.3)',
+                backgroundColor: 'rgba(0,174,239, 0.3)',
+                pointRadius: 1,
+            },
+            {
+                label: "-1DE (Kg)",
+                data: GirlsFromBirthToTwoYears.map( (data) => data.Minus1DE ),
+                borderColor: 'rgba(237,2,140, 0.3)',
+                backgroundColor: 'rgba(237,2,140, 0.3)',
+                pointRadius: 1,
+            },
+            {
+                label: "Mediana (Kg)",
+                data: GirlsFromBirthToTwoYears.map( (data) => data.Median ),
+                borderColor: 'rgba(35,31,32, 0.3)',
+                backgroundColor: 'rgba(35,31,32, 0.3)',
+                pointRadius: 1,
+            },
+            {
+                label: "+1DE (Kg)",
+                data: GirlsFromBirthToTwoYears.map( (data) => data.Plus1DE ),
+                borderColor: 'rgba(237,2,140, 0.3)',
+                backgroundColor: 'rgba(237,2,140, 0.3)',
+                pointRadius: 1,
+            },
+            {
+                label: "+2DE (Kg)",
+                data: GirlsFromBirthToTwoYears.map( (data) => data.Plus2DE ),
+                borderColor: 'rgba(0,174,239, 0.3)',
+                backgroundColor: 'rgba(0,174,239, 0.3)',
+                pointRadius: 1,
             },
         ]
     });
+
+    const [userData, setUserData] = useState({
+        labels: [ '1 dia','2 semanas','3 semanas','1 mes','2 meses','3 meses','4 meses','6 meses','1 año' ],
+        datasets: [
+            
+            {
+                label: "P/E del paciente (Kg)",
+                data: [ 3.2, 3.4, 3.7, 3.9, 4.5, 4.8, 5.3, 5.8, 7.2 ],
+                borderColor: '#F58220',
+                backgroundColor: '#F58220',
+            },
+        ]
+    });
+
+    // TODO:
+    // TODO:
+    // TODO:
+    // TODO:
+    // TODO:
+    // DEBERIA PONER UNA ALERTA EN ALGÚN LUGAR DE LA TARJETA DEL PACIENTE, QUE SEGÚN EL PESO, TALLA Y EDAD,
+    // ME DIGA SI EL PACIENTE TIENE OBESIDAD, POR EJEMPLO.
 
     const options = {
         maintainAspectRatio : false,
         plugins: {
         legend: {
-            position: 'top',
+            position: 'bottom',
         },
         title: {
             display: true,
-            text: 'Gráfico P/E del paciente',
+            text: 'Gráfico P/E del paciente (0 a 2 años)',
         },
         },
     };
@@ -83,7 +137,7 @@ export const PatientPage = () => {
         let y2 = date.getFullYear();
         let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         if (d1 > d2) {
-            d2 = d2 + month[m2 - 1];
+            d2 = d2 + month[m2];
             m2 = m2 - 1;
         }
         if (m1 > m2) {
@@ -93,9 +147,16 @@ export const PatientPage = () => {
         let d = d2 - d1;
         let m = m2 - m1;
         let y = y2 - y1;
-        return y + " años " + m + " meses " + d + " días";
+        if( y === 0 ){
+            
+            return m + " meses " + d + " días";
+        }else{
+            return y + " años " + m + " meses " + d + " días";
+        }
     }
 
+    const age = calculateAge();
+    
     const defaultPatient = {
         unixAge: 0,
         weight: 0,
@@ -182,6 +243,10 @@ export const PatientPage = () => {
         dispatch( startUpdatingCurrentPatientStature( uid, patientID, formStature ) )
     }
 
+    const onShowHideReferenceChart = () => {
+        setShowHideReferenceChart( !showHideReferenceChart )
+    }
+
     return (
       <>
         <AppLayout>
@@ -241,20 +306,16 @@ export const PatientPage = () => {
                         />
                     </svg>
                     </div>
-                    <div className="weight-title">Peso</div>
-                    <form className="form-style" onSubmit={onWeightSubmit}>
-                    <div className="weight">
-                        <input
-                        className="weight-value"
-                        name="formWeight"
-                        type="text"
-                        defaultValue={weight}
-                        onChange={onInputChange}
-                        readOnly={ !isNutritionistStatus }
-                        />
-                        <div className="weight-kg">Kg</div>
+                    <div className="weight-title">
+                        Peso
+                        <span className="weight-indicator-panel"><p>Obesidad</p></span>
                     </div>
-                    </form>
+                    <div className="weight">
+                        <p className= "weight-value"> { weight } </p>
+                        <div className="weight-kg">Kg</div>
+                        <ModalUpdatePatientValues type='peso' age={ age } />
+                    </div>
+                    
                 </div>
                 <div className="patient-stature">
                     <div className="stature-icon">
@@ -273,19 +334,11 @@ export const PatientPage = () => {
                     </svg>
                     </div>
                     <div className="stature-title">Talla</div>
-                    <form className="form-style" onSubmit={onStatureSubmit}>
                     <div className="stature">
-                        <input
-                        className="stature-value"
-                        name="formStature"
-                        type="text"
-                        defaultValue={stature}
-                        onChange={onInputChange}
-                        readOnly={ !isNutritionistStatus }
-                        />
+                        <p className= "stature-value"> { stature } </p>
                         <div className="stature-cm">Cm</div>
+                        <ModalUpdatePatientValues type='estatura' age={ age }/>
                     </div>
-                    </form>
                 </div>
                 <div className="patient-age">
                     <div className="age-icon">
@@ -455,6 +508,12 @@ export const PatientPage = () => {
                     <div className="accordion-content">
                         <div className="canvas">
                             <Line data={ userData } options={ options } />
+
+                        </div>
+                        <button className="btn-save-changes" type="button" onClick={ onShowHideReferenceChart }>
+                        </button>
+                        <div className="canvas" hidden={ showHideReferenceChart }>
+                            <Line data={ referenceData } options={ options } />
 
                         </div>
                     </div>

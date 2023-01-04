@@ -120,14 +120,14 @@ export const ModalNewPatient = () => {
                             <label className="input-label">Email</label>
                             <input className="input-text-style" type="email" name="email" onChange={ onInputChange }/>
                         </div>
-                        <div className="form-item">
-                            <label className="input-label">Password</label>
-                            <input className="input-text-style" type="text" name="password" value={ password } onChange={ onInputChange }/>
-                        </div>
-                        <div className="form-item">
-                            <label className="input-label">UID</label>
-                            <input className="input-text-style" type="text" name="uid" value={ uid } onChange={ onInputChange }/>
-                        </div>
+                        
+                            <label className="input-label" hidden>Password</label>
+                            <input className="input-text-style" hidden type="text" name="password" value={ password } onChange={ onInputChange }/>
+                        
+                        
+                            <label className="input-label" hidden>UID</label>
+                            <input className="input-text-style" hidden type="text" name="uid" value={ uid } onChange={ onInputChange }/>
+                        
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Región</label>
@@ -157,8 +157,6 @@ export const ModalNewPatient = () => {
                             <select className="select-style" name="gender" onChange={ onInputChange }>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
-                                <option value="No binario">No binario</option>
-                                <option value="Otro">Otro</option>
                             </select>
                         </div>
                         <div className="form-btn">
