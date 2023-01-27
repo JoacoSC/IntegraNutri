@@ -78,11 +78,13 @@ export const startUpdatingCurrentPatientIndications = ( uid, patientID, formIndi
 
     }
 }
-export const startUpdatingCurrentPatientWeight = ( uid, patientID, formWeight ) => {
+export const startUpdatingCurrentPatientWeight = ( uid, patientID, weightArray ) => {
     return async( dispatch ) => {
 
+        console.log(weightArray)
+
         const newPatientInfoToFirestore = {
-            weight: formWeight
+            weight: weightArray
         }
 
         const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );

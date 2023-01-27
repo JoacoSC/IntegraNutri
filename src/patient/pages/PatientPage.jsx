@@ -50,6 +50,8 @@ export const PatientPage = () => {
       unixBirthday
     } = useSelector((state) => state.currentPatient);
 
+    const weightLength = weight?.length;
+
     const [showHideReferenceChart, setShowHideReferenceChart] = useState(true)
 
     const [referenceData, setReferenceData] = useState({
@@ -311,9 +313,13 @@ export const PatientPage = () => {
                         <span className="weight-indicator-panel"><p>Obesidad</p></span>
                     </div>
                     <div className="weight">
-                        <p className= "weight-value"> { weight } </p>
+                        <p className= "weight-value"> {
+                            (weightLength > 0)
+                            ? weight[weightLength - 1].A
+                            : 'NaN'
+                        } </p>
                         <div className="weight-kg">Kg</div>
-                        <ModalUpdatePatientValues type='peso' age={ age } />
+                        <ModalUpdatePatientValues type='peso' age={ age } uid={ uid } patientID={ patientID } weight={ weight } />
                     </div>
                     
                 </div>

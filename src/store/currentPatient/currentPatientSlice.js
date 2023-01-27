@@ -61,7 +61,8 @@ export const currentPatientSlice = createSlice({
         },
 
         updateCurrentPatientWeight: (state,{ payload }) => {
-            state.weight = payload.formWeight;
+            console.log( payload )
+            state.weight = payload;
         },
 
         updateCurrentPatientStature: (state,{ payload }) => {
