@@ -66,7 +66,8 @@ export const currentPatientSlice = createSlice({
         },
 
         updateCurrentPatientStature: (state,{ payload }) => {
-            state.stature = payload.formStature;
+            console.log( payload )
+            state.stature = payload;
         },
 
         clearCurrentPatient: ( state ) => {

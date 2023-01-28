@@ -4,14 +4,14 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
-import { startUpdatingCurrentPatientWeight, updateCurrentPatientWeight } from '../store/currentPatient';
+import { startUpdatingCurrentPatientStature, startUpdatingCurrentPatientWeight, updateCurrentPatientStature, updateCurrentPatientWeight } from '../store/currentPatient';
 import './components';
 
-export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses NaN días', uid, patientID, weight }) => {
+export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses NaN días', uid, patientID, weight, stature }) => {
 
     const [openModal, setOpenModal] = useState(false);
 
-    const { weightForm, stature, onInputChange } = useForm();
+    const { weightForm, statureForm, onInputChange } = useForm();
 
     const dispatch = useDispatch();
 
@@ -23,8 +23,7 @@ export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses
         
 
         if(stature !== undefined){
-            console.log('Estatura: ', stature, 'Edad: ', age )
-            console.log('entre a stature')
+            updateStature()
         }
 
     }
@@ -34,6 +33,14 @@ export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses
         const newWeight = [ ...weight, { A: weightForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ]
         dispatch( updateCurrentPatientWeight( newWeight ) )
         dispatch( startUpdatingCurrentPatientWeight( uid, patientID, newWeight ) )
+    }
+
+    const updateStature = () => {
+        console.log(stature)
+        const newStature = [ ...stature, { A: statureForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ]
+        console.log(newStature)
+        dispatch( updateCurrentPatientStature( newStature ) )
+        dispatch( startUpdatingCurrentPatientStature( uid, patientID, newStature ) )
     }
     
 
@@ -84,7 +91,7 @@ export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses
                 closeTimeoutMS={500}
                 isOpen={ openModal }
                 ariaHideApp={false}
-                className="modal-container"
+                className="modal-weight-stature-container"
                 >
                 <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -96,7 +103,7 @@ export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses
                 </h1>
 
                 <form onSubmit={ onSubmit }>
-                    <div className="container-form" onSubmit={ onSubmit }>
+                    <div className="weight-stature-container-form" onSubmit={ onSubmit }>
 
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
@@ -110,7 +117,7 @@ export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses
                                     {
                                         (type === 'peso')
                                         ?   <input className="input-text-style" type="text" name="weightForm" onChange={ onInputChange }/>
-                                        :   <input className="input-text-style" type="text" name="stature" onChange={ onInputChange }/>
+                                        :   <input className="input-text-style" type="text" name="statureForm" onChange={ onInputChange }/>
                                     }
                             </div>
                             <div className="form-item w-50 pl-8">

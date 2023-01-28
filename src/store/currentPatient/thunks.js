@@ -78,24 +78,26 @@ export const startUpdatingCurrentPatientIndications = ( uid, patientID, formIndi
 
     }
 }
-export const startUpdatingCurrentPatientWeight = ( uid, patientID, weightArray ) => {
+export const startUpdatingCurrentPatientWeight = ( uid, patientID, newWeight ) => {
     return async( dispatch ) => {
 
-        console.log(weightArray)
+        console.log(newWeight)
 
         const newPatientInfoToFirestore = {
-            weight: weightArray
+            weight: newWeight
         }
 
         const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
         await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
     }
 }
-export const startUpdatingCurrentPatientStature = ( uid, patientID, formStature ) => {
+export const startUpdatingCurrentPatientStature = ( uid, patientID, newStature ) => {
     return async( dispatch ) => {
 
+        console.log(newStature)
+
         const newPatientInfoToFirestore = {
-            stature: formStature
+            stature: newStature
         }
 
         const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );

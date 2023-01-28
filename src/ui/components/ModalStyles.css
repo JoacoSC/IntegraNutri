@@ -160,3 +160,33 @@
 
 
 /* *********** New Consultation Modal ************ */
+
+/* *********** Weight/Stature Update Modal ************ */
+
+.modal-weight-stature-container{
+    display: grid;
+    grid-template-rows: auto auto;
+    position: absolute;
+    width: 70vw;
+    height: 40vh;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #EFF3FC;
+    border-radius: 20px 8px 8px 20px;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+    transition: all 500ms ease;
+}
+
+.weight-stature-container-form{
+    margin-left: 3rem;
+    margin-right: 3rem;
+    display: grid;
+    grid-template-rows: repeat(2, 5rem);
+    row-gap: 1rem;
+}
+
+/* *********** Weight/Stature Update Modal ************ */

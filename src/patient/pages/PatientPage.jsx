@@ -51,6 +51,8 @@ export const PatientPage = () => {
     } = useSelector((state) => state.currentPatient);
 
     const weightLength = weight?.length;
+    const statureLength = stature?.length;
+    console.log(statureLength)
 
     const [showHideReferenceChart, setShowHideReferenceChart] = useState(true)
 
@@ -232,18 +234,19 @@ export const PatientPage = () => {
         dispatch( updateCurrentPatientIndications({ formIndications }) )
         dispatch( startUpdatingCurrentPatientIndications( uid, patientID, formIndications ) )
     }
-    const onWeightSubmit = ( event ) => {
-        event.preventDefault();
+    // const onWeightSubmit = ( event ) => {
+    //     event.preventDefault();
 
-        dispatch( updateCurrentPatientWeight({ formWeight }) )
-        dispatch( startUpdatingCurrentPatientWeight( uid, patientID, formWeight ) )
-    }
-    const onStatureSubmit = ( event ) => {
-        event.preventDefault();
+    //     dispatch( updateCurrentPatientWeight({ formWeight }) )
+    //     dispatch( startUpdatingCurrentPatientWeight( uid, patientID, formWeight ) )
+    // }
 
-        dispatch( updateCurrentPatientStature({ formStature }) )
-        dispatch( startUpdatingCurrentPatientStature( uid, patientID, formStature ) )
-    }
+    // const onStatureSubmit = ( event ) => {
+    //     event.preventDefault();
+
+    //     dispatch( updateCurrentPatientStature({ formStature }) )
+    //     dispatch( startUpdatingCurrentPatientStature( uid, patientID, formStature ) )
+    // }
 
     const onShowHideReferenceChart = () => {
         setShowHideReferenceChart( !showHideReferenceChart )
@@ -341,9 +344,13 @@ export const PatientPage = () => {
                     </div>
                     <div className="stature-title">Talla</div>
                     <div className="stature">
-                        <p className= "stature-value"> { stature } </p>
+                        <p className= "stature-value"> { 
+                            (statureLength > 0)
+                            ? stature[statureLength - 1].A
+                            : 'NaN'
+                        } </p>
                         <div className="stature-cm">Cm</div>
-                        <ModalUpdatePatientValues type='estatura' age={ age }/>
+                        <ModalUpdatePatientValues type='estatura' age={ age } uid={ uid } patientID={ patientID } stature={ stature } />
                     </div>
                 </div>
                 <div className="patient-age">
