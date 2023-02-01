@@ -98,17 +98,41 @@ export const PatientPage = () => {
     });
 
     const [userData, setUserData] = useState({
-        labels: [ '1 dia','2 semanas','3 semanas','1 mes','2 meses','3 meses','4 meses','6 meses','1 año' ],
+        labels: 'A',
         datasets: [
             
             {
                 label: "P/E del paciente (Kg)",
-                data: [ 3.2, 3.4, 3.7, 3.9, 4.5, 4.8, 5.3, 5.8, 7.2 ],
+                data: 0,
                 borderColor: '#F58220',
                 backgroundColor: '#F58220',
             },
         ]
     });
+
+    const updateChart = () => {
+
+        setUserData({
+            labels: weight.map( (data) => data.B ),
+            datasets: [
+                
+                {
+                    label: "P/E del paciente (Kg)",
+                    data: weight.map( (data) => data.A ),
+                    borderColor: '#F58220',
+                    backgroundColor: '#F58220',
+                },
+            ]
+        })
+    }
+
+    useEffect(() => {
+
+        updateChart();
+
+    }, [weight])
+    
+
 
     // TODO:
     // TODO:
