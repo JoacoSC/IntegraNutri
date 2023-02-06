@@ -113,12 +113,12 @@ export const PatientPage = () => {
     const updateChart = () => {
 
         setUserData({
-            labels: weight.map( (data) => data.B ),
+            labels: weight?.map( (data) => data.B ),
             datasets: [
                 
                 {
                     label: "P/E del paciente (Kg)",
-                    data: weight.map( (data) => data.A ),
+                    data: weight?.map( (data) => data.A ),
                     borderColor: '#F58220',
                     backgroundColor: '#F58220',
                 },
@@ -543,12 +543,27 @@ export const PatientPage = () => {
                         Gráficos
                     </label>
                     <div className="accordion-content">
+                        <div className="calification-wrapper">
+                            <div className="calification-indicator-container">
+                                <p className="calification-title">Calificación: </p>
+                                <span className="calification-indicator-chart"><p>Obesidad</p></span>
+                            </div>
+                            <div className="show-reference-chart-container">
+                                <button className="btn-show-reference-chart" type="button" onClick={ onShowHideReferenceChart }>
+                                    <span className="btn-reference-title">Mostrar/Ocultar referencia</span>
+                                </button>                            
+                            </div>
+
+                        </div>
+
                         <div className="canvas">
                             <Line data={ userData } options={ options } />
 
                         </div>
-                        <button className="btn-save-changes" type="button" onClick={ onShowHideReferenceChart }>
-                        </button>
+                        
+                        <div className="reference-chart-title-container">
+                            <p className="reference-chart-title" hidden={ showHideReferenceChart }>Gráfico de referencia:</p>
+                        </div>
                         <div className="canvas" hidden={ showHideReferenceChart }>
                             <Line data={ referenceData } options={ options } />
 
