@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { add, addDays, format, fromUnixTime, getUnixTime, sub } from "date-fns";
+import { add, addDays, format, fromUnixTime, getUnixTime, set, sub } from "date-fns";
 import queryString from "query-string";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { faker } from '@faker-js/faker';
 
 
-import { useForm } from "../../hooks";
+import { useForm, useCalificationIndicator } from "../../hooks";
 import { startLogout } from "../../store/auth";
 import {
     startLoadingCurrentPatient,
@@ -49,10 +49,24 @@ export const PatientPage = () => {
       stature,
       unixBirthday
     } = useSelector((state) => state.currentPatient);
+    
+    const [lastWeight, setLastWeight] = useState(0);
+    const [lastStature, setLastStature] = useState(0);
 
     const weightLength = weight?.length;
     const statureLength = stature?.length;
-    console.log(statureLength)
+
+    // setLastWeight( weight[weight.length - 1].A )
+    // if( weight !== null && stature !== null ){
+    //     console.log(lastWeight)
+    // }
+
+    // console.log(lastWeight)
+    const nutritionalCalification = useCalificationIndicator(
+        lastWeight,
+        lastStature,
+        unixBirthday
+    );
 
     const [showHideReferenceChart, setShowHideReferenceChart] = useState(true)
 
@@ -128,20 +142,16 @@ export const PatientPage = () => {
 
     useEffect(() => {
 
-        updateChart();
+        updateChart();        
+        if( weight !== null && stature !== null ){
+            setLastWeight( weight[weight.length - 1].A )
+            setLastStature( stature[stature.length - 1].A )
+            
+            // console.log(lastWeight)
+        }
 
     }, [weight])
     
-
-
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO:
-    // DEBERIA PONER UNA ALERTA EN ALGÚN LUGAR DE LA TARJETA DEL PACIENTE, QUE SEGÚN EL PESO, TALLA Y EDAD,
-    // ME DIGA SI EL PACIENTE TIENE OBESIDAD, POR EJEMPLO.
-
     const options = {
         maintainAspectRatio : false,
         plugins: {
@@ -182,6 +192,8 @@ export const PatientPage = () => {
             return y + " años " + m + " meses " + d + " días";
         }
     }
+
+    
 
     const age = calculateAge();
     
@@ -276,6 +288,12 @@ export const PatientPage = () => {
         setShowHideReferenceChart( !showHideReferenceChart )
     }
 
+    const handleWeightToAgeCalificationIndicator = () => {
+        
+    }
+
+    
+
     return (
       <>
         <AppLayout>
@@ -283,6 +301,9 @@ export const PatientPage = () => {
                 <div className="logout">
                 <button className="btn-logout" type="button" onClick={onLogout}>
                     Cerrar sesión
+                </button>
+                <button className="btn-logout" type="button" onClick={handleWeightToAgeCalificationIndicator}>
+                    Try it
                 </button>
                 </div>
                 <div className="patient-card">
@@ -337,7 +358,7 @@ export const PatientPage = () => {
                     </div>
                     <div className="weight-title">
                         Peso
-                        <span className="weight-indicator-panel"><p>Obesidad</p></span>
+                        {/* <span className="weight-indicator-panel"><p>Obesidad</p></span> */}
                     </div>
                     <div className="weight">
                         <p className= "weight-value"> {
@@ -545,8 +566,8 @@ export const PatientPage = () => {
                     <div className="accordion-content">
                         <div className="calification-wrapper">
                             <div className="calification-indicator-container">
-                                <p className="calification-title">Calificación: </p>
-                                <span className="calification-indicator-chart"><p>Obesidad</p></span>
+                                <p className="calification-title">Calificación nutricional: </p>
+                                <span className="calification-indicator-chart"><p>{ nutritionalCalification.msg }</p></span>
                             </div>
                             <div className="show-reference-chart-container">
                                 <button className="btn-show-reference-chart" type="button" onClick={ onShowHideReferenceChart }>
