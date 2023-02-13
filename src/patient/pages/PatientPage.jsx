@@ -47,7 +47,8 @@ export const PatientPage = () => {
       indications,
       weight,
       stature,
-      unixBirthday
+      unixBirthday,
+      gender
     } = useSelector((state) => state.currentPatient);
     
     const [lastWeight, setLastWeight] = useState(0);
@@ -65,7 +66,8 @@ export const PatientPage = () => {
     const nutritionalCalification = useCalificationIndicator(
         lastWeight,
         lastStature,
-        unixBirthday
+        unixBirthday,
+        gender
     );
 
     const [showHideReferenceChart, setShowHideReferenceChart] = useState(true)
@@ -150,7 +152,7 @@ export const PatientPage = () => {
             // console.log(lastWeight)
         }
 
-    }, [weight])
+    }, [weight, stature])
     
     const options = {
         maintainAspectRatio : false,
