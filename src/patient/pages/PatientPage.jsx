@@ -162,7 +162,7 @@ export const PatientPage = () => {
         },
         title: {
             display: true,
-            text: 'Gráfico P/E del paciente (0 a 2 años)',
+            text: 'Gráfico P/E del paciente',
         },
         },
     };
@@ -303,9 +303,6 @@ export const PatientPage = () => {
                 <div className="logout">
                 <button className="btn-logout" type="button" onClick={onLogout}>
                     Cerrar sesión
-                </button>
-                <button className="btn-logout" type="button" onClick={handleWeightToAgeCalificationIndicator}>
-                    Try it
                 </button>
                 </div>
                 <div className="patient-card">
@@ -571,11 +568,6 @@ export const PatientPage = () => {
                                 <p className="calification-title">Calificación nutricional: </p>
                                 <span className="calification-indicator-chart"><p>{ nutritionalCalification.msg }</p></span>
                             </div>
-                            <div className="show-reference-chart-container">
-                                <button className="btn-show-reference-chart" type="button" onClick={ onShowHideReferenceChart }>
-                                    <span className="btn-reference-title">Mostrar/Ocultar referencia</span>
-                                </button>                            
-                            </div>
 
                         </div>
 
@@ -583,6 +575,11 @@ export const PatientPage = () => {
                             <Line data={ userData } options={ options } />
 
                         </div>
+                            <div className="show-reference-chart-container">
+                                <button className="btn-show-reference-chart" type="button" onClick={ onShowHideReferenceChart }>
+                                    <span className="btn-reference-title">Mostrar/Ocultar referencia</span>
+                                </button>                            
+                            </div>
                         
                         <div className="reference-chart-title-container">
                             <p className="reference-chart-title" hidden={ showHideReferenceChart }>Gráfico de referencia:</p>

@@ -987,24 +987,29 @@ body{
 
 .calification-wrapper{
     display: flex;
-    margin: 2rem 4rem 1rem 4rem;
+    margin: 1.5rem 3.5rem 0.5rem 2rem;
 
 }
 .calification-indicator-container{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
 }
 
 .show-reference-chart-container{
-    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0 0.5rem 0;
 }
 
 .calification-title{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding: 0.5rem;
     font-family: "Metropolis", sans-serif;
     font-weight: 600;
     font-size: 1rem;
@@ -1012,10 +1017,10 @@ body{
 
 .calification-indicator-chart{
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     padding: 0.4rem 0.3rem 0.3rem 0.3rem;
-    width: 100px;
     font-family: "Metropolis", sans-serif;
     font-weight: 500;
     font-size: 1rem;
