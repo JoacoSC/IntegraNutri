@@ -22,7 +22,19 @@ export const ModalNewPatient = () => {
 
     const [openModal, setOpenModal] = useState(false);
 
-    const { name, fatherName, motherName, birthday, email, region, city, address, phone, gender, onInputChange } = useForm();
+    const {
+        name,
+        fatherName,
+        motherName,
+        birthday,
+        email,
+        region = 'Region de Valparaiso',
+        city = 'Llay llay',
+        address,
+        phone,
+        gender = 'Femenino',
+        onInputChange
+    } = useForm();
 
     const { isValid, rut, updateRut } = useRut();
 
@@ -53,13 +65,11 @@ export const ModalNewPatient = () => {
 
         const unixBirthday = getUnixTime( formattedBirthday );
 
-        // const nextConsultation = getUnixTime(set( new Date(), { hours: 18, minutes: 30, seconds: 0, miliseconds: 0} ));
-
         console.log(isValid)
 
         if ( !isValid ) return;
 
-        dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender, nextConsultation }) )
+        dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
 
     }
 
@@ -132,14 +142,14 @@ export const ModalNewPatient = () => {
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Región</label>
                                 <select className="select-style" name="region" onChange={ onInputChange }>
-                                    <option value="Region de Valparaiso">Region de Valparaiso</option>
+                                    <option value="Region de Valparaiso" selected>Region de Valparaiso</option>
                                     <option value="Region Metropolitana">Region Metropolitana</option>
                                 </select>
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Comuna</label>
                                 <select className="select-style" name="city" onChange={ onInputChange }>
-                                    <option value="Llay llay">Llay llay</option>
+                                    <option value="Llay llay" selected>Llay llay</option>
                                     <option value="San Felipe">San felipe</option>
                                 </select>
                             </div>      
@@ -155,7 +165,7 @@ export const ModalNewPatient = () => {
                         <div className="form-item">
                             <label className="input-label">Género</label>
                             <select className="select-style" name="gender" onChange={ onInputChange }>
-                                <option value="Femenino">Femenino</option>
+                                <option value="Femenino" selected>Femenino</option>
                                 <option value="Masculino">Masculino</option>
                             </select>
                         </div>

@@ -95,7 +95,17 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
             gender,
             isNutritionist: false,
             emailActivated: false,
-            nextConsultation,
+            nextConsultation: null,
+            weight: [{
+                A: null,
+                B: null,
+                C: null
+            }],
+            stature: [{
+                A: null,
+                B: null,
+                C: null
+            }],
         }
 
         console.log(newUser)

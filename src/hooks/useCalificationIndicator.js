@@ -1433,527 +1433,527 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     const girlsPTfrom0to1 = () => {
 
         // *** Sobrepeso ***
-        if( stature > 45.0 && weight >= 2.7 && weight < 3.0 ){
+        if( stature >= 45.0 && stature < 45.5 && weight >= 2.7 && weight < 3.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 45.5 && weight >= 2.8 && weight < 3.1 ){
+        if( stature >= 45.5 && stature < 46.0 && weight >= 2.8 && weight < 3.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 46.0 && weight >= 2.9 && weight < 3.2 ){
+        if( stature >= 46.0 && stature < 46.5 && weight >= 2.9 && weight < 3.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 46.5 && weight >= 3.0 && weight < 3.3 ){
+        if( stature >= 46.5 && stature < 47.0 && weight >= 3.0 && weight < 3.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 47.0 && weight >= 3.1 && weight < 3.4 ){
+        if( stature >= 47.0 && stature < 47.5 && weight >= 3.1 && weight < 3.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 47.5 && weight >= 3.2 && weight < 3.5 ){
+        if( stature >= 47.5 && stature < 48.0 && weight >= 3.2 && weight < 3.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 48.0 && weight >= 3.3 && weight < 3.6 ){
+        if( stature >= 48.0 && stature < 48.5 && weight >= 3.3 && weight < 3.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 48.5 && weight >= 3.4 && weight < 3.7 ){
+        if( stature >= 48.5 && stature < 49.0 && weight >= 3.4 && weight < 3.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 49.0 && weight >= 3.5 && weight < 3.8 ){
+        if( stature >= 49.0 && stature < 49.5 && weight >= 3.5 && weight < 3.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 49.5 && weight >= 3.6 && weight < 3.9 ){
+        if( stature >= 49.5 && stature < 50.0 && weight >= 3.6 && weight < 3.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 50.0 && weight >= 3.7 && weight < 4.0 ){
+        if( stature >= 50.0 && stature < 50.5 && weight >= 3.7 && weight < 4.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 50.5 && weight >= 3.8 && weight < 4.2 ){
+        if( stature >= 50.5 && stature < 51.0 && weight >= 3.8 && weight < 4.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 51.0 && weight >= 3.9 && weight < 4.3 ){
+        if( stature >= 51.0 && stature < 51.5 && weight >= 3.9 && weight < 4.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 51.5 && weight >= 4.0 && weight < 4.4 ){
+        if( stature >= 51.5 && stature < 52.0 && weight >= 4.0 && weight < 4.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 52.0 && weight >= 4.2 && weight < 4.6 ){
+        if( stature >= 52.0 && stature < 52.5 && weight >= 4.2 && weight < 4.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 52.5 && weight >= 4.3 && weight < 4.7 ){
+        if( stature >= 52.5 && stature < 53.0 && weight >= 4.3 && weight < 4.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 53.0 && weight >= 4.4 && weight < 4.9 ){
+        if( stature >= 53.0 && stature < 53.5 && weight >= 4.4 && weight < 4.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 53.5 && weight >= 4.6 && weight < 5.0 ){
+        if( stature >= 53.5 && stature < 54.0 && weight >= 4.6 && weight < 5.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 54.0 && weight >= 4.7 && weight < 5.2 ){
+        if( stature >= 54.0 && stature < 54.5 && weight >= 4.7 && weight < 5.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 54.5 && weight >= 4.8 && weight < 5.3 ){
+        if( stature >= 54.5 && stature < 55.0 && weight >= 4.8 && weight < 5.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 55.0 && weight >= 5.0 && weight < 5.5 ){
+        if( stature >= 55.0 && stature < 55.5 && weight >= 5.0 && weight < 5.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 55.5 && weight >= 5.1 && weight < 5.7 ){
+        if( stature >= 55.5 && stature < 56.0 && weight >= 5.1 && weight < 5.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 56.0 && weight >= 5.3 && weight < 5.8 ){
+        if( stature >= 56.0 && stature < 56.5 && weight >= 5.3 && weight < 5.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 56.5 && weight >= 5.4 && weight < 6.0 ){
+        if( stature >= 56.5 && stature < 57.0 && weight >= 5.4 && weight < 6.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 57.0 && weight >= 5.6 && weight < 6.1 ){
+        if( stature >= 57.0 && stature < 57.5 && weight >= 5.6 && weight < 6.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 57.5 && weight >= 5.7 && weight < 6.3 ){
+        if( stature >= 57.5 && stature < 58.0 && weight >= 5.7 && weight < 6.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 58.0 && weight >= 5.9 && weight < 6.5 ){
+        if( stature >= 58.0 && stature < 58.5 && weight >= 5.9 && weight < 6.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 58.5 && weight >= 6.0 && weight < 6.6 ){
+        if( stature >= 58.5 && stature < 59.0 && weight >= 6.0 && weight < 6.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 59.0 && weight >= 6.2 && weight < 6.8 ){
+        if( stature >= 59.0 && stature < 59.5 && weight >= 6.2 && weight < 6.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 59.5 && weight >= 6.3 && weight < 6.9 ){
+        if( stature >= 59.5 && stature < 60.0 && weight >= 6.3 && weight < 6.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 60.0 && weight >= 6.4 && weight < 7.1 ){
+        if( stature >= 60.0 && stature < 60.5 && weight >= 6.4 && weight < 7.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 60.5 && weight >= 6.6 && weight < 7.3 ){
+        if( stature >= 60.5 && stature < 61.0 && weight >= 6.6 && weight < 7.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 61.0 && weight >= 6.7 && weight < 7.4 ){
+        if( stature >= 61.0 && stature < 61.5 && weight >= 6.7 && weight < 7.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 61.5 && weight >= 6.9 && weight < 7.6 ){
+        if( stature >= 61.5 && stature < 62.0 && weight >= 6.9 && weight < 7.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 62.0 && weight >= 7.0 && weight < 7.7 ){
+        if( stature >= 62.0 && stature < 62.5 && weight >= 7.0 && weight < 7.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 62.5 && weight >= 7.1 && weight < 7.8 ){
+        if( stature >= 62.5 && stature < 63.0 && weight >= 7.1 && weight < 7.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 63.0 && weight >= 7.3 && weight < 8.0 ){
+        if( stature >= 63.0 && stature < 63.5 && weight >= 7.3 && weight < 8.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 63.5 && weight >= 7.4 && weight < 8.1 ){
+        if( stature >= 63.5 && stature < 64.0 && weight >= 7.4 && weight < 8.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 64.0 && weight >= 7.5 && weight < 8.3 ){
+        if( stature >= 64.0 && stature < 64.5 && weight >= 7.5 && weight < 8.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 64.5 && weight >= 7.6 && weight < 8.4 ){
+        if( stature >= 64.5 && stature < 65.0 && weight >= 7.6 && weight < 8.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 65.0 && weight >= 7.8 && weight < 8.6 ){
+        if( stature >= 65.0 && stature < 65.5 && weight >= 7.8 && weight < 8.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 65.5 && weight >= 7.9 && weight < 8.7 ){
+        if( stature >= 65.5 && stature < 66.0 && weight >= 7.9 && weight < 8.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 66.0 && weight >= 8.0 && weight < 8.8 ){
+        if( stature >= 66.0 && stature < 66.5 && weight >= 8.0 && weight < 8.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 66.5 && weight >= 8.1 && weight < 9.0 ){
+        if( stature >= 66.5 && stature < 67.0 && weight >= 8.1 && weight < 9.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 67.0 && weight >= 8.3 && weight < 9.1 ){
+        if( stature >= 67.0 && stature < 67.5 && weight >= 8.3 && weight < 9.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 67.5 && weight >= 8.4 && weight < 9.2 ){
+        if( stature >= 67.5 && stature < 68.0 && weight >= 8.4 && weight < 9.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 68.0 && weight >= 8.5 && weight < 9.4 ){
+        if( stature >= 68.0 && stature < 68.5 && weight >= 8.5 && weight < 9.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 68.5 && weight >= 8.6 && weight < 9.5 ){
+        if( stature >= 68.5 && stature < 69.0 && weight >= 8.6 && weight < 9.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 69.0 && weight >= 8.7 && weight < 9.6 ){
+        if( stature >= 69.0 && stature < 69.5 && weight >= 8.7 && weight < 9.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 69.5 && weight >= 8.8 && weight < 9.7 ){
+        if( stature >= 69.5 && stature < 70.0 && weight >= 8.8 && weight < 9.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 70.0 && weight >= 9.0 && weight < 9.9 ){
+        if( stature >= 70.0 && stature < 70.5 && weight >= 9.0 && weight < 9.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 70.5 && weight >= 9.1 && weight < 10.0 ){
+        if( stature >= 70.5 && stature < 71.0 && weight >= 9.1 && weight < 10.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 71.0 && weight >= 9.2 && weight < 10.1 ){
+        if( stature >= 71.0 && stature < 71.5 && weight >= 9.2 && weight < 10.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 71.5 && weight >= 9.3 && weight < 10.2 ){
+        if( stature >= 71.5 && stature < 72.0 && weight >= 9.3 && weight < 10.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 72.0 && weight >= 9.4 && weight < 10.3 ){
+        if( stature >= 72.0 && stature < 72.5 && weight >= 9.4 && weight < 10.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 72.5 && weight >= 9.5 && weight < 10.5 ){
+        if( stature >= 72.5 && stature < 73.0 && weight >= 9.5 && weight < 10.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 73.0 && weight >= 9.6 && weight < 10.6 ){
+        if( stature >= 73.0 && stature < 73.5 && weight >= 9.6 && weight < 10.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 73.5 && weight >= 9.7 && weight < 10.7 ){
+        if( stature >= 73.5 && stature < 74.0 && weight >= 9.7 && weight < 10.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 74.0 && weight >= 9.8 && weight < 10.8 ){
+        if( stature >= 74.0 && stature < 74.5 && weight >= 9.8 && weight < 10.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 74.5 && weight >= 9.9 && weight < 10.9 ){
+        if( stature >= 74.5 && stature < 75.0 && weight >= 9.9 && weight < 10.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 75.0 && weight >= 10.0 && weight < 11.0 ){
+        if( stature >= 75.0 && stature < 75.5 && weight >= 10.0 && weight < 11.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 75.5 && weight >= 10.1 && weight < 11.1 ){
+        if( stature >= 75.5 && stature < 76.0 && weight >= 10.1 && weight < 11.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 76.0 && weight >= 10.2 && weight < 11.2 ){
+        if( stature >= 76.0 && stature < 76.5 && weight >= 10.2 && weight < 11.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 76.5 && weight >= 10.3 && weight < 11.4 ){
+        if( stature >= 76.5 && stature < 77.0 && weight >= 10.3 && weight < 11.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 77.0 && weight >= 10.4 && weight < 11.5 ){
+        if( stature >= 77.0 && stature < 77.5 && weight >= 10.4 && weight < 11.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 77.5 && weight >= 10.5 && weight < 11.6 ){
+        if( stature >= 77.5 && stature < 78.0 && weight >= 10.5 && weight < 11.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 78.0 && weight >= 10.6 && weight < 11.7 ){
+        if( stature >= 78.0 && stature < 78.5 && weight >= 10.6 && weight < 11.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 78.5 && weight >= 10.7 && weight < 11.8 ){
+        if( stature >= 78.5 && stature < 79.0 && weight >= 10.7 && weight < 11.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 79.0 && weight >= 10.8 && weight < 11.9 ){
+        if( stature >= 79.0 && stature < 79.5 && weight >= 10.8 && weight < 11.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 79.5 && weight >= 10.9 && weight < 12.0 ){
+        if( stature >= 79.5 && stature < 80.0 && weight >= 10.9 && weight < 12.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 80.0 && weight >= 11.0 && weight < 12.1 ){
+        if( stature >= 80.0 && stature < 80.5 && weight >= 11.0 && weight < 12.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 80.5 && weight >= 11.2 && weight < 12.3 ){
+        if( stature >= 80.5 && stature < 81.0 && weight >= 11.2 && weight < 12.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 81.0 && weight >= 11.3 && weight < 12.4 ){
+        if( stature >= 81.0 && stature < 81.5 && weight >= 11.3 && weight < 12.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 81.5 && weight >= 11.4 && weight < 12.5 ){
+        if( stature >= 81.5 && stature < 82.0 && weight >= 11.4 && weight < 12.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 82.0 && weight >= 11.5 && weight < 12.6 ){
+        if( stature >= 82.0 && stature < 82.5 && weight >= 11.5 && weight < 12.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 82.5 && weight >= 11.6 && weight < 12.8 ){
+        if( stature >= 82.5 && stature < 83.0 && weight >= 11.6 && weight < 12.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 83.0 && weight >= 11.8 && weight < 12.9 ){
+        if( stature >= 83.0 && stature < 83.5 && weight >= 11.8 && weight < 12.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 83.5 && weight >= 11.9 && weight < 13.1 ){
+        if( stature >= 83.5 && stature < 84.0 && weight >= 11.9 && weight < 13.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 84.0 && weight >= 12.0 && weight < 13.2 ){
+        if( stature >= 84.0 && stature < 84.5 && weight >= 12.0 && weight < 13.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 84.5 && weight >= 12.1 && weight < 13.3 ){
+        if( stature >= 84.5 && stature < 85.0 && weight >= 12.1 && weight < 13.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 85.0 && weight >= 12.3 && weight < 13.5 ){
+        if( stature >= 85.0 && stature < 85.5 && weight >= 12.3 && weight < 13.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 85.5 && weight >= 12.4 && weight < 13.6 ){
+        if( stature >= 85.5 && stature < 86.0 && weight >= 12.4 && weight < 13.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 86.0 && weight >= 12.6 && weight < 13.8 ){
+        if( stature >= 86.0 && stature < 86.5 && weight >= 12.6 && weight < 13.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 86.5 && weight >= 12.7 && weight < 13.9 ){
+        if( stature >= 86.5 && stature < 87.0 && weight >= 12.7 && weight < 13.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 87.0 && weight >= 12.8 && weight < 14.1 ){
+        if( stature >= 87.0 && stature < 87.5 && weight >= 12.8 && weight < 14.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 87.5 && weight >= 13.0 && weight < 14.2 ){
+        if( stature >= 87.5 && stature < 88.0 && weight >= 13.0 && weight < 14.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 88.0 && weight >= 13.1 && weight < 14.4 ){
+        if( stature >= 88.0 && stature < 88.5 && weight >= 13.1 && weight < 14.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 88.5 && weight >= 13.2 && weight < 14.5 ){
+        if( stature >= 88.5 && stature < 89.0 && weight >= 13.2 && weight < 14.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 89.0 && weight >= 13.4 && weight < 14.7 ){
+        if( stature >= 89.0 && stature < 89.5 && weight >= 13.4 && weight < 14.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 89.5 && weight >= 13.5 && weight < 14.8 ){
+        if( stature >= 89.5 && stature < 90.0 && weight >= 13.5 && weight < 14.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 90.0 && weight >= 13.7 && weight < 15.0 ){
+        if( stature >= 90.0 && stature < 90.5 && weight >= 13.7 && weight < 15.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 90.5 && weight >= 13.8 && weight < 15.1 ){
+        if( stature >= 90.5 && stature < 91.0 && weight >= 13.8 && weight < 15.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 91.0 && weight >= 13.9 && weight < 15.3 ){
+        if( stature >= 91.0 && stature < 91.5 && weight >= 13.9 && weight < 15.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 91.5 && weight >= 14.1 && weight < 15.5 ){
+        if( stature >= 91.5 && stature < 92.0 && weight >= 14.1 && weight < 15.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 92.0 && weight >= 14.2 && weight < 15.6 ){
+        if( stature >= 92.0 && stature < 92.5 && weight >= 14.2 && weight < 15.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 92.5 && weight >= 14.3 && weight < 15.8 ){
+        if( stature >= 92.5 && stature < 93.0 && weight >= 14.3 && weight < 15.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 93.0 && weight >= 14.5 && weight < 15.9 ){
+        if( stature >= 93.0 && stature < 93.5 && weight >= 14.5 && weight < 15.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 93.5 && weight >= 14.6 && weight < 16.1 ){
+        if( stature >= 93.5 && stature < 94.0 && weight >= 14.6 && weight < 16.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 94.0 && weight >= 14.7 && weight < 16.2 ){
+        if( stature >= 94.0 && stature < 94.5 && weight >= 14.7 && weight < 16.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 94.5 && weight >= 14.9 && weight < 16.4 ){
+        if( stature >= 94.5 && stature < 95.0 && weight >= 14.9 && weight < 16.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 95.0 && weight >= 15.0 && weight < 16.5 ){
+        if( stature >= 95.0 && stature < 95.5 && weight >= 15.0 && weight < 16.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 95.5 && weight >= 15.2 && weight < 16.7 ){
+        if( stature >= 95.5 && stature < 96.0 && weight >= 15.2 && weight < 16.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 96.0 && weight >= 15.3 && weight < 16.8 ){
+        if( stature >= 96.0 && stature < 96.5 && weight >= 15.3 && weight < 16.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 96.5 && weight >= 15.4 && weight < 17.0 ){
+        if( stature >= 96.5 && stature < 97.0 && weight >= 15.4 && weight < 17.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 97.0 && weight >= 15.6 && weight < 17.1 ){
+        if( stature >= 97.0 && stature < 97.5 && weight >= 15.6 && weight < 17.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 97.5 && weight >= 15.7 && weight < 17.3 ){
+        if( stature >= 97.5 && stature < 98.0 && weight >= 15.7 && weight < 17.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 98.0 && weight >= 15.9 && weight < 17.5 ){
+        if( stature >= 98.0 && stature < 98.5 && weight >= 15.9 && weight < 17.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 98.5 && weight >= 16.0 && weight < 17.6 ){
+        if( stature >= 98.5 && stature < 99.0 && weight >= 16.0 && weight < 17.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 99.0 && weight >= 16.2 && weight < 17.8 ){
+        if( stature >= 99.0 && stature < 99.5 && weight >= 16.2 && weight < 17.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 99.5 && weight >= 16.3 && weight < 18.0 ){
+        if( stature >= 99.5 && stature > 100.5 && weight >= 16.3 && weight < 18.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 100.0 && weight >= 16.5 && weight < 18.1 ){
+        if( stature >= 100.0 && stature < 100.5 && weight >= 16.5 && weight < 18.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 100.5 && weight >= 16.6 && weight < 18.3 ){
+        if( stature >= 100.5 && stature < 101.0 && weight >= 16.6 && weight < 18.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 101.0 && weight >= 16.8 && weight < 18.5 ){
+        if( stature >= 101.0 && stature < 101.5 && weight >= 16.8 && weight < 18.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 101.5 && weight >= 17.0 && weight < 18.7 ){
+        if( stature >= 101.5 && stature < 102.0 && weight >= 17.0 && weight < 18.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 102.0 && weight >= 17.1 && weight < 18.9 ){
+        if( stature >= 102.0 && stature < 102.5 && weight >= 17.1 && weight < 18.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 102.5 && weight >= 17.3 && weight < 19.0 ){
+        if( stature >= 102.5 && stature < 103.0 && weight >= 17.3 && weight < 19.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 103.0 && weight >= 17.5 && weight < 19.2 ){
+        if( stature >= 103.0 && stature < 103.5 && weight >= 17.5 && weight < 19.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 103.5 && weight >= 17.6 && weight < 19.4 ){
+        if( stature >= 103.5 && stature < 104.0 && weight >= 17.6 && weight < 19.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 104.0 && weight >= 17.8 && weight < 19.6 ){
+        if( stature >= 104.0 && stature < 104.5 && weight >= 17.8 && weight < 19.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 104.5 && weight >= 18.0 && weight < 19.8 ){
+        if( stature >= 104.5 && stature < 105.0 && weight >= 18.0 && weight < 19.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 105.0 && weight >= 18.2 && weight < 20.0 ){
+        if( stature >= 105.0 && stature < 105.5 && weight >= 18.2 && weight < 20.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 105.5 && weight >= 18.4 && weight < 20.2 ){
+        if( stature >= 105.5 && stature < 106.0 && weight >= 18.4 && weight < 20.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 106.0 && weight >= 18.5 && weight < 20.5 ){
+        if( stature >= 106.0 && stature < 106.5 && weight >= 18.5 && weight < 20.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 106.5 && weight >= 18.7 && weight < 20.7 ){
+        if( stature >= 106.5 && stature < 107.0 && weight >= 18.7 && weight < 20.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 107.0 && weight >= 18.9 && weight < 20.9 ){
+        if( stature >= 107.0 && stature < 107.5 && weight >= 18.9 && weight < 20.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 107.5 && weight >= 19.1 && weight < 21.1 ){
+        if( stature >= 107.5 && stature < 108.0 && weight >= 19.1 && weight < 21.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 108.0 && weight >= 19.3 && weight < 21.3 ){
+        if( stature >= 108.0 && stature < 108.5 && weight >= 19.3 && weight < 21.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 108.5 && weight >= 19.5 && weight < 21.6 ){
+        if( stature >= 108.5 && stature < 109.0 && weight >= 19.5 && weight < 21.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 109.0 && weight >= 19.7 && weight < 21.8 ){
+        if( stature >= 109.0 && stature < 109.5 && weight >= 19.7 && weight < 21.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 109.5 && weight >= 20.0 && weight < 22.0 ){
+        if( stature >= 109.5 && stature < 110.0 && weight >= 20.0 && weight < 22.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 110.0 && weight >= 20.2 && weight < 22.3 ){
+        if( stature >= 110.0 && weight >= 20.2 && weight < 22.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
@@ -1962,527 +1962,527 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         // *** Obesidad ***
 
-        if( stature > 45.0 && weight >= 3.0 ){
+        if( stature >= 45.0 && stature < 45.5 && weight >= 3.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 45.5 && weight >= 3.1 ){
+        if( stature >= 45.5 && stature < 46.0 && weight >= 3.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 46.0 && weight >= 3.2 ){
+        if( stature >= 46.0 && stature < 46.5 && weight >= 3.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 46.5 && weight >= 3.3 ){
+        if( stature >= 46.5 && stature < 47.0 && weight >= 3.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 47.0 && weight >= 3.4 ){
+        if( stature >= 47.0 && stature < 47.5 && weight >= 3.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 47.5 && weight >= 3.5 ){
+        if( stature >= 47.5 && stature < 48.0 && weight >= 3.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 48.0 && weight >= 3.6 ){
+        if( stature >= 48.0 && stature < 48.5 && weight >= 3.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 48.5 && weight >= 3.7 ){
+        if( stature >= 48.5 && stature < 49.0 && weight >= 3.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 49.0 && weight >= 3.8 ){
+        if( stature >= 49.0 && stature < 49.5 && weight >= 3.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 49.5 && weight >= 3.9 ){
+        if( stature >= 49.5 && stature < 50.0 && weight >= 3.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 50.0 && weight >= 4.0 ){
+        if( stature >= 50.0 && stature < 50.5 && weight >= 4.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 50.5 && weight >= 4.2 ){
+        if( stature >= 50.5 && stature < 51.0 && weight >= 4.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 51.0 && weight >= 4.3 ){
+        if( stature >= 51.0 && stature < 51.5 && weight >= 4.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 51.5 && weight >= 4.4 ){
+        if( stature >= 51.5 && stature < 52.0 && weight >= 4.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 52.0 && weight >= 4.6 ){
+        if( stature >= 52.0 && stature < 52.5 && weight >= 4.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 52.5 && weight >= 4.7 ){
+        if( stature >= 52.5 && stature < 53.0 && weight >= 4.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 53.0 && weight >= 4.9 ){
+        if( stature >= 53.0 && stature < 53.5 && weight >= 4.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 53.5 && weight >= 5.0 ){
+        if( stature >= 53.5 && stature < 54.0 && weight >= 5.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 54.0 && weight >= 5.2 ){
+        if( stature >= 54.0 && stature < 54.5 && weight >= 5.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 54.5 && weight >= 5.3 ){
+        if( stature >= 54.5 && stature < 55.0 && weight >= 5.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 55.0 && weight >= 5.5 ){
+        if( stature >= 55.0 && stature < 55.5 && weight >= 5.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 55.5 && weight >= 5.7 ){
+        if( stature >= 55.5 && stature < 56.0 && weight >= 5.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 56.0 && weight >= 5.8 ){
+        if( stature >= 56.0 && stature < 56.5 && weight >= 5.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 56.5 && weight >= 6.0 ){
+        if( stature >= 56.5 && stature < 57.0 && weight >= 6.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 57.0 && weight >= 6.1 ){
+        if( stature >= 57.0 && stature < 57.5 && weight >= 6.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 57.5 && weight >= 6.3 ){
+        if( stature >= 57.5 && stature < 58.0 && weight >= 6.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 58.0 && weight >= 6.5 ){
+        if( stature >= 58.0 && stature < 58.5 && weight >= 6.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 58.5 && weight >= 6.6 ){
+        if( stature >= 58.5 && stature < 59.0 && weight >= 6.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 59.0 && weight >= 6.8 ){
+        if( stature >= 59.0 && stature < 59.5 && weight >= 6.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 59.5 && weight >= 6.9 ){
+        if( stature >= 59.5 && stature < 60.0 && weight >= 6.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 60.0 && weight >= 7.1 ){
+        if( stature >= 60.0 && stature < 60.5 && weight >= 7.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 60.5 && weight >= 7.3 ){
+        if( stature >= 60.5 && stature < 61.0 && weight >= 7.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 61.0 && weight >= 7.4 ){
+        if( stature >= 61.0 && stature < 61.5 && weight >= 7.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 61.5 && weight >= 7.6 ){
+        if( stature >= 61.5 && stature < 62.0 && weight >= 7.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 62.0 && weight >= 7.7 ){
+        if( stature >= 62.0 && stature < 62.5 && weight >= 7.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 62.5 && weight >= 7.8 ){
+        if( stature >= 62.5 && stature < 63.0 && weight >= 7.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 63.0 && weight >= 8.0 ){
+        if( stature >= 63.0 && stature < 63.5 && weight >= 8.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 63.5 && weight >= 8.1 ){
+        if( stature >= 63.5 && stature < 64.0 && weight >= 8.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 64.0 && weight >= 8.3 ){
+        if( stature >= 64.0 && stature < 64.5 && weight >= 8.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 64.5 && weight >= 8.4 ){
+        if( stature >= 64.5 && stature < 65.0 && weight >= 8.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 65.0 && weight >= 8.6 ){
+        if( stature >= 65.0 && stature < 65.5 && weight >= 8.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 65.5 && weight >= 8.7 ){
+        if( stature >= 65.5 && stature < 66.0 && weight >= 8.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 66.0 && weight >= 8.8 ){
+        if( stature >= 66.0 && stature < 66.5 && weight >= 8.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 66.5 && weight >= 9.0 ){
+        if( stature >= 66.5 && stature < 67.0 && weight >= 9.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 67.0 && weight >= 9.1 ){
+        if( stature >= 67.0 && stature < 67.5 && weight >= 9.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 67.5 && weight >= 9.2 ){
+        if( stature >= 67.5 && stature < 68.0 && weight >= 9.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 68.0 && weight >= 9.4 ){
+        if( stature >= 68.0 && stature < 68.5 && weight >= 9.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 68.5 && weight >= 9.5 ){
+        if( stature >= 68.5 && stature < 69.0 && weight >= 9.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 69.0 && weight >= 9.6 ){
+        if( stature >= 69.0 && stature < 69.5 && weight >= 9.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 69.5 && weight >= 9.7 ){
+        if( stature >= 69.5 && stature < 70.0 && weight >= 9.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 70.0 && weight >= 9.9 ){
+        if( stature >= 70.0 && stature < 70.5 && weight >= 9.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 70.5 && weight >= 10.0 ){
+        if( stature >= 70.5 && stature < 71.0 && weight >= 10.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 71.0 && weight >= 10.1 ){
+        if( stature >= 71.0 && stature < 71.5 && weight >= 10.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 71.5 && weight >= 10.2 ){
+        if( stature >= 71.5 && stature < 72.0 && weight >= 10.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 72.0 && weight >= 10.3 ){
+        if( stature >= 72.0 && stature < 72.5 && weight >= 10.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 72.5 && weight >= 10.5 ){
+        if( stature >= 72.5 && stature < 73.0 && weight >= 10.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 73.0 && weight >= 10.6 ){
+        if( stature >= 73.0 && stature < 73.5 && weight >= 10.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 73.5 && weight >= 10.7 ){
+        if( stature >= 73.5 && stature < 74.0 && weight >= 10.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 74.0 && weight >= 10.8 ){
+        if( stature >= 74.0 && stature < 74.5 && weight >= 10.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 74.5 && weight >= 10.9 ){
+        if( stature >= 74.5 && stature < 75.0 && weight >= 10.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 75.0 && weight >= 11.0 ){
+        if( stature >= 75.0 && stature < 75.5 && weight >= 11.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 75.5 && weight >= 11.1 ){
+        if( stature >= 75.5 && stature < 76.0 && weight >= 11.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 76.0 && weight >= 11.2 ){
+        if( stature >= 76.0 && stature < 76.5 && weight >= 11.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 76.5 && weight >= 11.4 ){
+        if( stature >= 76.5 && stature < 77.0 && weight >= 11.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 77.0 && weight >= 11.5 ){
+        if( stature >= 77.0 && stature < 77.5 && weight >= 11.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 77.5 && weight >= 11.6 ){
+        if( stature >= 77.5 && stature < 78.0 && weight >= 11.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 78.0 && weight >= 11.7 ){
+        if( stature >= 78.0 && stature < 78.5 && weight >= 11.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 78.5 && weight >= 11.8 ){
+        if( stature >= 78.5 && stature < 79.0 && weight >= 11.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 79.0 && weight >= 11.9 ){
+        if( stature >= 79.0 && stature < 79.5 && weight >= 11.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 79.5 && weight >= 12.0 ){
+        if( stature >= 79.5 && stature < 80.0 && weight >= 12.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 80.0 && weight >= 12.1 ){
+        if( stature >= 80.0 && stature < 80.5 && weight >= 12.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 80.5 && weight >= 12.3 ){
+        if( stature >= 80.5 && stature < 81.0 && weight >= 12.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 81.0 && weight >= 12.4 ){
+        if( stature >= 81.0 && stature < 81.5 && weight >= 12.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 81.5 && weight >= 12.5 ){
+        if( stature >= 81.5 && stature < 82.0 && weight >= 12.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 82.0 && weight >= 12.6 ){
+        if( stature >= 82.0 && stature < 82.5 && weight >= 12.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 82.5 && weight >= 12.8 ){
+        if( stature >= 82.5 && stature < 83.0 && weight >= 12.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 83.0 && weight >= 12.9 ){
+        if( stature >= 83.0 && stature < 83.5 && weight >= 12.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 83.5 && weight >= 13.1 ){
+        if( stature >= 83.5 && stature < 84.0 && weight >= 13.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 84.0 && weight >= 13.2 ){
+        if( stature >= 84.0 && stature < 84.5 && weight >= 13.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 84.5 && weight >= 13.3 ){
+        if( stature >= 84.5 && stature < 85.0 && weight >= 13.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 85.0 && weight >= 13.5 ){
+        if( stature >= 85.0 && stature < 85.5 && weight >= 13.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 85.5 && weight >= 13.6 ){
+        if( stature >= 85.5 && stature < 86.0 && weight >= 13.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 86.0 && weight >= 13.8 ){
+        if( stature >= 86.0 && stature < 86.5 && weight >= 13.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 86.5 && weight >= 13.9 ){
+        if( stature >= 86.5 && stature < 87.0 && weight >= 13.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 87.0 && weight >= 14.1 ){
+        if( stature >= 87.0 && stature < 87.5 && weight >= 14.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 87.5 && weight >= 14.2 ){
+        if( stature >= 87.5 && stature < 88.0 && weight >= 14.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 88.0 && weight >= 14.4 ){
+        if( stature >= 88.0 && stature < 88.5 && weight >= 14.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 88.5 && weight >= 14.5 ){
+        if( stature >= 88.5 && stature < 89.0 && weight >= 14.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 89.0 && weight >= 14.7 ){
+        if( stature >= 89.0 && stature < 89.5 && weight >= 14.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 89.5 && weight >= 14.8 ){
+        if( stature >= 89.5 && stature < 90.0 && weight >= 14.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 90.0 && weight >= 15.0 ){
+        if( stature >= 90.0 && stature < 90.5 && weight >= 15.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 90.5 && weight >= 15.1 ){
+        if( stature >= 90.5 && stature < 91.0 && weight >= 15.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 91.0 && weight >= 15.3 ){
+        if( stature >= 91.0 && stature < 91.5 && weight >= 15.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 91.5 && weight >= 15.5 ){
+        if( stature >= 91.5 && stature < 92.0 && weight >= 15.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 92.0 && weight >= 15.6 ){
+        if( stature >= 92.0 && stature < 92.5 && weight >= 15.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 92.5 && weight >= 15.8 ){
+        if( stature >= 92.5 && stature < 93.0 && weight >= 15.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 93.0 && weight >= 15.9 ){
+        if( stature >= 93.0 && stature < 93.5 && weight >= 15.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 93.5 && weight >= 16.1 ){
+        if( stature >= 93.5 && stature < 94.0 && weight >= 16.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 94.0 && weight >= 16.2 ){
+        if( stature >= 94.0 && stature < 94.5 && weight >= 16.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 94.5 && weight >= 16.4 ){
+        if( stature >= 94.5 && stature < 95.0 && weight >= 16.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 95.0 && weight >= 16.5 ){
+        if( stature >= 95.0 && stature < 95.5 && weight >= 16.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 95.5 && weight >= 16.7 ){
+        if( stature >= 95.5 && stature < 96.0 && weight >= 16.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 96.0 && weight >= 16.8 ){
+        if( stature >= 96.0 && stature < 96.5 && weight >= 16.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 96.5 && weight >= 17.0 ){
+        if( stature >= 96.5 && stature < 97.0 && weight >= 17.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 97.0 && weight >= 17.1 ){
+        if( stature >= 97.0 && stature < 97.5 && weight >= 17.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 97.5 && weight >= 17.3 ){
+        if( stature >= 97.5 && stature < 98.0 && weight >= 17.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 98.0 && weight >= 17.5 ){
+        if( stature >= 98.0 && stature < 98.5 && weight >= 17.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 98.5 && weight >= 17.6 ){
+        if( stature >= 98.5 && stature < 99.0 && weight >= 17.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 99.0 && weight >= 17.8 ){
+        if( stature >= 99.0 && stature < 99.5 && weight >= 17.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 99.5 && weight >= 18.0 ){
+        if( stature >= 99.5 && stature < 100.0 && weight >= 18.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 100.0 && weight >= 18.1 ){
+        if( stature >= 100.0 && stature < 100.5 && weight >= 18.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 100.5 && weight >= 18.3 ){
+        if( stature >= 100.5 && stature < 101.0 && weight >= 18.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 101.0 && weight >= 18.5 ){
+        if( stature >= 101.0 && stature < 101.5 && weight >= 18.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 101.5 && weight >= 18.7 ){
+        if( stature >= 101.5 && stature < 102.0 && weight >= 18.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 102.0 && weight >= 18.9 ){
+        if( stature >= 102.0 && stature < 102.5 && weight >= 18.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 102.5 && weight >= 19.0 ){
+        if( stature >= 102.5 && stature < 103.0 && weight >= 19.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 103.0 && weight >= 19.2 ){
+        if( stature >= 103.0 && stature < 103.5 && weight >= 19.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 103.5 && weight >= 19.4 ){
+        if( stature >= 103.5 && stature < 104.0 && weight >= 19.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 104.0 && weight >= 19.6 ){
+        if( stature >= 104.0 && stature < 104.5 && weight >= 19.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 104.5 && weight >= 19.8 ){
+        if( stature >= 104.5 && stature < 105.0 && weight >= 19.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 105.0 && weight >= 20.0 ){
+        if( stature >= 105.0 && stature < 105.5 && weight >= 20.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 105.5 && weight >= 20.2 ){
+        if( stature >= 105.5 && stature < 106.0 && weight >= 20.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 106.0 && weight >= 20.5 ){
+        if( stature >= 106.0 && stature < 106.5 && weight >= 20.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 106.5 && weight >= 20.7 ){
+        if( stature >= 106.5 && stature < 107.0 && weight >= 20.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 107.0 && weight >= 20.9 ){
+        if( stature >= 107.0 && stature < 107.5 && weight >= 20.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 107.5 && weight >= 21.1 ){
+        if( stature >= 107.5 && stature < 108.0 && weight >= 21.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 108.0 && weight >= 21.3 ){
+        if( stature >= 108.0 && stature < 108.5 && weight >= 21.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 108.5 && weight >= 21.6 ){
+        if( stature >= 108.5 && stature < 109.0 && weight >= 21.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 109.0 && weight >= 21.8 ){
+        if( stature >= 109.0 && stature < 109.5 && weight >= 21.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 109.5 && weight >= 22.0 ){
+        if( stature >= 109.5 && stature < 110.0 && weight >= 22.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 110.0 && weight >= 22.3 ){
+        if( stature >= 110.0 && weight >= 22.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
@@ -2493,527 +2493,527 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         // *** Desnutricion ***
 
-        if( stature > 45.0 && weight <= 2.1 ){
+        if( stature >= 45.0 && stature < 45.5 && weight <= 2.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 45.5 && weight <= 2.1 ){
+        if( stature >= 45.5 && stature < 46.0 && weight <= 2.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 46.0 && weight <= 2.2 ){
+        if( stature >= 46.0 && stature < 46.5 && weight <= 2.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 46.5 && weight <= 2.3 ){
+        if( stature >= 46.5 && stature < 47.0 && weight <= 2.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 47.0 && weight <= 2.4 ){
+        if( stature >= 47.0 && stature < 47.5 && weight <= 2.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 47.5 && weight <= 2.4 ){
+        if( stature >= 47.5 && stature < 48.0 && weight <= 2.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 48.0 && weight <= 2.5 ){
+        if( stature >= 48.0 && stature < 48.5 && weight <= 2.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 48.5 && weight <= 2.6 ){
+        if( stature >= 48.5 && stature < 49.0 && weight <= 2.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 49.0 && weight <= 2.6 ){
+        if( stature >= 49.0 && stature < 49.5 && weight <= 2.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 49.5 && weight <= 2.7 ){
+        if( stature >= 49.5 && stature < 50.0 && weight <= 2.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 50.0 && weight <= 2.8 ){
+        if( stature >= 50.0 && stature < 50.5 && weight <= 2.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 50.5 && weight <= 2.9 ){
+        if( stature >= 50.5 && stature < 51.0 && weight <= 2.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 51.0 && weight <= 3.0 ){
+        if( stature >= 51.0 && stature < 51.5 && weight <= 3.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 51.5 && weight <= 3.1 ){
+        if( stature >= 51.5 && stature < 52.0 && weight <= 3.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 52.0 && weight <= 3.2 ){
+        if( stature >= 52.0 && stature < 52.5 && weight <= 3.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 52.5 && weight <= 3.3 ){
+        if( stature >= 52.5 && stature < 53.0 && weight <= 3.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 53.0 && weight <= 3.4 ){
+        if( stature >= 53.0 && stature < 53.5 && weight <= 3.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 53.5 && weight <= 3.5 ){
+        if( stature >= 53.5 && stature < 54.0 && weight <= 3.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 54.0 && weight <= 3.6 ){
+        if( stature >= 54.0 && stature < 54.5 && weight <= 3.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 54.5 && weight <= 3.7 ){
+        if( stature >= 54.5 && stature < 55.0 && weight <= 3.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 55.0 && weight <= 3.8 ){
+        if( stature >= 55.0 && stature < 55.5 && weight <= 3.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 55.5 && weight <= 3.9 ){
+        if( stature >= 55.5 && stature < 56.0 && weight <= 3.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 56.0 && weight <= 4.0 ){
+        if( stature >= 56.0 && stature < 56.5 && weight <= 4.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 56.5 && weight <= 4.1 ){
+        if( stature >= 56.5 && stature < 57.0 && weight <= 4.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 57.0 && weight <= 4.3 ){
+        if( stature >= 57.0 && stature < 57.5 && weight <= 4.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 57.5 && weight <= 4.4 ){
+        if( stature >= 57.5 && stature < 58.0 && weight <= 4.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 58.0 && weight <= 4.5 ){
+        if( stature >= 58.0 && stature < 58.5 && weight <= 4.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 58.5 && weight <= 4.6 ){
+        if( stature >= 58.5 && stature < 59.0 && weight <= 4.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 59.0 && weight <= 4.7 ){
+        if( stature >= 59.0 && stature < 59.5 && weight <= 4.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 59.5 && weight <= 4.8 ){
+        if( stature >= 59.5 && stature < 60.0 && weight <= 4.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 60.0 && weight <= 4.9 ){
+        if( stature >= 60.0 && stature < 60.5 && weight <= 4.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 60.5 && weight <= 5.0 ){
+        if( stature >= 60.5 && stature < 61.0 && weight <= 5.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 61.0 && weight <= 5.1 ){
+        if( stature >= 61.0 && stature < 61.5 && weight <= 5.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 61.5 && weight <= 5.2 ){
+        if( stature >= 61.5 && stature < 62.0 && weight <= 5.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 62.0 && weight <= 5.3 ){
+        if( stature >= 62.0 && stature < 62.5 && weight <= 5.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 62.5 && weight <= 5.4 ){
+        if( stature >= 62.5 && stature < 63.0 && weight <= 5.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 63.0 && weight <= 5.5 ){
+        if( stature >= 63.0 && stature < 63.5 && weight <= 5.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 63.5 && weight <= 5.6 ){
+        if( stature >= 63.5 && stature < 64.0 && weight <= 5.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 64.0 && weight <= 5.7 ){
+        if( stature >= 64.0 && stature < 64.5 && weight <= 5.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 64.5 && weight <= 5.8 ){
+        if( stature >= 64.5 && stature < 65.0 && weight <= 5.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 65.0 && weight <= 5.9 ){
+        if( stature >= 65.0 && stature < 65.5 && weight <= 5.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 65.5 && weight <= 6.0 ){
+        if( stature >= 65.5 && stature < 66.0 && weight <= 6.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 66.0 && weight <= 6.1 ){
+        if( stature >= 66.0 && stature < 66.5 && weight <= 6.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 66.5 && weight <= 6.2 ){
+        if( stature >= 66.5 && stature < 67.0 && weight <= 6.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 67.0 && weight <= 6.3 ){
+        if( stature >= 67.0 && stature < 67.5 && weight <= 6.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 67.5 && weight <= 6.4 ){
+        if( stature >= 67.5 && stature < 68.0 && weight <= 6.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 68.0 && weight <= 6.5 ){
+        if( stature >= 68.0 && stature < 68.5 && weight <= 6.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 68.5 && weight <= 6.6 ){
+        if( stature >= 68.5 && stature < 69.0 && weight <= 6.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 69.0 && weight <= 6.7 ){
+        if( stature >= 69.0 && stature < 69.5 && weight <= 6.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 69.5 && weight <= 6.8 ){
+        if( stature >= 69.5 && stature < 70.0 && weight <= 6.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 70.0 && weight <= 6.9 ){
+        if( stature >= 70.0 && stature < 70.5 && weight <= 6.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 70.5 && weight <= 6.9 ){
+        if( stature >= 70.5 && stature < 71.0 && weight <= 6.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 71.0 && weight <= 7.0 ){
+        if( stature >= 71.0 && stature < 71.5 && weight <= 7.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 71.5 && weight <= 7.1 ){
+        if( stature >= 71.5 && stature < 72.0 && weight <= 7.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 72.0 && weight <= 7.2 ){
+        if( stature >= 72.0 && stature < 72.5 && weight <= 7.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 72.5 && weight <= 7.3 ){
+        if( stature >= 72.5 && stature < 73.0 && weight <= 7.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 73.0 && weight <= 7.4 ){
+        if( stature >= 73.0 && stature < 73.5 && weight <= 7.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 73.5 && weight <= 7.4 ){
+        if( stature >= 73.5 && stature < 74.0 && weight <= 7.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 74.0 && weight <= 7.5 ){
+        if( stature >= 74.0 && stature < 74.5 && weight <= 7.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 74.5 && weight <= 7.6 ){
+        if( stature >= 74.5 && stature < 75.0 && weight <= 7.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 75.0 && weight <= 7.7 ){
+        if( stature >= 75.0 && stature < 75.5 && weight <= 7.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 75.5 && weight <= 7.8 ){
+        if( stature >= 75.5 && stature < 76.0 && weight <= 7.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 76.0 && weight <= 7.8 ){
+        if( stature >= 76.0 && stature < 76.5 && weight <= 7.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 76.5 && weight <= 7.9 ){
+        if( stature >= 76.5 && stature < 77.0 && weight <= 7.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 77.0 && weight <= 8.0 ){
+        if( stature >= 77.0 && stature < 77.5 && weight <= 8.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 77.5 && weight <= 8.1 ){
+        if( stature >= 77.5 && stature < 78.0 && weight <= 8.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 78.0 && weight <= 8.2 ){
+        if( stature >= 78.0 && stature < 78.5 && weight <= 8.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 78.5 && weight <= 8.2 ){
+        if( stature >= 78.5 && stature < 79.0 && weight <= 8.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 79.0 && weight <= 8.3 ){
+        if( stature >= 79.0 && stature < 79.5 && weight <= 8.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 79.5 && weight <= 8.4 ){
+        if( stature >= 79.5 && stature < 80.0 && weight <= 8.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 80.0 && weight <= 8.5 ){
+        if( stature >= 80.0 && stature < 80.5 && weight <= 8.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 80.5 && weight <= 8.6 ){
+        if( stature >= 80.5 && stature < 81.0 && weight <= 8.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 81.0 && weight <= 8.7 ){
+        if( stature >= 81.0 && stature < 81.5 && weight <= 8.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 81.5 && weight <= 8.8 ){
+        if( stature >= 81.5 && stature < 82.0 && weight <= 8.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 82.0 && weight <= 8.8 ){
+        if( stature >= 82.0 && stature < 82.5 && weight <= 8.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 82.5 && weight <= 8.9 ){
+        if( stature >= 82.5 && stature < 83.0 && weight <= 8.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 83.0 && weight <= 9.0 ){
+        if( stature >= 83.0 && stature < 83.5 && weight <= 9.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 83.5 && weight <= 9.1 ){
+        if( stature >= 83.5 && stature < 84.0 && weight <= 9.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 84.0 && weight <= 9.2 ){
+        if( stature >= 84.0 && stature < 84.5 && weight <= 9.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 84.5 && weight <= 9.3 ){
+        if( stature >= 84.5 && stature < 85.0 && weight <= 9.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 85.0 && weight <= 9.4 ){
+        if( stature >= 85.0 && stature < 85.5 && weight <= 9.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 85.5 && weight <= 9.5 ){
+        if( stature >= 85.5 && stature < 86.0 && weight <= 9.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 86.0 && weight <= 9.7 ){
+        if( stature >= 86.0 && stature < 86.5 && weight <= 9.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 86.5 && weight <= 9.8 ){
+        if( stature >= 86.5 && stature < 87.0 && weight <= 9.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 87.0 && weight <= 9.9 ){
+        if( stature >= 87.0 && stature < 87.5 && weight <= 9.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 87.5 && weight <= 10.0 ){
+        if( stature >= 87.5 && stature < 88.0 && weight <= 10.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 88.0 && weight <= 10.1 ){
+        if( stature >= 88.0 && stature < 88.5 && weight <= 10.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 88.5 && weight <= 10.2 ){
+        if( stature >= 88.5 && stature < 89.0 && weight <= 10.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 89.0 && weight <= 10.3 ){
+        if( stature >= 89.0 && stature < 89.5 && weight <= 10.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 89.5 && weight <= 10.4 ){
+        if( stature >= 89.5 && stature < 90.0 && weight <= 10.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 90.0 && weight <= 10.5 ){
+        if( stature >= 90.0 && stature < 90.5 && weight <= 10.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 90.5 && weight <= 10.6 ){
+        if( stature >= 90.5 && stature < 91.0 && weight <= 10.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 91.0 && weight <= 10.7 ){
+        if( stature >= 91.0 && stature < 91.5 && weight <= 10.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 91.5 && weight <= 10.8 ){
+        if( stature >= 91.5 && stature < 92.0 && weight <= 10.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 92.0 && weight <= 10.9 ){
+        if( stature >= 92.0 && stature < 92.5 && weight <= 10.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 92.5 && weight <= 11.0 ){
+        if( stature >= 92.5 && stature < 93.0 && weight <= 11.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 93.0 && weight <= 11.1 ){
+        if( stature >= 93.0 && stature < 93.5 && weight <= 11.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 93.5 && weight <= 11.2 ){
+        if( stature >= 93.5 && stature < 94.0 && weight <= 11.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 94.0 && weight <= 11.3 ){
+        if( stature >= 94.0 && stature < 94.5 && weight <= 11.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 94.5 && weight <= 11.4 ){
+        if( stature >= 94.5 && stature < 95.0 && weight <= 11.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 95.0 && weight <= 11.5 ){
+        if( stature >= 95.0 && stature < 95.5 && weight <= 11.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 95.5 && weight <= 11.6 ){
+        if( stature >= 95.5 && stature < 96.0 && weight <= 11.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 96.0 && weight <= 11.7 ){
+        if( stature >= 96.0 && stature < 96.5 && weight <= 11.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 96.5 && weight <= 11.8 ){
+        if( stature >= 96.5 && stature < 97.0 && weight <= 11.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 97.0 && weight <= 12.0 ){
+        if( stature >= 97.0 && stature < 97.5 && weight <= 12.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 97.5 && weight <= 12.1 ){
+        if( stature >= 97.5 && stature < 98.0 && weight <= 12.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 98.0 && weight <= 12.2 ){
+        if( stature >= 98.0 && stature < 98.5 && weight <= 12.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 98.5 && weight <= 12.3 ){
+        if( stature >= 98.5 && stature < 99.0 && weight <= 12.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 99.0 && weight <= 12.4 ){
+        if( stature >= 99.0 && stature < 99.5 && weight <= 12.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 99.5 && weight <= 12.5 ){
+        if( stature >= 99.5 && stature < 100.0 && weight <= 12.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 100.0 && weight <= 12.6 ){
+        if( stature >= 100.0 && stature < 100.5 && weight <= 12.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 100.5 && weight <= 12.7 ){
+        if( stature >= 100.5 && stature < 101.0 && weight <= 12.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 101.0 && weight <= 12.8 ){
+        if( stature >= 101.0 && stature < 101.5 && weight <= 12.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 101.5 && weight <= 13.0 ){
+        if( stature >= 101.5 && stature < 102.0 && weight <= 13.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 102.0 && weight <= 13.1 ){
+        if( stature >= 102.0 && stature < 102.5 && weight <= 13.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 102.5 && weight <= 13.2 ){
+        if( stature >= 102.5 && stature < 103.0 && weight <= 13.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 103.0 && weight <= 13.3 ){
+        if( stature >= 103.0 && stature < 103.5 && weight <= 13.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 103.5 && weight <= 13.5 ){
+        if( stature >= 103.5 && stature < 104.0 && weight <= 13.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 104.0 && weight <= 13.6 ){
+        if( stature >= 104.0 && stature < 104.5 && weight <= 13.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 104.5 && weight <= 13.7 ){
+        if( stature >= 104.5 && stature < 105.0 && weight <= 13.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 105.0 && weight <= 13.8 ){
+        if( stature >= 105.0 && stature < 105.5 && weight <= 13.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 105.5 && weight <= 14.0 ){
+        if( stature >= 105.5 && stature < 106.0 && weight <= 14.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 106.0 && weight <= 14.1 ){
+        if( stature >= 106.0 && stature < 106.5 && weight <= 14.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 106.5 && weight <= 14.3 ){
+        if( stature >= 106.5 && stature < 107.0 && weight <= 14.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 107.0 && weight <= 14.4 ){
+        if( stature >= 107.0 && stature < 107.5 && weight <= 14.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 107.5 && weight <= 14.5 ){
+        if( stature >= 107.5 && stature < 108.0 && weight <= 14.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 108.0 && weight <= 14.7 ){
+        if( stature >= 108.0 && stature < 108.5 && weight <= 14.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 108.5 && weight <= 14.8 ){
+        if( stature >= 108.5 && stature < 109.0 && weight <= 14.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 109.0 && weight <= 15.0 ){
+        if( stature >= 109.0 && stature < 109.5 && weight <= 15.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 109.5 && weight <= 15.1 ){
+        if( stature >= 109.5 && stature < 110.0 && weight <= 15.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 110.0 && weight <= 15.3 ){
+        if( stature >= 110.0 && weight <= 15.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
@@ -3022,527 +3022,527 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         // *** Riesgo de Desnutrir ***
 
-        if( stature > 45.0 && weight > 2.1 && weight <= 2.3 ){
+        if( stature >= 45.0 && stature < 45.5 && weight > 2.1 && weight <= 2.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 45.5 && weight > 2.1 && weight <= 2.3 ){
+        if( stature >= 45.5 && stature < 46.0 && weight > 2.1 && weight <= 2.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 46.0 && weight > 2.2 && weight <= 2.4 ){
+        if( stature >= 46.0 && stature < 46.5 && weight > 2.2 && weight <= 2.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 46.5 && weight > 2.3 && weight <= 2.5 ){
+        if( stature >= 46.5 && stature < 47.0 && weight > 2.3 && weight <= 2.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 47.0 && weight > 2.4 && weight <= 2.6 ){
+        if( stature >= 47.0 && stature < 47.5 && weight > 2.4 && weight <= 2.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 47.5 && weight > 2.4 && weight <= 2.6 ){
+        if( stature >= 47.5 && stature < 48.0 && weight > 2.4 && weight <= 2.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 48.0 && weight > 2.5 && weight <= 2.7 ){
+        if( stature >= 48.0 && stature < 48.5 && weight > 2.5 && weight <= 2.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 48.5 && weight > 2.6 && weight <= 2.8 ){
+        if( stature >= 48.5 && stature < 49.0 && weight > 2.6 && weight <= 2.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 49.0 && weight > 2.6 && weight <= 2.9 ){
+        if( stature >= 49.0 && stature < 49.5 && weight > 2.6 && weight <= 2.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 49.5 && weight > 2.7 && weight <= 3.0 ){
+        if( stature >= 49.5 && stature < 50.0 && weight > 2.7 && weight <= 3.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 50.0 && weight > 2.8 && weight <= 3.1 ){
+        if( stature >= 50.0 && stature < 50.5 && weight > 2.8 && weight <= 3.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 50.5 && weight > 2.9 && weight <= 3.2 ){
+        if( stature >= 50.5 && stature < 51.0 && weight > 2.9 && weight <= 3.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 51.0 && weight > 3.0 && weight <= 3.3 ){
+        if( stature >= 51.0 && stature < 51.5 && weight > 3.0 && weight <= 3.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 51.5 && weight > 3.1 && weight <= 3.4 ){
+        if( stature >= 51.5 && stature < 52.0 && weight > 3.1 && weight <= 3.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 52.0 && weight > 3.2 && weight <= 3.5 ){
+        if( stature >= 52.0 && stature < 52.5 && weight > 3.2 && weight <= 3.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 52.5 && weight > 3.3 && weight <= 3.6 ){
+        if( stature >= 52.5 && stature < 53.0 && weight > 3.3 && weight <= 3.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 53.0 && weight > 3.4 && weight <= 3.7 ){
+        if( stature >= 53.0 && stature < 53.5 && weight > 3.4 && weight <= 3.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 53.5 && weight > 3.5 && weight <= 3.8 ){
+        if( stature >= 53.5 && stature < 54.0 && weight > 3.5 && weight <= 3.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 54.0 && weight > 3.6 && weight <= 3.9 ){
+        if( stature >= 54.0 && stature < 54.5 && weight > 3.6 && weight <= 3.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 54.5 && weight > 3.7 && weight <= 4.0 ){
+        if( stature >= 54.5 && stature < 55.0 && weight > 3.7 && weight <= 4.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 55.0 && weight > 3.8 && weight <= 4.2 ){
+        if( stature >= 55.0 && stature < 55.5 && weight > 3.8 && weight <= 4.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 55.5 && weight > 3.9 && weight <= 4.3 ){
+        if( stature >= 55.5 && stature < 56.0 && weight > 3.9 && weight <= 4.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 56.0 && weight > 4.0 && weight <= 4.4 ){
+        if( stature >= 56.0 && stature < 56.5 && weight > 4.0 && weight <= 4.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 56.5 && weight > 4.1 && weight <= 4.5 ){
+        if( stature >= 56.5 && stature < 57.0 && weight > 4.1 && weight <= 4.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 57.0 && weight > 4.3 && weight <= 4.6 ){
+        if( stature >= 57.0 && stature < 57.5 && weight > 4.3 && weight <= 4.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 57.5 && weight > 4.4 && weight <= 4.8 ){
+        if( stature >= 57.5 && stature < 58.0 && weight > 4.4 && weight <= 4.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 58.0 && weight > 4.5 && weight <= 4.9 ){
+        if( stature >= 58.0 && stature < 58.5 && weight > 4.5 && weight <= 4.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 58.5 && weight > 4.6 && weight <= 5.0 ){
+        if( stature >= 58.5 && stature < 59.0 && weight > 4.6 && weight <= 5.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 59.0 && weight > 4.7 && weight <= 5.1 ){
+        if( stature >= 59.0 && stature < 59.5 && weight > 4.7 && weight <= 5.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 59.5 && weight > 4.8 && weight <= 5.3 ){
+        if( stature >= 59.5 && stature < 60.0 && weight > 4.8 && weight <= 5.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 60.0 && weight > 4.9 && weight <= 5.4 ){
+        if( stature >= 60.0 && stature < 60.5 && weight > 4.9 && weight <= 5.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 60.5 && weight > 5.0 && weight <= 5.5 ){
+        if( stature >= 60.5 && stature < 61.0 && weight > 5.0 && weight <= 5.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 61.0 && weight > 5.1 && weight <= 5.6 ){
+        if( stature >= 61.0 && stature < 61.5 && weight > 5.1 && weight <= 5.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 61.5 && weight > 5.2 && weight <= 5.7 ){
+        if( stature >= 61.5 && stature < 62.0 && weight > 5.2 && weight <= 5.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 62.0 && weight > 5.3 && weight <= 5.8 ){
+        if( stature >= 62.0 && stature < 62.5 && weight > 5.3 && weight <= 5.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 62.5 && weight > 5.4 && weight <= 5.9 ){
+        if( stature >= 62.5 && stature < 63.0 && weight > 5.4 && weight <= 5.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 63.0 && weight > 5.5 && weight <= 6.0 ){
+        if( stature >= 63.0 && stature < 63.5 && weight > 5.5 && weight <= 6.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 63.5 && weight > 5.6 && weight <= 6.2 ){
+        if( stature >= 63.5 && stature < 64.0 && weight > 5.6 && weight <= 6.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 64.0 && weight > 5.7 && weight <= 6.3 ){
+        if( stature >= 64.0 && stature < 64.5 && weight > 5.7 && weight <= 6.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 64.5 && weight > 5.8 && weight <= 6.4 ){
+        if( stature >= 64.5 && stature < 65.0 && weight > 5.8 && weight <= 6.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 65.0 && weight > 5.9 && weight <= 6.5 ){
+        if( stature >= 65.0 && stature < 65.5 && weight > 5.9 && weight <= 6.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 65.5 && weight > 6.0 && weight <= 6.6 ){
+        if( stature >= 65.5 && stature < 66.0 && weight > 6.0 && weight <= 6.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 66.0 && weight > 6.1 && weight <= 6.7 ){
+        if( stature >= 66.0 && stature < 66.5 && weight > 6.1 && weight <= 6.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 66.5 && weight > 6.2 && weight <= 6.8 ){
+        if( stature >= 66.5 && stature < 67.0 && weight > 6.2 && weight <= 6.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 67.0 && weight > 6.3 && weight <= 6.9 ){
+        if( stature >= 67.0 && stature < 67.5 && weight > 6.3 && weight <= 6.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 67.5 && weight > 6.4 && weight <= 7.0 ){
+        if( stature >= 67.5 && stature < 68.0 && weight > 6.4 && weight <= 7.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 68.0 && weight > 6.5 && weight <= 7.1 ){
+        if( stature >= 68.0 && stature < 68.5 && weight > 6.5 && weight <= 7.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 68.5 && weight > 6.6 && weight <= 7.2 ){
+        if( stature >= 68.5 && stature < 69.0 && weight > 6.6 && weight <= 7.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 69.0 && weight > 6.7 && weight <= 7.3 ){
+        if( stature >= 69.0 && stature < 69.5 && weight > 6.7 && weight <= 7.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 69.5 && weight > 6.8 && weight <= 7.4 ){
+        if( stature >= 69.5 && stature < 70.0 && weight > 6.8 && weight <= 7.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 70.0 && weight > 6.9 && weight <= 7.5 ){
+        if( stature >= 70.0 && stature < 70.5 && weight > 6.9 && weight <= 7.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 70.5 && weight > 6.9 && weight <= 7.6 ){
+        if( stature >= 70.5 && stature < 71.0 && weight > 6.9 && weight <= 7.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 71.0 && weight > 7.0 && weight <= 7.7 ){
+        if( stature >= 71.0 && stature < 71.5 && weight > 7.0 && weight <= 7.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 71.5 && weight > 7.1 && weight <= 7.7 ){
+        if( stature >= 71.5 && stature < 72.0 && weight > 7.1 && weight <= 7.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 72.0 && weight > 7.2 && weight <= 7.8 ){
+        if( stature >= 72.0 && stature < 72.5 && weight > 7.2 && weight <= 7.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 72.5 && weight > 7.3 && weight <= 7.9 ){
+        if( stature >= 72.5 && stature < 73.0 && weight > 7.3 && weight <= 7.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 73.0 && weight > 7.4 && weight <= 8.0 ){
+        if( stature >= 73.0 && stature < 73.5 && weight > 7.4 && weight <= 8.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 73.5 && weight > 7.4 && weight <= 8.1 ){
+        if( stature >= 73.5 && stature < 74.0 && weight > 7.4 && weight <= 8.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 74.0 && weight > 7.5 && weight <= 8.2 ){
+        if( stature >= 74.0 && stature < 74.5 && weight > 7.5 && weight <= 8.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 74.5 && weight > 7.6 && weight <= 8.3 ){
+        if( stature >= 74.5 && stature < 75.0 && weight > 7.6 && weight <= 8.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 75.0 && weight > 7.7 && weight <= 8.4 ){
+        if( stature >= 75.0 && stature < 75.5 && weight > 7.7 && weight <= 8.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 75.5 && weight > 7.8 && weight <= 8.5 ){
+        if( stature >= 75.5 && stature < 76.0 && weight > 7.8 && weight <= 8.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 76.0 && weight > 7.8 && weight <= 8.5 ){
+        if( stature >= 76.0 && stature < 76.5 && weight > 7.8 && weight <= 8.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 76.5 && weight > 7.9 && weight <= 8.6 ){
+        if( stature >= 76.5 && stature < 77.0 && weight > 7.9 && weight <= 8.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 77.0 && weight > 8.0 && weight <= 8.7 ){
+        if( stature >= 77.0 && stature < 77.5 && weight > 8.0 && weight <= 8.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 77.5 && weight > 8.1 && weight <= 8.8 ){
+        if( stature >= 77.5 && stature < 78.0 && weight > 8.1 && weight <= 8.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 78.0 && weight > 8.2 && weight <= 8.9 ){
+        if( stature >= 78.0 && stature < 78.5 && weight > 8.2 && weight <= 8.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 78.5 && weight > 8.2 && weight <= 9.0 ){
+        if( stature >= 78.5 && stature < 79.0 && weight > 8.2 && weight <= 9.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 79.0 && weight > 8.3 && weight <= 9.1 ){
+        if( stature >= 79.0 && stature < 79.5 && weight > 8.3 && weight <= 9.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 79.5 && weight > 8.4 && weight <= 9.1 ){
+        if( stature >= 79.5 && stature < 80.0 && weight > 8.4 && weight <= 9.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 80.0 && weight > 8.5 && weight <= 9.2 ){
+        if( stature >= 80.0 && stature < 80.5 && weight > 8.5 && weight <= 9.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 80.5 && weight > 8.6 && weight <= 9.3 ){
+        if( stature >= 80.5 && stature < 81.0 && weight > 8.6 && weight <= 9.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 81.0 && weight > 8.7 && weight <= 9.4 ){
+        if( stature >= 81.0 && stature < 81.5 && weight > 8.7 && weight <= 9.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 81.5 && weight > 8.8 && weight <= 9.5 ){
+        if( stature >= 81.5 && stature < 82.0 && weight > 8.8 && weight <= 9.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 82.0 && weight > 8.8 && weight <= 9.6 ){
+        if( stature >= 82.0 && stature < 82.5 && weight > 8.8 && weight <= 9.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 82.5 && weight > 8.9 && weight <= 9.7 ){
+        if( stature >= 82.5 && stature < 83.0 && weight > 8.9 && weight <= 9.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 83.0 && weight > 9.0 && weight <= 9.8 ){
+        if( stature >= 83.0 && stature < 83.5 && weight > 9.0 && weight <= 9.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 83.5 && weight > 9.1 && weight <= 9.9 ){
+        if( stature >= 83.5 && stature < 84.0 && weight > 9.1 && weight <= 9.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 84.0 && weight > 9.2 && weight <= 10.1 ){
+        if( stature >= 84.0 && stature < 84.5 && weight > 9.2 && weight <= 10.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 84.5 && weight > 9.3 && weight <= 10.2 ){
+        if( stature >= 84.5 && stature < 85.0 && weight > 9.3 && weight <= 10.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 85.0 && weight > 9.4 && weight <= 10.3 ){
+        if( stature >= 85.0 && stature < 85.5 && weight > 9.4 && weight <= 10.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 85.5 && weight > 9.5 && weight <= 10.4 ){
+        if( stature >= 85.5 && stature < 86.0 && weight > 9.5 && weight <= 10.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 86.0 && weight > 9.7 && weight <= 10.5 ){
+        if( stature >= 86.0 && stature < 86.5 && weight > 9.7 && weight <= 10.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 86.5 && weight > 9.8 && weight <= 10.6 ){
+        if( stature >= 86.5 && stature < 87.0 && weight > 9.8 && weight <= 10.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 87.0 && weight > 9.9 && weight <= 10.7 ){
+        if( stature >= 87.0 && stature < 87.5 && weight > 9.9 && weight <= 10.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 87.5 && weight > 10.0 && weight <= 10.9 ){
+        if( stature >= 87.5 && stature < 88.0 && weight > 10.0 && weight <= 10.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 88.0 && weight > 10.1 && weight <= 11.0 ){
+        if( stature >= 88.0 && stature < 88.5 && weight > 10.1 && weight <= 11.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 88.5 && weight > 10.2 && weight <= 11.1 ){
+        if( stature >= 88.5 && stature < 89.0 && weight > 10.2 && weight <= 11.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 89.0 && weight > 10.3 && weight <= 11.2 ){
+        if( stature >= 89.0 && stature < 89.5 && weight > 10.3 && weight <= 11.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 89.5 && weight > 10.4 && weight <= 11.3 ){
+        if( stature >= 89.5 && stature < 90.0 && weight > 10.4 && weight <= 11.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 90.0 && weight > 10.5 && weight <= 11.4 ){
+        if( stature >= 90.0 && stature < 90.5 && weight > 10.5 && weight <= 11.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 90.5 && weight > 10.6 && weight <= 11.5 ){
+        if( stature >= 90.5 && stature < 91.0 && weight > 10.6 && weight <= 11.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 91.0 && weight > 10.7 && weight <= 11.7 ){
+        if( stature >= 91.0 && stature < 91.5 && weight > 10.7 && weight <= 11.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 91.5 && weight > 10.8 && weight <= 11.8 ){
+        if( stature >= 91.5 && stature < 92.0 && weight > 10.8 && weight <= 11.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 92.0 && weight > 10.9 && weight <= 11.9 ){
+        if( stature >= 92.0 && stature < 92.5 && weight > 10.9 && weight <= 11.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 92.5 && weight > 11.0 && weight <= 12.0 ){
+        if( stature >= 92.5 && stature < 93.0 && weight > 11.0 && weight <= 12.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 93.0 && weight > 11.1 && weight <= 12.1 ){
+        if( stature >= 93.0 && stature < 93.5 && weight > 11.1 && weight <= 12.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 93.5 && weight > 11.2 && weight <= 12.2 ){
+        if( stature >= 93.5 && stature < 94.0 && weight > 11.2 && weight <= 12.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 94.0 && weight > 11.3 && weight <= 12.3 ){
+        if( stature >= 94.0 && stature < 94.5 && weight > 11.3 && weight <= 12.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 94.5 && weight > 11.4 && weight <= 12.4 ){
+        if( stature >= 94.5 && stature < 95.0 && weight > 11.4 && weight <= 12.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 95.0 && weight > 11.5 && weight <= 12.6 ){
+        if( stature >= 95.0 && stature < 95.5 && weight > 11.5 && weight <= 12.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 95.5 && weight > 11.6 && weight <= 12.7 ){
+        if( stature >= 95.5 && stature < 96.0 && weight > 11.6 && weight <= 12.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 96.0 && weight > 11.7 && weight <= 12.8 ){
+        if( stature >= 96.0 && stature < 96.5 && weight > 11.7 && weight <= 12.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 96.5 && weight > 11.8 && weight <= 12.9 ){
+        if( stature >= 96.5 && stature < 97.0 && weight > 11.8 && weight <= 12.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 97.0 && weight > 12.0 && weight <= 13.0 ){
+        if( stature >= 97.0 && stature < 97.5 && weight > 12.0 && weight <= 13.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 97.5 && weight > 12.1 && weight <= 13.1 ){
+        if( stature >= 97.5 && stature < 98.0 && weight > 12.1 && weight <= 13.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 98.0 && weight > 12.2 && weight <= 13.3 ){
+        if( stature >= 98.0 && stature < 98.5 && weight > 12.2 && weight <= 13.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 98.5 && weight > 12.3 && weight <= 13.4 ){
+        if( stature >= 98.5 && stature < 99.0 && weight > 12.3 && weight <= 13.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 99.0 && weight > 12.4 && weight <= 13.5 ){
+        if( stature >= 99.0 && stature < 99.5 && weight > 12.4 && weight <= 13.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 99.5 && weight > 12.5 && weight <= 13.6 ){
+        if( stature >= 99.5 && stature < 100.0 && weight > 12.5 && weight <= 13.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 100.0 && weight > 12.6 && weight <= 13.7 ){
+        if( stature >= 100.0 && stature < 100.5 && weight > 12.6 && weight <= 13.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 100.5 && weight > 12.7 && weight <= 13.9 ){
+        if( stature >= 100.5 && stature < 101.0 && weight > 12.7 && weight <= 13.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 101.0 && weight > 12.8 && weight <= 14.0 ){
+        if( stature >= 101.0 && stature < 101.5 && weight > 12.8 && weight <= 14.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 101.5 && weight > 13.0 && weight <= 14.1 ){
+        if( stature >= 101.5 && stature < 102.0 && weight > 13.0 && weight <= 14.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 102.0 && weight > 13.1 && weight <= 14.3 ){
+        if( stature >= 102.0 && stature < 102.5 && weight > 13.1 && weight <= 14.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 102.5 && weight > 13.2 && weight <= 14.4 ){
+        if( stature >= 102.5 && stature < 103.0 && weight > 13.2 && weight <= 14.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 103.0 && weight > 13.3 && weight <= 14.5 ){
+        if( stature >= 103.0 && stature < 103.5 && weight > 13.3 && weight <= 14.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 103.5 && weight > 13.5 && weight <= 14.7 ){
+        if( stature >= 103.5 && stature < 104.0 && weight > 13.5 && weight <= 14.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 104.0 && weight > 13.6 && weight <= 14.8 ){
+        if( stature >= 104.0 && stature < 104.5 && weight > 13.6 && weight <= 14.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 104.5 && weight > 13.7 && weight <= 15.0 ){
+        if( stature >= 104.5 && stature < 105.0 && weight > 13.7 && weight <= 15.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 105.0 && weight > 13.8 && weight <= 15.1 ){
+        if( stature >= 105.0 && stature < 105.5 && weight > 13.8 && weight <= 15.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 105.5 && weight > 14.0 && weight <= 15.3 ){
+        if( stature >= 105.5 && stature < 106.0 && weight > 14.0 && weight <= 15.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 106.0 && weight > 14.1 && weight <= 15.4 ){
+        if( stature >= 106.0 && stature < 106.5 && weight > 14.1 && weight <= 15.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 106.5 && weight > 14.3 && weight <= 15.6 ){
+        if( stature >= 106.5 && stature < 107.0 && weight > 14.3 && weight <= 15.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 107.0 && weight > 14.4 && weight <= 15.7 ){
+        if( stature >= 107.0 && stature < 107.5 && weight > 14.4 && weight <= 15.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 107.5 && weight > 14.5 && weight <= 15.9 ){
+        if( stature >= 107.5 && stature < 108.0 && weight > 14.5 && weight <= 15.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 108.0 && weight > 14.7 && weight <= 16.0 ){
+        if( stature >= 108.0 && stature < 108.5 && weight > 14.7 && weight <= 16.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 108.5 && weight > 14.8 && weight <= 16.2 ){
+        if( stature >= 108.5 && stature < 109.0 && weight > 14.8 && weight <= 16.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 109.0 && weight > 15.0 && weight <= 16.4 ){
+        if( stature >= 109.0 && stature < 109.5 && weight > 15.0 && weight <= 16.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 109.5 && weight > 15.1 && weight <= 16.5 ){
+        if( stature >= 109.5 && stature < 110.0 && weight > 15.1 && weight <= 16.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 110.0 && weight > 15.3 && weight <= 16.7 ){
+        if( stature >= 110.0 && weight > 15.3 && weight <= 16.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
@@ -3551,527 +3551,527 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         // *** Normal o Eutrófico ***
 
-        if( stature > 45.0 && weight > 2.3 && weight < 2.7 ){
+        if( stature >= 45.0 && stature < 45.5 && weight > 2.3 && weight < 2.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 45.5 && weight > 2.3 && weight < 2.8 ){
+        if( stature >= 45.5 && stature < 46.0 && weight > 2.3 && weight < 2.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 46.0 && weight > 2.4 && weight < 2.9 ){
+        if( stature >= 46.0 && stature < 46.5 && weight > 2.4 && weight < 2.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 46.5 && weight > 2.5 && weight < 3.0 ){
+        if( stature >= 46.5 && stature < 47.0 && weight > 2.5 && weight < 3.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 47.0 && weight > 2.6 && weight < 3.1 ){
+        if( stature >= 47.0 && stature < 47.5 && weight > 2.6 && weight < 3.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 47.5 && weight > 2.6 && weight < 3.2 ){
+        if( stature >= 47.5 && stature < 48.0 && weight > 2.6 && weight < 3.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 48.0 && weight > 2.7 && weight < 3.3 ){
+        if( stature >= 48.0 && stature < 48.5 && weight > 2.7 && weight < 3.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 48.5 && weight > 2.8 && weight < 3.4 ){
+        if( stature >= 48.5 && stature < 49.0 && weight > 2.8 && weight < 3.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 49.0 && weight > 2.9 && weight < 3.5 ){
+        if( stature >= 49.0 && stature < 49.5 && weight > 2.9 && weight < 3.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 49.5 && weight > 3.0 && weight < 3.6 ){
+        if( stature >= 49.5 && stature < 50.0 && weight > 3.0 && weight < 3.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 50.0 && weight > 3.1 && weight < 3.7 ){
+        if( stature >= 50.0 && stature < 50.5 && weight > 3.1 && weight < 3.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 50.5 && weight > 3.2 && weight < 3.8 ){
+        if( stature >= 50.5 && stature < 51.0 && weight > 3.2 && weight < 3.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 51.0 && weight > 3.3 && weight < 3.9 ){
+        if( stature >= 51.0 && stature < 51.5 && weight > 3.3 && weight < 3.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 51.5 && weight > 3.4 && weight < 4.0 ){
+        if( stature >= 51.5 && stature < 52.0 && weight > 3.4 && weight < 4.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 52.0 && weight > 3.5 && weight < 4.2 ){
+        if( stature >= 52.0 && stature < 52.5 && weight > 3.5 && weight < 4.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 52.5 && weight > 3.6 && weight < 4.3 ){
+        if( stature >= 52.5 && stature < 53.0 && weight > 3.6 && weight < 4.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 53.0 && weight > 3.7 && weight < 4.4 ){
+        if( stature >= 53.0 && stature < 53.5 && weight > 3.7 && weight < 4.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 53.5 && weight > 3.8 && weight < 4.6 ){
+        if( stature >= 53.5 && stature < 54.0 && weight > 3.8 && weight < 4.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 54.0 && weight > 3.9 && weight < 4.7 ){
+        if( stature >= 54.0 && stature < 54.5 && weight > 3.9 && weight < 4.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 54.5 && weight > 4.0 && weight < 4.8 ){
+        if( stature >= 54.5 && stature < 55.0 && weight > 4.0 && weight < 4.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 55.0 && weight > 4.2 && weight < 5.0 ){
+        if( stature >= 55.0 && stature < 55.5 && weight > 4.2 && weight < 5.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 55.5 && weight > 4.3 && weight < 5.1 ){
+        if( stature >= 55.5 && stature < 56.0 && weight > 4.3 && weight < 5.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 56.0 && weight > 4.4 && weight < 5.3 ){
+        if( stature >= 56.0 && stature < 56.5 && weight > 4.4 && weight < 5.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 56.5 && weight > 4.5 && weight < 5.4 ){
+        if( stature >= 56.5 && stature < 57.0 && weight > 4.5 && weight < 5.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 57.0 && weight > 4.6 && weight < 5.6 ){
+        if( stature >= 57.0 && stature < 57.5 && weight > 4.6 && weight < 5.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 57.5 && weight > 4.8 && weight < 5.7 ){
+        if( stature >= 57.5 && stature < 58.0 && weight > 4.8 && weight < 5.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 58.0 && weight > 4.9 && weight < 5.9 ){
+        if( stature >= 58.0 && stature < 58.5 && weight > 4.9 && weight < 5.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 58.5 && weight > 5.0 && weight < 6.0 ){
+        if( stature >= 58.5 && stature < 59.0 && weight > 5.0 && weight < 6.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 59.0 && weight > 5.1 && weight < 6.2 ){
+        if( stature >= 59.0 && stature < 59.5 && weight > 5.1 && weight < 6.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 59.5 && weight > 5.3 && weight < 6.3 ){
+        if( stature >= 59.5 && stature < 60.0 && weight > 5.3 && weight < 6.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 60.0 && weight > 5.4 && weight < 6.4 ){
+        if( stature >= 60.0 && stature < 60.5 && weight > 5.4 && weight < 6.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 60.5 && weight > 5.5 && weight < 6.6 ){
+        if( stature >= 60.5 && stature < 61.0 && weight > 5.5 && weight < 6.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 61.0 && weight > 5.6 && weight < 6.7 ){
+        if( stature >= 61.0 && stature < 61.5 && weight > 5.6 && weight < 6.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 61.5 && weight > 5.7 && weight < 6.9 ){
+        if( stature >= 61.5 && stature < 62.0 && weight > 5.7 && weight < 6.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 62.0 && weight > 5.8 && weight < 7.0 ){
+        if( stature >= 62.0 && stature < 62.5 && weight > 5.8 && weight < 7.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 62.5 && weight > 5.9 && weight < 7.1 ){
+        if( stature >= 62.5 && stature < 63.0 && weight > 5.9 && weight < 7.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 63.0 && weight > 6.0 && weight < 7.3 ){
+        if( stature >= 63.0 && stature < 63.5 && weight > 6.0 && weight < 7.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 63.5 && weight > 6.2 && weight < 7.4 ){
+        if( stature >= 63.5 && stature < 64.0 && weight > 6.2 && weight < 7.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 64.0 && weight > 6.3 && weight < 7.5 ){
+        if( stature >= 64.0 && stature < 64.5 && weight > 6.3 && weight < 7.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 64.5 && weight > 6.4 && weight < 7.6 ){
+        if( stature >= 64.5 && stature < 65.0 && weight > 6.4 && weight < 7.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 65.0 && weight > 6.5 && weight < 7.8 ){
+        if( stature >= 65.0 && stature < 65.5 && weight > 6.5 && weight < 7.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 65.5 && weight > 6.6 && weight < 7.9 ){
+        if( stature >= 65.5 && stature < 66.0 && weight > 6.6 && weight < 7.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 66.0 && weight > 6.7 && weight < 8.0 ){
+        if( stature >= 66.0 && stature < 66.5 && weight > 6.7 && weight < 8.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 66.5 && weight > 6.8 && weight < 8.1 ){
+        if( stature >= 66.5 && stature < 67.0 && weight > 6.8 && weight < 8.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 67.0 && weight > 6.9 && weight < 8.3 ){
+        if( stature >= 67.0 && stature < 67.5 && weight > 6.9 && weight < 8.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 67.5 && weight > 7.0 && weight < 8.4 ){
+        if( stature >= 67.5 && stature < 68.0 && weight > 7.0 && weight < 8.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 68.0 && weight > 7.1 && weight < 8.5 ){
+        if( stature >= 68.0 && stature < 68.5 && weight > 7.1 && weight < 8.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 68.5 && weight > 7.2 && weight < 8.6 ){
+        if( stature >= 68.5 && stature < 69.0 && weight > 7.2 && weight < 8.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 69.0 && weight > 7.3 && weight < 8.7 ){
+        if( stature >= 69.0 && stature < 69.5 && weight > 7.3 && weight < 8.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 69.5 && weight > 7.4 && weight < 8.8 ){
+        if( stature >= 69.5 && stature < 70.0 && weight > 7.4 && weight < 8.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 70.0 && weight > 7.5 && weight < 9.0 ){
+        if( stature >= 70.0 && stature < 70.5 && weight > 7.5 && weight < 9.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 70.5 && weight > 7.6 && weight < 9.1 ){
+        if( stature >= 70.5 && stature < 71.0 && weight > 7.6 && weight < 9.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 71.0 && weight > 7.7 && weight < 9.2 ){
+        if( stature >= 71.0 && stature < 71.5 && weight > 7.7 && weight < 9.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 71.5 && weight > 7.7 && weight < 9.3 ){
+        if( stature >= 71.5 && stature < 72.0 && weight > 7.7 && weight < 9.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 72.0 && weight > 7.8 && weight < 9.4 ){
+        if( stature >= 72.0 && stature < 72.5 && weight > 7.8 && weight < 9.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 72.5 && weight > 7.9 && weight < 9.5 ){
+        if( stature >= 72.5 && stature < 73.0 && weight > 7.9 && weight < 9.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 73.0 && weight > 8.0 && weight < 9.6 ){
+        if( stature >= 73.0 && stature < 73.5 && weight > 8.0 && weight < 9.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 73.5 && weight > 8.1 && weight < 9.7 ){
+        if( stature >= 73.5 && stature < 74.0 && weight > 8.1 && weight < 9.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 74.0 && weight > 8.2 && weight < 9.8 ){
+        if( stature >= 74.0 && stature < 74.5 && weight > 8.2 && weight < 9.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 74.5 && weight > 8.3 && weight < 9.9 ){
+        if( stature >= 74.5 && stature < 75.0 && weight > 8.3 && weight < 9.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 75.0 && weight > 8.4 && weight < 10.0 ){
+        if( stature >= 75.0 && stature < 75.5 && weight > 8.4 && weight < 10.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 75.5 && weight > 8.5 && weight < 10.1 ){
+        if( stature >= 75.5 && stature < 76.0 && weight > 8.5 && weight < 10.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 76.0 && weight > 8.5 && weight < 10.2 ){
+        if( stature >= 76.0 && stature < 76.5 && weight > 8.5 && weight < 10.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 76.5 && weight > 8.6 && weight < 10.3 ){
+        if( stature >= 76.5 && stature < 77.0 && weight > 8.6 && weight < 10.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 77.0 && weight > 8.7 && weight < 10.4 ){
+        if( stature >= 77.0 && stature < 77.5 && weight > 8.7 && weight < 10.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 77.5 && weight > 8.8 && weight < 10.5 ){
+        if( stature >= 77.5 && stature < 78.0 && weight > 8.8 && weight < 10.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 78.0 && weight > 8.9 && weight < 10.6 ){
+        if( stature >= 78.0 && stature < 78.5 && weight > 8.9 && weight < 10.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 78.5 && weight > 9.0 && weight < 10.7 ){
+        if( stature >= 78.5 && stature < 79.0 && weight > 9.0 && weight < 10.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 79.0 && weight > 9.1 && weight < 10.8 ){
+        if( stature >= 79.0 && stature < 79.5 && weight > 9.1 && weight < 10.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 79.5 && weight > 9.1 && weight < 10.9 ){
+        if( stature >= 79.5 && stature < 80.0 && weight > 9.1 && weight < 10.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 80.0 && weight > 9.2 && weight < 11.0 ){
+        if( stature >= 80.0 && stature < 80.5 && weight > 9.2 && weight < 11.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 80.5 && weight > 9.3 && weight < 11.2 ){
+        if( stature >= 80.5 && stature < 81.0 && weight > 9.3 && weight < 11.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 81.0 && weight > 9.4 && weight < 11.3 ){
+        if( stature >= 81.0 && stature < 81.5 && weight > 9.4 && weight < 11.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 81.5 && weight > 9.5 && weight < 11.4 ){
+        if( stature >= 81.5 && stature < 82.0 && weight > 9.5 && weight < 11.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 82.0 && weight > 9.6 && weight < 11.5 ){
+        if( stature >= 82.0 && stature < 82.5 && weight > 9.6 && weight < 11.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 82.5 && weight > 9.7 && weight < 11.6 ){
+        if( stature >= 82.5 && stature < 83.0 && weight > 9.7 && weight < 11.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 83.0 && weight > 9.8 && weight < 11.8 ){
+        if( stature >= 83.0 && stature < 83.5 && weight > 9.8 && weight < 11.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 83.5 && weight > 9.9 && weight < 11.9 ){
+        if( stature >= 83.5 && stature < 84.0 && weight > 9.9 && weight < 11.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 84.0 && weight > 10.1 && weight < 12.0 ){
+        if( stature >= 84.0 && stature < 84.5 && weight > 10.1 && weight < 12.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 84.5 && weight > 10.2 && weight < 12.1 ){
+        if( stature >= 84.5 && stature < 85.0 && weight > 10.2 && weight < 12.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 85.0 && weight > 10.3 && weight < 12.3 ){
+        if( stature >= 85.0 && stature < 85.5 && weight > 10.3 && weight < 12.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 85.5 && weight > 10.4 && weight < 12.4 ){
+        if( stature >= 85.5 && stature < 86.0 && weight > 10.4 && weight < 12.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 86.0 && weight > 10.5 && weight < 12.6 ){
+        if( stature >= 86.0 && stature < 86.5 && weight > 10.5 && weight < 12.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 86.5 && weight > 10.6 && weight < 12.7 ){
+        if( stature >= 86.5 && stature < 87.0 && weight > 10.6 && weight < 12.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 87.0 && weight > 10.7 && weight < 12.8 ){
+        if( stature >= 87.0 && stature < 87.5 && weight > 10.7 && weight < 12.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 87.5 && weight > 10.9 && weight < 13.0 ){
+        if( stature >= 87.5 && stature < 88.0 && weight > 10.9 && weight < 13.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 88.0 && weight > 11.0 && weight < 13.1 ){
+        if( stature >= 88.0 && stature < 88.5 && weight > 11.0 && weight < 13.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 88.5 && weight > 11.1 && weight < 13.2 ){
+        if( stature >= 88.5 && stature < 89.0 && weight > 11.1 && weight < 13.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 89.0 && weight > 11.2 && weight < 13.4 ){
+        if( stature >= 89.0 && stature < 89.5 && weight > 11.2 && weight < 13.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 89.5 && weight > 11.3 && weight < 13.5 ){
+        if( stature >= 89.5 && stature < 90.0 && weight > 11.3 && weight < 13.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 90.0 && weight > 11.4 && weight < 13.7 ){
+        if( stature >= 90.0 && stature < 90.5 && weight > 11.4 && weight < 13.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 90.5 && weight > 11.5 && weight < 13.8 ){
+        if( stature >= 90.5 && stature < 91.0 && weight > 11.5 && weight < 13.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 91.0 && weight > 11.7 && weight < 13.9 ){
+        if( stature >= 91.0 && stature < 91.5 && weight > 11.7 && weight < 13.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 91.5 && weight > 11.8 && weight < 14.1 ){
+        if( stature >= 91.5 && stature < 92.0 && weight > 11.8 && weight < 14.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 92.0 && weight > 11.9 && weight < 14.2 ){
+        if( stature >= 92.0 && stature < 92.5 && weight > 11.9 && weight < 14.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 92.5 && weight > 12.0 && weight < 14.3 ){
+        if( stature >= 92.5 && stature < 93.0 && weight > 12.0 && weight < 14.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 93.0 && weight > 12.1 && weight < 14.5 ){
+        if( stature >= 93.0 && stature < 93.5 && weight > 12.1 && weight < 14.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 93.5 && weight > 12.2 && weight < 14.6 ){
+        if( stature >= 93.5 && stature < 94.0 && weight > 12.2 && weight < 14.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 94.0 && weight > 12.3 && weight < 14.7 ){
+        if( stature >= 94.0 && stature < 94.5 && weight > 12.3 && weight < 14.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 94.5 && weight > 12.4 && weight < 14.9 ){
+        if( stature >= 94.5 && stature < 95.0 && weight > 12.4 && weight < 14.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 95.0 && weight > 12.6 && weight < 15.0 ){
+        if( stature >= 95.0 && stature < 95.5 && weight > 12.6 && weight < 15.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 95.5 && weight > 12.7 && weight < 15.2 ){
+        if( stature >= 95.5 && stature < 96.0 && weight > 12.7 && weight < 15.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 96.0 && weight > 12.8 && weight < 15.3 ){
+        if( stature >= 96.0 && stature < 96.5 && weight > 12.8 && weight < 15.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 96.5 && weight > 12.9 && weight < 15.4 ){
+        if( stature >= 96.5 && stature < 97.0 && weight > 12.9 && weight < 15.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 97.0 && weight > 13.0 && weight < 15.6 ){
+        if( stature >= 97.0 && stature < 97.5 && weight > 13.0 && weight < 15.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 97.5 && weight > 13.1 && weight < 15.7 ){
+        if( stature >= 97.5 && stature < 98.0 && weight > 13.1 && weight < 15.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 98.0 && weight > 13.3 && weight < 15.9 ){
+        if( stature >= 98.0 && stature < 98.5 && weight > 13.3 && weight < 15.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 98.5 && weight > 13.4 && weight < 16.0 ){
+        if( stature >= 98.5 && stature < 99.0 && weight > 13.4 && weight < 16.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 99.0 && weight > 13.5 && weight < 16.2 ){
+        if( stature >= 99.0 && stature < 99.5 && weight > 13.5 && weight < 16.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 99.5 && weight > 13.6 && weight < 16.3 ){
+        if( stature >= 99.5 && stature < 100.0 && weight > 13.6 && weight < 16.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 100.0 && weight > 13.7 && weight < 16.5 ){
+        if( stature >= 100.0 && stature < 100.5 && weight > 13.7 && weight < 16.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 100.5 && weight > 13.9 && weight < 16.6 ){
+        if( stature >= 100.5 && stature < 101.0 && weight > 13.9 && weight < 16.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 101.0 && weight > 14.0 && weight < 16.8 ){
+        if( stature >= 101.0 && stature < 101.5 && weight > 14.0 && weight < 16.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 101.5 && weight > 14.1 && weight < 17.0 ){
+        if( stature >= 101.5 && stature < 102.0 && weight > 14.1 && weight < 17.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 102.0 && weight > 14.3 && weight < 17.1 ){
+        if( stature >= 102.0 && stature < 102.5 && weight > 14.3 && weight < 17.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 102.5 && weight > 14.4 && weight < 17.3 ){
+        if( stature >= 102.5 && stature < 103.0 && weight > 14.4 && weight < 17.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 103.0 && weight > 14.5 && weight < 17.5 ){
+        if( stature >= 103.0 && stature < 103.5 && weight > 14.5 && weight < 17.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 103.5 && weight > 14.7 && weight < 17.6 ){
+        if( stature >= 103.5 && stature < 104.0 && weight > 14.7 && weight < 17.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 104.0 && weight > 14.8 && weight < 17.8 ){
+        if( stature >= 104.0 && stature < 104.5 && weight > 14.8 && weight < 17.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 104.5 && weight > 15.0 && weight < 18.0 ){
+        if( stature >= 104.5 && stature < 105.0 && weight > 15.0 && weight < 18.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 105.0 && weight > 15.1 && weight < 18.2 ){
+        if( stature >= 105.0 && stature < 105.5 && weight > 15.1 && weight < 18.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 105.5 && weight > 15.3 && weight < 18.4 ){
+        if( stature >= 105.5 && stature < 106.0 && weight > 15.3 && weight < 18.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 106.0 && weight > 15.4 && weight < 18.5 ){
+        if( stature >= 106.0 && stature < 106.5 && weight > 15.4 && weight < 18.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 106.5 && weight > 15.6 && weight < 18.7 ){
+        if( stature >= 106.5 && stature < 107.0 && weight > 15.6 && weight < 18.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 107.0 && weight > 15.7 && weight < 18.9 ){
+        if( stature >= 107.0 && stature < 107.5 && weight > 15.7 && weight < 18.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 107.5 && weight > 15.9 && weight < 19.1 ){
+        if( stature >= 107.5 && stature < 108.0 && weight > 15.9 && weight < 19.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 108.0 && weight > 16.0 && weight < 19.3 ){
+        if( stature >= 108.0 && stature < 108.5 && weight > 16.0 && weight < 19.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 108.5 && weight > 16.2 && weight < 19.5 ){
+        if( stature >= 108.5 && stature < 109.0 && weight > 16.2 && weight < 19.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 109.0 && weight > 16.4 && weight < 19.7 ){
+        if( stature >= 109.0 && stature < 109.5 && weight > 16.4 && weight < 19.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 109.5 && weight > 16.5 && weight < 20.0 ){
+        if( stature >= 109.5 && stature < 110.0 && weight > 16.5 && weight < 20.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 110.0 && weight > 16.7 && weight < 20.2 ){
+        if( stature >= 110.0 && weight > 16.7 && weight < 20.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
@@ -4079,527 +4079,527 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
         // *** Normal o Eutrófico ***
 
         // *** Sobrepeso ***
-        if( stature > 45.0 && weight >= 2.7 && weight < 3.0 ){
+        if( stature >= 45.0 && stature < 45.5 && weight >= 2.7 && weight < 3.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 45.5 && weight >= 2.8 && weight < 3.1 ){
+        if( stature >= 45.5 && stature < 46.0 && weight >= 2.8 && weight < 3.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 46.0 && weight >= 2.9 && weight < 3.2 ){
+        if( stature >= 46.0 && stature < 46.5 && weight >= 2.9 && weight < 3.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 46.5 && weight >= 3.0 && weight < 3.3 ){
+        if( stature >= 46.5 && stature < 47.0 && weight >= 3.0 && weight < 3.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 47.0 && weight >= 3.1 && weight < 3.4 ){
+        if( stature >= 47.0 && stature < 47.5 && weight >= 3.1 && weight < 3.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 47.5 && weight >= 3.2 && weight < 3.5 ){
+        if( stature >= 47.5 && stature < 48.0 && weight >= 3.2 && weight < 3.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 48.0 && weight >= 3.3 && weight < 3.6 ){
+        if( stature >= 48.0 && stature < 48.5 && weight >= 3.3 && weight < 3.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 48.5 && weight >= 3.4 && weight < 3.7 ){
+        if( stature >= 48.5 && stature < 49.0 && weight >= 3.4 && weight < 3.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 49.0 && weight >= 3.5 && weight < 3.8 ){
+        if( stature >= 49.0 && stature < 49.5 && weight >= 3.5 && weight < 3.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 49.5 && weight >= 3.6 && weight < 3.9 ){
+        if( stature >= 49.5 && stature < 50.0 && weight >= 3.6 && weight < 3.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 50.0 && weight >= 3.7 && weight < 4.0 ){
+        if( stature >= 50.0 && stature < 50.5 && weight >= 3.7 && weight < 4.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 50.5 && weight >= 3.8 && weight < 4.2 ){
+        if( stature >= 50.5 && stature < 51.0 && weight >= 3.8 && weight < 4.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 51.0 && weight >= 3.9 && weight < 4.3 ){
+        if( stature >= 51.0 && stature < 51.5 && weight >= 3.9 && weight < 4.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 51.5 && weight >= 4.0 && weight < 4.4 ){
+        if( stature >= 51.5 && stature < 52.0 && weight >= 4.0 && weight < 4.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 52.0 && weight >= 4.2 && weight < 4.6 ){
+        if( stature >= 52.0 && stature < 52.5 && weight >= 4.2 && weight < 4.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 52.5 && weight >= 4.3 && weight < 4.7 ){
+        if( stature >= 52.5 && stature < 53.0 && weight >= 4.3 && weight < 4.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 53.0 && weight >= 4.4 && weight < 4.9 ){
+        if( stature >= 53.0 && stature < 53.5 && weight >= 4.4 && weight < 4.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 53.5 && weight >= 4.6 && weight < 5.0 ){
+        if( stature >= 53.5 && stature < 54.0 && weight >= 4.6 && weight < 5.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 54.0 && weight >= 4.7 && weight < 5.2 ){
+        if( stature >= 54.0 && stature < 54.5 && weight >= 4.7 && weight < 5.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 54.5 && weight >= 4.8 && weight < 5.3 ){
+        if( stature >= 54.5 && stature < 55.0 && weight >= 4.8 && weight < 5.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 55.0 && weight >= 5.0 && weight < 5.5 ){
+        if( stature >= 55.0 && stature < 55.5 && weight >= 5.0 && weight < 5.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 55.5 && weight >= 5.1 && weight < 5.7 ){
+        if( stature >= 55.5 && stature < 56.0 && weight >= 5.1 && weight < 5.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 56.0 && weight >= 5.3 && weight < 5.8 ){
+        if( stature >= 56.0 && stature < 56.5 && weight >= 5.3 && weight < 5.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 56.5 && weight >= 5.4 && weight < 6.0 ){
+        if( stature >= 56.5 && stature < 57.0 && weight >= 5.4 && weight < 6.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 57.0 && weight >= 5.6 && weight < 6.1 ){
+        if( stature >= 57.0 && stature < 57.5 && weight >= 5.6 && weight < 6.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 57.5 && weight >= 5.7 && weight < 6.3 ){
+        if( stature >= 57.5 && stature < 58.0 && weight >= 5.7 && weight < 6.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 58.0 && weight >= 5.9 && weight < 6.5 ){
+        if( stature >= 58.0 && stature < 58.5 && weight >= 5.9 && weight < 6.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 58.5 && weight >= 6.0 && weight < 6.6 ){
+        if( stature >= 58.5 && stature < 59.0 && weight >= 6.0 && weight < 6.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 59.0 && weight >= 6.2 && weight < 6.8 ){
+        if( stature >= 59.0 && stature < 59.5 && weight >= 6.2 && weight < 6.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 59.5 && weight >= 6.3 && weight < 6.9 ){
+        if( stature >= 59.5 && stature < 60.0 && weight >= 6.3 && weight < 6.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 60.0 && weight >= 6.4 && weight < 7.1 ){
+        if( stature >= 60.0 && stature < 60.5 && weight >= 6.4 && weight < 7.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 60.5 && weight >= 6.6 && weight < 7.3 ){
+        if( stature >= 60.5 && stature < 61.0 && weight >= 6.6 && weight < 7.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 61.0 && weight >= 6.7 && weight < 7.4 ){
+        if( stature >= 61.0 && stature < 61.5 && weight >= 6.7 && weight < 7.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 61.5 && weight >= 6.9 && weight < 7.6 ){
+        if( stature >= 61.5 && stature < 62.0 && weight >= 6.9 && weight < 7.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 62.0 && weight >= 7.0 && weight < 7.7 ){
+        if( stature >= 62.0 && stature < 62.5 && weight >= 7.0 && weight < 7.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 62.5 && weight >= 7.1 && weight < 7.8 ){
+        if( stature >= 62.5 && stature < 63.0 && weight >= 7.1 && weight < 7.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 63.0 && weight >= 7.3 && weight < 8.0 ){
+        if( stature >= 63.0 && stature < 63.5 && weight >= 7.3 && weight < 8.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 63.5 && weight >= 7.4 && weight < 8.1 ){
+        if( stature >= 63.5 && stature < 64.0 && weight >= 7.4 && weight < 8.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 64.0 && weight >= 7.5 && weight < 8.3 ){
+        if( stature >= 64.0 && stature < 64.5 && weight >= 7.5 && weight < 8.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 64.5 && weight >= 7.6 && weight < 8.4 ){
+        if( stature >= 64.5 && stature < 65.0 && weight >= 7.6 && weight < 8.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 65.0 && weight >= 7.8 && weight < 8.6 ){
+        if( stature >= 65.0 && stature < 65.5 && weight >= 7.8 && weight < 8.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 65.5 && weight >= 7.9 && weight < 8.7 ){
+        if( stature >= 65.5 && stature < 66.0 && weight >= 7.9 && weight < 8.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 66.0 && weight >= 8.0 && weight < 8.8 ){
+        if( stature >= 66.0 && stature < 66.5 && weight >= 8.0 && weight < 8.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 66.5 && weight >= 8.1 && weight < 9.0 ){
+        if( stature >= 66.5 && stature < 67.0 && weight >= 8.1 && weight < 9.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 67.0 && weight >= 8.3 && weight < 9.1 ){
+        if( stature >= 67.0 && stature < 67.5 && weight >= 8.3 && weight < 9.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 67.5 && weight >= 8.4 && weight < 9.2 ){
+        if( stature >= 67.5 && stature < 68.0 && weight >= 8.4 && weight < 9.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 68.0 && weight >= 8.5 && weight < 9.4 ){
+        if( stature >= 68.0 && stature < 68.5 && weight >= 8.5 && weight < 9.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 68.5 && weight >= 8.6 && weight < 9.5 ){
+        if( stature >= 68.5 && stature < 69.0 && weight >= 8.6 && weight < 9.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 69.0 && weight >= 8.7 && weight < 9.6 ){
+        if( stature >= 69.0 && stature < 69.5 && weight >= 8.7 && weight < 9.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 69.5 && weight >= 8.8 && weight < 9.7 ){
+        if( stature >= 69.5 && stature < 70.0 && weight >= 8.8 && weight < 9.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 70.0 && weight >= 9.0 && weight < 9.9 ){
+        if( stature >= 70.0 && stature < 70.5 && weight >= 9.0 && weight < 9.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 70.5 && weight >= 9.1 && weight < 10.0 ){
+        if( stature >= 70.5 && stature < 71.0 && weight >= 9.1 && weight < 10.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 71.0 && weight >= 9.2 && weight < 10.1 ){
+        if( stature >= 71.0 && stature < 71.5 && weight >= 9.2 && weight < 10.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 71.5 && weight >= 9.3 && weight < 10.2 ){
+        if( stature >= 71.5 && stature < 72.0 && weight >= 9.3 && weight < 10.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 72.0 && weight >= 9.4 && weight < 10.3 ){
+        if( stature >= 72.0 && stature < 72.5 && weight >= 9.4 && weight < 10.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 72.5 && weight >= 9.5 && weight < 10.5 ){
+        if( stature >= 72.5 && stature < 73.0 && weight >= 9.5 && weight < 10.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 73.0 && weight >= 9.6 && weight < 10.6 ){
+        if( stature >= 73.0 && stature < 73.5 && weight >= 9.6 && weight < 10.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 73.5 && weight >= 9.7 && weight < 10.7 ){
+        if( stature >= 73.5 && stature < 74.0 && weight >= 9.7 && weight < 10.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 74.0 && weight >= 9.8 && weight < 10.8 ){
+        if( stature >= 74.0 && stature < 74.5 && weight >= 9.8 && weight < 10.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 74.5 && weight >= 9.9 && weight < 10.9 ){
+        if( stature >= 74.5 && stature < 75.0 && weight >= 9.9 && weight < 10.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 75.0 && weight >= 10.0 && weight < 11.0 ){
+        if( stature >= 75.0 && stature < 75.5 && weight >= 10.0 && weight < 11.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 75.5 && weight >= 10.1 && weight < 11.1 ){
+        if( stature >= 75.5 && stature < 76.0 && weight >= 10.1 && weight < 11.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 76.0 && weight >= 10.2 && weight < 11.2 ){
+        if( stature >= 76.0 && stature < 76.5 && weight >= 10.2 && weight < 11.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 76.5 && weight >= 10.3 && weight < 11.4 ){
+        if( stature >= 76.5 && stature < 77.0 && weight >= 10.3 && weight < 11.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 77.0 && weight >= 10.4 && weight < 11.5 ){
+        if( stature >= 77.0 && stature < 77.5 && weight >= 10.4 && weight < 11.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 77.5 && weight >= 10.5 && weight < 11.6 ){
+        if( stature >= 77.5 && stature < 78.0 && weight >= 10.5 && weight < 11.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 78.0 && weight >= 10.6 && weight < 11.7 ){
+        if( stature >= 78.0 && stature < 78.5 && weight >= 10.6 && weight < 11.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 78.5 && weight >= 10.7 && weight < 11.8 ){
+        if( stature >= 78.5 && stature < 79.0 && weight >= 10.7 && weight < 11.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 79.0 && weight >= 10.8 && weight < 11.9 ){
+        if( stature >= 79.0 && stature < 79.5 && weight >= 10.8 && weight < 11.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 79.5 && weight >= 10.9 && weight < 12.0 ){
+        if( stature >= 79.5 && stature < 80.0 && weight >= 10.9 && weight < 12.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 80.0 && weight >= 11.0 && weight < 12.1 ){
+        if( stature >= 80.0 && stature < 80.5 && weight >= 11.0 && weight < 12.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 80.5 && weight >= 11.2 && weight < 12.3 ){
+        if( stature >= 80.5 && stature < 81.0 && weight >= 11.2 && weight < 12.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 81.0 && weight >= 11.3 && weight < 12.4 ){
+        if( stature >= 81.0 && stature < 81.5 && weight >= 11.3 && weight < 12.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 81.5 && weight >= 11.4 && weight < 12.5 ){
+        if( stature >= 81.5 && stature < 82.0 && weight >= 11.4 && weight < 12.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 82.0 && weight >= 11.5 && weight < 12.6 ){
+        if( stature >= 82.0 && stature < 82.5 && weight >= 11.5 && weight < 12.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 82.5 && weight >= 11.6 && weight < 12.8 ){
+        if( stature >= 82.5 && stature < 83.0 && weight >= 11.6 && weight < 12.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 83.0 && weight >= 11.8 && weight < 12.9 ){
+        if( stature >= 83.0 && stature < 83.5 && weight >= 11.8 && weight < 12.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 83.5 && weight >= 11.9 && weight < 13.1 ){
+        if( stature >= 83.5 && stature < 84.0 && weight >= 11.9 && weight < 13.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 84.0 && weight >= 12.0 && weight < 13.2 ){
+        if( stature >= 84.0 && stature < 84.5 && weight >= 12.0 && weight < 13.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 84.5 && weight >= 12.1 && weight < 13.3 ){
+        if( stature >= 84.5 && stature < 85.0 && weight >= 12.1 && weight < 13.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 85.0 && weight >= 12.3 && weight < 13.5 ){
+        if( stature >= 85.0 && stature < 85.5 && weight >= 12.3 && weight < 13.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 85.5 && weight >= 12.4 && weight < 13.6 ){
+        if( stature >= 85.5 && stature < 86.0 && weight >= 12.4 && weight < 13.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 86.0 && weight >= 12.6 && weight < 13.8 ){
+        if( stature >= 86.0 && stature < 86.5 && weight >= 12.6 && weight < 13.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 86.5 && weight >= 12.7 && weight < 13.9 ){
+        if( stature >= 86.5 && stature < 87.0 && weight >= 12.7 && weight < 13.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 87.0 && weight >= 12.8 && weight < 14.1 ){
+        if( stature >= 87.0 && stature < 87.5 && weight >= 12.8 && weight < 14.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 87.5 && weight >= 13.0 && weight < 14.2 ){
+        if( stature >= 87.5 && stature < 88.0 && weight >= 13.0 && weight < 14.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 88.0 && weight >= 13.1 && weight < 14.4 ){
+        if( stature >= 88.0 && stature < 88.5 && weight >= 13.1 && weight < 14.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 88.5 && weight >= 13.2 && weight < 14.5 ){
+        if( stature >= 88.5 && stature < 89.0 && weight >= 13.2 && weight < 14.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 89.0 && weight >= 13.4 && weight < 14.7 ){
+        if( stature >= 89.0 && stature < 89.5 && weight >= 13.4 && weight < 14.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 89.5 && weight >= 13.5 && weight < 14.8 ){
+        if( stature >= 89.5 && stature < 90.0 && weight >= 13.5 && weight < 14.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 90.0 && weight >= 13.7 && weight < 15.0 ){
+        if( stature >= 90.0 && stature < 90.5 && weight >= 13.7 && weight < 15.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 90.5 && weight >= 13.8 && weight < 15.1 ){
+        if( stature >= 90.5 && stature < 91.0 && weight >= 13.8 && weight < 15.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 91.0 && weight >= 13.9 && weight < 15.3 ){
+        if( stature >= 91.0 && stature < 91.5 && weight >= 13.9 && weight < 15.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 91.5 && weight >= 14.1 && weight < 15.5 ){
+        if( stature >= 91.5 && stature < 92.0 && weight >= 14.1 && weight < 15.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 92.0 && weight >= 14.2 && weight < 15.6 ){
+        if( stature >= 92.0 && stature < 92.5 && weight >= 14.2 && weight < 15.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 92.5 && weight >= 14.3 && weight < 15.8 ){
+        if( stature >= 92.5 && stature < 93.0 && weight >= 14.3 && weight < 15.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 93.0 && weight >= 14.5 && weight < 15.9 ){
+        if( stature >= 93.0 && stature < 93.5 && weight >= 14.5 && weight < 15.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 93.5 && weight >= 14.6 && weight < 16.1 ){
+        if( stature >= 93.5 && stature < 94.0 && weight >= 14.6 && weight < 16.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 94.0 && weight >= 14.7 && weight < 16.2 ){
+        if( stature >= 94.0 && stature < 94.5 && weight >= 14.7 && weight < 16.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 94.5 && weight >= 14.9 && weight < 16.4 ){
+        if( stature >= 94.5 && stature < 95.0 && weight >= 14.9 && weight < 16.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 95.0 && weight >= 15.0 && weight < 16.5 ){
+        if( stature >= 95.0 && stature < 95.5 && weight >= 15.0 && weight < 16.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 95.5 && weight >= 15.2 && weight < 16.7 ){
+        if( stature >= 95.5 && stature < 96.0 && weight >= 15.2 && weight < 16.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 96.0 && weight >= 15.3 && weight < 16.8 ){
+        if( stature >= 96.0 && stature < 96.5 && weight >= 15.3 && weight < 16.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 96.5 && weight >= 15.4 && weight < 17.0 ){
+        if( stature >= 96.5 && stature < 97.0 && weight >= 15.4 && weight < 17.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 97.0 && weight >= 15.6 && weight < 17.1 ){
+        if( stature >= 97.0 && stature < 97.5 && weight >= 15.6 && weight < 17.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 97.5 && weight >= 15.7 && weight < 17.3 ){
+        if( stature >= 97.5 && stature < 98.0 && weight >= 15.7 && weight < 17.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 98.0 && weight >= 15.9 && weight < 17.5 ){
+        if( stature >= 98.0 && stature < 98.5 && weight >= 15.9 && weight < 17.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 98.5 && weight >= 16.0 && weight < 17.6 ){
+        if( stature >= 98.5 && stature < 99.0 && weight >= 16.0 && weight < 17.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 99.0 && weight >= 16.2 && weight < 17.8 ){
+        if( stature >= 99.0 && stature < 99.5 && weight >= 16.2 && weight < 17.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 99.5 && weight >= 16.3 && weight < 18.0 ){
+        if( stature >= 99.5 && stature < 100.0 && weight >= 16.3 && weight < 18.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 100.0 && weight >= 16.5 && weight < 18.1 ){
+        if( stature >= 100.0 && stature < 100.5 && weight >= 16.5 && weight < 18.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 100.5 && weight >= 16.6 && weight < 18.3 ){
+        if( stature >= 100.5 && stature < 101.0 && weight >= 16.6 && weight < 18.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 101.0 && weight >= 16.8 && weight < 18.5 ){
+        if( stature >= 101.0 && stature < 101.5 && weight >= 16.8 && weight < 18.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 101.5 && weight >= 17.0 && weight < 18.7 ){
+        if( stature >= 101.5 && stature < 102.0 && weight >= 17.0 && weight < 18.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 102.0 && weight >= 17.1 && weight < 18.9 ){
+        if( stature >= 102.0 && stature < 102.5 && weight >= 17.1 && weight < 18.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 102.5 && weight >= 17.3 && weight < 19.0 ){
+        if( stature >= 102.5 && stature < 103.0 && weight >= 17.3 && weight < 19.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 103.0 && weight >= 17.5 && weight < 19.2 ){
+        if( stature >= 103.0 && stature < 103.5 && weight >= 17.5 && weight < 19.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 103.5 && weight >= 17.6 && weight < 19.4 ){
+        if( stature >= 103.5 && stature < 104.0 && weight >= 17.6 && weight < 19.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 104.0 && weight >= 17.8 && weight < 19.6 ){
+        if( stature >= 104.0 && stature < 104.5 && weight >= 17.8 && weight < 19.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 104.5 && weight >= 18.0 && weight < 19.8 ){
+        if( stature >= 104.5 && stature < 105.0 && weight >= 18.0 && weight < 19.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 105.0 && weight >= 18.2 && weight < 20.0 ){
+        if( stature >= 105.0 && stature < 105.5 && weight >= 18.2 && weight < 20.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 105.5 && weight >= 18.4 && weight < 20.2 ){
+        if( stature >= 105.5 && stature < 106.0 && weight >= 18.4 && weight < 20.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 106.0 && weight >= 18.5 && weight < 20.5 ){
+        if( stature >= 106.0 && stature < 106.5 && weight >= 18.5 && weight < 20.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 106.5 && weight >= 18.7 && weight < 20.7 ){
+        if( stature >= 106.5 && stature < 107.0 && weight >= 18.7 && weight < 20.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 107.0 && weight >= 18.9 && weight < 20.9 ){
+        if( stature >= 107.0 && stature < 107.5 && weight >= 18.9 && weight < 20.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 107.5 && weight >= 19.1 && weight < 21.1 ){
+        if( stature >= 107.5 && stature < 108.0 && weight >= 19.1 && weight < 21.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 108.0 && weight >= 19.3 && weight < 21.3 ){
+        if( stature >= 108.0 && stature < 108.5 && weight >= 19.3 && weight < 21.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 108.5 && weight >= 19.5 && weight < 21.6 ){
+        if( stature >= 108.5 && stature < 109.0 && weight >= 19.5 && weight < 21.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 109.0 && weight >= 19.7 && weight < 21.8 ){
+        if( stature >= 109.0 && stature < 109.5 && weight >= 19.7 && weight < 21.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 109.5 && weight >= 20.0 && weight < 22.0 ){
+        if( stature >= 109.5 && stature < 110.0 && weight >= 20.0 && weight < 22.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 110.0 && weight >= 20.2 && weight < 22.3 ){
+        if( stature >= 110.0 && weight >= 20.2 && weight < 22.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
@@ -4608,527 +4608,527 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         // *** Obesidad ***
 
-        if( stature > 45.0 && weight >= 3.0 ){
+        if( stature >= 45.0 && stature < 45.5 && weight >= 3.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 45.5 && weight >= 3.1 ){
+        if( stature >= 45.5 && stature < 46.0 && weight >= 3.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 46.0 && weight >= 3.2 ){
+        if( stature >= 46.0 && stature < 46.5 && weight >= 3.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 46.5 && weight >= 3.3 ){
+        if( stature >= 46.5 && stature < 47.0 && weight >= 3.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 47.0 && weight >= 3.4 ){
+        if( stature >= 47.0 && stature < 47.5 && weight >= 3.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 47.5 && weight >= 3.5 ){
+        if( stature >= 47.5 && stature < 48.0 && weight >= 3.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 48.0 && weight >= 3.6 ){
+        if( stature >= 48.0 && stature < 48.5 && weight >= 3.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 48.5 && weight >= 3.7 ){
+        if( stature >= 48.5 && stature < 49.0 && weight >= 3.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 49.0 && weight >= 3.8 ){
+        if( stature >= 49.0 && stature < 49.5 && weight >= 3.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 49.5 && weight >= 3.9 ){
+        if( stature >= 49.5 && stature < 50.0 && weight >= 3.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 50.0 && weight >= 4.0 ){
+        if( stature >= 50.0 && stature < 50.5 && weight >= 4.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 50.5 && weight >= 4.2 ){
+        if( stature >= 50.5 && stature < 51.0 && weight >= 4.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 51.0 && weight >= 4.3 ){
+        if( stature >= 51.0 && stature < 51.5 && weight >= 4.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 51.5 && weight >= 4.4 ){
+        if( stature >= 51.5 && stature < 52.0 && weight >= 4.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 52.0 && weight >= 4.6 ){
+        if( stature >= 52.0 && stature < 52.5 && weight >= 4.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 52.5 && weight >= 4.7 ){
+        if( stature >= 52.5 && stature < 53.0 && weight >= 4.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 53.0 && weight >= 4.9 ){
+        if( stature >= 53.0 && stature < 53.5 && weight >= 4.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 53.5 && weight >= 5.0 ){
+        if( stature >= 53.5 && stature < 54.0 && weight >= 5.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 54.0 && weight >= 5.2 ){
+        if( stature >= 54.0 && stature < 54.5 && weight >= 5.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 54.5 && weight >= 5.3 ){
+        if( stature >= 54.5 && stature < 55.0 && weight >= 5.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 55.0 && weight >= 5.5 ){
+        if( stature >= 55.0 && stature < 55.5 && weight >= 5.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 55.5 && weight >= 5.7 ){
+        if( stature >= 55.5 && stature < 56.0 && weight >= 5.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 56.0 && weight >= 5.8 ){
+        if( stature >= 56.0 && stature < 56.5 && weight >= 5.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 56.5 && weight >= 6.0 ){
+        if( stature >= 56.5 && stature < 57.0 && weight >= 6.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 57.0 && weight >= 6.1 ){
+        if( stature >= 57.0 && stature < 57.5 && weight >= 6.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 57.5 && weight >= 6.3 ){
+        if( stature >= 57.5 && stature < 58.0 && weight >= 6.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 58.0 && weight >= 6.5 ){
+        if( stature >= 58.0 && stature < 58.5 && weight >= 6.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 58.5 && weight >= 6.6 ){
+        if( stature >= 58.5 && stature < 59.0 && weight >= 6.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 59.0 && weight >= 6.8 ){
+        if( stature >= 59.0 && stature < 59.5 && weight >= 6.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 59.5 && weight >= 6.9 ){
+        if( stature >= 59.5 && stature < 60.0 && weight >= 6.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 60.0 && weight >= 7.1 ){
+        if( stature >= 60.0 && stature < 60.5 && weight >= 7.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 60.5 && weight >= 7.3 ){
+        if( stature >= 60.5 && stature < 61.0 && weight >= 7.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 61.0 && weight >= 7.4 ){
+        if( stature >= 61.0 && stature < 61.5 && weight >= 7.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 61.5 && weight >= 7.6 ){
+        if( stature >= 61.5 && stature < 62.0 && weight >= 7.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 62.0 && weight >= 7.7 ){
+        if( stature >= 62.0 && stature < 62.5 && weight >= 7.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 62.5 && weight >= 7.8 ){
+        if( stature >= 62.5 && stature < 63.0 && weight >= 7.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 63.0 && weight >= 8.0 ){
+        if( stature >= 63.0 && stature < 63.5 && weight >= 8.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 63.5 && weight >= 8.1 ){
+        if( stature >= 63.5 && stature < 64.0 && weight >= 8.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 64.0 && weight >= 8.3 ){
+        if( stature >= 64.0 && stature < 64.5 && weight >= 8.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 64.5 && weight >= 8.4 ){
+        if( stature >= 64.5 && stature < 65.0 && weight >= 8.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 65.0 && weight >= 8.6 ){
+        if( stature >= 65.0 && stature < 65.5 && weight >= 8.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 65.5 && weight >= 8.7 ){
+        if( stature >= 65.5 && stature < 66.0 && weight >= 8.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 66.0 && weight >= 8.8 ){
+        if( stature >= 66.0 && stature < 66.5 && weight >= 8.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 66.5 && weight >= 9.0 ){
+        if( stature >= 66.5 && stature < 67.0 && weight >= 9.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 67.0 && weight >= 9.1 ){
+        if( stature >= 67.0 && stature < 67.5 && weight >= 9.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 67.5 && weight >= 9.2 ){
+        if( stature >= 67.5 && stature < 68.0 && weight >= 9.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 68.0 && weight >= 9.4 ){
+        if( stature >= 68.0 && stature < 68.5 && weight >= 9.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 68.5 && weight >= 9.5 ){
+        if( stature >= 68.5 && stature < 69.0 && weight >= 9.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 69.0 && weight >= 9.6 ){
+        if( stature >= 69.0 && stature < 69.5 && weight >= 9.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 69.5 && weight >= 9.7 ){
+        if( stature >= 69.5 && stature < 70.0 && weight >= 9.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 70.0 && weight >= 9.9 ){
+        if( stature >= 70.0 && stature < 70.5 && weight >= 9.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 70.5 && weight >= 10.0 ){
+        if( stature >= 70.5 && stature < 71.0 && weight >= 10.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 71.0 && weight >= 10.1 ){
+        if( stature >= 71.0 && stature < 71.5 && weight >= 10.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 71.5 && weight >= 10.2 ){
+        if( stature >= 71.5 && stature < 72.0 && weight >= 10.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 72.0 && weight >= 10.3 ){
+        if( stature >= 72.0 && stature < 72.5 && weight >= 10.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 72.5 && weight >= 10.5 ){
+        if( stature >= 72.5 && stature < 73.0 && weight >= 10.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 73.0 && weight >= 10.6 ){
+        if( stature >= 73.0 && stature < 73.5 && weight >= 10.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 73.5 && weight >= 10.7 ){
+        if( stature >= 73.5 && stature < 74.0 && weight >= 10.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 74.0 && weight >= 10.8 ){
+        if( stature >= 74.0 && stature < 74.5 && weight >= 10.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 74.5 && weight >= 10.9 ){
+        if( stature >= 74.5 && stature < 75.0 && weight >= 10.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 75.0 && weight >= 11.0 ){
+        if( stature >= 75.0 && stature < 75.5 && weight >= 11.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 75.5 && weight >= 11.1 ){
+        if( stature >= 75.5 && stature < 76.0 && weight >= 11.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 76.0 && weight >= 11.2 ){
+        if( stature >= 76.0 && stature < 76.5 && weight >= 11.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 76.5 && weight >= 11.4 ){
+        if( stature >= 76.5 && stature < 77.0 && weight >= 11.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 77.0 && weight >= 11.5 ){
+        if( stature >= 77.0 && stature < 77.5 && weight >= 11.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 77.5 && weight >= 11.6 ){
+        if( stature >= 77.5 && stature < 78.0 && weight >= 11.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 78.0 && weight >= 11.7 ){
+        if( stature >= 78.0 && stature < 78.5 && weight >= 11.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 78.5 && weight >= 11.8 ){
+        if( stature >= 78.5 && stature < 79.0 && weight >= 11.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 79.0 && weight >= 11.9 ){
+        if( stature >= 79.0 && stature < 79.5 && weight >= 11.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 79.5 && weight >= 12.0 ){
+        if( stature >= 79.5 && stature < 80.0 && weight >= 12.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 80.0 && weight >= 12.1 ){
+        if( stature >= 80.0 && stature < 80.5 && weight >= 12.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 80.5 && weight >= 12.3 ){
+        if( stature >= 80.5 && stature < 81.0 && weight >= 12.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 81.0 && weight >= 12.4 ){
+        if( stature >= 81.0 && stature < 81.5 && weight >= 12.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 81.5 && weight >= 12.5 ){
+        if( stature >= 81.5 && stature < 82.0 && weight >= 12.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 82.0 && weight >= 12.6 ){
+        if( stature >= 82.0 && stature < 82.5 && weight >= 12.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 82.5 && weight >= 12.8 ){
+        if( stature >= 82.5 && stature < 83.0 && weight >= 12.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 83.0 && weight >= 12.9 ){
+        if( stature >= 83.0 && stature < 83.5 && weight >= 12.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 83.5 && weight >= 13.1 ){
+        if( stature >= 83.5 && stature < 84.0 && weight >= 13.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 84.0 && weight >= 13.2 ){
+        if( stature >= 84.0 && stature < 84.5 && weight >= 13.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 84.5 && weight >= 13.3 ){
+        if( stature >= 84.5 && stature < 85.0 && weight >= 13.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 85.0 && weight >= 13.5 ){
+        if( stature >= 85.0 && stature < 85.5 && weight >= 13.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 85.5 && weight >= 13.6 ){
+        if( stature >= 85.5 && stature < 86.0 && weight >= 13.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 86.0 && weight >= 13.8 ){
+        if( stature >= 86.0 && stature < 86.5 && weight >= 13.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 86.5 && weight >= 13.9 ){
+        if( stature >= 86.5 && stature < 87.0 && weight >= 13.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 87.0 && weight >= 14.1 ){
+        if( stature >= 87.0 && stature < 87.5 && weight >= 14.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 87.5 && weight >= 14.2 ){
+        if( stature >= 87.5 && stature < 88.0 && weight >= 14.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 88.0 && weight >= 14.4 ){
+        if( stature >= 88.0 && stature < 88.5 && weight >= 14.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 88.5 && weight >= 14.5 ){
+        if( stature >= 88.5 && stature < 89.0 && weight >= 14.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 89.0 && weight >= 14.7 ){
+        if( stature >= 89.0 && stature < 89.5 && weight >= 14.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 89.5 && weight >= 14.8 ){
+        if( stature >= 89.5 && stature < 90.0 && weight >= 14.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 90.0 && weight >= 15.0 ){
+        if( stature >= 90.0 && stature < 90.5 && weight >= 15.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 90.5 && weight >= 15.1 ){
+        if( stature >= 90.5 && stature < 91.0 && weight >= 15.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 91.0 && weight >= 15.3 ){
+        if( stature >= 91.0 && stature < 91.5 && weight >= 15.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 91.5 && weight >= 15.5 ){
+        if( stature >= 91.5 && stature < 92.0 && weight >= 15.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 92.0 && weight >= 15.6 ){
+        if( stature >= 92.0 && stature < 92.5 && weight >= 15.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 92.5 && weight >= 15.8 ){
+        if( stature >= 92.5 && stature < 93.0 && weight >= 15.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 93.0 && weight >= 15.9 ){
+        if( stature >= 93.0 && stature < 93.5 && weight >= 15.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 93.5 && weight >= 16.1 ){
+        if( stature >= 93.5 && stature < 94.0 && weight >= 16.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 94.0 && weight >= 16.2 ){
+        if( stature >= 94.0 && stature < 94.5 && weight >= 16.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 94.5 && weight >= 16.4 ){
+        if( stature >= 94.5 && stature < 95.0 && weight >= 16.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 95.0 && weight >= 16.5 ){
+        if( stature >= 95.0 && stature < 95.5 && weight >= 16.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 95.5 && weight >= 16.7 ){
+        if( stature >= 95.5 && stature < 96.0 && weight >= 16.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 96.0 && weight >= 16.8 ){
+        if( stature >= 96.0 && stature < 96.5 && weight >= 16.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 96.5 && weight >= 17.0 ){
+        if( stature >= 96.5 && stature < 97.0 && weight >= 17.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 97.0 && weight >= 17.1 ){
+        if( stature >= 97.0 && stature < 97.5 && weight >= 17.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 97.5 && weight >= 17.3 ){
+        if( stature >= 97.5 && stature < 98.0 && weight >= 17.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 98.0 && weight >= 17.5 ){
+        if( stature >= 98.0 && stature < 98.5 && weight >= 17.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 98.5 && weight >= 17.6 ){
+        if( stature >= 98.5 && stature < 99.0 && weight >= 17.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 99.0 && weight >= 17.8 ){
+        if( stature >= 99.0 && stature < 99.5 && weight >= 17.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 99.5 && weight >= 18.0 ){
+        if( stature >= 99.5 && stature < 100.0 && weight >= 18.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 100.0 && weight >= 18.1 ){
+        if( stature >= 100.0 && stature < 100.5 && weight >= 18.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 100.5 && weight >= 18.3 ){
+        if( stature >= 100.5 && stature < 101.0 && weight >= 18.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 101.0 && weight >= 18.5 ){
+        if( stature >= 101.0 && stature < 101.5 && weight >= 18.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 101.5 && weight >= 18.7 ){
+        if( stature >= 101.5 && stature < 102.0 && weight >= 18.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 102.0 && weight >= 18.9 ){
+        if( stature >= 102.0 && stature < 102.5 && weight >= 18.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 102.5 && weight >= 19.0 ){
+        if( stature >= 102.5 && stature < 103.0 && weight >= 19.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 103.0 && weight >= 19.2 ){
+        if( stature >= 103.0 && stature < 103.5 && weight >= 19.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 103.5 && weight >= 19.4 ){
+        if( stature >= 103.5 && stature < 104.0 && weight >= 19.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 104.0 && weight >= 19.6 ){
+        if( stature >= 104.0 && stature < 104.5 && weight >= 19.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 104.5 && weight >= 19.8 ){
+        if( stature >= 104.5 && stature < 105.0 && weight >= 19.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 105.0 && weight >= 20.0 ){
+        if( stature >= 105.0 && stature < 105.5 && weight >= 20.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 105.5 && weight >= 20.2 ){
+        if( stature >= 105.5 && stature < 106.0 && weight >= 20.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 106.0 && weight >= 20.5 ){
+        if( stature >= 106.0 && stature < 106.5 && weight >= 20.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 106.5 && weight >= 20.7 ){
+        if( stature >= 106.5 && stature < 107.0 && weight >= 20.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 107.0 && weight >= 20.9 ){
+        if( stature >= 107.0 && stature < 107.5 && weight >= 20.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 107.5 && weight >= 21.1 ){
+        if( stature >= 107.5 && stature < 108.0 && weight >= 21.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 108.0 && weight >= 21.3 ){
+        if( stature >= 108.0 && stature < 108.5 && weight >= 21.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 108.5 && weight >= 21.6 ){
+        if( stature >= 108.5 && stature < 109.0 && weight >= 21.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 109.0 && weight >= 21.8 ){
+        if( stature >= 109.0 && stature < 109.5 && weight >= 21.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 109.5 && weight >= 22.0 ){
+        if( stature >= 109.5 && stature < 110.0 && weight >= 22.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 110.0 && weight >= 22.3 ){
+        if( stature >= 110.0 && weight >= 22.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
@@ -5139,447 +5139,447 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         // *** Desnutricion ***
 
-        if( stature > 65.0 && weight <= 6.1 ){
+        if( stature >= 65.0 && stature < 65.5 && weight <= 6.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 65.5 && weight <= 6.2 ){
+        if( stature >= 65.5 && stature < 66.0 && weight <= 6.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 66.0 && weight <= 6.3 ){
+        if( stature >= 66.0 && stature < 66.5 && weight <= 6.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 66.5 && weight <= 6.4 ){
+        if( stature >= 66.5 && stature < 67.0 && weight <= 6.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 67.0 && weight <= 6.4 ){
+        if( stature >= 67.0 && stature < 67.5 && weight <= 6.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 67.5 && weight <= 6.5 ){
+        if( stature >= 67.5 && stature < 68.0 && weight <= 6.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 68.0 && weight <= 6.6 ){
+        if( stature >= 68.0 && stature < 68.5 && weight <= 6.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 68.5 && weight <= 6.7 ){
+        if( stature >= 68.5 && stature < 69.0 && weight <= 6.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 69.0 && weight <= 6.8 ){
+        if( stature >= 69.0 && stature < 69.5 && weight <= 6.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 69.5 && weight <= 6.9 ){
+        if( stature >= 69.5 && stature < 70.0 && weight <= 6.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 70.0 && weight <= 7.0 ){
+        if( stature >= 70.0 && stature < 70.5 && weight <= 7.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 70.5 && weight <= 7.1 ){
+        if( stature >= 70.5 && stature < 71.0 && weight <= 7.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 71.0 && weight <= 7.1 ){
+        if( stature >= 71.0 && stature < 71.5 && weight <= 7.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 71.5 && weight <= 7.2 ){
+        if( stature >= 71.5 && stature < 72.0 && weight <= 7.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 72.0 && weight <= 7.3 ){
+        if( stature >= 72.0 && stature < 72.5 && weight <= 7.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 72.5 && weight <= 7.4 ){
+        if( stature >= 72.5 && stature < 73.0 && weight <= 7.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 73.0 && weight <= 7.5 ){
+        if( stature >= 73.0 && stature < 73.5 && weight <= 7.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 73.5 && weight <= 7.6 ){
+        if( stature >= 73.5 && stature < 74.0 && weight <= 7.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 74.0 && weight <= 7.6 ){
+        if( stature >= 74.0 && stature < 74.5 && weight <= 7.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 74.5 && weight <= 7.7 ){
+        if( stature >= 74.5 && stature < 75.0 && weight <= 7.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 75.0 && weight <= 7.8 ){
+        if( stature >= 75.0 && stature < 75.5 && weight <= 7.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 75.5 && weight <= 7.9 ){
+        if( stature >= 75.5 && stature < 76.0 && weight <= 7.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 76.0 && weight <= 8.0 ){
+        if( stature >= 76.0 && stature < 76.5 && weight <= 8.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 76.5 && weight <= 8.0 ){
+        if( stature >= 76.5 && stature < 77.0 && weight <= 8.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 77.0 && weight <= 8.1 ){
+        if( stature >= 77.0 && stature < 77.5 && weight <= 8.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 77.5 && weight <= 8.2 ){
+        if( stature >= 77.5 && stature < 78.0 && weight <= 8.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 78.0 && weight <= 8.3 ){
+        if( stature >= 78.0 && stature < 78.5 && weight <= 8.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 78.5 && weight <= 8.4 ){
+        if( stature >= 78.5 && stature < 79.0 && weight <= 8.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 79.0 && weight <= 8.4 ){
+        if( stature >= 79.0 && stature < 79.5 && weight <= 8.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 79.5 && weight <= 8.5 ){
+        if( stature >= 79.5 && stature < 80.0 && weight <= 8.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 80.0 && weight <= 8.6 ){
+        if( stature >= 80.0 && stature < 80.5 && weight <= 8.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 80.5 && weight <= 8.7 ){
+        if( stature >= 80.5 && stature < 81.0 && weight <= 8.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 81.0 && weight <= 8.8 ){
+        if( stature >= 81.0 && stature < 81.5 && weight <= 8.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 81.5 && weight <= 8.9 ){
+        if( stature >= 81.5 && stature < 82.0 && weight <= 8.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 82.0 && weight <= 9.0 ){
+        if( stature >= 82.0 && stature < 82.5 && weight <= 9.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 82.5 && weight <= 9.1 ){
+        if( stature >= 82.5 && stature < 83.0 && weight <= 9.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 83.0 && weight <= 9.2 ){
+        if( stature >= 83.0 && stature < 83.5 && weight <= 9.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 83.5 && weight <= 9.3 ){
+        if( stature >= 83.5 && stature < 84.0 && weight <= 9.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 84.0 && weight <= 9.4 ){
+        if( stature >= 84.0 && stature < 84.5 && weight <= 9.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 84.5 && weight <= 9.5 ){
+        if( stature >= 84.5 && stature < 85.0 && weight <= 9.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 85.0 && weight <= 9.6 ){
+        if( stature >= 85.0 && stature < 85.5 && weight <= 9.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 85.5 && weight <= 9.7 ){
+        if( stature >= 85.5 && stature < 86.0 && weight <= 9.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 86.0 && weight <= 9.8 ){
+        if( stature >= 86.0 && stature < 86.5 && weight <= 9.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 86.5 && weight <= 9.9 ){
+        if( stature >= 86.5 && stature < 87.0 && weight <= 9.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 87.0 && weight <= 10.0 ){
+        if( stature >= 87.0 && stature < 87.5 && weight <= 10.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 87.5 && weight <= 10.1 ){
+        if( stature >= 87.5 && stature < 88.0 && weight <= 10.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 88.0 && weight <= 10.2 ){
+        if( stature >= 88.0 && stature < 88.5 && weight <= 10.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 88.5 && weight <= 10.3 ){
+        if( stature >= 88.5 && stature < 89.0 && weight <= 10.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 89.0 && weight <= 10.4 ){
+        if( stature >= 89.0 && stature < 89.5 && weight <= 10.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 89.5 && weight <= 10.5 ){
+        if( stature >= 89.5 && stature < 90.0 && weight <= 10.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 90.0 && weight <= 10.6 ){
+        if( stature >= 90.0 && stature < 90.5 && weight <= 10.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 90.5 && weight <= 10.7 ){
+        if( stature >= 90.5 && stature < 91.0 && weight <= 10.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 91.0 && weight <= 10.9 ){
+        if( stature >= 91.0 && stature < 91.5 && weight <= 10.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 91.5 && weight <= 11.0 ){
+        if( stature >= 91.5 && stature < 92.0 && weight <= 11.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 92.0 && weight <= 11.1 ){
+        if( stature >= 92.0 && stature < 92.5 && weight <= 11.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 92.5 && weight <= 11.2 ){
+        if( stature >= 92.5 && stature < 93.0 && weight <= 11.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 93.0 && weight <= 11.3 ){
+        if( stature >= 93.0 && stature < 93.5 && weight <= 11.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 93.5 && weight <= 11.4 ){
+        if( stature >= 93.5 && stature < 94.0 && weight <= 11.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 94.0 && weight <= 11.5 ){
+        if( stature >= 94.0 && stature < 94.5 && weight <= 11.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 94.5 && weight <= 11.6 ){
+        if( stature >= 94.5 && stature < 95.0 && weight <= 11.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 95.0 && weight <= 11.7 ){
+        if( stature >= 95.0 && stature < 95.5 && weight <= 11.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 95.5 && weight <= 11.8 ){
+        if( stature >= 95.5 && stature < 96.0 && weight <= 11.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 96.0 && weight <= 11.9 ){
+        if( stature >= 96.0 && stature < 96.5 && weight <= 11.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 96.5 && weight <= 12.0 ){
+        if( stature >= 96.5 && stature < 97.0 && weight <= 12.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 97.0 && weight <= 12.1 ){
+        if( stature >= 97.0 && stature < 97.5 && weight <= 12.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 97.5 && weight <= 12.2 ){
+        if( stature >= 97.5 && stature < 98.0 && weight <= 12.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 98.0 && weight <= 12.3 ){
+        if( stature >= 98.0 && stature < 98.5 && weight <= 12.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 98.5 && weight <= 12.4 ){
+        if( stature >= 98.5 && stature < 99.0 && weight <= 12.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 99.0 && weight <= 12.5 ){
+        if( stature >= 99.0 && stature < 99.5 && weight <= 12.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 99.5 && weight <= 12.7 ){
+        if( stature >= 99.5 && stature < 100.0 && weight <= 12.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 100.0 && weight <= 12.8 ){
+        if( stature >= 100.0 && stature < 100.5 && weight <= 12.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 100.5 && weight <= 12.9 ){
+        if( stature >= 100.5 && stature < 101.0 && weight <= 12.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 101.0 && weight <= 13.0 ){
+        if( stature >= 101.0 && stature < 101.5 && weight <= 13.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 101.5 && weight <= 13.1 ){
+        if( stature >= 101.5 && stature < 102.0 && weight <= 13.1 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 102.0 && weight <= 13.3 ){
+        if( stature >= 102.0 && stature < 102.5 && weight <= 13.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 102.5 && weight <= 13.4 ){
+        if( stature >= 102.5 && stature < 103.0 && weight <= 13.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 103.0 && weight <= 13.5 ){
+        if( stature >= 103.0 && stature < 103.5 && weight <= 13.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 103.5 && weight <= 13.6 ){
+        if( stature >= 103.5 && stature < 104.0 && weight <= 13.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 104.0 && weight <= 13.8 ){
+        if( stature >= 104.0 && stature < 104.5 && weight <= 13.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 104.5 && weight <= 13.9 ){
+        if( stature >= 104.5 && stature < 105.0 && weight <= 13.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 105.0 && weight <= 14.0 ){
+        if( stature >= 105.0 && stature < 105.5 && weight <= 14.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 105.5 && weight <= 14.2 ){
+        if( stature >= 105.5 && stature < 106.0 && weight <= 14.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 106.0 && weight <= 14.3 ){
+        if( stature >= 106.0 && stature < 106.5 && weight <= 14.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 106.5 && weight <= 14.5 ){
+        if( stature >= 106.5 && stature < 107.0 && weight <= 14.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 107.0 && weight <= 14.6 ){
+        if( stature >= 107.0 && stature < 107.5 && weight <= 14.6 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 107.5 && weight <= 14.7 ){
+        if( stature >= 107.5 && stature < 108.0 && weight <= 14.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 108.0 && weight <= 14.9 ){
+        if( stature >= 108.0 && stature < 108.5 && weight <= 14.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 108.5 && weight <= 15.0 ){
+        if( stature >= 108.5 && stature < 109.0 && weight <= 15.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 109.0 && weight <= 15.2 ){
+        if( stature >= 109.0 && stature < 109.5 && weight <= 15.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 109.5 && weight <= 15.4 ){
+        if( stature >= 109.5 && stature < 110.0 && weight <= 15.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 110.0 && weight <= 15.5 ){
+        if( stature >= 110.0 && stature < 110.5 && weight <= 15.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 110.5 && weight <= 15.7 ){
+        if( stature >= 110.5 && stature < 111.0 && weight <= 15.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 111.0 && weight <= 15.8 ){
+        if( stature >= 111.0 && stature < 111.5 && weight <= 15.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 111.5 && weight <= 16.0 ){
+        if( stature >= 111.5 && stature < 112.0 && weight <= 16.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 112.0 && weight <= 16.2 ){
+        if( stature >= 112.0 && stature < 112.5 && weight <= 16.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 112.5 && weight <= 16.3 ){
+        if( stature >= 112.5 && stature < 113.0 && weight <= 16.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 113.0 && weight <= 16.5 ){
+        if( stature >= 113.0 && stature < 113.5 && weight <= 16.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 113.5 && weight <= 16.7 ){
+        if( stature >= 113.5 && stature < 114.0 && weight <= 16.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 114.0 && weight <= 16.8 ){
+        if( stature >= 114.0 && stature < 114.5 && weight <= 16.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 114.5 && weight <= 17.0 ){
+        if( stature >= 114.5 && stature < 115.0 && weight <= 17.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 115.0 && weight <= 17.2 ){
+        if( stature >= 115.0 && stature < 115.5 && weight <= 17.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 115.5 && weight <= 17.3 ){
+        if( stature >= 115.5 && stature < 116.0 && weight <= 17.3 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 116.0 && weight <= 17.5 ){
+        if( stature >= 116.0 && stature < 116.5 && weight <= 17.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 116.5 && weight <= 17.7 ){
+        if( stature >= 116.5 && stature < 117.0 && weight <= 17.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 117.0 && weight <= 17.8 ){
+        if( stature >= 117.0 && stature < 117.5 && weight <= 17.8 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 117.5 && weight <= 18.0 ){
+        if( stature >= 117.5 && stature < 118.0 && weight <= 18.0 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 118.0 && weight <= 18.2 ){
+        if( stature >= 118.0 && stature < 118.5 && weight <= 18.2 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 118.5 && weight <= 18.4 ){
+        if( stature >= 118.5 && stature < 119.0 && weight <= 18.4 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 119.0 && weight <= 18.5 ){
+        if( stature >= 119.0 && stature < 119.5 && weight <= 18.5 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 119.5 && weight <= 18.7 ){
+        if( stature >= 119.5 && stature < 120.0 && weight <= 18.7 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }
-        if( stature > 120.0 && weight <= 18.9 ){
+        if( stature >= 120.0 && weight <= 18.9 ){
             result.msg = 'Desnutricion';
             result.ok = true;
         }        
@@ -5588,447 +5588,447 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         // *** Riesgo de Desnutrir ***
 
-        if( stature > 65.0 && weight > 6.1 && weight <= 6.6 ){
+        if( stature >= 65.0 && stature < 65.5 && weight > 6.1 && weight <= 6.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 65.5 && weight > 6.2 && weight <= 6.7 ){
+        if( stature >= 65.5 && stature < 66.0 && weight > 6.2 && weight <= 6.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 66.0 && weight > 6.3 && weight <= 6.8 ){
+        if( stature >= 66.0 && stature < 66.5 && weight > 6.3 && weight <= 6.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 66.5 && weight > 6.4 && weight <= 6.9 ){
+        if( stature >= 66.5 && stature < 67.0 && weight > 6.4 && weight <= 6.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 67.0 && weight > 6.4 && weight <= 7.0 ){
+        if( stature >= 67.0 && stature < 67.5 && weight > 6.4 && weight <= 7.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 67.5 && weight > 6.5 && weight <= 7.1 ){
+        if( stature >= 67.5 && stature < 68.0 && weight > 6.5 && weight <= 7.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 68.0 && weight > 6.6 && weight <= 7.2 ){
+        if( stature >= 68.0 && stature < 68.5 && weight > 6.6 && weight <= 7.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 68.5 && weight > 6.7 && weight <= 7.3 ){
+        if( stature >= 68.5 && stature < 69.0 && weight > 6.7 && weight <= 7.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 69.0 && weight > 6.8 && weight <= 7.4 ){
+        if( stature >= 69.0 && stature < 69.5 && weight > 6.8 && weight <= 7.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 69.5 && weight > 6.9 && weight <= 7.5 ){
+        if( stature >= 69.5 && stature < 70.0 && weight > 6.9 && weight <= 7.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 70.0 && weight > 7.0 && weight <= 7.6 ){
+        if( stature >= 70.0 && stature < 70.5 && weight > 7.0 && weight <= 7.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 70.5 && weight > 7.1 && weight <= 7.7 ){
+        if( stature >= 70.5 && stature < 71.0 && weight > 7.1 && weight <= 7.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 71.0 && weight > 7.1 && weight <= 7.8 ){
+        if( stature >= 71.0 && stature < 71.5 && weight > 7.1 && weight <= 7.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 71.5 && weight > 7.2 && weight <= 7.9 ){
+        if( stature >= 71.5 && stature < 72.0 && weight > 7.2 && weight <= 7.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 72.0 && weight > 7.3 && weight <= 8.0 ){
+        if( stature >= 72.0 && stature < 72.5 && weight > 7.3 && weight <= 8.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 72.5 && weight > 7.4 && weight <= 8.1 ){
+        if( stature >= 72.5 && stature < 73.0 && weight > 7.4 && weight <= 8.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 73.0 && weight > 7.5 && weight <= 8.1 ){
+        if( stature >= 73.0 && stature < 73.5 && weight > 7.5 && weight <= 8.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 73.5 && weight > 7.6 && weight <= 8.2 ){
+        if( stature >= 73.5 && stature < 74.0 && weight > 7.6 && weight <= 8.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 74.0 && weight > 7.6 && weight <= 8.3 ){
+        if( stature >= 74.0 && stature < 74.5 && weight > 7.6 && weight <= 8.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 74.5 && weight > 7.7 && weight <= 8.4 ){
+        if( stature >= 74.5 && stature < 75.0 && weight > 7.7 && weight <= 8.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 75.0 && weight > 7.8 && weight <= 8.5 ){
+        if( stature >= 75.0 && stature < 75.5 && weight > 7.8 && weight <= 8.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 75.5 && weight > 7.9 && weight <= 8.6 ){
+        if( stature >= 75.5 && stature < 76.0 && weight > 7.9 && weight <= 8.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 76.0 && weight > 8.0 && weight <= 8.7 ){
+        if( stature >= 76.0 && stature < 76.5 && weight > 8.0 && weight <= 8.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 76.5 && weight > 8.0 && weight <= 8.7 ){
+        if( stature >= 76.5 && stature < 77.0 && weight > 8.0 && weight <= 8.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 77.0 && weight > 8.1 && weight <= 8.8 ){
+        if( stature >= 77.0 && stature < 77.5 && weight > 8.1 && weight <= 8.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 77.5 && weight > 8.2 && weight <= 8.9 ){
+        if( stature >= 77.5 && stature < 78.0 && weight > 8.2 && weight <= 8.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 78.0 && weight > 8.3 && weight <= 9.0 ){
+        if( stature >= 78.0 && stature < 78.5 && weight > 8.3 && weight <= 9.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 78.5 && weight > 8.4 && weight <= 9.1 ){
+        if( stature >= 78.5 && stature < 79.0 && weight > 8.4 && weight <= 9.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 79.0 && weight > 8.4 && weight <= 9.2 ){
+        if( stature >= 79.0 && stature < 79.5 && weight > 8.4 && weight <= 9.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 79.5 && weight > 8.5 && weight <= 9.3 ){
+        if( stature >= 79.5 && stature < 80.0 && weight > 8.5 && weight <= 9.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 80.0 && weight > 8.6 && weight <= 9.4 ){
+        if( stature >= 80.0 && stature < 80.5 && weight > 8.6 && weight <= 9.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 80.5 && weight > 8.7 && weight <= 9.5 ){
+        if( stature >= 80.5 && stature < 81.0 && weight > 8.7 && weight <= 9.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 81.0 && weight > 8.8 && weight <= 9.6 ){
+        if( stature >= 81.0 && stature < 81.5 && weight > 8.8 && weight <= 9.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 81.5 && weight > 8.9 && weight <= 9.7 ){
+        if( stature >= 81.5 && stature < 82.0 && weight > 8.9 && weight <= 9.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 82.0 && weight > 9.0 && weight <= 9.8 ){
+        if( stature >= 82.0 && stature < 82.5 && weight > 9.0 && weight <= 9.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 82.5 && weight > 9.1 && weight <= 9.9 ){
+        if( stature >= 82.5 && stature < 83.0 && weight > 9.1 && weight <= 9.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 83.0 && weight > 9.2 && weight <= 10.0 ){
+        if( stature >= 83.0 && stature < 83.5 && weight > 9.2 && weight <= 10.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 83.5 && weight > 9.3 && weight <= 10.1 ){
+        if( stature >= 83.5 && stature < 84.0 && weight > 9.3 && weight <= 10.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 84.0 && weight > 9.4 && weight <= 10.2 ){
+        if( stature >= 84.0 && stature < 84.5 && weight > 9.4 && weight <= 10.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 84.5 && weight > 9.5 && weight <= 10.3 ){
+        if( stature >= 84.5 && stature < 85.0 && weight > 9.5 && weight <= 10.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 85.0 && weight > 9.6 && weight <= 10.4 ){
+        if( stature >= 85.0 && stature < 85.5 && weight > 9.6 && weight <= 10.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 85.5 && weight > 9.7 && weight <= 10.6 ){
+        if( stature >= 85.5 && stature < 86.0 && weight > 9.7 && weight <= 10.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 86.0 && weight > 9.8 && weight <= 10.7 ){
+        if( stature >= 86.0 && stature < 86.5 && weight > 9.8 && weight <= 10.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 86.5 && weight > 9.9 && weight <= 10.8 ){
+        if( stature >= 86.5 && stature < 87.0 && weight > 9.9 && weight <= 10.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 87.0 && weight > 10.0 && weight <= 10.9 ){
+        if( stature >= 87.0 && stature < 87.5 && weight > 10.0 && weight <= 10.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 87.5 && weight > 10.1 && weight <= 11.0 ){
+        if( stature >= 87.5 && stature < 88.0 && weight > 10.1 && weight <= 11.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 88.0 && weight > 10.2 && weight <= 11.1 ){
+        if( stature >= 88.0 && stature < 88.5 && weight > 10.2 && weight <= 11.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 88.5 && weight > 10.3 && weight <= 11.2 ){
+        if( stature >= 88.5 && stature < 89.0 && weight > 10.3 && weight <= 11.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 89.0 && weight > 10.4 && weight <= 11.4 ){
+        if( stature >= 89.0 && stature < 89.5 && weight > 10.4 && weight <= 11.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 89.5 && weight > 10.5 && weight <= 11.5 ){
+        if( stature >= 89.5 && stature < 90.0 && weight > 10.5 && weight <= 11.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 90.0 && weight > 10.6 && weight <= 11.6 ){
+        if( stature >= 90.0 && stature < 90.5 && weight > 10.6 && weight <= 11.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 90.5 && weight > 10.7 && weight <= 11.7 ){
+        if( stature >= 90.5 && stature < 91.0 && weight > 10.7 && weight <= 11.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 91.0 && weight > 10.9 && weight <= 11.8 ){
+        if( stature >= 91.0 && stature < 91.5 && weight > 10.9 && weight <= 11.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 91.5 && weight > 11.0 && weight <= 11.9 ){
+        if( stature >= 91.5 && stature < 92.0 && weight > 11.0 && weight <= 11.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 92.0 && weight > 11.1 && weight <= 12.0 ){
+        if( stature >= 92.0 && stature < 92.5 && weight > 11.1 && weight <= 12.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 92.5 && weight > 11.2 && weight <= 12.1 ){
+        if( stature >= 92.5 && stature < 93.0 && weight > 11.2 && weight <= 12.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 93.0 && weight > 11.3 && weight <= 12.3 ){
+        if( stature >= 93.0 && stature < 93.5 && weight > 11.3 && weight <= 12.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 93.5 && weight > 11.4 && weight <= 12.4 ){
+        if( stature >= 93.5 && stature < 94.0 && weight > 11.4 && weight <= 12.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 94.0 && weight > 11.5 && weight <= 12.5 ){
+        if( stature >= 94.0 && stature < 94.5 && weight > 11.5 && weight <= 12.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 94.5 && weight > 11.6 && weight <= 12.6 ){
+        if( stature >= 94.5 && stature < 95.0 && weight > 11.6 && weight <= 12.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 95.0 && weight > 11.7 && weight <= 12.7 ){
+        if( stature >= 95.0 && stature < 95.5 && weight > 11.7 && weight <= 12.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 95.5 && weight > 11.8 && weight <= 12.8 ){
+        if( stature >= 95.5 && stature < 96.0 && weight > 11.8 && weight <= 12.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 96.0 && weight > 11.9 && weight <= 12.9 ){
+        if( stature >= 96.0 && stature < 96.5 && weight > 11.9 && weight <= 12.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 96.5 && weight > 12.0 && weight <= 13.1 ){
+        if( stature >= 96.5 && stature < 97.0 && weight > 12.0 && weight <= 13.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 97.0 && weight > 12.1 && weight <= 13.2 ){
+        if( stature >= 97.0 && stature < 97.5 && weight > 12.1 && weight <= 13.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 97.5 && weight > 12.2 && weight <= 13.3 ){
+        if( stature >= 97.5 && stature < 98.0 && weight > 12.2 && weight <= 13.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 98.0 && weight > 12.3 && weight <= 13.4 ){
+        if( stature >= 98.0 && stature < 98.5 && weight > 12.3 && weight <= 13.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 98.5 && weight > 12.4 && weight <= 13.5 ){
+        if( stature >= 98.5 && stature < 99.0 && weight > 12.4 && weight <= 13.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 99.0 && weight > 12.5 && weight <= 13.7 ){
+        if( stature >= 99.0 && stature < 99.5 && weight > 12.5 && weight <= 13.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 99.5 && weight > 12.7 && weight <= 13.8 ){
+        if( stature >= 99.5 && stature < 100.0 && weight > 12.7 && weight <= 13.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 100.0 && weight > 12.8 && weight <= 13.9 ){
+        if( stature >= 100.0 && stature < 100.5 && weight > 12.8 && weight <= 13.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 100.5 && weight > 12.9 && weight <= 14.1 ){
+        if( stature >= 100.5 && stature < 101.0 && weight > 12.9 && weight <= 14.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 101.0 && weight > 13.0 && weight <= 14.2 ){
+        if( stature >= 101.0 && stature < 101.5 && weight > 13.0 && weight <= 14.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 101.5 && weight > 13.1 && weight <= 14.3 ){
+        if( stature >= 101.5 && stature < 102.0 && weight > 13.1 && weight <= 14.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 102.0 && weight > 13.3 && weight <= 14.5 ){
+        if( stature >= 102.0 && stature < 102.5 && weight > 13.3 && weight <= 14.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 102.5 && weight > 13.4 && weight <= 14.6 ){
+        if( stature >= 102.5 && stature < 103.0 && weight > 13.4 && weight <= 14.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 103.0 && weight > 13.5 && weight <= 14.7 ){
+        if( stature >= 103.0 && stature < 103.5 && weight > 13.5 && weight <= 14.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 103.5 && weight > 13.6 && weight <= 14.9 ){
+        if( stature >= 103.5 && stature < 104.0 && weight > 13.6 && weight <= 14.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 104.0 && weight > 13.8 && weight <= 15.0 ){
+        if( stature >= 104.0 && stature < 104.5 && weight > 13.8 && weight <= 15.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 104.5 && weight > 13.9 && weight <= 15.2 ){
+        if( stature >= 104.5 && stature < 105.0 && weight > 13.9 && weight <= 15.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 105.0 && weight > 14.0 && weight <= 15.3 ){
+        if( stature >= 105.0 && stature < 105.5 && weight > 14.0 && weight <= 15.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 105.5 && weight > 14.2 && weight <= 15.5 ){
+        if( stature >= 105.5 && stature < 106.0 && weight > 14.2 && weight <= 15.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 106.0 && weight > 14.3 && weight <= 15.6 ){
+        if( stature >= 106.0 && stature < 106.5 && weight > 14.3 && weight <= 15.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 106.5 && weight > 14.5 && weight <= 15.8 ){
+        if( stature >= 106.5 && stature < 107.0 && weight > 14.5 && weight <= 15.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 107.0 && weight > 14.6 && weight <= 15.9 ){
+        if( stature >= 107.0 && stature < 107.5 && weight > 14.6 && weight <= 15.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 107.5 && weight > 14.7 && weight <= 16.1 ){
+        if( stature >= 107.5 && stature < 108.0 && weight > 14.7 && weight <= 16.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 108.0 && weight > 14.9 && weight <= 16.3 ){
+        if( stature >= 108.0 && stature < 108.5 && weight > 14.9 && weight <= 16.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 108.5 && weight > 15.0 && weight <= 16.4 ){
+        if( stature >= 108.5 && stature < 109.0 && weight > 15.0 && weight <= 16.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 109.0 && weight > 15.2 && weight <= 16.6 ){
+        if( stature >= 109.0 && stature < 109.5 && weight > 15.2 && weight <= 16.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 109.5 && weight > 15.4 && weight <= 16.8 ){
+        if( stature >= 109.5 && stature < 110.0 && weight > 15.4 && weight <= 16.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 110.0 && weight > 15.5 && weight <= 17.0 ){
+        if( stature >= 110.0 && stature < 110.5 && weight > 15.5 && weight <= 17.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 110.5 && weight > 15.7 && weight <= 17.1 ){
+        if( stature >= 110.5 && stature < 111.0 && weight > 15.7 && weight <= 17.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 111.0 && weight > 15.8 && weight <= 17.3 ){
+        if( stature >= 111.0 && stature < 111.5 && weight > 15.8 && weight <= 17.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 111.5 && weight > 16.0 && weight <= 17.5 ){
+        if( stature >= 111.5 && stature < 112.0 && weight > 16.0 && weight <= 17.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 112.0 && weight > 16.2 && weight <= 17.7 ){
+        if( stature >= 112.0 && stature < 112.5 && weight > 16.2 && weight <= 17.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 112.5 && weight > 16.3 && weight <= 17.9 ){
+        if( stature >= 112.5 && stature < 113.0 && weight > 16.3 && weight <= 17.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 113.0 && weight > 16.5 && weight <= 18.0 ){
+        if( stature >= 113.0 && stature < 113.5 && weight > 16.5 && weight <= 18.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 113.5 && weight > 16.7 && weight <= 18.2 ){
+        if( stature >= 113.5 && stature < 114.0 && weight > 16.7 && weight <= 18.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 114.0 && weight > 16.8 && weight <= 18.4 ){
+        if( stature >= 114.0 && stature < 114.5 && weight > 16.8 && weight <= 18.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 114.5 && weight > 17.0 && weight <= 18.6 ){
+        if( stature >= 114.5 && stature < 115.0 && weight > 17.0 && weight <= 18.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 115.0 && weight > 17.2 && weight <= 18.8 ){
+        if( stature >= 115.0 && stature < 115.5 && weight > 17.2 && weight <= 18.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 115.5 && weight > 17.3 && weight <= 19.0 ){
+        if( stature >= 115.5 && stature < 116.0 && weight > 17.3 && weight <= 19.0 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 116.0 && weight > 17.5 && weight <= 19.2 ){
+        if( stature >= 116.0 && stature < 116.5 && weight > 17.5 && weight <= 19.2 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 116.5 && weight > 17.7 && weight <= 19.4 ){
+        if( stature >= 116.5 && stature < 117.0 && weight > 17.7 && weight <= 19.4 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 117.0 && weight > 17.8 && weight <= 19.6 ){
+        if( stature >= 117.0 && stature < 117.5 && weight > 17.8 && weight <= 19.6 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 117.5 && weight > 18.0 && weight <= 19.8 ){
+        if( stature >= 117.5 && stature < 118.0 && weight > 18.0 && weight <= 19.8 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 118.0 && weight > 18.2 && weight <= 19.9 ){
+        if( stature >= 118.0 && stature < 118.5 && weight > 18.2 && weight <= 19.9 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 118.5 && weight > 18.4 && weight <= 20.1 ){
+        if( stature >= 118.5 && stature < 119.0 && weight > 18.4 && weight <= 20.1 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 119.0 && weight > 18.5 && weight <= 20.3 ){
+        if( stature >= 119.0 && stature < 119.5 && weight > 18.5 && weight <= 20.3 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 119.5 && weight > 18.7 && weight <= 20.5 ){
+        if( stature >= 119.5 && stature < 120.0 && weight > 18.7 && weight <= 20.5 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
-        if( stature > 120.0 && weight > 18.9 && weight <= 20.7 ){
+        if( stature >= 120.0 && weight > 18.9 && weight <= 20.7 ){
             result.msg = 'Riesgo de Desnutrir';
             result.ok = true;
         }
@@ -6037,447 +6037,447 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         // *** Normal o Eutrófico ***
 
-        if( stature > 65.0 && weight > 6.6 && weight < 7.9 ){
+        if( stature >= 65.0 && stature < 65.5 && weight > 6.6 && weight < 7.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 65.5 && weight > 6.7 && weight < 8.1 ){
+        if( stature >= 65.5 && stature < 66.0 && weight > 6.7 && weight < 8.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 66.0 && weight > 6.8 && weight < 8.2 ){
+        if( stature >= 66.0 && stature < 66.5 && weight > 6.8 && weight < 8.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 66.5 && weight > 6.9 && weight < 8.3 ){
+        if( stature >= 66.5 && stature < 67.0 && weight > 6.9 && weight < 8.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 67.0 && weight > 7.0 && weight < 8.4 ){
+        if( stature >= 67.0 && stature < 67.5 && weight > 7.0 && weight < 8.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 67.5 && weight > 7.1 && weight < 8.5 ){
+        if( stature >= 67.5 && stature < 68.0 && weight > 7.1 && weight < 8.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 68.0 && weight > 7.2 && weight < 8.7 ){
+        if( stature >= 68.0 && stature < 68.5 && weight > 7.2 && weight < 8.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 68.5 && weight > 7.3 && weight < 8.8 ){
+        if( stature >= 68.5 && stature < 69.0 && weight > 7.3 && weight < 8.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 69.0 && weight > 7.4 && weight < 8.9 ){
+        if( stature >= 69.0 && stature < 69.5 && weight > 7.4 && weight < 8.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 69.5 && weight > 7.5 && weight < 9.0 ){
+        if( stature >= 69.5 && stature < 70.0 && weight > 7.5 && weight < 9.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 70.0 && weight > 7.6 && weight < 9.1 ){
+        if( stature >= 70.0 && stature < 70.5 && weight > 7.6 && weight < 9.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 70.5 && weight > 7.7 && weight < 9.2 ){
+        if( stature >= 70.5 && stature < 71.0 && weight > 7.7 && weight < 9.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 71.0 && weight > 7.8 && weight < 9.3 ){
+        if( stature >= 71.0 && stature < 71.5 && weight > 7.8 && weight < 9.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 71.5 && weight > 7.9 && weight < 9.4 ){
+        if( stature >= 71.5 && stature < 72.0 && weight > 7.9 && weight < 9.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 72.0 && weight > 8.0 && weight < 9.5 ){
+        if( stature >= 72.0 && stature < 72.5 && weight > 8.0 && weight < 9.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 72.5 && weight > 8.1 && weight < 9.7 ){
+        if( stature >= 72.5 && stature < 73.0 && weight > 8.1 && weight < 9.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 73.0 && weight > 8.1 && weight < 9.8 ){
+        if( stature >= 73.0 && stature < 73.5 && weight > 8.1 && weight < 9.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 73.5 && weight > 8.2 && weight < 9.9 ){
+        if( stature >= 73.5 && stature < 74.0 && weight > 8.2 && weight < 9.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 74.0 && weight > 8.3 && weight < 10.0 ){
+        if( stature >= 74.0 && stature < 74.5 && weight > 8.3 && weight < 10.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 74.5 && weight > 8.4 && weight < 10.1 ){
+        if( stature >= 74.5 && stature < 75.0 && weight > 8.4 && weight < 10.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 75.0 && weight > 8.5 && weight < 10.2 ){
+        if( stature >= 75.0 && stature < 75.5 && weight > 8.5 && weight < 10.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 75.5 && weight > 8.6 && weight < 10.3 ){
+        if( stature >= 75.5 && stature < 76.0 && weight > 8.6 && weight < 10.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 76.0 && weight > 8.7 && weight < 10.4 ){
+        if( stature >= 76.0 && stature < 76.5 && weight > 8.7 && weight < 10.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 76.5 && weight > 8.7 && weight < 10.5 ){
+        if( stature >= 76.5 && stature < 77.0 && weight > 8.7 && weight < 10.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 77.0 && weight > 8.8 && weight < 10.6 ){
+        if( stature >= 77.0 && stature < 77.5 && weight > 8.8 && weight < 10.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 77.5 && weight > 8.9 && weight < 10.7 ){
+        if( stature >= 77.5 && stature < 78.0 && weight > 8.9 && weight < 10.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 78.0 && weight > 9.0 && weight < 10.8 ){
+        if( stature >= 78.0 && stature < 78.5 && weight > 9.0 && weight < 10.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 78.5 && weight > 9.1 && weight < 10.9 ){
+        if( stature >= 78.5 && stature < 79.0 && weight > 9.1 && weight < 10.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 79.0 && weight > 9.2 && weight < 11.0 ){
+        if( stature >= 79.0 && stature < 79.5 && weight > 9.2 && weight < 11.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 79.5 && weight > 9.3 && weight < 11.1 ){
+        if( stature >= 79.5 && stature < 80.0 && weight > 9.3 && weight < 11.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 80.0 && weight > 9.4 && weight < 11.2 ){
+        if( stature >= 80.0 && stature < 80.5 && weight > 9.4 && weight < 11.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 80.5 && weight > 9.5 && weight < 11.3 ){
+        if( stature >= 80.5 && stature < 81.0 && weight > 9.5 && weight < 11.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 81.0 && weight > 9.6 && weight < 11.4 ){
+        if( stature >= 81.0 && stature < 81.5 && weight > 9.6 && weight < 11.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 81.5 && weight > 9.7 && weight < 11.6 ){
+        if( stature >= 81.5 && stature < 82.0 && weight > 9.7 && weight < 11.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 82.0 && weight > 9.8 && weight < 11.7 ){
+        if( stature >= 82.0 && stature < 82.5 && weight > 9.8 && weight < 11.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 82.5 && weight > 9.9 && weight < 11.8 ){
+        if( stature >= 82.5 && stature < 83.0 && weight > 9.9 && weight < 11.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 83.0 && weight > 10.0 && weight < 11.9 ){
+        if( stature >= 83.0 && stature < 83.5 && weight > 10.0 && weight < 11.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 83.5 && weight > 10.1 && weight < 12.1 ){
+        if( stature >= 83.5 && stature < 84.0 && weight > 10.1 && weight < 12.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 84.0 && weight > 10.2 && weight < 12.2 ){
+        if( stature >= 84.0 && stature < 84.5 && weight > 10.2 && weight < 12.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 84.5 && weight > 10.3 && weight < 12.3 ){
+        if( stature >= 84.5 && stature < 85.0 && weight > 10.3 && weight < 12.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 85.0 && weight > 10.4 && weight < 12.5 ){
+        if( stature >= 85.0 && stature < 85.5 && weight > 10.4 && weight < 12.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 85.5 && weight > 10.6 && weight < 12.6 ){
+        if( stature >= 85.5 && stature < 86.0 && weight > 10.6 && weight < 12.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 86.0 && weight > 10.7 && weight < 12.7 ){
+        if( stature >= 86.0 && stature < 86.5 && weight > 10.7 && weight < 12.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 86.5 && weight > 10.8 && weight < 12.9 ){
+        if( stature >= 86.5 && stature < 87.0 && weight > 10.8 && weight < 12.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 87.0 && weight > 10.9 && weight < 13.0 ){
+        if( stature >= 87.0 && stature < 87.5 && weight > 10.9 && weight < 13.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 87.5 && weight > 11.0 && weight < 13.2 ){
+        if( stature >= 87.5 && stature < 88.0 && weight > 11.0 && weight < 13.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 88.0 && weight > 11.1 && weight < 13.3 ){
+        if( stature >= 88.0 && stature < 88.5 && weight > 11.1 && weight < 13.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 88.5 && weight > 11.2 && weight < 13.4 ){
+        if( stature >= 88.5 && stature < 89.0 && weight > 11.2 && weight < 13.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 89.0 && weight > 11.4 && weight < 13.6 ){
+        if( stature >= 89.0 && stature < 89.5 && weight > 11.4 && weight < 13.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 89.5 && weight > 11.5 && weight < 13.7 ){
+        if( stature >= 89.5 && stature < 90.0 && weight > 11.5 && weight < 13.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 90.0 && weight > 11.6 && weight < 13.8 ){
+        if( stature >= 90.0 && stature < 90.5 && weight > 11.6 && weight < 13.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 90.5 && weight > 11.7 && weight < 14.0 ){
+        if( stature >= 90.5 && stature < 91.0 && weight > 11.7 && weight < 14.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 91.0 && weight > 11.8 && weight < 14.1 ){
+        if( stature >= 91.0 && stature < 91.5 && weight > 11.8 && weight < 14.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 91.5 && weight > 11.9 && weight < 14.3 ){
+        if( stature >= 91.5 && stature < 92.0 && weight > 11.9 && weight < 14.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 92.0 && weight > 12.0 && weight < 14.4 ){
+        if( stature >= 92.0 && stature < 92.5 && weight > 12.0 && weight < 14.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 92.5 && weight > 12.1 && weight < 14.5 ){
+        if( stature >= 92.5 && stature < 93.0 && weight > 12.1 && weight < 14.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 93.0 && weight > 12.3 && weight < 14.7 ){
+        if( stature >= 93.0 && stature < 93.5 && weight > 12.3 && weight < 14.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 93.5 && weight > 12.4 && weight < 14.8 ){
+        if( stature >= 93.5 && stature < 94.0 && weight > 12.4 && weight < 14.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 94.0 && weight > 12.5 && weight < 14.9 ){
+        if( stature >= 94.0 && stature < 94.5 && weight > 12.5 && weight < 14.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 94.5 && weight > 12.6 && weight < 15.1 ){
+        if( stature >= 94.5 && stature < 95.0 && weight > 12.6 && weight < 15.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 95.0 && weight > 12.7 && weight < 15.2 ){
+        if( stature >= 95.0 && stature < 95.5 && weight > 12.7 && weight < 15.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 95.5 && weight > 12.8 && weight < 15.4 ){
+        if( stature >= 95.5 && stature < 96.0 && weight > 12.8 && weight < 15.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 96.0 && weight > 12.9 && weight < 15.5 ){
+        if( stature >= 96.0 && stature < 96.5 && weight > 12.9 && weight < 15.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 96.5 && weight > 13.1 && weight < 15.6 ){
+        if( stature >= 96.5 && stature < 97.0 && weight > 13.1 && weight < 15.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 97.0 && weight > 13.2 && weight < 15.8 ){
+        if( stature >= 97.0 && stature < 97.5 && weight > 13.2 && weight < 15.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 97.5 && weight > 13.3 && weight < 15.9 ){
+        if( stature >= 97.5 && stature < 98.0 && weight > 13.3 && weight < 15.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 98.0 && weight > 13.4 && weight < 16.1 ){
+        if( stature >= 98.0 && stature < 98.5 && weight > 13.4 && weight < 16.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 98.5 && weight > 13.5 && weight < 16.2 ){
+        if( stature >= 98.5 && stature < 99.0 && weight > 13.5 && weight < 16.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 99.0 && weight > 13.7 && weight < 16.4 ){
+        if( stature >= 99.0 && stature < 99.5 && weight > 13.7 && weight < 16.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 99.5 && weight > 13.8 && weight < 16.5 ){
+        if( stature >= 99.5 && stature < 100.0 && weight > 13.8 && weight < 16.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 100.0 && weight > 13.9 && weight < 16.7 ){
+        if( stature >= 100.0 && stature < 100.5 && weight > 13.9 && weight < 16.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 100.5 && weight > 14.1 && weight < 16.9 ){
+        if( stature >= 100.5 && stature < 101.0 && weight > 14.1 && weight < 16.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 101.0 && weight > 14.2 && weight < 17.0 ){
+        if( stature >= 101.0 && stature < 101.5 && weight > 14.2 && weight < 17.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 101.5 && weight > 14.3 && weight < 17.2 ){
+        if( stature >= 101.5 && stature < 102.0 && weight > 14.3 && weight < 17.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 102.0 && weight > 14.5 && weight < 17.4 ){
+        if( stature >= 102.0 && stature < 102.5 && weight > 14.5 && weight < 17.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 102.5 && weight > 14.6 && weight < 17.5 ){
+        if( stature >= 102.5 && stature < 103.0 && weight > 14.6 && weight < 17.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 103.0 && weight > 14.7 && weight < 17.7 ){
+        if( stature >= 103.0 && stature < 103.5 && weight > 14.7 && weight < 17.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 103.5 && weight > 14.9 && weight < 17.9 ){
+        if( stature >= 103.5 && stature < 104.0 && weight > 14.9 && weight < 17.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 104.0 && weight > 15.0 && weight < 18.1 ){
+        if( stature >= 104.0 && stature < 104.5 && weight > 15.0 && weight < 18.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 104.5 && weight > 15.2 && weight < 18.2 ){
+        if( stature >= 104.5 && stature < 105.0 && weight > 15.2 && weight < 18.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 105.0 && weight > 15.3 && weight < 18.4 ){
+        if( stature >= 105.0 && stature < 105.5 && weight > 15.3 && weight < 18.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 105.5 && weight > 15.5 && weight < 18.6 ){
+        if( stature >= 105.5 && stature < 106.0 && weight > 15.5 && weight < 18.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 106.0 && weight > 15.6 && weight < 18.8 ){
+        if( stature >= 106.0 && stature < 106.5 && weight > 15.6 && weight < 18.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 106.5 && weight > 15.8 && weight < 19.0 ){
+        if( stature >= 106.5 && stature < 107.0 && weight > 15.8 && weight < 19.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 107.0 && weight > 15.9 && weight < 19.2 ){
+        if( stature >= 107.0 && stature < 107.5 && weight > 15.9 && weight < 19.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 107.5 && weight > 16.1 && weight < 19.4 ){
+        if( stature >= 107.5 && stature < 108.0 && weight > 16.1 && weight < 19.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 108.0 && weight > 16.3 && weight < 19.6 ){
+        if( stature >= 108.0 && stature < 108.5 && weight > 16.3 && weight < 19.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 108.5 && weight > 16.4 && weight < 19.8 ){
+        if( stature >= 108.5 && stature < 109.0 && weight > 16.4 && weight < 19.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 109.0 && weight > 16.6 && weight < 20.0 ){
+        if( stature >= 109.0 && stature < 109.5 && weight > 16.6 && weight < 20.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 109.5 && weight > 16.8 && weight < 20.3 ){
+        if( stature >= 109.5 && stature < 110.0 && weight > 16.8 && weight < 20.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 110.0 && weight > 17.0 && weight < 20.5 ){
+        if( stature >= 110.0 && stature < 110.5 && weight > 17.0 && weight < 20.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 110.5 && weight > 17.1 && weight < 20.7 ){
+        if( stature >= 110.5 && stature < 111.0 && weight > 17.1 && weight < 20.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 111.0 && weight > 17.3 && weight < 20.9 ){
+        if( stature >= 111.0 && stature < 111.5 && weight > 17.3 && weight < 20.9 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 111.5 && weight > 17.5 && weight < 21.2 ){
+        if( stature >= 111.5 && stature < 112.0 && weight > 17.5 && weight < 21.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 112.0 && weight > 17.7 && weight < 21.4 ){
+        if( stature >= 112.0 && stature < 112.5 && weight > 17.7 && weight < 21.4 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 112.5 && weight > 17.9 && weight < 21.6 ){
+        if( stature >= 112.5 && stature < 113.0 && weight > 17.9 && weight < 21.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 113.0 && weight > 18.0 && weight < 21.8 ){
+        if( stature >= 113.0 && stature < 113.5 && weight > 18.0 && weight < 21.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 113.5 && weight > 18.2 && weight < 22.1 ){
+        if( stature >= 113.5 && stature < 114.0 && weight > 18.2 && weight < 22.1 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 114.0 && weight > 18.4 && weight < 22.3 ){
+        if( stature >= 114.0 && stature < 114.5 && weight > 18.4 && weight < 22.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 114.5 && weight > 18.6 && weight < 22.6 ){
+        if( stature >= 114.5 && stature < 115.0 && weight > 18.6 && weight < 22.6 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 115.0 && weight > 18.8 && weight < 22.8 ){
+        if( stature >= 115.0 && stature < 115.5 && weight > 18.8 && weight < 22.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 115.5 && weight > 19.0 && weight < 23.0 ){
+        if( stature >= 115.5 && stature < 116.0 && weight > 19.0 && weight < 23.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 116.0 && weight > 19.2 && weight < 23.3 ){
+        if( stature >= 116.0 && stature < 116.5 && weight > 19.2 && weight < 23.3 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 116.5 && weight > 19.4 && weight < 23.5 ){
+        if( stature >= 116.5 && stature < 117.0 && weight > 19.4 && weight < 23.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 117.0 && weight > 19.6 && weight < 23.8 ){
+        if( stature >= 117.0 && stature < 117.5 && weight > 19.6 && weight < 23.8 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 117.5 && weight > 19.8 && weight < 24.0 ){
+        if( stature >= 117.5 && stature < 118.0 && weight > 19.8 && weight < 24.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 118.0 && weight > 19.9 && weight < 24.2 ){
+        if( stature >= 118.0 && stature < 118.5 && weight > 19.9 && weight < 24.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 118.5 && weight > 20.1 && weight < 24.5 ){
+        if( stature >= 118.5 && stature < 119.0 && weight > 20.1 && weight < 24.5 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 119.0 && weight > 20.3 && weight < 24.7 ){
+        if( stature >= 119.0 && stature < 119.5 && weight > 20.3 && weight < 24.7 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 119.5 && weight > 20.5 && weight < 25.0 ){
+        if( stature >= 119.5 && stature < 120.0 && weight > 20.5 && weight < 25.0 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
-        if( stature > 120.0 && weight > 20.7 && weight < 25.2 ){
+        if( stature >= 120.0 && weight > 20.7 && weight < 25.2 ){
             result.msg = 'Normal o Eutrófico';
             result.ok = true;
         }
@@ -6485,447 +6485,447 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
         // *** Normal o Eutrófico ***
 
         // *** Sobrepeso ***
-        if( stature > 65.0 && weight >= 7.9 && weight < 8.7 ){
+        if( stature >= 65.0 && stature < 65.5 && weight >= 7.9 && weight < 8.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 65.5 && weight >= 8.1 && weight < 8.9 ){
+        if( stature >= 65.5 && stature < 66.0 && weight >= 8.1 && weight < 8.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 66.0 && weight >= 8.2 && weight < 9.0 ){
+        if( stature >= 66.0 && stature < 66.5 && weight >= 8.2 && weight < 9.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 66.5 && weight >= 8.3 && weight < 9.1 ){
+        if( stature >= 66.5 && stature < 67.0 && weight >= 8.3 && weight < 9.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 67.0 && weight >= 8.4 && weight < 9.3 ){
+        if( stature >= 67.0 && stature < 67.5 && weight >= 8.4 && weight < 9.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 67.5 && weight >= 8.5 && weight < 9.4 ){
+        if( stature >= 67.5 && stature < 68.0 && weight >= 8.5 && weight < 9.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 68.0 && weight >= 8.7 && weight < 9.5 ){
+        if( stature >= 68.0 && stature < 68.5 && weight >= 8.7 && weight < 9.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 68.5 && weight >= 8.8 && weight < 9.7 ){
+        if( stature >= 68.5 && stature < 69.0 && weight >= 8.8 && weight < 9.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 69.0 && weight >= 8.9 && weight < 9.8 ){
+        if( stature >= 69.0 && stature < 69.5 && weight >= 8.9 && weight < 9.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 69.5 && weight >= 9.0 && weight < 9.9 ){
+        if( stature >= 69.5 && stature < 70.0 && weight >= 9.0 && weight < 9.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 70.0 && weight >= 9.1 && weight < 10.0 ){
+        if( stature >= 70.0 && stature < 70.5 && weight >= 9.1 && weight < 10.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 70.5 && weight >= 9.2 && weight < 10.1 ){
+        if( stature >= 70.5 && stature < 71.0 && weight >= 9.2 && weight < 10.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 71.0 && weight >= 9.3 && weight < 10.3 ){
+        if( stature >= 71.0 && stature < 71.5 && weight >= 9.3 && weight < 10.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 71.5 && weight >= 9.4 && weight < 10.4 ){
+        if( stature >= 71.5 && stature < 72.0 && weight >= 9.4 && weight < 10.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 72.0 && weight >= 9.5 && weight < 10.5 ){
+        if( stature >= 72.0 && stature < 72.5 && weight >= 9.5 && weight < 10.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 72.5 && weight >= 9.7 && weight < 10.6 ){
+        if( stature >= 72.5 && stature < 73.0 && weight >= 9.7 && weight < 10.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 73.0 && weight >= 9.8 && weight < 10.7 ){
+        if( stature >= 73.0 && stature < 73.5 && weight >= 9.8 && weight < 10.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 73.5 && weight >= 9.9 && weight < 10.8 ){
+        if( stature >= 73.5 && stature < 74.0 && weight >= 9.9 && weight < 10.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 74.0 && weight >= 10.0 && weight < 11.0 ){
+        if( stature >= 74.0 && stature < 74.5 && weight >= 10.0 && weight < 11.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 74.5 && weight >= 10.1 && weight < 11.1 ){
+        if( stature >= 74.5 && stature < 75.0 && weight >= 10.1 && weight < 11.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 75.0 && weight >= 10.2 && weight < 11.2 ){
+        if( stature >= 75.0 && stature < 75.5 && weight >= 10.2 && weight < 11.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 75.5 && weight >= 10.3 && weight < 11.3 ){
+        if( stature >= 75.5 && stature < 76.0 && weight >= 10.3 && weight < 11.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 76.0 && weight >= 10.4 && weight < 11.4 ){
+        if( stature >= 76.0 && stature < 76.5 && weight >= 10.4 && weight < 11.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 76.5 && weight >= 10.5 && weight < 11.5 ){
+        if( stature >= 76.5 && stature < 77.0 && weight >= 10.5 && weight < 11.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 77.0 && weight >= 10.6 && weight < 11.6 ){
+        if( stature >= 77.0 && stature < 77.5 && weight >= 10.6 && weight < 11.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 77.5 && weight >= 10.7 && weight < 11.7 ){
+        if( stature >= 77.5 && stature < 78.0 && weight >= 10.7 && weight < 11.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 78.0 && weight >= 10.8 && weight < 11.8 ){
+        if( stature >= 78.0 && stature < 78.5 && weight >= 10.8 && weight < 11.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 78.5 && weight >= 10.9 && weight < 12.0 ){
+        if( stature >= 78.5 && stature < 79.0 && weight >= 10.9 && weight < 12.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 79.0 && weight >= 11.0 && weight < 12.1 ){
+        if( stature >= 79.0 && stature < 79.5 && weight >= 11.0 && weight < 12.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 79.5 && weight >= 11.1 && weight < 12.2 ){
+        if( stature >= 79.5 && stature < 80.0 && weight >= 11.1 && weight < 12.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 80.0 && weight >= 11.2 && weight < 12.3 ){
+        if( stature >= 80.0 && stature < 80.5 && weight >= 11.2 && weight < 12.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 80.5 && weight >= 11.3 && weight < 12.4 ){
+        if( stature >= 80.5 && stature < 81.0 && weight >= 11.3 && weight < 12.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 81.0 && weight >= 11.4 && weight < 12.6 ){
+        if( stature >= 81.0 && stature < 81.5 && weight >= 11.4 && weight < 12.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 81.5 && weight >= 11.6 && weight < 12.7 ){
+        if( stature >= 81.5 && stature < 82.0 && weight >= 11.6 && weight < 12.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 82.0 && weight >= 11.7 && weight < 12.8 ){
+        if( stature >= 82.0 && stature < 82.5 && weight >= 11.7 && weight < 12.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 82.5 && weight >= 11.8 && weight < 13.0 ){
+        if( stature >= 82.5 && stature < 83.0 && weight >= 11.8 && weight < 13.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 83.0 && weight >= 11.9 && weight < 13.1 ){
+        if( stature >= 83.0 && stature < 83.5 && weight >= 11.9 && weight < 13.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 83.5 && weight >= 12.1 && weight < 13.3 ){
+        if( stature >= 83.5 && stature < 84.0 && weight >= 12.1 && weight < 13.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 84.0 && weight >= 12.2 && weight < 13.4 ){
+        if( stature >= 84.0 && stature < 84.5 && weight >= 12.2 && weight < 13.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 84.5 && weight >= 12.3 && weight < 13.5 ){
+        if( stature >= 84.5 && stature < 85.0 && weight >= 12.3 && weight < 13.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 85.0 && weight >= 12.5 && weight < 13.7 ){
+        if( stature >= 85.0 && stature < 85.5 && weight >= 12.5 && weight < 13.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 85.5 && weight >= 12.6 && weight < 13.8 ){
+        if( stature >= 85.5 && stature < 86.0 && weight >= 12.6 && weight < 13.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 86.0 && weight >= 12.7 && weight < 14.0 ){
+        if( stature >= 86.0 && stature < 86.5 && weight >= 12.7 && weight < 14.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 86.5 && weight >= 12.9 && weight < 14.2 ){
+        if( stature >= 86.5 && stature < 87.0 && weight >= 12.9 && weight < 14.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 87.0 && weight >= 13.0 && weight < 14.3 ){
+        if( stature >= 87.0 && stature < 87.5 && weight >= 13.0 && weight < 14.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 87.5 && weight >= 13.2 && weight < 14.5 ){
+        if( stature >= 87.5 && stature < 88.0 && weight >= 13.2 && weight < 14.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 88.0 && weight >= 13.3 && weight < 14.6 ){
+        if( stature >= 88.0 && stature < 88.5 && weight >= 13.3 && weight < 14.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 88.5 && weight >= 13.4 && weight < 14.8 ){
+        if( stature >= 88.5 && stature < 89.0 && weight >= 13.4 && weight < 14.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 89.0 && weight >= 13.6 && weight < 14.9 ){
+        if( stature >= 89.0 && stature < 89.5 && weight >= 13.6 && weight < 14.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 89.5 && weight >= 13.7 && weight < 15.1 ){
+        if( stature >= 89.5 && stature < 90.0 && weight >= 13.7 && weight < 15.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 90.0 && weight >= 13.8 && weight < 15.2 ){
+        if( stature >= 90.0 && stature < 90.5 && weight >= 13.8 && weight < 15.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 90.5 && weight >= 14.0 && weight < 15.4 ){
+        if( stature >= 90.5 && stature < 91.0 && weight >= 14.0 && weight < 15.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 91.0 && weight >= 14.1 && weight < 15.5 ){
+        if( stature >= 91.0 && stature < 91.5 && weight >= 14.1 && weight < 15.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 91.5 && weight >= 14.3 && weight < 15.7 ){
+        if( stature >= 91.5 && stature < 92.0 && weight >= 14.3 && weight < 15.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 92.0 && weight >= 14.4 && weight < 15.8 ){
+        if( stature >= 92.0 && stature < 92.5 && weight >= 14.4 && weight < 15.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 92.5 && weight >= 14.5 && weight < 16.0 ){
+        if( stature >= 92.5 && stature < 93.0 && weight >= 14.5 && weight < 16.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 93.0 && weight >= 14.7 && weight < 16.1 ){
+        if( stature >= 93.0 && stature < 93.5 && weight >= 14.7 && weight < 16.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 93.5 && weight >= 14.8 && weight < 16.3 ){
+        if( stature >= 93.5 && stature < 94.0 && weight >= 14.8 && weight < 16.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 94.0 && weight >= 14.9 && weight < 16.4 ){
+        if( stature >= 94.0 && stature < 94.5 && weight >= 14.9 && weight < 16.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 94.5 && weight >= 15.1 && weight < 16.6 ){
+        if( stature >= 94.5 && stature < 95.0 && weight >= 15.1 && weight < 16.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 95.0 && weight >= 15.2 && weight < 16.7 ){
+        if( stature >= 95.0 && stature < 95.5 && weight >= 15.2 && weight < 16.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 95.5 && weight >= 15.4 && weight < 16.9 ){
+        if( stature >= 95.5 && stature < 96.0 && weight >= 15.4 && weight < 16.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 96.0 && weight >= 15.5 && weight < 17.0 ){
+        if( stature >= 96.0 && stature < 96.5 && weight >= 15.5 && weight < 17.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 96.5 && weight >= 15.6 && weight < 17.2 ){
+        if( stature >= 96.5 && stature < 97.0 && weight >= 15.6 && weight < 17.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 97.0 && weight >= 15.8 && weight < 17.4 ){
+        if( stature >= 97.0 && stature < 97.5 && weight >= 15.8 && weight < 17.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 97.5 && weight >= 15.9 && weight < 17.5 ){
+        if( stature >= 97.5 && stature < 98.0 && weight >= 15.9 && weight < 17.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 98.0 && weight >= 16.1 && weight < 17.7 ){
+        if( stature >= 98.0 && stature < 98.5 && weight >= 16.1 && weight < 17.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 98.5 && weight >= 16.2 && weight < 17.9 ){
+        if( stature >= 98.5 && stature < 99.0 && weight >= 16.2 && weight < 17.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 99.0 && weight >= 16.4 && weight < 18.0 ){
+        if( stature >= 99.0 && stature < 99.5 && weight >= 16.4 && weight < 18.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 99.5 && weight >= 16.5 && weight < 18.2 ){
+        if( stature >= 99.5 && stature < 100.0 && weight >= 16.5 && weight < 18.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 100.0 && weight >= 16.7 && weight < 18.4 ){
+        if( stature >= 100.0 && stature < 100.5 && weight >= 16.7 && weight < 18.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 100.5 && weight >= 16.9 && weight < 18.6 ){
+        if( stature >= 100.5 && stature < 101.0 && weight >= 16.9 && weight < 18.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 101.0 && weight >= 17.0 && weight < 18.7 ){
+        if( stature >= 101.0 && stature < 101.5 && weight >= 17.0 && weight < 18.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 101.5 && weight >= 17.2 && weight < 18.9 ){
+        if( stature >= 101.5 && stature < 102.0 && weight >= 17.2 && weight < 18.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 102.0 && weight >= 17.4 && weight < 19.1 ){
+        if( stature >= 102.0 && stature < 102.5 && weight >= 17.4 && weight < 19.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 102.5 && weight >= 17.5 && weight < 19.3 ){
+        if( stature >= 102.5 && stature < 103.0 && weight >= 17.5 && weight < 19.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 103.0 && weight >= 17.7 && weight < 19.5 ){
+        if( stature >= 103.0 && stature < 103.5 && weight >= 17.7 && weight < 19.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 103.5 && weight >= 17.9 && weight < 19.7 ){
+        if( stature >= 103.5 && stature < 104.0 && weight >= 17.9 && weight < 19.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 104.0 && weight >= 18.1 && weight < 19.9 ){
+        if( stature >= 104.0 && stature < 104.5 && weight >= 18.1 && weight < 19.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 104.5 && weight >= 18.2 && weight < 20.1 ){
+        if( stature >= 104.5 && stature < 105.0 && weight >= 18.2 && weight < 20.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 105.0 && weight >= 18.4 && weight < 20.3 ){
+        if( stature >= 105.0 && stature < 105.5 && weight >= 18.4 && weight < 20.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 105.5 && weight >= 18.6 && weight < 20.5 ){
+        if( stature >= 105.5 && stature < 106.0 && weight >= 18.6 && weight < 20.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 106.0 && weight >= 18.8 && weight < 20.8 ){
+        if( stature >= 106.0 && stature < 106.5 && weight >= 18.8 && weight < 20.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 106.5 && weight >= 19.0 && weight < 21.0 ){
+        if( stature >= 106.5 && stature < 107.0 && weight >= 19.0 && weight < 21.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 107.0 && weight >= 19.2 && weight < 21.2 ){
+        if( stature >= 107.0 && stature < 107.5 && weight >= 19.2 && weight < 21.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 107.5 && weight >= 19.4 && weight < 21.4 ){
+        if( stature >= 107.5 && stature < 108.0 && weight >= 19.4 && weight < 21.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 108.0 && weight >= 19.6 && weight < 21.7 ){
+        if( stature >= 108.0 && stature < 108.5 && weight >= 19.6 && weight < 21.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 108.5 && weight >= 19.8 && weight < 21.9 ){
+        if( stature >= 108.5 && stature < 109.0 && weight >= 19.8 && weight < 21.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 109.0 && weight >= 20.0 && weight < 22.1 ){
+        if( stature >= 109.0 && stature < 109.5 && weight >= 20.0 && weight < 22.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 109.5 && weight >= 20.3 && weight < 22.4 ){
+        if( stature >= 109.5 && stature < 110.0 && weight >= 20.3 && weight < 22.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 110.0 && weight >= 20.5 && weight < 22.6 ){
+        if( stature >= 110.0 && stature < 110.5 && weight >= 20.5 && weight < 22.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 110.5 && weight >= 20.7 && weight < 22.9 ){
+        if( stature >= 110.5 && stature < 111.0 && weight >= 20.7 && weight < 22.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 111.0 && weight >= 20.9 && weight < 23.1 ){
+        if( stature >= 111.0 && stature < 111.5 && weight >= 20.9 && weight < 23.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 111.5 && weight >= 21.2 && weight < 23.4 ){
+        if( stature >= 111.5 && stature < 112.0 && weight >= 21.2 && weight < 23.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 112.0 && weight >= 21.4 && weight < 23.6 ){
+        if( stature >= 112.0 && stature < 112.5 && weight >= 21.4 && weight < 23.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 112.5 && weight >= 21.6 && weight < 23.9 ){
+        if( stature >= 112.5 && stature < 113.0 && weight >= 21.6 && weight < 23.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 113.0 && weight >= 21.8 && weight < 24.2 ){
+        if( stature >= 113.0 && stature < 113.5 && weight >= 21.8 && weight < 24.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 113.5 && weight >= 22.1 && weight < 24.4 ){
+        if( stature >= 113.5 && stature < 114.0 && weight >= 22.1 && weight < 24.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 114.0 && weight >= 22.3 && weight < 24.7 ){
+        if( stature >= 114.0 && stature < 114.5 && weight >= 22.3 && weight < 24.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 114.5 && weight >= 22.6 && weight < 25.0 ){
+        if( stature >= 114.5 && stature < 115.0 && weight >= 22.6 && weight < 25.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 115.0 && weight >= 22.8 && weight < 25.2 ){
+        if( stature >= 115.0 && stature < 115.5 && weight >= 22.8 && weight < 25.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 115.5 && weight >= 23.0 && weight < 25.5 ){
+        if( stature >= 115.5 && stature < 116.0 && weight >= 23.0 && weight < 25.5 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 116.0 && weight >= 23.3 && weight < 25.8 ){
+        if( stature >= 116.0 && stature < 116.5 && weight >= 23.3 && weight < 25.8 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 116.5 && weight >= 23.5 && weight < 26.1 ){
+        if( stature >= 116.5 && stature < 117.0 && weight >= 23.5 && weight < 26.1 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 117.0 && weight >= 23.8 && weight < 26.3 ){
+        if( stature >= 117.0 && stature < 117.5 && weight >= 23.8 && weight < 26.3 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 117.5 && weight >= 24.0 && weight < 26.6 ){
+        if( stature >= 117.5 && stature < 118.0 && weight >= 24.0 && weight < 26.6 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 118.0 && weight >= 24.2 && weight < 26.9 ){
+        if( stature >= 118.0 && stature < 118.5 && weight >= 24.2 && weight < 26.9 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 118.5 && weight >= 24.5 && weight < 27.2 ){
+        if( stature >= 118.5 && stature < 119.0 && weight >= 24.5 && weight < 27.2 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 119.0 && weight >= 24.7 && weight < 27.4 ){
+        if( stature >= 119.0 && stature < 119.5 && weight >= 24.7 && weight < 27.4 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 119.5 && weight >= 25.0 && weight < 27.7 ){
+        if( stature >= 119.5 && stature < 120.0 && weight >= 25.0 && weight < 27.7 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
-        if( stature > 120.0 && weight >= 25.2 && weight < 28.0 ){
+        if( stature >= 120.0 && weight >= 25.2 && weight < 28.0 ){
             result.msg = 'Sobrepeso';
             result.ok = true;
         }
@@ -6934,447 +6934,447 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         // *** Obesidad ***
 
-        if( stature > 65.0 && weight >= 8.7 ){
+        if( stature >= 65.0 && stature < 65.5 && weight >= 8.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 65.5 && weight >= 8.9 ){
+        if( stature >= 65.5 && stature < 66.0 && weight >= 8.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 66.0 && weight >= 9.0 ){
+        if( stature >= 66.0 && stature < 66.5 && weight >= 9.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 66.5 && weight >= 9.1 ){
+        if( stature >= 66.5 && stature < 67.0 && weight >= 9.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 67.0 && weight >= 9.3 ){
+        if( stature >= 67.0 && stature < 67.5 && weight >= 9.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 67.5 && weight >= 9.4 ){
+        if( stature >= 67.5 && stature < 68.0 && weight >= 9.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 68.0 && weight >= 9.5 ){
+        if( stature >= 68.0 && stature < 68.5 && weight >= 9.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 68.5 && weight >= 9.7 ){
+        if( stature >= 68.5 && stature < 69.0 && weight >= 9.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 69.0 && weight >= 9.8 ){
+        if( stature >= 69.0 && stature < 69.5 && weight >= 9.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 69.5 && weight >= 9.9 ){
+        if( stature >= 69.5 && stature < 70.0 && weight >= 9.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 70.0 && weight >= 10.0 ){
+        if( stature >= 70.0 && stature < 70.5 && weight >= 10.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 70.5 && weight >= 10.1 ){
+        if( stature >= 70.5 && stature < 71.0 && weight >= 10.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 71.0 && weight >= 10.3 ){
+        if( stature >= 71.0 && stature < 71.5 && weight >= 10.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 71.5 && weight >= 10.4 ){
+        if( stature >= 71.5 && stature < 72.0 && weight >= 10.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 72.0 && weight >= 10.5 ){
+        if( stature >= 72.0 && stature < 72.5 && weight >= 10.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 72.5 && weight >= 10.6 ){
+        if( stature >= 72.5 && stature < 73.0 && weight >= 10.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 73.0 && weight >= 10.7 ){
+        if( stature >= 73.0 && stature < 73.5 && weight >= 10.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 73.5 && weight >= 10.8 ){
+        if( stature >= 73.5 && stature < 74.0 && weight >= 10.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 74.0 && weight >= 11.0 ){
+        if( stature >= 74.0 && stature < 74.5 && weight >= 11.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 74.5 && weight >= 11.1 ){
+        if( stature >= 74.5 && stature < 75.0 && weight >= 11.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 75.0 && weight >= 11.2 ){
+        if( stature >= 75.0 && stature < 75.5 && weight >= 11.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 75.5 && weight >= 11.3 ){
+        if( stature >= 75.5 && stature < 76.0 && weight >= 11.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 76.0 && weight >= 11.4 ){
+        if( stature >= 76.0 && stature < 76.5 && weight >= 11.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 76.5 && weight >= 11.5 ){
+        if( stature >= 76.5 && stature < 77.0 && weight >= 11.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 77.0 && weight >= 11.6 ){
+        if( stature >= 77.0 && stature < 77.5 && weight >= 11.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 77.5 && weight >= 11.7 ){
+        if( stature >= 77.5 && stature < 78.0 && weight >= 11.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 78.0 && weight >= 11.8 ){
+        if( stature >= 78.0 && stature < 78.5 && weight >= 11.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 78.5 && weight >= 12.0 ){
+        if( stature >= 78.5 && stature < 79.0 && weight >= 12.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 79.0 && weight >= 12.1 ){
+        if( stature >= 79.0 && stature < 79.5 && weight >= 12.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 79.5 && weight >= 12.2 ){
+        if( stature >= 79.5 && stature < 80.0 && weight >= 12.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 80.0 && weight >= 12.3 ){
+        if( stature >= 80.0 && stature < 80.5 && weight >= 12.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 80.5 && weight >= 12.4 ){
+        if( stature >= 80.5 && stature < 81.0 && weight >= 12.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 81.0 && weight >= 12.6 ){
+        if( stature >= 81.0 && stature < 81.5 && weight >= 12.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 81.5 && weight >= 12.7 ){
+        if( stature >= 81.5 && stature < 82.0 && weight >= 12.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 82.0 && weight >= 12.8 ){
+        if( stature >= 82.0 && stature < 82.5 && weight >= 12.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 82.5 && weight >= 13.0 ){
+        if( stature >= 82.5 && stature < 83.0 && weight >= 13.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 83.0 && weight >= 13.1 ){
+        if( stature >= 83.0 && stature < 83.5 && weight >= 13.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 83.5 && weight >= 13.3 ){
+        if( stature >= 83.5 && stature < 84.0 && weight >= 13.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 84.0 && weight >= 13.4 ){
+        if( stature >= 84.0 && stature < 84.5 && weight >= 13.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 84.5 && weight >= 13.5 ){
+        if( stature >= 84.5 && stature < 85.0 && weight >= 13.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 85.0 && weight >= 13.7 ){
+        if( stature >= 85.0 && stature < 85.5 && weight >= 13.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 85.5 && weight >= 13.8 ){
+        if( stature >= 85.5 && stature < 86.0 && weight >= 13.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 86.0 && weight >= 14.0 ){
+        if( stature >= 86.0 && stature < 86.5 && weight >= 14.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 86.5 && weight >= 14.2 ){
+        if( stature >= 86.5 && stature < 87.0 && weight >= 14.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 87.0 && weight >= 14.3 ){
+        if( stature >= 87.0 && stature < 87.5 && weight >= 14.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 87.5 && weight >= 14.5 ){
+        if( stature >= 87.5 && stature < 88.0 && weight >= 14.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 88.0 && weight >= 14.6 ){
+        if( stature >= 88.0 && stature < 88.5 && weight >= 14.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 88.5 && weight >= 14.8 ){
+        if( stature >= 88.5 && stature < 89.0 && weight >= 14.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 89.0 && weight >= 14.9 ){
+        if( stature >= 89.0 && stature < 89.5 && weight >= 14.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 89.5 && weight >= 15.1 ){
+        if( stature >= 89.5 && stature < 90.0 && weight >= 15.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 90.0 && weight >= 15.2 ){
+        if( stature >= 90.0 && stature < 90.5 && weight >= 15.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 90.5 && weight >= 15.4 ){
+        if( stature >= 90.5 && stature < 91.0 && weight >= 15.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 91.0 && weight >= 15.5 ){
+        if( stature >= 91.0 && stature < 91.5 && weight >= 15.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 91.5 && weight >= 15.7 ){
+        if( stature >= 91.5 && stature < 92.0 && weight >= 15.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 92.0 && weight >= 15.8 ){
+        if( stature >= 92.0 && stature < 92.5 && weight >= 15.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 92.5 && weight >= 16.0 ){
+        if( stature >= 92.5 && stature < 93.0 && weight >= 16.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 93.0 && weight >= 16.1 ){
+        if( stature >= 93.0 && stature < 93.5 && weight >= 16.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 93.5 && weight >= 16.3 ){
+        if( stature >= 93.5 && stature < 94.0 && weight >= 16.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 94.0 && weight >= 16.4 ){
+        if( stature >= 94.0 && stature < 94.5 && weight >= 16.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 94.5 && weight >= 16.6 ){
+        if( stature >= 94.5 && stature < 95.0 && weight >= 16.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 95.0 && weight >= 16.7 ){
+        if( stature >= 95.0 && stature < 95.5 && weight >= 16.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 95.5 && weight >= 16.9 ){
+        if( stature >= 95.5 && stature < 96.0 && weight >= 16.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 96.0 && weight >= 17.0 ){
+        if( stature >= 96.0 && stature < 96.5 && weight >= 17.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 96.5 && weight >= 17.2 ){
+        if( stature >= 96.5 && stature < 97.0 && weight >= 17.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 97.0 && weight >= 17.4 ){
+        if( stature >= 97.0 && stature < 97.5 && weight >= 17.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 97.5 && weight >= 17.5 ){
+        if( stature >= 97.5 && stature < 98.0 && weight >= 17.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 98.0 && weight >= 17.7 ){
+        if( stature >= 98.0 && stature < 98.5 && weight >= 17.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 98.5 && weight >= 17.9 ){
+        if( stature >= 98.5 && stature < 99.0 && weight >= 17.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 99.0 && weight >= 18.0 ){
+        if( stature >= 99.0 && stature < 99.5 && weight >= 18.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 99.5 && weight >= 18.2 ){
+        if( stature >= 99.5 && stature < 100.0 && weight >= 18.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 100.0 && weight >= 18.4 ){
+        if( stature >= 100.0 && stature < 100.5 && weight >= 18.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 100.5 && weight >= 18.6 ){
+        if( stature >= 100.5 && stature < 101.0 && weight >= 18.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 101.0 && weight >= 18.7 ){
+        if( stature >= 101.0 && stature < 101.5 && weight >= 18.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 101.5 && weight >= 18.9 ){
+        if( stature >= 101.5 && stature < 102.0 && weight >= 18.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 102.0 && weight >= 19.1 ){
+        if( stature >= 102.0 && stature < 102.5 && weight >= 19.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 102.5 && weight >= 19.3 ){
+        if( stature >= 102.5 && stature < 103.0 && weight >= 19.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 103.0 && weight >= 19.5 ){
+        if( stature >= 103.0 && stature < 103.5 && weight >= 19.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 103.5 && weight >= 19.7 ){
+        if( stature >= 103.5 && stature < 104.0 && weight >= 19.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 104.0 && weight >= 19.9 ){
+        if( stature >= 104.0 && stature < 104.5 && weight >= 19.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 104.5 && weight >= 20.1 ){
+        if( stature >= 104.5 && stature < 105.0 && weight >= 20.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 105.0 && weight >= 20.3 ){
+        if( stature >= 105.0 && stature < 105.5 && weight >= 20.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 105.5 && weight >= 20.5 ){
+        if( stature >= 105.5 && stature < 106.0 && weight >= 20.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 106.0 && weight >= 20.8 ){
+        if( stature >= 106.0 && stature < 106.5 && weight >= 20.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 106.5 && weight >= 21.0 ){
+        if( stature >= 106.5 && stature < 107.0 && weight >= 21.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 107.0 && weight >= 21.2 ){
+        if( stature >= 107.0 && stature < 107.5 && weight >= 21.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 107.5 && weight >= 21.4 ){
+        if( stature >= 107.5 && stature < 108.0 && weight >= 21.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 108.0 && weight >= 21.7 ){
+        if( stature >= 108.0 && stature < 108.5 && weight >= 21.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 108.5 && weight >= 21.9 ){
+        if( stature >= 108.5 && stature < 109.0 && weight >= 21.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 109.0 && weight >= 22.1 ){
+        if( stature >= 109.0 && stature < 109.5 && weight >= 22.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 109.5 && weight >= 22.4 ){
+        if( stature >= 109.5 && stature < 110.0 && weight >= 22.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 110.0 && weight >= 22.6 ){
+        if( stature >= 110.0 && stature < 110.5 && weight >= 22.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 110.5 && weight >= 22.9 ){
+        if( stature >= 110.5 && stature < 111.0 && weight >= 22.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 111.0 && weight >= 23.1 ){
+        if( stature >= 111.0 && stature < 111.5 && weight >= 23.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 111.5 && weight >= 23.4 ){
+        if( stature >= 111.5 && stature < 112.0 && weight >= 23.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 112.0 && weight >= 23.6 ){
+        if( stature >= 112.0 && stature < 112.5 && weight >= 23.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 112.5 && weight >= 23.9 ){
+        if( stature >= 112.5 && stature < 113.0 && weight >= 23.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 113.0 && weight >= 24.2 ){
+        if( stature >= 113.0 && stature < 113.5 && weight >= 24.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 113.5 && weight >= 24.4 ){
+        if( stature >= 113.5 && stature < 114.0 && weight >= 24.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 114.0 && weight >= 24.7 ){
+        if( stature >= 114.0 && stature < 114.5 && weight >= 24.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 114.5 && weight >= 25.0 ){
+        if( stature >= 114.5 && stature < 115.0 && weight >= 25.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 115.0 && weight >= 25.2 ){
+        if( stature >= 115.0 && stature < 115.5 && weight >= 25.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 115.5 && weight >= 25.5 ){
+        if( stature >= 115.5 && stature < 116.0 && weight >= 25.5 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 116.0 && weight >= 25.8 ){
+        if( stature >= 116.0 && stature < 116.5 && weight >= 25.8 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 116.5 && weight >= 26.1 ){
+        if( stature >= 116.5 && stature < 117.0 && weight >= 26.1 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 117.0 && weight >= 26.3 ){
+        if( stature >= 117.0 && stature < 117.5 && weight >= 26.3 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 117.5 && weight >= 26.6 ){
+        if( stature >= 117.5 && stature < 118.0 && weight >= 26.6 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 118.0 && weight >= 26.9 ){
+        if( stature >= 118.0 && stature < 118.5 && weight >= 26.9 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 118.5 && weight >= 27.2 ){
+        if( stature >= 118.5 && stature < 119.0 && weight >= 27.2 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 119.0 && weight >= 27.4 ){
+        if( stature >= 119.0 && stature < 119.5 && weight >= 27.4 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 119.5 && weight >= 27.7 ){
+        if( stature >= 119.5 && stature < 120.0 && weight >= 27.7 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
-        if( stature > 120.0 && weight >= 28.0 ){
+        if( stature >= 120.0 && weight >= 28.0 ){
             result.msg = 'Obesidad';
             result.ok = true;
         }
@@ -11966,19 +11966,88 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
         if ( age.y >= 1 && age.y <= 5 ){
             if( age.y < 5 ){
 
-                console.log('tengo igual o más de 1 años y menos de 5 años', age)
+                console.log('tengo igual o más de 1 año y menos de 5 años')
 
+                if( age.y < 2 ){
+
+                    girlsPTfrom0to2();
+
+                    console.log(result.ok)
+                    
+                    if( result.ok === true ){
+                        console.log(result)
+                        return result;
+                    }else{
+                        result.msg = 'Error'
+                        console.log(result)
+                        return result;
+                    }
+                }else{
+
+                    girlsPTfrom2to5();
+
+                    console.log(result.ok)
+                    
+                    if( result.ok === true ){
+                        console.log(result)
+                        return result;
+                    }else{
+                        result.msg = 'Error'
+                        console.log(result)
+                        return result;
+                    }
+                }
                 
             }
             if( age.y === 5 && age.m === 0 ){
-                console.log('tengo entre 1 año y 5 años 29 dias', age)
+                console.log('tengo entre 5 años y 5 años 29 dias', age)
+
+                girlsPTfrom2to5();
+
+                console.log(result.ok)
+                
+                if( result.ok === true ){
+                    console.log(result)
+                    return result;
+                }else{
+                    result.msg = 'Error'
+                    console.log(result)
+                    return result;
+                }
+
             }
             if( age.y === 5 && age.m >= 1){
                 console.log('tengo más de 5 años 1 mes', age)
+
+                girlsIMCEfrom5to19();
+
+                console.log(result.ok)
+                
+                if( result.ok === true ){
+                    console.log(result)
+                    return result;
+                }else{
+                    result.msg = 'Error'
+                    console.log(result)
+                    return result;
+                }
             }
         }
         if ( age.y > 5 && age.y < 19 ){
             console.log('tengo más de 5 años y menos de 19 años', age)
+
+            girlsIMCEfrom5to19();
+
+            console.log(result.ok)
+            
+            if( result.ok === true ){
+                console.log(result)
+                return result;
+            }else{
+                result.msg = 'Error'
+                console.log(result)
+                return result;
+            }
         }
     }
         

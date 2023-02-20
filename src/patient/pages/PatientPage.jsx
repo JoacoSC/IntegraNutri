@@ -50,6 +50,14 @@ export const PatientPage = () => {
       unixBirthday,
       gender
     } = useSelector((state) => state.currentPatient);
+
+    console.log(
+        'patientName: ', patientName,
+        'gender: ', gender,
+        'unixBirthday: ', unixBirthday,
+        'weight: ', weight,
+        'stature: ', stature,
+    )
     
     const [lastWeight, setLastWeight] = useState(0);
     const [lastStature, setLastStature] = useState(0);
@@ -63,6 +71,12 @@ export const PatientPage = () => {
     // }
 
     // console.log(lastWeight)
+
+    // TODO:
+    // TODO:
+    // TODO:
+    // TODO: Revisar por qué la calificacion nutricional funciona solo para Griezmann Mbappe
+
     const nutritionalCalification = useCalificationIndicator(
         lastWeight,
         lastStature,
