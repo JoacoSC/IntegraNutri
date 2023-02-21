@@ -72,11 +72,6 @@ export const PatientPage = () => {
 
     // console.log(lastWeight)
 
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO: Revisar por qué la calificacion nutricional funciona solo para Griezmann Mbappe
-
     const nutritionalCalification = useCalificationIndicator(
         lastWeight,
         lastStature,
@@ -589,11 +584,37 @@ export const PatientPage = () => {
                             <Line data={ userData } options={ options } />
 
                         </div>
-                            <div className="show-reference-chart-container">
-                                <button className="btn-show-reference-chart" type="button" onClick={ onShowHideReferenceChart }>
-                                    <span className="btn-reference-title">Mostrar/Ocultar referencia</span>
-                                </button>                            
+                        
+                        <div className="charts-switch-container">
+
+                            <div className="charts-switch-wrapper">
+                                <button className="charts-switch-btn-active" onClick={ () => console.log("P/E") }>
+                                    P/E
+                                </button>
+                                <button className="charts-switch-btn" onClick={ () => console.log("T/E") }>
+                                    T/E
+                                </button>
+                                <button className="charts-switch-btn" onClick={ () => console.log("P/T") }>
+                                    P/T
+                                </button>
+                                <button className="charts-switch-btn" onClick={ () => console.log("IMC/E") }>
+                                    IMC/E
+                                </button>
+                                <button className="charts-switch-btn" onClick={ () => console.log("PC/E") }>
+                                    PC/E
+                                </button>
+                                <button className="charts-switch-btn" onClick={ () => console.log("PCe/E") }>
+                                    PCe/E
+                                </button>
+
                             </div>
+                        </div>
+
+                        <div className="show-reference-chart-container">
+                            <button className="btn-show-reference-chart" type="button" onClick={ onShowHideReferenceChart }>
+                                <span className="btn-reference-title">Mostrar/Ocultar referencia</span>
+                            </button>                            
+                        </div>
                         
                         <div className="reference-chart-title-container">
                             <p className="reference-chart-title" hidden={ showHideReferenceChart }>Gráfico de referencia:</p>

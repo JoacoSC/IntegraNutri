@@ -1072,4 +1072,50 @@ body{
     font-weight: 600;
     font-size: 1.2rem;
 }
+
+.charts-switch-container{
+    display: flex;
+    justify-content: center;
+}
+
+.charts-switch-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    width: fit-content;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    box-shadow: 5px 5px 5px #EFF3FD;
+}
+
+.charts-switch-btn-active{
+    margin: 0 0.2rem;
+    padding: 0.3rem 0.6rem;
+    width: fit-content;
+    background-color: #F7F9FC;
+    border: none;
+    border-radius: 10px;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.charts-switch-btn{
+    margin: 0 0.2rem;
+    padding: 0.3rem 0.6rem;
+    width: fit-content;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    cursor: pointer;
+}
+
+
 /* **************** Patient chart ****************** */
