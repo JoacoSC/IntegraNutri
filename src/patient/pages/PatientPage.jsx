@@ -62,6 +62,8 @@ export const PatientPage = () => {
     const [lastWeight, setLastWeight] = useState(0);
     const [lastStature, setLastStature] = useState(0);
 
+    const [active, setActive] = useState("1");
+
     const weightLength = weight?.length;
     const statureLength = stature?.length;
 
@@ -122,6 +124,19 @@ export const PatientPage = () => {
         ]
     });
 
+    const [options, setOptions] = useState({
+        maintainAspectRatio : false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+            },
+            title: {
+                display: true,
+                text: 'Gráfico P/E del paciente',
+            },
+        },
+    })
+
     const [userData, setUserData] = useState({
         labels: 'A',
         datasets: [
@@ -162,19 +177,6 @@ export const PatientPage = () => {
         }
 
     }, [weight, stature])
-    
-    const options = {
-        maintainAspectRatio : false,
-        plugins: {
-        legend: {
-            position: 'bottom',
-        },
-        title: {
-            display: true,
-            text: 'Gráfico P/E del paciente',
-        },
-        },
-    };
 
     const calculateAge = () => {
         let d1 = fromUnixTime( unixBirthday ).getDate();
@@ -203,8 +205,6 @@ export const PatientPage = () => {
             return y + " años " + m + " meses " + d + " días";
         }
     }
-
-    
 
     const age = calculateAge();
     
@@ -301,6 +301,146 @@ export const PatientPage = () => {
 
     const handleWeightToAgeCalificationIndicator = () => {
         
+    }
+
+    const handleChartsSwitch = ( event ) => {
+        const id = event.target.id;
+        setActive( id );
+        
+        if( id === "1"){
+            
+            setOptions({
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Gráfico P/E del paciente',
+                    },
+                }
+            });
+            setUserData({
+                labels: weight?.map( (data) => data.B ),
+                datasets: [
+                    
+                    {
+                        label: "P/E del paciente (Kg)",
+                        data: weight?.map( (data) => data.A ),
+                        borderColor: '#ffa41d',
+                        backgroundColor: '#ffa41d',
+                    },
+                ]
+            })
+        }
+
+        if( id === "2"){
+            
+            setOptions({
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Gráfico T/E del paciente',
+                    },
+                }
+            });
+            setUserData({
+                labels: weight?.map( (data) => data.B ),
+                datasets: [
+                    
+                    {
+                        label: "T/E del paciente (Cm)",
+                        data: weight?.map( (data) => data.A ),
+                        borderColor: '#3d8eff',
+                        backgroundColor: '#3d8eff',
+                    },
+                ]
+            })
+        }
+
+        if( id === "3"){
+            
+            setOptions({
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Gráfico P/T del paciente',
+                    },
+                }
+            });
+            setUserData({
+                labels: weight?.map( (data) => data.B ),
+                datasets: [
+                    
+                    {
+                        label: "P/T del paciente (Kg)",
+                        data: weight?.map( (data) => data.A ),
+                        borderColor: '#1dffce',
+                        backgroundColor: '#1dffce',
+                    },
+                ]
+            })
+        }
+
+        if( id === "4"){
+            
+            setOptions({
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Gráfico IMC/E del paciente',
+                    },
+                }
+            });
+            setUserData({
+                labels: weight?.map( (data) => data.B ),
+                datasets: [
+                    
+                    {
+                        label: "IMC/E del paciente (Kg/m²)",
+                        data: weight?.map( (data) => data.A ),
+                        borderColor: '#fd31e5',
+                        backgroundColor: '#fd31e5',
+                    },
+                ]
+            })
+        }
+
+        if( id === "5"){
+            
+            setOptions({
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Gráfico PCe/E del paciente',
+                    },
+                }
+            });
+            setUserData({
+                labels: weight?.map( (data) => data.B ),
+                datasets: [
+                    
+                    {
+                        label: "PCe/E del paciente (Cm)",
+                        data: weight?.map( (data) => data.A ),
+                        borderColor: '#90fd31',
+                        backgroundColor: '#90fd31',
+                    },
+                ]
+            })
+        }
     }
 
     
@@ -588,22 +728,40 @@ export const PatientPage = () => {
                         <div className="charts-switch-container">
 
                             <div className="charts-switch-wrapper">
-                                <button className="charts-switch-btn-active" onClick={ () => console.log("P/E") }>
+                                <button
+                                    className={ active === "1" ? "charts-switch-btn-active" : "charts-switch-btn" }
+                                    onClick={ handleChartsSwitch }
+                                    id={"1"}
+                                >
                                     P/E
                                 </button>
-                                <button className="charts-switch-btn" onClick={ () => console.log("T/E") }>
+
+                                <button
+                                    className={ active === "2" ? "charts-switch-btn-active" : "charts-switch-btn" }
+                                    onClick={ handleChartsSwitch }
+                                    id={"2"}
+                                >
                                     T/E
                                 </button>
-                                <button className="charts-switch-btn" onClick={ () => console.log("P/T") }>
+                                <button
+                                    className={ active === "3" ? "charts-switch-btn-active" : "charts-switch-btn" }
+                                    onClick={ handleChartsSwitch }
+                                    id={"3"}
+                                >
                                     P/T
                                 </button>
-                                <button className="charts-switch-btn" onClick={ () => console.log("IMC/E") }>
+                                <button
+                                    className={ active === "4" ? "charts-switch-btn-active" : "charts-switch-btn" }
+                                    onClick={ handleChartsSwitch }
+                                    id={"4"}
+                                >
                                     IMC/E
                                 </button>
-                                <button className="charts-switch-btn" onClick={ () => console.log("PC/E") }>
-                                    PC/E
-                                </button>
-                                <button className="charts-switch-btn" onClick={ () => console.log("PCe/E") }>
+                                <button
+                                    className={ active === "5" ? "charts-switch-btn-active" : "charts-switch-btn" }
+                                    onClick={ handleChartsSwitch }
+                                    id={"5"}
+                                >
                                     PCe/E
                                 </button>
 

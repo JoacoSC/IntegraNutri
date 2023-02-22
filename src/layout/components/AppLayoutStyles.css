@@ -1101,6 +1101,7 @@ body{
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
+    transition: all 150ms ease;
 }
 
 .charts-switch-btn{
@@ -1115,6 +1116,11 @@ body{
     font-size: 0.9rem;
     color: #a0a0a0;
     cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.charts-switch-btn:hover{
+    background-color: #F7F9FC;
 }
 
 
