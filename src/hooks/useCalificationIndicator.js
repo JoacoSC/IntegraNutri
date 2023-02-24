@@ -38,6 +38,1398 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
         weight: weight,
     }
 
+    const boysPEfrom0to5 = () => {
+
+        if ( age.y === 0 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 2.5 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight <= 3.4 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight <= 4.3 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight <= 5.0 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight <= 5.6 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight <= 6.0 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight <= 6.4 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight <= 6.7 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight <= 6.9 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight <= 7.1 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight <= 7.4 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight <= 7.6 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 2.5 && weight <= 2.9 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 3.4 && weight <= 3.9 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 4.3 && weight <= 4.9 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 5.0 && weight <= 5.7 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 5.6 && weight <= 6.2 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 6.0 && weight <= 6.7 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 6.4 && weight <= 7.1 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 6.7 && weight <= 7.4 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 6.9 && weight <= 7.7 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 7.1 && weight <= 8.0 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 7.4 && weight <= 8.2 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 7.6 && weight <= 8.4 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 2.9 && weight < 3.9 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 3.9 && weight < 5.1 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 4.9 && weight < 6.3 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 5.7 && weight < 7.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 6.2 && weight < 7.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 6.7 && weight < 8.4 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 7.1 && weight < 8.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 7.4 && weight < 9.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 7.7 && weight < 9.6 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 8.0 && weight < 9.9 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 8.2 && weight < 10.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 8.4 && weight < 10.5 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && weight >= 3.9 && weight < 4.4 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 5.1 && weight < 5.8 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 6.3 && weight < 7.1 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 7.2 && weight < 8.0 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 7.8 && weight < 8.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 8.4 && weight < 9.3 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 8.8 && weight < 9.8 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 9.2 && weight < 10.3 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 9.6 && weight < 10.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 9.9 && weight < 11.0 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 10.2 && weight < 11.4 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 10.5 && weight < 11.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && weight >= 4.4 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 5.8 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 7.1 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 8.0 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 8.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 9.3 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 9.8 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 10.3 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 10.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 11.0 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 11.4 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 11.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 1 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 7.7 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight <= 7.9 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight <= 8.1 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight <= 8.3 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight <= 8.4 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight <= 8.6 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight <= 8.8 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight <= 8.9 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight <= 9.1 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight <= 9.2 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight <= 9.4 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight <= 9.5 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 7.7 && weight <= 8.6 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 7.9 && weight <= 8.8 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 8.1 && weight <= 9.0 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 8.3 && weight <= 9.2 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 8.4 && weight <= 9.4 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 8.6 && weight <= 9.6 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 8.8 && weight <= 9.8 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 8.9 && weight <= 10.0 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 9.1 && weight <= 10.1 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 9.2 && weight <= 10.3 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 9.4 && weight <= 10.5 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 9.5 && weight <= 10.7 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 8.6 && weight < 10.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 8.8 && weight < 11.0 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 9.0 && weight < 11.3 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 9.2 && weight < 11.5 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 9.4 && weight < 11.7 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 9.6 && weight < 12.0 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 9.8 && weight < 12.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 10.0 && weight < 12.5 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 10.1 && weight < 12.7 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 10.3 && weight < 12.9 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 10.5 && weight < 13.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 10.7 && weight < 13.4 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && weight >= 10.8 && weight < 12.0 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 11.0 && weight < 12.3 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 11.3 && weight < 12.6 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 11.5 && weight < 12.8 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 11.7 && weight < 13.1 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 12.0 && weight < 13.4 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 12.2 && weight < 13.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 12.5 && weight < 13.9 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 12.7 && weight < 14.2 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 12.9 && weight < 14.5 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 13.2 && weight < 14.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 13.4 && weight < 15.0 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && weight >= 12.0 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 12.3 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 12.6 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 12.8 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 13.1 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 13.4 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 13.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 13.9 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 14.2 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 14.5 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 14.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 15.0 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 2 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 9.7 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight <= 9.8 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight <= 10.0 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight <= 10.1 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight <= 10.2 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight <= 10.4 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight <= 10.5 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight <= 10.7 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight <= 10.8 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight <= 10.9 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight <= 11.0 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight <= 11.2 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 9.7 && weight <= 10.8 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 9.8 && weight <= 11.0 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 10.0 && weight <= 11.2 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 10.1 && weight <= 11.3 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 10.2 && weight <= 11.5 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 10.4 && weight <= 11.7 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 10.5 && weight <= 11.8 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 10.7 && weight <= 12.0 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 10.8 && weight <= 12.1 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 10.9 && weight <= 12.3 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 11.0 && weight <= 12.4 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 11.2 && weight <= 12.6 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 10.8 && weight < 13.6 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 11.0 && weight < 13.9 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 11.2 && weight < 14.1 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 11.3 && weight < 14.3 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 11.5 && weight < 14.5 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 11.7 && weight < 14.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 11.8 && weight < 15.0 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 12.0 && weight < 15.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 12.1 && weight < 15.4 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 12.3 && weight < 15.6 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 12.4 && weight < 15.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 12.6 && weight < 16.0 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && weight >= 13.6 && weight < 15.3 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 13.9 && weight < 15.5 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 14.1 && weight < 15.8 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 14.3 && weight < 16.1 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 14.5 && weight < 16.3 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 14.8 && weight < 16.6 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 15.0 && weight < 16.9 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 15.2 && weight < 17.1 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 15.4 && weight < 17.4 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 15.6 && weight < 17.6 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 15.8 && weight < 17.8 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 16.0 && weight < 18.1 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && weight >= 15.3 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 15.5 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 15.8 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 16.1 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 16.3 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 16.6 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 16.9 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 17.1 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 17.4 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 17.6 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 17.8 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 18.1 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 3 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 11.3 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight <= 11.4 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight <= 11.5 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight <= 11.6 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight <= 11.8 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight <= 11.9 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight <= 12.0 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight <= 12.1 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight <= 12.2 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight <= 12.4 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight <= 12.5 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight <= 12.6 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 11.3 && weight <= 12.7 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 11.4 && weight <= 12.9 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 11.5 && weight <= 13.0 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 11.6 && weight <= 13.1 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 11.8 && weight <= 13.3 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 11.9 && weight <= 13.4 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 12.0 && weight <= 13.6 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 12.1 && weight <= 13.7 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 12.2 && weight <= 13.8 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 12.4 && weight <= 14.0 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 12.5 && weight <= 14.1 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 12.6 && weight <= 14.3 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 12.2 && weight < 16.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 12.4 && weight < 16.4 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 12.5 && weight < 16.6 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 12.7 && weight < 16.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 12.8 && weight < 17.0 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 13.0 && weight < 17.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 13.1 && weight < 17.4 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 13.3 && weight < 17.6 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 13.4 && weight < 17.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 13.6 && weight < 18.0 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 13.7 && weight < 18.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 13.9 && weight < 18.4 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && weight >= 16.2 && weight < 18.3 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 16.4 && weight < 18.6 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 16.6 && weight < 18.8 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 16.8 && weight < 19.0 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 17.0 && weight < 19.3 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 17.2 && weight < 19.5 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 17.4 && weight < 19.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 17.6 && weight < 20.0 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 17.8 && weight < 20.2 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 18.0 && weight < 20.5 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 18.2 && weight < 20.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 18.4 && weight < 20.9 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && weight >= 18.3 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 18.6 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 18.8 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 19.0 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 19.3 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 19.5 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 19.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 20.0 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 20.2 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 20.5 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 20.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 20.9 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 4 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 12.7 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight <= 12.8 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight <= 12.9 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight <= 13.1 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight <= 13.2 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight <= 13.3 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight <= 13.4 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight <= 13.5 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight <= 13.6 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight <= 13.7 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight <= 13.8 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight <= 14.0 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 12.7 && weight <= 14.4 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 12.8 && weight <= 14.5 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 12.9 && weight <= 14.7 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 13.1 && weight <= 14.8 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 13.2 && weight <= 15.0 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 13.3 && weight <= 15.1 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 13.4 && weight <= 15.2 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 13.5 && weight <= 15.4 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 13.6 && weight <= 15.5 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 13.7 && weight <= 15.6 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 13.8 && weight <= 15.8 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 14.0 && weight <= 15.9 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 14.4 && weight < 18.6 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight > 14.5 && weight < 18.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight > 14.7 && weight < 19.0 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight > 14.8 && weight < 19.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight > 15.0 && weight < 19.4 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight > 15.1 && weight < 19.6 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight > 15.2 && weight < 19.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight > 15.4 && weight < 20.0 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight > 15.5 && weight < 20.2 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight > 15.6 && weight < 20.4 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight > 15.8 && weight < 20.6 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight > 15.9 && weight < 20.8 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && weight >= 18.6 && weight < 21.2 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 18.8 && weight < 21.4 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 19.0 && weight < 21.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 19.2 && weight < 21.9 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 19.4 && weight < 22.2 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 19.6 && weight < 22.4 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 19.8 && weight < 22.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 20.0 && weight < 22.9 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 20.2 && weight < 23.2 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 20.4 && weight < 23.4 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 20.6 && weight < 23.7 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 20.8 && weight < 23.9 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && weight >= 21.2 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 1 && weight >= 21.4 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 2 && weight >= 21.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 3 && weight >= 21.9 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 4 && weight >= 22.2 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 5 && weight >= 22.4 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 6 && weight >= 22.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 7 && weight >= 22.9 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 8 && weight >= 23.2 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 9 && weight >= 23.4 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 10 && weight >= 23.7 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+            if( age.m === 11 && weight >= 23.9 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 5 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 14.1 ){
+                result.msg = 'Desnutrición';
+                result.ok = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 14.1 && weight <= 16.0 ){
+                result.msg = 'Riesgo de Desnutrir';
+                result.ok = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 16.0 && weight < 21.0 ){
+                result.msg = 'Normal o Eutrófico';
+                result.ok = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && weight >= 21.0 && weight < 24.2 ){
+                result.msg = 'Sobrepeso';
+                result.ok = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && weight >= 24.2 ){
+                result.msg = 'Obesidad';
+                result.ok = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+    }
+
     const girlsPEfrom0to5 = () => {
 
         if ( age.y === 0 ){
