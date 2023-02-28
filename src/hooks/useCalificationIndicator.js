@@ -14728,55 +14728,57 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
     const boysIMCEfrom5to19 = () => {
 
+        const IMC = weight / (stature/100)**2
+
         if ( age.y === 5 ){
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 13.0 ){
+            if( age.m === 0 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 13.0 ){
+            if( age.m === 1 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 13.0 ){
+            if( age.m === 2 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 13.0 ){
+            if( age.m === 3 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 13.0 ){
+            if( age.m === 4 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 13.0 ){
+            if( age.m === 5 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 13.0 ){
+            if( age.m === 6 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 13.0 ){
+            if( age.m === 7 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 13.0 ){
+            if( age.m === 8 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 13.0 ){
+            if( age.m === 9 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 13.0 ){
+            if( age.m === 10 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 13.0 ){
+            if( age.m === 11 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -14785,51 +14787,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 0 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 1 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 2 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 3 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 4 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 5 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 6 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 7 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 8 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 9 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 10 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 11 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo 14.1';
                 result.ok = true;
             }
@@ -14838,51 +14840,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.1 && weight < 16.9 ){
+            if( age.m === 0 && IMC > 14.1 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.1 && weight < 16.9 ){
+            if( age.m === 1 && IMC > 14.1 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.1 && weight < 16.9 ){
+            if( age.m === 2 && IMC > 14.1 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.1 && weight < 16.9 ){
+            if( age.m === 3 && IMC > 14.1 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.1 && weight < 16.9 ){
+            if( age.m === 4 && IMC > 14.1 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.1 && weight < 16.9 ){
+            if( age.m === 5 && IMC > 14.1 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.1 && weight < 16.9 ){
+            if( age.m === 6 && IMC > 14.1 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.1 && weight < 16.9 ){
+            if( age.m === 7 && IMC > 14.1 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.1 && weight < 17.0 ){
+            if( age.m === 8 && IMC > 14.1 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.1 && weight < 17.0 ){
+            if( age.m === 9 && IMC > 14.1 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.1 && weight < 17.0 ){
+            if( age.m === 10 && IMC > 14.1 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.1 && weight < 17.0 ){
+            if( age.m === 11 && IMC > 14.1 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -14891,51 +14893,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 16.6 && weight < 18.3 ){
+            if( age.m === 0 && IMC >= 16.6 && IMC < 18.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 16.6 && weight < 18.3 ){
+            if( age.m === 1 && IMC >= 16.6 && IMC < 18.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 16.6 && weight < 18.3 ){
+            if( age.m === 2 && IMC >= 16.6 && IMC < 18.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 16.7 && weight < 18.3 ){
+            if( age.m === 3 && IMC >= 16.7 && IMC < 18.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 16.7 && weight < 18.3 ){
+            if( age.m === 4 && IMC >= 16.7 && IMC < 18.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 16.7 && weight < 18.3 ){
+            if( age.m === 5 && IMC >= 16.7 && IMC < 18.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 16.7 && weight < 18.4 ){
+            if( age.m === 6 && IMC >= 16.7 && IMC < 18.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 16.7 && weight < 18.4 ){
+            if( age.m === 7 && IMC >= 16.7 && IMC < 18.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 16.7 && weight < 18.4 ){
+            if( age.m === 8 && IMC >= 16.7 && IMC < 18.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 16.7 && weight < 18.4 ){
+            if( age.m === 9 && IMC >= 16.7 && IMC < 18.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 16.7 && weight < 18.5 ){
+            if( age.m === 10 && IMC >= 16.7 && IMC < 18.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 16.7 && weight < 18.5 ){
+            if( age.m === 11 && IMC >= 16.7 && IMC < 18.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -14944,51 +14946,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 18.3 && weight < 20.2 ){
+            if( age.m === 0 && IMC >= 18.3 && IMC < 20.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 18.3 && weight < 20.2 ){
+            if( age.m === 1 && IMC >= 18.3 && IMC < 20.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 18.3 && weight < 20.2 ){
+            if( age.m === 2 && IMC >= 18.3 && IMC < 20.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 18.3 && weight < 20.2 ){
+            if( age.m === 3 && IMC >= 18.3 && IMC < 20.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 18.3 && weight < 20.3 ){
+            if( age.m === 4 && IMC >= 18.3 && IMC < 20.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 18.3 && weight < 20.3 ){
+            if( age.m === 5 && IMC >= 18.3 && IMC < 20.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 18.4 && weight < 20.4 ){
+            if( age.m === 6 && IMC >= 18.4 && IMC < 20.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 18.4 && weight < 20.4 ){
+            if( age.m === 7 && IMC >= 18.4 && IMC < 20.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 18.4 && weight < 20.5 ){
+            if( age.m === 8 && IMC >= 18.4 && IMC < 20.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 18.4 && weight < 20.5 ){
+            if( age.m === 9 && IMC >= 18.4 && IMC < 20.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 18.5 && weight < 20.6 ){
+            if( age.m === 10 && IMC >= 18.5 && IMC < 20.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 18.5 && weight < 20.6 ){
+            if( age.m === 11 && IMC >= 18.5 && IMC < 20.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -14997,51 +14999,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 20.2 ){
+            if( age.m === 0 && IMC >= 20.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 20.2 ){
+            if( age.m === 1 && IMC >= 20.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 20.2 ){
+            if( age.m === 2 && IMC >= 20.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 20.2 ){
+            if( age.m === 3 && IMC >= 20.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 20.3 ){
+            if( age.m === 4 && IMC >= 20.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 20.3 ){
+            if( age.m === 5 && IMC >= 20.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 20.4 ){
+            if( age.m === 6 && IMC >= 20.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 20.4 ){
+            if( age.m === 7 && IMC >= 20.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 20.5 ){
+            if( age.m === 8 && IMC >= 20.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 20.5 ){
+            if( age.m === 9 && IMC >= 20.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 20.6 ){
+            if( age.m === 10 && IMC >= 20.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 20.6 ){
+            if( age.m === 11 && IMC >= 20.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -15052,51 +15054,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 13.0 ){
+            if( age.m === 0 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 13.0 ){
+            if( age.m === 1 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 13.1 ){
+            if( age.m === 2 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 13.1 ){
+            if( age.m === 3 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 13.1 ){
+            if( age.m === 4 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 13.1 ){
+            if( age.m === 5 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 13.1 ){
+            if( age.m === 6 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 13.1 ){
+            if( age.m === 7 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 13.1 ){
+            if( age.m === 8 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 13.1 ){
+            if( age.m === 9 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 13.1 ){
+            if( age.m === 10 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 13.1 ){
+            if( age.m === 11 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -15105,51 +15107,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 0 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.0 && weight <= 14.1 ){
+            if( age.m === 1 && IMC > 13.0 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.1 && weight <= 14.1 ){
+            if( age.m === 2 && IMC > 13.1 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.1 && weight <= 14.1 ){
+            if( age.m === 3 && IMC > 13.1 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.1 && weight <= 14.1 ){
+            if( age.m === 4 && IMC > 13.1 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.1 && weight <= 14.1 ){
+            if( age.m === 5 && IMC > 13.1 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.1 && weight <= 14.1 ){
+            if( age.m === 6 && IMC > 13.1 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.1 && weight <= 14.1 ){
+            if( age.m === 7 && IMC > 13.1 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.1 && weight <= 14.2 ){
+            if( age.m === 8 && IMC > 13.1 && IMC <= 14.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.1 && weight <= 14.2 ){
+            if( age.m === 9 && IMC > 13.1 && IMC <= 14.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.1 && weight <= 14.2 ){
+            if( age.m === 10 && IMC > 13.1 && IMC <= 14.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.1 && weight <= 14.2 ){
+            if( age.m === 11 && IMC > 13.1 && IMC <= 14.2 ){
                 result.msg = 'Riesgo 14.2';
                 result.ok = true;
             }
@@ -15158,51 +15160,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.1 && weight < 17.0 ){
+            if( age.m === 0 && IMC > 14.1 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.1 && weight < 17.0 ){
+            if( age.m === 1 && IMC > 14.1 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.1 && weight < 17.0 ){
+            if( age.m === 2 && IMC > 14.1 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.1 && weight < 17.1 ){
+            if( age.m === 3 && IMC > 14.1 && IMC < 17.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.1 && weight < 17.1 ){
+            if( age.m === 4 && IMC > 14.1 && IMC < 17.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.1 && weight < 17.1 ){
+            if( age.m === 5 && IMC > 14.1 && IMC < 17.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.1 && weight < 17.1 ){
+            if( age.m === 6 && IMC > 14.1 && IMC < 17.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.1 && weight < 17.2 ){
+            if( age.m === 7 && IMC > 14.1 && IMC < 17.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.2 && weight < 17.2 ){
+            if( age.m === 8 && IMC > 14.2 && IMC < 17.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.2 && weight < 17.2 ){
+            if( age.m === 9 && IMC > 14.2 && IMC < 17.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.2 && weight < 17.2 ){
+            if( age.m === 10 && IMC > 14.2 && IMC < 17.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.2 && weight < 17.3 ){
+            if( age.m === 11 && IMC > 14.2 && IMC < 17.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -15211,51 +15213,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 16.8 && weight < 18.5 ){
+            if( age.m === 0 && IMC >= 16.8 && IMC < 18.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 16.8 && weight < 18.6 ){
+            if( age.m === 1 && IMC >= 16.8 && IMC < 18.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 16.8 && weight < 18.6 ){
+            if( age.m === 2 && IMC >= 16.8 && IMC < 18.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 16.8 && weight < 18.6 ){
+            if( age.m === 3 && IMC >= 16.8 && IMC < 18.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 16.8 && weight < 18.7 ){
+            if( age.m === 4 && IMC >= 16.8 && IMC < 18.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 16.9 && weight < 18.7 ){
+            if( age.m === 5 && IMC >= 16.9 && IMC < 18.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 16.9 && weight < 18.7 ){
+            if( age.m === 6 && IMC >= 16.9 && IMC < 18.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 16.9 && weight < 18.8 ){
+            if( age.m === 7 && IMC >= 16.9 && IMC < 18.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 16.9 && weight < 18.8 ){
+            if( age.m === 8 && IMC >= 16.9 && IMC < 18.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 17.0 && weight < 18.9 ){
+            if( age.m === 9 && IMC >= 17.0 && IMC < 18.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 17.0 && weight < 18.9 ){
+            if( age.m === 10 && IMC >= 17.0 && IMC < 18.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 17.0 && weight < 19.0 ){
+            if( age.m === 11 && IMC >= 17.0 && IMC < 19.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -15264,51 +15266,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 18.5 && weight < 20.7 ){
+            if( age.m === 0 && IMC >= 18.5 && IMC < 20.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 18.6 && weight < 20.8 ){
+            if( age.m === 1 && IMC >= 18.6 && IMC < 20.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 18.6 && weight < 20.8 ){
+            if( age.m === 2 && IMC >= 18.6 && IMC < 20.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 18.6 && weight < 20.9 ){
+            if( age.m === 3 && IMC >= 18.6 && IMC < 20.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 18.7 && weight < 21.0 ){
+            if( age.m === 4 && IMC >= 18.7 && IMC < 21.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 18.7 && weight < 21.0 ){
+            if( age.m === 5 && IMC >= 18.7 && IMC < 21.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 18.7 && weight < 21.1 ){
+            if( age.m === 6 && IMC >= 18.7 && IMC < 21.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 18.8 && weight < 21.2 ){
+            if( age.m === 7 && IMC >= 18.8 && IMC < 21.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 18.8 && weight < 21.3 ){
+            if( age.m === 8 && IMC >= 18.8 && IMC < 21.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 18.9 && weight < 21.3 ){
+            if( age.m === 9 && IMC >= 18.9 && IMC < 21.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 18.9 && weight < 21.4 ){
+            if( age.m === 10 && IMC >= 18.9 && IMC < 21.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 19.0 && weight < 21.5 ){
+            if( age.m === 11 && IMC >= 19.0 && IMC < 21.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -15317,51 +15319,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 20.7 ){
+            if( age.m === 0 && IMC >= 20.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 20.8 ){
+            if( age.m === 1 && IMC >= 20.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 20.8 ){
+            if( age.m === 2 && IMC >= 20.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 20.9 ){
+            if( age.m === 3 && IMC >= 20.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 21.0 ){
+            if( age.m === 4 && IMC >= 21.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 21.0 ){
+            if( age.m === 5 && IMC >= 21.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 21.1 ){
+            if( age.m === 6 && IMC >= 21.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 21.2 ){
+            if( age.m === 7 && IMC >= 21.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 21.3 ){
+            if( age.m === 8 && IMC >= 21.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 21.3 ){
+            if( age.m === 9 && IMC >= 21.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 21.4 ){
+            if( age.m === 10 && IMC >= 21.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 21.5 ){
+            if( age.m === 11 && IMC >= 21.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -15372,51 +15374,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 13.1 ){
+            if( age.m === 0 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 13.2 ){
+            if( age.m === 1 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 13.2 ){
+            if( age.m === 2 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 13.2 ){
+            if( age.m === 3 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 13.2 ){
+            if( age.m === 4 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 13.2 ){
+            if( age.m === 5 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 13.2 ){
+            if( age.m === 6 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 13.2 ){
+            if( age.m === 7 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 13.2 ){
+            if( age.m === 8 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 13.3 ){
+            if( age.m === 9 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 13.3 ){
+            if( age.m === 10 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 13.3 ){
+            if( age.m === 11 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -15425,51 +15427,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 0 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.2 && weight <= 14.2 ){
+            if( age.m === 1 && IMC > 13.2 && IMC <= 14.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.2 && weight <= 14.2 ){
+            if( age.m === 2 && IMC > 13.2 && IMC <= 14.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.2 && weight <= 14.3 ){
+            if( age.m === 3 && IMC > 13.2 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.2 && weight <= 14.3 ){
+            if( age.m === 4 && IMC > 13.2 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.2 && weight <= 14.3 ){
+            if( age.m === 5 && IMC > 13.2 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.2 && weight <= 14.3 ){
+            if( age.m === 6 && IMC > 13.2 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.2 && weight <= 14.3 ){
+            if( age.m === 7 && IMC > 13.2 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.2 && weight <= 14.3 ){
+            if( age.m === 8 && IMC > 13.2 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.3 && weight <= 14.3 ){
+            if( age.m === 9 && IMC > 13.3 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.3 && weight <= 14.4 ){
+            if( age.m === 10 && IMC > 13.3 && IMC <= 14.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.3 && weight <= 14.4 ){
+            if( age.m === 11 && IMC > 13.3 && IMC <= 14.4 ){
                 result.msg = 'Riesgo 14.4';
                 result.ok = true;
             }
@@ -15478,51 +15480,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.2 && weight < 17.3 ){
+            if( age.m === 0 && IMC > 14.2 && IMC < 17.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.2 && weight < 17.3 ){
+            if( age.m === 1 && IMC > 14.2 && IMC < 17.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.2 && weight < 17.4 ){
+            if( age.m === 2 && IMC > 14.2 && IMC < 17.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.3 && weight < 17.4 ){
+            if( age.m === 3 && IMC > 14.3 && IMC < 17.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.3 && weight < 17.4 ){
+            if( age.m === 4 && IMC > 14.3 && IMC < 17.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.3 && weight < 17.5 ){
+            if( age.m === 5 && IMC > 14.3 && IMC < 17.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.3 && weight < 17.5 ){
+            if( age.m === 6 && IMC > 14.3 && IMC < 17.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.3 && weight < 17.5 ){
+            if( age.m === 7 && IMC > 14.3 && IMC < 17.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.3 && weight < 17.6 ){
+            if( age.m === 8 && IMC > 14.3 && IMC < 17.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.3 && weight < 17.6 ){
+            if( age.m === 9 && IMC > 14.3 && IMC < 17.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.4 && weight < 17.6 ){
+            if( age.m === 10 && IMC > 14.4 && IMC < 17.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.4 && weight < 17.7 ){
+            if( age.m === 11 && IMC > 14.4 && IMC < 17.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -15531,51 +15533,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 17.0 && weight < 19.0 ){
+            if( age.m === 0 && IMC >= 17.0 && IMC < 19.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 17.1 && weight < 19.1 ){
+            if( age.m === 1 && IMC >= 17.1 && IMC < 19.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 17.1 && weight < 19.1 ){
+            if( age.m === 2 && IMC >= 17.1 && IMC < 19.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 17.1 && weight < 19.2 ){
+            if( age.m === 3 && IMC >= 17.1 && IMC < 19.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 17.2 && weight < 19.2 ){
+            if( age.m === 4 && IMC >= 17.2 && IMC < 19.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 17.2 && weight < 19.3 ){
+            if( age.m === 5 && IMC >= 17.2 && IMC < 19.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 17.2 && weight < 19.3 ){
+            if( age.m === 6 && IMC >= 17.2 && IMC < 19.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 17.3 && weight < 19.4 ){
+            if( age.m === 7 && IMC >= 17.3 && IMC < 19.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 17.3 && weight < 19.4 ){
+            if( age.m === 8 && IMC >= 17.3 && IMC < 19.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 17.3 && weight < 19.5 ){
+            if( age.m === 9 && IMC >= 17.3 && IMC < 19.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 17.4 && weight < 19.6 ){
+            if( age.m === 10 && IMC >= 17.4 && IMC < 19.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 17.4 && weight < 19.6 ){
+            if( age.m === 11 && IMC >= 17.4 && IMC < 19.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -15584,51 +15586,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 19.0 && weight < 21.6 ){
+            if( age.m === 0 && IMC >= 19.0 && IMC < 21.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 19.1 && weight < 21.7 ){
+            if( age.m === 1 && IMC >= 19.1 && IMC < 21.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 19.1 && weight < 21.8 ){
+            if( age.m === 2 && IMC >= 19.1 && IMC < 21.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 19.2 && weight < 21.9 ){
+            if( age.m === 3 && IMC >= 19.2 && IMC < 21.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 19.2 && weight < 22.0 ){
+            if( age.m === 4 && IMC >= 19.2 && IMC < 22.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 19.3 && weight < 22.0 ){
+            if( age.m === 5 && IMC >= 19.3 && IMC < 22.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 19.3 && weight < 22.1 ){
+            if( age.m === 6 && IMC >= 19.3 && IMC < 22.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 19.4 && weight < 22.2 ){
+            if( age.m === 7 && IMC >= 19.4 && IMC < 22.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 19.4 && weight < 22.4 ){
+            if( age.m === 8 && IMC >= 19.4 && IMC < 22.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 19.5 && weight < 22.5 ){
+            if( age.m === 9 && IMC >= 19.5 && IMC < 22.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 19.6 && weight < 22.6 ){
+            if( age.m === 10 && IMC >= 19.6 && IMC < 22.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 19.6 && weight < 22.7 ){
+            if( age.m === 11 && IMC >= 19.6 && IMC < 22.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -15637,51 +15639,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 21.6 ){
+            if( age.m === 0 && IMC >= 21.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 21.7 ){
+            if( age.m === 1 && IMC >= 21.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 21.8 ){
+            if( age.m === 2 && IMC >= 21.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 21.9 ){
+            if( age.m === 3 && IMC >= 21.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 22.0 ){
+            if( age.m === 4 && IMC >= 22.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 22.0 ){
+            if( age.m === 5 && IMC >= 22.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 22.1 ){
+            if( age.m === 6 && IMC >= 22.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 22.2 ){
+            if( age.m === 7 && IMC >= 22.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 22.4 ){
+            if( age.m === 8 && IMC >= 22.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 22.5 ){
+            if( age.m === 9 && IMC >= 22.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 22.6 ){
+            if( age.m === 10 && IMC >= 22.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 22.7 ){
+            if( age.m === 11 && IMC >= 22.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -15692,51 +15694,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 13.3 ){
+            if( age.m === 0 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 13.3 ){
+            if( age.m === 1 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 13.3 ){
+            if( age.m === 2 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 13.3 ){
+            if( age.m === 3 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 13.4 ){
+            if( age.m === 4 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 13.4 ){
+            if( age.m === 5 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 13.4 ){
+            if( age.m === 6 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 13.4 ){
+            if( age.m === 7 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 13.4 ){
+            if( age.m === 8 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 13.4 ){
+            if( age.m === 9 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 13.5 ){
+            if( age.m === 10 && IMC <= 13.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 13.5 ){
+            if( age.m === 11 && IMC <= 13.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -15745,51 +15747,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 12.9 && weight <= 14.1 ){
+            if( age.m === 0 && IMC > 12.9 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.3 && weight <= 14.4 ){
+            if( age.m === 1 && IMC > 13.3 && IMC <= 14.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.3 && weight <= 14.4 ){
+            if( age.m === 2 && IMC > 13.3 && IMC <= 14.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.3 && weight <= 14.4 ){
+            if( age.m === 3 && IMC > 13.3 && IMC <= 14.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.4 && weight <= 14.5 ){
+            if( age.m === 4 && IMC > 13.4 && IMC <= 14.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.4 && weight <= 14.5 ){
+            if( age.m === 5 && IMC > 13.4 && IMC <= 14.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.4 && weight <= 14.5 ){
+            if( age.m === 6 && IMC > 13.4 && IMC <= 14.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.4 && weight <= 14.5 ){
+            if( age.m === 7 && IMC > 13.4 && IMC <= 14.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.4 && weight <= 14.5 ){
+            if( age.m === 8 && IMC > 13.4 && IMC <= 14.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.4 && weight <= 14.6 ){
+            if( age.m === 9 && IMC > 13.4 && IMC <= 14.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.5 && weight <= 14.6 ){
+            if( age.m === 10 && IMC > 13.5 && IMC <= 14.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.5 && weight <= 14.6 ){
+            if( age.m === 11 && IMC > 13.5 && IMC <= 14.6 ){
                 result.msg = 'Riesgo 14.6';
                 result.ok = true;
             }
@@ -15798,51 +15800,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.4 && weight < 17.7 ){
+            if( age.m === 0 && IMC > 14.4 && IMC < 17.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.4 && weight < 17.8 ){
+            if( age.m === 1 && IMC > 14.4 && IMC < 17.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.4 && weight < 17.8 ){
+            if( age.m === 2 && IMC > 14.4 && IMC < 17.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.4 && weight < 17.9 ){
+            if( age.m === 3 && IMC > 14.4 && IMC < 17.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.5 && weight < 17.9 ){
+            if( age.m === 4 && IMC > 14.5 && IMC < 17.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.5 && weight < 18.0 ){
+            if( age.m === 5 && IMC > 14.5 && IMC < 18.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.5 && weight < 18.0 ){
+            if( age.m === 6 && IMC > 14.5 && IMC < 18.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.5 && weight < 18.1 ){
+            if( age.m === 7 && IMC > 14.5 && IMC < 18.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.5 && weight < 18.1 ){
+            if( age.m === 8 && IMC > 14.5 && IMC < 18.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.6 && weight < 18.2 ){
+            if( age.m === 9 && IMC > 14.6 && IMC < 18.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.6 && weight < 18.2 ){
+            if( age.m === 10 && IMC > 14.6 && IMC < 18.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.6 && weight < 18.3 ){
+            if( age.m === 11 && IMC > 14.6 && IMC < 18.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -15851,51 +15853,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 17.4 && weight < 19.7 ){
+            if( age.m === 0 && IMC >= 17.4 && IMC < 19.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 17.5 && weight < 19.7 ){
+            if( age.m === 1 && IMC >= 17.5 && IMC < 19.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 17.5 && weight < 19.8 ){
+            if( age.m === 2 && IMC >= 17.5 && IMC < 19.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 17.5 && weight < 19.9 ){
+            if( age.m === 3 && IMC >= 17.5 && IMC < 19.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 17.6 && weight < 19.9 ){
+            if( age.m === 4 && IMC >= 17.6 && IMC < 19.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 17.6 && weight < 20.0 ){
+            if( age.m === 5 && IMC >= 17.6 && IMC < 20.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 17.7 && weight < 20.1 ){
+            if( age.m === 6 && IMC >= 17.7 && IMC < 20.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 17.7 && weight < 20.1 ){
+            if( age.m === 7 && IMC >= 17.7 && IMC < 20.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 17.7 && weight < 20.2 ){
+            if( age.m === 8 && IMC >= 17.7 && IMC < 20.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 17.8 && weight < 20.3 ){
+            if( age.m === 9 && IMC >= 17.8 && IMC < 20.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 17.8 && weight < 20.3 ){
+            if( age.m === 10 && IMC >= 17.8 && IMC < 20.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 17.9 && weight < 20.4 ){
+            if( age.m === 11 && IMC >= 17.9 && IMC < 20.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -15904,51 +15906,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 19.7 && weight < 22.8 ){
+            if( age.m === 0 && IMC >= 19.7 && IMC < 22.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 19.7 && weight < 22.9 ){
+            if( age.m === 1 && IMC >= 19.7 && IMC < 22.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 19.8 && weight < 23.0 ){
+            if( age.m === 2 && IMC >= 19.8 && IMC < 23.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 19.9 && weight < 23.1 ){
+            if( age.m === 3 && IMC >= 19.9 && IMC < 23.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 19.9 && weight < 23.3 ){
+            if( age.m === 4 && IMC >= 19.9 && IMC < 23.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 20.0 && weight < 23.4 ){
+            if( age.m === 5 && IMC >= 20.0 && IMC < 23.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 20.1 && weight < 23.5 ){
+            if( age.m === 6 && IMC >= 20.1 && IMC < 23.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 20.1 && weight < 23.6 ){
+            if( age.m === 7 && IMC >= 20.1 && IMC < 23.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 20.2 && weight < 23.8 ){
+            if( age.m === 8 && IMC >= 20.2 && IMC < 23.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 20.3 && weight < 23.9 ){
+            if( age.m === 9 && IMC >= 20.3 && IMC < 23.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 20.3 && weight < 24.0 ){
+            if( age.m === 10 && IMC >= 20.3 && IMC < 24.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 20.4 && weight < 24.2 ){
+            if( age.m === 11 && IMC >= 20.4 && IMC < 24.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -15957,51 +15959,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 22.8 ){
+            if( age.m === 0 && IMC >= 22.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 22.9 ){
+            if( age.m === 1 && IMC >= 22.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 23.0 ){
+            if( age.m === 2 && IMC >= 23.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 23.1 ){
+            if( age.m === 3 && IMC >= 23.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 23.3 ){
+            if( age.m === 4 && IMC >= 23.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 23.4 ){
+            if( age.m === 5 && IMC >= 23.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 23.5 ){
+            if( age.m === 6 && IMC >= 23.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 23.6 ){
+            if( age.m === 7 && IMC >= 23.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 23.8 ){
+            if( age.m === 8 && IMC >= 23.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 23.9 ){
+            if( age.m === 9 && IMC >= 23.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.0 ){
+            if( age.m === 10 && IMC >= 24.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 24.2 ){
+            if( age.m === 11 && IMC >= 24.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -16012,51 +16014,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 13.5 ){
+            if( age.m === 0 && IMC <= 13.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 13.5 ){
+            if( age.m === 1 && IMC <= 13.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 13.5 ){
+            if( age.m === 2 && IMC <= 13.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 13.5 ){
+            if( age.m === 3 && IMC <= 13.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 13.6 ){
+            if( age.m === 4 && IMC <= 13.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 13.6 ){
+            if( age.m === 5 && IMC <= 13.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 13.6 ){
+            if( age.m === 6 && IMC <= 13.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 13.6 ){
+            if( age.m === 7 && IMC <= 13.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 13.6 ){
+            if( age.m === 8 && IMC <= 13.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 13.7 ){
+            if( age.m === 9 && IMC <= 13.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 13.7 ){
+            if( age.m === 10 && IMC <= 13.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 13.7 ){
+            if( age.m === 11 && IMC <= 13.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -16065,51 +16067,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 13.1 && weight <= 14.4 ){
+            if( age.m === 0 && IMC > 13.1 && IMC <= 14.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.5 && weight <= 14.6 ){
+            if( age.m === 1 && IMC > 13.5 && IMC <= 14.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.5 && weight <= 14.7 ){
+            if( age.m === 2 && IMC > 13.5 && IMC <= 14.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.5 && weight <= 14.7 ){
+            if( age.m === 3 && IMC > 13.5 && IMC <= 14.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.6 && weight <= 14.7 ){
+            if( age.m === 4 && IMC > 13.6 && IMC <= 14.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.6 && weight <= 14.7 ){
+            if( age.m === 5 && IMC > 13.6 && IMC <= 14.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.6 && weight <= 14.8 ){
+            if( age.m === 6 && IMC > 13.6 && IMC <= 14.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.6 && weight <= 14.8 ){
+            if( age.m === 7 && IMC > 13.6 && IMC <= 14.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.6 && weight <= 14.8 ){
+            if( age.m === 8 && IMC > 13.6 && IMC <= 14.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.7 && weight <= 14.8 ){
+            if( age.m === 9 && IMC > 13.7 && IMC <= 14.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.7 && weight <= 14.9 ){
+            if( age.m === 10 && IMC > 13.7 && IMC <= 14.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.7 && weight <= 14.9 ){
+            if( age.m === 11 && IMC > 13.7 && IMC <= 14.9 ){
                 result.msg = 'Riesgo 14.9';
                 result.ok = true;
             }
@@ -16118,51 +16120,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.6 && weight < 18.3 ){
+            if( age.m === 0 && IMC > 14.6 && IMC < 18.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.6 && weight < 18.4 ){
+            if( age.m === 1 && IMC > 14.6 && IMC < 18.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.7 && weight < 18.4 ){
+            if( age.m === 2 && IMC > 14.7 && IMC < 18.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.7 && weight < 18.5 ){
+            if( age.m === 3 && IMC > 14.7 && IMC < 18.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.7 && weight < 18.6 ){
+            if( age.m === 4 && IMC > 14.7 && IMC < 18.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.7 && weight < 18.6 ){
+            if( age.m === 5 && IMC > 14.7 && IMC < 18.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.8 && weight < 18.7 ){
+            if( age.m === 6 && IMC > 14.8 && IMC < 18.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.8 && weight < 18.7 ){
+            if( age.m === 7 && IMC > 14.8 && IMC < 18.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.8 && weight < 18.8 ){
+            if( age.m === 8 && IMC > 14.8 && IMC < 18.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.8 && weight < 18.8 ){
+            if( age.m === 9 && IMC > 14.8 && IMC < 18.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.9 && weight < 18.9 ){
+            if( age.m === 10 && IMC > 14.9 && IMC < 18.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.9 && weight < 19.0 ){
+            if( age.m === 11 && IMC > 14.9 && IMC < 19.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -16171,51 +16173,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 17.9 && weight < 20.5 ){
+            if( age.m === 0 && IMC >= 17.9 && IMC < 20.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 18.0 && weight < 20.5 ){
+            if( age.m === 1 && IMC >= 18.0 && IMC < 20.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 18.0 && weight < 20.6 ){
+            if( age.m === 2 && IMC >= 18.0 && IMC < 20.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 18.0 && weight < 20.7 ){
+            if( age.m === 3 && IMC >= 18.0 && IMC < 20.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 18.1 && weight < 20.8 ){
+            if( age.m === 4 && IMC >= 18.1 && IMC < 20.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 18.1 && weight < 20.8 ){
+            if( age.m === 5 && IMC >= 18.1 && IMC < 20.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 18.2 && weight < 20.9 ){
+            if( age.m === 6 && IMC >= 18.2 && IMC < 20.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 18.2 && weight < 21.0 ){
+            if( age.m === 7 && IMC >= 18.2 && IMC < 21.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 18.3 && weight < 21.1 ){
+            if( age.m === 8 && IMC >= 18.3 && IMC < 21.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 18.3 && weight < 21.2 ){
+            if( age.m === 9 && IMC >= 18.3 && IMC < 21.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 18.4 && weight < 21.2 ){
+            if( age.m === 10 && IMC >= 18.4 && IMC < 21.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 18.4 && weight < 21.3 ){
+            if( age.m === 11 && IMC >= 18.4 && IMC < 21.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -16224,51 +16226,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 20.5 && weight < 24.3 ){
+            if( age.m === 0 && IMC >= 20.5 && IMC < 24.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 20.5 && weight < 24.4 ){
+            if( age.m === 1 && IMC >= 20.5 && IMC < 24.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 20.6 && weight < 24.6 ){
+            if( age.m === 2 && IMC >= 20.6 && IMC < 24.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 20.7 && weight < 24.7 ){
+            if( age.m === 3 && IMC >= 20.7 && IMC < 24.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 20.8 && weight < 24.9 ){
+            if( age.m === 4 && IMC >= 20.8 && IMC < 24.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 20.8 && weight < 25.0 ){
+            if( age.m === 5 && IMC >= 20.8 && IMC < 25.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 20.9 && weight < 25.1 ){
+            if( age.m === 6 && IMC >= 20.9 && IMC < 25.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 21.0 && weight < 25.3 ){
+            if( age.m === 7 && IMC >= 21.0 && IMC < 25.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 21.1 && weight < 25.5 ){
+            if( age.m === 8 && IMC >= 21.1 && IMC < 25.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 21.2 && weight < 25.6 ){
+            if( age.m === 9 && IMC >= 21.2 && IMC < 25.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 21.2 && weight < 25.8 ){
+            if( age.m === 10 && IMC >= 21.2 && IMC < 25.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 21.3 && weight < 25.9 ){
+            if( age.m === 11 && IMC >= 21.3 && IMC < 25.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -16277,51 +16279,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 24.3 ){
+            if( age.m === 0 && IMC >= 24.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 24.4 ){
+            if( age.m === 1 && IMC >= 24.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 24.6 ){
+            if( age.m === 2 && IMC >= 24.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 24.7 ){
+            if( age.m === 3 && IMC >= 24.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 24.9 ){
+            if( age.m === 4 && IMC >= 24.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 25.0 ){
+            if( age.m === 5 && IMC >= 25.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 25.1 ){
+            if( age.m === 6 && IMC >= 25.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 25.3 ){
+            if( age.m === 7 && IMC >= 25.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 25.5 ){
+            if( age.m === 8 && IMC >= 25.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 25.6 ){
+            if( age.m === 9 && IMC >= 25.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 25.8 ){
+            if( age.m === 10 && IMC >= 25.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 25.9 ){
+            if( age.m === 11 && IMC >= 25.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -16332,51 +16334,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 13.7 ){
+            if( age.m === 0 && IMC <= 13.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 13.8 ){
+            if( age.m === 1 && IMC <= 13.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 13.8 ){
+            if( age.m === 2 && IMC <= 13.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 13.8 ){
+            if( age.m === 3 && IMC <= 13.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 13.8 ){
+            if( age.m === 4 && IMC <= 13.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 13.9 ){
+            if( age.m === 5 && IMC <= 13.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 13.9 ){
+            if( age.m === 6 && IMC <= 13.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 13.9 ){
+            if( age.m === 7 && IMC <= 13.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 13.9 ){
+            if( age.m === 8 && IMC <= 13.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 14.0 ){
+            if( age.m === 9 && IMC <= 14.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 14.0 ){
+            if( age.m === 10 && IMC <= 14.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 14.0 ){
+            if( age.m === 11 && IMC <= 14.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -16385,51 +16387,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 13.5 && weight <= 14.8 ){
+            if( age.m === 0 && IMC > 13.5 && IMC <= 14.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.8 && weight <= 15.0 ){
+            if( age.m === 1 && IMC > 13.8 && IMC <= 15.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.8 && weight <= 15.0 ){
+            if( age.m === 2 && IMC > 13.8 && IMC <= 15.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.8 && weight <= 15.0 ){
+            if( age.m === 3 && IMC > 13.8 && IMC <= 15.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.8 && weight <= 15.0 ){
+            if( age.m === 4 && IMC > 13.8 && IMC <= 15.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.9 && weight <= 15.1 ){
+            if( age.m === 5 && IMC > 13.9 && IMC <= 15.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.9 && weight <= 15.1 ){
+            if( age.m === 6 && IMC > 13.9 && IMC <= 15.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.9 && weight <= 15.1 ){
+            if( age.m === 7 && IMC > 13.9 && IMC <= 15.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.9 && weight <= 15.2 ){
+            if( age.m === 8 && IMC > 13.9 && IMC <= 15.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.0 && weight <= 15.2 ){
+            if( age.m === 9 && IMC > 14.0 && IMC <= 15.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.0 && weight <= 15.2 ){
+            if( age.m === 10 && IMC > 14.0 && IMC <= 15.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.0 && weight <= 15.3 ){
+            if( age.m === 11 && IMC > 14.0 && IMC <= 15.3 ){
                 result.msg = 'Riesgo 15.3';
                 result.ok = true;
             }
@@ -16438,51 +16440,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.9 && weight < 19.0 ){
+            if( age.m === 0 && IMC > 14.9 && IMC < 19.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 15.0 && weight < 19.1 ){
+            if( age.m === 1 && IMC > 15.0 && IMC < 19.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 15.0 && weight < 19.2 ){
+            if( age.m === 2 && IMC > 15.0 && IMC < 19.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 15.0 && weight < 19.2 ){
+            if( age.m === 3 && IMC > 15.0 && IMC < 19.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 15.0 && weight < 19.3 ){
+            if( age.m === 4 && IMC > 15.0 && IMC < 19.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 15.1 && weight < 19.4 ){
+            if( age.m === 5 && IMC > 15.1 && IMC < 19.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 15.1 && weight < 19.4 ){
+            if( age.m === 6 && IMC > 15.1 && IMC < 19.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 15.1 && weight < 19.5 ){
+            if( age.m === 7 && IMC > 15.1 && IMC < 19.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 15.2 && weight < 19.6 ){
+            if( age.m === 8 && IMC > 15.2 && IMC < 19.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 15.2 && weight < 19.6 ){
+            if( age.m === 9 && IMC > 15.2 && IMC < 19.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 15.2 && weight < 19.7 ){
+            if( age.m === 10 && IMC > 15.2 && IMC < 19.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 15.3 && weight < 19.8 ){
+            if( age.m === 11 && IMC > 15.3 && IMC < 19.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -16491,51 +16493,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 18.5 && weight < 21.4 ){
+            if( age.m === 0 && IMC >= 18.5 && IMC < 21.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 18.5 && weight < 21.5 ){
+            if( age.m === 1 && IMC >= 18.5 && IMC < 21.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 18.6 && weight < 21.6 ){
+            if( age.m === 2 && IMC >= 18.6 && IMC < 21.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 18.6 && weight < 21.7 ){
+            if( age.m === 3 && IMC >= 18.6 && IMC < 21.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 18.7 && weight < 21.7 ){
+            if( age.m === 4 && IMC >= 18.7 && IMC < 21.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 18.8 && weight < 21.8 ){
+            if( age.m === 5 && IMC >= 18.8 && IMC < 21.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 18.8 && weight < 21.9 ){
+            if( age.m === 6 && IMC >= 18.8 && IMC < 21.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 18.9 && weight < 22.0 ){
+            if( age.m === 7 && IMC >= 18.9 && IMC < 22.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 18.9 && weight < 22.1 ){
+            if( age.m === 8 && IMC >= 18.9 && IMC < 22.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 19.0 && weight < 22.2 ){
+            if( age.m === 9 && IMC >= 19.0 && IMC < 22.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 19.0 && weight < 22.3 ){
+            if( age.m === 10 && IMC >= 19.0 && IMC < 22.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 19.1 && weight < 22.4 ){
+            if( age.m === 11 && IMC >= 19.1 && IMC < 22.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -16544,51 +16546,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 21.4 && weight < 26.1 ){
+            if( age.m === 0 && IMC >= 21.4 && IMC < 26.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 21.5 && weight < 26.2 ){
+            if( age.m === 1 && IMC >= 21.5 && IMC < 26.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 21.6 && weight < 26.4 ){
+            if( age.m === 2 && IMC >= 21.6 && IMC < 26.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 21.7 && weight < 26.6 ){
+            if( age.m === 3 && IMC >= 21.7 && IMC < 26.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 21.7 && weight < 26.7 ){
+            if( age.m === 4 && IMC >= 21.7 && IMC < 26.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 21.8 && weight < 26.9 ){
+            if( age.m === 5 && IMC >= 21.8 && IMC < 26.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 21.9 && weight < 27.0 ){
+            if( age.m === 6 && IMC >= 21.9 && IMC < 27.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 22.0 && weight < 27.2 ){
+            if( age.m === 7 && IMC >= 22.0 && IMC < 27.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 22.1 && weight < 27.4 ){
+            if( age.m === 8 && IMC >= 22.1 && IMC < 27.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 22.2 && weight < 27.5 ){
+            if( age.m === 9 && IMC >= 22.2 && IMC < 27.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 22.3 && weight < 27.7 ){
+            if( age.m === 10 && IMC >= 22.3 && IMC < 27.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 22.4 && weight < 27.9 ){
+            if( age.m === 11 && IMC >= 22.4 && IMC < 27.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -16597,51 +16599,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 26.1 ){
+            if( age.m === 0 && IMC >= 26.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 26.2 ){
+            if( age.m === 1 && IMC >= 26.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 26.4 ){
+            if( age.m === 2 && IMC >= 26.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 26.6 ){
+            if( age.m === 3 && IMC >= 26.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 26.7 ){
+            if( age.m === 4 && IMC >= 26.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 26.9 ){
+            if( age.m === 5 && IMC >= 26.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 27.0 ){
+            if( age.m === 6 && IMC >= 27.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 27.2 ){
+            if( age.m === 7 && IMC >= 27.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 27.4 ){
+            if( age.m === 8 && IMC >= 27.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 27.5 ){
+            if( age.m === 9 && IMC >= 27.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 27.7 ){
+            if( age.m === 10 && IMC >= 27.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 27.9 ){
+            if( age.m === 11 && IMC >= 27.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -16652,51 +16654,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 14.1 ){
+            if( age.m === 0 && IMC <= 14.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 14.1 ){
+            if( age.m === 1 && IMC <= 14.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 14.1 ){
+            if( age.m === 2 && IMC <= 14.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 14.1 ){
+            if( age.m === 3 && IMC <= 14.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 14.2 ){
+            if( age.m === 4 && IMC <= 14.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 14.2 ){
+            if( age.m === 5 && IMC <= 14.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 14.2 ){
+            if( age.m === 6 && IMC <= 14.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 14.3 ){
+            if( age.m === 7 && IMC <= 14.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 14.3 ){
+            if( age.m === 8 && IMC <= 14.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 14.3 ){
+            if( age.m === 9 && IMC <= 14.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 14.4 ){
+            if( age.m === 10 && IMC <= 14.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 14.4 ){
+            if( age.m === 11 && IMC <= 14.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -16705,51 +16707,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 13.9 && weight <= 15.3 ){
+            if( age.m === 0 && IMC > 13.9 && IMC <= 15.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.1 && weight <= 15.3 ){
+            if( age.m === 1 && IMC > 14.1 && IMC <= 15.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.1 && weight <= 15.4 ){
+            if( age.m === 2 && IMC > 14.1 && IMC <= 15.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.1 && weight <= 15.4 ){
+            if( age.m === 3 && IMC > 14.1 && IMC <= 15.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.2 && weight <= 15.5 ){
+            if( age.m === 4 && IMC > 14.2 && IMC <= 15.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.2 && weight <= 15.5 ){
+            if( age.m === 5 && IMC > 14.2 && IMC <= 15.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.2 && weight <= 15.5 ){
+            if( age.m === 6 && IMC > 14.2 && IMC <= 15.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.3 && weight <= 15.6 ){
+            if( age.m === 7 && IMC > 14.3 && IMC <= 15.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.3 && weight <= 15.6 ){
+            if( age.m === 8 && IMC > 14.3 && IMC <= 15.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.3 && weight <= 15.7 ){
+            if( age.m === 9 && IMC > 14.3 && IMC <= 15.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.4 && weight <= 15.7 ){
+            if( age.m === 10 && IMC > 14.4 && IMC <= 15.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.4 && weight <= 15.7 ){
+            if( age.m === 11 && IMC > 14.4 && IMC <= 15.7 ){
                 result.msg = 'Riesgo 15.8';
                 result.ok = true;
             }
@@ -16758,51 +16760,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 15.3 && weight < 19.9 ){
+            if( age.m === 0 && IMC > 15.3 && IMC < 19.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 15.3 && weight < 19.9 ){
+            if( age.m === 1 && IMC > 15.3 && IMC < 19.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 15.4 && weight < 20.0 ){
+            if( age.m === 2 && IMC > 15.4 && IMC < 20.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 15.4 && weight < 20.1 ){
+            if( age.m === 3 && IMC > 15.4 && IMC < 20.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 15.5 && weight < 20.2 ){
+            if( age.m === 4 && IMC > 15.5 && IMC < 20.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 15.5 && weight < 20.2 ){
+            if( age.m === 5 && IMC > 15.5 && IMC < 20.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 15.5 && weight < 20.3 ){
+            if( age.m === 6 && IMC > 15.5 && IMC < 20.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 15.6 && weight < 20.4 ){
+            if( age.m === 7 && IMC > 15.6 && IMC < 20.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 15.6 && weight < 20.5 ){
+            if( age.m === 8 && IMC > 15.6 && IMC < 20.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 15.7 && weight < 20.6 ){
+            if( age.m === 9 && IMC > 15.7 && IMC < 20.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 15.7 && weight < 20.6 ){
+            if( age.m === 10 && IMC > 15.7 && IMC < 20.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 15.7 && weight < 20.7 ){
+            if( age.m === 11 && IMC > 15.7 && IMC < 20.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -16811,51 +16813,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 19.2 && weight < 22.5 ){
+            if( age.m === 0 && IMC >= 19.2 && IMC < 22.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 19.2 && weight < 22.5 ){
+            if( age.m === 1 && IMC >= 19.2 && IMC < 22.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 19.3 && weight < 22.6 ){
+            if( age.m === 2 && IMC >= 19.3 && IMC < 22.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 19.3 && weight < 22.7 ){
+            if( age.m === 3 && IMC >= 19.3 && IMC < 22.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 19.4 && weight < 22.8 ){
+            if( age.m === 4 && IMC >= 19.4 && IMC < 22.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 19.5 && weight < 22.9 ){
+            if( age.m === 5 && IMC >= 19.5 && IMC < 22.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 19.5 && weight < 23.0 ){
+            if( age.m === 6 && IMC >= 19.5 && IMC < 23.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 19.6 && weight < 23.1 ){
+            if( age.m === 7 && IMC >= 19.6 && IMC < 23.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 19.7 && weight < 23.2 ){
+            if( age.m === 8 && IMC >= 19.7 && IMC < 23.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 19.7 && weight < 23.3 ){
+            if( age.m === 9 && IMC >= 19.7 && IMC < 23.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 19.8 && weight < 23.4 ){
+            if( age.m === 10 && IMC >= 19.8 && IMC < 23.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 19.9 && weight < 23.5 ){
+            if( age.m === 11 && IMC >= 19.9 && IMC < 23.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -16864,51 +16866,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 22.5 && weight < 28.0 ){
+            if( age.m === 0 && IMC >= 22.5 && IMC < 28.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 22.5 && weight < 28.2 ){
+            if( age.m === 1 && IMC >= 22.5 && IMC < 28.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 22.6 && weight < 28.4 ){
+            if( age.m === 2 && IMC >= 22.6 && IMC < 28.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 22.7 && weight < 28.5 ){
+            if( age.m === 3 && IMC >= 22.7 && IMC < 28.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 22.8 && weight < 28.7 ){
+            if( age.m === 4 && IMC >= 22.8 && IMC < 28.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 22.9 && weight < 28.8 ){
+            if( age.m === 5 && IMC >= 22.9 && IMC < 28.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 23.0 && weight < 29.0 ){
+            if( age.m === 6 && IMC >= 23.0 && IMC < 29.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 23.1 && weight < 29.2 ){
+            if( age.m === 7 && IMC >= 23.1 && IMC < 29.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 23.2 && weight < 29.3 ){
+            if( age.m === 8 && IMC >= 23.2 && IMC < 29.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 23.3 && weight < 29.5 ){
+            if( age.m === 9 && IMC >= 23.3 && IMC < 29.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 23.4 && weight < 29.6 ){
+            if( age.m === 10 && IMC >= 23.4 && IMC < 29.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 23.5 && weight < 29.8 ){
+            if( age.m === 11 && IMC >= 23.5 && IMC < 29.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -16917,51 +16919,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 28.0 ){
+            if( age.m === 0 && IMC >= 28.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 28.2 ){
+            if( age.m === 1 && IMC >= 28.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 28.4 ){
+            if( age.m === 2 && IMC >= 28.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 28.5 ){
+            if( age.m === 3 && IMC >= 28.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 28.7 ){
+            if( age.m === 4 && IMC >= 28.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 28.8 ){
+            if( age.m === 5 && IMC >= 28.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 29.0 ){
+            if( age.m === 6 && IMC >= 29.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 29.2 ){
+            if( age.m === 7 && IMC >= 29.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 29.3 ){
+            if( age.m === 8 && IMC >= 29.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 29.5 ){
+            if( age.m === 9 && IMC >= 29.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 29.6 ){
+            if( age.m === 10 && IMC >= 29.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 29.8 ){
+            if( age.m === 11 && IMC >= 29.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -16972,51 +16974,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 14.5 ){
+            if( age.m === 0 && IMC <= 14.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 14.5 ){
+            if( age.m === 1 && IMC <= 14.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 14.5 ){
+            if( age.m === 2 && IMC <= 14.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 14.6 ){
+            if( age.m === 3 && IMC <= 14.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 14.6 ){
+            if( age.m === 4 && IMC <= 14.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 14.6 ){
+            if( age.m === 5 && IMC <= 14.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 14.7 ){
+            if( age.m === 6 && IMC <= 14.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 14.7 ){
+            if( age.m === 7 && IMC <= 14.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 14.8 ){
+            if( age.m === 8 && IMC <= 14.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 14.8 ){
+            if( age.m === 9 && IMC <= 14.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 14.8 ){
+            if( age.m === 10 && IMC <= 14.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 14.9 ){
+            if( age.m === 11 && IMC <= 14.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -17025,51 +17027,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 14.4 && weight <= 16.0 ){
+            if( age.m === 0 && IMC > 14.4 && IMC <= 16.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.5 && weight <= 15.8 ){
+            if( age.m === 1 && IMC > 14.5 && IMC <= 15.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.5 && weight <= 15.9 ){
+            if( age.m === 2 && IMC > 14.5 && IMC <= 15.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.6 && weight <= 15.9 ){
+            if( age.m === 3 && IMC > 14.6 && IMC <= 15.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.6 && weight <= 16.0 ){
+            if( age.m === 4 && IMC > 14.6 && IMC <= 16.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.6 && weight <= 16.0 ){
+            if( age.m === 5 && IMC > 14.6 && IMC <= 16.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.7 && weight <= 16.1 ){
+            if( age.m === 6 && IMC > 14.7 && IMC <= 16.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.7 && weight <= 16.1 ){
+            if( age.m === 7 && IMC > 14.7 && IMC <= 16.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.8 && weight <= 16.2 ){
+            if( age.m === 8 && IMC > 14.8 && IMC <= 16.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.8 && weight <= 16.2 ){
+            if( age.m === 9 && IMC > 14.8 && IMC <= 16.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.8 && weight <= 16.3 ){
+            if( age.m === 10 && IMC > 14.8 && IMC <= 16.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.9 && weight <= 16.3 ){
+            if( age.m === 11 && IMC > 14.9 && IMC <= 16.3 ){
                 result.msg = 'Riesgo 16.4';
                 result.ok = true;
             }
@@ -17078,51 +17080,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 15.8 && weight < 20.8 ){
+            if( age.m === 0 && IMC > 15.8 && IMC < 20.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 15.8 && weight < 20.9 ){
+            if( age.m === 1 && IMC > 15.8 && IMC < 20.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 15.9 && weight < 21.0 ){
+            if( age.m === 2 && IMC > 15.9 && IMC < 21.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 15.9 && weight < 21.1 ){
+            if( age.m === 3 && IMC > 15.9 && IMC < 21.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.0 && weight < 21.1 ){
+            if( age.m === 4 && IMC > 16.0 && IMC < 21.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.0 && weight < 21.2 ){
+            if( age.m === 5 && IMC > 16.0 && IMC < 21.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.1 && weight < 21.3 ){
+            if( age.m === 6 && IMC > 16.1 && IMC < 21.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 16.1 && weight < 21.4 ){
+            if( age.m === 7 && IMC > 16.1 && IMC < 21.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 16.2 && weight < 21.5 ){
+            if( age.m === 8 && IMC > 16.2 && IMC < 21.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 16.2 && weight < 21.6 ){
+            if( age.m === 9 && IMC > 16.2 && IMC < 21.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 16.3 && weight < 21.6 ){
+            if( age.m === 10 && IMC > 16.3 && IMC < 21.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 16.3 && weight < 21.7 ){
+            if( age.m === 11 && IMC > 16.3 && IMC < 21.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -17131,51 +17133,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 19.9 && weight < 23.6 ){
+            if( age.m === 0 && IMC >= 19.9 && IMC < 23.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 20.0 && weight < 23.7 ){
+            if( age.m === 1 && IMC >= 20.0 && IMC < 23.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 20.1 && weight < 23.8 ){
+            if( age.m === 2 && IMC >= 20.1 && IMC < 23.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 20.2 && weight < 23.9 ){
+            if( age.m === 3 && IMC >= 20.2 && IMC < 23.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 20.2 && weight < 24.0 ){
+            if( age.m === 4 && IMC >= 20.2 && IMC < 24.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 20.3 && weight < 24.1 ){
+            if( age.m === 5 && IMC >= 20.3 && IMC < 24.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 20.4 && weight < 24.2 ){
+            if( age.m === 6 && IMC >= 20.4 && IMC < 24.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 20.4 && weight < 24.3 ){
+            if( age.m === 7 && IMC >= 20.4 && IMC < 24.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 20.5 && weight < 24.4 ){
+            if( age.m === 8 && IMC >= 20.5 && IMC < 24.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 20.6 && weight < 24.5 ){
+            if( age.m === 9 && IMC >= 20.6 && IMC < 24.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 20.7 && weight < 24.6 ){
+            if( age.m === 10 && IMC >= 20.7 && IMC < 24.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 20.8 && weight < 24.7 ){
+            if( age.m === 11 && IMC >= 20.8 && IMC < 24.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -17184,51 +17186,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 23.6 && weight < 30.0 ){
+            if( age.m === 0 && IMC >= 23.6 && IMC < 30.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 23.7 && weight < 30.1 ){
+            if( age.m === 1 && IMC >= 23.7 && IMC < 30.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 23.8 && weight < 30.3 ){
+            if( age.m === 2 && IMC >= 23.8 && IMC < 30.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 23.9 && weight < 30.4 ){
+            if( age.m === 3 && IMC >= 23.9 && IMC < 30.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 24.0 && weight < 30.6 ){
+            if( age.m === 4 && IMC >= 24.0 && IMC < 30.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 24.1 && weight < 30.7 ){
+            if( age.m === 5 && IMC >= 24.1 && IMC < 30.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 24.2 && weight < 30.9 ){
+            if( age.m === 6 && IMC >= 24.2 && IMC < 30.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 24.3 && weight < 31.0 ){
+            if( age.m === 7 && IMC >= 24.3 && IMC < 31.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 24.4 && weight < 31.1 ){
+            if( age.m === 8 && IMC >= 24.4 && IMC < 31.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 24.5 && weight < 31.3 ){
+            if( age.m === 9 && IMC >= 24.5 && IMC < 31.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.6 && weight < 31.4 ){
+            if( age.m === 10 && IMC >= 24.6 && IMC < 31.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 24.7 && weight < 31.6 ){
+            if( age.m === 11 && IMC >= 24.7 && IMC < 31.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -17237,51 +17239,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 30.0 ){
+            if( age.m === 0 && IMC >= 30.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 30.1 ){
+            if( age.m === 1 && IMC >= 30.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 30.3 ){
+            if( age.m === 2 && IMC >= 30.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 30.4 ){
+            if( age.m === 3 && IMC >= 30.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 30.6 ){
+            if( age.m === 4 && IMC >= 30.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 30.7 ){
+            if( age.m === 5 && IMC >= 30.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 30.9 ){
+            if( age.m === 6 && IMC >= 30.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 31.0 ){
+            if( age.m === 7 && IMC >= 31.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 31.1 ){
+            if( age.m === 8 && IMC >= 31.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 31.3 ){
+            if( age.m === 9 && IMC >= 31.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 31.4 ){
+            if( age.m === 10 && IMC >= 31.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 31.6 ){
+            if( age.m === 11 && IMC >= 31.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -17292,51 +17294,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 14.9 ){
+            if( age.m === 0 && IMC <= 14.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 15.0 ){
+            if( age.m === 1 && IMC <= 15.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 15.0 ){
+            if( age.m === 2 && IMC <= 15.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 15.1 ){
+            if( age.m === 3 && IMC <= 15.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 15.1 ){
+            if( age.m === 4 && IMC <= 15.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 15.2 ){
+            if( age.m === 5 && IMC <= 15.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 15.2 ){
+            if( age.m === 6 && IMC <= 15.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 15.2 ){
+            if( age.m === 7 && IMC <= 15.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 15.3 ){
+            if( age.m === 8 && IMC <= 15.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 15.3 ){
+            if( age.m === 9 && IMC <= 15.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 15.4 ){
+            if( age.m === 10 && IMC <= 15.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 15.4 ){
+            if( age.m === 11 && IMC <= 15.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -17345,51 +17347,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 14.9 && weight <= 16.6 ){
+            if( age.m === 0 && IMC > 14.9 && IMC <= 16.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 15.0 && weight <= 16.4 ){
+            if( age.m === 1 && IMC > 15.0 && IMC <= 16.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 15.0 && weight <= 16.5 ){
+            if( age.m === 2 && IMC > 15.0 && IMC <= 16.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 15.1 && weight <= 16.5 ){
+            if( age.m === 3 && IMC > 15.1 && IMC <= 16.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 15.1 && weight <= 16.6 ){
+            if( age.m === 4 && IMC > 15.1 && IMC <= 16.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 15.2 && weight <= 16.6 ){
+            if( age.m === 5 && IMC > 15.2 && IMC <= 16.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 15.2 && weight <= 16.7 ){
+            if( age.m === 6 && IMC > 15.2 && IMC <= 16.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 15.2 && weight <= 16.7 ){
+            if( age.m === 7 && IMC > 15.2 && IMC <= 16.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 15.3 && weight <= 16.8 ){
+            if( age.m === 8 && IMC > 15.3 && IMC <= 16.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 15.3 && weight <= 16.8 ){
+            if( age.m === 9 && IMC > 15.3 && IMC <= 16.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 15.4 && weight <= 16.9 ){
+            if( age.m === 10 && IMC > 15.4 && IMC <= 16.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 15.4 && weight <= 17.0 ){
+            if( age.m === 11 && IMC > 15.4 && IMC <= 17.0 ){
                 result.msg = 'Riesgo 17.0';
                 result.ok = true;
             }
@@ -17398,51 +17400,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 16.4 && weight < 21.8 ){
+            if( age.m === 0 && IMC > 16.4 && IMC < 21.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 16.4 && weight < 21.9 ){
+            if( age.m === 1 && IMC > 16.4 && IMC < 21.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 16.5 && weight < 22.0 ){
+            if( age.m === 2 && IMC > 16.5 && IMC < 22.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 16.5 && weight < 22.0 ){
+            if( age.m === 3 && IMC > 16.5 && IMC < 22.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.6 && weight < 22.1 ){
+            if( age.m === 4 && IMC > 16.6 && IMC < 22.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.6 && weight < 22.2 ){
+            if( age.m === 5 && IMC > 16.6 && IMC < 22.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.7 && weight < 22.3 ){
+            if( age.m === 6 && IMC > 16.7 && IMC < 22.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 16.7 && weight < 22.4 ){
+            if( age.m === 7 && IMC > 16.7 && IMC < 22.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 16.8 && weight < 22.4 ){
+            if( age.m === 8 && IMC > 16.8 && IMC < 22.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 16.8 && weight < 22.5 ){
+            if( age.m === 9 && IMC > 16.8 && IMC < 22.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 16.9 && weight < 22.6 ){
+            if( age.m === 10 && IMC > 16.9 && IMC < 22.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 17.0 && weight < 22.7 ){
+            if( age.m === 11 && IMC > 17.0 && IMC < 22.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -17451,51 +17453,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 20.8 && weight < 24.8 ){
+            if( age.m === 0 && IMC >= 20.8 && IMC < 24.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 20.9 && weight < 24.9 ){
+            if( age.m === 1 && IMC >= 20.9 && IMC < 24.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 21.0 && weight < 25.0 ){
+            if( age.m === 2 && IMC >= 21.0 && IMC < 25.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 21.1 && weight < 25.1 ){
+            if( age.m === 3 && IMC >= 21.1 && IMC < 25.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 21.1 && weight < 25.2 ){
+            if( age.m === 4 && IMC >= 21.1 && IMC < 25.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 21.2 && weight < 25.2 ){
+            if( age.m === 5 && IMC >= 21.2 && IMC < 25.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 21.3 && weight < 25.3 ){
+            if( age.m === 6 && IMC >= 21.3 && IMC < 25.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 21.4 && weight < 25.4 ){
+            if( age.m === 7 && IMC >= 21.4 && IMC < 25.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 21.5 && weight < 25.5 ){
+            if( age.m === 8 && IMC >= 21.5 && IMC < 25.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 21.5 && weight < 25.6 ){
+            if( age.m === 9 && IMC >= 21.5 && IMC < 25.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 21.6 && weight < 25.7 ){
+            if( age.m === 10 && IMC >= 21.6 && IMC < 25.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 21.7 && weight < 25.8 ){
+            if( age.m === 11 && IMC >= 21.7 && IMC < 25.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -17504,51 +17506,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 24.8 && weight < 31.7 ){
+            if( age.m === 0 && IMC >= 24.8 && IMC < 31.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 24.9 && weight < 31.8 ){
+            if( age.m === 1 && IMC >= 24.9 && IMC < 31.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 25.0 && weight < 31.9 ){
+            if( age.m === 2 && IMC >= 25.0 && IMC < 31.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 25.1 && weight < 32.1 ){
+            if( age.m === 3 && IMC >= 25.1 && IMC < 32.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 25.2 && weight < 32.2 ){
+            if( age.m === 4 && IMC >= 25.2 && IMC < 32.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 25.2 && weight < 32.3 ){
+            if( age.m === 5 && IMC >= 25.2 && IMC < 32.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 25.3 && weight < 32.4 ){
+            if( age.m === 6 && IMC >= 25.3 && IMC < 32.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 25.4 && weight < 32.6 ){
+            if( age.m === 7 && IMC >= 25.4 && IMC < 32.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 25.5 && weight < 32.7 ){
+            if( age.m === 8 && IMC >= 25.5 && IMC < 32.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 25.6 && weight < 32.8 ){
+            if( age.m === 9 && IMC >= 25.6 && IMC < 32.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 25.7 && weight < 32.9 ){
+            if( age.m === 10 && IMC >= 25.7 && IMC < 32.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 25.8 && weight < 33.0 ){
+            if( age.m === 11 && IMC >= 25.8 && IMC < 33.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -17557,51 +17559,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 31.7 ){
+            if( age.m === 0 && IMC >= 31.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 31.8 ){
+            if( age.m === 1 && IMC >= 31.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 31.9 ){
+            if( age.m === 2 && IMC >= 31.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 32.1 ){
+            if( age.m === 3 && IMC >= 32.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 32.2 ){
+            if( age.m === 4 && IMC >= 32.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 32.3 ){
+            if( age.m === 5 && IMC >= 32.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 32.4 ){
+            if( age.m === 6 && IMC >= 32.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 32.6 ){
+            if( age.m === 7 && IMC >= 32.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 32.7 ){
+            if( age.m === 8 && IMC >= 32.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 32.8 ){
+            if( age.m === 9 && IMC >= 32.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 32.9 ){
+            if( age.m === 10 && IMC >= 32.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 33.0 ){
+            if( age.m === 11 && IMC >= 33.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -17612,51 +17614,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 15.5 ){
+            if( age.m === 0 && IMC <= 15.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 15.5 ){
+            if( age.m === 1 && IMC <= 15.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 15.6 ){
+            if( age.m === 2 && IMC <= 15.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 15.6 ){
+            if( age.m === 3 && IMC <= 15.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 15.7 ){
+            if( age.m === 4 && IMC <= 15.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 15.7 ){
+            if( age.m === 5 && IMC <= 15.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 15.7 ){
+            if( age.m === 6 && IMC <= 15.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 15.8 ){
+            if( age.m === 7 && IMC <= 15.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 15.8 ){
+            if( age.m === 8 && IMC <= 15.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 15.9 ){
+            if( age.m === 9 && IMC <= 15.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 15.9 ){
+            if( age.m === 10 && IMC <= 15.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 16.0 ){
+            if( age.m === 11 && IMC <= 16.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -17665,51 +17667,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 15.4 && weight <= 17.2 ){
+            if( age.m === 0 && IMC > 15.4 && IMC <= 17.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 15.5 && weight <= 17.1 ){
+            if( age.m === 1 && IMC > 15.5 && IMC <= 17.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 15.6 && weight <= 17.1 ){
+            if( age.m === 2 && IMC > 15.6 && IMC <= 17.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 15.6 && weight <= 17.2 ){
+            if( age.m === 3 && IMC > 15.6 && IMC <= 17.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 15.7 && weight <= 17.2 ){
+            if( age.m === 4 && IMC > 15.7 && IMC <= 17.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 15.7 && weight <= 17.3 ){
+            if( age.m === 5 && IMC > 15.7 && IMC <= 17.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 15.7 && weight <= 17.3 ){
+            if( age.m === 6 && IMC > 15.7 && IMC <= 17.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 15.8 && weight <= 17.4 ){
+            if( age.m === 7 && IMC > 15.8 && IMC <= 17.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 15.8 && weight <= 17.4 ){
+            if( age.m === 8 && IMC > 15.8 && IMC <= 17.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 15.9 && weight <= 17.5 ){
+            if( age.m === 9 && IMC > 15.9 && IMC <= 17.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 15.9 && weight <= 17.5 ){
+            if( age.m === 10 && IMC > 15.9 && IMC <= 17.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 16.0 && weight <= 17.6 ){
+            if( age.m === 11 && IMC > 16.0 && IMC <= 17.6 ){
                 result.msg = 'Riesgo 17.6';
                 result.ok = true;
             }
@@ -17718,51 +17720,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 17.0 && weight < 22.7 ){
+            if( age.m === 0 && IMC > 17.0 && IMC < 22.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 17.1 && weight < 22.8 ){
+            if( age.m === 1 && IMC > 17.1 && IMC < 22.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 17.1 && weight < 22.9 ){
+            if( age.m === 2 && IMC > 17.1 && IMC < 22.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 17.2 && weight < 22.9 ){
+            if( age.m === 3 && IMC > 17.2 && IMC < 22.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 17.2 && weight < 23.0 ){
+            if( age.m === 4 && IMC > 17.2 && IMC < 23.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 17.3 && weight < 23.1 ){
+            if( age.m === 5 && IMC > 17.3 && IMC < 23.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 17.3 && weight < 23.1 ){
+            if( age.m === 6 && IMC > 17.3 && IMC < 23.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 17.4 && weight < 23.2 ){
+            if( age.m === 7 && IMC > 17.4 && IMC < 23.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 17.4 && weight < 23.3 ){
+            if( age.m === 8 && IMC > 17.4 && IMC < 23.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 17.5 && weight < 23.3 ){
+            if( age.m === 9 && IMC > 17.5 && IMC < 23.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 17.5 && weight < 23.4 ){
+            if( age.m === 10 && IMC > 17.5 && IMC < 23.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 17.6 && weight < 23.5 ){
+            if( age.m === 11 && IMC > 17.6 && IMC < 23.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -17771,51 +17773,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 21.8 && weight < 25.9 ){
+            if( age.m === 0 && IMC >= 21.8 && IMC < 25.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 21.8 && weight < 26.0 ){
+            if( age.m === 1 && IMC >= 21.8 && IMC < 26.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 21.9 && weight < 26.1 ){
+            if( age.m === 2 && IMC >= 21.9 && IMC < 26.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 22.0 && weight < 26.2 ){
+            if( age.m === 3 && IMC >= 22.0 && IMC < 26.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 22.1 && weight < 26.3 ){
+            if( age.m === 4 && IMC >= 22.1 && IMC < 26.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 22.2 && weight < 26.4 ){
+            if( age.m === 5 && IMC >= 22.2 && IMC < 26.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 22.2 && weight < 26.5 ){
+            if( age.m === 6 && IMC >= 22.2 && IMC < 26.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 22.3 && weight < 26.5 ){
+            if( age.m === 7 && IMC >= 22.3 && IMC < 26.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 22.4 && weight < 26.6 ){
+            if( age.m === 8 && IMC >= 22.4 && IMC < 26.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 22.5 && weight < 26.7 ){
+            if( age.m === 9 && IMC >= 22.5 && IMC < 26.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 22.5 && weight < 26.8 ){
+            if( age.m === 10 && IMC >= 22.5 && IMC < 26.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 22.6 && weight < 26.9 ){
+            if( age.m === 11 && IMC >= 22.6 && IMC < 26.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -17824,51 +17826,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 25.9 && weight < 33.1 ){
+            if( age.m === 0 && IMC >= 25.9 && IMC < 33.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 26.0 && weight < 33.2 ){
+            if( age.m === 1 && IMC >= 26.0 && IMC < 33.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 26.1 && weight < 33.3 ){
+            if( age.m === 2 && IMC >= 26.1 && IMC < 33.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 26.2 && weight < 33.4 ){
+            if( age.m === 3 && IMC >= 26.2 && IMC < 33.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 26.3 && weight < 33.5 ){
+            if( age.m === 4 && IMC >= 26.3 && IMC < 33.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 26.4 && weight < 33.5 ){
+            if( age.m === 5 && IMC >= 26.4 && IMC < 33.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 26.5 && weight < 33.6 ){
+            if( age.m === 6 && IMC >= 26.5 && IMC < 33.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 26.5 && weight < 33.7 ){
+            if( age.m === 7 && IMC >= 26.5 && IMC < 33.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 26.6 && weight < 33.8 ){
+            if( age.m === 8 && IMC >= 26.6 && IMC < 33.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 26.7 && weight < 33.9 ){
+            if( age.m === 9 && IMC >= 26.7 && IMC < 33.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 26.8 && weight < 33.9 ){
+            if( age.m === 10 && IMC >= 26.8 && IMC < 33.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 26.9 && weight < 34.0 ){
+            if( age.m === 11 && IMC >= 26.9 && IMC < 34.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -17877,51 +17879,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 33.1 ){
+            if( age.m === 0 && IMC >= 33.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 33.2 ){
+            if( age.m === 1 && IMC >= 33.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 33.3 ){
+            if( age.m === 2 && IMC >= 33.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 33.4 ){
+            if( age.m === 3 && IMC >= 33.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 33.5 ){
+            if( age.m === 4 && IMC >= 33.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 33.5 ){
+            if( age.m === 5 && IMC >= 33.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 33.6 ){
+            if( age.m === 6 && IMC >= 33.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 33.7 ){
+            if( age.m === 7 && IMC >= 33.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 33.8 ){
+            if( age.m === 8 && IMC >= 33.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 33.9 ){
+            if( age.m === 9 && IMC >= 33.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 33.9 ){
+            if( age.m === 10 && IMC >= 33.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 34.0 ){
+            if( age.m === 11 && IMC >= 34.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -17932,51 +17934,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 16.0 ){
+            if( age.m === 0 && IMC <= 16.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 16.1 ){
+            if( age.m === 1 && IMC <= 16.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 16.1 ){
+            if( age.m === 2 && IMC <= 16.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 16.1 ){
+            if( age.m === 3 && IMC <= 16.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 16.2 ){
+            if( age.m === 4 && IMC <= 16.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 16.2 ){
+            if( age.m === 5 && IMC <= 16.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 16.3 ){
+            if( age.m === 6 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 16.3 ){
+            if( age.m === 7 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 16.3 ){
+            if( age.m === 8 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 16.4 ){
+            if( age.m === 9 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 16.4 ){
+            if( age.m === 10 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 16.5 ){
+            if( age.m === 11 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -17985,51 +17987,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 15.9 && weight <= 17.8 ){
+            if( age.m === 0 && IMC > 15.9 && IMC <= 17.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 16.1 && weight <= 17.7 ){
+            if( age.m === 1 && IMC > 16.1 && IMC <= 17.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 16.1 && weight <= 17.8 ){
+            if( age.m === 2 && IMC > 16.1 && IMC <= 17.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 16.1 && weight <= 17.8 ){
+            if( age.m === 3 && IMC > 16.1 && IMC <= 17.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.2 && weight <= 17.9 ){
+            if( age.m === 4 && IMC > 16.2 && IMC <= 17.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.2 && weight <= 17.9 ){
+            if( age.m === 5 && IMC > 16.2 && IMC <= 17.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.3 && weight <= 18.0 ){
+            if( age.m === 6 && IMC > 16.3 && IMC <= 18.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 16.3 && weight <= 18.0 ){
+            if( age.m === 7 && IMC > 16.3 && IMC <= 18.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 16.3 && weight <= 18.1 ){
+            if( age.m === 8 && IMC > 16.3 && IMC <= 18.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 16.4 && weight <= 18.1 ){
+            if( age.m === 9 && IMC > 16.4 && IMC <= 18.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 16.4 && weight <= 18.2 ){
+            if( age.m === 10 && IMC > 16.4 && IMC <= 18.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 16.5 && weight <= 18.2 ){
+            if( age.m === 11 && IMC > 16.5 && IMC <= 18.2 ){
                 result.msg = 'Riesgo 18.2';
                 result.ok = true;
             }
@@ -18038,51 +18040,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 17.6 && weight < 23.5 ){
+            if( age.m === 0 && IMC > 17.6 && IMC < 23.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 17.7 && weight < 23.6 ){
+            if( age.m === 1 && IMC > 17.7 && IMC < 23.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 17.8 && weight < 23.6 ){
+            if( age.m === 2 && IMC > 17.8 && IMC < 23.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 17.8 && weight < 23.7 ){
+            if( age.m === 3 && IMC > 17.8 && IMC < 23.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 17.9 && weight < 23.7 ){
+            if( age.m === 4 && IMC > 17.9 && IMC < 23.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 17.9 && weight < 23.8 ){
+            if( age.m === 5 && IMC > 17.9 && IMC < 23.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 18.0 && weight < 23.8 ){
+            if( age.m === 6 && IMC > 18.0 && IMC < 23.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 18.0 && weight < 23.9 ){
+            if( age.m === 7 && IMC > 18.0 && IMC < 23.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 18.1 && weight < 23.9 ){
+            if( age.m === 8 && IMC > 18.1 && IMC < 23.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 18.1 && weight < 24.0 ){
+            if( age.m === 9 && IMC > 18.1 && IMC < 24.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 18.2 && weight < 24.0 ){
+            if( age.m === 10 && IMC > 18.2 && IMC < 24.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 18.2 && weight < 24.1 ){
+            if( age.m === 11 && IMC > 18.2 && IMC < 24.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -18091,51 +18093,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 22.7 && weight < 27.0 ){
+            if( age.m === 0 && IMC >= 22.7 && IMC < 27.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 22.8 && weight < 27.1 ){
+            if( age.m === 1 && IMC >= 22.8 && IMC < 27.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 22.8 && weight < 27.1 ){
+            if( age.m === 2 && IMC >= 22.8 && IMC < 27.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 22.9 && weight < 27.2 ){
+            if( age.m === 3 && IMC >= 22.9 && IMC < 27.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 23.0 && weight < 27.3 ){
+            if( age.m === 4 && IMC >= 23.0 && IMC < 27.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 23.0 && weight < 27.4 ){
+            if( age.m === 5 && IMC >= 23.0 && IMC < 27.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 23.1 && weight < 27.4 ){
+            if( age.m === 6 && IMC >= 23.1 && IMC < 27.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 23.2 && weight < 27.5 ){
+            if( age.m === 7 && IMC >= 23.2 && IMC < 27.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 23.3 && weight < 27.6 ){
+            if( age.m === 8 && IMC >= 23.3 && IMC < 27.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 23.3 && weight < 27.7 ){
+            if( age.m === 9 && IMC >= 23.3 && IMC < 27.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 23.4 && weight < 27.7 ){
+            if( age.m === 10 && IMC >= 23.4 && IMC < 27.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 23.5 && weight < 27.8 ){
+            if( age.m === 11 && IMC >= 23.5 && IMC < 27.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -18144,51 +18146,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 27.0 && weight < 34.1 ){
+            if( age.m === 0 && IMC >= 27.0 && IMC < 34.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 27.1 && weight < 34.1 ){
+            if( age.m === 1 && IMC >= 27.1 && IMC < 34.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 27.1 && weight < 34.2 ){
+            if( age.m === 2 && IMC >= 27.1 && IMC < 34.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 27.2 && weight < 34.3 ){
+            if( age.m === 3 && IMC >= 27.2 && IMC < 34.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 27.3 && weight < 34.3 ){
+            if( age.m === 4 && IMC >= 27.3 && IMC < 34.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 27.4 && weight < 34.4 ){
+            if( age.m === 5 && IMC >= 27.4 && IMC < 34.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 27.4 && weight < 34.5 ){
+            if( age.m === 6 && IMC >= 27.4 && IMC < 34.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 27.5 && weight < 34.5 ){
+            if( age.m === 7 && IMC >= 27.5 && IMC < 34.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 27.6 && weight < 34.6 ){
+            if( age.m === 8 && IMC >= 27.6 && IMC < 34.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 27.7 && weight < 34.6 ){
+            if( age.m === 9 && IMC >= 27.7 && IMC < 34.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 27.7 && weight < 34.7 ){
+            if( age.m === 10 && IMC >= 27.7 && IMC < 34.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 27.8 && weight < 34.7 ){
+            if( age.m === 11 && IMC >= 27.8 && IMC < 34.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -18197,51 +18199,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 34.1 ){
+            if( age.m === 0 && IMC >= 34.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 34.1 ){
+            if( age.m === 1 && IMC >= 34.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 34.2 ){
+            if( age.m === 2 && IMC >= 34.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 34.3 ){
+            if( age.m === 3 && IMC >= 34.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 34.3 ){
+            if( age.m === 4 && IMC >= 34.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 34.4 ){
+            if( age.m === 5 && IMC >= 34.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 34.5 ){
+            if( age.m === 6 && IMC >= 34.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 34.5 ){
+            if( age.m === 7 && IMC >= 34.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 34.6 ){
+            if( age.m === 8 && IMC >= 34.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 34.6 ){
+            if( age.m === 9 && IMC >= 34.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 34.7 ){
+            if( age.m === 10 && IMC >= 34.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 34.7 ){
+            if( age.m === 11 && IMC >= 34.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -18252,51 +18254,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 16.5 ){
+            if( age.m === 0 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 16.5 ){
+            if( age.m === 1 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 16.6 ){
+            if( age.m === 2 && IMC <= 16.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 16.6 ){
+            if( age.m === 3 && IMC <= 16.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 16.7 ){
+            if( age.m === 4 && IMC <= 16.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 16.7 ){
+            if( age.m === 5 && IMC <= 16.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 16.7 ){
+            if( age.m === 6 && IMC <= 16.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 16.8 ){
+            if( age.m === 7 && IMC <= 16.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 16.8 ){
+            if( age.m === 8 && IMC <= 16.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 16.8 ){
+            if( age.m === 9 && IMC <= 16.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 16.9 ){
+            if( age.m === 10 && IMC <= 16.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 16.9 ){
+            if( age.m === 11 && IMC <= 16.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -18305,51 +18307,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 16.2 && weight <= 18.2 ){
+            if( age.m === 0 && IMC > 16.2 && IMC <= 18.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 16.5 && weight <= 18.3 ){
+            if( age.m === 1 && IMC > 16.5 && IMC <= 18.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 16.6 && weight <= 18.3 ){
+            if( age.m === 2 && IMC > 16.6 && IMC <= 18.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 16.6 && weight <= 18.4 ){
+            if( age.m === 3 && IMC > 16.6 && IMC <= 18.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.7 && weight <= 18.4 ){
+            if( age.m === 4 && IMC > 16.7 && IMC <= 18.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.7 && weight <= 18.5 ){
+            if( age.m === 5 && IMC > 16.7 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.7 && weight <= 18.5 ){
+            if( age.m === 6 && IMC > 16.7 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 16.8 && weight <= 18.6 ){
+            if( age.m === 7 && IMC > 16.8 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 16.8 && weight <= 18.6 ){
+            if( age.m === 8 && IMC > 16.8 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 16.8 && weight <= 18.7 ){
+            if( age.m === 9 && IMC > 16.8 && IMC <= 18.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 16.9 && weight <= 18.7 ){
+            if( age.m === 10 && IMC > 16.9 && IMC <= 18.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 16.9 && weight <= 18.7 ){
+            if( age.m === 11 && IMC > 16.9 && IMC <= 18.7 ){
                 result.msg = 'Riesgo 18.8';
                 result.ok = true;
             }
@@ -18358,51 +18360,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 18.2 && weight < 24.1 ){
+            if( age.m === 0 && IMC > 18.2 && IMC < 24.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 18.3 && weight < 24.1 ){
+            if( age.m === 1 && IMC > 18.3 && IMC < 24.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 18.3 && weight < 24.2 ){
+            if( age.m === 2 && IMC > 18.3 && IMC < 24.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 18.4 && weight < 24.2 ){
+            if( age.m === 3 && IMC > 18.4 && IMC < 24.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 18.4 && weight < 24.3 ){
+            if( age.m === 4 && IMC > 18.4 && IMC < 24.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 18.5 && weight < 24.3 ){
+            if( age.m === 5 && IMC > 18.5 && IMC < 24.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 18.5 && weight < 24.3 ){
+            if( age.m === 6 && IMC > 18.5 && IMC < 24.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 18.6 && weight < 24.4 ){
+            if( age.m === 7 && IMC > 18.6 && IMC < 24.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 18.6 && weight < 24.4 ){
+            if( age.m === 8 && IMC > 18.6 && IMC < 24.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 18.7 && weight < 24.4 ){
+            if( age.m === 9 && IMC > 18.7 && IMC < 24.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 18.7 && weight < 24.4 ){
+            if( age.m === 10 && IMC > 18.7 && IMC < 24.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 18.7 && weight < 24.5 ){
+            if( age.m === 11 && IMC > 18.7 && IMC < 24.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -18411,51 +18413,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 23.5 && weight < 27.9 ){
+            if( age.m === 0 && IMC >= 23.5 && IMC < 27.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 23.6 && weight < 27.9 ){
+            if( age.m === 1 && IMC >= 23.6 && IMC < 27.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 23.7 && weight < 28.0 ){
+            if( age.m === 2 && IMC >= 23.7 && IMC < 28.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 23.7 && weight < 28.1 ){
+            if( age.m === 3 && IMC >= 23.7 && IMC < 28.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 23.8 && weight < 28.1 ){
+            if( age.m === 4 && IMC >= 23.8 && IMC < 28.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 23.8 && weight < 28.2 ){
+            if( age.m === 5 && IMC >= 23.8 && IMC < 28.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 23.9 && weight < 28.3 ){
+            if( age.m === 6 && IMC >= 23.9 && IMC < 28.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 24.0 && weight < 28.3 ){
+            if( age.m === 7 && IMC >= 24.0 && IMC < 28.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 24.0 && weight < 28.4 ){
+            if( age.m === 8 && IMC >= 24.0 && IMC < 28.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 24.1 && weight < 28.5 ){
+            if( age.m === 9 && IMC >= 24.1 && IMC < 28.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.2 && weight < 28.5 ){
+            if( age.m === 10 && IMC >= 24.2 && IMC < 28.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 24.2 && weight < 28.6 ){
+            if( age.m === 11 && IMC >= 24.2 && IMC < 28.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -18464,51 +18466,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 27.9 && weight < 34.8 ){
+            if( age.m === 0 && IMC >= 27.9 && IMC < 34.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 27.9 && weight < 34.8 ){
+            if( age.m === 1 && IMC >= 27.9 && IMC < 34.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 28.0 && weight < 34.8 ){
+            if( age.m === 2 && IMC >= 28.0 && IMC < 34.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 28.1 && weight < 34.9 ){
+            if( age.m === 3 && IMC >= 28.1 && IMC < 34.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 28.1 && weight < 34.9 ){
+            if( age.m === 4 && IMC >= 28.1 && IMC < 34.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 28.2 && weight < 35.0 ){
+            if( age.m === 5 && IMC >= 28.2 && IMC < 35.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 28.3 && weight < 35.0 ){
+            if( age.m === 6 && IMC >= 28.3 && IMC < 35.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 28.3 && weight < 35.0 ){
+            if( age.m === 7 && IMC >= 28.3 && IMC < 35.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 28.4 && weight < 35.1 ){
+            if( age.m === 8 && IMC >= 28.4 && IMC < 35.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 28.5 && weight < 35.1 ){
+            if( age.m === 9 && IMC >= 28.5 && IMC < 35.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 28.5 && weight < 35.1 ){
+            if( age.m === 10 && IMC >= 28.5 && IMC < 35.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 28.6 && weight < 35.2 ){
+            if( age.m === 11 && IMC >= 28.6 && IMC < 35.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -18517,51 +18519,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 34.8 ){
+            if( age.m === 0 && IMC >= 34.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 34.8 ){
+            if( age.m === 1 && IMC >= 34.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 34.8 ){
+            if( age.m === 2 && IMC >= 34.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 34.9 ){
+            if( age.m === 3 && IMC >= 34.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 34.9 ){
+            if( age.m === 4 && IMC >= 34.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 35.0 ){
+            if( age.m === 5 && IMC >= 35.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 35.0 ){
+            if( age.m === 6 && IMC >= 35.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 35.0 ){
+            if( age.m === 7 && IMC >= 35.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 35.1 ){
+            if( age.m === 8 && IMC >= 35.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 35.1 ){
+            if( age.m === 9 && IMC >= 35.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 35.1 ){
+            if( age.m === 10 && IMC >= 35.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 35.2 ){
+            if( age.m === 11 && IMC >= 35.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -18572,51 +18574,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 16.9 ){
+            if( age.m === 0 && IMC <= 16.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 17.0 ){
+            if( age.m === 1 && IMC <= 17.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 17.0 ){
+            if( age.m === 2 && IMC <= 17.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 17.0 ){
+            if( age.m === 3 && IMC <= 17.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 17.1 ){
+            if( age.m === 4 && IMC <= 17.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 17.1 ){
+            if( age.m === 5 && IMC <= 17.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 17.1 ){
+            if( age.m === 6 && IMC <= 17.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 17.1 ){
+            if( age.m === 7 && IMC <= 17.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 17.2 ){
+            if( age.m === 8 && IMC <= 17.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 17.2 ){
+            if( age.m === 9 && IMC <= 17.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 17.2 ){
+            if( age.m === 10 && IMC <= 17.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 17.3 ){
+            if( age.m === 11 && IMC <= 17.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -18625,51 +18627,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 16.4 && weight <= 18.4 ){
+            if( age.m === 0 && IMC > 16.4 && IMC <= 18.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 17.0 && weight <= 18.8 ){
+            if( age.m === 1 && IMC > 17.0 && IMC <= 18.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 17.0 && weight <= 18.9 ){
+            if( age.m === 2 && IMC > 17.0 && IMC <= 18.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 17.0 && weight <= 18.9 ){
+            if( age.m === 3 && IMC > 17.0 && IMC <= 18.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 17.1 && weight <= 18.9 ){
+            if( age.m === 4 && IMC > 17.1 && IMC <= 18.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 17.1 && weight <= 19.0 ){
+            if( age.m === 5 && IMC > 17.1 && IMC <= 19.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 17.1 && weight <= 19.0 ){
+            if( age.m === 6 && IMC > 17.1 && IMC <= 19.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 17.1 && weight <= 19.1 ){
+            if( age.m === 7 && IMC > 17.1 && IMC <= 19.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 17.2 && weight <= 19.1 ){
+            if( age.m === 8 && IMC > 17.2 && IMC <= 19.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 17.2 && weight <= 19.1 ){
+            if( age.m === 9 && IMC > 17.2 && IMC <= 19.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 17.2 && weight <= 19.2 ){
+            if( age.m === 10 && IMC > 17.2 && IMC <= 19.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 17.3 && weight <= 19.2 ){
+            if( age.m === 11 && IMC > 17.3 && IMC <= 19.2 ){
                 result.msg = 'Riesgo 19.2';
                 result.ok = true;
             }
@@ -18678,51 +18680,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 18.8 && weight < 24.5 ){
+            if( age.m === 0 && IMC > 18.8 && IMC < 24.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 18.8 && weight < 24.5 ){
+            if( age.m === 1 && IMC > 18.8 && IMC < 24.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 18.9 && weight < 24.6 ){
+            if( age.m === 2 && IMC > 18.9 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 18.9 && weight < 24.6 ){
+            if( age.m === 3 && IMC > 18.9 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 18.9 && weight < 24.6 ){
+            if( age.m === 4 && IMC > 18.9 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 19.0 && weight < 24.6 ){
+            if( age.m === 5 && IMC > 19.0 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 19.0 && weight < 24.6 ){
+            if( age.m === 6 && IMC > 19.0 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 19.1 && weight < 24.7 ){
+            if( age.m === 7 && IMC > 19.1 && IMC < 24.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 19.1 && weight < 24.7 ){
+            if( age.m === 8 && IMC > 19.1 && IMC < 24.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 19.1 && weight < 24.7 ){
+            if( age.m === 9 && IMC > 19.1 && IMC < 24.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 19.2 && weight < 24.7 ){
+            if( age.m === 10 && IMC > 19.2 && IMC < 24.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 19.2 && weight < 24.8 ){
+            if( age.m === 11 && IMC > 19.2 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -18731,51 +18733,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 24.3 && weight < 28.6 ){
+            if( age.m === 0 && IMC >= 24.3 && IMC < 28.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 24.3 && weight < 28.7 ){
+            if( age.m === 1 && IMC >= 24.3 && IMC < 28.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 24.4 && weight < 28.7 ){
+            if( age.m === 2 && IMC >= 24.4 && IMC < 28.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 24.4 && weight < 28.8 ){
+            if( age.m === 3 && IMC >= 24.4 && IMC < 28.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 24.5 && weight < 28.9 ){
+            if( age.m === 4 && IMC >= 24.5 && IMC < 28.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 24.5 && weight < 28.9 ){
+            if( age.m === 5 && IMC >= 24.5 && IMC < 28.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 24.6 && weight < 29.0 ){
+            if( age.m === 6 && IMC >= 24.6 && IMC < 29.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 24.7 && weight < 29.0 ){
+            if( age.m === 7 && IMC >= 24.7 && IMC < 29.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 24.7 && weight < 29.1 ){
+            if( age.m === 8 && IMC >= 24.7 && IMC < 29.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 24.8 && weight < 29.1 ){
+            if( age.m === 9 && IMC >= 24.8 && IMC < 29.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.8 && weight < 29.2 ){
+            if( age.m === 10 && IMC >= 24.8 && IMC < 29.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 24.9 && weight < 29.2 ){
+            if( age.m === 11 && IMC >= 24.9 && IMC < 29.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -18784,51 +18786,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 28.6 && weight < 35.2 ){
+            if( age.m === 0 && IMC >= 28.6 && IMC < 35.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 28.7 && weight < 35.2 ){
+            if( age.m === 1 && IMC >= 28.7 && IMC < 35.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 28.7 && weight < 35.2 ){
+            if( age.m === 2 && IMC >= 28.7 && IMC < 35.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 28.8 && weight < 35.3 ){
+            if( age.m === 3 && IMC >= 28.8 && IMC < 35.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 28.9 && weight < 35.3 ){
+            if( age.m === 4 && IMC >= 28.9 && IMC < 35.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 28.9 && weight < 35.3 ){
+            if( age.m === 5 && IMC >= 28.9 && IMC < 35.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 29.0 && weight < 35.3 ){
+            if( age.m === 6 && IMC >= 29.0 && IMC < 35.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 29.0 && weight < 35.4 ){
+            if( age.m === 7 && IMC >= 29.0 && IMC < 35.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 29.1 && weight < 35.4 ){
+            if( age.m === 8 && IMC >= 29.1 && IMC < 35.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 29.1 && weight < 35.4 ){
+            if( age.m === 9 && IMC >= 29.1 && IMC < 35.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 29.2 && weight < 35.4 ){
+            if( age.m === 10 && IMC >= 29.2 && IMC < 35.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 29.2 && weight < 35.4 ){
+            if( age.m === 11 && IMC >= 29.2 && IMC < 35.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -18837,51 +18839,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 35.2 ){
+            if( age.m === 0 && IMC >= 35.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 35.2 ){
+            if( age.m === 1 && IMC >= 35.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 35.2 ){
+            if( age.m === 2 && IMC >= 35.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 35.3 ){
+            if( age.m === 3 && IMC >= 35.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 35.3 ){
+            if( age.m === 4 && IMC >= 35.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 35.3 ){
+            if( age.m === 5 && IMC >= 35.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 35.3 ){
+            if( age.m === 6 && IMC >= 35.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 35.4 ){
+            if( age.m === 7 && IMC >= 35.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 35.4 ){
+            if( age.m === 8 && IMC >= 35.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 35.4 ){
+            if( age.m === 9 && IMC >= 35.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 35.4 ){
+            if( age.m === 10 && IMC >= 35.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 35.4 ){
+            if( age.m === 11 && IMC >= 35.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -18892,51 +18894,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 17.3 ){
+            if( age.m === 0 && IMC <= 17.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 17.3 ){
+            if( age.m === 1 && IMC <= 17.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 17.3 ){
+            if( age.m === 2 && IMC <= 17.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 17.4 ){
+            if( age.m === 3 && IMC <= 17.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 17.4 ){
+            if( age.m === 4 && IMC <= 17.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 17.4 ){
+            if( age.m === 5 && IMC <= 17.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 17.4 ){
+            if( age.m === 6 && IMC <= 17.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 17.5 ){
+            if( age.m === 7 && IMC <= 17.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 17.5 ){
+            if( age.m === 8 && IMC <= 17.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 17.5 ){
+            if( age.m === 9 && IMC <= 17.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 17.5 ){
+            if( age.m === 10 && IMC <= 17.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 17.5 ){
+            if( age.m === 11 && IMC <= 17.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -18945,51 +18947,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 16.4 && weight <= 18.6 ){
+            if( age.m === 0 && IMC > 16.4 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 17.3 && weight <= 19.3 ){
+            if( age.m === 1 && IMC > 17.3 && IMC <= 19.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 17.3 && weight <= 19.3 ){
+            if( age.m === 2 && IMC > 17.3 && IMC <= 19.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 17.4 && weight <= 19.3 ){
+            if( age.m === 3 && IMC > 17.4 && IMC <= 19.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 17.4 && weight <= 19.4 ){
+            if( age.m === 4 && IMC > 17.4 && IMC <= 19.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 17.4 && weight <= 19.4 ){
+            if( age.m === 5 && IMC > 17.4 && IMC <= 19.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 17.4 && weight <= 19.4 ){
+            if( age.m === 6 && IMC > 17.4 && IMC <= 19.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 17.5 && weight <= 19.5 ){
+            if( age.m === 7 && IMC > 17.5 && IMC <= 19.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 17.5 && weight <= 19.5 ){
+            if( age.m === 8 && IMC > 17.5 && IMC <= 19.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 17.5 && weight <= 19.5 ){
+            if( age.m === 9 && IMC > 17.5 && IMC <= 19.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 17.5 && weight <= 19.6 ){
+            if( age.m === 10 && IMC > 17.5 && IMC <= 19.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 17.5 && weight <= 19.6 ){
+            if( age.m === 11 && IMC > 17.5 && IMC <= 19.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -18998,51 +19000,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 19.2 && weight < 24.8 ){
+            if( age.m === 0 && IMC > 19.2 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 19.3 && weight < 24.8 ){
+            if( age.m === 1 && IMC > 19.3 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 19.3 && weight < 24.8 ){
+            if( age.m === 2 && IMC > 19.3 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 19.3 && weight < 24.8 ){
+            if( age.m === 3 && IMC > 19.3 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 19.4 && weight < 24.8 ){
+            if( age.m === 4 && IMC > 19.4 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 19.4 && weight < 24.9 ){
+            if( age.m === 5 && IMC > 19.4 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 19.4 && weight < 24.9 ){
+            if( age.m === 6 && IMC > 19.4 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 19.5 && weight < 24.9 ){
+            if( age.m === 7 && IMC > 19.5 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 19.5 && weight < 24.9 ){
+            if( age.m === 8 && IMC > 19.5 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 19.5 && weight < 24.9 ){
+            if( age.m === 9 && IMC > 19.5 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 19.6 && weight < 24.9 ){
+            if( age.m === 10 && IMC > 19.6 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 19.6 && weight < 25.0 ){
+            if( age.m === 11 && IMC > 19.6 && IMC < 25.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -19051,51 +19053,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 24.9 && weight < 29.2 ){
+            if( age.m === 0 && IMC >= 24.9 && IMC < 29.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 25.0 && weight < 29.3 ){
+            if( age.m === 1 && IMC >= 25.0 && IMC < 29.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 25.0 && weight < 29.3 ){
+            if( age.m === 2 && IMC >= 25.0 && IMC < 29.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 25.1 && weight < 29.4 ){
+            if( age.m === 3 && IMC >= 25.1 && IMC < 29.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 25.1 && weight < 29.4 ){
+            if( age.m === 4 && IMC >= 25.1 && IMC < 29.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 25.1 && weight < 29.5 ){
+            if( age.m === 5 && IMC >= 25.1 && IMC < 29.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 25.2 && weight < 29.5 ){
+            if( age.m === 6 && IMC >= 25.2 && IMC < 29.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 25.2 && weight < 29.5 ){
+            if( age.m === 7 && IMC >= 25.2 && IMC < 29.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 25.3 && weight < 29.6 ){
+            if( age.m === 8 && IMC >= 25.3 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 25.3 && weight < 29.6 ){
+            if( age.m === 9 && IMC >= 25.3 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 25.4 && weight < 29.6 ){
+            if( age.m === 10 && IMC >= 25.4 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 25.4 && weight < 29.7 ){
+            if( age.m === 11 && IMC >= 25.4 && IMC < 29.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -19104,51 +19106,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 29.2 && weight < 35.4 ){
+            if( age.m === 0 && IMC >= 29.2 && IMC < 35.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 29.3 && weight < 35.4 ){
+            if( age.m === 1 && IMC >= 29.3 && IMC < 35.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 29.3 && weight < 35.5 ){
+            if( age.m === 2 && IMC >= 29.3 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 29.4 && weight < 35.5 ){
+            if( age.m === 3 && IMC >= 29.4 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 29.4 && weight < 35.5 ){
+            if( age.m === 4 && IMC >= 29.4 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 29.5 && weight < 35.5 ){
+            if( age.m === 5 && IMC >= 29.5 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 29.5 && weight < 35.5 ){
+            if( age.m === 6 && IMC >= 29.5 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 29.5 && weight < 35.5 ){
+            if( age.m === 7 && IMC >= 29.5 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 29.6 && weight < 35.5 ){
+            if( age.m === 8 && IMC >= 29.6 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 29.6 && weight < 35.5 ){
+            if( age.m === 9 && IMC >= 29.6 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 29.6 && weight < 35.5 ){
+            if( age.m === 10 && IMC >= 29.6 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 29.7 && weight < 35.5 ){
+            if( age.m === 11 && IMC >= 29.7 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -19157,51 +19159,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 35.4 ){
+            if( age.m === 0 && IMC >= 35.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 35.4 ){
+            if( age.m === 1 && IMC >= 35.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 35.5 ){
+            if( age.m === 2 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 35.5 ){
+            if( age.m === 3 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 35.5 ){
+            if( age.m === 4 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 35.5 ){
+            if( age.m === 5 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 35.5 ){
+            if( age.m === 6 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 35.5 ){
+            if( age.m === 7 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 35.5 ){
+            if( age.m === 8 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 35.5 ){
+            if( age.m === 9 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 35.5 ){
+            if( age.m === 10 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 35.5 ){
+            if( age.m === 11 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -19212,7 +19214,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 17.6 ){
+            if( age.m === 0 && IMC <= 17.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -19221,7 +19223,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 17.6 && weight <= 19.6 ){
+            if( age.m === 0 && IMC > 17.6 && IMC <= 19.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -19230,7 +19232,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 19.6 && weight < 25.4 ){
+            if( age.m === 0 && IMC > 19.6 && IMC < 25.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -19239,7 +19241,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 25.4 && weight < 29.7 ){
+            if( age.m === 0 && IMC >= 25.4 && IMC < 29.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -19248,7 +19250,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 29.7 && weight < 35.5 ){
+            if( age.m === 0 && IMC >= 29.7 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -19257,7 +19259,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 35.5 ){
+            if( age.m === 0 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -19269,55 +19271,59 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
     const girlsIMCEfrom5to19 = () => {
 
+        const IMC = weight / (stature/100)**2
+
+        console.log(IMC)
+
         if ( age.y === 5 ){
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 12.7 ){
+            if( age.m === 0 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 12.7 ){
+            if( age.m === 1 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 12.7 ){
+            if( age.m === 2 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 12.7 ){
+            if( age.m === 3 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 12.7 ){
+            if( age.m === 4 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 12.7 ){
+            if( age.m === 5 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 12.7 ){
+            if( age.m === 6 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 12.7 ){
+            if( age.m === 7 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 12.7 ){
+            if( age.m === 8 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 12.7 ){
+            if( age.m === 9 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 12.7 ){
+            if( age.m === 10 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 12.7 ){
+            if( age.m === 11 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -19326,51 +19332,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 0 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 1 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 2 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 3 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 4 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 5 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 6 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 7 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 8 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 9 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 10 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 11 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -19379,51 +19385,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 13.9 && weight < 16.9 ){
+            if( age.m === 0 && IMC > 13.9 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.9 && weight < 16.9 ){
+            if( age.m === 1 && IMC > 13.9 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.9 && weight < 16.9 ){
+            if( age.m === 2 && IMC > 13.9 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.9 && weight < 16.9 ){
+            if( age.m === 3 && IMC > 13.9 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.9 && weight < 16.9 ){
+            if( age.m === 4 && IMC > 13.9 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.9 && weight < 16.9 ){
+            if( age.m === 5 && IMC > 13.9 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.9 && weight < 16.9 ){
+            if( age.m === 6 && IMC > 13.9 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.9 && weight < 16.9 ){
+            if( age.m === 7 && IMC > 13.9 && IMC < 16.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.9 && weight < 17.0 ){
+            if( age.m === 8 && IMC > 13.9 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.9 && weight < 17.0 ){
+            if( age.m === 9 && IMC > 13.9 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.9 && weight < 17.0 ){
+            if( age.m === 10 && IMC > 13.9 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.9 && weight < 17.0 ){
+            if( age.m === 11 && IMC > 13.9 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -19432,51 +19438,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 16.9 && weight < 18.9 ){
+            if( age.m === 0 && IMC >= 16.9 && IMC < 18.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 16.9 && weight < 18.9 ){
+            if( age.m === 1 && IMC >= 16.9 && IMC < 18.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 16.9 && weight < 18.9 ){
+            if( age.m === 2 && IMC >= 16.9 && IMC < 18.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 16.9 && weight < 18.9 ){
+            if( age.m === 3 && IMC >= 16.9 && IMC < 18.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 16.9 && weight < 18.9 ){
+            if( age.m === 4 && IMC >= 16.9 && IMC < 18.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 16.9 && weight < 19.0 ){
+            if( age.m === 5 && IMC >= 16.9 && IMC < 19.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 16.9 && weight < 19.0 ){
+            if( age.m === 6 && IMC >= 16.9 && IMC < 19.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 16.9 && weight < 19.0 ){
+            if( age.m === 7 && IMC >= 16.9 && IMC < 19.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 17.0 && weight < 19.1 ){
+            if( age.m === 8 && IMC >= 17.0 && IMC < 19.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 17.0 && weight < 19.1 ){
+            if( age.m === 9 && IMC >= 17.0 && IMC < 19.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 17.0 && weight < 19.1 ){
+            if( age.m === 10 && IMC >= 17.0 && IMC < 19.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 17.0 && weight < 19.2 ){
+            if( age.m === 11 && IMC >= 17.0 && IMC < 19.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -19485,51 +19491,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 18.9 && weight < 21.3 ){
+            if( age.m === 0 && IMC >= 18.9 && IMC < 21.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 18.9 && weight < 21.3 ){
+            if( age.m === 1 && IMC >= 18.9 && IMC < 21.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 18.9 && weight < 21.4 ){
+            if( age.m === 2 && IMC >= 18.9 && IMC < 21.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 18.9 && weight < 21.5 ){
+            if( age.m === 3 && IMC >= 18.9 && IMC < 21.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 18.9 && weight < 21.5 ){
+            if( age.m === 4 && IMC >= 18.9 && IMC < 21.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 19.0 && weight < 21.6 ){
+            if( age.m === 5 && IMC >= 19.0 && IMC < 21.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 19.0 && weight < 21.7 ){
+            if( age.m === 6 && IMC >= 19.0 && IMC < 21.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 19.0 && weight < 21.7 ){
+            if( age.m === 7 && IMC >= 19.0 && IMC < 21.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 19.1 && weight < 21.8 ){
+            if( age.m === 8 && IMC >= 19.1 && IMC < 21.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 19.1 && weight < 21.9 ){
+            if( age.m === 9 && IMC >= 19.1 && IMC < 21.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 19.1 && weight < 22.0 ){
+            if( age.m === 10 && IMC >= 19.1 && IMC < 22.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 19.2 && weight < 22.1 ){
+            if( age.m === 11 && IMC >= 19.2 && IMC < 22.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -19538,51 +19544,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 21.3 ){
+            if( age.m === 0 && IMC >= 21.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 21.3 ){
+            if( age.m === 1 && IMC >= 21.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 21.4 ){
+            if( age.m === 2 && IMC >= 21.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 21.5 ){
+            if( age.m === 3 && IMC >= 21.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 21.5 ){
+            if( age.m === 4 && IMC >= 21.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 21.6 ){
+            if( age.m === 5 && IMC >= 21.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 21.7 ){
+            if( age.m === 6 && IMC >= 21.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 21.7 ){
+            if( age.m === 7 && IMC >= 21.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 21.8 ){
+            if( age.m === 8 && IMC >= 21.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 21.9 ){
+            if( age.m === 9 && IMC >= 21.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 22.0 ){
+            if( age.m === 10 && IMC >= 22.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 22.1 ){
+            if( age.m === 11 && IMC >= 22.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -19593,51 +19599,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 12.7 ){
+            if( age.m === 0 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 12.7 ){
+            if( age.m === 1 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 12.7 ){
+            if( age.m === 2 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 12.7 ){
+            if( age.m === 3 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 12.7 ){
+            if( age.m === 4 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 12.7 ){
+            if( age.m === 5 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 12.7 ){
+            if( age.m === 6 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 12.7 ){
+            if( age.m === 7 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 12.7 ){
+            if( age.m === 8 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 12.7 ){
+            if( age.m === 9 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 12.7 ){
+            if( age.m === 10 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 12.7 ){
+            if( age.m === 11 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -19646,51 +19652,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 0 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 1 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 2 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 3 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 4 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 5 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 6 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 7 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 8 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 9 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 10 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 11 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -19699,51 +19705,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 13.9 && weight < 17.0 ){
+            if( age.m === 0 && IMC > 13.9 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.9 && weight < 17.0 ){
+            if( age.m === 1 && IMC > 13.9 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.9 && weight < 17.0 ){
+            if( age.m === 2 && IMC > 13.9 && IMC < 17.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.9 && weight < 17.1 ){
+            if( age.m === 3 && IMC > 13.9 && IMC < 17.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.9 && weight < 17.1 ){
+            if( age.m === 4 && IMC > 13.9 && IMC < 17.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.9 && weight < 17.1 ){
+            if( age.m === 5 && IMC > 13.9 && IMC < 17.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.9 && weight < 17.1 ){
+            if( age.m === 6 && IMC > 13.9 && IMC < 17.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.9 && weight < 17.2 ){
+            if( age.m === 7 && IMC > 13.9 && IMC < 17.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.9 && weight < 17.2 ){
+            if( age.m === 8 && IMC > 13.9 && IMC < 17.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.9 && weight < 17.2 ){
+            if( age.m === 9 && IMC > 13.9 && IMC < 17.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.9 && weight < 17.2 ){
+            if( age.m === 10 && IMC > 13.9 && IMC < 17.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.9 && weight < 17.3 ){
+            if( age.m === 11 && IMC > 13.9 && IMC < 17.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -19752,51 +19758,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 17.0 && weight < 19.2 ){
+            if( age.m === 0 && IMC >= 17.0 && IMC < 19.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 17.0 && weight < 19.3 ){
+            if( age.m === 1 && IMC >= 17.0 && IMC < 19.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 17.0 && weight < 19.3 ){
+            if( age.m === 2 && IMC >= 17.0 && IMC < 19.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 17.1 && weight < 19.3 ){
+            if( age.m === 3 && IMC >= 17.1 && IMC < 19.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 17.1 && weight < 19.4 ){
+            if( age.m === 4 && IMC >= 17.1 && IMC < 19.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 17.1 && weight < 19.4 ){
+            if( age.m === 5 && IMC >= 17.1 && IMC < 19.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 17.1 && weight < 19.5 ){
+            if( age.m === 6 && IMC >= 17.1 && IMC < 19.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 17.2 && weight < 19.5 ){
+            if( age.m === 7 && IMC >= 17.2 && IMC < 19.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 17.2 && weight < 19.6 ){
+            if( age.m === 8 && IMC >= 17.2 && IMC < 19.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 17.2 && weight < 19.6 ){
+            if( age.m === 9 && IMC >= 17.2 && IMC < 19.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 17.2 && weight < 19.7 ){
+            if( age.m === 10 && IMC >= 17.2 && IMC < 19.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 17.3 && weight < 19.7 ){
+            if( age.m === 11 && IMC >= 17.3 && IMC < 19.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -19805,51 +19811,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 19.2 && weight < 22.1 ){
+            if( age.m === 0 && IMC >= 19.2 && IMC < 22.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 19.3 && weight < 22.2 ){
+            if( age.m === 1 && IMC >= 19.3 && IMC < 22.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 19.3 && weight < 22.3 ){
+            if( age.m === 2 && IMC >= 19.3 && IMC < 22.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 19.3 && weight < 22.4 ){
+            if( age.m === 3 && IMC >= 19.3 && IMC < 22.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 19.4 && weight < 22.5 ){
+            if( age.m === 4 && IMC >= 19.4 && IMC < 22.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 19.4 && weight < 22.6 ){
+            if( age.m === 5 && IMC >= 19.4 && IMC < 22.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 19.5 && weight < 22.7 ){
+            if( age.m === 6 && IMC >= 19.5 && IMC < 22.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 19.5 && weight < 22.8 ){
+            if( age.m === 7 && IMC >= 19.5 && IMC < 22.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 19.6 && weight < 22.9 ){
+            if( age.m === 8 && IMC >= 19.6 && IMC < 22.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 19.6 && weight < 23.0 ){
+            if( age.m === 9 && IMC >= 19.6 && IMC < 23.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 19.7 && weight < 23.1 ){
+            if( age.m === 10 && IMC >= 19.7 && IMC < 23.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 19.7 && weight < 23.2 ){
+            if( age.m === 11 && IMC >= 19.7 && IMC < 23.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -19858,51 +19864,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 22.1 ){
+            if( age.m === 0 && IMC >= 22.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 22.2 ){
+            if( age.m === 1 && IMC >= 22.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 22.3 ){
+            if( age.m === 2 && IMC >= 22.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 22.4 ){
+            if( age.m === 3 && IMC >= 22.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 22.5 ){
+            if( age.m === 4 && IMC >= 22.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 22.6 ){
+            if( age.m === 5 && IMC >= 22.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 22.7 ){
+            if( age.m === 6 && IMC >= 22.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 22.8 ){
+            if( age.m === 7 && IMC >= 22.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 22.9 ){
+            if( age.m === 8 && IMC >= 22.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 23.0 ){
+            if( age.m === 9 && IMC >= 23.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 23.1 ){
+            if( age.m === 10 && IMC >= 23.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 23.2 ){
+            if( age.m === 11 && IMC >= 23.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -19913,51 +19919,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 12.7 ){
+            if( age.m === 0 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 12.7 ){
+            if( age.m === 1 && IMC <= 12.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 12.8 ){
+            if( age.m === 2 && IMC <= 12.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 12.8 ){
+            if( age.m === 3 && IMC <= 12.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 12.8 ){
+            if( age.m === 4 && IMC <= 12.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 12.8 ){
+            if( age.m === 5 && IMC <= 12.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 12.8 ){
+            if( age.m === 6 && IMC <= 12.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 12.8 ){
+            if( age.m === 7 && IMC <= 12.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 12.8 ){
+            if( age.m === 8 && IMC <= 12.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 12.8 ){
+            if( age.m === 9 && IMC <= 12.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 12.9 ){
+            if( age.m === 10 && IMC <= 12.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 12.9 ){
+            if( age.m === 11 && IMC <= 12.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -19966,51 +19972,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 0 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 12.7 && weight <= 13.9 ){
+            if( age.m === 1 && IMC > 12.7 && IMC <= 13.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 12.8 && weight <= 14.0 ){
+            if( age.m === 2 && IMC > 12.8 && IMC <= 14.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 12.8 && weight <= 14.0 ){
+            if( age.m === 3 && IMC > 12.8 && IMC <= 14.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 12.8 && weight <= 14.0 ){
+            if( age.m === 4 && IMC > 12.8 && IMC <= 14.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 12.8 && weight <= 14.0 ){
+            if( age.m === 5 && IMC > 12.8 && IMC <= 14.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 12.8 && weight <= 14.0 ){
+            if( age.m === 6 && IMC > 12.8 && IMC <= 14.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 12.8 && weight <= 14.0 ){
+            if( age.m === 7 && IMC > 12.8 && IMC <= 14.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 12.8 && weight <= 14.0 ){
+            if( age.m === 8 && IMC > 12.8 && IMC <= 14.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 12.8 && weight <= 14.1 ){
+            if( age.m === 9 && IMC > 12.8 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 12.9 && weight <= 14.1 ){
+            if( age.m === 10 && IMC > 12.9 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 12.9 && weight <= 14.1 ){
+            if( age.m === 11 && IMC > 12.9 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -20019,51 +20025,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 13.9 && weight < 17.3 ){
+            if( age.m === 0 && IMC > 13.9 && IMC < 17.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.9 && weight < 17.3 ){
+            if( age.m === 1 && IMC > 13.9 && IMC < 17.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.0 && weight < 17.4 ){
+            if( age.m === 2 && IMC > 14.0 && IMC < 17.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.0 && weight < 17.4 ){
+            if( age.m === 3 && IMC > 14.0 && IMC < 17.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.0 && weight < 17.4 ){
+            if( age.m === 4 && IMC > 14.0 && IMC < 17.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.0 && weight < 17.5 ){
+            if( age.m === 5 && IMC > 14.0 && IMC < 17.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.0 && weight < 17.5 ){
+            if( age.m === 6 && IMC > 14.0 && IMC < 17.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.0 && weight < 17.5 ){
+            if( age.m === 7 && IMC > 14.0 && IMC < 17.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.0 && weight < 17.6 ){
+            if( age.m === 8 && IMC > 14.0 && IMC < 17.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.1 && weight < 17.6 ){
+            if( age.m === 9 && IMC > 14.1 && IMC < 17.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.1 && weight < 17.6 ){
+            if( age.m === 10 && IMC > 14.1 && IMC < 17.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.1 && weight < 17.7 ){
+            if( age.m === 11 && IMC > 14.1 && IMC < 17.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -20072,51 +20078,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 17.3 && weight < 19.8 ){
+            if( age.m === 0 && IMC >= 17.3 && IMC < 19.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 17.3 && weight < 19.8 ){
+            if( age.m === 1 && IMC >= 17.3 && IMC < 19.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 17.4 && weight < 19.9 ){
+            if( age.m === 2 && IMC >= 17.4 && IMC < 19.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 17.4 && weight < 20.0 ){
+            if( age.m === 3 && IMC >= 17.4 && IMC < 20.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 17.4 && weight < 20.0 ){
+            if( age.m === 4 && IMC >= 17.4 && IMC < 20.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 17.5 && weight < 20.1 ){
+            if( age.m === 5 && IMC >= 17.5 && IMC < 20.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 17.5 && weight < 20.1 ){
+            if( age.m === 6 && IMC >= 17.5 && IMC < 20.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 17.5 && weight < 20.2 ){
+            if( age.m === 7 && IMC >= 17.5 && IMC < 20.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 17.6 && weight < 20.3 ){
+            if( age.m === 8 && IMC >= 17.6 && IMC < 20.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 17.6 && weight < 20.3 ){
+            if( age.m === 9 && IMC >= 17.6 && IMC < 20.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 17.6 && weight < 20.4 ){
+            if( age.m === 10 && IMC >= 17.6 && IMC < 20.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 17.7 && weight < 20.5 ){
+            if( age.m === 11 && IMC >= 17.7 && IMC < 20.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -20125,51 +20131,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 19.8 && weight < 23.3 ){
+            if( age.m === 0 && IMC >= 19.8 && IMC < 23.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 19.8 && weight < 23.4 ){
+            if( age.m === 1 && IMC >= 19.8 && IMC < 23.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 19.9 && weight < 23.5 ){
+            if( age.m === 2 && IMC >= 19.9 && IMC < 23.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 20.0 && weight < 23.6 ){
+            if( age.m === 3 && IMC >= 20.0 && IMC < 23.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 20.0 && weight < 23.7 ){
+            if( age.m === 4 && IMC >= 20.0 && IMC < 23.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 20.1 && weight < 23.9 ){
+            if( age.m === 5 && IMC >= 20.1 && IMC < 23.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 20.1 && weight < 24.0 ){
+            if( age.m === 6 && IMC >= 20.1 && IMC < 24.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 20.2 && weight < 24.1 ){
+            if( age.m === 7 && IMC >= 20.2 && IMC < 24.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 20.3 && weight < 24.2 ){
+            if( age.m === 8 && IMC >= 20.3 && IMC < 24.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 20.3 && weight < 24.4 ){
+            if( age.m === 9 && IMC >= 20.3 && IMC < 24.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 20.4 && weight < 24.5 ){
+            if( age.m === 10 && IMC >= 20.4 && IMC < 24.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 20.5 && weight < 24.6 ){
+            if( age.m === 11 && IMC >= 20.5 && IMC < 24.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -20178,51 +20184,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 23.3 ){
+            if( age.m === 0 && IMC >= 23.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 23.4 ){
+            if( age.m === 1 && IMC >= 23.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 23.5 ){
+            if( age.m === 2 && IMC >= 23.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 23.6 ){
+            if( age.m === 3 && IMC >= 23.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 23.7 ){
+            if( age.m === 4 && IMC >= 23.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 23.9 ){
+            if( age.m === 5 && IMC >= 23.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 24.0 ){
+            if( age.m === 6 && IMC >= 24.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 24.1 ){
+            if( age.m === 7 && IMC >= 24.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 24.2 ){
+            if( age.m === 8 && IMC >= 24.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 24.4 ){
+            if( age.m === 9 && IMC >= 24.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.5 ){
+            if( age.m === 10 && IMC >= 24.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 24.6 ){
+            if( age.m === 11 && IMC >= 24.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -20233,51 +20239,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 12.9 ){
+            if( age.m === 0 && IMC <= 12.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 12.9 ){
+            if( age.m === 1 && IMC <= 12.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 12.9 ){
+            if( age.m === 2 && IMC <= 12.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 12.9 ){
+            if( age.m === 3 && IMC <= 12.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 13.0 ){
+            if( age.m === 4 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 13.0 ){
+            if( age.m === 5 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 13.0 ){
+            if( age.m === 6 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 13.0 ){
+            if( age.m === 7 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 13.0 ){
+            if( age.m === 8 && IMC <= 13.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 13.1 ){
+            if( age.m === 9 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 13.1 ){
+            if( age.m === 10 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 13.1 ){
+            if( age.m === 11 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -20286,51 +20292,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 12.9 && weight <= 14.1 ){
+            if( age.m === 0 && IMC > 12.9 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 12.9 && weight <= 14.1 ){
+            if( age.m === 1 && IMC > 12.9 && IMC <= 14.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 12.9 && weight <= 14.2 ){
+            if( age.m === 2 && IMC > 12.9 && IMC <= 14.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 12.9 && weight <= 14.2 ){
+            if( age.m === 3 && IMC > 12.9 && IMC <= 14.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.0 && weight <= 14.2 ){
+            if( age.m === 4 && IMC > 13.0 && IMC <= 14.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.0 && weight <= 14.2 ){
+            if( age.m === 5 && IMC > 13.0 && IMC <= 14.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.0 && weight <= 14.3 ){
+            if( age.m === 6 && IMC > 13.0 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.0 && weight <= 14.3 ){
+            if( age.m === 7 && IMC > 13.0 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.0 && weight <= 14.3 ){
+            if( age.m === 8 && IMC > 13.0 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.1 && weight <= 14.3 ){
+            if( age.m === 9 && IMC > 13.1 && IMC <= 14.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.1 && weight <= 14.4 ){
+            if( age.m === 10 && IMC > 13.1 && IMC <= 14.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.1 && weight <= 14.4 ){
+            if( age.m === 11 && IMC > 13.1 && IMC <= 14.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -20339,51 +20345,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.1 && weight < 17.7 ){
+            if( age.m === 0 && IMC > 14.1 && IMC < 17.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.1 && weight < 17.8 ){
+            if( age.m === 1 && IMC > 14.1 && IMC < 17.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.2 && weight < 17.8 ){
+            if( age.m === 2 && IMC > 14.2 && IMC < 17.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.2 && weight < 17.9 ){
+            if( age.m === 3 && IMC > 14.2 && IMC < 17.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.2 && weight < 17.9 ){
+            if( age.m === 4 && IMC > 14.2 && IMC < 17.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.2 && weight < 18.0 ){
+            if( age.m === 5 && IMC > 14.2 && IMC < 18.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.3 && weight < 18.0 ){
+            if( age.m === 6 && IMC > 14.3 && IMC < 18.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.3 && weight < 18.1 ){
+            if( age.m === 7 && IMC > 14.3 && IMC < 18.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.3 && weight < 18.1 ){
+            if( age.m === 8 && IMC > 14.3 && IMC < 18.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.3 && weight < 18.2 ){
+            if( age.m === 9 && IMC > 14.3 && IMC < 18.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.4 && weight < 18.2 ){
+            if( age.m === 10 && IMC > 14.4 && IMC < 18.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.4 && weight < 18.3 ){
+            if( age.m === 11 && IMC > 14.4 && IMC < 18.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -20392,51 +20398,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 17.7 && weight < 20.6 ){
+            if( age.m === 0 && IMC >= 17.7 && IMC < 20.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 17.8 && weight < 20.6 ){
+            if( age.m === 1 && IMC >= 17.8 && IMC < 20.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 17.8 && weight < 20.7 ){
+            if( age.m === 2 && IMC >= 17.8 && IMC < 20.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 17.9 && weight < 20.8 ){
+            if( age.m === 3 && IMC >= 17.9 && IMC < 20.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 17.9 && weight < 20.9 ){
+            if( age.m === 4 && IMC >= 17.9 && IMC < 20.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 18.0 && weight < 20.9 ){
+            if( age.m === 5 && IMC >= 18.0 && IMC < 20.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 18.0 && weight < 21.0 ){
+            if( age.m === 6 && IMC >= 18.0 && IMC < 21.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 18.1 && weight < 21.1 ){
+            if( age.m === 7 && IMC >= 18.1 && IMC < 21.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 18.1 && weight < 21.2 ){
+            if( age.m === 8 && IMC >= 18.1 && IMC < 21.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 18.2 && weight < 21.3 ){
+            if( age.m === 9 && IMC >= 18.2 && IMC < 21.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 18.2 && weight < 21.3 ){
+            if( age.m === 10 && IMC >= 18.2 && IMC < 21.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 18.3 && weight < 21.4 ){
+            if( age.m === 11 && IMC >= 18.3 && IMC < 21.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -20445,51 +20451,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 20.6 && weight < 24.8 ){
+            if( age.m === 0 && IMC >= 20.6 && IMC < 24.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 20.6 && weight < 24.9 ){
+            if( age.m === 1 && IMC >= 20.6 && IMC < 24.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 20.7 && weight < 25.1 ){
+            if( age.m === 2 && IMC >= 20.7 && IMC < 25.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 20.8 && weight < 25.2 ){
+            if( age.m === 3 && IMC >= 20.8 && IMC < 25.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 20.9 && weight < 25.3 ){
+            if( age.m === 4 && IMC >= 20.9 && IMC < 25.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 20.9 && weight < 25.5 ){
+            if( age.m === 5 && IMC >= 20.9 && IMC < 25.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 21.0 && weight < 25.6 ){
+            if( age.m === 6 && IMC >= 21.0 && IMC < 25.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 21.1 && weight < 25.8 ){
+            if( age.m === 7 && IMC >= 21.1 && IMC < 25.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 21.2 && weight < 25.9 ){
+            if( age.m === 8 && IMC >= 21.2 && IMC < 25.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 21.3 && weight < 26.1 ){
+            if( age.m === 9 && IMC >= 21.3 && IMC < 26.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 21.3 && weight < 26.2 ){
+            if( age.m === 10 && IMC >= 21.3 && IMC < 26.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 21.4 && weight < 26.4 ){
+            if( age.m === 11 && IMC >= 21.4 && IMC < 26.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -20498,51 +20504,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 24.8 ){
+            if( age.m === 0 && IMC >= 24.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 24.9 ){
+            if( age.m === 1 && IMC >= 24.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 25.1 ){
+            if( age.m === 2 && IMC >= 25.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 25.2 ){
+            if( age.m === 3 && IMC >= 25.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 25.3 ){
+            if( age.m === 4 && IMC >= 25.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 25.5 ){
+            if( age.m === 5 && IMC >= 25.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 25.6 ){
+            if( age.m === 6 && IMC >= 25.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 25.8 ){
+            if( age.m === 7 && IMC >= 25.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 25.9 ){
+            if( age.m === 8 && IMC >= 25.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 26.1 ){
+            if( age.m === 9 && IMC >= 26.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 26.2 ){
+            if( age.m === 10 && IMC >= 26.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 26.4 ){
+            if( age.m === 11 && IMC >= 26.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -20553,51 +20559,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 13.1 ){
+            if( age.m === 0 && IMC <= 13.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 13.2 ){
+            if( age.m === 1 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 13.2 ){
+            if( age.m === 2 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 13.2 ){
+            if( age.m === 3 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 13.2 ){
+            if( age.m === 4 && IMC <= 13.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 13.3 ){
+            if( age.m === 5 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 13.3 ){
+            if( age.m === 6 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 13.3 ){
+            if( age.m === 7 && IMC <= 13.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 13.4 ){
+            if( age.m === 8 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 13.4 ){
+            if( age.m === 9 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 13.4 ){
+            if( age.m === 10 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 13.4 ){
+            if( age.m === 11 && IMC <= 13.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -20606,51 +20612,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 13.1 && weight <= 14.4 ){
+            if( age.m === 0 && IMC > 13.1 && IMC <= 14.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.2 && weight <= 14.5 ){
+            if( age.m === 1 && IMC > 13.2 && IMC <= 14.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.2 && weight <= 14.5 ){
+            if( age.m === 2 && IMC > 13.2 && IMC <= 14.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.2 && weight <= 14.5 ){
+            if( age.m === 3 && IMC > 13.2 && IMC <= 14.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.2 && weight <= 14.6 ){
+            if( age.m === 4 && IMC > 13.2 && IMC <= 14.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.3 && weight <= 14.6 ){
+            if( age.m === 5 && IMC > 13.3 && IMC <= 14.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.3 && weight <= 14.6 ){
+            if( age.m === 6 && IMC > 13.3 && IMC <= 14.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.3 && weight <= 14.7 ){
+            if( age.m === 7 && IMC > 13.3 && IMC <= 14.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.4 && weight <= 14.7 ){
+            if( age.m === 8 && IMC > 13.4 && IMC <= 14.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.4 && weight <= 14.7 ){
+            if( age.m === 9 && IMC > 13.4 && IMC <= 14.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.4 && weight <= 14.8 ){
+            if( age.m === 10 && IMC > 13.4 && IMC <= 14.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.4 && weight <= 14.8 ){
+            if( age.m === 11 && IMC > 13.4 && IMC <= 14.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -20659,51 +20665,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.4 && weight < 18.3 ){
+            if( age.m === 0 && IMC > 14.4 && IMC < 18.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.5 && weight < 18.4 ){
+            if( age.m === 1 && IMC > 14.5 && IMC < 18.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.5 && weight < 18.4 ){
+            if( age.m === 2 && IMC > 14.5 && IMC < 18.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.5 && weight < 18.5 ){
+            if( age.m === 3 && IMC > 14.5 && IMC < 18.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.6 && weight < 18.6 ){
+            if( age.m === 4 && IMC > 14.6 && IMC < 18.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.6 && weight < 18.6 ){
+            if( age.m === 5 && IMC > 14.6 && IMC < 18.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.6 && weight < 18.7 ){
+            if( age.m === 6 && IMC > 14.6 && IMC < 18.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.7 && weight < 18.7 ){
+            if( age.m === 7 && IMC > 14.7 && IMC < 18.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.7 && weight < 18.8 ){
+            if( age.m === 8 && IMC > 14.7 && IMC < 18.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.7 && weight < 18.8 ){
+            if( age.m === 9 && IMC > 14.7 && IMC < 18.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.8 && weight < 18.9 ){
+            if( age.m === 10 && IMC > 14.8 && IMC < 18.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.8 && weight < 19.0 ){
+            if( age.m === 11 && IMC > 14.8 && IMC < 19.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -20712,51 +20718,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 18.3 && weight < 21.5 ){
+            if( age.m === 0 && IMC >= 18.3 && IMC < 21.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 18.4 && weight < 21.6 ){
+            if( age.m === 1 && IMC >= 18.4 && IMC < 21.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 18.4 && weight < 21.7 ){
+            if( age.m === 2 && IMC >= 18.4 && IMC < 21.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 18.5 && weight < 21.8 ){
+            if( age.m === 3 && IMC >= 18.5 && IMC < 21.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 18.6 && weight < 21.9 ){
+            if( age.m === 4 && IMC >= 18.6 && IMC < 21.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 18.6 && weight < 21.9 ){
+            if( age.m === 5 && IMC >= 18.6 && IMC < 21.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 18.7 && weight < 22.0 ){
+            if( age.m === 6 && IMC >= 18.7 && IMC < 22.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 18.7 && weight < 22.1 ){
+            if( age.m === 7 && IMC >= 18.7 && IMC < 22.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 18.8 && weight < 22.2 ){
+            if( age.m === 8 && IMC >= 18.8 && IMC < 22.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 18.8 && weight < 22.3 ){
+            if( age.m === 9 && IMC >= 18.8 && IMC < 22.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 18.9 && weight < 22.4 ){
+            if( age.m === 10 && IMC >= 18.9 && IMC < 22.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 19.0 && weight < 22.5 ){
+            if( age.m === 11 && IMC >= 19.0 && IMC < 22.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -20765,51 +20771,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 21.5 && weight < 26.5 ){
+            if( age.m === 0 && IMC >= 21.5 && IMC < 26.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 21.6 && weight < 26.7 ){
+            if( age.m === 1 && IMC >= 21.6 && IMC < 26.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 21.7 && weight < 26.8 ){
+            if( age.m === 2 && IMC >= 21.7 && IMC < 26.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 21.8 && weight < 27.0 ){
+            if( age.m === 3 && IMC >= 21.8 && IMC < 27.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 21.9 && weight < 27.2 ){
+            if( age.m === 4 && IMC >= 21.9 && IMC < 27.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 21.9 && weight < 27.3 ){
+            if( age.m === 5 && IMC >= 21.9 && IMC < 27.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 22.0 && weight < 27.5 ){
+            if( age.m === 6 && IMC >= 22.0 && IMC < 27.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 22.1 && weight < 27.6 ){
+            if( age.m === 7 && IMC >= 22.1 && IMC < 27.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 22.2 && weight < 27.8 ){
+            if( age.m === 8 && IMC >= 22.2 && IMC < 27.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 22.3 && weight < 27.9 ){
+            if( age.m === 9 && IMC >= 22.3 && IMC < 27.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 22.4 && weight < 28.1 ){
+            if( age.m === 10 && IMC >= 22.4 && IMC < 28.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 22.5 && weight < 28.2 ){
+            if( age.m === 11 && IMC >= 22.5 && IMC < 28.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -20818,51 +20824,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 26.5 ){
+            if( age.m === 0 && IMC >= 26.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 26.7 ){
+            if( age.m === 1 && IMC >= 26.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 26.8 ){
+            if( age.m === 2 && IMC >= 26.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 27.0 ){
+            if( age.m === 3 && IMC >= 27.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 27.2 ){
+            if( age.m === 4 && IMC >= 27.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 27.3 ){
+            if( age.m === 5 && IMC >= 27.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 27.5 ){
+            if( age.m === 6 && IMC >= 27.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 27.6 ){
+            if( age.m === 7 && IMC >= 27.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 27.8 ){
+            if( age.m === 8 && IMC >= 27.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 27.9 ){
+            if( age.m === 9 && IMC >= 27.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 28.1 ){
+            if( age.m === 10 && IMC >= 28.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 28.2 ){
+            if( age.m === 11 && IMC >= 28.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -20873,51 +20879,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 13.5 ){
+            if( age.m === 0 && IMC <= 13.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 13.5 ){
+            if( age.m === 1 && IMC <= 13.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 13.5 ){
+            if( age.m === 2 && IMC <= 13.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 13.6 ){
+            if( age.m === 3 && IMC <= 13.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 13.6 ){
+            if( age.m === 4 && IMC <= 13.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 13.6 ){
+            if( age.m === 5 && IMC <= 13.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 13.7 ){
+            if( age.m === 6 && IMC <= 13.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 13.7 ){
+            if( age.m === 7 && IMC <= 13.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 13.7 ){
+            if( age.m === 8 && IMC <= 13.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 13.8 ){
+            if( age.m === 9 && IMC <= 13.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 13.8 ){
+            if( age.m === 10 && IMC <= 13.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 13.8 ){
+            if( age.m === 11 && IMC <= 13.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -20926,51 +20932,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 13.5 && weight <= 14.8 ){
+            if( age.m === 0 && IMC > 13.5 && IMC <= 14.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.5 && weight <= 14.9 ){
+            if( age.m === 1 && IMC > 13.5 && IMC <= 14.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 13.5 && weight <= 14.9 ){
+            if( age.m === 2 && IMC > 13.5 && IMC <= 14.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 13.6 && weight <= 15.0 ){
+            if( age.m === 3 && IMC > 13.6 && IMC <= 15.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 13.6 && weight <= 15.0 ){
+            if( age.m === 4 && IMC > 13.6 && IMC <= 15.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 13.6 && weight <= 15.0 ){
+            if( age.m === 5 && IMC > 13.6 && IMC <= 15.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 13.7 && weight <= 15.1 ){
+            if( age.m === 6 && IMC > 13.7 && IMC <= 15.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 13.7 && weight <= 15.1 ){
+            if( age.m === 7 && IMC > 13.7 && IMC <= 15.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 13.7 && weight <= 15.2 ){
+            if( age.m === 8 && IMC > 13.7 && IMC <= 15.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 13.8 && weight <= 15.2 ){
+            if( age.m === 9 && IMC > 13.8 && IMC <= 15.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 13.8 && weight <= 15.3 ){
+            if( age.m === 10 && IMC > 13.8 && IMC <= 15.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 13.8 && weight <= 15.3 ){
+            if( age.m === 11 && IMC > 13.8 && IMC <= 15.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -20979,51 +20985,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.8 && weight < 19.0 ){
+            if( age.m === 0 && IMC > 14.8 && IMC < 19.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.9 && weight < 19.1 ){
+            if( age.m === 1 && IMC > 14.9 && IMC < 19.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.9 && weight < 19.2 ){
+            if( age.m === 2 && IMC > 14.9 && IMC < 19.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 15.0 && weight < 19.2 ){
+            if( age.m === 3 && IMC > 15.0 && IMC < 19.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 15.0 && weight < 19.3 ){
+            if( age.m === 4 && IMC > 15.0 && IMC < 19.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 15.0 && weight < 19.4 ){
+            if( age.m === 5 && IMC > 15.0 && IMC < 19.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 15.1 && weight < 19.4 ){
+            if( age.m === 6 && IMC > 15.1 && IMC < 19.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 15.1 && weight < 19.5 ){
+            if( age.m === 7 && IMC > 15.1 && IMC < 19.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 15.2 && weight < 19.6 ){
+            if( age.m === 8 && IMC > 15.2 && IMC < 19.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 15.2 && weight < 19.6 ){
+            if( age.m === 9 && IMC > 15.2 && IMC < 19.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 15.3 && weight < 19.7 ){
+            if( age.m === 10 && IMC > 15.3 && IMC < 19.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 15.3 && weight < 19.8 ){
+            if( age.m === 11 && IMC > 15.3 && IMC < 19.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -21032,51 +21038,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 19.0 && weight < 22.6 ){
+            if( age.m === 0 && IMC >= 19.0 && IMC < 22.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 19.1 && weight < 22.7 ){
+            if( age.m === 1 && IMC >= 19.1 && IMC < 22.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 19.2 && weight < 22.8 ){
+            if( age.m === 2 && IMC >= 19.2 && IMC < 22.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 19.2 && weight < 22.8 ){
+            if( age.m === 3 && IMC >= 19.2 && IMC < 22.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 19.3 && weight < 22.9 ){
+            if( age.m === 4 && IMC >= 19.3 && IMC < 22.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 19.4 && weight < 23.0 ){
+            if( age.m === 5 && IMC >= 19.4 && IMC < 23.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 19.4 && weight < 23.1 ){
+            if( age.m === 6 && IMC >= 19.4 && IMC < 23.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 19.5 && weight < 23.2 ){
+            if( age.m === 7 && IMC >= 19.5 && IMC < 23.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 19.6 && weight < 23.3 ){
+            if( age.m === 8 && IMC >= 19.6 && IMC < 23.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 19.6 && weight < 23.4 ){
+            if( age.m === 9 && IMC >= 19.6 && IMC < 23.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 19.7 && weight < 23.5 ){
+            if( age.m === 10 && IMC >= 19.7 && IMC < 23.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 19.8 && weight < 23.6 ){
+            if( age.m === 11 && IMC >= 19.8 && IMC < 23.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -21085,51 +21091,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 22.6 && weight < 28.4 ){
+            if( age.m === 0 && IMC >= 22.6 && IMC < 28.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 22.7 && weight < 28.5 ){
+            if( age.m === 1 && IMC >= 22.7 && IMC < 28.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 22.8 && weight < 28.7 ){
+            if( age.m === 2 && IMC >= 22.8 && IMC < 28.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 22.8 && weight < 28.8 ){
+            if( age.m === 3 && IMC >= 22.8 && IMC < 28.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 22.9 && weight < 29.0 ){
+            if( age.m === 4 && IMC >= 22.9 && IMC < 29.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 23.0 && weight < 29.1 ){
+            if( age.m === 5 && IMC >= 23.0 && IMC < 29.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 23.1 && weight < 29.3 ){
+            if( age.m === 6 && IMC >= 23.1 && IMC < 29.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 23.2 && weight < 29.4 ){
+            if( age.m === 7 && IMC >= 23.2 && IMC < 29.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 23.3 && weight < 29.6 ){
+            if( age.m === 8 && IMC >= 23.3 && IMC < 29.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 23.4 && weight < 29.7 ){
+            if( age.m === 9 && IMC >= 23.4 && IMC < 29.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 23.5 && weight < 29.9 ){
+            if( age.m === 10 && IMC >= 23.5 && IMC < 29.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 23.6 && weight < 30.0 ){
+            if( age.m === 11 && IMC >= 23.6 && IMC < 30.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -21138,51 +21144,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 28.4 ){
+            if( age.m === 0 && IMC >= 28.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 28.5 ){
+            if( age.m === 1 && IMC >= 28.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 28.7 ){
+            if( age.m === 2 && IMC >= 28.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 28.8 ){
+            if( age.m === 3 && IMC >= 28.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 29.0 ){
+            if( age.m === 4 && IMC >= 29.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 29.1 ){
+            if( age.m === 5 && IMC >= 29.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 29.3 ){
+            if( age.m === 6 && IMC >= 29.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 29.4 ){
+            if( age.m === 7 && IMC >= 29.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 29.6 ){
+            if( age.m === 8 && IMC >= 29.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 29.7 ){
+            if( age.m === 9 && IMC >= 29.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 29.9 ){
+            if( age.m === 10 && IMC >= 29.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 30.0 ){
+            if( age.m === 11 && IMC >= 30.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -21193,51 +21199,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 13.9 ){
+            if( age.m === 0 && IMC <= 13.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 13.9 ){
+            if( age.m === 1 && IMC <= 13.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 14.0 ){
+            if( age.m === 2 && IMC <= 14.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 14.0 ){
+            if( age.m === 3 && IMC <= 14.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 14.0 ){
+            if( age.m === 4 && IMC <= 14.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 14.1 ){
+            if( age.m === 5 && IMC <= 14.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 14.1 ){
+            if( age.m === 6 && IMC <= 14.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 14.2 ){
+            if( age.m === 7 && IMC <= 14.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 14.2 ){
+            if( age.m === 8 && IMC <= 14.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 14.3 ){
+            if( age.m === 9 && IMC <= 14.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 14.3 ){
+            if( age.m === 10 && IMC <= 14.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 14.3 ){
+            if( age.m === 11 && IMC <= 14.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -21246,51 +21252,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 13.9 && weight <= 15.3 ){
+            if( age.m === 0 && IMC > 13.9 && IMC <= 15.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 13.9 && weight <= 15.4 ){
+            if( age.m === 1 && IMC > 13.9 && IMC <= 15.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.0 && weight <= 15.4 ){
+            if( age.m === 2 && IMC > 14.0 && IMC <= 15.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.0 && weight <= 15.5 ){
+            if( age.m === 3 && IMC > 14.0 && IMC <= 15.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.0 && weight <= 15.5 ){
+            if( age.m === 4 && IMC > 14.0 && IMC <= 15.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.1 && weight <= 15.6 ){
+            if( age.m === 5 && IMC > 14.1 && IMC <= 15.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.1 && weight <= 15.6 ){
+            if( age.m === 6 && IMC > 14.1 && IMC <= 15.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.2 && weight <= 15.7 ){
+            if( age.m === 7 && IMC > 14.2 && IMC <= 15.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.2 && weight <= 15.7 ){
+            if( age.m === 8 && IMC > 14.2 && IMC <= 15.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.3 && weight <= 15.8 ){
+            if( age.m === 9 && IMC > 14.3 && IMC <= 15.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.3 && weight <= 15.8 ){
+            if( age.m === 10 && IMC > 14.3 && IMC <= 15.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.3 && weight <= 15.9 ){
+            if( age.m === 11 && IMC > 14.3 && IMC <= 15.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -21299,51 +21305,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 15.3 && weight < 19.9 ){
+            if( age.m === 0 && IMC > 15.3 && IMC < 19.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 15.4 && weight < 19.9 ){
+            if( age.m === 1 && IMC > 15.4 && IMC < 19.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 15.4 && weight < 20.0 ){
+            if( age.m === 2 && IMC > 15.4 && IMC < 20.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 15.5 && weight < 20.1 ){
+            if( age.m === 3 && IMC > 15.5 && IMC < 20.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 15.5 && weight < 20.2 ){
+            if( age.m === 4 && IMC > 15.5 && IMC < 20.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 15.6 && weight < 20.2 ){
+            if( age.m === 5 && IMC > 15.6 && IMC < 20.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 15.6 && weight < 20.3 ){
+            if( age.m === 6 && IMC > 15.6 && IMC < 20.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 15.7 && weight < 20.4 ){
+            if( age.m === 7 && IMC > 15.7 && IMC < 20.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 15.7 && weight < 20.5 ){
+            if( age.m === 8 && IMC > 15.7 && IMC < 20.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 15.8 && weight < 20.6 ){
+            if( age.m === 9 && IMC > 15.8 && IMC < 20.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 15.8 && weight < 20.6 ){
+            if( age.m === 10 && IMC > 15.8 && IMC < 20.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 15.9 && weight < 20.7 ){
+            if( age.m === 11 && IMC > 15.9 && IMC < 20.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -21352,51 +21358,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 19.9 && weight < 23.7 ){
+            if( age.m === 0 && IMC >= 19.9 && IMC < 23.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 19.9 && weight < 23.8 ){
+            if( age.m === 1 && IMC >= 19.9 && IMC < 23.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 20.0 && weight < 23.9 ){
+            if( age.m === 2 && IMC >= 20.0 && IMC < 23.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 20.1 && weight < 24.0 ){
+            if( age.m === 3 && IMC >= 20.1 && IMC < 24.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 20.2 && weight < 24.1 ){
+            if( age.m === 4 && IMC >= 20.2 && IMC < 24.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 20.2 && weight < 24.2 ){
+            if( age.m === 5 && IMC >= 20.2 && IMC < 24.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 20.3 && weight < 24.3 ){
+            if( age.m === 6 && IMC >= 20.3 && IMC < 24.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 20.4 && weight < 24.4 ){
+            if( age.m === 7 && IMC >= 20.4 && IMC < 24.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 20.5 && weight < 24.5 ){
+            if( age.m === 8 && IMC >= 20.5 && IMC < 24.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 20.6 && weight < 24.7 ){
+            if( age.m === 9 && IMC >= 20.6 && IMC < 24.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 20.6 && weight < 24.8 ){
+            if( age.m === 10 && IMC >= 20.6 && IMC < 24.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 20.7 && weight < 24.9 ){
+            if( age.m === 11 && IMC >= 20.7 && IMC < 24.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -21405,51 +21411,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 23.7 && weight < 30.2 ){
+            if( age.m === 0 && IMC >= 23.7 && IMC < 30.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 23.8 && weight < 30.3 ){
+            if( age.m === 1 && IMC >= 23.8 && IMC < 30.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 23.9 && weight < 30.5 ){
+            if( age.m === 2 && IMC >= 23.9 && IMC < 30.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 24.0 && weight < 30.6 ){
+            if( age.m === 3 && IMC >= 24.0 && IMC < 30.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 24.1 && weight < 30.8 ){
+            if( age.m === 4 && IMC >= 24.1 && IMC < 30.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 24.2 && weight < 30.9 ){
+            if( age.m === 5 && IMC >= 24.2 && IMC < 30.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 24.3 && weight < 31.1 ){
+            if( age.m === 6 && IMC >= 24.3 && IMC < 31.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 24.4 && weight < 31.2 ){
+            if( age.m === 7 && IMC >= 24.4 && IMC < 31.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 24.5 && weight < 31.4 ){
+            if( age.m === 8 && IMC >= 24.5 && IMC < 31.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 24.7 && weight < 31.5 ){
+            if( age.m === 9 && IMC >= 24.7 && IMC < 31.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.8 && weight < 31.6 ){
+            if( age.m === 10 && IMC >= 24.8 && IMC < 31.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 24.9 && weight < 31.8 ){
+            if( age.m === 11 && IMC >= 24.9 && IMC < 31.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -21458,51 +21464,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 30.2 ){
+            if( age.m === 0 && IMC >= 30.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 30.3 ){
+            if( age.m === 1 && IMC >= 30.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 30.5 ){
+            if( age.m === 2 && IMC >= 30.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 30.6 ){
+            if( age.m === 3 && IMC >= 30.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 30.8 ){
+            if( age.m === 4 && IMC >= 30.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 30.9 ){
+            if( age.m === 5 && IMC >= 30.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 31.1 ){
+            if( age.m === 6 && IMC >= 31.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 31.2 ){
+            if( age.m === 7 && IMC >= 31.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 31.4 ){
+            if( age.m === 8 && IMC >= 31.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 31.5 ){
+            if( age.m === 9 && IMC >= 31.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 31.6 ){
+            if( age.m === 10 && IMC >= 31.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 31.8 ){
+            if( age.m === 11 && IMC >= 31.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -21513,51 +21519,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 14.4 ){
+            if( age.m === 0 && IMC <= 14.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 14.4 ){
+            if( age.m === 1 && IMC <= 14.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 14.5 ){
+            if( age.m === 2 && IMC <= 14.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 14.5 ){
+            if( age.m === 3 && IMC <= 14.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 14.6 ){
+            if( age.m === 4 && IMC <= 14.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 14.6 ){
+            if( age.m === 5 && IMC <= 14.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 14.7 ){
+            if( age.m === 6 && IMC <= 14.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 14.7 ){
+            if( age.m === 7 && IMC <= 14.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 14.8 ){
+            if( age.m === 8 && IMC <= 14.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 14.8 ){
+            if( age.m === 9 && IMC <= 14.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 14.8 ){
+            if( age.m === 10 && IMC <= 14.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 14.9 ){
+            if( age.m === 11 && IMC <= 14.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -21566,51 +21572,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 14.4 && weight <= 16.0 ){
+            if( age.m === 0 && IMC > 14.4 && IMC <= 16.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 14.4 && weight <= 16.0 ){
+            if( age.m === 1 && IMC > 14.4 && IMC <= 16.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 14.5 && weight <= 16.1 ){
+            if( age.m === 2 && IMC > 14.5 && IMC <= 16.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 14.5 && weight <= 16.1 ){
+            if( age.m === 3 && IMC > 14.5 && IMC <= 16.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 14.6 && weight <= 16.2 ){
+            if( age.m === 4 && IMC > 14.6 && IMC <= 16.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 14.6 && weight <= 16.2 ){
+            if( age.m === 5 && IMC > 14.6 && IMC <= 16.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 14.7 && weight <= 16.3 ){
+            if( age.m === 6 && IMC > 14.7 && IMC <= 16.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 14.7 && weight <= 16.3 ){
+            if( age.m === 7 && IMC > 14.7 && IMC <= 16.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 14.8 && weight <= 16.4 ){
+            if( age.m === 8 && IMC > 14.8 && IMC <= 16.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 14.8 && weight <= 16.4 ){
+            if( age.m === 9 && IMC > 14.8 && IMC <= 16.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 14.8 && weight <= 16.5 ){
+            if( age.m === 10 && IMC > 14.8 && IMC <= 16.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 14.9 && weight <= 16.6 ){
+            if( age.m === 11 && IMC > 14.9 && IMC <= 16.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -21619,51 +21625,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 16.0 && weight < 20.8 ){
+            if( age.m === 0 && IMC > 16.0 && IMC < 20.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 16.0 && weight < 20.9 ){
+            if( age.m === 1 && IMC > 16.0 && IMC < 20.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 16.1 && weight < 21.0 ){
+            if( age.m === 2 && IMC > 16.1 && IMC < 21.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 16.1 && weight < 21.1 ){
+            if( age.m === 3 && IMC > 16.1 && IMC < 21.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.2 && weight < 21.1 ){
+            if( age.m === 4 && IMC > 16.2 && IMC < 21.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.2 && weight < 21.2 ){
+            if( age.m === 5 && IMC > 16.2 && IMC < 21.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.3 && weight < 21.3 ){
+            if( age.m === 6 && IMC > 16.3 && IMC < 21.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 16.3 && weight < 21.4 ){
+            if( age.m === 7 && IMC > 16.3 && IMC < 21.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 16.4 && weight < 21.5 ){
+            if( age.m === 8 && IMC > 16.4 && IMC < 21.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 16.4 && weight < 21.6 ){
+            if( age.m === 9 && IMC > 16.4 && IMC < 21.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 16.5 && weight < 21.6 ){
+            if( age.m === 10 && IMC > 16.5 && IMC < 21.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 16.6 && weight < 21.7 ){
+            if( age.m === 11 && IMC > 16.6 && IMC < 21.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -21672,51 +21678,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 20.8 && weight < 25.0 ){
+            if( age.m === 0 && IMC >= 20.8 && IMC < 25.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 20.9 && weight < 25.1 ){
+            if( age.m === 1 && IMC >= 20.9 && IMC < 25.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 21.0 && weight < 25.2 ){
+            if( age.m === 2 && IMC >= 21.0 && IMC < 25.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 21.1 && weight < 25.3 ){
+            if( age.m === 3 && IMC >= 21.1 && IMC < 25.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 21.1 && weight < 25.4 ){
+            if( age.m === 4 && IMC >= 21.1 && IMC < 25.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 21.2 && weight < 25.5 ){
+            if( age.m === 5 && IMC >= 21.2 && IMC < 25.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 21.3 && weight < 25.6 ){
+            if( age.m === 6 && IMC >= 21.3 && IMC < 25.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 21.4 && weight < 25.7 ){
+            if( age.m === 7 && IMC >= 21.4 && IMC < 25.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 21.5 && weight < 25.8 ){
+            if( age.m === 8 && IMC >= 21.5 && IMC < 25.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 21.6 && weight < 25.9 ){
+            if( age.m === 9 && IMC >= 21.6 && IMC < 25.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 21.6 && weight < 26.0 ){
+            if( age.m === 10 && IMC >= 21.6 && IMC < 26.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 21.7 && weight < 26.1 ){
+            if( age.m === 11 && IMC >= 21.7 && IMC < 26.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -21725,51 +21731,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 25.0 && weight < 31.9 ){
+            if( age.m === 0 && IMC >= 25.0 && IMC < 31.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 25.1 && weight < 32.0 ){
+            if( age.m === 1 && IMC >= 25.1 && IMC < 32.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 25.2 && weight < 32.2 ){
+            if( age.m === 2 && IMC >= 25.2 && IMC < 32.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 25.3 && weight < 32.3 ){
+            if( age.m === 3 && IMC >= 25.3 && IMC < 32.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 25.4 && weight < 32.4 ){
+            if( age.m === 4 && IMC >= 25.4 && IMC < 32.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 25.5 && weight < 32.6 ){
+            if( age.m === 5 && IMC >= 25.5 && IMC < 32.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 25.6 && weight < 32.7 ){
+            if( age.m === 6 && IMC >= 25.6 && IMC < 32.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 25.7 && weight < 32.8 ){
+            if( age.m === 7 && IMC >= 25.7 && IMC < 32.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 25.8 && weight < 33.0 ){
+            if( age.m === 8 && IMC >= 25.8 && IMC < 33.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 25.9 && weight < 33.1 ){
+            if( age.m === 9 && IMC >= 25.9 && IMC < 33.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 26.0 && weight < 33.2 ){
+            if( age.m === 10 && IMC >= 26.0 && IMC < 33.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 26.1 && weight < 33.3 ){
+            if( age.m === 11 && IMC >= 26.1 && IMC < 33.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -21778,51 +21784,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 31.9 ){
+            if( age.m === 0 && IMC >= 31.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 32.0 ){
+            if( age.m === 1 && IMC >= 32.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 32.2 ){
+            if( age.m === 2 && IMC >= 32.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 32.3 ){
+            if( age.m === 3 && IMC >= 32.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 32.4 ){
+            if( age.m === 4 && IMC >= 32.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 32.6 ){
+            if( age.m === 5 && IMC >= 32.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 32.7 ){
+            if( age.m === 6 && IMC >= 32.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 32.8 ){
+            if( age.m === 7 && IMC >= 32.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 33.0 ){
+            if( age.m === 8 && IMC >= 33.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 33.1 ){
+            if( age.m === 9 && IMC >= 33.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 33.2 ){
+            if( age.m === 10 && IMC >= 33.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 33.3 ){
+            if( age.m === 11 && IMC >= 33.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -21833,51 +21839,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 14.9 ){
+            if( age.m === 0 && IMC <= 14.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 15.0 ){
+            if( age.m === 1 && IMC <= 15.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 15.0 ){
+            if( age.m === 2 && IMC <= 15.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 15.1 ){
+            if( age.m === 3 && IMC <= 15.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 15.1 ){
+            if( age.m === 4 && IMC <= 15.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 15.2 ){
+            if( age.m === 5 && IMC <= 15.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 15.2 ){
+            if( age.m === 6 && IMC <= 15.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 15.2 ){
+            if( age.m === 7 && IMC <= 15.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 15.3 ){
+            if( age.m === 8 && IMC <= 15.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 15.3 ){
+            if( age.m === 9 && IMC <= 15.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 15.4 ){
+            if( age.m === 10 && IMC <= 15.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 15.4 ){
+            if( age.m === 11 && IMC <= 15.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -21886,51 +21892,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 14.9 && weight <= 16.6 ){
+            if( age.m === 0 && IMC > 14.9 && IMC <= 16.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 15.0 && weight <= 16.7 ){
+            if( age.m === 1 && IMC > 15.0 && IMC <= 16.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 15.0 && weight <= 16.7 ){
+            if( age.m === 2 && IMC > 15.0 && IMC <= 16.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 15.1 && weight <= 16.8 ){
+            if( age.m === 3 && IMC > 15.1 && IMC <= 16.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 15.1 && weight <= 16.8 ){
+            if( age.m === 4 && IMC > 15.1 && IMC <= 16.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 15.2 && weight <= 16.9 ){
+            if( age.m === 5 && IMC > 15.2 && IMC <= 16.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 15.2 && weight <= 16.9 ){
+            if( age.m === 6 && IMC > 15.2 && IMC <= 16.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 15.2 && weight <= 17.0 ){
+            if( age.m === 7 && IMC > 15.2 && IMC <= 17.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 15.3 && weight <= 17.0 ){
+            if( age.m === 8 && IMC > 15.3 && IMC <= 17.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 15.3 && weight <= 17.1 ){
+            if( age.m === 9 && IMC > 15.3 && IMC <= 17.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 15.4 && weight <= 17.1 ){
+            if( age.m === 10 && IMC > 15.4 && IMC <= 17.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 15.4 && weight <= 17.2 ){
+            if( age.m === 11 && IMC > 15.4 && IMC <= 17.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -21939,51 +21945,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 16.6 && weight < 21.8 ){
+            if( age.m === 0 && IMC > 16.6 && IMC < 21.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 16.7 && weight < 21.9 ){
+            if( age.m === 1 && IMC > 16.7 && IMC < 21.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 16.7 && weight < 22.0 ){
+            if( age.m === 2 && IMC > 16.7 && IMC < 22.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 16.8 && weight < 22.0 ){
+            if( age.m === 3 && IMC > 16.8 && IMC < 22.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.8 && weight < 22.1 ){
+            if( age.m === 4 && IMC > 16.8 && IMC < 22.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.9 && weight < 22.2 ){
+            if( age.m === 5 && IMC > 16.9 && IMC < 22.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.9 && weight < 22.3 ){
+            if( age.m === 6 && IMC > 16.9 && IMC < 22.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 17.0 && weight < 22.4 ){
+            if( age.m === 7 && IMC > 17.0 && IMC < 22.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 17.0 && weight < 22.4 ){
+            if( age.m === 8 && IMC > 17.0 && IMC < 22.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 17.1 && weight < 22.5 ){
+            if( age.m === 9 && IMC > 17.1 && IMC < 22.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 17.1 && weight < 22.6 ){
+            if( age.m === 10 && IMC > 17.1 && IMC < 22.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 17.2 && weight < 22.7 ){
+            if( age.m === 11 && IMC > 17.2 && IMC < 22.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -21992,51 +21998,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 21.8 && weight < 26.2 ){
+            if( age.m === 0 && IMC >= 21.8 && IMC < 26.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 21.9 && weight < 26.3 ){
+            if( age.m === 1 && IMC >= 21.9 && IMC < 26.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 22.0 && weight < 26.4 ){
+            if( age.m === 2 && IMC >= 22.0 && IMC < 26.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 22.0 && weight < 26.5 ){
+            if( age.m === 3 && IMC >= 22.0 && IMC < 26.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 22.1 && weight < 26.6 ){
+            if( age.m === 4 && IMC >= 22.1 && IMC < 26.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 22.2 && weight < 26.7 ){
+            if( age.m === 5 && IMC >= 22.2 && IMC < 26.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 22.3 && weight < 26.8 ){
+            if( age.m === 6 && IMC >= 22.3 && IMC < 26.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 22.4 && weight < 26.9 ){
+            if( age.m === 7 && IMC >= 22.4 && IMC < 26.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 22.4 && weight < 27.0 ){
+            if( age.m === 8 && IMC >= 22.4 && IMC < 27.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 22.5 && weight < 27.1 ){
+            if( age.m === 9 && IMC >= 22.5 && IMC < 27.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 22.6 && weight < 27.1 ){
+            if( age.m === 10 && IMC >= 22.6 && IMC < 27.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 22.7 && weight < 27.2 ){
+            if( age.m === 11 && IMC >= 22.7 && IMC < 27.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -22045,51 +22051,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 26.2 && weight < 33.4 ){
+            if( age.m === 0 && IMC >= 26.2 && IMC < 33.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 26.3 && weight < 33.6 ){
+            if( age.m === 1 && IMC >= 26.3 && IMC < 33.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 26.4 && weight < 33.7 ){
+            if( age.m === 2 && IMC >= 26.4 && IMC < 33.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 26.5 && weight < 33.8 ){
+            if( age.m === 3 && IMC >= 26.5 && IMC < 33.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 26.6 && weight < 33.9 ){
+            if( age.m === 4 && IMC >= 26.6 && IMC < 33.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 26.7 && weight < 34.0 ){
+            if( age.m === 5 && IMC >= 26.7 && IMC < 34.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 26.8 && weight < 34.1 ){
+            if( age.m === 6 && IMC >= 26.8 && IMC < 34.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 26.9 && weight < 34.2 ){
+            if( age.m === 7 && IMC >= 26.9 && IMC < 34.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 27.0 && weight < 34.3 ){
+            if( age.m === 8 && IMC >= 27.0 && IMC < 34.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 27.1 && weight < 34.4 ){
+            if( age.m === 9 && IMC >= 27.1 && IMC < 34.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 27.1 && weight < 34.5 ){
+            if( age.m === 10 && IMC >= 27.1 && IMC < 34.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 27.2 && weight < 34.6 ){
+            if( age.m === 11 && IMC >= 27.2 && IMC < 34.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -22098,51 +22104,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 33.4 ){
+            if( age.m === 0 && IMC >= 33.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 33.6 ){
+            if( age.m === 1 && IMC >= 33.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 33.7 ){
+            if( age.m === 2 && IMC >= 33.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 33.8 ){
+            if( age.m === 3 && IMC >= 33.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 33.9 ){
+            if( age.m === 4 && IMC >= 33.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 34.0 ){
+            if( age.m === 5 && IMC >= 34.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 34.1 ){
+            if( age.m === 6 && IMC >= 34.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 34.2 ){
+            if( age.m === 7 && IMC >= 34.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 34.3 ){
+            if( age.m === 8 && IMC >= 34.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 34.4 ){
+            if( age.m === 9 && IMC >= 34.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 34.5 ){
+            if( age.m === 10 && IMC >= 34.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 34.6 ){
+            if( age.m === 11 && IMC >= 34.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -22153,51 +22159,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 15.4 ){
+            if( age.m === 0 && IMC <= 15.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 15.5 ){
+            if( age.m === 1 && IMC <= 15.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 15.5 ){
+            if( age.m === 2 && IMC <= 15.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 15.6 ){
+            if( age.m === 3 && IMC <= 15.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 15.6 ){
+            if( age.m === 4 && IMC <= 15.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 15.6 ){
+            if( age.m === 5 && IMC <= 15.6 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 15.7 ){
+            if( age.m === 6 && IMC <= 15.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 15.7 ){
+            if( age.m === 7 && IMC <= 15.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 15.7 ){
+            if( age.m === 8 && IMC <= 15.7 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 15.8 ){
+            if( age.m === 9 && IMC <= 15.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 15.8 ){
+            if( age.m === 10 && IMC <= 15.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 15.8 ){
+            if( age.m === 11 && IMC <= 15.8 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -22206,51 +22212,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 15.4 && weight <= 17.2 ){
+            if( age.m === 0 && IMC > 15.4 && IMC <= 17.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 15.5 && weight <= 17.3 ){
+            if( age.m === 1 && IMC > 15.5 && IMC <= 17.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 15.5 && weight <= 17.3 ){
+            if( age.m === 2 && IMC > 15.5 && IMC <= 17.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 15.6 && weight <= 17.4 ){
+            if( age.m === 3 && IMC > 15.6 && IMC <= 17.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 15.6 && weight <= 17.4 ){
+            if( age.m === 4 && IMC > 15.6 && IMC <= 17.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 15.6 && weight <= 17.5 ){
+            if( age.m === 5 && IMC > 15.6 && IMC <= 17.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 15.7 && weight <= 17.5 ){
+            if( age.m === 6 && IMC > 15.7 && IMC <= 17.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 15.7 && weight <= 17.6 ){
+            if( age.m === 7 && IMC > 15.7 && IMC <= 17.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 15.7 && weight <= 17.6 ){
+            if( age.m === 8 && IMC > 15.7 && IMC <= 17.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 15.8 && weight <= 17.6 ){
+            if( age.m === 9 && IMC > 15.8 && IMC <= 17.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 15.8 && weight <= 17.7 ){
+            if( age.m === 10 && IMC > 15.8 && IMC <= 17.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 15.8 && weight <= 17.7 ){
+            if( age.m === 11 && IMC > 15.8 && IMC <= 17.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -22259,51 +22265,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 17.2 && weight < 22.7 ){
+            if( age.m === 0 && IMC > 17.2 && IMC < 22.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 17.3 && weight < 22.8 ){
+            if( age.m === 1 && IMC > 17.3 && IMC < 22.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 17.3 && weight < 22.9 ){
+            if( age.m === 2 && IMC > 17.3 && IMC < 22.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 17.4 && weight < 22.9 ){
+            if( age.m === 3 && IMC > 17.4 && IMC < 22.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 17.4 && weight < 23.0 ){
+            if( age.m === 4 && IMC > 17.4 && IMC < 23.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 17.5 && weight < 23.1 ){
+            if( age.m === 5 && IMC > 17.5 && IMC < 23.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 17.5 && weight < 23.1 ){
+            if( age.m === 6 && IMC > 17.5 && IMC < 23.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 17.6 && weight < 23.2 ){
+            if( age.m === 7 && IMC > 17.6 && IMC < 23.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 17.6 && weight < 23.3 ){
+            if( age.m === 8 && IMC > 17.6 && IMC < 23.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 17.6 && weight < 23.3 ){
+            if( age.m === 9 && IMC > 17.6 && IMC < 23.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 17.7 && weight < 23.4 ){
+            if( age.m === 10 && IMC > 17.7 && IMC < 23.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 17.7 && weight < 23.5 ){
+            if( age.m === 11 && IMC > 17.7 && IMC < 23.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -22312,51 +22318,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 22.7 && weight < 27.3 ){
+            if( age.m === 0 && IMC >= 22.7 && IMC < 27.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 22.8 && weight < 27.4 ){
+            if( age.m === 1 && IMC >= 22.8 && IMC < 27.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 22.9 && weight < 27.5 ){
+            if( age.m === 2 && IMC >= 22.9 && IMC < 27.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 22.9 && weight < 27.6 ){
+            if( age.m === 3 && IMC >= 22.9 && IMC < 27.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 23.0 && weight < 27.7 ){
+            if( age.m === 4 && IMC >= 23.0 && IMC < 27.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 23.1 && weight < 27.7 ){
+            if( age.m === 5 && IMC >= 23.1 && IMC < 27.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 23.1 && weight < 27.8 ){
+            if( age.m === 6 && IMC >= 23.1 && IMC < 27.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 23.2 && weight < 27.9 ){
+            if( age.m === 7 && IMC >= 23.2 && IMC < 27.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 23.3 && weight < 28.0 ){
+            if( age.m === 8 && IMC >= 23.3 && IMC < 28.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 23.3 && weight < 28.0 ){
+            if( age.m === 9 && IMC >= 23.3 && IMC < 28.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 23.4 && weight < 28.1 ){
+            if( age.m === 10 && IMC >= 23.4 && IMC < 28.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 23.5 && weight < 28.2 ){
+            if( age.m === 11 && IMC >= 23.5 && IMC < 28.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -22365,51 +22371,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 27.3 && weight < 34.7 ){
+            if( age.m === 0 && IMC >= 27.3 && IMC < 34.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 27.4 && weight < 34.7 ){
+            if( age.m === 1 && IMC >= 27.4 && IMC < 34.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 27.5 && weight < 34.8 ){
+            if( age.m === 2 && IMC >= 27.5 && IMC < 34.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 27.6 && weight < 34.9 ){
+            if( age.m === 3 && IMC >= 27.6 && IMC < 34.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 27.7 && weight < 35.0 ){
+            if( age.m === 4 && IMC >= 27.7 && IMC < 35.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 27.7 && weight < 35.1 ){
+            if( age.m === 5 && IMC >= 27.7 && IMC < 35.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 27.8 && weight < 35.1 ){
+            if( age.m === 6 && IMC >= 27.8 && IMC < 35.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 27.9 && weight < 35.2 ){
+            if( age.m === 7 && IMC >= 27.9 && IMC < 35.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 28.0 && weight < 35.3 ){
+            if( age.m === 8 && IMC >= 28.0 && IMC < 35.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 28.0 && weight < 35.4 ){
+            if( age.m === 9 && IMC >= 28.0 && IMC < 35.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 28.1 && weight < 35.4 ){
+            if( age.m === 10 && IMC >= 28.1 && IMC < 35.4 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 28.2 && weight < 35.5 ){
+            if( age.m === 11 && IMC >= 28.2 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -22418,51 +22424,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 34.7 ){
+            if( age.m === 0 && IMC >= 34.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 34.7 ){
+            if( age.m === 1 && IMC >= 34.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 34.8 ){
+            if( age.m === 2 && IMC >= 34.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 34.9 ){
+            if( age.m === 3 && IMC >= 34.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 35.0 ){
+            if( age.m === 4 && IMC >= 35.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 35.1 ){
+            if( age.m === 5 && IMC >= 35.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 35.1 ){
+            if( age.m === 6 && IMC >= 35.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 35.2 ){
+            if( age.m === 7 && IMC >= 35.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 35.3 ){
+            if( age.m === 8 && IMC >= 35.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 35.4 ){
+            if( age.m === 9 && IMC >= 35.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 35.4 ){
+            if( age.m === 10 && IMC >= 35.4 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 35.5 ){
+            if( age.m === 11 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -22473,51 +22479,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 15.9 ){
+            if( age.m === 0 && IMC <= 15.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 15.9 ){
+            if( age.m === 1 && IMC <= 15.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 15.9 ){
+            if( age.m === 2 && IMC <= 15.9 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 16.0 ){
+            if( age.m === 3 && IMC <= 16.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 16.0 ){
+            if( age.m === 4 && IMC <= 16.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 16.0 ){
+            if( age.m === 5 && IMC <= 16.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 16.0 ){
+            if( age.m === 6 && IMC <= 16.0 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 16.1 ){
+            if( age.m === 7 && IMC <= 16.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 16.1 ){
+            if( age.m === 8 && IMC <= 16.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 16.1 ){
+            if( age.m === 9 && IMC <= 16.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 16.1 ){
+            if( age.m === 10 && IMC <= 16.1 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 16.2 ){
+            if( age.m === 11 && IMC <= 16.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -22526,51 +22532,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 15.9 && weight <= 17.8 ){
+            if( age.m === 0 && IMC > 15.9 && IMC <= 17.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 15.9 && weight <= 17.8 ){
+            if( age.m === 1 && IMC > 15.9 && IMC <= 17.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 15.9 && weight <= 17.8 ){
+            if( age.m === 2 && IMC > 15.9 && IMC <= 17.8 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 16.0 && weight <= 17.9 ){
+            if( age.m === 3 && IMC > 16.0 && IMC <= 17.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.0 && weight <= 17.9 ){
+            if( age.m === 4 && IMC > 16.0 && IMC <= 17.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.0 && weight <= 17.9 ){
+            if( age.m === 5 && IMC > 16.0 && IMC <= 17.9 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.0 && weight <= 18.0 ){
+            if( age.m === 6 && IMC > 16.0 && IMC <= 18.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 16.1 && weight <= 18.0 ){
+            if( age.m === 7 && IMC > 16.1 && IMC <= 18.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 16.1 && weight <= 18.0 ){
+            if( age.m === 8 && IMC > 16.1 && IMC <= 18.0 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 16.1 && weight <= 18.1 ){
+            if( age.m === 9 && IMC > 16.1 && IMC <= 18.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 16.1 && weight <= 18.1 ){
+            if( age.m === 10 && IMC > 16.1 && IMC <= 18.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 16.2 && weight <= 18.1 ){
+            if( age.m === 11 && IMC > 16.2 && IMC <= 18.1 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -22579,51 +22585,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 17.8 && weight < 23.5 ){
+            if( age.m === 0 && IMC > 17.8 && IMC < 23.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 17.8 && weight < 23.6 ){
+            if( age.m === 1 && IMC > 17.8 && IMC < 23.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 17.8 && weight < 23.6 ){
+            if( age.m === 2 && IMC > 17.8 && IMC < 23.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 17.9 && weight < 23.7 ){
+            if( age.m === 3 && IMC > 17.9 && IMC < 23.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 17.9 && weight < 23.7 ){
+            if( age.m === 4 && IMC > 17.9 && IMC < 23.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 17.9 && weight < 23.8 ){
+            if( age.m === 5 && IMC > 17.9 && IMC < 23.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 18.0 && weight < 23.8 ){
+            if( age.m === 6 && IMC > 18.0 && IMC < 23.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 18.0 && weight < 23.9 ){
+            if( age.m === 7 && IMC > 18.0 && IMC < 23.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 18.0 && weight < 23.9 ){
+            if( age.m === 8 && IMC > 18.0 && IMC < 23.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 18.1 && weight < 24.0 ){
+            if( age.m === 9 && IMC > 18.1 && IMC < 24.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 18.1 && weight < 24.0 ){
+            if( age.m === 10 && IMC > 18.1 && IMC < 24.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 18.1 && weight < 24.1 ){
+            if( age.m === 11 && IMC > 18.1 && IMC < 24.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -22632,51 +22638,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 23.5 && weight < 28.2 ){
+            if( age.m === 0 && IMC >= 23.5 && IMC < 28.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 23.6 && weight < 28.3 ){
+            if( age.m === 1 && IMC >= 23.6 && IMC < 28.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 23.6 && weight < 28.4 ){
+            if( age.m === 2 && IMC >= 23.6 && IMC < 28.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 23.7 && weight < 28.4 ){
+            if( age.m === 3 && IMC >= 23.7 && IMC < 28.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 23.7 && weight < 28.5 ){
+            if( age.m === 4 && IMC >= 23.7 && IMC < 28.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 23.8 && weight < 28.5 ){
+            if( age.m === 5 && IMC >= 23.8 && IMC < 28.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 23.8 && weight < 28.6 ){
+            if( age.m === 6 && IMC >= 23.8 && IMC < 28.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 23.9 && weight < 28.6 ){
+            if( age.m === 7 && IMC >= 23.9 && IMC < 28.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 23.9 && weight < 28.7 ){
+            if( age.m === 8 && IMC >= 23.9 && IMC < 28.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 24.0 && weight < 28.7 ){
+            if( age.m === 9 && IMC >= 24.0 && IMC < 28.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.0 && weight < 28.8 ){
+            if( age.m === 10 && IMC >= 24.0 && IMC < 28.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 24.1 && weight < 28.8 ){
+            if( age.m === 11 && IMC >= 24.1 && IMC < 28.8 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -22685,51 +22691,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 28.2 && weight < 35.5 ){
+            if( age.m === 0 && IMC >= 28.2 && IMC < 35.5 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 28.3 && weight < 35.6 ){
+            if( age.m === 1 && IMC >= 28.3 && IMC < 35.6 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 28.4 && weight < 35.7 ){
+            if( age.m === 2 && IMC >= 28.4 && IMC < 35.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 28.4 && weight < 35.7 ){
+            if( age.m === 3 && IMC >= 28.4 && IMC < 35.7 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 28.5 && weight < 35.8 ){
+            if( age.m === 4 && IMC >= 28.5 && IMC < 35.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 28.5 && weight < 35.8 ){
+            if( age.m === 5 && IMC >= 28.5 && IMC < 35.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 28.6 && weight < 35.8 ){
+            if( age.m === 6 && IMC >= 28.6 && IMC < 35.8 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 28.6 && weight < 35.9 ){
+            if( age.m === 7 && IMC >= 28.6 && IMC < 35.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 28.7 && weight < 35.9 ){
+            if( age.m === 8 && IMC >= 28.7 && IMC < 35.9 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 28.7 && weight < 36.0 ){
+            if( age.m === 9 && IMC >= 28.7 && IMC < 36.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 28.8 && weight < 36.0 ){
+            if( age.m === 10 && IMC >= 28.8 && IMC < 36.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 28.8 && weight < 36.0 ){
+            if( age.m === 11 && IMC >= 28.8 && IMC < 36.0 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -22738,51 +22744,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 35.5 ){
+            if( age.m === 0 && IMC >= 35.5 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 35.6 ){
+            if( age.m === 1 && IMC >= 35.6 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 35.7 ){
+            if( age.m === 2 && IMC >= 35.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 35.7 ){
+            if( age.m === 3 && IMC >= 35.7 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 35.8 ){
+            if( age.m === 4 && IMC >= 35.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 35.8 ){
+            if( age.m === 5 && IMC >= 35.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 35.8 ){
+            if( age.m === 6 && IMC >= 35.8 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 35.9 ){
+            if( age.m === 7 && IMC >= 35.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 35.9 ){
+            if( age.m === 8 && IMC >= 35.9 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 36.0 ){
+            if( age.m === 9 && IMC >= 36.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 36.0 ){
+            if( age.m === 10 && IMC >= 36.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 36.0 ){
+            if( age.m === 11 && IMC >= 36.0 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -22793,51 +22799,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 16.2 ){
+            if( age.m === 0 && IMC <= 16.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 16.2 ){
+            if( age.m === 1 && IMC <= 16.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 16.2 ){
+            if( age.m === 2 && IMC <= 16.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 16.2 ){
+            if( age.m === 3 && IMC <= 16.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 16.2 ){
+            if( age.m === 4 && IMC <= 16.2 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 16.3 ){
+            if( age.m === 5 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 16.3 ){
+            if( age.m === 6 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 16.3 ){
+            if( age.m === 7 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 16.3 ){
+            if( age.m === 8 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 16.3 ){
+            if( age.m === 9 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 16.3 ){
+            if( age.m === 10 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 16.3 ){
+            if( age.m === 11 && IMC <= 16.3 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -22846,51 +22852,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 16.2 && weight <= 18.2 ){
+            if( age.m === 0 && IMC > 16.2 && IMC <= 18.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 16.2 && weight <= 18.2 ){
+            if( age.m === 1 && IMC > 16.2 && IMC <= 18.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 16.2 && weight <= 18.2 ){
+            if( age.m === 2 && IMC > 16.2 && IMC <= 18.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 16.2 && weight <= 18.2 ){
+            if( age.m === 3 && IMC > 16.2 && IMC <= 18.2 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.2 && weight <= 18.3 ){
+            if( age.m === 4 && IMC > 16.2 && IMC <= 18.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.3 && weight <= 18.3 ){
+            if( age.m === 5 && IMC > 16.3 && IMC <= 18.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.3 && weight <= 18.3 ){
+            if( age.m === 6 && IMC > 16.3 && IMC <= 18.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 16.3 && weight <= 18.3 ){
+            if( age.m === 7 && IMC > 16.3 && IMC <= 18.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 16.3 && weight <= 18.3 ){
+            if( age.m === 8 && IMC > 16.3 && IMC <= 18.3 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 16.3 && weight <= 18.4 ){
+            if( age.m === 9 && IMC > 16.3 && IMC <= 18.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 16.3 && weight <= 18.4 ){
+            if( age.m === 10 && IMC > 16.3 && IMC <= 18.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 16.3 && weight <= 18.4 ){
+            if( age.m === 11 && IMC > 16.3 && IMC <= 18.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -22899,51 +22905,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 18.2 && weight < 24.1 ){
+            if( age.m === 0 && IMC > 18.2 && IMC < 24.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 18.2 && weight < 24.1 ){
+            if( age.m === 1 && IMC > 18.2 && IMC < 24.1 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 18.2 && weight < 24.2 ){
+            if( age.m === 2 && IMC > 18.2 && IMC < 24.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 18.2 && weight < 24.2 ){
+            if( age.m === 3 && IMC > 18.2 && IMC < 24.2 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 18.3 && weight < 24.3 ){
+            if( age.m === 4 && IMC > 18.3 && IMC < 24.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 18.3 && weight < 24.3 ){
+            if( age.m === 5 && IMC > 18.3 && IMC < 24.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 18.3 && weight < 24.3 ){
+            if( age.m === 6 && IMC > 18.3 && IMC < 24.3 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 18.3 && weight < 24.4 ){
+            if( age.m === 7 && IMC > 18.3 && IMC < 24.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 18.3 && weight < 24.4 ){
+            if( age.m === 8 && IMC > 18.3 && IMC < 24.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 18.4 && weight < 24.4 ){
+            if( age.m === 9 && IMC > 18.4 && IMC < 24.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 18.4 && weight < 24.4 ){
+            if( age.m === 10 && IMC > 18.4 && IMC < 24.4 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 18.4 && weight < 24.5 ){
+            if( age.m === 11 && IMC > 18.4 && IMC < 24.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -22952,51 +22958,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 24.1 && weight < 28.9 ){
+            if( age.m === 0 && IMC >= 24.1 && IMC < 28.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 24.1 && weight < 28.9 ){
+            if( age.m === 1 && IMC >= 24.1 && IMC < 28.9 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 24.2 && weight < 29.0 ){
+            if( age.m === 2 && IMC >= 24.2 && IMC < 29.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 24.2 && weight < 29.0 ){
+            if( age.m === 3 && IMC >= 24.2 && IMC < 29.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 24.3 && weight < 29.0 ){
+            if( age.m === 4 && IMC >= 24.3 && IMC < 29.0 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 24.3 && weight < 29.1 ){
+            if( age.m === 5 && IMC >= 24.3 && IMC < 29.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 24.3 && weight < 29.1 ){
+            if( age.m === 6 && IMC >= 24.3 && IMC < 29.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 24.4 && weight < 29.1 ){
+            if( age.m === 7 && IMC >= 24.4 && IMC < 29.1 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 24.4 && weight < 29.2 ){
+            if( age.m === 8 && IMC >= 24.4 && IMC < 29.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 24.4 && weight < 29.2 ){
+            if( age.m === 9 && IMC >= 24.4 && IMC < 29.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.4 && weight < 29.2 ){
+            if( age.m === 10 && IMC >= 24.4 && IMC < 29.2 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 24.5 && weight < 29.3 ){
+            if( age.m === 11 && IMC >= 24.5 && IMC < 29.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -23005,51 +23011,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 28.9 && weight < 36.1 ){
+            if( age.m === 0 && IMC >= 28.9 && IMC < 36.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 28.9 && weight < 36.1 ){
+            if( age.m === 1 && IMC >= 28.9 && IMC < 36.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 29.0 && weight < 36.1 ){
+            if( age.m === 2 && IMC >= 29.0 && IMC < 36.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 29.0 && weight < 36.1 ){
+            if( age.m === 3 && IMC >= 29.0 && IMC < 36.1 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 29.0 && weight < 36.2 ){
+            if( age.m === 4 && IMC >= 29.0 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 29.1 && weight < 36.2 ){
+            if( age.m === 5 && IMC >= 29.1 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 29.1 && weight < 36.2 ){
+            if( age.m === 6 && IMC >= 29.1 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 29.1 && weight < 36.2 ){
+            if( age.m === 7 && IMC >= 29.1 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 29.2 && weight < 36.2 ){
+            if( age.m === 8 && IMC >= 29.2 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 29.2 && weight < 36.3 ){
+            if( age.m === 9 && IMC >= 29.2 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 29.2 && weight < 36.3 ){
+            if( age.m === 10 && IMC >= 29.2 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 29.3 && weight < 36.3 ){
+            if( age.m === 11 && IMC >= 29.3 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -23058,51 +23064,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 36.1 ){
+            if( age.m === 0 && IMC >= 36.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 36.1 ){
+            if( age.m === 1 && IMC >= 36.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 36.1 ){
+            if( age.m === 2 && IMC >= 36.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 36.1 ){
+            if( age.m === 3 && IMC >= 36.1 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 36.2 ){
+            if( age.m === 4 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 36.2 ){
+            if( age.m === 5 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 36.2 ){
+            if( age.m === 6 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 36.2 ){
+            if( age.m === 7 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 36.2 ){
+            if( age.m === 8 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 36.3 ){
+            if( age.m === 9 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 36.3 ){
+            if( age.m === 10 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 36.3 ){
+            if( age.m === 11 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -23113,51 +23119,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 16.4 ){
+            if( age.m === 0 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 16.4 ){
+            if( age.m === 1 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 16.4 ){
+            if( age.m === 2 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 16.4 ){
+            if( age.m === 3 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 16.4 ){
+            if( age.m === 4 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 16.4 ){
+            if( age.m === 5 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 16.4 ){
+            if( age.m === 6 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 16.4 ){
+            if( age.m === 7 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 16.4 ){
+            if( age.m === 8 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 16.4 ){
+            if( age.m === 9 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 16.4 ){
+            if( age.m === 10 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 16.4 ){
+            if( age.m === 11 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -23166,51 +23172,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 16.4 && weight <= 18.4 ){
+            if( age.m === 0 && IMC > 16.4 && IMC <= 18.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 16.4 && weight <= 18.4 ){
+            if( age.m === 1 && IMC > 16.4 && IMC <= 18.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 16.4 && weight <= 18.4 ){
+            if( age.m === 2 && IMC > 16.4 && IMC <= 18.4 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 16.4 && weight <= 18.5 ){
+            if( age.m === 3 && IMC > 16.4 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.4 && weight <= 18.5 ){
+            if( age.m === 4 && IMC > 16.4 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.4 && weight <= 18.5 ){
+            if( age.m === 5 && IMC > 16.4 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.4 && weight <= 18.5 ){
+            if( age.m === 6 && IMC > 16.4 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 16.4 && weight <= 18.5 ){
+            if( age.m === 7 && IMC > 16.4 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 16.4 && weight <= 18.5 ){
+            if( age.m === 8 && IMC > 16.4 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 16.4 && weight <= 18.5 ){
+            if( age.m === 9 && IMC > 16.4 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 16.4 && weight <= 18.5 ){
+            if( age.m === 10 && IMC > 16.4 && IMC <= 18.5 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 16.4 && weight <= 18.6 ){
+            if( age.m === 11 && IMC > 16.4 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -23219,51 +23225,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 18.4 && weight < 24.5 ){
+            if( age.m === 0 && IMC > 18.4 && IMC < 24.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 18.4 && weight < 24.5 ){
+            if( age.m === 1 && IMC > 18.4 && IMC < 24.5 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 18.4 && weight < 24.6 ){
+            if( age.m === 2 && IMC > 18.4 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 18.5 && weight < 24.6 ){
+            if( age.m === 3 && IMC > 18.5 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 18.5 && weight < 24.6 ){
+            if( age.m === 4 && IMC > 18.5 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 18.5 && weight < 24.6 ){
+            if( age.m === 5 && IMC > 18.5 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 18.5 && weight < 24.6 ){
+            if( age.m === 6 && IMC > 18.5 && IMC < 24.6 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 18.5 && weight < 24.7 ){
+            if( age.m === 7 && IMC > 18.5 && IMC < 24.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 18.5 && weight < 24.7 ){
+            if( age.m === 8 && IMC > 18.5 && IMC < 24.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 18.5 && weight < 24.7 ){
+            if( age.m === 9 && IMC > 18.5 && IMC < 24.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 18.5 && weight < 24.7 ){
+            if( age.m === 10 && IMC > 18.5 && IMC < 24.7 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 18.6 && weight < 24.8 ){
+            if( age.m === 11 && IMC > 18.6 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -23272,51 +23278,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 24.5 && weight < 29.3 ){
+            if( age.m === 0 && IMC >= 24.5 && IMC < 29.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 24.5 && weight < 29.3 ){
+            if( age.m === 1 && IMC >= 24.5 && IMC < 29.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 24.6 && weight < 29.3 ){
+            if( age.m === 2 && IMC >= 24.6 && IMC < 29.3 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 24.6 && weight < 29.4 ){
+            if( age.m === 3 && IMC >= 24.6 && IMC < 29.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 24.6 && weight < 29.4 ){
+            if( age.m === 4 && IMC >= 24.6 && IMC < 29.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 24.6 && weight < 29.4 ){
+            if( age.m === 5 && IMC >= 24.6 && IMC < 29.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 24.6 && weight < 29.4 ){
+            if( age.m === 6 && IMC >= 24.6 && IMC < 29.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 24.7 && weight < 29.4 ){
+            if( age.m === 7 && IMC >= 24.7 && IMC < 29.4 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 24.7 && weight < 29.5 ){
+            if( age.m === 8 && IMC >= 24.7 && IMC < 29.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 24.7 && weight < 29.5 ){
+            if( age.m === 9 && IMC >= 24.7 && IMC < 29.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.7 && weight < 29.5 ){
+            if( age.m === 10 && IMC >= 24.7 && IMC < 29.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 24.8 && weight < 29.5 ){
+            if( age.m === 11 && IMC >= 24.8 && IMC < 29.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -23325,51 +23331,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 29.3 && weight < 36.3 ){
+            if( age.m === 0 && IMC >= 29.3 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 29.3 && weight < 36.3 ){
+            if( age.m === 1 && IMC >= 29.3 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 29.3 && weight < 36.3 ){
+            if( age.m === 2 && IMC >= 29.3 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 29.4 && weight < 36.3 ){
+            if( age.m === 3 && IMC >= 29.4 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 29.4 && weight < 36.3 ){
+            if( age.m === 4 && IMC >= 29.4 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 29.4 && weight < 36.3 ){
+            if( age.m === 5 && IMC >= 29.4 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 29.4 && weight < 36.3 ){
+            if( age.m === 6 && IMC >= 29.4 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 29.4 && weight < 36.3 ){
+            if( age.m === 7 && IMC >= 29.4 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 29.5 && weight < 36.3 ){
+            if( age.m === 8 && IMC >= 29.5 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 29.5 && weight < 36.3 ){
+            if( age.m === 9 && IMC >= 29.5 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 29.5 && weight < 36.3 ){
+            if( age.m === 10 && IMC >= 29.5 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 29.5 && weight < 36.3 ){
+            if( age.m === 11 && IMC >= 29.5 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -23378,51 +23384,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 36.3 ){
+            if( age.m === 0 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 36.3 ){
+            if( age.m === 1 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 36.3 ){
+            if( age.m === 2 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 36.3 ){
+            if( age.m === 3 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 36.3 ){
+            if( age.m === 4 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 36.3 ){
+            if( age.m === 5 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 36.3 ){
+            if( age.m === 6 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 36.3 ){
+            if( age.m === 7 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 36.3 ){
+            if( age.m === 8 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 36.3 ){
+            if( age.m === 9 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 36.3 ){
+            if( age.m === 10 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 36.3 ){
+            if( age.m === 11 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -23433,51 +23439,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 16.4 ){
+            if( age.m === 0 && IMC <= 16.4 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 1 && weight <= 16.5 ){
+            if( age.m === 1 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 2 && weight <= 16.5 ){
+            if( age.m === 2 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 3 && weight <= 16.5 ){
+            if( age.m === 3 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 4 && weight <= 16.5 ){
+            if( age.m === 4 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 5 && weight <= 16.5 ){
+            if( age.m === 5 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 6 && weight <= 16.5 ){
+            if( age.m === 6 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 7 && weight <= 16.5 ){
+            if( age.m === 7 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 8 && weight <= 16.5 ){
+            if( age.m === 8 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 9 && weight <= 16.5 ){
+            if( age.m === 9 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 10 && weight <= 16.5 ){
+            if( age.m === 10 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
-            if( age.m === 11 && weight <= 16.5 ){
+            if( age.m === 11 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -23486,51 +23492,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 16.4 && weight <= 18.6 ){
+            if( age.m === 0 && IMC > 16.4 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 16.5 && weight <= 18.6 ){
+            if( age.m === 1 && IMC > 16.5 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 16.5 && weight <= 18.6 ){
+            if( age.m === 2 && IMC > 16.5 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 16.5 && weight <= 18.6 ){
+            if( age.m === 3 && IMC > 16.5 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 16.5 && weight <= 18.6 ){
+            if( age.m === 4 && IMC > 16.5 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 16.5 && weight <= 18.6 ){
+            if( age.m === 5 && IMC > 16.5 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 16.5 && weight <= 18.6 ){
+            if( age.m === 6 && IMC > 16.5 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 16.5 && weight <= 18.6 ){
+            if( age.m === 7 && IMC > 16.5 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 16.5 && weight <= 18.6 ){
+            if( age.m === 8 && IMC > 16.5 && IMC <= 18.6 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 16.5 && weight <= 18.7 ){
+            if( age.m === 9 && IMC > 16.5 && IMC <= 18.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 16.5 && weight <= 18.7 ){
+            if( age.m === 10 && IMC > 16.5 && IMC <= 18.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 16.5 && weight <= 18.7 ){
+            if( age.m === 11 && IMC > 16.5 && IMC <= 18.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -23539,51 +23545,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 18.6 && weight < 24.8 ){
+            if( age.m === 0 && IMC > 18.6 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 1 && weight > 18.6 && weight < 24.8 ){
+            if( age.m === 1 && IMC > 18.6 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 2 && weight > 18.6 && weight < 24.8 ){
+            if( age.m === 2 && IMC > 18.6 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 3 && weight > 18.6 && weight < 24.8 ){
+            if( age.m === 3 && IMC > 18.6 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 4 && weight > 18.6 && weight < 24.8 ){
+            if( age.m === 4 && IMC > 18.6 && IMC < 24.8 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 5 && weight > 18.6 && weight < 24.9 ){
+            if( age.m === 5 && IMC > 18.6 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 6 && weight > 18.6 && weight < 24.9 ){
+            if( age.m === 6 && IMC > 18.6 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 7 && weight > 18.6 && weight < 24.9 ){
+            if( age.m === 7 && IMC > 18.6 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 8 && weight > 18.6 && weight < 24.9 ){
+            if( age.m === 8 && IMC > 18.6 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 9 && weight > 18.7 && weight < 24.9 ){
+            if( age.m === 9 && IMC > 18.7 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 10 && weight > 18.7 && weight < 24.9 ){
+            if( age.m === 10 && IMC > 18.7 && IMC < 24.9 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
-            if( age.m === 11 && weight > 18.7 && weight < 25.0 ){
+            if( age.m === 11 && IMC > 18.7 && IMC < 25.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -23592,51 +23598,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 24.8 && weight < 29.5 ){
+            if( age.m === 0 && IMC >= 24.8 && IMC < 29.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 24.8 && weight < 29.5 ){
+            if( age.m === 1 && IMC >= 24.8 && IMC < 29.5 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 24.8 && weight < 29.6 ){
+            if( age.m === 2 && IMC >= 24.8 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 24.8 && weight < 29.6 ){
+            if( age.m === 3 && IMC >= 24.8 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 24.8 && weight < 29.6 ){
+            if( age.m === 4 && IMC >= 24.8 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 24.9 && weight < 29.6 ){
+            if( age.m === 5 && IMC >= 24.9 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 24.9 && weight < 29.6 ){
+            if( age.m === 6 && IMC >= 24.9 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 24.9 && weight < 29.6 ){
+            if( age.m === 7 && IMC >= 24.9 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 24.9 && weight < 29.6 ){
+            if( age.m === 8 && IMC >= 24.9 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 24.9 && weight < 29.6 ){
+            if( age.m === 9 && IMC >= 24.9 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 24.9 && weight < 29.6 ){
+            if( age.m === 10 && IMC >= 24.9 && IMC < 29.6 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 25.0 && weight < 29.7 ){
+            if( age.m === 11 && IMC >= 25.0 && IMC < 29.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -23645,51 +23651,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 29.5 && weight < 36.3 ){
+            if( age.m === 0 && IMC >= 29.5 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 29.5 && weight < 36.3 ){
+            if( age.m === 1 && IMC >= 29.5 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 29.6 && weight < 36.3 ){
+            if( age.m === 2 && IMC >= 29.6 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 29.6 && weight < 36.3 ){
+            if( age.m === 3 && IMC >= 29.6 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 29.6 && weight < 36.3 ){
+            if( age.m === 4 && IMC >= 29.6 && IMC < 36.3 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 29.6 && weight < 36.2 ){
+            if( age.m === 5 && IMC >= 29.6 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 29.6 && weight < 36.2 ){
+            if( age.m === 6 && IMC >= 29.6 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 29.6 && weight < 36.2 ){
+            if( age.m === 7 && IMC >= 29.6 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 29.6 && weight < 36.2 ){
+            if( age.m === 8 && IMC >= 29.6 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 29.6 && weight < 36.2 ){
+            if( age.m === 9 && IMC >= 29.6 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 29.6 && weight < 36.2 ){
+            if( age.m === 10 && IMC >= 29.6 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 29.7 && weight < 36.2 ){
+            if( age.m === 11 && IMC >= 29.7 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -23698,51 +23704,51 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 36.3 ){
+            if( age.m === 0 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 1 && weight >= 36.3 ){
+            if( age.m === 1 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 2 && weight >= 36.3 ){
+            if( age.m === 2 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 3 && weight >= 36.3 ){
+            if( age.m === 3 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 4 && weight >= 36.3 ){
+            if( age.m === 4 && IMC >= 36.3 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 5 && weight >= 36.2 ){
+            if( age.m === 5 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 6 && weight >= 36.2 ){
+            if( age.m === 6 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 7 && weight >= 36.2 ){
+            if( age.m === 7 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 8 && weight >= 36.2 ){
+            if( age.m === 8 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 9 && weight >= 36.2 ){
+            if( age.m === 9 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 10 && weight >= 36.2 ){
+            if( age.m === 10 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
-            if( age.m === 11 && weight >= 36.2 ){
+            if( age.m === 11 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -23753,7 +23759,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 16.5 ){
+            if( age.m === 0 && IMC <= 16.5 ){
                 result.msg = 'Desnutrición';
                 result.ok = true;
             }
@@ -23762,7 +23768,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 16.5 && weight <= 18.7 ){
+            if( age.m === 0 && IMC > 16.5 && IMC <= 18.7 ){
                 result.msg = 'Riesgo de Desnutrir';
                 result.ok = true;
             }
@@ -23771,7 +23777,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 18.7 && weight < 25.0 ){
+            if( age.m === 0 && IMC > 18.7 && IMC < 25.0 ){
                 result.msg = 'Normal o Eutrófico';
                 result.ok = true;
             }
@@ -23780,7 +23786,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 25.0 && weight < 29.7 ){
+            if( age.m === 0 && IMC >= 25.0 && IMC < 29.7 ){
                 result.msg = 'Sobrepeso';
                 result.ok = true;
             }
@@ -23789,7 +23795,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 29.7 && weight < 36.2 ){
+            if( age.m === 0 && IMC >= 29.7 && IMC < 36.2 ){
                 result.msg = 'Obesidad';
                 result.ok = true;
             }
@@ -23798,7 +23804,7 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     
             // *** Obesidad Severa ***
     
-            if( age.m === 0 && weight >= 36.2 ){
+            if( age.m === 0 && IMC >= 36.2 ){
                 result.msg = 'Obesidad Severa';
                 result.ok = true;
             }
@@ -23807,9 +23813,6 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
         }
 
     }
-
-
-
     
     if( gender === 'Femenino' ){
         console.log( 'edad: ', age, 'estatura: ', stature, 'peso: ', weight )
@@ -23922,6 +23925,130 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
             console.log('tengo más de 5 años y menos de 19 años', age)
 
             girlsIMCEfrom5to19();
+
+            console.log(result.ok)
+            
+            if( result.ok === true ){
+                console.log(result)
+                return result;
+            }else{
+                result.msg = 'Error'
+                console.log(result)
+                return result;
+            }
+        }
+    }
+    if( gender === 'Masculino'){
+        console.log( 'edad: ', age, 'estatura: ', stature, 'peso: ', weight )
+        console.log(result.ok)
+
+        if ( age.y < 1 ){
+            result.ageMsg = 'tengo menos de 1 año'
+            
+            // *** P/T para evaluar que no sea mayor a +1DE ***
+            
+            boysPTfrom0to1();
+
+            console.log(result.ok)
+        
+            if( result.ok === true ){
+                console.log(result)
+                return result;
+            }
+            
+            // *** P/E luego de confirmar que no hay P/T mayor a +1DE
+
+            boysPEfrom0to5();
+
+            console.log(result.ok)
+            
+            if( result.ok === true ){
+                console.log(result)
+                return result;
+            }else{
+                result.msg = 'Error'
+                console.log(result)
+                return result;
+            }
+            
+    
+            // *** Edad === 1 año y más ***
+    
+        }
+        if ( age.y >= 1 && age.y <= 5 ){
+            if( age.y < 5 ){
+
+                console.log('tengo igual o más de 1 año y menos de 5 años')
+
+                if( age.y < 2 ){
+
+                    boysPTfrom0to2();
+
+                    console.log(result.ok)
+                    
+                    if( result.ok === true ){
+                        console.log(result)
+                        return result;
+                    }else{
+                        result.msg = 'Error'
+                        console.log(result)
+                        return result;
+                    }
+                }else{
+
+                    boysPTfrom2to5();
+
+                    console.log(result.ok)
+                    
+                    if( result.ok === true ){
+                        console.log(result)
+                        return result;
+                    }else{
+                        result.msg = 'Error'
+                        console.log(result)
+                        return result;
+                    }
+                }
+                
+            }
+            if( age.y === 5 && age.m === 0 ){
+                console.log('tengo entre 5 años y 5 años 29 dias', age)
+
+                boysPTfrom2to5();
+
+                console.log(result.ok)
+                
+                if( result.ok === true ){
+                    console.log(result)
+                    return result;
+                }else{
+                    result.msg = 'Error'
+                    console.log(result)
+                    return result;
+                }
+
+            }
+            if( age.y === 5 && age.m >= 1){
+                console.log('tengo más de 5 años 1 mes', age)
+
+                boysIMCEfrom5to19();
+
+                console.log(result.ok)
+                
+                if( result.ok === true ){
+                    console.log(result)
+                    return result;
+                }else{
+                    result.msg = 'Error'
+                    console.log(result)
+                    return result;
+                }
+            }
+        }
+        if ( age.y > 5 && age.y < 19 ){
+            console.log('tengo más de 5 años y menos de 19 años', age)
+
+            boysIMCEfrom5to19();
 
             console.log(result.ok)
             
