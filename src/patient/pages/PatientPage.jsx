@@ -715,7 +715,11 @@ export const PatientPage = () => {
                         <div className="calification-wrapper">
                             <div className="calification-indicator-container">
                                 <p className="calification-title">Calificación nutricional: </p>
-                                <span className="calification-indicator-chart"><p>{ nutritionalCalification.msg }</p></span>
+                                <span className="calification-indicator-chart"><p>{ nutritionalCalification.weightCalificationResult }</p></span>
+                            </div>
+                            <div className="calification-indicator-container">
+                                <p className="calification-title">Calificación estatural: </p>
+                                <span className="calification-indicator-chart"><p>{ nutritionalCalification.statureCalificationResult }</p></span>
                             </div>
 
                         </div>
