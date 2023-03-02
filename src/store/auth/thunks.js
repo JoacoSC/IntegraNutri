@@ -106,6 +106,11 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
                 B: null,
                 C: null
             }],
+            imc: [{
+                A: null,
+                B: null,
+                C: null
+            }],
         }
 
         console.log(newUser)

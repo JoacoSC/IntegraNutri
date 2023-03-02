@@ -21,6 +21,7 @@ export const currentPatientSlice = createSlice({
         indications: null,
         weight: null,
         stature: null,
+        imc: null,
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -42,6 +43,7 @@ export const currentPatientSlice = createSlice({
             state.indications = payload.indications;
             state.weight = payload.weight;
             state.stature = payload.stature;
+            state.imc = payload.imc;
         },
 
         updateCurrentPatientAnamnesis: (state,{ payload }) => {
@@ -61,13 +63,15 @@ export const currentPatientSlice = createSlice({
         },
 
         updateCurrentPatientWeight: (state,{ payload }) => {
-            console.log( payload )
             state.weight = payload;
         },
 
         updateCurrentPatientStature: (state,{ payload }) => {
-            console.log( payload )
             state.stature = payload;
+        },
+
+        updateCurrentPatientIMC: (state,{ payload }) => {
+            state.imc = payload;
         },
 
         clearCurrentPatient: ( state ) => {
@@ -89,6 +93,7 @@ export const currentPatientSlice = createSlice({
             state.indications = null;
             state.weight = null;
             state.stature = null;
+            state.imc = null;
         },
     }
 });
@@ -104,5 +109,6 @@ export const {
     clearCurrentPatient,
     updateCurrentPatientWeight,
     updateCurrentPatientStature,
+    updateCurrentPatientIMC,
 
 } = currentPatientSlice.actions;

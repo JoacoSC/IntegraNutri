@@ -104,3 +104,16 @@ export const startUpdatingCurrentPatientStature = ( uid, patientID, newStature )
         await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
     }
 }
+export const startUpdatingCurrentPatientIMC = ( uid, patientID, newIMC ) => {
+    return async( dispatch ) => {
+
+        console.log(newIMC)
+
+        const newPatientInfoToFirestore = {
+            imc: newIMC
+        }
+
+        const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+        await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+    }
+}

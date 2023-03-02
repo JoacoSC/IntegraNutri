@@ -4,10 +4,10 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
-import { startUpdatingCurrentPatientStature, startUpdatingCurrentPatientWeight, updateCurrentPatientStature, updateCurrentPatientWeight } from '../store/currentPatient';
+import { startUpdatingCurrentPatientIMC ,startUpdatingCurrentPatientStature, startUpdatingCurrentPatientWeight, updateCurrentPatientIMC, updateCurrentPatientStature, updateCurrentPatientWeight } from '../store/currentPatient';
 import './components';
 
-export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses NaN días', uid, patientID, weight, stature }) => {
+export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses NaN días', uid, patientID, weight, stature, imc, lastWeight, lastStature }) => {
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -17,31 +17,36 @@ export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses
 
     const onSubmit = ( event ) => {
         event.preventDefault();
-        if(weightForm !== undefined){
-            updateWeight()
-        }
         
-
-        if(stature !== undefined){
-            updateStature()
-        }
+        updatePatientValues();
 
     }
 
+    const updatePatientValues = () => {
+        const newWeight = [ ...weight, { A: weightForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ];
+        const newStature = [ ...stature, { A: statureForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ];
+        const IMCValue = weightForm / (statureForm/100)**2
 
-    const updateWeight = () => {
-        const newWeight = [ ...weight, { A: weightForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ]
-        dispatch( updateCurrentPatientWeight( newWeight ) )
-        dispatch( startUpdatingCurrentPatientWeight( uid, patientID, newWeight ) )
+        console.log(IMCValue)
+        console.log("ASDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDASDADASDASDASDASDSADASDSDDDDDDDDD")
+
+        const newIMC = [ ...imc, { A: IMCValue, B: age, C: format( new Date(), "dd/MM/yyyy") } ]
+
+        dispatch( updateCurrentPatientWeight( newWeight ) );
+        dispatch( startUpdatingCurrentPatientWeight( uid, patientID, newWeight ) );
+
+        dispatch( updateCurrentPatientStature( newStature ) );
+        dispatch( startUpdatingCurrentPatientStature( uid, patientID, newStature ) );
+
+        dispatch( updateCurrentPatientIMC( newIMC ) );
+        dispatch( startUpdatingCurrentPatientIMC( uid, patientID, newIMC ) );
     }
 
-    const updateStature = () => {
-        console.log(stature)
-        const newStature = [ ...stature, { A: statureForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ]
-        console.log(newStature)
-        dispatch( updateCurrentPatientStature( newStature ) )
-        dispatch( startUpdatingCurrentPatientStature( uid, patientID, newStature ) )
-    }
+    // const updateStature = () => {
+    //     const newStature = [ ...stature, { A: statureForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ]
+    //     dispatch( updateCurrentPatientStature( newStature ) )
+    //     dispatch( startUpdatingCurrentPatientStature( uid, patientID, newStature ) )
+    // }
     
 
     const calculateAge = () => {
@@ -75,6 +80,7 @@ export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses
     return (
         <>
             <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
+                Actualizar valores&nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                     <path stroke="#fff" strokeWidth="2" d="m11.667 12.5-3.334 3.333 3.334 3.334"/>
                     <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M15.052 7.083A5.834 5.834 0 0 1 10 15.833"/>
@@ -108,18 +114,17 @@ export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">
-                                    {
-                                        (type === 'peso')
-                                        ?   'Nuevo peso'
-                                        :   'Nueva estatura'
-                                    }
+                                    Ingrese el peso del paciente
                                 </label>
-                                    {
-                                        (type === 'peso')
-                                        ?   <input className="input-text-style" type="text" name="weightForm" onChange={ onInputChange }/>
-                                        :   <input className="input-text-style" type="text" name="statureForm" onChange={ onInputChange }/>
-                                    }
+                                    <input className="input-text-style" type="text" name="weightForm" defaultValue={ lastWeight } onChange={ onInputChange }/>
                             </div>
+                            <div className="form-item w-50 pr-8">
+                                <label className="input-label">
+                                    Ingrese la talla del paciente
+                                </label>
+                                    <input className="input-text-style" type="text" name="statureForm" defaultValue={ lastStature } onChange={ onInputChange }/>
+                            </div>
+                                    
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Edad del paciente</label>
                                 <input className="input-text-style" type="text" name="age" defaultValue={ age } onChange={ onInputChange }/>

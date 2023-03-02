@@ -598,13 +598,20 @@ body{
     font-size: 1.6rem;
 }
 
+.update-values-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
 .weight-update-btn{
     display: flex;
     justify-content: center;
     align-items: center;
     appearance: none;
     position: relative;
-    width: 30px;
+    width: 25%;
     height: 30px;
     font-family: "Metropolis", sans-serif;
     font-weight: 500;
@@ -619,13 +626,15 @@ body{
 
 .weight-update-btn:hover{
     background: var(--clr-btn-secondary-hover);
+    transform: scale(0.98);
 }
 
 .weight-update-btn:active{
     background: var(--clr-btn-secondary-active);
+    transform: scale(0.96);
 }
 
-.weight-update-btn::before{
+/* .weight-update-btn::before{
     content: attr(data-tooltip);
     position: absolute;
     left: -1.5rem;
@@ -666,7 +675,7 @@ body{
     opacity: 1;
     scale: 1;
     top: calc(50% + 2rem);
-}
+} */
 
 /* **************** Patient weight ****************** */
 

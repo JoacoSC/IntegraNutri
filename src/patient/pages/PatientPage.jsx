@@ -47,6 +47,7 @@ export const PatientPage = () => {
       indications,
       weight,
       stature,
+      imc,
       unixBirthday,
       gender
     } = useSelector((state) => state.currentPatient);
@@ -348,12 +349,12 @@ export const PatientPage = () => {
                 }
             });
             setUserData({
-                labels: weight?.map( (data) => data.B ),
+                labels: stature?.map( (data) => data.B ),
                 datasets: [
                     
                     {
                         label: "T/E del paciente (Cm)",
-                        data: weight?.map( (data) => data.A ),
+                        data: stature?.map( (data) => data.A ),
                         borderColor: '#3d8eff',
                         backgroundColor: '#3d8eff',
                     },
@@ -375,7 +376,7 @@ export const PatientPage = () => {
                 }
             });
             setUserData({
-                labels: weight?.map( (data) => data.B ),
+                labels: stature?.map( (data) => data.A ),
                 datasets: [
                     
                     {
@@ -402,12 +403,12 @@ export const PatientPage = () => {
                 }
             });
             setUserData({
-                labels: weight?.map( (data) => data.B ),
+                labels: imc?.map( (data) => data.B ),
                 datasets: [
                     
                     {
                         label: "IMC/E del paciente (Kg/m²)",
-                        data: weight?.map( (data) => data.A ),
+                        data: imc?.map( (data) => data.A ),
                         borderColor: '#fd31e5',
                         backgroundColor: '#fd31e5',
                     },
@@ -515,7 +516,7 @@ export const PatientPage = () => {
                             : 'NaN'
                         } </p>
                         <div className="weight-kg">Kg</div>
-                        <ModalUpdatePatientValues type='peso' age={ age } uid={ uid } patientID={ patientID } weight={ weight } />
+                        
                     </div>
                     
                 </div>
@@ -543,7 +544,7 @@ export const PatientPage = () => {
                             : 'NaN'
                         } </p>
                         <div className="stature-cm">Cm</div>
-                        <ModalUpdatePatientValues type='estatura' age={ age } uid={ uid } patientID={ patientID } stature={ stature } />
+                        
                     </div>
                 </div>
                 <div className="patient-age">
@@ -569,6 +570,9 @@ export const PatientPage = () => {
                     </div>
                 </div>
                 <button type="submit" hidden></button>
+                </div>
+                <div className="update-values-btn-container">
+                    <ModalUpdatePatientValues type='peso' age={ age } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/>
                 </div>
                 <div className="accordion-container">
                 <div className="left-container">
