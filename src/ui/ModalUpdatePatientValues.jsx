@@ -27,9 +27,6 @@ export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses
         const newStature = [ ...stature, { A: statureForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ];
         const IMCValue = weightForm / (statureForm/100)**2
 
-        console.log(IMCValue)
-        console.log("ASDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDASDADASDASDASDASDSADASDSDDDDDDDDD")
-
         const newIMC = [ ...imc, { A: IMCValue, B: age, C: format( new Date(), "dd/MM/yyyy") } ]
 
         dispatch( updateCurrentPatientWeight( newWeight ) );

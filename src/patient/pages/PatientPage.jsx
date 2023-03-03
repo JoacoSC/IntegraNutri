@@ -199,11 +199,33 @@ export const PatientPage = () => {
         let d = d2 - d1;
         let m = m2 - m1;
         let y = y2 - y1;
+
         if( y === 0 ){
+
+            if( d <= 15 ){
+                if( m === 1 ){
+                    return m + " mes"
+                }else{
+                    return m + " meses"
+                }
+            }else{
+                m2 = m + 1;
+                if( m2 === 1 ){
+                    return m2 + " mes"
+                }else{
+                    return m2 + " meses"
+                }
+            }
             
-            return m + " meses " + d + " días";
-        }else{
-            return y + " años " + m + " meses " + d + " días";
+        }
+        if( y > 0 ){
+
+            if( d <= 15 ){
+                return y + " años " + m + " meses";
+            }else{
+                m2 = m + 1;
+                return y + " años " + m2 + " meses";
+            }
         }
     }
 
