@@ -22,6 +22,11 @@ export const currentPatientSlice = createSlice({
         weight: null,
         stature: null,
         imc: null,
+        age: {
+            d: 0,
+            m: 0,
+            y: 0,
+          },
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -74,6 +79,10 @@ export const currentPatientSlice = createSlice({
             state.imc = payload;
         },
 
+        updateCurrentPatientAge: (state,{ payload }) => {
+            state.age = payload;
+        },
+
         clearCurrentPatient: ( state ) => {
             state.id = null;
             state.address = null;
@@ -94,6 +103,11 @@ export const currentPatientSlice = createSlice({
             state.weight = null;
             state.stature = null;
             state.imc = null;
+            state.age = {
+                d: 0,
+                m: 0,
+                y: 0,
+              };
         },
     }
 });
@@ -110,5 +124,6 @@ export const {
     updateCurrentPatientWeight,
     updateCurrentPatientStature,
     updateCurrentPatientIMC,
+    updateCurrentPatientAge,
 
 } = currentPatientSlice.actions;

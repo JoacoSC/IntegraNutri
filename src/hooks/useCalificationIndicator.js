@@ -30407,8 +30407,6 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
     }
     
     if( gender === 'Femenino' ){
-        console.log( 'edad: ', age, 'estatura: ', stature, 'peso: ', weight )
-        console.log(result.ok.weightCalification)
 
         if ( age.y < 1 ){
             result.ageMsg = 'tengo menos de 1 año'
@@ -30419,11 +30417,8 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
             
             girlsPTfrom0to1();
 
-            console.log(result.ok.weightCalification)
-            console.log(result.ok.statureCalification)
         
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
-                console.log(result)
                 return result;
             }
             
@@ -30431,16 +30426,12 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             girlsPEfrom0to5();
 
-            console.log(result.ok.weightCalification)
-            console.log(result.ok.statureCalification)
             
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
-                console.log(result)
                 return result;
             }else{
                 result.weightCalificationResult = 'Error'
                 result.statureCalificationResult = 'Error'
-                console.log(result)
                 return result;
             }
             
@@ -30451,7 +30442,6 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
         if ( age.y >= 1 && age.y <= 5 ){
             if( age.y < 5 ){
 
-                console.log('tengo igual o más de 1 año y menos de 5 años')
 
                 if( age.y < 2 ){
 
@@ -30459,16 +30449,12 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
                     girlsPTfrom0to2();
 
-                    console.log(result.ok.weightCalification)
-                    console.log(result.ok.statureCalification)
                     
                     if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
-                        console.log(result)
                         return result;
                     }else{
                         result.weightCalificationResult = 'Error'
                         result.statureCalificationResult = 'Error'
-                        console.log(result)
                         return result;
                     }
                 }else{
@@ -30477,87 +30463,66 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
                     girlsPTfrom2to5();
 
-                    console.log(result.ok.weightCalification)
-                    console.log(result.ok.statureCalification)
                     
                     if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
-                        console.log(result)
                         return result;
                     }else{
                         result.weightCalificationResult = 'Error'
                         result.statureCalificationResult = 'Error'
-                        console.log(result)
                         return result;
                     }
                 }
                 
             }
             if( age.y === 5 && age.m === 0 ){
-                console.log('tengo entre 5 años y 5 años 29 dias', age)
 
                 girlsTEfrom0to5();
 
                 girlsPTfrom2to5();
 
-                console.log(result.ok.weightCalification)
-                console.log(result.ok.statureCalification)
                 
                 if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
-                    console.log(result)
                     return result;
                 }else{
                     result.weightCalificationResult = 'Error'
                     result.statureCalificationResult = 'Error'
-                    console.log(result)
                     return result;
                 }
 
             }
             if( age.y === 5 && age.m >= 1){
-                console.log('tengo más de 5 años 1 mes', age)
 
                 girlsTEfrom5to19();
 
                 girlsIMCEfrom5to19();
 
-                console.log(result.ok.weightCalification)
-                console.log(result.ok.statureCalification)
                 
                 if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
-                    console.log(result)
                     return result;
                 }else{
                     result.weightCalificationResult = 'Error'
                     result.statureCalificationResult = 'Error'
-                    console.log(result)
                     return result;
                 }
             }
         }
         if ( age.y > 5 && age.y < 19 ){
-            console.log('tengo más de 5 años y menos de 19 años', age)
 
             girlsTEfrom5to19();
 
             girlsIMCEfrom5to19();
 
-            console.log(result.ok.weightCalification)
-            console.log(result.ok.statureCalification)
             
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
-                console.log(result)
                 return result;
             }else{
                 result.weightCalificationResult = 'Error'
                 result.statureCalificationResult = 'Error'
-                console.log(result)
                 return result;
             }
         }
     }
     if( gender === 'Masculino'){
-        console.log( 'edad: ', age, 'estatura: ', stature, 'peso: ', weight )
-        console.log(result.ok.weightCalification)
 
         if ( age.y < 1 ){
             result.ageMsg = 'tengo menos de 1 año'
@@ -30566,10 +30531,8 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
             
             boysPTfrom0to1();
 
-            console.log(result.ok.weightCalification)
         
             if( result.ok.weightCalification === true ){
-                console.log(result)
                 return result;
             }
             
@@ -30577,14 +30540,11 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             boysPEfrom0to5();
 
-            console.log(result.ok.weightCalification)
             
             if( result.ok.weightCalification === true ){
-                console.log(result)
                 return result;
             }else{
                 result.weightCalificationResult = 'Error'
-                console.log(result)
                 return result;
             }
             
@@ -30595,86 +30555,67 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
         if ( age.y >= 1 && age.y <= 5 ){
             if( age.y < 5 ){
 
-                console.log('tengo igual o más de 1 año y menos de 5 años')
 
                 if( age.y < 2 ){
 
                     boysPTfrom0to2();
 
-                    console.log(result.ok.weightCalification)
                     
                     if( result.ok.weightCalification === true ){
-                        console.log(result)
                         return result;
                     }else{
                         result.weightCalificationResult = 'Error'
-                        console.log(result)
                         return result;
                     }
                 }else{
 
                     boysPTfrom2to5();
 
-                    console.log(result.ok.weightCalification)
                     
                     if( result.ok.weightCalification === true ){
-                        console.log(result)
                         return result;
                     }else{
                         result.weightCalificationResult = 'Error'
-                        console.log(result)
                         return result;
                     }
                 }
                 
             }
             if( age.y === 5 && age.m === 0 ){
-                console.log('tengo entre 5 años y 5 años 29 dias', age)
 
                 boysPTfrom2to5();
 
-                console.log(result.ok.weightCalification)
                 
                 if( result.ok.weightCalification === true ){
-                    console.log(result)
                     return result;
                 }else{
                     result.weightCalificationResult = 'Error'
-                    console.log(result)
                     return result;
                 }
 
             }
             if( age.y === 5 && age.m >= 1){
-                console.log('tengo más de 5 años 1 mes', age)
 
                 boysIMCEfrom5to19();
 
-                console.log(result.ok.weightCalification)
                 
                 if( result.ok.weightCalification === true ){
-                    console.log(result)
                     return result;
                 }else{
                     result.weightCalificationResult = 'Error'
-                    console.log(result)
                     return result;
                 }
             }
         }
         if ( age.y > 5 && age.y < 19 ){
-            console.log('tengo más de 5 años y menos de 19 años', age)
 
             boysIMCEfrom5to19();
 
-            console.log(result.ok.weightCalification)
             
             if( result.ok.weightCalification === true ){
-                console.log(result)
                 return result;
             }else{
                 result.weightCalificationResult = 'Error'
-                console.log(result)
                 return result;
             }
         }

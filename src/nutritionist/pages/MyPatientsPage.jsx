@@ -25,12 +25,9 @@ export const MyPatientsPage = () => {
         dispatch( startLogout() );
 
     }
-    console.log(patients.length)
 
     const ConsultationSlot1 = getUnixTime(set( new Date(), { hours: 18, minutes: 30, seconds: 0, miliseconds: 0} ));
-    console.log(ConsultationSlot1)
     const ConsultationSlot2 = getUnixTime(set( new Date(), { hours: 19, minutes: 30, seconds: 0, miliseconds: 0} ));
-    console.log(ConsultationSlot2)
 
     return (
     

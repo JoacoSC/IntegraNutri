@@ -6,7 +6,6 @@ import { add, addDays, format, fromUnixTime, getUnixTime, set, sub } from "date-
 import queryString from "query-string";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
-import { faker } from '@faker-js/faker';
 
 
 import { useForm, useCalificationIndicator } from "../../hooks";
@@ -26,10 +25,16 @@ import {
     updateCurrentPatientPhysical_exam,
     updateCurrentPatientStature,
     updateCurrentPatientWeight,
+    updateCurrentPatientAge
 } from "../../store/currentPatient";
 
 import { AppLayout } from "../../layout/AppLayout";
-import { GirlsFromBirthToTwoYears, PatientData } from "../../data";
+import {
+    GirlsPEFromZeroToTwoYears,
+    GirlsPEFromTwoToFiveYears,
+    GirlsPEFromFiveToTenYears,
+    GirlsTEFromZeroToTwoYears,
+} from "../../data";
 import { ModalUpdatePatientValues } from "../../ui/ModalUpdatePatientValues";
 
 
@@ -49,16 +54,9 @@ export const PatientPage = () => {
       stature,
       imc,
       unixBirthday,
-      gender
+      gender,
+      age
     } = useSelector((state) => state.currentPatient);
-
-    console.log(
-        'patientName: ', patientName,
-        'gender: ', gender,
-        'unixBirthday: ', unixBirthday,
-        'weight: ', weight,
-        'stature: ', stature,
-    )
     
     const [lastWeight, setLastWeight] = useState(0);
     const [lastStature, setLastStature] = useState(0);
@@ -84,40 +82,47 @@ export const PatientPage = () => {
 
     const [showHideReferenceChart, setShowHideReferenceChart] = useState(true)
 
+    const [ hideChartButtons, setHideChartButtons ] = useState({
+        PEButton: false,
+        TEButton: false,
+        PTButton: false,
+        IMCButton: false,
+    })
+
     const [referenceData, setReferenceData] = useState({
-        labels: GirlsFromBirthToTwoYears.map( (data) => data.months ),
+        labels: GirlsPEFromZeroToTwoYears.map( (data) => data.months ),
         datasets: [
             {
                 label: "-2DE (Kg)",
-                data: GirlsFromBirthToTwoYears.map( (data) => data.Minus2DE ),
+                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
                 borderColor: 'rgba(0,174,239, 0.3)',
                 backgroundColor: 'rgba(0,174,239, 0.3)',
                 pointRadius: 1,
             },
             {
                 label: "-1DE (Kg)",
-                data: GirlsFromBirthToTwoYears.map( (data) => data.Minus1DE ),
+                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
                 borderColor: 'rgba(237,2,140, 0.3)',
                 backgroundColor: 'rgba(237,2,140, 0.3)',
                 pointRadius: 1,
             },
             {
                 label: "Mediana (Kg)",
-                data: GirlsFromBirthToTwoYears.map( (data) => data.Median ),
+                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Median ),
                 borderColor: 'rgba(35,31,32, 0.3)',
                 backgroundColor: 'rgba(35,31,32, 0.3)',
                 pointRadius: 1,
             },
             {
                 label: "+1DE (Kg)",
-                data: GirlsFromBirthToTwoYears.map( (data) => data.Plus1DE ),
+                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
                 borderColor: 'rgba(237,2,140, 0.3)',
                 backgroundColor: 'rgba(237,2,140, 0.3)',
                 pointRadius: 1,
             },
             {
                 label: "+2DE (Kg)",
-                data: GirlsFromBirthToTwoYears.map( (data) => data.Plus2DE ),
+                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
                 borderColor: 'rgba(0,174,239, 0.3)',
                 backgroundColor: 'rgba(0,174,239, 0.3)',
                 pointRadius: 1,
@@ -229,7 +234,7 @@ export const PatientPage = () => {
         }
     }
 
-    const age = calculateAge();
+    const ageText = calculateAge();
     
     const defaultPatient = {
         unixAge: 0,
@@ -269,10 +274,37 @@ export const PatientPage = () => {
     
         }else{
     
-            dispatch( startLoadingCurrentPatient( uid, patientID ) )
+            dispatch( startLoadingCurrentPatient( uid, patientID ) )            
         }
     
     }, [patientID])
+
+    useEffect(() => {
+
+        let d1 = fromUnixTime( unixBirthday ).getDate();
+        let m1 = fromUnixTime( unixBirthday ).getMonth();
+        let y1 = fromUnixTime( unixBirthday ).getFullYear();
+        let date = new Date();
+        let d2 = date.getDate();
+        let m2 = date.getMonth();
+        let y2 = date.getFullYear();
+        let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (d1 > d2) {
+            d2 = d2 + month[m2];
+            m2 = m2 - 1;
+        }
+        if (m1 > m2) {
+            m2 = m2 + 12;
+            y2 = y2 - 1;
+        }
+        let d = d2 - d1;
+        let m = m2 - m1;
+        let y = y2 - y1;
+        
+        dispatch( updateCurrentPatientAge({ y, m, d }) );
+
+    }, [unixBirthday])
+    
     
     const onLogout = () => {
             
@@ -326,6 +358,41 @@ export const PatientPage = () => {
         
     }
 
+    const handleHideChartButtons = () => {
+
+        // PE Button
+
+        if( age.y > 10 && age.y <= 19 || age.y === 10 && age.m > 0 ){
+            setHideChartButtons({
+                PEButton: true,
+                TEButton: false,
+                PTButton: false,
+                IMCButton: false,
+            })
+        }
+
+        // PE Button
+
+        // IMC Button
+
+        if( age.y < 5 || age.y === 5 && age.m === 0 ){
+            setHideChartButtons({
+                PEButton: false,
+                TEButton: false,
+                PTButton: false,
+                IMCButton: true,
+            })
+        }
+
+        // IMC Button        
+    }
+
+    useEffect(() => {
+        handleHideChartButtons();
+
+    }, [age])
+    
+
     const handleChartsSwitch = ( event ) => {
         const id = event.target.id;
         setActive( id );
@@ -355,6 +422,287 @@ export const PatientPage = () => {
                     },
                 ]
             })
+
+            if( gender === "Femenino" ){
+
+                // Graficos P/E
+
+                if( age.y <= 1 || age === 2 && age.m === 0 ){
+
+                    console.log('entré a GirlsPEFromZeroToTwoYears')
+                    
+                    setReferenceData({
+                        labels: GirlsPEFromZeroToTwoYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if ( age.y === 2 && age.m > 0 ){
+
+                    console.log('entré a GirlsPEFromTwoToFiveYears')
+
+                    setReferenceData({
+                        labels: GirlsPEFromTwoToFiveYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 2 && age.y <= 4 || age.y === 5 && age.m === 0 ){
+                    console.log('entré a GirlsPEFromTwoToFiveYears')
+                    
+                    setReferenceData({
+                        labels: GirlsPEFromTwoToFiveYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsPEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y === 5 && age.m > 0 ){
+                    
+                    console.log('entré a GirlsPEFromFiveToTenYears')
+                                        
+                    setReferenceData({
+                        labels: GirlsPEFromFiveToTenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 5 && age.y <= 9 || age.y === 10 && age.m === 0 ){
+
+                    console.log('entré a GirlsPEFromFiveToTenYears')
+                    
+                    setReferenceData({
+                        labels: GirlsPEFromFiveToTenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsPEFromFiveToTenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+
+                // Graficos P/E
+
+                // Graficos T/E
+
+                // if( age.y <= 1 || age === 2 && age.m === 0 ){
+                    
+                //     setReferenceData({
+                //         labels: GirlsTEFromZeroToTwoYears.map( (data) => data.months ),
+                //         datasets: [
+                //             {
+                //                 label: "-2DE (Kg)",
+                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
+                //                 borderColor: 'rgba(0,174,239, 0.3)',
+                //                 backgroundColor: 'rgba(0,174,239, 0.3)',
+                //                 pointRadius: 1,
+                //             },
+                //             {
+                //                 label: "-1DE (Kg)",
+                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
+                //                 borderColor: 'rgba(237,2,140, 0.3)',
+                //                 backgroundColor: 'rgba(237,2,140, 0.3)',
+                //                 pointRadius: 1,
+                //             },
+                //             {
+                //                 label: "Mediana (Kg)",
+                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Median ),
+                //                 borderColor: 'rgba(35,31,32, 0.3)',
+                //                 backgroundColor: 'rgba(35,31,32, 0.3)',
+                //                 pointRadius: 1,
+                //             },
+                //             {
+                //                 label: "+1DE (Kg)",
+                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
+                //                 borderColor: 'rgba(237,2,140, 0.3)',
+                //                 backgroundColor: 'rgba(237,2,140, 0.3)',
+                //                 pointRadius: 1,
+                //             },
+                //             {
+                //                 label: "+2DE (Kg)",
+                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
+                //                 borderColor: 'rgba(0,174,239, 0.3)',
+                //                 backgroundColor: 'rgba(0,174,239, 0.3)',
+                //                 pointRadius: 1,
+                //             },
+                //         ]
+                //     })
+                // }
+
+                // Graficos T/E
+            }
+
         }
 
         if( id === "2"){
@@ -382,6 +730,57 @@ export const PatientPage = () => {
                     },
                 ]
             })
+
+            if( gender === "Femenino" ){
+
+                // Graficos P/E
+
+                if( age.y <= 1 || age === 2 && age.m === 0 ){
+
+                    console.log('entré a GirlsTEFromZeroToTwoYears')
+                    
+                    setReferenceData({
+                        labels: GirlsTEFromZeroToTwoYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsTEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsTEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsTEFromZeroToTwoYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsTEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsTEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+            }
         }
 
         if( id === "3"){
@@ -466,7 +865,6 @@ export const PatientPage = () => {
         }
     }
 
-    
 
     return (
       <>
@@ -594,7 +992,7 @@ export const PatientPage = () => {
                 <button type="submit" hidden></button>
                 </div>
                 <div className="update-values-btn-container">
-                    <ModalUpdatePatientValues type='peso' age={ age } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/>
+                    <ModalUpdatePatientValues type='peso' age={ ageText } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/>
                 </div>
                 <div className="accordion-container">
                 <div className="left-container">
@@ -762,6 +1160,7 @@ export const PatientPage = () => {
                                     className={ active === "1" ? "charts-switch-btn-active" : "charts-switch-btn" }
                                     onClick={ handleChartsSwitch }
                                     id={"1"}
+                                    hidden={ hideChartButtons.PEButton }
                                 >
                                     P/E
                                 </button>
@@ -784,16 +1183,10 @@ export const PatientPage = () => {
                                     className={ active === "4" ? "charts-switch-btn-active" : "charts-switch-btn" }
                                     onClick={ handleChartsSwitch }
                                     id={"4"}
+                                    hidden={ hideChartButtons.IMCButton }
                                 >
                                     IMC/E
-                                </button>
-                                <button
-                                    className={ active === "5" ? "charts-switch-btn-active" : "charts-switch-btn" }
-                                    onClick={ handleChartsSwitch }
-                                    id={"5"}
-                                >
-                                    PCe/E
-                                </button>
+                                </button>                                
 
                             </div>
                         </div>

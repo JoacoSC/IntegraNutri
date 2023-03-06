@@ -7,11 +7,37 @@ import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientIMC ,startUpdatingCurrentPatientStature, startUpdatingCurrentPatientWeight, updateCurrentPatientIMC, updateCurrentPatientStature, updateCurrentPatientWeight } from '../store/currentPatient';
 import './components';
 
-export const ModalUpdatePatientValues = ({ type = '', age = 'NaN años NaN meses NaN días', uid, patientID, weight, stature, imc, lastWeight, lastStature }) => {
+export const ModalUpdatePatientValues = ({
+        type = '',
+        age = 'NaN años NaN meses',
+        uid,
+        patientID,
+        weight = {
+            A: null,
+            B: null,
+            C: null,
+        },
+        stature = {
+            A: null,
+            B: null,
+            C: null,
+        },
+        imc = {
+            A: null,
+            B: null,
+            C: null,
+        },
+        lastWeight,
+        lastStature
+    }) => {
 
     const [openModal, setOpenModal] = useState(false);
 
-    const { weightForm, statureForm, onInputChange } = useForm();
+    const { 
+        weightForm = lastWeight,
+        statureForm = lastStature,
+        onInputChange
+    } = useForm();
 
     const dispatch = useDispatch();
 
