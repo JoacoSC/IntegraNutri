@@ -128,7 +128,7 @@ export const ModalUpdatePatientValues = ({
                     </svg>
                 </div>
                 <h1 className="modal-header">
-                    Actualizar { type }
+                    Actualizar peso/talla
                 </h1>
 
                 <form onSubmit={ onSubmit }>
@@ -150,7 +150,7 @@ export const ModalUpdatePatientValues = ({
                                     
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Edad del paciente</label>
-                                <input className="input-text-style" type="text" name="age" defaultValue={ age } onChange={ onInputChange }/>
+                                <input className="input-text-style" type="text" name="age" defaultValue={ age } readOnly/>
                             </div>                
                         </div>
                         

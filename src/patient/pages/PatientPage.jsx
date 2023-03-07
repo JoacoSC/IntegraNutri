@@ -25,7 +25,8 @@ import {
     updateCurrentPatientPhysical_exam,
     updateCurrentPatientStature,
     updateCurrentPatientWeight,
-    updateCurrentPatientAge
+    updateCurrentPatientAge,
+    clearCurrentPatient
 } from "../../store/currentPatient";
 
 import { AppLayout } from "../../layout/AppLayout";
@@ -71,13 +72,6 @@ export const PatientPage = () => {
 
     const weightLength = weight?.length;
     const statureLength = stature?.length;
-
-    // setLastWeight( weight[weight.length - 1].A )
-    // if( weight !== null && stature !== null ){
-    //     console.log(lastWeight)
-    // }
-
-    // console.log(lastWeight)
 
     const nutritionalCalification = useCalificationIndicator(
         lastWeight,
@@ -276,10 +270,11 @@ export const PatientPage = () => {
         
         if( patientID === '' ){
 
+            dispatch( clearCurrentPatient() );
             dispatch( startLoadingPatientInfo( displayName, photoURL ) )
     
         }else{
-    
+            dispatch( clearCurrentPatient() );    
             dispatch( startLoadingCurrentPatient( uid, patientID ) )            
         }
     
@@ -321,26 +316,59 @@ export const PatientPage = () => {
     const onAnamnesisSubmit = ( event ) => {
         event.preventDefault();
 
-        dispatch( updateCurrentPatientAnamnesis({ formAnamnesis }) )
-        dispatch( startUpdatingCurrentPatientAnamnesis( uid, patientID, formAnamnesis ) )
+        if( formAnamnesis === undefined ){
+            const blankSpace = "";
+
+            dispatch( updateCurrentPatientAnamnesis({ blankSpace }) )
+            dispatch( startUpdatingCurrentPatientAnamnesis( uid, patientID, blankSpace ) )
+        }else{
+
+            dispatch( updateCurrentPatientAnamnesis({ formAnamnesis }) )
+            dispatch( startUpdatingCurrentPatientAnamnesis( uid, patientID, formAnamnesis ) )
+        }        
     }
     const onPhysical_examSubmit = ( event ) => {
         event.preventDefault();
 
-        dispatch( updateCurrentPatientPhysical_exam({ formPhysical_exam }) )
-        dispatch( startUpdatingCurrentPatientPhysical_exam( uid, patientID, formPhysical_exam ) )
+        if( formPhysical_exam === undefined ){
+            const blankSpace = "";
+
+            dispatch( updateCurrentPatientPhysical_exam({ blankSpace }) )
+            dispatch( startUpdatingCurrentPatientPhysical_exam( uid, patientID, blankSpace ) )
+        }else{
+
+            dispatch( updateCurrentPatientPhysical_exam({ formPhysical_exam }) )
+            dispatch( startUpdatingCurrentPatientPhysical_exam( uid, patientID, formPhysical_exam ) )
+        }
+
     }
     const onDiagnosisSubmit = ( event ) => {
         event.preventDefault();
 
-        dispatch( updateCurrentPatientDiagnosis({ formDiagnosis }) )
-        dispatch( startUpdatingCurrentPatientDiagnosis( uid, patientID, formDiagnosis ) )
+        if( formDiagnosis === undefined ){
+            const blankSpace = "";
+
+            dispatch( updateCurrentPatientDiagnosis({ blankSpace }) )
+            dispatch( startUpdatingCurrentPatientDiagnosis( uid, patientID, blankSpace ) )
+        }else{
+
+            dispatch( updateCurrentPatientDiagnosis({ formDiagnosis }) )
+            dispatch( startUpdatingCurrentPatientDiagnosis( uid, patientID, formDiagnosis ) )
+        }
     }
     const onIndicationsSubmit = ( event ) => {
         event.preventDefault();
 
-        dispatch( updateCurrentPatientIndications({ formIndications }) )
-        dispatch( startUpdatingCurrentPatientIndications( uid, patientID, formIndications ) )
+        if( formIndications === undefined ){
+            const blankSpace = "";
+
+            dispatch( updateCurrentPatientIndications({ blankSpace }) )
+            dispatch( startUpdatingCurrentPatientIndications( uid, patientID, blankSpace ) )
+        }else{
+
+            dispatch( updateCurrentPatientIndications({ formIndications }) )
+            dispatch( startUpdatingCurrentPatientIndications( uid, patientID, formIndications ) )
+        }
     }
     // const onWeightSubmit = ( event ) => {
     //     event.preventDefault();
@@ -358,10 +386,6 @@ export const PatientPage = () => {
 
     const onShowHideReferenceChart = () => {
         setShowHideReferenceChart( !showHideReferenceChart )
-    }
-
-    const handleWeightToAgeCalificationIndicator = () => {
-        
     }
 
     const handleHideChartButtons = () => {
@@ -1319,12 +1343,12 @@ export const PatientPage = () => {
                             }),
                             "hh:mm"
                         )
-                        : "hh:mm"}
+                        : "No hay horas agendadas"}
                     </div>
                     <div className="patient-consultation-time">
                     {nextConsultation !== null
                         ? format(fromUnixTime(nextConsultation), "dd/MMM/yyyy")
-                        : "hh:mm"}
+                        : ""}
                     </div>
                 </div>
 
@@ -1442,6 +1466,7 @@ export const PatientPage = () => {
                             defaultValue={defaultPatient.anamnesis}
                             onChange={onInputChange}
                             readOnly={ !isNutritionistStatus }
+                            placeholder="Escriba aquí :)"
                         ></textarea>
                         {/* <input className="input-text-patient-page" type="text" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione at praesentium sed rerum voluptatibus quo aut aspernatur temporibus corrupti eos consequuntur quidem nam quisquam esse dolor, illo tenetur libero repudiandae nulla, recusandae autem. Molestias quam saepe officia dolor nulla eos, eaque aliquam quaerat adipisci recusandae inventore sit maxime possimus asperiores quas omnis debitis non accusamus. Laborum, aspernatur numquam obcaecati tempora quo, assumenda minima, nostrum dolorum eveniet quasi optio quae blanditiis ducimus. Voluptatibus aut aperiam quis quasi ipsum perferendis sapiente nulla itaque" name="name"/> */}
                         {/* <input type="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore quis repellendus veniam unde sit, laboriosam, perspiciatis ullam voluptate, dolor tempore. Quisquam, numquam? Vero nesciunt dignissimos possimus laborum accusantium veniam maxime, delectus assumenda aspernatur, illo unde modi optio quia non magni consequatur reprehenderit eveniet ad! Eveniet consectetur minima aperiam corporis maxime perspiciatis, velit similique fugit quasi, est quaerat consequatur qui laborum deleniti eos necessitatibus quas reiciendis quibusdam nam aut excepturi repellat aliquam obcaecati voluptatum? Veniam, provident consequuntur itaque recusandae ad dicta facere quam culpa molestiae vel corporis nesciunt, exercitationem corrupti repellendus cum rerum perferendis eaque distinctio tenetur quibusdam! Eius, voluptates.</input> */}
@@ -1475,6 +1500,7 @@ export const PatientPage = () => {
                             defaultValue={defaultPatient.physical_exam}
                             onChange={onInputChange}
                             readOnly={ !isNutritionistStatus }
+                            placeholder="Escriba aquí :)"
                         ></textarea>
                         {   ( isNutritionistStatus )
                             ?   <button
@@ -1506,6 +1532,7 @@ export const PatientPage = () => {
                             defaultValue={defaultPatient.diagnosis}
                             onChange={onInputChange}
                             readOnly={ !isNutritionistStatus }
+                            placeholder="Escriba aquí :)"
                         ></textarea>
                         {   ( isNutritionistStatus )
                             ?   <button
@@ -1539,6 +1566,7 @@ export const PatientPage = () => {
                             defaultValue={defaultPatient.indications}
                             onChange={onInputChange}
                             readOnly={ !isNutritionistStatus }
+                            placeholder="Escriba aquí :)"
                         ></textarea>
                         {   ( isNutritionistStatus )
                             ?   <button

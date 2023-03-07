@@ -7,6 +7,8 @@ import { setDefaultOptions } from 'date-fns/esm';
 import { ModalNewPatient, ModalNewConsultation } from '../../ui';
 import { getUnixTime, set } from 'date-fns';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { clearCurrentPatient } from '../../store/currentPatient';
 
 
 
@@ -25,6 +27,13 @@ export const MyPatientsPage = () => {
         dispatch( startLogout() );
 
     }
+
+    useEffect(() => {
+        
+        dispatch( clearCurrentPatient() );
+
+    }, [])
+    
 
     const ConsultationSlot1 = getUnixTime(set( new Date(), { hours: 18, minutes: 30, seconds: 0, miliseconds: 0} ));
     const ConsultationSlot2 = getUnixTime(set( new Date(), { hours: 19, minutes: 30, seconds: 0, miliseconds: 0} ));
