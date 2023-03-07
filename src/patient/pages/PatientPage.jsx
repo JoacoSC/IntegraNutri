@@ -39,6 +39,7 @@ import {
     GirlsPTFromZeroToTwoYears,
     GirlsPTFromTwoToFiveYears,
     GirlsIMCEFromFiveToNineteenYears,
+    DefaultData,
 } from "../../data";
 import { ModalUpdatePatientValues } from "../../ui/ModalUpdatePatientValues";
 
@@ -66,7 +67,7 @@ export const PatientPage = () => {
     const [lastWeight, setLastWeight] = useState(0);
     const [lastStature, setLastStature] = useState(0);
 
-    const [active, setActive] = useState("1");
+    const [active, setActive] = useState("0");
 
     const weightLength = weight?.length;
     const statureLength = stature?.length;
@@ -95,39 +96,39 @@ export const PatientPage = () => {
     })
 
     const [referenceData, setReferenceData] = useState({
-        labels: GirlsPEFromZeroToTwoYears.map( (data) => data.months ),
+        labels: DefaultData.map( (data) => data.months ),
         datasets: [
             {
                 label: "-2DE (Kg)",
-                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
+                data: DefaultData.map( (data) => data.Minus2DE ),
                 borderColor: 'rgba(0,174,239, 0.3)',
                 backgroundColor: 'rgba(0,174,239, 0.3)',
                 pointRadius: 1,
             },
             {
                 label: "-1DE (Kg)",
-                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
+                data: DefaultData.map( (data) => data.Minus1DE ),
                 borderColor: 'rgba(237,2,140, 0.3)',
                 backgroundColor: 'rgba(237,2,140, 0.3)',
                 pointRadius: 1,
             },
             {
                 label: "Mediana (Kg)",
-                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Median ),
+                data: DefaultData.map( (data) => data.Median ),
                 borderColor: 'rgba(35,31,32, 0.3)',
                 backgroundColor: 'rgba(35,31,32, 0.3)',
                 pointRadius: 1,
             },
             {
                 label: "+1DE (Kg)",
-                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
+                data: DefaultData.map( (data) => data.Plus1DE ),
                 borderColor: 'rgba(237,2,140, 0.3)',
                 backgroundColor: 'rgba(237,2,140, 0.3)',
                 pointRadius: 1,
             },
             {
                 label: "+2DE (Kg)",
-                data: GirlsPEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
+                data: DefaultData.map( (data) => data.Plus2DE ),
                 borderColor: 'rgba(0,174,239, 0.3)',
                 backgroundColor: 'rgba(0,174,239, 0.3)',
                 pointRadius: 1,
@@ -143,7 +144,7 @@ export const PatientPage = () => {
             },
             title: {
                 display: true,
-                text: 'Gráfico P/E del paciente',
+                text: 'Gráficos del paciente',
             },
         },
     })
@@ -153,7 +154,7 @@ export const PatientPage = () => {
         datasets: [
             
             {
-                label: "P/E del paciente (Kg)",
+                label: "Grafico del paciente",
                 data: 0,
                 borderColor: '#F58220',
                 backgroundColor: '#F58220',
@@ -164,12 +165,12 @@ export const PatientPage = () => {
     const updateChart = () => {
 
         setUserData({
-            labels: weight?.map( (data) => data.B ),
+            labels: DefaultData?.map( (data) => data.B ),
             datasets: [
                 
                 {
-                    label: "P/E del paciente (Kg)",
-                    data: weight?.map( (data) => data.A ),
+                    label: "Grafico del paciente",
+                    data: DefaultData?.map( (data) => data.A ),
                     borderColor: '#F58220',
                     backgroundColor: '#F58220',
                 },

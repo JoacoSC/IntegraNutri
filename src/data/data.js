@@ -1,3 +1,15 @@
+export const DefaultData = [
+  {
+    id: 0,
+    months: '0',
+    Minus2DE: 0,
+    Minus1DE: 0,
+    Median: 0,
+    Plus1DE: 0,
+    Plus2DE: 0,
+  },
+];
+
 export const GirlsPEFromZeroToTwoYears = [
     {
       id: 0,
