@@ -34,6 +34,11 @@ import {
     GirlsPEFromTwoToFiveYears,
     GirlsPEFromFiveToTenYears,
     GirlsTEFromZeroToTwoYears,
+    GirlsTEFromTwoToFiveYears,
+    GirlsTEFromFiveToNineteenYears,
+    GirlsPTFromZeroToTwoYears,
+    GirlsPTFromTwoToFiveYears,
+    GirlsIMCEFromFiveToNineteenYears,
 } from "../../data";
 import { ModalUpdatePatientValues } from "../../ui/ModalUpdatePatientValues";
 
@@ -361,21 +366,27 @@ export const PatientPage = () => {
     const handleHideChartButtons = () => {
 
         // PE Button
-
-        if( age.y > 10 && age.y <= 19 || age.y === 10 && age.m > 0 ){
+        if( age.y <= 1 || age === 2 && age.m === 0 ){
+            // De cero a dos
             setHideChartButtons({
-                PEButton: true,
+                PEButton: false,
                 TEButton: false,
                 PTButton: false,
-                IMCButton: false,
+                IMCButton: true,
             })
         }
-
-        // PE Button
-
-        // IMC Button
-
-        if( age.y < 5 || age.y === 5 && age.m === 0 ){
+        if ( age.y === 2 && age.m > 0 ){
+            // De dos a cinco
+            setHideChartButtons({
+                PEButton: false,
+                TEButton: false,
+                PTButton: false,
+                IMCButton: true,
+            })
+        }
+        
+        if( age.y > 2 && age.y <= 4 || age.y === 5 && age.m === 0 ){
+            // De dos a cinco
             setHideChartButtons({
                 PEButton: false,
                 TEButton: false,
@@ -384,7 +395,43 @@ export const PatientPage = () => {
             })
         }
 
-        // IMC Button        
+        if( age.y === 5 && age.m > 0 ){
+            // De cinco a diez
+            setHideChartButtons({
+                PEButton: false,
+                TEButton: false,
+                PTButton: true,
+                IMCButton: false,
+            })
+        }
+        if( age.y > 5 && age.y <= 9 || age.y === 10 && age.m === 0 ){
+            // De cinco a diez
+            setHideChartButtons({
+                PEButton: false,
+                TEButton: false,
+                PTButton: true,
+                IMCButton: false,
+            })
+        }
+
+        if( age.y === 5 && age.m > 0 ){
+            // De cinco a diecinueve
+            setHideChartButtons({
+                PEButton: true,
+                TEButton: false,
+                PTButton: true,
+                IMCButton: false,
+            })
+        }
+        if( age.y > 5 && age.y <= 18 || age.y === 19 && age.m === 0 ){
+            // De cinco a diecinueve
+            setHideChartButtons({
+                PEButton: true,
+                TEButton: false,
+                PTButton: true,
+                IMCButton: false,
+            })
+        }
     }
 
     useEffect(() => {
@@ -651,56 +698,6 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-
-                // Graficos P/E
-
-                // Graficos T/E
-
-                // if( age.y <= 1 || age === 2 && age.m === 0 ){
-                    
-                //     setReferenceData({
-                //         labels: GirlsTEFromZeroToTwoYears.map( (data) => data.months ),
-                //         datasets: [
-                //             {
-                //                 label: "-2DE (Kg)",
-                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
-                //                 borderColor: 'rgba(0,174,239, 0.3)',
-                //                 backgroundColor: 'rgba(0,174,239, 0.3)',
-                //                 pointRadius: 1,
-                //             },
-                //             {
-                //                 label: "-1DE (Kg)",
-                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
-                //                 borderColor: 'rgba(237,2,140, 0.3)',
-                //                 backgroundColor: 'rgba(237,2,140, 0.3)',
-                //                 pointRadius: 1,
-                //             },
-                //             {
-                //                 label: "Mediana (Kg)",
-                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Median ),
-                //                 borderColor: 'rgba(35,31,32, 0.3)',
-                //                 backgroundColor: 'rgba(35,31,32, 0.3)',
-                //                 pointRadius: 1,
-                //             },
-                //             {
-                //                 label: "+1DE (Kg)",
-                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
-                //                 borderColor: 'rgba(237,2,140, 0.3)',
-                //                 backgroundColor: 'rgba(237,2,140, 0.3)',
-                //                 pointRadius: 1,
-                //             },
-                //             {
-                //                 label: "+2DE (Kg)",
-                //                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
-                //                 borderColor: 'rgba(0,174,239, 0.3)',
-                //                 backgroundColor: 'rgba(0,174,239, 0.3)',
-                //                 pointRadius: 1,
-                //             },
-                //         ]
-                //     })
-                // }
-
-                // Graficos T/E
             }
 
         }
@@ -733,7 +730,7 @@ export const PatientPage = () => {
 
             if( gender === "Femenino" ){
 
-                // Graficos P/E
+                // Graficos T/E
 
                 if( age.y <= 1 || age === 2 && age.m === 0 ){
 
@@ -780,6 +777,185 @@ export const PatientPage = () => {
                         ]
                     })
                 }
+                if ( age.y === 2 && age.m > 0 ){
+
+                    console.log('entré a GirlsTEFromTwoToFiveYears')
+
+                    setReferenceData({
+                        labels: GirlsTEFromTwoToFiveYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 2 && age.y <= 4 || age.y === 5 && age.m === 0 ){
+                    console.log('entré a GirlsTEFromTwoToFiveYears')
+                    
+                    setReferenceData({
+                        labels: GirlsTEFromTwoToFiveYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsTEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y === 5 && age.m > 0 ){
+                    
+                    console.log('entré a GirlsTEFromFiveToNineteenYears')
+                                        
+                    setReferenceData({
+                        labels: GirlsTEFromFiveToNineteenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 5 && age.y <= 18 || age.y === 19 && age.m === 0 ){
+
+                    console.log('entré a GirlsTEFromFiveToNineteenYears')
+                    
+                    setReferenceData({
+                        labels: GirlsTEFromFiveToNineteenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
             }
         }
 
@@ -797,7 +973,7 @@ export const PatientPage = () => {
                 }
             });
             setUserData({
-                labels: stature?.map( (data) => data.A ),
+                labels: stature?.map( (data) => data.A + ' cm'),
                 datasets: [
                     
                     {
@@ -808,6 +984,146 @@ export const PatientPage = () => {
                     },
                 ]
             })
+
+            if( gender === "Femenino" ){
+
+                // Graficos P/E
+
+                if( age.y <= 1 || age === 2 && age.m === 0 ){
+
+                    console.log('entré a GirlsPTFromZeroToTwoYears')
+                    
+                    setReferenceData({
+                        labels: GirlsPTFromZeroToTwoYears.map( (data) => data.stature ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsPTFromZeroToTwoYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsPTFromZeroToTwoYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsPTFromZeroToTwoYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsPTFromZeroToTwoYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsPTFromZeroToTwoYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if ( age.y === 2 && age.m > 0 ){
+
+                    console.log('entré a GirlsPTFromTwoToFiveYears')
+
+                    setReferenceData({
+                        labels: GirlsPTFromTwoToFiveYears.map( (data) => data.stature ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 2 && age.y <= 4 || age.y === 5 && age.m === 0 ){
+                    console.log('entré a GirlsPTFromTwoToFiveYears')
+                    
+                    setReferenceData({
+                        labels: GirlsPTFromTwoToFiveYears.map( (data) => data.stature ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsPTFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+            }
         }
 
         if( id === "4"){
@@ -835,6 +1151,115 @@ export const PatientPage = () => {
                     },
                 ]
             })
+            if( gender === "Femenino" ){
+
+                // Graficos IMC/E
+
+                if( age.y === 5 && age.m > 0 ){
+                    
+                    console.log('entré a GirlsIMCEFromFiveToNineteenYears')
+                                        
+                    setReferenceData({
+                        labels: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+3DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus3DE ),
+                                borderColor: 'rgba(0,166,110, 0.3)',
+                                backgroundColor: 'rgba(0,166,110, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 5 && age.y <= 18 || age.y === 19 && age.m === 0 ){
+
+                    console.log('entré a GirlsIMCEFromFiveToNineteenYears')
+                    
+                    setReferenceData({
+                        labels: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+3DE (Kg)",
+                                data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus3DE ),
+                                borderColor: 'rgba(0,166,110, 0.3)',
+                                backgroundColor: 'rgba(0,166,110, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+            }
         }
 
         if( id === "5"){
@@ -1169,6 +1594,7 @@ export const PatientPage = () => {
                                     className={ active === "2" ? "charts-switch-btn-active" : "charts-switch-btn" }
                                     onClick={ handleChartsSwitch }
                                     id={"2"}
+                                    hidden={ hideChartButtons.TEButton }
                                 >
                                     T/E
                                 </button>
@@ -1176,6 +1602,7 @@ export const PatientPage = () => {
                                     className={ active === "3" ? "charts-switch-btn-active" : "charts-switch-btn" }
                                     onClick={ handleChartsSwitch }
                                     id={"3"}
+                                    hidden={ hideChartButtons.PTButton }
                                 >
                                     P/T
                                 </button>
