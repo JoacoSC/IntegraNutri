@@ -11,6 +11,7 @@ import { startCreatingPatient } from "../store/auth";
 import './components';
 import { addDays, getUnixTime, set } from "date-fns";
 import { useEffect } from "react";
+import { startLoadingMyPatients } from "../store/patients";
 
 export const ModalNewPatient = () => {
 
@@ -70,6 +71,7 @@ export const ModalNewPatient = () => {
         if ( !isValid ) return;
 
         dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
+        
 
     }
 
@@ -142,14 +144,14 @@ export const ModalNewPatient = () => {
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Región</label>
                                 <select className="select-style" name="region" onChange={ onInputChange }>
-                                    <option value="Region de Valparaiso" selected>Region de Valparaiso</option>
+                                    <option value="Region de Valparaiso">Region de Valparaiso</option>
                                     <option value="Region Metropolitana">Region Metropolitana</option>
                                 </select>
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Comuna</label>
                                 <select className="select-style" name="city" onChange={ onInputChange }>
-                                    <option value="Llay llay" selected>Llay llay</option>
+                                    <option value="Llay llay">Llay llay</option>
                                     <option value="San Felipe">San felipe</option>
                                 </select>
                             </div>      
@@ -165,7 +167,7 @@ export const ModalNewPatient = () => {
                         <div className="form-item">
                             <label className="input-label">Género</label>
                             <select className="select-style" name="gender" onChange={ onInputChange }>
-                                <option value="Femenino" selected>Femenino</option>
+                                <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
                             </select>
                         </div>

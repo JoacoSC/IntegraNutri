@@ -2830,535 +2830,535 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         if ( age.y === 0 ){
 
-            // *** Desnutricion ***
+            // *** Talla baja ***
                 
-            if( age.m === 0 && weight <= 2.5 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature <= 46.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight <= 3.4 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature <= 50.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight <= 4.3 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature <= 54.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight <= 5.0 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature <= 57.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight <= 5.6 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature <= 59.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight <= 6.0 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature <= 61.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight <= 6.4 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature <= 63.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight <= 6.7 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature <= 64.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight <= 6.9 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature <= 66.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight <= 7.1 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature <= 67.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight <= 7.4 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature <= 68.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight <= 7.6 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
-            }
-    
-            // *** Desnutricion ***
-    
-            // *** Riesgo de desnutrir ***
-    
-            if( age.m === 0 && weight > 2.5 && weight <= 2.9 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 1 && weight > 3.4 && weight <= 3.9 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 2 && weight > 4.3 && weight <= 4.9 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 3 && weight > 5.0 && weight <= 5.7 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 4 && weight > 5.6 && weight <= 6.2 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 5 && weight > 6.0 && weight <= 6.7 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 6 && weight > 6.4 && weight <= 7.1 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 7 && weight > 6.7 && weight <= 7.4 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 8 && weight > 6.9 && weight <= 7.7 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 9 && weight > 7.1 && weight <= 8.0 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 10 && weight > 7.4 && weight <= 8.2 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 11 && weight > 7.6 && weight <= 8.4 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature <= 69.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
     
-            // *** Riesgo de desnutrir ***
+            // *** Talla baja ***
     
-            // *** Normal o Eutrófico ***
+            // *** Talla Normal Baja ***
     
-            if( age.m === 0 && weight > 2.9 && weight < 3.9 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 46.1 && stature <= 48.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight > 3.9 && weight < 5.1 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 50.8 && stature <= 52.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight > 4.9 && weight < 6.3 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 54.4 && stature <= 56.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight > 5.7 && weight < 7.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 57.3 && stature <= 59.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight > 6.2 && weight < 7.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 59.7 && stature <= 61.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight > 6.7 && weight < 8.4 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 61.7 && stature <= 63.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight > 7.1 && weight < 8.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 63.3 && stature <= 65.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight > 7.4 && weight < 9.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 64.8 && stature <= 67.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight > 7.7 && weight < 9.6 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 66.2 && stature <= 68.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight > 8.0 && weight < 9.9 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 67.5 && stature <= 69.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight > 8.2 && weight < 10.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 68.7 && stature <= 71.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight > 8.4 && weight < 10.5 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
-            }
-    
-            // *** Normal o Eutrófico ***
-    
-            // *** Sobrepeso ***
-    
-            if( age.m === 0 && weight >= 3.9 && weight < 4.4 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 1 && weight >= 5.1 && weight < 5.8 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 2 && weight >= 6.3 && weight < 7.1 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 3 && weight >= 7.2 && weight < 8.0 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 4 && weight >= 7.8 && weight < 8.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 5 && weight >= 8.4 && weight < 9.3 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 6 && weight >= 8.8 && weight < 9.8 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 7 && weight >= 9.2 && weight < 10.3 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 8 && weight >= 9.6 && weight < 10.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 9 && weight >= 9.9 && weight < 11.0 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 10 && weight >= 10.2 && weight < 11.4 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
-            }
-            if( age.m === 11 && weight >= 10.5 && weight < 11.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 69.9 && stature <= 72.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
     
-            // *** Sobrepeso ***
+            // *** Talla Normal Baja ***
     
-            // *** Obesidad ***
+            // *** Normal ***
     
-            if( age.m === 0 && weight >= 4.4 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 48.0 && stature < 51.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight >= 5.8 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 52.8 && stature < 56.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight >= 7.1 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 56.4 && stature < 60.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight >= 8.0 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 59.4 && stature < 63.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight >= 8.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 61.8 && stature < 66.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight >= 9.3 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 63.8 && stature < 68.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight >= 9.8 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 65.5 && stature < 69.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight >= 10.3 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 67.0 && stature < 71.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight >= 10.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 68.4 && stature < 72.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight >= 11.0 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 69.7 && stature < 74.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight >= 11.4 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 71.0 && stature < 75.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight >= 11.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 72.2 && stature < 76.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
     
-            // *** Obesidad ***
+            // *** Normal ***
+    
+            // *** Talla Normal Alta ***
+    
+            if( age.m === 0 && stature >= 51.8 && stature < 53.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 56.7 && stature < 58.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 60.4 && stature < 62.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 63.5 && stature < 65.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 66.0 && stature < 68.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 68.0 && stature < 70.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 69.8 && stature < 71.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 71.3 && stature < 73.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 72.8 && stature < 75.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 74.2 && stature < 76.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 75.6 && stature < 77.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 76.9 && stature < 79.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Normal Alta ***
+    
+            // *** Talla Alta ***
+    
+            if( age.m === 0 && stature >= 53.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 58.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 62.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 65.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 68.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 70.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 71.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 73.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 75.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 76.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 77.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 79.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Alta ***
         }
 
         if ( age.y === 1 ){
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 7.7 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature <= 71.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight <= 7.9 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature <= 72.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight <= 8.1 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature <= 73.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight <= 8.3 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature <= 74.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight <= 8.4 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature <= 75.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight <= 8.6 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature <= 76.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight <= 8.8 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature <= 76.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight <= 8.9 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature <= 77.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight <= 9.1 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature <= 78.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight <= 9.2 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature <= 79.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight <= 9.4 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature <= 80.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight <= 9.5 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature <= 81.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Desnutricion ***
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 7.7 && weight <= 8.6 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 71.0 && stature <= 73.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight > 7.9 && weight <= 8.8 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 72.1 && stature <= 74.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight > 8.1 && weight <= 9.0 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 73.1 && stature <= 75.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight > 8.3 && weight <= 9.2 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 74.1 && stature <= 76.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight > 8.4 && weight <= 9.4 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 75.0 && stature <= 77.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight > 8.6 && weight <= 9.6 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 76.0 && stature <= 78.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight > 8.8 && weight <= 9.8 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 76.9 && stature <= 79.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight > 8.9 && weight <= 10.0 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 77.7 && stature <= 80.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight > 9.1 && weight <= 10.1 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 78.6 && stature <= 81.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight > 9.2 && weight <= 10.3 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 79.4 && stature <= 82.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight > 9.4 && weight <= 10.5 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 80.2 && stature <= 83.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight > 9.5 && weight <= 10.7 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 81.0 && stature <= 83.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Riesgo de desnutrir ***
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 8.6 && weight < 10.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 73.4 && stature < 78.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight > 8.8 && weight < 11.0 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 74.5 && stature < 79.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight > 9.0 && weight < 11.3 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 75.6 && stature < 80.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight > 9.2 && weight < 11.5 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 76.6 && stature < 81.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight > 9.4 && weight < 11.7 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 77.6 && stature < 82.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight > 9.6 && weight < 12.0 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 78.6 && stature < 83.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight > 9.8 && weight < 12.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 79.6 && stature < 85.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight > 10.0 && weight < 12.5 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 80.5 && stature < 86.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight > 10.1 && weight < 12.7 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 81.4 && stature < 87.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight > 10.3 && weight < 12.9 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 82.3 && stature < 88.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight > 10.5 && weight < 13.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 83.1 && stature < 89.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight > 10.7 && weight < 13.4 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 83.9 && stature < 89.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
     
             // *** Normal o Eutrófico ***
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 10.8 && weight < 12.0 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature >= 78.1 && stature < 80.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight >= 11.0 && weight < 12.3 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature >= 79.3 && stature < 81.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight >= 11.3 && weight < 12.6 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature >= 80.5 && stature < 83.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight >= 11.5 && weight < 12.8 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature >= 81.7 && stature < 84.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight >= 11.7 && weight < 13.1 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature >= 82.8 && stature < 85.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight >= 12.0 && weight < 13.4 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature >= 83.9 && stature < 86.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight >= 12.2 && weight < 13.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature >= 85.0 && stature < 87.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight >= 12.5 && weight < 13.9 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature >= 86.0 && stature < 88.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight >= 12.7 && weight < 14.2 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature >= 87.0 && stature < 89.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight >= 12.9 && weight < 14.5 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature >= 88.0 && stature < 90.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight >= 13.2 && weight < 14.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature >= 89.0 && stature < 91.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight >= 13.4 && weight < 15.0 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature >= 89.9 && stature < 92.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Sobrepeso ***
     
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 12.0 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature >= 80.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight >= 12.3 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature >= 81.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight >= 12.6 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature >= 83.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight >= 12.8 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature >= 84.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight >= 13.1 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature >= 85.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight >= 13.4 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature >= 86.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight >= 13.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature >= 87.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight >= 13.9 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature >= 88.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight >= 14.2 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature >= 89.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight >= 14.5 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature >= 90.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight >= 14.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature >= 91.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight >= 15.0 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature >= 92.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Obesidad ***
@@ -3368,265 +3368,265 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 9.7 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature <= 81.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight <= 9.8 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature <= 81.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight <= 10.0 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature <= 82.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight <= 10.1 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature <= 83.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight <= 10.2 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature <= 83.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight <= 10.4 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature <= 84.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight <= 10.5 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature <= 85.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight <= 10.7 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature <= 85.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight <= 10.8 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature <= 86.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight <= 10.9 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature <= 86.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight <= 11.0 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature <= 87.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight <= 11.2 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature <= 88.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Desnutricion ***
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 9.7 && weight <= 10.8 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 81.0 && stature <= 84.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight > 9.8 && weight <= 11.0 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 81.7 && stature <= 84.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight > 10.0 && weight <= 11.2 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 82.5 && stature <= 85.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight > 10.1 && weight <= 11.3 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 83.1 && stature <= 86.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight > 10.2 && weight <= 11.5 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 83.8 && stature <= 87.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight > 10.4 && weight <= 11.7 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 84.5 && stature <= 87.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight > 10.5 && weight <= 11.8 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 85.1 && stature <= 88.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight > 10.7 && weight <= 12.0 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 85.7 && stature <= 89.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight > 10.8 && weight <= 12.1 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 86.4 && stature <= 89.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight > 10.9 && weight <= 12.3 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 86.9 && stature <= 90.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight > 11.0 && weight <= 12.4 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 87.5 && stature <= 91.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight > 11.2 && weight <= 12.6 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 88.1 && stature <= 91.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Riesgo de desnutrir ***
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 10.8 && weight < 13.6 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 84.1 && stature < 90.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight > 11.0 && weight < 13.9 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 84.9 && stature < 91.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight > 11.2 && weight < 14.1 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 85.6 && stature < 92.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight > 11.3 && weight < 14.3 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 86.4 && stature < 92.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight > 11.5 && weight < 14.5 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 87.1 && stature < 93.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight > 11.7 && weight < 14.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 87.8 && stature < 94.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight > 11.8 && weight < 15.0 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 88.5 && stature < 95.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight > 12.0 && weight < 15.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 89.2 && stature < 96.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight > 12.1 && weight < 15.4 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 89.9 && stature < 96.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight > 12.3 && weight < 15.6 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 90.5 && stature < 97.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight > 12.4 && weight < 15.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 91.1 && stature < 98.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight > 12.6 && weight < 16.0 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 91.8 && stature < 99.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
     
             // *** Normal o Eutrófico ***
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 13.6 && weight < 15.3 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature >= 90.2 && stature < 93.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight >= 13.9 && weight < 15.5 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature >= 91.1 && stature < 94.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight >= 14.1 && weight < 15.8 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature >= 92.0 && stature < 95.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight >= 14.3 && weight < 16.1 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature >= 92.9 && stature < 96.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight >= 14.5 && weight < 16.3 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature >= 93.7 && stature < 97.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight >= 14.8 && weight < 16.6 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature >= 94.5 && stature < 97.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight >= 15.0 && weight < 16.9 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature >= 95.3 && stature < 98.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight >= 15.2 && weight < 17.1 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature >= 96.1 && stature < 99.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight >= 15.4 && weight < 17.4 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature >= 96.9 && stature < 100.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight >= 15.6 && weight < 17.6 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature >= 97.6 && stature < 101.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight >= 15.8 && weight < 17.8 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature >= 98.4 && stature < 102.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight >= 16.0 && weight < 18.1 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature >= 99.1 && stature < 102.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Sobrepeso ***
     
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 15.3 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature >= 93.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight >= 15.5 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature >= 94.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight >= 15.8 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature >= 95.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight >= 16.1 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature >= 96.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight >= 16.3 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature >= 97.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight >= 16.6 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature >= 97.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight >= 16.9 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature >= 98.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight >= 17.1 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature >= 99.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight >= 17.4 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature >= 100.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight >= 17.6 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature >= 101.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight >= 17.8 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature >= 102.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight >= 18.1 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature >= 102.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Obesidad ***
@@ -3636,265 +3636,265 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 11.3 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature <= 88.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight <= 11.4 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature <= 89.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight <= 11.5 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature <= 89.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight <= 11.6 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature <= 90.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight <= 11.8 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature <= 90.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight <= 11.9 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature <= 91.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight <= 12.0 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature <= 91.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight <= 12.1 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature <= 92.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight <= 12.2 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature <= 93.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight <= 12.4 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature <= 93.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight <= 12.5 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature <= 94.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight <= 12.6 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature <= 94.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Desnutricion ***
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 11.3 && weight <= 12.7 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 88.7 && stature <= 92.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight > 11.4 && weight <= 12.9 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 89.2 && stature <= 93.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight > 11.5 && weight <= 13.0 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 89.8 && stature <= 93.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight > 11.6 && weight <= 13.1 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 90.3 && stature <= 94.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight > 11.8 && weight <= 13.3 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 90.9 && stature <= 94.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight > 11.9 && weight <= 13.4 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 91.4 && stature <= 95.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight > 12.0 && weight <= 13.6 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 91.9 && stature <= 95.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight > 12.1 && weight <= 13.7 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 92.4 && stature <= 96.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight > 12.2 && weight <= 13.8 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 93.0 && stature <= 97.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight > 12.4 && weight <= 14.0 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 93.5 && stature <= 97.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight > 12.5 && weight <= 14.1 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 94.0 && stature <= 98.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight > 12.6 && weight <= 14.3 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 94.4 && stature <= 98.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Riesgo de desnutrir ***
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 12.2 && weight < 16.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 92.4 && stature < 99.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight > 12.4 && weight < 16.4 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 93.0 && stature < 100.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight > 12.5 && weight < 16.6 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 93.6 && stature < 101.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight > 12.7 && weight < 16.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 94.2 && stature < 101.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight > 12.8 && weight < 17.0 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 94.7 && stature < 102.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight > 13.0 && weight < 17.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 95.3 && stature < 103.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight > 13.1 && weight < 17.4 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 95.9 && stature < 103.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight > 13.3 && weight < 17.6 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 96.4 && stature < 104.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight > 13.4 && weight < 17.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 97.0 && stature < 105.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight > 13.6 && weight < 18.0 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 97.5 && stature < 105.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight > 13.7 && weight < 18.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 98.1 && stature < 106.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight > 13.9 && weight < 18.4 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 98.6 && stature < 106.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
     
             // *** Normal o Eutrófico ***
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 16.2 && weight < 18.3 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature >= 99.8 && stature < 103.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight >= 16.4 && weight < 18.6 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature >= 100.5 && stature < 104.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight >= 16.6 && weight < 18.8 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature >= 101.2 && stature < 105.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight >= 16.8 && weight < 19.0 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature >= 101.8 && stature < 105.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight >= 17.0 && weight < 19.3 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature >= 102.5 && stature < 106.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight >= 17.2 && weight < 19.5 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature >= 103.2 && stature < 107.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight >= 17.4 && weight < 19.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature >= 103.8 && stature < 107.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight >= 17.6 && weight < 20.0 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature >= 104.5 && stature < 108.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight >= 17.8 && weight < 20.2 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature >= 105.1 && stature < 109.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight >= 18.0 && weight < 20.5 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature >= 105.7 && stature < 109.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight >= 18.2 && weight < 20.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature >= 106.3 && stature < 110.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight >= 18.4 && weight < 20.9 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature >= 106.9 && stature < 111.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Sobrepeso ***
     
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 18.3 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature >= 103.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight >= 18.6 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature >= 104.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight >= 18.8 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature >= 105.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight >= 19.0 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature >= 105.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight >= 19.3 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature >= 106.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight >= 19.5 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature >= 107.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight >= 19.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature >= 107.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight >= 20.0 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature >= 108.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight >= 20.2 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature >= 109.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight >= 20.5 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature >= 109.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight >= 20.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature >= 110.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight >= 20.9 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature >= 111.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Obesidad ***
@@ -3904,265 +3904,265 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 12.7 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature <= 94.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight <= 12.8 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature <= 95.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight <= 12.9 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature <= 95.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight <= 13.1 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature <= 96.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight <= 13.2 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature <= 96.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight <= 13.3 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature <= 97.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight <= 13.4 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature <= 97.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight <= 13.5 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature <= 98.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight <= 13.6 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature <= 98.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight <= 13.7 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature <= 99.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight <= 13.8 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature <= 99.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight <= 14.0 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature <= 100.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Desnutricion ***
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 12.7 && weight <= 14.4 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 94.9 && stature <= 99.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight > 12.8 && weight <= 14.5 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 95.4 && stature <= 99.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight > 12.9 && weight <= 14.7 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 95.9 && stature <= 100.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight > 13.1 && weight <= 14.8 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 96.4 && stature <= 100.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight > 13.2 && weight <= 15.0 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 96.9 && stature <= 101.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight > 13.3 && weight <= 15.1 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 97.4 && stature <= 101.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight > 13.4 && weight <= 15.2 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 97.8 && stature <= 102.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight > 13.5 && weight <= 15.4 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 98.3 && stature <= 102.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight > 13.6 && weight <= 15.5 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 98.8 && stature <= 103.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight > 13.7 && weight <= 15.6 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 99.3 && stature <= 103.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight > 13.8 && weight <= 15.8 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 99.7 && stature <= 104.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight > 14.0 && weight <= 15.9 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 100.2 && stature <= 104.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Riesgo de desnutrir ***
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 14.4 && weight < 18.6 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature > 99.1 && stature < 107.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight > 14.5 && weight < 18.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature > 99.7 && stature < 108.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight > 14.7 && weight < 19.0 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature > 100.2 && stature < 108.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight > 14.8 && weight < 19.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature > 100.7 && stature < 109.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight > 15.0 && weight < 19.4 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature > 101.2 && stature < 109.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight > 15.1 && weight < 19.6 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature > 101.7 && stature < 110.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight > 15.2 && weight < 19.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature > 102.3 && stature < 111.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight > 15.4 && weight < 20.0 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature > 102.8 && stature < 111.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight > 15.5 && weight < 20.2 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature > 103.3 && stature < 112.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight > 15.6 && weight < 20.4 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature > 103.8 && stature < 112.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight > 15.8 && weight < 20.6 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature > 104.3 && stature < 113.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight > 15.9 && weight < 20.8 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature > 104.8 && stature < 114.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
     
             // *** Normal o Eutrófico ***
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 18.6 && weight < 21.2 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature >= 107.5 && stature < 111.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight >= 18.8 && weight < 21.4 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature >= 108.1 && stature < 112.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight >= 19.0 && weight < 21.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature >= 108.7 && stature < 113.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight >= 19.2 && weight < 21.9 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature >= 109.3 && stature < 113.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight >= 19.4 && weight < 22.2 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature >= 109.9 && stature < 114.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight >= 19.6 && weight < 22.4 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature >= 110.5 && stature < 114.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight >= 19.8 && weight < 22.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature >= 111.1 && stature < 115.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight >= 20.0 && weight < 22.9 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature >= 111.7 && stature < 116.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight >= 20.2 && weight < 23.2 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature >= 112.3 && stature < 116.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight >= 20.4 && weight < 23.4 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature >= 112.8 && stature < 117.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight >= 20.6 && weight < 23.7 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature >= 113.4 && stature < 118.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight >= 20.8 && weight < 23.9 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature >= 114.0 && stature < 118.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Sobrepeso ***
     
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 21.2 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && stature >= 111.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 1 && weight >= 21.4 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 1 && stature >= 112.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 2 && weight >= 21.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 2 && stature >= 113.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 3 && weight >= 21.9 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 3 && stature >= 113.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 4 && weight >= 22.2 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 4 && stature >= 114.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 5 && weight >= 22.4 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 5 && stature >= 114.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 6 && weight >= 22.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 6 && stature >= 115.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 7 && weight >= 22.9 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 7 && stature >= 116.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 8 && weight >= 23.2 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 8 && stature >= 116.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 9 && weight >= 23.4 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 9 && stature >= 117.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 10 && weight >= 23.7 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 10 && stature >= 118.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
-            if( age.m === 11 && weight >= 23.9 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 11 && stature >= 118.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Obesidad ***
@@ -4172,45 +4172,45 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
             // *** Desnutricion ***
                 
-            if( age.m === 0 && weight <= 14.1 ){
-                result.weightCalificationResult = 'Desnutrición';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && weight <= 100.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Desnutricion ***
     
             // *** Riesgo de desnutrir ***
     
-            if( age.m === 0 && weight > 14.1 && weight <= 16.0 ){
-                result.weightCalificationResult = 'Riesgo de Desnutrir';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && weight > 100.7 && weight <= 105.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
             }
     
             // *** Riesgo de desnutrir ***
     
             // *** Normal o Eutrófico ***
     
-            if( age.m === 0 && weight > 16.0 && weight < 21.0 ){
-                result.weightCalificationResult = 'Normal o Eutrófico';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && weight > 105.3 && weight < 114.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
             }
     
             // *** Normal o Eutrófico ***
     
             // *** Sobrepeso ***
     
-            if( age.m === 0 && weight >= 21.0 && weight < 24.2 ){
-                result.weightCalificationResult = 'Sobrepeso';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && weight >= 114.6 && weight < 119.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Sobrepeso ***
     
             // *** Obesidad ***
     
-            if( age.m === 0 && weight >= 24.2 ){
-                result.weightCalificationResult = 'Obesidad';
-                result.ok.weightCalification = true;
+            if( age.m === 0 && weight >= 119.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
             }
     
             // *** Obesidad ***
@@ -5601,6 +5601,3810 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
             // *** Obesidad ***
     
             if( age.m === 0 && weight >= 24.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+    }
+
+    const boysTEfrom5to19 = () => {
+
+        if ( age.y === 5 ){
+
+            // *** Talla baja ***
+                
+            if( age.m === 0 && stature <= 101.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 101.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 101.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 102.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 102.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 103.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 103.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 103.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 104.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 104.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 105.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 105.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla baja ***
+    
+            // *** Talla Normal Baja ***
+    
+            if( age.m === 0 && stature > 101.1 && stature <= 105.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 101.1 && stature <= 105.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 101.6 && stature <= 106.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 102.0 && stature <= 106.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 102.5 && stature <= 107.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 103.0 && stature <= 107.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 103.4 && stature <= 108.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 103.9 && stature <= 108.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 104.3 && stature <= 109.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 104.8 && stature <= 109.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 105.2 && stature <= 110.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 105.7 && stature <= 110.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Normal Baja ***
+    
+            // *** Normal ***
+    
+            if( age.m === 0 && stature > 105.7 && stature < 114.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 105.7 && stature < 114.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 106.2 && stature < 115.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 106.7 && stature < 116.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 107.2 && stature < 116.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 107.7 && stature < 117.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 108.2 && stature < 117.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 108.7 && stature < 118.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 109.1 && stature < 118.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 109.6 && stature < 119.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 110.1 && stature < 119.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 110.6 && stature < 120.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal ***
+    
+            // *** Talla Normal Alta ***
+    
+            if( age.m === 0 && stature >= 114.9 && stature < 119.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 114.9 && stature < 119.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 115.4 && stature < 120.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 116.0 && stature < 120.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 116.5 && stature < 121.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 117.1 && stature < 121.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 117.7 && stature < 122.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 118.2 && stature < 123.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 118.7 && stature < 123.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 119.3 && stature < 124.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 119.8 && stature < 124.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 120.4 && stature < 125.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Normal Alta ***
+    
+            // *** Talla Alta ***
+    
+            if( age.m === 0 && stature >= 119.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 119.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 120.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 120.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 121.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 121.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 122.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 123.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 123.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 124.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 124.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 125.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Alta ***
+        }
+
+        if ( age.y === 6 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 106.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 106.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 107.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 107.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 107.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 108.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 108.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 109.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 109.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 109.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 110.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 110.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 106.1 && stature <= 111.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 106.5 && stature <= 111.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 107.0 && stature <= 111.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 107.4 && stature <= 112.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 107.8 && stature <= 112.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 108.2 && stature <= 113.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 108.7 && stature <= 113.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 109.1 && stature <= 114.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 109.5 && stature <= 114.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 109.9 && stature <= 115.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 110.3 && stature <= 115.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 110.8 && stature <= 116.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 111.0 && stature < 120.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 111.5 && stature < 121.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 111.9 && stature < 121.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 112.4 && stature < 122.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 112.9 && stature < 123.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 113.3 && stature < 123.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 113.8 && stature < 124.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 114.2 && stature < 124.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 114.7 && stature < 125.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 115.1 && stature < 125.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 115.6 && stature < 126.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 116.0 && stature < 126.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 120.9 && stature < 125.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 121.4 && stature < 126.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 121.9 && stature < 126.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 122.4 && stature < 127.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 123.0 && stature < 128.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 123.5 && stature < 128.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 124.0 && stature < 129.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 124.5 && stature < 129.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 125.0 && stature < 130.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 125.5 && stature < 130.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 126.0 && stature < 131.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 126.5 && stature < 131.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 125.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 126.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 126.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 127.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 128.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 128.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 129.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 129.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 130.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 130.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 131.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 131.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 7 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 111.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 111.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 112.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 112.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 112.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 113.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 113.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 114.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 114.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 114.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 115.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 115.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 111.2 && stature <= 116.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 111.6 && stature <= 116.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 112.0 && stature <= 117.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 112.4 && stature <= 117.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 112.8 && stature <= 118.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 113.2 && stature <= 118.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 113.6 && stature <= 119.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 114.0 && stature <= 119.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 114.4 && stature <= 119.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 114.8 && stature <= 120.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 115.2 && stature <= 120.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 115.6 && stature <= 121.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 116.4 && stature < 127.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 116.9 && stature < 127.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 117.3 && stature < 128.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 117.8 && stature < 128.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 118.2 && stature < 129.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 118.6 && stature < 129.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 119.1 && stature < 130.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 119.5 && stature < 130.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 119.9 && stature < 131.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 120.4 && stature < 131.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 120.8 && stature < 132.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 121.2 && stature < 132.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 127.0 && stature < 132.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 127.5 && stature < 132.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 128.0 && stature < 133.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 128.5 && stature < 133.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 129.0 && stature < 134.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 129.5 && stature < 134.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 130.0 && stature < 135.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 130.5 && stature < 136.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 131.0 && stature < 136.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 131.5 && stature < 137.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 132.0 && stature < 137.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 132.4 && stature < 138.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 132.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 132.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 133.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 133.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 134.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 134.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 135.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 136.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 136.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 137.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 137.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 138.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 8 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 116.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 116.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 116.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 117.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 117.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 117.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 118.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 118.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 119.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 119.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 119.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 120.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 116.0 && stature <= 121.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 116.4 && stature <= 122.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 116.7 && stature <= 122.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 117.1 && stature <= 122.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 117.5 && stature <= 123.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 117.9 && stature <= 123.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 118.3 && stature <= 124.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 118.7 && stature <= 124.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 119.0 && stature <= 124.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 119.4 && stature <= 125.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 119.8 && stature <= 125.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 120.2 && stature <= 126.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 121.6 && stature < 132.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 122.0 && stature < 133.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 122.5 && stature < 133.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 122.9 && stature < 134.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 123.3 && stature < 134.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 123.7 && stature < 135.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 124.1 && stature < 135.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 124.5 && stature < 136.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 124.9 && stature < 136.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 125.3 && stature < 137.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 125.7 && stature < 137.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 126.1 && stature < 138.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 132.9 && stature < 138.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 133.4 && stature < 139.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 133.9 && stature < 139.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 134.3 && stature < 140.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 134.8 && stature < 140.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 135.3 && stature < 141.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 135.8 && stature < 141.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 136.2 && stature < 142.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 136.7 && stature < 142.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 137.2 && stature < 143.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 137.6 && stature < 143.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 138.1 && stature < 144.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 138.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 139.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 139.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 140.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 140.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 141.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 141.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 142.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 142.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 143.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 143.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 144.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 9 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 120.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 120.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 121.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 121.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 122.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 122.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 122.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 123.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 123.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 123.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 124.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 124.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 120.5 && stature <= 126.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 120.9 && stature <= 127.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 121.3 && stature <= 127.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 121.7 && stature <= 127.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 122.0 && stature <= 128.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 122.4 && stature <= 128.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 122.8 && stature <= 129.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 123.2 && stature <= 129.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 123.5 && stature <= 129.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 123.9 && stature <= 130.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 124.3 && stature <= 130.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 124.7 && stature <= 131.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 126.6 && stature < 138.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 127.0 && stature < 139.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 127.4 && stature < 139.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 127.8 && stature < 140.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 128.2 && stature < 140.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 128.6 && stature < 140.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 129.0 && stature < 141.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 129.4 && stature < 141.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 129.8 && stature < 142.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 130.2 && stature < 142.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 130.6 && stature < 143.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 131.0 && stature < 143.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 138.6 && stature < 144.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 139.0 && stature < 145.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 139.5 && stature < 145.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 140.0 && stature < 146.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 140.4 && stature < 146.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 140.9 && stature < 147.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 141.4 && stature < 147.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 141.8 && stature < 148.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 142.3 && stature < 148.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 142.8 && stature < 149.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 143.2 && stature < 149.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 143.7 && stature < 150.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 144.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 145.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 145.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 146.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 146.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 147.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 147.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 148.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 148.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 149.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 149.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 150.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 10 ){
+
+            // *** Talla baja ***
+                
+            if( age.m === 0 && stature <= 125.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 125.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 125.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 126.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 126.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 126.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 127.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 127.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 128.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 128.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 128.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 129.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla baja ***
+    
+            // *** Talla Normal Baja ***
+    
+            if( age.m === 0 && stature > 125.0 && stature <= 131.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 125.4 && stature <= 131.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 125.8 && stature <= 132.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 126.2 && stature <= 132.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 126.5 && stature <= 133.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 126.9 && stature <= 133.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 127.3 && stature <= 133.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 127.7 && stature <= 134.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 128.1 && stature <= 134.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 128.5 && stature <= 135.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 128.8 && stature <= 135.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 129.2 && stature <= 135.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Normal Baja ***
+    
+            // *** Normal ***
+    
+            if( age.m === 0 && stature > 131.4 && stature < 144.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 131.8 && stature < 144.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 132.2 && stature < 145.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 132.6 && stature < 145.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 133.0 && stature < 146.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 133.4 && stature < 146.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 133.8 && stature < 146.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 134.3 && stature < 147.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 134.7 && stature < 147.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 135.1 && stature < 148.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 135.5 && stature < 148.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 135.9 && stature < 149.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal ***
+    
+            // *** Talla Normal Alta ***
+    
+            if( age.m === 0 && stature >= 144.2 && stature < 150.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 144.6 && stature < 151.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 145.1 && stature < 151.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 145.5 && stature < 152.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 146.0 && stature < 152.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 146.5 && stature < 153.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 146.9 && stature < 153.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 147.4 && stature < 154.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 147.9 && stature < 154.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 148.4 && stature < 155.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 148.9 && stature < 155.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 149.4 && stature < 156.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Normal Alta ***
+    
+            // *** Talla Alta ***
+    
+            if( age.m === 0 && stature >= 150.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 151.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 151.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 152.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 152.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 153.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 153.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 154.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 154.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 155.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 155.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 156.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Alta ***
+        }
+
+        if ( age.y === 11 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 129.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 130.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 130.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 130.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 131.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 131.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 132.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 132.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 133.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 133.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 134.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 134.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 129.7 && stature <= 136.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 130.1 && stature <= 136.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 130.5 && stature <= 137.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 130.9 && stature <= 137.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 131.3 && stature <= 138.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 131.7 && stature <= 138.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 132.2 && stature <= 139.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 132.6 && stature <= 139.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 133.1 && stature <= 140.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 133.5 && stature <= 140.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 134.0 && stature <= 141.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 134.4 && stature <= 141.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 136.4 && stature < 149.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 136.8 && stature < 150.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 137.3 && stature < 150.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 137.7 && stature < 151.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 138.2 && stature < 151.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 138.6 && stature < 152.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 139.1 && stature < 152.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 139.6 && stature < 153.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 140.0 && stature < 154.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 140.5 && stature < 154.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 141.0 && stature < 155.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 141.5 && stature < 155.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 149.8 && stature < 156.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 150.3 && stature < 157.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 150.8 && stature < 157.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 151.3 && stature < 158.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 151.9 && stature < 158.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 152.4 && stature < 159.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 152.9 && stature < 159.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 153.4 && stature < 160.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 154.0 && stature < 160.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 154.5 && stature < 161.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 155.0 && stature < 162.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 155.6 && stature < 162.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 156.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 157.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 157.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 158.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 158.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 159.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 159.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 160.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 160.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 161.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 162.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 162.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 12 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 134.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 135.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 135.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 136.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 136.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 137.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 137.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 138.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 139.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 139.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 140.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 140.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 134.9 && stature <= 142.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 135.4 && stature <= 142.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 135.9 && stature <= 143.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 136.4 && stature <= 143.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 136.9 && stature <= 144.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 137.4 && stature <= 144.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 137.9 && stature <= 145.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 138.5 && stature <= 145.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 139.0 && stature <= 146.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 139.5 && stature <= 146.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 140.1 && stature <= 147.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 140.6 && stature <= 148.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 142.0 && stature < 156.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 142.5 && stature < 156.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 143.0 && stature < 157.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 143.6 && stature < 157.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 144.1 && stature < 158.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 144.6 && stature < 159.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 145.2 && stature < 159.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 145.7 && stature < 160.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 146.3 && stature < 160.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 146.9 && stature < 161.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 147.5 && stature < 162.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 148.0 && stature < 162.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 156.2 && stature < 163.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 156.7 && stature < 163.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 157.3 && stature < 164.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 157.9 && stature < 165.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 158.5 && stature < 165.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 159.1 && stature < 166.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 159.7 && stature < 167.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 160.3 && stature < 167.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 160.9 && stature < 168.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 161.6 && stature < 168.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 162.2 && stature < 169.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 162.8 && stature < 170.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 163.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 163.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 164.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 165.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 165.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 166.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 167.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 167.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 168.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 168.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 169.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 170.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 13 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 141.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 141.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 142.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 142.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 143.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 144.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 144.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 145.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 145.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 146.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 146.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 147.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 141.2 && stature <= 148.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 141.7 && stature <= 149.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 142.3 && stature <= 149.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 142.9 && stature <= 150.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 143.4 && stature <= 151.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 144.0 && stature <= 151.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 144.5 && stature <= 152.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 145.1 && stature <= 152.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 145.7 && stature <= 153.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 146.2 && stature <= 153.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 146.7 && stature <= 154.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 147.3 && stature <= 154.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 148.6 && stature < 163.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 149.2 && stature < 164.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 149.8 && stature < 164.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 150.4 && stature < 165.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 151.0 && stature < 166.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 151.5 && stature < 166.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 152.1 && stature < 167.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 152.7 && stature < 167.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 153.3 && stature < 168.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 153.8 && stature < 169.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 154.4 && stature < 169.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 154.9 && stature < 170.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 163.5 && stature < 170.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 164.1 && stature < 171.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 164.7 && stature < 172.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 165.4 && stature < 172.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 166.0 && stature < 173.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 166.6 && stature < 174.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 167.3 && stature < 174.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 167.9 && stature < 175.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 168.5 && stature < 176.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 169.1 && stature < 176.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 169.7 && stature < 177.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 170.3 && stature < 178.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 170.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 171.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 172.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 172.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 173.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 174.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 174.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 175.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 176.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 176.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 177.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 178.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 14 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 147.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 148.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 148.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 149.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 149.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 150.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 150.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 151.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 151.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 152.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 152.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 152.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 147.8 && stature <= 155.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 148.3 && stature <= 156.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 148.8 && stature <= 156.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 149.3 && stature <= 157.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 149.8 && stature <= 157.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 150.3 && stature <= 158.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 150.8 && stature <= 158.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 151.2 && stature <= 159.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 151.7 && stature <= 159.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 152.1 && stature <= 159.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 152.5 && stature <= 160.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 152.9 && stature <= 160.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 155.5 && stature < 170.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 156.0 && stature < 171.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 156.5 && stature < 172.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 157.1 && stature < 172.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 157.6 && stature < 173.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 158.1 && stature < 173.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 158.5 && stature < 174.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 159.0 && stature < 174.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 159.5 && stature < 175.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 159.9 && stature < 175.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 160.3 && stature < 175.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 160.7 && stature < 176.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 170.9 && stature < 178.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 171.4 && stature < 179.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 172.0 && stature < 179.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 172.5 && stature < 180.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 173.1 && stature < 180.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 173.6 && stature < 181.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 174.1 && stature < 181.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 174.6 && stature < 182.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 175.0 && stature < 182.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 175.5 && stature < 183.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 175.9 && stature < 183.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 176.3 && stature < 184.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 178.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 179.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 179.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 180.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 180.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 181.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 181.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 182.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 182.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 183.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 183.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 184.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 15 ){
+
+            // *** Talla baja ***
+                
+            if( age.m === 0 && stature <= 153.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 153.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 154.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 154.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 154.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 155.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 155.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 155.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 156.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 156.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 156.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 157.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla baja ***
+    
+            // *** Talla Normal Baja ***
+    
+            if( age.m === 0 && stature > 153.4 && stature <= 161.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 153.7 && stature <= 161.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 154.1 && stature <= 161.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 154.5 && stature <= 162.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 154.9 && stature <= 162.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 155.2 && stature <= 163.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 155.5 && stature <= 163.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 155.9 && stature <= 163.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 156.2 && stature <= 164.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 156.5 && stature <= 164.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 156.8 && stature <= 164.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 157.1 && stature <= 164.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Normal Baja ***
+    
+            // *** Normal ***
+    
+            if( age.m === 0 && stature > 161.2 && stature < 176.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 161.5 && stature < 177.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 161.9 && stature < 177.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 162.3 && stature < 177.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 162.7 && stature < 178.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 163.0 && stature < 178.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 163.3 && stature < 178.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 163.7 && stature < 179.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 164.0 && stature < 179.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 164.3 && stature < 179.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 164.6 && stature < 180.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 164.9 && stature < 180.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal ***
+    
+            // *** Talla Normal Alta ***
+    
+            if( age.m === 0 && stature >= 176.8 && stature < 184.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 177.2 && stature < 185.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 177.5 && stature < 185.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 177.9 && stature < 185.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 178.3 && stature < 186.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 178.6 && stature < 186.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 178.9 && stature < 186.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 179.3 && stature < 187.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 179.6 && stature < 187.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 179.9 && stature < 187.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 180.1 && stature < 187.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 180.4 && stature < 188.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Normal Alta ***
+    
+            // *** Talla Alta ***
+    
+            if( age.m === 0 && stature >= 184.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 185.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 185.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 185.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 186.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 186.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 186.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 187.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 187.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 187.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 187.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 188.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Talla Alta ***
+        }
+
+        if ( age.y === 16 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 157.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 157.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 157.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 158.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 158.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 158.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 158.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 159.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 159.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 159.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 159.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 159.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 157.4 && stature <= 165.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 157.6 && stature <= 165.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 157.9 && stature <= 165.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 158.1 && stature <= 165.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 158.4 && stature <= 166.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 158.6 && stature <= 166.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 158.8 && stature <= 166.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 159.0 && stature <= 166.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 159.2 && stature <= 166.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 159.4 && stature <= 167.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 159.6 && stature <= 167.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 159.7 && stature <= 167.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 165.1 && stature < 180.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 165.4 && stature < 180.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 165.6 && stature < 181.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 165.9 && stature < 181.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 166.1 && stature < 181.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 166.3 && stature < 181.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 166.5 && stature < 181.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 166.7 && stature < 182.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 166.9 && stature < 182.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 167.1 && stature < 182.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 167.2 && stature < 182.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 167.4 && stature < 182.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 180.7 && stature < 188.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 180.9 && stature < 188.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 181.1 && stature < 188.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 181.4 && stature < 189.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 181.6 && stature < 189.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 181.8 && stature < 189.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 181.9 && stature < 189.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 182.1 && stature < 189.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 182.3 && stature < 190.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 182.4 && stature < 190.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 182.6 && stature < 190.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 182.7 && stature < 190.3 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 188.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 188.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 188.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 189.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 189.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 189.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 189.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 189.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 190.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 190.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 190.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 190.3 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 17 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 159.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 160.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 160.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 160.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 160.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 160.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 160.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 160.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 160.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 160.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 161.0 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 161.1 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 159.9 && stature <= 167.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 160.0 && stature <= 167.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 160.2 && stature <= 167.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 160.3 && stature <= 167.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 160.4 && stature <= 168.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 160.5 && stature <= 168.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 160.6 && stature <= 168.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 160.8 && stature <= 168.3 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 160.9 && stature <= 168.4 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 160.9 && stature <= 168.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 161.0 && stature <= 168.5 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 161.1 && stature <= 168.6 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 167.5 && stature < 182.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 167.7 && stature < 182.9 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 167.8 && stature < 183.0 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 167.9 && stature < 183.1 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 168.0 && stature < 183.2 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 168.1 && stature < 183.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 168.2 && stature < 183.3 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 168.3 && stature < 183.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 168.4 && stature < 183.4 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 168.5 && stature < 183.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 168.5 && stature < 183.5 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 168.6 && stature < 183.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 182.8 && stature < 190.4 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 182.9 && stature < 190.5 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 183.0 && stature < 190.6 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 183.1 && stature < 190.7 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 183.2 && stature < 190.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 183.3 && stature < 190.8 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 183.3 && stature < 190.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 183.4 && stature < 190.9 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 183.4 && stature < 191.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 183.5 && stature < 191.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 183.5 && stature < 191.0 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 183.6 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 190.4 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 190.5 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 190.6 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 190.7 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 190.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 190.8 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 190.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 190.9 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 191.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 191.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 191.0 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 18 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && stature <= 161.2 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature <= 161.3 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature <= 161.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature <= 161.4 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature <= 161.5 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature <= 161.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature <= 161.6 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature <= 161.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature <= 161.7 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature <= 161.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature <= 161.8 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature <= 161.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && stature > 161.2 && stature <= 168.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 161.3 && stature <= 168.7 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 161.4 && stature <= 168.8 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 161.4 && stature <= 168.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 161.5 && stature <= 168.9 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 161.6 && stature <= 169.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 161.6 && stature <= 169.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 161.7 && stature <= 169.0 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 161.7 && stature <= 169.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 161.8 && stature <= 169.1 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 161.8 && stature <= 169.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 161.9 && stature <= 169.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && stature > 168.7 && stature < 183.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature > 168.7 && stature < 183.6 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature > 168.8 && stature < 183.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature > 168.9 && stature < 183.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature > 168.9 && stature < 183.7 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature > 169.0 && stature < 183.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature > 169.0 && stature < 183.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature > 169.0 && stature < 183.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature > 169.1 && stature < 183.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature > 169.1 && stature < 183.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature > 169.2 && stature < 183.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature > 169.2 && stature < 183.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && stature >= 183.6 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 183.6 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 183.7 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 183.7 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 183.7 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 183.8 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 183.8 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 183.8 && stature < 191.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 183.8 && stature < 191.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 183.8 && stature < 191.2 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 183.8 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 183.8 && stature < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 1 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 2 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 3 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 4 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 5 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 6 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 7 && stature >= 191.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 8 && stature >= 191.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 9 && stature >= 191.2 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 10 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+            if( age.m === 11 && stature >= 191.1 ){
+                result.statureCalificationResult = 'Talla Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Obesidad ***
+        }
+
+        if ( age.y === 19 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 161.9 ){
+                result.statureCalificationResult = 'Talla Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 161.9 && weight <= 169.2 ){
+                result.statureCalificationResult = 'Talla Normal Baja';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 169.2 && weight < 183.8 ){
+                result.statureCalificationResult = 'Normal';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+            // *** Sobrepeso ***
+    
+            if( age.m === 0 && weight >= 183.8 && weight < 191.1 ){
+                result.statureCalificationResult = 'Talla Normal Alta';
+                result.ok.statureCalification = true;
+            }
+    
+            // *** Sobrepeso ***
+    
+            // *** Obesidad ***
+    
+            if( age.m === 0 && weight >= 191.1 ){
                 result.statureCalificationResult = 'Talla Alta';
                 result.ok.statureCalification = true;
             }
@@ -25865,8 +29669,6 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
         const IMC = weight / (stature/100)**2
 
-        console.log(IMC)
-
         if ( age.y === 5 ){
 
             // *** Desnutricion ***
@@ -30522,17 +34324,19 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
             }
         }
     }
-    if( gender === 'Masculino'){
+    if( gender === 'Masculino' ){
 
         if ( age.y < 1 ){
             result.ageMsg = 'tengo menos de 1 año'
+
+            boysTEfrom0to5();
             
             // *** P/T para evaluar que no sea mayor a +1DE ***
             
             boysPTfrom0to1();
 
         
-            if( result.ok.weightCalification === true ){
+            if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                 return result;
             }
             
@@ -30541,10 +34345,11 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
             boysPEfrom0to5();
 
             
-            if( result.ok.weightCalification === true ){
+            if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                 return result;
             }else{
                 result.weightCalificationResult = 'Error'
+                result.statureCalificationResult = 'Error'
                 return result;
             }
             
@@ -30558,24 +34363,30 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
 
                 if( age.y < 2 ){
 
+                    boysTEfrom0to5();
+
                     boysPTfrom0to2();
 
                     
-                    if( result.ok.weightCalification === true ){
+                    if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                         return result;
                     }else{
                         result.weightCalificationResult = 'Error'
+                        result.statureCalificationResult = 'Error'
                         return result;
                     }
                 }else{
 
+                    boysTEfrom0to5();
+
                     boysPTfrom2to5();
 
                     
-                    if( result.ok.weightCalification === true ){
+                    if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                         return result;
                     }else{
                         result.weightCalificationResult = 'Error'
+                        result.statureCalificationResult = 'Error'
                         return result;
                     }
                 }
@@ -30583,39 +34394,48 @@ export const useCalificationIndicator = ( weight, stature, unixBirthday, gender 
             }
             if( age.y === 5 && age.m === 0 ){
 
+                boysTEfrom0to5();
+
                 boysPTfrom2to5();
 
                 
-                if( result.ok.weightCalification === true ){
+                if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                     return result;
                 }else{
                     result.weightCalificationResult = 'Error'
+                    result.statureCalificationResult = 'Error'
                     return result;
                 }
 
             }
             if( age.y === 5 && age.m >= 1){
 
+                boysTEfrom5to19();
+
                 boysIMCEfrom5to19();
 
                 
-                if( result.ok.weightCalification === true ){
+                if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                     return result;
                 }else{
                     result.weightCalificationResult = 'Error'
+                    result.statureCalificationResult = 'Error'
                     return result;
                 }
             }
         }
         if ( age.y > 5 && age.y < 19 ){
 
+            boysTEfrom5to19();
+
             boysIMCEfrom5to19();
 
             
-            if( result.ok.weightCalification === true ){
+            if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                 return result;
             }else{
                 result.weightCalificationResult = 'Error'
+                result.statureCalificationResult = 'Error'
                 return result;
             }
         }

@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser";
 import { checkingCredentials, logout, login, isRegisteringPatient, registeredPatientUID, setIsNutritionistStatus } from "./";
 import { loadUserInfo } from "../../helpers/loadUserInfo";
 import { wipeUserInfo } from "../userInfo";
+import { startLoadingMyPatients } from "../patients";
 
 export const checkingAuthentication = ( email, password ) => {
     
@@ -132,6 +133,7 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
         });
 
         dispatch( isRegisteringPatient( false ) );
+        dispatch ( startLoadingMyPatients( uid ) );
         
     }
 }

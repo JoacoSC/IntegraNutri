@@ -40,6 +40,15 @@ import {
     GirlsPTFromZeroToTwoYears,
     GirlsPTFromTwoToFiveYears,
     GirlsIMCEFromFiveToNineteenYears,
+    BoysPEFromZeroToTwoYears,
+    BoysPEFromTwoToFiveYears,
+    BoysPEFromFiveToTenYears,
+    BoysTEFromZeroToTwoYears,
+    BoysTEFromTwoToFiveYears,
+    BoysTEFromFiveToNineteenYears,
+    BoysPTFromZeroToTwoYears,
+    BoysPTFromTwoToFiveYears,
+    BoysIMCEFromFiveToNineteenYears,
     DefaultData,
 } from "../../data";
 import { ModalUpdatePatientValues } from "../../ui/ModalUpdatePatientValues";
@@ -138,7 +147,7 @@ export const PatientPage = () => {
             },
             title: {
                 display: true,
-                text: 'Gráficos del paciente',
+                text: 'Seleccione un gráfico, por favor',
             },
         },
     })
@@ -148,7 +157,7 @@ export const PatientPage = () => {
         datasets: [
             
             {
-                label: "Grafico del paciente",
+                label: "Seleccione un gráfico, por favor",
                 data: 0,
                 borderColor: '#F58220',
                 backgroundColor: '#F58220',
@@ -439,8 +448,8 @@ export const PatientPage = () => {
             })
         }
 
-        if( age.y === 5 && age.m > 0 ){
-            // De cinco a diecinueve
+        if( age.y === 10 && age.m > 0 ){
+            // De diez a diecinueve
             setHideChartButtons({
                 PEButton: true,
                 TEButton: false,
@@ -448,8 +457,8 @@ export const PatientPage = () => {
                 IMCButton: false,
             })
         }
-        if( age.y > 5 && age.y <= 18 || age.y === 19 && age.m === 0 ){
-            // De cinco a diecinueve
+        if( age.y > 10 && age.y <= 18 || age.y === 19 && age.m === 0 ){
+            // De diez a diecinueve
             setHideChartButtons({
                 PEButton: true,
                 TEButton: false,
@@ -725,6 +734,236 @@ export const PatientPage = () => {
                 }
             }
 
+            if( gender === "Masculino" ){
+
+                // Graficos P/E
+
+                if( age.y <= 1 || age === 2 && age.m === 0 ){
+
+                    console.log('entré a BoysPEFromZeroToTwoYears')
+                    
+                    setReferenceData({
+                        labels: BoysPEFromZeroToTwoYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysPEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysPEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysPEFromZeroToTwoYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysPEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysPEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if ( age.y === 2 && age.m > 0 ){
+
+                    console.log('entré a BoysPEFromTwoToFiveYears')
+
+                    setReferenceData({
+                        labels: BoysPEFromTwoToFiveYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 2 && age.y <= 4 || age.y === 5 && age.m === 0 ){
+                    console.log('entré a BoysPEFromTwoToFiveYears')
+                    
+                    setReferenceData({
+                        labels: BoysPEFromTwoToFiveYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysPEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y === 5 && age.m > 0 ){
+                    
+                    console.log('entré a BoysPEFromFiveToTenYears')
+                                        
+                    setReferenceData({
+                        labels: BoysPEFromFiveToTenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 5 && age.y <= 9 || age.y === 10 && age.m === 0 ){
+
+                    console.log('entré a BoysPEFromFiveToTenYears')
+                    
+                    setReferenceData({
+                        labels: BoysPEFromFiveToTenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysPEFromFiveToTenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+            }
+
         }
 
         if( id === "2"){
@@ -982,6 +1221,236 @@ export const PatientPage = () => {
                     })
                 }
             }
+
+            if( gender === "Masculino" ){
+
+                // Graficos T/E
+
+                if( age.y <= 1 || age === 2 && age.m === 0 ){
+
+                    console.log('entré a BoysTEFromZeroToTwoYears')
+                    
+                    setReferenceData({
+                        labels: BoysTEFromZeroToTwoYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysTEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysTEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysTEFromZeroToTwoYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysTEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysTEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if ( age.y === 2 && age.m > 0 ){
+
+                    console.log('entré a BoysTEFromTwoToFiveYears')
+
+                    setReferenceData({
+                        labels: BoysTEFromTwoToFiveYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 2 && age.y <= 4 || age.y === 5 && age.m === 0 ){
+                    console.log('entré a BoysTEFromTwoToFiveYears')
+                    
+                    setReferenceData({
+                        labels: BoysTEFromTwoToFiveYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysTEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y === 5 && age.m > 0 ){
+                    
+                    console.log('entré a BoysTEFromFiveToNineteenYears')
+                                        
+                    setReferenceData({
+                        labels: BoysTEFromFiveToNineteenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 5 && age.y <= 18 || age.y === 19 && age.m === 0 ){
+
+                    console.log('entré a BoysTEFromFiveToNineteenYears')
+                    
+                    setReferenceData({
+                        labels: BoysTEFromFiveToNineteenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysTEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+            }
         }
 
         if( id === "3"){
@@ -1149,6 +1618,146 @@ export const PatientPage = () => {
                     })
                 }
             }
+
+            if( gender === "Masculino" ){
+
+                // Graficos P/E
+
+                if( age.y <= 1 || age === 2 && age.m === 0 ){
+
+                    console.log('entré a BoysPTFromZeroToTwoYears')
+                    
+                    setReferenceData({
+                        labels: BoysPTFromZeroToTwoYears.map( (data) => data.stature ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysPTFromZeroToTwoYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysPTFromZeroToTwoYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysPTFromZeroToTwoYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysPTFromZeroToTwoYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysPTFromZeroToTwoYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if ( age.y === 2 && age.m > 0 ){
+
+                    console.log('entré a BoysPTFromTwoToFiveYears')
+
+                    setReferenceData({
+                        labels: BoysPTFromTwoToFiveYears.map( (data) => data.stature ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 2 && age.y <= 4 || age.y === 5 && age.m === 0 ){
+                    console.log('entré a BoysPTFromTwoToFiveYears')
+                    
+                    setReferenceData({
+                        labels: BoysPTFromTwoToFiveYears.map( (data) => data.stature ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysPTFromTwoToFiveYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+            }
         }
 
         if( id === "4"){
@@ -1176,6 +1785,7 @@ export const PatientPage = () => {
                     },
                 ]
             })
+            
             if( gender === "Femenino" ){
 
                 // Graficos IMC/E
@@ -1277,6 +1887,116 @@ export const PatientPage = () => {
                             {
                                 label: "+3DE (Kg)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus3DE ),
+                                borderColor: 'rgba(0,166,110, 0.3)',
+                                backgroundColor: 'rgba(0,166,110, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+            }
+
+            if( gender === "Masculino" ){
+
+                // Graficos IMC/E
+
+                if( age.y === 5 && age.m > 0 ){
+                    
+                    console.log('entré a BoysIMCEFromFiveToNineteenYears')
+                                        
+                    setReferenceData({
+                        labels: BoysIMCEFromFiveToNineteenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+3DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus3DE ),
+                                borderColor: 'rgba(0,166,110, 0.3)',
+                                backgroundColor: 'rgba(0,166,110, 0.3)',
+                                pointRadius: 1,
+                            },
+                        ]
+                    })
+                }
+                if( age.y > 5 && age.y <= 18 || age.y === 19 && age.m === 0 ){
+
+                    console.log('entré a BoysIMCEFromFiveToNineteenYears')
+                    
+                    setReferenceData({
+                        labels: BoysIMCEFromFiveToNineteenYears.map( (data) => data.months ),
+                        datasets: [
+                            {
+                                label: "-2DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "-1DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "Mediana (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Median ),
+                                borderColor: 'rgba(35,31,32, 0.3)',
+                                backgroundColor: 'rgba(35,31,32, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+1DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
+                                borderColor: 'rgba(237,2,140, 0.3)',
+                                backgroundColor: 'rgba(237,2,140, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+2DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
+                                borderColor: 'rgba(0,174,239, 0.3)',
+                                backgroundColor: 'rgba(0,174,239, 0.3)',
+                                pointRadius: 1,
+                            },
+                            {
+                                label: "+3DE (Kg)",
+                                data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus3DE ),
                                 borderColor: 'rgba(0,166,110, 0.3)',
                                 backgroundColor: 'rgba(0,166,110, 0.3)',
                                 pointRadius: 1,
