@@ -9,8 +9,12 @@
     --clr-btn-secondary: rgb(109, 34, 208);
     --clr-btn-secondary-hover: #6821c6;
     --clr-btn-secondary-active: #7d37d8;
+    --clr-btn-alt: rgb(208, 40, 34);
+    --clr-btn-alt-hover: #c62121;
+    --clr-btn-alt-active: #d84437;
     --clr-day-ellipse-primary: rgba(164, 164, 164, 0.25);
     --clr-day-ellipse-active: rgb(255, 188, 177);
+
 
     /* Border radius */
 
@@ -603,6 +607,7 @@ body{
     justify-content: center;
     align-items: center;
     padding-top: 30px;
+    gap: 2rem;
 }
 
 .weight-update-btn{
@@ -812,6 +817,15 @@ body{
     justify-content: center;
     height: 100%;
     padding: 2rem 0 1rem 2rem;
+}
+
+.patient-corrected-age{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem 0 1rem 2rem;
+    border-left: 1px solid #ECEDED;
 }
 
 .age-icon{

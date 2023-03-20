@@ -27,6 +27,11 @@ export const currentPatientSlice = createSlice({
             m: 0,
             y: 0,
           },
+        correctedAge: {
+            d: 0,
+            m: 0,
+            y: 0,
+          },
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -49,6 +54,7 @@ export const currentPatientSlice = createSlice({
             state.weight = payload.weight;
             state.stature = payload.stature;
             state.imc = payload.imc;
+            state.correctedAge = payload.correctedAge;
         },
 
         updateCurrentPatientAnamnesis: (state,{ payload }) => {
@@ -83,6 +89,10 @@ export const currentPatientSlice = createSlice({
             state.age = payload;
         },
 
+        updateCurrentPatientCorrectedAge: (state,{ payload }) => {
+            state.correctedAge = payload;
+        },
+
         clearCurrentPatient: ( state ) => {
             state.id = null;
             state.address = null;
@@ -108,6 +118,11 @@ export const currentPatientSlice = createSlice({
                 m: 0,
                 y: 0,
               };
+            state.correctedAge = {
+                d: 0,
+                m: 0,
+                y: 0,
+              };
         },
     }
 });
@@ -125,5 +140,6 @@ export const {
     updateCurrentPatientStature,
     updateCurrentPatientIMC,
     updateCurrentPatientAge,
+    updateCurrentPatientCorrectedAge,
 
 } = currentPatientSlice.actions;

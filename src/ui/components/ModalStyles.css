@@ -57,6 +57,9 @@
 }
 
 .btn-modal-submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     appearance: none;
     width: 100%;
     font-family: "Metropolis", sans-serif;
@@ -79,6 +82,67 @@
 .btn-modal-submit:active{
     transform: scale(0.96);
     background: var(--clr-btn-secondary-active);
+}
+
+.btn-modal-primary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    width: 100%;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.9rem;
+    margin-bottom: 3rem;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-modal-primary:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-hover);
+}
+
+.btn-modal-primary:active{
+    transform: scale(0.96);
+    background: var(--clr-btn-secondary-active);
+}
+
+.btn-modal-alt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    width: 50%;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: var(--clr-btn-alt);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.9rem;
+    margin-bottom: 3rem;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-modal-alt:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-alt-hover);
+}
+
+.btn-modal-alt:active{
+    transform: scale(0.96);
+    background: var(--clr-btn-secondary-active);
+}
+
+.form-btn-group{
+    display: flex;
+    gap: 2rem;
 }
 
 .ReactModal__Overlay {

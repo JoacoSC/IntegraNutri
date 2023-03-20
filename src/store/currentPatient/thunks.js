@@ -117,3 +117,17 @@ export const startUpdatingCurrentPatientIMC = ( uid, patientID, newIMC ) => {
         await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
     }
 }
+
+export const startUpdatingCurrentPatientCorrectedAge = ( uid, patientID, correctedAge ) => {
+    return async( dispatch ) => {
+
+        console.log(correctedAge)
+
+        const newPatientInfoToFirestore = {
+            correctedAge: correctedAge
+        }
+
+        const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+        await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+    }
+}

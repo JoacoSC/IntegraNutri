@@ -52,6 +52,7 @@ import {
     DefaultData,
 } from "../../data";
 import { ModalUpdatePatientValues } from "../../ui/ModalUpdatePatientValues";
+import { ModalUpdateCorrectedAge } from "../../ui/ModalUpdateCorrectedAge";
 
 
 export const PatientPage = () => {
@@ -71,7 +72,12 @@ export const PatientPage = () => {
       imc,
       unixBirthday,
       gender,
-      age
+      age,
+      correctedAge = {
+        d: 0,
+        m: 0,
+        y: 0,
+      }
     } = useSelector((state) => state.currentPatient);
     
     const [lastWeight, setLastWeight] = useState(0);
@@ -2035,6 +2041,7 @@ export const PatientPage = () => {
         }
     }
 
+    console.log('correctedAge: ', correctedAge)
 
     return (
       <>
@@ -2159,11 +2166,39 @@ export const PatientPage = () => {
                         </p>
                     </div>
                 </div>
+                {   (correctedAge.y !== 0 && correctedAge.m !== 0 && correctedAge.d !== 0 )
+                    ?
+                    <div className="patient-corrected-age">
+                        <div className="age-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
+                                <circle cx="21.5" cy="21.5" r="21.5" fill="#D6EEFF"/>
+                                <circle cx="20" cy="17" r="4" stroke="#5192C1" strokeLinecap="round" strokeWidth="2"/>
+                                <path fill="#5192C1" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
+                                <rect width="9" height="8" x="22" y="23" stroke="#5192C1" strokeWidth="2" rx="2"/>
+                                <path fill="#5192C1" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
+                                <path stroke="#5192C1" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
+                                <rect width="2" height="1" x="24" y="26" fill="#5192C1" rx=".5"/>
+                                <rect width="2" height="1" x="24" y="28" fill="#5192C1" rx=".5"/>
+                                <rect width="2" height="1" x="27" y="26" fill="#5192C1" rx=".5"/>
+                                <rect width="2" height="1" x="27" y="28" fill="#5192C1" rx=".5"/>
+                            </svg>
+                        </div>
+                        <div className="age-title">Edad Corregida</div>
+                        <div className="age">
+                            <p className="age-value">
+                                { correctedAge.y + ' años ' + correctedAge.m + ' meses' }
+                            </p>
+                        </div>
+                    </div>
+                    : ''
+                }
                 <button type="submit" hidden></button>
                 </div>
                 <div className="update-values-btn-container">
                     <ModalUpdatePatientValues type='peso' age={ ageText } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/>
+                    <ModalUpdateCorrectedAge age={ age } uid={ uid } patientID={ patientID } />
                 </div>
+                
                 <div className="accordion-container">
                 <div className="left-container">
                     <form onSubmit={onAnamnesisSubmit}>
