@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
-import { startUpdatingCurrentPatientCorrectedAge, updateCurrentPatientCorrectedAge } from '../store/currentPatient';
+import { startUpdatingCurrentPatientCorrectedAge, startUpdatingCurrentPatientUnixCorrectedBirthday, updateCurrentPatientCorrectedAge, updateCurrentPatientUnixCorrectedBirthday } from '../store/currentPatient';
 import './components';
 
 export const ModalUpdateCorrectedAge = ({
@@ -49,17 +49,21 @@ export const ModalUpdateCorrectedAge = ({
 
         setOpenModal(false)
 
-        const correctedAge = {
+        // const correctedUnixBirthday = birthdayForm;
 
-            d: daysForm,
-            m: monthsForm,
-            y: yearsForm,
-        }
+        const correctedAgeObject = calculateAgeObject( unixCorrectedBirthday );
+
+        console.log('correctedAgeObject: ', correctedAgeObject)
 
         console.log('correctedAge: ', correctedAge)
+        console.log('correctedUnixBirthday: ', unixCorrectedBirthday)
         
-        dispatch( updateCurrentPatientCorrectedAge( correctedAge ) );
-        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge ) );
+        dispatch( updateCurrentPatientCorrectedAge( correctedAgeObject ) );
+        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAgeObject ) );
+
+        dispatch( updateCurrentPatientUnixCorrectedBirthday( unixCorrectedBirthday ) );
+        dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday )  );
+
 
     }
     
@@ -73,8 +77,38 @@ export const ModalUpdateCorrectedAge = ({
             y: 0,
         }
 
+        const unixCorrectedBirthday = null;
+
         dispatch( updateCurrentPatientCorrectedAge( correctedAge ) );
         dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge ) );
+
+        dispatch( updateCurrentPatientUnixCorrectedBirthday( unixCorrectedBirthday ) );
+        dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday )  );
+    }
+
+    const calculateAgeObject = ( unixCorrectedBirthday ) => {
+        let d1 = fromUnixTime( unixCorrectedBirthday ).getDate();
+        let m1 = fromUnixTime( unixCorrectedBirthday ).getMonth();
+        let y1 = fromUnixTime( unixCorrectedBirthday ).getFullYear();
+        let date = new Date();
+        let d2 = date.getDate();
+        let m2 = date.getMonth();
+        let y2 = date.getFullYear();
+        let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (d1 > d2) {
+            d2 = d2 + month[m2];
+            m2 = m2 - 1;
+        }
+        if (m1 > m2) {
+            m2 = m2 + 12;
+            y2 = y2 - 1;
+        }
+        let d = d2 - d1;
+        let m = m2 - m1;
+        let y = y2 - y1;
+        
+        return {y, m, d};
+        
     }
 
     const calculateAge = () => {
@@ -200,6 +234,11 @@ export const ModalUpdateCorrectedAge = ({
         console.log(correctedAge)
     }, [onInputChange])
     
+    // TODO:
+    // TODO:
+    // TODO:
+    // TODO: Actualizar edad corregida en store y BD, revisar cómo se mostrará en la tarjeta de paciente, y cómo calcular graficos
+    // TODO: a partir de la nueva edad.
 
     return (
         <>

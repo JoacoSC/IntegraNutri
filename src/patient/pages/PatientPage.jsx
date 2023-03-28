@@ -72,6 +72,7 @@ export const PatientPage = () => {
       stature,
       imc,
       unixBirthday,
+      unixCorrectedBirthday,
       gender,
       age,
       correctedAge = {
@@ -205,6 +206,56 @@ export const PatientPage = () => {
         let d1 = fromUnixTime( unixBirthday ).getDate();
         let m1 = fromUnixTime( unixBirthday ).getMonth();
         let y1 = fromUnixTime( unixBirthday ).getFullYear();
+        let date = new Date();
+        let d2 = date.getDate();
+        let m2 = date.getMonth();
+        let y2 = date.getFullYear();
+        let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (d1 > d2) {
+            d2 = d2 + month[m2];
+            m2 = m2 - 1;
+        }
+        if (m1 > m2) {
+            m2 = m2 + 12;
+            y2 = y2 - 1;
+        }
+        let d = d2 - d1;
+        let m = m2 - m1;
+        let y = y2 - y1;
+
+        if( y === 0 ){
+
+            if( d <= 15 ){
+                if( m === 1 ){
+                    return m + " mes"
+                }else{
+                    return m + " meses"
+                }
+            }else{
+                m2 = m + 1;
+                if( m2 === 1 ){
+                    return m2 + " mes"
+                }else{
+                    return m2 + " meses"
+                }
+            }
+            
+        }
+        if( y > 0 ){
+
+            if( d <= 15 ){
+                return y + " años " + m + " meses";
+            }else{
+                m2 = m + 1;
+                return y + " años " + m2 + " meses";
+            }
+        }
+    }
+
+    const calculateCorrectedAge = ( unixCorrectedBirthday ) => {
+        let d1 = fromUnixTime( unixCorrectedBirthday ).getDate();
+        let m1 = fromUnixTime( unixCorrectedBirthday ).getMonth();
+        let y1 = fromUnixTime( unixCorrectedBirthday ).getFullYear();
         let date = new Date();
         let d2 = date.getDate();
         let m2 = date.getMonth();
@@ -2189,9 +2240,9 @@ export const PatientPage = () => {
                         </p>
                     </div>
                 </div>
-                {   (correctedAge.y !== 0 && correctedAge.m !== 0 && correctedAge.d !== 0 )
-                    ?
-                    <div className="patient-corrected-age">
+                {   (correctedAge.y === 0 && correctedAge.m === 0 && correctedAge.d === 0 )
+                    ? ''                    
+                    : <div className="patient-corrected-age">
                         <div className="age-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
                                 <circle cx="21.5" cy="21.5" r="21.5" fill="#D6EEFF"/>
@@ -2209,11 +2260,10 @@ export const PatientPage = () => {
                         <div className="age-title">Edad Corregida</div>
                         <div className="age">
                             <p className="age-value">
-                                { correctedAge.y + ' años ' + correctedAge.m + ' meses' }
+                                { calculateCorrectedAge( unixCorrectedBirthday ) }
                             </p>
                         </div>
                     </div>
-                    : ''
                 }
                 <button type="submit" hidden></button>
                 </div>

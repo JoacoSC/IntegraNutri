@@ -15,6 +15,7 @@ export const currentPatientSlice = createSlice({
         region: null,
         rut: null,
         unixBirthday: null,
+        unixCorrectedBirthday: null,
         anamnesis: null,
         physical_exam: null,
         diagnosis: null,
@@ -47,6 +48,7 @@ export const currentPatientSlice = createSlice({
             state.region = payload.region;
             state.rut = payload.rut;
             state.unixBirthday = payload.unixBirthday;
+            state.unixCorrectedBirthday = payload.unixCorrectedBirthday;
             state.anamnesis = payload.anamnesis;
             state.physical_exam = payload.physical_exam;
             state.diagnosis = payload.diagnosis;
@@ -91,6 +93,10 @@ export const currentPatientSlice = createSlice({
 
         updateCurrentPatientCorrectedAge: (state,{ payload }) => {
             state.correctedAge = payload;
+        },
+
+        updateCurrentPatientUnixCorrectedBirthday: (state,{ payload }) => {
+            state.unixCorrectedBirthday = payload;
         },
 
         clearCurrentPatient: ( state ) => {
@@ -141,5 +147,6 @@ export const {
     updateCurrentPatientIMC,
     updateCurrentPatientAge,
     updateCurrentPatientCorrectedAge,
+    updateCurrentPatientUnixCorrectedBirthday,
 
 } = currentPatientSlice.actions;
