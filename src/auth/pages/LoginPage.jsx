@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks'
 import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
@@ -73,6 +74,11 @@ export const LoginPage = () => {
                             Iniciar Sesión
                         </button>
                     </div>
+                    <Link to="/auth/passwordReset" className="link-no-decoration">
+                        <div className="form-link">
+                                Olvidé mi contraseña
+                        </div>
+                    </Link>
                     {/* <div className="form-btn">
                         <button
                             className="btn-google-login"

@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { LoginPage, PatientActivationPage, RegisterPage } from "../pages"
+import { LoginPage, PasswordReset, PatientActivationPage, RegisterPage } from "../pages"
 
 export const AuthRoutes = () => {
   return (
@@ -8,6 +8,7 @@ export const AuthRoutes = () => {
             <Route path="login" element={ <LoginPage /> } />
             <Route path="register" element={ <RegisterPage /> } />
             <Route path="patientActivation" element={ <PatientActivationPage /> } />
+            <Route path="passwordReset" element={ <PasswordReset /> } />
 
             <Route path="/*" element={ <Navigate to="/auth/login" /> } />
 

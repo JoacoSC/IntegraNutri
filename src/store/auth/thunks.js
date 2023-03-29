@@ -7,6 +7,7 @@ import { checkingCredentials, logout, login, isRegisteringPatient, registeredPat
 import { loadUserInfo } from "../../helpers/loadUserInfo";
 import { wipeUserInfo } from "../userInfo";
 import { startLoadingMyPatients } from "../patients";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 export const checkingAuthentication = ( email, password ) => {
     
@@ -206,3 +207,12 @@ export const redirectNutritionistOrPatient = ( uid ) => {
     }
 }
 
+export const resetPassword = ( email ) => {
+    return async( dispatch ) => {
+
+        await sendPasswordResetEmail( FirebaseAuth, email );
+
+        console.log('Email enviado al correo: ', email)
+
+    }
+}

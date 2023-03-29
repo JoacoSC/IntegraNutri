@@ -142,6 +142,27 @@ body{
     flex-direction: column;
 }
 
+.form-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration-line: none;
+    color: #6d5c71;
+    transition: 200ms ease all;
+}
+
+.password-reset-text{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.form-link:hover{
+    color: #503e54;
+}
+
 .form-group{
     display: flex;
     flex-direction: row;
