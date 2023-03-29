@@ -44,19 +44,12 @@ export const ModalUpdateCorrectedAge = ({
     }
 
     const updatePatientValues = () => {
-
-        console.log('updatePatientValues')
-
+        
         setOpenModal(false)
 
         // const correctedUnixBirthday = birthdayForm;
 
         const correctedAgeObject = calculateAgeObject( unixCorrectedBirthday );
-
-        console.log('correctedAgeObject: ', correctedAgeObject)
-
-        console.log('correctedAge: ', correctedAge)
-        console.log('correctedUnixBirthday: ', unixCorrectedBirthday)
         
         dispatch( updateCurrentPatientCorrectedAge( correctedAgeObject ) );
         dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAgeObject ) );
@@ -67,17 +60,13 @@ export const ModalUpdateCorrectedAge = ({
 
     }
     
-    const turnCorrectedAgeToZero = () => {
+    const turnCorrectedAgeToActualAge = () => {
 
         setOpenModal(false)
 
-        const correctedAge = {
-            d: 0,
-            m: 0,
-            y: 0,
-        }
+        const correctedAge = age;
 
-        const unixCorrectedBirthday = null;
+        const unixCorrectedBirthday = unixBirthday;
 
         dispatch( updateCurrentPatientCorrectedAge( correctedAge ) );
         dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge ) );
@@ -215,8 +204,8 @@ export const ModalUpdateCorrectedAge = ({
     const updateCorrectedAgeAndBirthday = () => {
 
         if( unixBirthday !== null ){
+
             setCorrectedAge( calculateAge() );
-            console.log( calculateAge() )
             let actualBirthday = format( fromUnixTime( unixBirthday ), 'yyyy-MM-dd' )
             setBirthday(actualBirthday);
         }
@@ -227,19 +216,12 @@ export const ModalUpdateCorrectedAge = ({
     }, [unixBirthday])
 
     useEffect(() => {
+        
         setUnixCorrectedBirthday( getUnixTime(addDays( set( new Date( birthdayForm ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 )) )
-        console.log(unixCorrectedBirthday)
         setCorrectedAge( calculateCorrectedAge( unixCorrectedBirthday ) );
-        console.log(birthdayForm)
-        console.log(correctedAge)
+        
     }, [onInputChange])
     
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO: Actualizar edad corregida en store y BD, revisar cómo se mostrará en la tarjeta de paciente, y cómo calcular graficos
-    // TODO: a partir de la nueva edad.
-
     return (
         <>
             <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
@@ -289,7 +271,7 @@ export const ModalUpdateCorrectedAge = ({
                             <button className="btn-modal-primary" type="submit" onClick={ () => updatePatientValues() }>
                                 Actualizar
                             </button>
-                            <button className="btn-modal-alt" type="submit" onClick={ () => turnCorrectedAgeToZero() }>
+                            <button className="btn-modal-alt" type="submit" onClick={ () => turnCorrectedAgeToActualAge() }>
                                 Eliminar edad corregida
                             </button>
                         </div>

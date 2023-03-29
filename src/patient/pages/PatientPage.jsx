@@ -94,7 +94,7 @@ export const PatientPage = () => {
     const nutritionalCalification = useCalificationIndicator(
         lastWeight,
         lastStature,
-        unixBirthday,
+        unixCorrectedBirthday,
         gender
     );
 
@@ -302,7 +302,7 @@ export const PatientPage = () => {
         }
     }
 
-    const ageText = calculateAge();
+    const ageText = calculateCorrectedAge( unixCorrectedBirthday );
     
     const defaultPatient = {
         unixAge: 0,
@@ -570,7 +570,7 @@ export const PatientPage = () => {
 
                 if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
 
-                    console.log('entré a GirlsPEFromZeroToTwoYears')
+                    // console.log('entré a GirlsPEFromZeroToTwoYears')
                     
                     setReferenceData({
                         labels: GirlsPEFromZeroToTwoYears.map( (data) => data.months ),
@@ -615,7 +615,7 @@ export const PatientPage = () => {
                 }
                 if ( correctedAge.y === 2 && correctedAge.m > 0 ){
 
-                    console.log('entré a GirlsPEFromTwoToFiveYears')
+                    // console.log('entré a GirlsPEFromTwoToFiveYears')
 
                     setReferenceData({
                         labels: GirlsPEFromTwoToFiveYears.map( (data) => data.months ),
@@ -659,7 +659,7 @@ export const PatientPage = () => {
                     })
                 }
                 if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
-                    console.log('entré a GirlsPEFromTwoToFiveYears')
+                    // console.log('entré a GirlsPEFromTwoToFiveYears')
                     
                     setReferenceData({
                         labels: GirlsPEFromTwoToFiveYears.map( (data) => data.months ),
@@ -704,7 +704,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y === 5 && correctedAge.m > 0 ){
                     
-                    console.log('entré a GirlsPEFromFiveToTenYears')
+                    // console.log('entré a GirlsPEFromFiveToTenYears')
                                         
                     setReferenceData({
                         labels: GirlsPEFromFiveToTenYears.map( (data) => data.months ),
@@ -749,7 +749,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y > 5 && correctedAge.y <= 9 || correctedAge.y === 10 && correctedAge.m === 0 ){
 
-                    console.log('entré a GirlsPEFromFiveToTenYears')
+                    // console.log('entré a GirlsPEFromFiveToTenYears')
                     
                     setReferenceData({
                         labels: GirlsPEFromFiveToTenYears.map( (data) => data.months ),
@@ -800,7 +800,7 @@ export const PatientPage = () => {
 
                 if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
 
-                    console.log('entré a BoysPEFromZeroToTwoYears')
+                    // console.log('entré a BoysPEFromZeroToTwoYears')
                     
                     setReferenceData({
                         labels: BoysPEFromZeroToTwoYears.map( (data) => data.months ),
@@ -845,7 +845,7 @@ export const PatientPage = () => {
                 }
                 if ( correctedAge.y === 2 && correctedAge.m > 0 ){
 
-                    console.log('entré a BoysPEFromTwoToFiveYears')
+                    // console.log('entré a BoysPEFromTwoToFiveYears')
 
                     setReferenceData({
                         labels: BoysPEFromTwoToFiveYears.map( (data) => data.months ),
@@ -889,7 +889,7 @@ export const PatientPage = () => {
                     })
                 }
                 if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
-                    console.log('entré a BoysPEFromTwoToFiveYears')
+                    // console.log('entré a BoysPEFromTwoToFiveYears')
                     
                     setReferenceData({
                         labels: BoysPEFromTwoToFiveYears.map( (data) => data.months ),
@@ -934,7 +934,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y === 5 && correctedAge.m > 0 ){
                     
-                    console.log('entré a BoysPEFromFiveToTenYears')
+                    // console.log('entré a BoysPEFromFiveToTenYears')
                                         
                     setReferenceData({
                         labels: BoysPEFromFiveToTenYears.map( (data) => data.months ),
@@ -979,7 +979,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y > 5 && correctedAge.y <= 9 || correctedAge.y === 10 && correctedAge.m === 0 ){
 
-                    console.log('entré a BoysPEFromFiveToTenYears')
+                    // console.log('entré a BoysPEFromFiveToTenYears')
                     
                     setReferenceData({
                         labels: BoysPEFromFiveToTenYears.map( (data) => data.months ),
@@ -1058,7 +1058,7 @@ export const PatientPage = () => {
 
                 if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
 
-                    console.log('entré a GirlsTEFromZeroToTwoYears')
+                    // console.log('entré a GirlsTEFromZeroToTwoYears')
                     
                     setReferenceData({
                         labels: GirlsTEFromZeroToTwoYears.map( (data) => data.months ),
@@ -1103,7 +1103,7 @@ export const PatientPage = () => {
                 }
                 if ( correctedAge.y === 2 && correctedAge.m > 0 ){
 
-                    console.log('entré a GirlsTEFromTwoToFiveYears')
+                    // console.log('entré a GirlsTEFromTwoToFiveYears')
 
                     setReferenceData({
                         labels: GirlsTEFromTwoToFiveYears.map( (data) => data.months ),
@@ -1147,7 +1147,7 @@ export const PatientPage = () => {
                     })
                 }
                 if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
-                    console.log('entré a GirlsTEFromTwoToFiveYears')
+                    // console.log('entré a GirlsTEFromTwoToFiveYears')
                     
                     setReferenceData({
                         labels: GirlsTEFromTwoToFiveYears.map( (data) => data.months ),
@@ -1192,7 +1192,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y === 5 && correctedAge.m > 0 ){
                     
-                    console.log('entré a GirlsTEFromFiveToNineteenYears')
+                    // console.log('entré a GirlsTEFromFiveToNineteenYears')
                                         
                     setReferenceData({
                         labels: GirlsTEFromFiveToNineteenYears.map( (data) => data.months ),
@@ -1237,7 +1237,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y > 5 && correctedAge.y <= 18 || correctedAge.y === 19 && correctedAge.m === 0 ){
 
-                    console.log('entré a GirlsTEFromFiveToNineteenYears')
+                    // console.log('entré a GirlsTEFromFiveToNineteenYears')
                     
                     setReferenceData({
                         labels: GirlsTEFromFiveToNineteenYears.map( (data) => data.months ),
@@ -1288,7 +1288,7 @@ export const PatientPage = () => {
 
                 if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
 
-                    console.log('entré a BoysTEFromZeroToTwoYears')
+                    // console.log('entré a BoysTEFromZeroToTwoYears')
                     
                     setReferenceData({
                         labels: BoysTEFromZeroToTwoYears.map( (data) => data.months ),
@@ -1333,7 +1333,7 @@ export const PatientPage = () => {
                 }
                 if ( correctedAge.y === 2 && correctedAge.m > 0 ){
 
-                    console.log('entré a BoysTEFromTwoToFiveYears')
+                    // console.log('entré a BoysTEFromTwoToFiveYears')
 
                     setReferenceData({
                         labels: BoysTEFromTwoToFiveYears.map( (data) => data.months ),
@@ -1377,7 +1377,7 @@ export const PatientPage = () => {
                     })
                 }
                 if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
-                    console.log('entré a BoysTEFromTwoToFiveYears')
+                    // console.log('entré a BoysTEFromTwoToFiveYears')
                     
                     setReferenceData({
                         labels: BoysTEFromTwoToFiveYears.map( (data) => data.months ),
@@ -1422,7 +1422,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y === 5 && correctedAge.m > 0 ){
                     
-                    console.log('entré a BoysTEFromFiveToNineteenYears')
+                    // console.log('entré a BoysTEFromFiveToNineteenYears')
                                         
                     setReferenceData({
                         labels: BoysTEFromFiveToNineteenYears.map( (data) => data.months ),
@@ -1467,7 +1467,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y > 5 && correctedAge.y <= 18 || correctedAge.y === 19 && correctedAge.m === 0 ){
 
-                    console.log('entré a BoysTEFromFiveToNineteenYears')
+                    // console.log('entré a BoysTEFromFiveToNineteenYears')
                     
                     setReferenceData({
                         labels: BoysTEFromFiveToNineteenYears.map( (data) => data.months ),
@@ -1545,7 +1545,7 @@ export const PatientPage = () => {
 
                 if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
 
-                    console.log('entré a GirlsPTFromZeroToTwoYears')
+                    // console.log('entré a GirlsPTFromZeroToTwoYears')
                     
                     setReferenceData({
                         labels: GirlsPTFromZeroToTwoYears.map( (data) => data.stature ),
@@ -1590,7 +1590,7 @@ export const PatientPage = () => {
                 }
                 if ( correctedAge.y === 2 && correctedAge.m > 0 ){
 
-                    console.log('entré a GirlsPTFromTwoToFiveYears')
+                    // console.log('entré a GirlsPTFromTwoToFiveYears')
 
                     setReferenceData({
                         labels: GirlsPTFromTwoToFiveYears.map( (data) => data.stature ),
@@ -1634,7 +1634,7 @@ export const PatientPage = () => {
                     })
                 }
                 if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
-                    console.log('entré a GirlsPTFromTwoToFiveYears')
+                    // console.log('entré a GirlsPTFromTwoToFiveYears')
                     
                     setReferenceData({
                         labels: GirlsPTFromTwoToFiveYears.map( (data) => data.stature ),
@@ -1685,7 +1685,7 @@ export const PatientPage = () => {
 
                 if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
 
-                    console.log('entré a BoysPTFromZeroToTwoYears')
+                    // console.log('entré a BoysPTFromZeroToTwoYears')
                     
                     setReferenceData({
                         labels: BoysPTFromZeroToTwoYears.map( (data) => data.stature ),
@@ -1730,7 +1730,7 @@ export const PatientPage = () => {
                 }
                 if ( correctedAge.y === 2 && correctedAge.m > 0 ){
 
-                    console.log('entré a BoysPTFromTwoToFiveYears')
+                    // console.log('entré a BoysPTFromTwoToFiveYears')
 
                     setReferenceData({
                         labels: BoysPTFromTwoToFiveYears.map( (data) => data.stature ),
@@ -1774,7 +1774,7 @@ export const PatientPage = () => {
                     })
                 }
                 if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
-                    console.log('entré a BoysPTFromTwoToFiveYears')
+                    // console.log('entré a BoysPTFromTwoToFiveYears')
                     
                     setReferenceData({
                         labels: BoysPTFromTwoToFiveYears.map( (data) => data.stature ),
@@ -1852,7 +1852,7 @@ export const PatientPage = () => {
 
                 if( correctedAge.y === 5 && correctedAge.m > 0 ){
                     
-                    console.log('entré a GirlsIMCEFromFiveToNineteenYears')
+                    // console.log('entré a GirlsIMCEFromFiveToNineteenYears')
                                         
                     setReferenceData({
                         labels: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.months ),
@@ -1904,7 +1904,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y > 5 && correctedAge.y <= 18 || correctedAge.y === 19 && correctedAge.m === 0 ){
 
-                    console.log('entré a GirlsIMCEFromFiveToNineteenYears')
+                    // console.log('entré a GirlsIMCEFromFiveToNineteenYears')
                     
                     setReferenceData({
                         labels: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.months ),
@@ -1962,7 +1962,7 @@ export const PatientPage = () => {
 
                 if( correctedAge.y === 5 && correctedAge.m > 0 ){
                     
-                    console.log('entré a BoysIMCEFromFiveToNineteenYears')
+                    // console.log('entré a BoysIMCEFromFiveToNineteenYears')
                                         
                     setReferenceData({
                         labels: BoysIMCEFromFiveToNineteenYears.map( (data) => data.months ),
@@ -2014,7 +2014,7 @@ export const PatientPage = () => {
                 }
                 if( correctedAge.y > 5 && correctedAge.y <= 18 || correctedAge.y === 19 && correctedAge.m === 0 ){
 
-                    console.log('entré a BoysIMCEFromFiveToNineteenYears')
+                    // console.log('entré a BoysIMCEFromFiveToNineteenYears')
                     
                     setReferenceData({
                         labels: BoysIMCEFromFiveToNineteenYears.map( (data) => data.months ),
@@ -2095,12 +2095,6 @@ export const PatientPage = () => {
         }
     }
 
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO: Debo convertir la edad corregida a una fecha de nacimiento corregida,
-    // TODO: o bien, en el formulario solicitar la fecha de nacimiento ya corregida
-
     useEffect(() => {
 
         const d = fromUnixTime( unixBirthday ).getDate();
@@ -2112,9 +2106,9 @@ export const PatientPage = () => {
         const result = formatDistanceToNowStrict(
             new Date( 2021, 11, 10)
           )
-        console.log(date)
+        // console.log(date)
     
-        console.log(result)
+        // console.log(result)
     }, [unixBirthday])
     
     return (
@@ -2240,7 +2234,7 @@ export const PatientPage = () => {
                         </p>
                     </div>
                 </div>
-                {   (correctedAge.y === 0 && correctedAge.m === 0 && correctedAge.d === 0 )
+                {   (correctedAge.y === age.y && correctedAge.m === age.m && correctedAge.d === age.d )
                     ? ''                    
                     : <div className="patient-corrected-age">
                         <div className="age-icon">

@@ -81,7 +81,7 @@ export const startUpdatingCurrentPatientIndications = ( uid, patientID, formIndi
 export const startUpdatingCurrentPatientWeight = ( uid, patientID, newWeight ) => {
     return async( dispatch ) => {
 
-        console.log(newWeight)
+        // console.log(newWeight)
 
         const newPatientInfoToFirestore = {
             weight: newWeight
@@ -94,7 +94,7 @@ export const startUpdatingCurrentPatientWeight = ( uid, patientID, newWeight ) =
 export const startUpdatingCurrentPatientStature = ( uid, patientID, newStature ) => {
     return async( dispatch ) => {
 
-        console.log(newStature)
+        // console.log(newStature)
 
         const newPatientInfoToFirestore = {
             stature: newStature
@@ -107,7 +107,7 @@ export const startUpdatingCurrentPatientStature = ( uid, patientID, newStature )
 export const startUpdatingCurrentPatientIMC = ( uid, patientID, newIMC ) => {
     return async( dispatch ) => {
 
-        console.log(newIMC)
+        // console.log(newIMC)
 
         const newPatientInfoToFirestore = {
             imc: newIMC
@@ -121,7 +121,7 @@ export const startUpdatingCurrentPatientIMC = ( uid, patientID, newIMC ) => {
 export const startUpdatingCurrentPatientCorrectedAge = ( uid, patientID, correctedAge ) => {
     return async( dispatch ) => {
 
-        console.log(correctedAge)
+        // console.log(correctedAge)
 
         const newPatientInfoToFirestore = {
             correctedAge: correctedAge
@@ -135,15 +135,15 @@ export const startUpdatingCurrentPatientCorrectedAge = ( uid, patientID, correct
 export const startUpdatingCurrentPatientUnixCorrectedBirthday = ( uid, patientID, unixCorrectedBirthday ) => {
     return async( dispatch ) => {
 
-        console.log(unixCorrectedBirthday)
-        console.log(uid)
-        console.log(patientID)
+        // console.log(unixCorrectedBirthday)
+        // console.log(uid)
+        // console.log(patientID)
 
         const newPatientInfoToFirestore = {
             unixCorrectedBirthday: unixCorrectedBirthday
         }
 
-        console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
+        // console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
 
         const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
         await setDoc( docRef, newPatientInfoToFirestore, { merge: true });

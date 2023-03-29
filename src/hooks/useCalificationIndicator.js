@@ -1,11 +1,11 @@
 import { fromUnixTime } from "date-fns";
 
-export const useCalificationIndicator = ( weight, stature, unixBirthday, gender ) => {
+export const useCalificationIndicator = ( weight, stature, unixCorrectedBirthday, gender ) => {
 
     const calculateAgeForCalificationIndicator = () => {
-        let d1 = fromUnixTime( unixBirthday ).getDate();
-        let m1 = fromUnixTime( unixBirthday ).getMonth();
-        let y1 = fromUnixTime( unixBirthday ).getFullYear();
+        let d1 = fromUnixTime( unixCorrectedBirthday ).getDate();
+        let m1 = fromUnixTime( unixCorrectedBirthday ).getMonth();
+        let y1 = fromUnixTime( unixCorrectedBirthday ).getFullYear();
         let date = new Date();
         let d2 = date.getDate();
         let m2 = date.getMonth();

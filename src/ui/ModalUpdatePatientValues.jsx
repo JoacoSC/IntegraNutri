@@ -65,41 +65,6 @@ export const ModalUpdatePatientValues = ({
         dispatch( startUpdatingCurrentPatientIMC( uid, patientID, newIMC ) );
     }
 
-    // const updateStature = () => {
-    //     const newStature = [ ...stature, { A: statureForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ]
-    //     dispatch( updateCurrentPatientStature( newStature ) )
-    //     dispatch( startUpdatingCurrentPatientStature( uid, patientID, newStature ) )
-    // }
-    
-
-    const calculateAge = () => {
-        let d1 = fromUnixTime( unixBirthday ).getDate();
-        let m1 = fromUnixTime( unixBirthday ).getMonth();
-        let y1 = fromUnixTime( unixBirthday ).getFullYear();
-        let date = new Date();
-        let d2 = date.getDate();
-        let m2 = date.getMonth();
-        let y2 = date.getFullYear();
-        let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        if (d1 > d2) {
-            d2 = d2 + month[m2];
-            m2 = m2 - 1;
-        }
-        if (m1 > m2) {
-            m2 = m2 + 12;
-            y2 = y2 - 1;
-        }
-        let d = d2 - d1;
-        let m = m2 - m1;
-        let y = y2 - y1;
-        if( y === 0 ){
-            
-            return m + " meses " + d + " días";
-        }else{
-            return y + " años " + m + " meses " + d + " días";
-        }
-    }
-
     return (
         <>
             <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
