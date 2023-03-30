@@ -2110,6 +2110,8 @@ export const PatientPage = () => {
     
         // console.log(result)
     }, [unixBirthday])
+
+    console.log('isNutritionistStatus: ', isNutritionistStatus)
     
     return (
       <>
@@ -2261,10 +2263,17 @@ export const PatientPage = () => {
                 }
                 <button type="submit" hidden></button>
                 </div>
-                <div className="update-values-btn-container">
-                    <ModalUpdatePatientValues type='peso' age={ ageText } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/>
-                    <ModalUpdateCorrectedAge age={ age } unixBirthday={ unixBirthday } uid={ uid } patientID={ patientID } />
-                </div>
+                {
+                    (isNutritionistStatus)
+                    ?   <div className="update-values-btn-container">
+                            
+                            <ModalUpdatePatientValues type='peso' age={ ageText } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/>
+                            <ModalUpdateCorrectedAge age={ age } unixBirthday={ unixBirthday } uid={ uid } patientID={ patientID } />
+                            
+                        </div>
+                    :   null
+                }
+                
                 
                 <div className="accordion-container">
                 <div className="left-container">

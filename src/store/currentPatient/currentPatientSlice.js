@@ -112,6 +112,7 @@ export const currentPatientSlice = createSlice({
             state.region = null;
             state.rut = null;
             state.unixBirthday = null;
+            state.unixCorrectedBirthday = null;
             state.anamnesis = null;
             state.physical_exam = null;
             state.diagnosis = null;

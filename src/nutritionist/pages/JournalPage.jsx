@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
 import { startLoadingMyJournal } from '../../store/journal';
 import { clearCurrentPatient } from '../../store/currentPatient';
+import { LoadingScreen } from '../../ui/LoadingScreen';
 
 
 
@@ -23,6 +24,8 @@ export const JournalPage = () => {
     const { uid, displayName } = useSelector( state => state.auth )
     
     const { patients } = useSelector( state => state.patients )
+
+    const { isNutritionist } = useSelector( state => state.userInfo )
 
     const {
       workingDayStartHours,
@@ -50,6 +53,8 @@ export const JournalPage = () => {
     );
 
     const [consultationSlotsArray, setConsultationSlotsArray] = useState([]);
+
+    const [isLoading, setIsLoading] = useState( false );
 
     const daysRef = useRef( new Array() );
 
@@ -170,11 +175,27 @@ export const JournalPage = () => {
         : null
     ))
 
+    useEffect(() => {
+
+        console.log('isNutritionist: ', isNutritionist)
+        console.log('isLoading: ', isLoading)
+
+        if( isNutritionist !== undefined ){
+            setIsLoading( true )
+        }else{
+            setIsLoading( false )
+        }
+    
+
+    }, [isNutritionist])
+    
+
     return (
     
         <AppLayout>
 
             <div className="main">
+                <LoadingScreen isLoading = { isLoading } />
                 <div className="logout">
                     <button className="btn-logout" type="button" onClick={ onLogout }>
                         Cerrar sesión

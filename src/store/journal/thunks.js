@@ -39,6 +39,12 @@ export const startLoadingMyJournal = ( uid ) => {
             journal.push({ id: doc.id, ...doc.data() });
         });
 
+        // TODO:
+        // TODO:
+        // TODO:
+        // TODO:
+        // TODO: Aqui debo revisar si "journal" es undefined o no, y enviar la pantalla de bienvenida al nutricionista.
+
         const workingDayStartHours = journal[0].workingDayStartHours
         const workingDayStartMinutes = journal[0].workingDayStartMinutes
         const consultationHours = journal[0].consultationHours
