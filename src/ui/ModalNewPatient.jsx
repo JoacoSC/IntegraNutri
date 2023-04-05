@@ -12,6 +12,8 @@ import './components';
 import { addDays, getUnixTime, set } from "date-fns";
 import { useEffect } from "react";
 import { startLoadingMyPatients } from "../store/patients";
+import { regiones } from "../helpers";
+import { ComunasSelect } from "./";
 
 export const ModalNewPatient = () => {
 
@@ -23,14 +25,18 @@ export const ModalNewPatient = () => {
 
     const [openModal, setOpenModal] = useState(false);
 
+    const [regionSeleccionada, setRegionSeleccionada] = useState('');
+    const [comunaSeleccionada, setComunaSeleccionada] = useState('');
+    const [comunas, setComunas] = useState([]);
+
     const {
         name,
         fatherName,
         motherName,
         birthday,
         email,
-        region = 'Region de Valparaiso',
-        city = 'Llay llay',
+        region,
+        city,
         address,
         phone,
         gender = 'Femenino',
@@ -54,7 +60,7 @@ export const ModalNewPatient = () => {
     const onSubmit = ( event ) => {
         event.preventDefault();
         
-        console.log({ uid, name, fatherName, motherName, rut, isValid, birthday, email, password, region, city, address, phone, gender });
+        console.log({ uid, name, fatherName, motherName, rut, isValid, birthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender });
 
         const rawRut = rut.raw;
 
@@ -70,10 +76,24 @@ export const ModalNewPatient = () => {
 
         if ( !isValid ) return;
 
-        dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
+        // dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
         
 
     }
+
+    const handleRegionSeleccionada = (event) => {
+        const region = event.target.value;
+        const comunas = regiones.find((r) => r.nombre === region).comunas;
+        setRegionSeleccionada(region);
+        setComunas(comunas);
+        setComunaSeleccionada(comunas[0])
+    };
+
+    const handleComunaSeleccionada = (event) => {
+        const comuna = event.target.value;
+        setComunaSeleccionada(comuna)
+        console.log(`Comuna seleccionada: ${comuna}`);
+    };
 
     return (
         <>
@@ -143,17 +163,35 @@ export const ModalNewPatient = () => {
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Región</label>
-                                <select className="select-style" name="region" onChange={ onInputChange }>
-                                    <option value="Region de Valparaiso">Region de Valparaiso</option>
-                                    <option value="Region Metropolitana">Region Metropolitana</option>
+                                <select className="select-style" name="region" value={regionSeleccionada} onChange={handleRegionSeleccionada}>
+                                    <option value="Seleccione una región">Seleccione una región</option>
+                                    {regiones.map((region) => (
+                                    <option key={region.nombre} value={region.nombre}>
+                                        {region.nombre}
+                                    </option>
+                                    ))}
                                 </select>
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Comuna</label>
-                                <select className="select-style" name="city" onChange={ onInputChange }>
+                                {
+                                    <ComunasSelect
+                                    comunaSeleccionada={comunaSeleccionada}
+                                    comunas={comunas}
+                                    handleComunaSeleccionada={handleComunaSeleccionada}
+                                    />
+                                }
+                                {/* {regionSeleccionada && (
+                                    <ComunasSelect
+                                    comunaSeleccionada={comunaSeleccionada}
+                                    comunas={comunas}
+                                    handleComunaSeleccionada={handleComunaSeleccionada}
+                                    />
+                                )} */}
+                                {/* <select className="select-style" name="city" onChange={ onInputChange }>
                                     <option value="Llay llay">Llay llay</option>
                                     <option value="San Felipe">San felipe</option>
-                                </select>
+                                </select> */}
                             </div>      
                         </div>
                         <div className="form-item">

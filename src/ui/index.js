@@ -5,3 +5,4 @@ export * from './ModalEditJournal';
 export * from './ModalNewConsultation';
 export * from './ModalNewPatient';
 export * from './ModalPacienteEspontaneo';
+export * from './ComunasSelect';
