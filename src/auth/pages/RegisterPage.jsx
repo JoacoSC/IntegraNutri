@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRut } from 'react-rut-formatter';
 import { addDays, fromUnixTime, getUnixTime, set } from 'date-fns'
@@ -6,10 +7,16 @@ import { useForm } from '../../hooks';
 import { startCreatingUserWithEmailPassword } from '../../store/auth';
 
 import { AuthLayout } from '../layout/AuthLayout';
+import { regiones } from '../../helpers';
+import { ComunasSelect } from '../../ui';
 
 export const RegisterPage = () => {
 
     const dispatch = useDispatch();
+
+    const [regionSeleccionada, setRegionSeleccionada] = useState('');
+    const [comunaSeleccionada, setComunaSeleccionada] = useState('');
+    const [comunas, setComunas] = useState([]);
 
     const { name, fatherName, motherName, birthday, email, password, confirm_password, region, city, address, phone, gender, onInputChange, formState } = useForm();
     // const {  onInputChange, formState } = useForm();
@@ -31,8 +38,24 @@ export const RegisterPage = () => {
 
         if ( !isValid ) return;
 
-        dispatch ( startCreatingUserWithEmailPassword({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
+        console.log({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender })
+
+        dispatch ( startCreatingUserWithEmailPassword({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) )
     }
+    
+    const handleRegionSeleccionada = (event) => {
+        const region = event.target.value;
+        const comunas = regiones.find((r) => r.nombre === region).comunas;
+        setRegionSeleccionada(region);
+        setComunas(comunas);
+        setComunaSeleccionada(comunas[0])
+    };
+
+    const handleComunaSeleccionada = (event) => {
+        const comuna = event.target.value;
+        setComunaSeleccionada(comuna)
+        console.log(`Comuna seleccionada: ${comuna}`);
+    };
     
     return (
         <>
@@ -81,17 +104,24 @@ export const RegisterPage = () => {
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Región</label>
-                                <select className="select-style" name="region" onChange={ onInputChange }>
-                                    <option value="Region de Valparaiso">Region de Valparaiso</option>
-                                    <option value="Region Metropolitana">Region Metropolitana</option>
+                                <select className="select-style" name="region" value={regionSeleccionada} onChange={handleRegionSeleccionada}>
+                                    <option value="Seleccione una región">Seleccione una región</option>
+                                    {regiones.map((region) => (
+                                    <option key={region.nombre} value={region.nombre}>
+                                        {region.nombre}
+                                    </option>
+                                    ))}
                                 </select>
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Comuna</label>
-                                <select className="select-style" name="city" onChange={ onInputChange }>
-                                    <option value="Llay llay">Llay llay</option>
-                                    <option value="San Felipe">San felipe</option>
-                                </select>
+                                {
+                                    <ComunasSelect
+                                    comunaSeleccionada={comunaSeleccionada}
+                                    comunas={comunas}
+                                    handleComunaSeleccionada={handleComunaSeleccionada}
+                                    />
+                                }
                             </div>      
                         </div>
                         <div className="form-item">

@@ -6,10 +6,15 @@ import { CSSTransition } from "react-transition-group";
 import { useForm } from "../hooks";
 
 import './components';
+import { regiones } from "../helpers";
 
 export const ModalPacienteEspontaneo = () => {
 
     const [openModal, setOpenModal] = useState(false);
+
+    const [regionSeleccionada, setRegionSeleccionada] = useState('');
+    const [comunaSeleccionada, setComunaSeleccionada] = useState('');
+    const [comunas, setComunas] = useState([]);
 
     const { name, fatherName, motherName, date, email, region, comuna, address, phone, genero, onInputChange } = useForm();
 
@@ -26,6 +31,21 @@ export const ModalPacienteEspontaneo = () => {
         // Tengo que capturar los datos para registrar al paciente y asignarle una hora de consulta de inmediato.
         // Debería tener todo listo para eso, sería solo agregar los dispatch correspondientes
     }
+
+    const handleRegionSeleccionada = (event) => {
+        const region = event.target.value;
+        const comunas = regiones.find((r) => r.nombre === region).comunas;
+        setRegionSeleccionada(region);
+        setComunas(comunas);
+        setComunaSeleccionada(comunas[0])
+    };
+
+    const handleComunaSeleccionada = (event) => {
+        const comuna = event.target.value;
+        setComunaSeleccionada(comuna)
+        console.log(`Comuna seleccionada: ${comuna}`);
+    };
+
 
     return (
         <>
@@ -86,17 +106,24 @@ export const ModalPacienteEspontaneo = () => {
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Región</label>
-                                <select className="select-style" name="region" onChange={ onInputChange }>
-                                    <option value="Region de Valparaiso">Region de Valparaiso</option>
-                                    <option value="Region Metropolitana">Region Metropolitana</option>
+                                <select className="select-style" name="region" value={regionSeleccionada} onChange={handleRegionSeleccionada}>
+                                    <option value="Seleccione una región">Seleccione una región</option>
+                                    {regiones.map((region) => (
+                                    <option key={region.nombre} value={region.nombre}>
+                                        {region.nombre}
+                                    </option>
+                                    ))}
                                 </select>
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Comuna</label>
-                                <select className="select-style" name="comuna" onChange={ onInputChange }>
-                                    <option value="Llay llay">Llay llay</option>
-                                    <option value="San Felipe">San felipe</option>
-                                </select>
+                                {
+                                    <ComunasSelect
+                                    comunaSeleccionada={comunaSeleccionada}
+                                    comunas={comunas}
+                                    handleComunaSeleccionada={handleComunaSeleccionada}
+                                    />
+                                }
                             </div>      
                         </div>
                         <div className="form-item">

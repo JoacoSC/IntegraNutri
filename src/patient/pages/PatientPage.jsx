@@ -54,33 +54,37 @@ import {
 } from "../../data";
 import { ModalUpdatePatientValues } from "../../ui/ModalUpdatePatientValues";
 import { ModalUpdateCorrectedAge } from "../../ui/ModalUpdateCorrectedAge";
+import { LoadingScreen } from "../../ui/LoadingScreen";
 
 
 export const PatientPage = () => {
 
     
     const { uid, displayName, photoURL, isNutritionistStatus } = useSelector( state => state.auth )
-    
+
     const {
-      patientName,
-      nextConsultation,
-      anamnesis,
-      physical_exam,
-      diagnosis,
-      indications,
-      weight,
-      stature,
-      imc,
-      unixBirthday,
-      unixCorrectedBirthday,
-      gender,
-      age,
-      correctedAge = {
-        d: 0,
-        m: 0,
-        y: 0,
-      }
+        email,
+        patientName,
+        nextConsultation,
+        anamnesis,
+        physical_exam,
+        diagnosis,
+        indications,
+        weight,
+        stature,
+        imc,
+        unixBirthday,
+        unixCorrectedBirthday,
+        gender,
+        age,
+        correctedAge = {
+            d: 0,
+            m: 0,
+            y: 0,
+        }
     } = useSelector((state) => state.currentPatient);
+
+    const [isLoading, setIsLoading] = useState( false );
     
     const [lastWeight, setLastWeight] = useState(0);
     const [lastStature, setLastStature] = useState(0);
@@ -2111,12 +2115,27 @@ export const PatientPage = () => {
         // console.log(result)
     }, [unixBirthday])
 
-    console.log('isNutritionistStatus: ', isNutritionistStatus)
+    useEffect(() => {
+
+        console.log('email: ', email)
+        console.log('isLoading: ', isLoading)
+
+        if( email !== null ){
+            setIsLoading( true )
+        }else{
+            setIsLoading( false )
+        }
+    
+
+    }, [email])
+
+    // console.log('isNutritionistStatus: ', isNutritionistStatus)
     
     return (
       <>
         <AppLayout>
             <div className="main-content">
+            <LoadingScreen isLoading = { isLoading } />
                 <div className="logout">
                 <button className="btn-logout" type="button" onClick={onLogout}>
                     Cerrar sesión
@@ -2277,40 +2296,45 @@ export const PatientPage = () => {
                 
                 <div className="accordion-container">
                 <div className="left-container">
-                    <form onSubmit={onAnamnesisSubmit}>
-                    <div className="accordion">
-                        <input
-                        className="accordion-input"
-                        type="checkbox"
-                        // defaultChecked
-                        name="patient_accordion"
-                        id="anamnesis"
-                        />
-                        <label className="accordion-label" htmlFor="anamnesis">
-                        Anamnesis
-                        </label>
-                        <div className="accordion-content">
-                        <textarea
-                            className="input-text-patient-page"
-                            name="formAnamnesis"
-                            spellCheck={false}
-                            defaultValue={defaultPatient.anamnesis}
-                            onChange={onInputChange}
-                            readOnly={ !isNutritionistStatus }
-                            placeholder="Escriba aquí :)"
-                        ></textarea>
-                        {/* <input className="input-text-patient-page" type="text" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione at praesentium sed rerum voluptatibus quo aut aspernatur temporibus corrupti eos consequuntur quidem nam quisquam esse dolor, illo tenetur libero repudiandae nulla, recusandae autem. Molestias quam saepe officia dolor nulla eos, eaque aliquam quaerat adipisci recusandae inventore sit maxime possimus asperiores quas omnis debitis non accusamus. Laborum, aspernatur numquam obcaecati tempora quo, assumenda minima, nostrum dolorum eveniet quasi optio quae blanditiis ducimus. Voluptatibus aut aperiam quis quasi ipsum perferendis sapiente nulla itaque" name="name"/> */}
-                        {/* <input type="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore quis repellendus veniam unde sit, laboriosam, perspiciatis ullam voluptate, dolor tempore. Quisquam, numquam? Vero nesciunt dignissimos possimus laborum accusantium veniam maxime, delectus assumenda aspernatur, illo unde modi optio quia non magni consequatur reprehenderit eveniet ad! Eveniet consectetur minima aperiam corporis maxime perspiciatis, velit similique fugit quasi, est quaerat consequatur qui laborum deleniti eos necessitatibus quas reiciendis quibusdam nam aut excepturi repellat aliquam obcaecati voluptatum? Veniam, provident consequuntur itaque recusandae ad dicta facere quam culpa molestiae vel corporis nesciunt, exercitationem corrupti repellendus cum rerum perferendis eaque distinctio tenetur quibusdam! Eius, voluptates.</input> */}
-                        {   ( isNutritionistStatus )
-                            ?   <button
-                                className="btn-save-changes"
-                                type="submit"
-                                ></button>
-                            : null
-                        }
-                        </div>
-                    </div>
-                    </form>
+                {
+                    (isNutritionistStatus)
+                        ?   <form onSubmit={onAnamnesisSubmit}>
+                                <div className="accordion">
+                                    <input
+                                    className="accordion-input"
+                                    type="checkbox"
+                                    // defaultChecked
+                                    name="patient_accordion"
+                                    id="anamnesis"
+                                    />
+                                    <label className="accordion-label" htmlFor="anamnesis">
+                                    Anamnesis
+                                    </label>
+                                    <div className="accordion-content">
+                                    <textarea
+                                        className="input-text-patient-page"
+                                        name="formAnamnesis"
+                                        spellCheck={false}
+                                        defaultValue={defaultPatient.anamnesis}
+                                        onChange={onInputChange}
+                                        readOnly={ !isNutritionistStatus }
+                                        placeholder="Escriba aquí :)"
+                                    ></textarea>
+                                    {/* <input className="input-text-patient-page" type="text" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione at praesentium sed rerum voluptatibus quo aut aspernatur temporibus corrupti eos consequuntur quidem nam quisquam esse dolor, illo tenetur libero repudiandae nulla, recusandae autem. Molestias quam saepe officia dolor nulla eos, eaque aliquam quaerat adipisci recusandae inventore sit maxime possimus asperiores quas omnis debitis non accusamus. Laborum, aspernatur numquam obcaecati tempora quo, assumenda minima, nostrum dolorum eveniet quasi optio quae blanditiis ducimus. Voluptatibus aut aperiam quis quasi ipsum perferendis sapiente nulla itaque" name="name"/> */}
+                                    {/* <input type="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore quis repellendus veniam unde sit, laboriosam, perspiciatis ullam voluptate, dolor tempore. Quisquam, numquam? Vero nesciunt dignissimos possimus laborum accusantium veniam maxime, delectus assumenda aspernatur, illo unde modi optio quia non magni consequatur reprehenderit eveniet ad! Eveniet consectetur minima aperiam corporis maxime perspiciatis, velit similique fugit quasi, est quaerat consequatur qui laborum deleniti eos necessitatibus quas reiciendis quibusdam nam aut excepturi repellat aliquam obcaecati voluptatum? Veniam, provident consequuntur itaque recusandae ad dicta facere quam culpa molestiae vel corporis nesciunt, exercitationem corrupti repellendus cum rerum perferendis eaque distinctio tenetur quibusdam! Eius, voluptates.</input> */}
+                                    {   ( isNutritionistStatus )
+                                        ?   <button
+                                            className="btn-save-changes"
+                                            type="submit"
+                                            ></button>
+                                        : null
+                                    }
+                                    </div>
+                                </div>
+                            </form>
+                        :   null
+                }
+                    
                     <form onSubmit={onPhysical_examSubmit}>
                     <div className="accordion">
                         <input

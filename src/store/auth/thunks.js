@@ -46,7 +46,7 @@ export const startGoogleSignIn = ( isNutritionist ) => {
     }
 }
 
-export const startCreatingUserWithEmailPassword = ({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) => {
+export const startCreatingUserWithEmailPassword = ({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) => {
     return async( dispatch ) => {
 
         dispatch( checkingCredentials() );
@@ -55,8 +55,8 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rawRut, unixBi
             rut: rawRut,
             displayName,
             unixBirthday,
-            region,
-            city,
+            region: regionSeleccionada,
+            city: comunaSeleccionada,
             address,
             phone,
             gender,
@@ -77,12 +77,11 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rawRut, unixBi
     }
 }
 
-export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender, nextConsultation }) => {
+export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) => {
     return async( dispatch ) => {
 
         // dispatch( checkingCredentials() );
         dispatch( isRegisteringPatient( true ) );
-
         
         const newUser = {
             rut: rawRut,
@@ -90,14 +89,14 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
             unixBirthday,
             email,
             password,
-            region,
-            city,
+            region: regionSeleccionada,
+            city: comunaSeleccionada,
             address,
             phone,
             gender,
             isNutritionist: false,
             emailActivated: false,
-            nextConsultation: null,
+            nextConsultation: nextConsultation,
             weight: [{}],
             stature: [{}],
             imc: [{}],

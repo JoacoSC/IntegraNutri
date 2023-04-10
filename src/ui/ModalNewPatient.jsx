@@ -72,11 +72,20 @@ export const ModalNewPatient = () => {
 
         const unixBirthday = getUnixTime( formattedBirthday );
 
+        const nextConsultation = null;
+
         console.log(isValid)
 
         if ( !isValid ) return;
 
-        // dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, region, city, address, phone, gender }) )
+        console.log({regionSeleccionada, comunaSeleccionada})
+
+        dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) )
+
+        // TODO:
+        // TODO:
+        // TODO:
+        // TODO: Descomentar este dispatch y enviar regionSeleccionada y comunaSeleccionada
         
 
     }

@@ -21,6 +21,7 @@ $animation: cubic-bezier(0.45, 0, 0.55, 1);
   height: 100%;
   width: calc(100% - 8rem);
   background-color: white;
+  z-index: 1;
 }
 
 .loading__dot {
@@ -36,16 +37,16 @@ $animation: cubic-bezier(0.45, 0, 0.55, 1);
   0%,
   100% {
     transform: translatey(-2.5rem);
-    background-color: $clr-light;
+    background-color: $clr-dark;
   }
   50% {
     transform: translatey(2.5rem);
-    background-color: $clr-dark;
+    background-color: $clr-light;
   }
 }
 
 @for $i from 1 through 3 {
   .loading div:nth-child(#{$i}) {
-    animation-delay: #{$i * 0.3}s;
+    animation-delay: #{$i * 0.1}s;
   }
 }
