@@ -114,16 +114,16 @@ export const loginWithEmailPassword = async({ email, password }) => {
         
     } catch (error) {
 
-        console.log(error)
+        // console.log(error)
         // Handle Errors here.
         
         const errorMessage = error.message;
-
-        // console.log({ errorCode, errorMessage })
+        const errorCode = error.code;
         
         return{
             ok: false,
-            errorMessage
+            errorMessage,
+            errorCode
 
         }
     }

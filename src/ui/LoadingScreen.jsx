@@ -2,7 +2,7 @@ import './components';
 
 export const LoadingScreen = ({ isLoading }) => {
 
-    console.log('isLoading: ', isLoading)
+    // console.log('isLoading: ', isLoading)
 
     return (
     <div hidden={ isLoading }>   

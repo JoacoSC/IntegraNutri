@@ -162,7 +162,26 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
 
         dispatch( checkingCredentials() );
 
+        console.log('startLoginWithEmailPassword')
+
         const result = await loginWithEmailPassword({ email, password })
+
+        if ( result.errorCode === 'auth/wrong-password' ) {
+            console.log('Contraseña incorrecta')
+            dispatch( logout( result.errorMessage ) )
+            return {
+                ok: false,
+                errorCode: result.errorCode,
+            }
+        }
+        if ( result.errorCode === 'auth/too-many-requests' ) {
+            console.log('Demasiados intentos fallidos, intente nuevamente mas tarde')
+            dispatch( logout( result.errorMessage ) )
+            return {
+                ok: false,
+                errorCode: result.errorCode,
+            }
+        }
 
         // if ( !result.ok ) return dispatch( logout( result ) );
         // dispatch( login( result ))

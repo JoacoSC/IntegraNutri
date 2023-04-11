@@ -177,8 +177,8 @@ export const JournalPage = () => {
 
     useEffect(() => {
 
-        console.log('isNutritionist: ', isNutritionist)
-        console.log('isLoading: ', isLoading)
+        // console.log('isNutritionist: ', isNutritionist)
+        // console.log('isLoading: ', isLoading)
 
         if( isNutritionist !== undefined ){
             setIsLoading( true )

@@ -11,6 +11,8 @@ export const LoginPage = () => {
     const { status } = useSelector( state => state.auth )
 
     const [isNutritionist, setIsNutritionist] = useState( true );
+    const [error, setError] = useState(false);
+    const [errorCode, setErrorCode] = useState('')
 
     const dispatch = useDispatch();
 
@@ -24,11 +26,17 @@ export const LoginPage = () => {
         setIsNutritionist(isNutritionist => !isNutritionist);
     }
 
-    const onSubmit = ( event ) => {
+    const onSubmit = async ( event ) => {
         event.preventDefault();
 
-        // console.log({ email, password, isNutritionist });
-        dispatch( startLoginWithEmailPassword({ email, password, isNutritionist }) ) ;
+        console.log({ email, password });
+        const result = await dispatch( startLoginWithEmailPassword({ email, password, isNutritionist }) ) ;
+        
+        if( result?.ok === false ){
+            console.log('Codigo de error: ', result.errorCode);
+            setErrorCode(result.errorCode)
+            setError(true);
+        }
     }
 
     const onGoogleSingIn = () => {
@@ -65,6 +73,19 @@ export const LoginPage = () => {
                         <label className="input-label">Contraseña</label>
                         <input className="input-text-style" type="password" name="password" onChange={ onInputChange }/>
                     </div>
+                    {
+                        ( error )
+                        ? <div className="login-error-message">
+                        {
+                            (errorCode === 'auth/wrong-password')
+                            ?   'Contraseña incorrecta'
+                            :   (errorCode === 'auth/too-many-requests')
+                                ?   'Demasiados intentos fallidos, intente nuevamente más tarde'
+                                :   null
+                        }
+                        </div>
+                        : null
+                    }
                     <div className="form-btn">
                         <button
                             className="btn-submit"
