@@ -72,9 +72,30 @@ export const MyPatientsPage = () => {
 
                             <Link to={'../patient?patientID='+patient.id} className="patient-item" key={ patient.id }>
                                 <div className="avatar">{ patient.displayName.substring(0,2) }</div>
-                                <div className="patient-info">
-                                    <div className="patient-name">{ patient.displayName }</div>
-                                    <div className="patient-info">{ patient.rut +" "+ patient.city +", "+ patient.region }</div>
+                                <div className="my-patients-patient-info">
+                                    <div className="my-patients-patient-name">{ patient.displayName }</div>
+                                    <div className="my-patients-info-container">
+                                    <div className="my-patients-info-item-container">
+                                        Rut
+                                        <div className="my-patients-info-rut">
+                                            { patient.rut }
+                                        </div>
+                                    </div>
+                                    <div className="my-patients-info-item-container">
+                                        Comuna
+                                        <div className="my-patients-info-city">
+                                            { patient.city }
+                                        </div>
+
+                                    </div>
+                                    <div className="my-patients-info-item-container">
+                                        Región
+                                        <div className="my-patients-info-region">
+                                            { patient.region }
+                                        </div>
+
+                                    </div>
+                                    </div>
                                     {/* <div className="consultation-hour">
                                         {format(fromUnixTime(consultationSlot.patient.nextConsultation), "hh:mm") +
                                         " - " +
