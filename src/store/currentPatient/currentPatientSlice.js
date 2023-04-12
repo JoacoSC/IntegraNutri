@@ -33,6 +33,7 @@ export const currentPatientSlice = createSlice({
             m: 0,
             y: 0,
           },
+        correctedAgeIsSet: false,
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -57,6 +58,7 @@ export const currentPatientSlice = createSlice({
             state.stature = payload.stature;
             state.imc = payload.imc;
             state.correctedAge = payload.correctedAge;
+            state.correctedAgeIsSet = payload.correctedAgeIsSet;
         },
 
         updateCurrentPatientAnamnesis: (state,{ payload }) => {
@@ -92,11 +94,17 @@ export const currentPatientSlice = createSlice({
         },
 
         updateCurrentPatientCorrectedAge: (state,{ payload }) => {
-            state.correctedAge = payload;
+            console.log('payload: ', payload)
+            console.log('payload.correctedAge: ', payload.correctedAge)
+            state.correctedAge = payload.correctedAge;
+            state.correctedAgeIsSet = payload.correctedAgeIsSet;
         },
 
         updateCurrentPatientUnixCorrectedBirthday: (state,{ payload }) => {
-            state.unixCorrectedBirthday = payload;
+            console.log('payload: ', payload)
+            console.log('payload.correctedAge: ', payload.correctedAge)
+            state.unixCorrectedBirthday = payload.unixCorrectedBirthday;
+            state.correctedAgeIsSet = payload.correctedAgeIsSet;
         },
 
         clearCurrentPatient: ( state ) => {
@@ -130,6 +138,7 @@ export const currentPatientSlice = createSlice({
                 m: 0,
                 y: 0,
               };
+            state.correctedAgeIsSet = false;
         },
     }
 });

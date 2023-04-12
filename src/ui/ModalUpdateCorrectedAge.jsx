@@ -49,30 +49,39 @@ export const ModalUpdateCorrectedAge = ({
 
         // const correctedUnixBirthday = birthdayForm;
 
-        const correctedAgeObject = calculateAgeObject( unixCorrectedBirthday );
-        
-        dispatch( updateCurrentPatientCorrectedAge( correctedAgeObject ) );
-        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAgeObject ) );
+        const correctedAge = calculateAgeObject( unixCorrectedBirthday );
 
-        dispatch( updateCurrentPatientUnixCorrectedBirthday( unixCorrectedBirthday ) );
-        dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday )  );
+        const correctedAgeIsSet = true;
+
+        console.log('correctedAge: ', correctedAge)
+        
+        dispatch( updateCurrentPatientCorrectedAge({ correctedAge, correctedAgeIsSet }) );
+        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
+
+        dispatch( updateCurrentPatientUnixCorrectedBirthday({ unixCorrectedBirthday, correctedAgeIsSet }) );
+        dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday, correctedAgeIsSet )  );
 
 
     }
     
-    const turnCorrectedAgeToActualAge = () => {
+    const deleteCorrectedAge = () => {
 
         setOpenModal(false)
 
-        const correctedAge = age;
+        const correctedAge = {
+            y: 0,
+            m: 0,
+            d: 0,
+        };
 
-        const unixCorrectedBirthday = unixBirthday;
+        const unixCorrectedBirthday = null;
+        const correctedAgeIsSet = false;
 
-        dispatch( updateCurrentPatientCorrectedAge( correctedAge ) );
-        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge ) );
+        dispatch( updateCurrentPatientCorrectedAge({ correctedAge, correctedAgeIsSet }) );
+        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
 
-        dispatch( updateCurrentPatientUnixCorrectedBirthday( unixCorrectedBirthday ) );
-        dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday )  );
+        dispatch( updateCurrentPatientUnixCorrectedBirthday({ unixCorrectedBirthday, correctedAgeIsSet }) );
+        dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday, correctedAgeIsSet )  );
     }
 
     const calculateAgeObject = ( unixCorrectedBirthday ) => {
@@ -271,7 +280,7 @@ export const ModalUpdateCorrectedAge = ({
                             <button className="btn-modal-primary" type="submit" onClick={ () => updatePatientValues() }>
                                 Actualizar
                             </button>
-                            <button className="btn-modal-alt" type="submit" onClick={ () => turnCorrectedAgeToActualAge() }>
+                            <button className="btn-modal-alt" type="submit" onClick={ () => deleteCorrectedAge() }>
                                 Eliminar edad corregida
                             </button>
                         </div>

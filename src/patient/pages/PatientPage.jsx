@@ -77,6 +77,7 @@ export const PatientPage = () => {
         unixCorrectedBirthday,
         gender,
         age,
+        correctedAgeIsSet = false,
         correctedAge = {
             d: 0,
             m: 0,
@@ -84,7 +85,7 @@ export const PatientPage = () => {
         }
     } = useSelector((state) => state.currentPatient);
 
-    const [isLoading, setIsLoading] = useState( false );
+    const [isLoading, setIsLoading] = useState( true );
     
     const [lastWeight, setLastWeight] = useState(0);
     const [lastStature, setLastStature] = useState(0);
@@ -2117,408 +2118,411 @@ export const PatientPage = () => {
 
     useEffect(() => {
 
-        console.log('email: ', email)
-        console.log('isLoading: ', isLoading)
+        // console.log('email: ', email)
+        // console.log('isLoading: ', isLoading)
 
         if( email !== null ){
-            setIsLoading( true )
-        }else{
             setIsLoading( false )
+        }else{
+            setIsLoading( true )
         }
     
 
     }, [email])
-
-    // console.log('isNutritionistStatus: ', isNutritionistStatus)
     
     return (
       <>
         <AppLayout>
             <div className="main-content">
-            <LoadingScreen isLoading = { isLoading } />
-                <div className="logout">
-                <button className="btn-logout" type="button" onClick={onLogout}>
-                    Cerrar sesión
-                </button>
-                </div>
-                <div className="patient-card">
-                <div className="patient-data">
-                    <div className="patient-avatar">
-                    {patientName.substring(0, 2)}
+            {
+                ( isLoading )
+                ?   <LoadingScreen isLoading = { isLoading } />
+                : <>
+                    <div className="logout">
+                    <button className="btn-logout" type="button" onClick={onLogout}>
+                        Cerrar sesión
+                    </button>
                     </div>
-                    <div className="patient-name">{patientName}</div>
-                    <div className="patient-consultation-time"></div>
-                    <div className="patient-consultation-time">
-                    {nextConsultation !== null
-                        ? format(fromUnixTime(nextConsultation), "hh:mm") +
-                        " - " +
-                        format(
-                            add(fromUnixTime(nextConsultation), {
-                            hours: consultationHours,
-                            minutes: consultationMinutes,
-                            }),
-                            "hh:mm"
-                        )
-                        : "No hay horas agendadas"}
+                    <div className="patient-card">
+                    <div className="patient-data">
+                        <div className="patient-avatar">
+                        {patientName.substring(0, 2)}
+                        </div>
+                        <div className="patient-name">{patientName}</div>
+                        <div className="patient-consultation-time"></div>
+                        <div className="patient-consultation-time">
+                        {nextConsultation !== null
+                            ? format(fromUnixTime(nextConsultation), "hh:mm") +
+                            " - " +
+                            format(
+                                add(fromUnixTime(nextConsultation), {
+                                hours: consultationHours,
+                                minutes: consultationMinutes,
+                                }),
+                                "hh:mm"
+                            )
+                            : "No hay horas agendadas"}
+                        </div>
+                        <div className="patient-consultation-time">
+                        {nextConsultation !== null
+                            ? format(fromUnixTime(nextConsultation), "dd/MMM/yyyy")
+                            : ""}
+                        </div>
                     </div>
-                    <div className="patient-consultation-time">
-                    {nextConsultation !== null
-                        ? format(fromUnixTime(nextConsultation), "dd/MMM/yyyy")
-                        : ""}
-                    </div>
-                </div>
 
-                <div className="patient-weight">
-                    <div className="weight-icon">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="43"
-                        height="43"
-                        fill="none"
-                        viewBox="0 0 43 43"
-                    >
-                        <circle cx="21.5" cy="21.5" r="21.5" fill="#F5EEFF" />
-                        <path
-                        stroke="#452372"
-                        strokeLinecap="round"
-                        strokeWidth="2"
-                        d="M33.591 26.106a12 12 0 1 0-23.182 0M22 11v2.667m-8.485.847L15.4 16.4m15.085-1.886L28.6 16.4m4.991 9.705-2.576-.69m-20.606.69 2.576-.69"
-                        />
-                        <path
-                        stroke="#927CB0"
-                        strokeWidth="2"
-                        d="M24.717 22.618c.485 1.04-.204 2.388-1.54 3.01-1.334.622-2.81.284-3.294-.756-.553-1.186-2.143-7.956-2.964-11.532-.12-.522.547-.833.87-.405 2.212 2.927 6.375 8.497 6.928 9.683Z"
-                        />
-                    </svg>
-                    </div>
-                    <div className="weight-title">
-                        Peso
-                        {/* <span className="weight-indicator-panel"><p>Obesidad</p></span> */}
-                    </div>
-                    <div className="weight">
-                        <p className= "weight-value"> {
-                            (weightLength > 0)
-                            ? weight[weightLength - 1].A
-                            : 'NaN'
-                        } </p>
-                        <div className="weight-kg">Kg</div>
-                        
-                    </div>
-                    
-                </div>
-                <div className="patient-stature">
-                    <div className="stature-icon">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="43"
-                        height="43"
-                        fill="none"
-                        viewBox="0 0 43 43"
-                    >
-                        <circle cx="21.5" cy="21.5" r="21.5" fill="#FFF3F1" />
-                        <path
-                        fill="#FF8976"
-                        d="m18 12-.707-.707.707-.707.707.707L18 12Zm1 15a1 1 0 1 1-2 0h2Zm-6.707-10.707 5-5 1.414 1.414-5 5-1.414-1.414Zm6.414-5 5 5-1.414 1.414-5-5 1.414-1.414ZM19 12v15h-2V12h2Zm7 20-.707.707.707.707.707-.707L26 32Zm1-15a1 1 0 1 0-2 0h2Zm-6.707 10.707 5 5 1.414-1.414-5-5-1.414 1.414Zm6.414 5 5-5-1.414-1.414-5 5 1.414 1.414ZM27 32V17h-2v15h2Z"
-                        />
-                    </svg>
-                    </div>
-                    <div className="stature-title">Talla</div>
-                    <div className="stature">
-                        <p className= "stature-value"> { 
-                            (statureLength > 0)
-                            ? stature[statureLength - 1].A
-                            : 'NaN'
-                        } </p>
-                        <div className="stature-cm">Cm</div>
-                        
-                    </div>
-                </div>
-                <div className="patient-age">
-                    <div className="age-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
-                            <circle cx="21.5" cy="21.5" r="21.5" fill="#DBFFD6"/>
-                            <circle cx="20" cy="17" r="4" stroke="#5EC151" strokeLinecap="round" strokeWidth="2"/>
-                            <path fill="#5EC151" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
-                            <rect width="9" height="8" x="22" y="23" stroke="#5EC151" strokeWidth="2" rx="2"/>
-                            <path fill="#5EC151" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
-                            <path stroke="#5EC151" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
-                            <rect width="2" height="1" x="24" y="26" fill="#5EC151" rx=".5"/>
-                            <rect width="2" height="1" x="24" y="28" fill="#5EC151" rx=".5"/>
-                            <rect width="2" height="1" x="27" y="26" fill="#5EC151" rx=".5"/>
-                            <rect width="2" height="1" x="27" y="28" fill="#5EC151" rx=".5"/>
+                    <div className="patient-weight">
+                        <div className="weight-icon">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="43"
+                            height="43"
+                            fill="none"
+                            viewBox="0 0 43 43"
+                        >
+                            <circle cx="21.5" cy="21.5" r="21.5" fill="#F5EEFF" />
+                            <path
+                            stroke="#452372"
+                            strokeLinecap="round"
+                            strokeWidth="2"
+                            d="M33.591 26.106a12 12 0 1 0-23.182 0M22 11v2.667m-8.485.847L15.4 16.4m15.085-1.886L28.6 16.4m4.991 9.705-2.576-.69m-20.606.69 2.576-.69"
+                            />
+                            <path
+                            stroke="#927CB0"
+                            strokeWidth="2"
+                            d="M24.717 22.618c.485 1.04-.204 2.388-1.54 3.01-1.334.622-2.81.284-3.294-.756-.553-1.186-2.143-7.956-2.964-11.532-.12-.522.547-.833.87-.405 2.212 2.927 6.375 8.497 6.928 9.683Z"
+                            />
                         </svg>
+                        </div>
+                        <div className="weight-title">
+                            Peso
+                            {/* <span className="weight-indicator-panel"><p>Obesidad</p></span> */}
+                        </div>
+                        <div className="weight">
+                            <p className= "weight-value"> {
+                                (weightLength > 0)
+                                ? weight[weightLength - 1].A
+                                : 'NaN'
+                            } </p>
+                            <div className="weight-kg">Kg</div>
+                            
+                        </div>
+                        
                     </div>
-                    <div className="age-title">Edad</div>
-                    <div className="age">
-                        <p className="age-value">
-                            { calculateAge() }
-                        </p>
+                    <div className="patient-stature">
+                        <div className="stature-icon">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="43"
+                            height="43"
+                            fill="none"
+                            viewBox="0 0 43 43"
+                        >
+                            <circle cx="21.5" cy="21.5" r="21.5" fill="#FFF3F1" />
+                            <path
+                            fill="#FF8976"
+                            d="m18 12-.707-.707.707-.707.707.707L18 12Zm1 15a1 1 0 1 1-2 0h2Zm-6.707-10.707 5-5 1.414 1.414-5 5-1.414-1.414Zm6.414-5 5 5-1.414 1.414-5-5 1.414-1.414ZM19 12v15h-2V12h2Zm7 20-.707.707.707.707.707-.707L26 32Zm1-15a1 1 0 1 0-2 0h2Zm-6.707 10.707 5 5 1.414-1.414-5-5-1.414 1.414Zm6.414 5 5-5-1.414-1.414-5 5 1.414 1.414ZM27 32V17h-2v15h2Z"
+                            />
+                        </svg>
+                        </div>
+                        <div className="stature-title">Talla</div>
+                        <div className="stature">
+                            <p className= "stature-value"> { 
+                                (statureLength > 0)
+                                ? stature[statureLength - 1].A
+                                : 'NaN'
+                            } </p>
+                            <div className="stature-cm">Cm</div>
+                            
+                        </div>
                     </div>
-                </div>
-                {   (correctedAge.y === age.y && correctedAge.m === age.m && correctedAge.d === age.d )
-                    ? ''                    
-                    : <div className="patient-corrected-age">
+                    <div className="patient-age">
                         <div className="age-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
-                                <circle cx="21.5" cy="21.5" r="21.5" fill="#D6EEFF"/>
-                                <circle cx="20" cy="17" r="4" stroke="#5192C1" strokeLinecap="round" strokeWidth="2"/>
-                                <path fill="#5192C1" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
-                                <rect width="9" height="8" x="22" y="23" stroke="#5192C1" strokeWidth="2" rx="2"/>
-                                <path fill="#5192C1" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
-                                <path stroke="#5192C1" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
-                                <rect width="2" height="1" x="24" y="26" fill="#5192C1" rx=".5"/>
-                                <rect width="2" height="1" x="24" y="28" fill="#5192C1" rx=".5"/>
-                                <rect width="2" height="1" x="27" y="26" fill="#5192C1" rx=".5"/>
-                                <rect width="2" height="1" x="27" y="28" fill="#5192C1" rx=".5"/>
+                                <circle cx="21.5" cy="21.5" r="21.5" fill="#DBFFD6"/>
+                                <circle cx="20" cy="17" r="4" stroke="#5EC151" strokeLinecap="round" strokeWidth="2"/>
+                                <path fill="#5EC151" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
+                                <rect width="9" height="8" x="22" y="23" stroke="#5EC151" strokeWidth="2" rx="2"/>
+                                <path fill="#5EC151" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
+                                <path stroke="#5EC151" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
+                                <rect width="2" height="1" x="24" y="26" fill="#5EC151" rx=".5"/>
+                                <rect width="2" height="1" x="24" y="28" fill="#5EC151" rx=".5"/>
+                                <rect width="2" height="1" x="27" y="26" fill="#5EC151" rx=".5"/>
+                                <rect width="2" height="1" x="27" y="28" fill="#5EC151" rx=".5"/>
                             </svg>
                         </div>
-                        <div className="age-title">Edad Corregida</div>
+                        <div className="age-title">Edad</div>
                         <div className="age">
                             <p className="age-value">
-                                { calculateCorrectedAge( unixCorrectedBirthday ) }
+                                { calculateAge() }
                             </p>
                         </div>
                     </div>
-                }
-                <button type="submit" hidden></button>
-                </div>
-                {
-                    (isNutritionistStatus)
-                    ?   <div className="update-values-btn-container">
-                            
-                            <ModalUpdatePatientValues type='peso' age={ ageText } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/>
-                            <ModalUpdateCorrectedAge age={ age } unixBirthday={ unixBirthday } uid={ uid } patientID={ patientID } />
-                            
-                        </div>
-                    :   null
-                }
-                
-                
-                <div className="accordion-container">
-                <div className="left-container">
-                {
-                    (isNutritionistStatus)
-                        ?   <form onSubmit={onAnamnesisSubmit}>
-                                <div className="accordion">
-                                    <input
-                                    className="accordion-input"
-                                    type="checkbox"
-                                    // defaultChecked
-                                    name="patient_accordion"
-                                    id="anamnesis"
-                                    />
-                                    <label className="accordion-label" htmlFor="anamnesis">
-                                    Anamnesis
-                                    </label>
-                                    <div className="accordion-content">
-                                    <textarea
-                                        className="input-text-patient-page"
-                                        name="formAnamnesis"
-                                        spellCheck={false}
-                                        defaultValue={defaultPatient.anamnesis}
-                                        onChange={onInputChange}
-                                        readOnly={ !isNutritionistStatus }
-                                        placeholder="Escriba aquí :)"
-                                    ></textarea>
-                                    {/* <input className="input-text-patient-page" type="text" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione at praesentium sed rerum voluptatibus quo aut aspernatur temporibus corrupti eos consequuntur quidem nam quisquam esse dolor, illo tenetur libero repudiandae nulla, recusandae autem. Molestias quam saepe officia dolor nulla eos, eaque aliquam quaerat adipisci recusandae inventore sit maxime possimus asperiores quas omnis debitis non accusamus. Laborum, aspernatur numquam obcaecati tempora quo, assumenda minima, nostrum dolorum eveniet quasi optio quae blanditiis ducimus. Voluptatibus aut aperiam quis quasi ipsum perferendis sapiente nulla itaque" name="name"/> */}
-                                    {/* <input type="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore quis repellendus veniam unde sit, laboriosam, perspiciatis ullam voluptate, dolor tempore. Quisquam, numquam? Vero nesciunt dignissimos possimus laborum accusantium veniam maxime, delectus assumenda aspernatur, illo unde modi optio quia non magni consequatur reprehenderit eveniet ad! Eveniet consectetur minima aperiam corporis maxime perspiciatis, velit similique fugit quasi, est quaerat consequatur qui laborum deleniti eos necessitatibus quas reiciendis quibusdam nam aut excepturi repellat aliquam obcaecati voluptatum? Veniam, provident consequuntur itaque recusandae ad dicta facere quam culpa molestiae vel corporis nesciunt, exercitationem corrupti repellendus cum rerum perferendis eaque distinctio tenetur quibusdam! Eius, voluptates.</input> */}
-                                    {   ( isNutritionistStatus )
-                                        ?   <button
-                                            className="btn-save-changes"
-                                            type="submit"
-                                            ></button>
-                                        : null
-                                    }
-                                    </div>
-                                </div>
-                            </form>
+                    {   ( correctedAgeIsSet === true )
+                        ? <div className="patient-corrected-age">
+                            <div className="age-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
+                                    <circle cx="21.5" cy="21.5" r="21.5" fill="#D6EEFF"/>
+                                    <circle cx="20" cy="17" r="4" stroke="#5192C1" strokeLinecap="round" strokeWidth="2"/>
+                                    <path fill="#5192C1" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
+                                    <rect width="9" height="8" x="22" y="23" stroke="#5192C1" strokeWidth="2" rx="2"/>
+                                    <path fill="#5192C1" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
+                                    <path stroke="#5192C1" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
+                                    <rect width="2" height="1" x="24" y="26" fill="#5192C1" rx=".5"/>
+                                    <rect width="2" height="1" x="24" y="28" fill="#5192C1" rx=".5"/>
+                                    <rect width="2" height="1" x="27" y="26" fill="#5192C1" rx=".5"/>
+                                    <rect width="2" height="1" x="27" y="28" fill="#5192C1" rx=".5"/>
+                                </svg>
+                            </div>
+                            <div className="age-title">Edad Corregida</div>
+                            <div className="age">
+                                <p className="age-value">
+                                    { calculateCorrectedAge( unixCorrectedBirthday ) }
+                                </p>
+                            </div>
+                        </div>                    
+                        : null
+                    }
+                    <button type="submit" hidden></button>
+                    </div>
+                    {
+                        (isNutritionistStatus)
+                        ?   <div className="update-values-btn-container">
+                                
+                                <ModalUpdatePatientValues type='peso' age={ ageText } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/>
+                                <ModalUpdateCorrectedAge age={ age } unixBirthday={ unixBirthday } uid={ uid } patientID={ patientID } />
+                                
+                            </div>
                         :   null
-                }
+                    }
                     
-                    <form onSubmit={onPhysical_examSubmit}>
-                    <div className="accordion">
-                        <input
-                        className="accordion-input"
-                        type="checkbox"
-                        // defaultChecked
-                        name="patient_accordion"
-                        id="examen_fisico"
-                        />
-                        <label className="accordion-label" htmlFor="examen_fisico">
-                        Examen físico
-                        </label>
-                        <div className="accordion-content">
-                        <textarea
-                            className="input-text-patient-page"
-                            name="formPhysical_exam"
-                            spellCheck={false}
-                            defaultValue={defaultPatient.physical_exam}
-                            onChange={onInputChange}
-                            readOnly={ !isNutritionistStatus }
-                            placeholder="Escriba aquí :)"
-                        ></textarea>
-                        {   ( isNutritionistStatus )
-                            ?   <button
-                                className="btn-save-changes"
-                                type="submit"
-                                ></button>
-                            : null
-                        }
-                        </div>
-                    </div>
-                    </form>
-                    <form onSubmit={onDiagnosisSubmit}>
-                    <div className="accordion">
-                        <input
-                        className="accordion-input"
-                        type="checkbox"
-                        // defaultChecked
-                        name="patient_accordion"
-                        id="diagnostico"
-                        />
-                        <label className="accordion-label" htmlFor="diagnostico">
-                        Diagnóstico
-                        </label>
-                        <div className="accordion-content">
-                        <textarea
-                            className="input-text-patient-page"
-                            name="formDiagnosis"
-                            spellCheck={false}
-                            defaultValue={defaultPatient.diagnosis}
-                            onChange={onInputChange}
-                            readOnly={ !isNutritionistStatus }
-                            placeholder="Escriba aquí :)"
-                        ></textarea>
-                        {   ( isNutritionistStatus )
-                            ?   <button
-                                className="btn-save-changes"
-                                type="submit"
-                                ></button>
-                            : null
-                        }
-                        </div>
-                    </div>
-                    </form>
-                </div>
-                <div className="right-container">
-                    <form onSubmit={onIndicationsSubmit}>
-                    <div className="accordion">
-                        <input
-                        className="accordion-input"
-                        type="checkbox"
-                        // defaultChecked
-                        name="patient_accordion"
-                        id="indicaciones"
-                        />
-                        <label className="accordion-label" htmlFor="indicaciones">
-                        Indicaciones
-                        </label>
-                        <div className="accordion-content">
-                        <textarea
-                            className="input-text-patient-page"
-                            name="formIndications"
-                            spellCheck={false}
-                            defaultValue={defaultPatient.indications}
-                            onChange={onInputChange}
-                            readOnly={ !isNutritionistStatus }
-                            placeholder="Escriba aquí :)"
-                        ></textarea>
-                        {   ( isNutritionistStatus )
-                            ?   <button
-                                className="btn-save-changes"
-                                type="submit"
-                                ></button>
-                            : null
-                        }
-                        </div>
-                    </div>
-                    </form>
-                    <div className="accordion">
-                    <input
-                        className="accordion-input"
-                        type="checkbox"
-                        defaultChecked
-                        name="patient_accordion"
-                        id="graficos"
-                    />
-                    <label className="accordion-label" htmlFor="graficos">
-                        Gráficos
-                    </label>
-                    <div className="accordion-content">
-                        <div className="calification-wrapper">
-                            <div className="calification-indicator-container">
-                                <p className="calification-title">Calificación nutricional: </p>
-                                <span className="calification-indicator-chart"><p>{ nutritionalCalification.weightCalificationResult }</p></span>
-                            </div>
-                            <div className="calification-indicator-container">
-                                <p className="calification-title">Calificación estatural: </p>
-                                <span className="calification-indicator-chart"><p>{ nutritionalCalification.statureCalificationResult }</p></span>
-                            </div>
-
-                        </div>
-
-                        <div className="canvas">
-                            <Line data={ userData } options={ options } />
-
-                        </div>
+                    
+                    <div className="accordion-container">
+                    <div className="left-container">
+                    {
+                        (isNutritionistStatus)
+                            ?   <form onSubmit={onAnamnesisSubmit}>
+                                    <div className="accordion">
+                                        <input
+                                        className="accordion-input"
+                                        type="checkbox"
+                                        // defaultChecked
+                                        name="patient_accordion"
+                                        id="anamnesis"
+                                        />
+                                        <label className="accordion-label" htmlFor="anamnesis">
+                                        Anamnesis
+                                        </label>
+                                        <div className="accordion-content">
+                                        <textarea
+                                            className="input-text-patient-page"
+                                            name="formAnamnesis"
+                                            spellCheck={false}
+                                            defaultValue={defaultPatient.anamnesis}
+                                            onChange={onInputChange}
+                                            readOnly={ !isNutritionistStatus }
+                                            placeholder="Escriba aquí :)"
+                                        ></textarea>
+                                        {/* <input className="input-text-patient-page" type="text" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione at praesentium sed rerum voluptatibus quo aut aspernatur temporibus corrupti eos consequuntur quidem nam quisquam esse dolor, illo tenetur libero repudiandae nulla, recusandae autem. Molestias quam saepe officia dolor nulla eos, eaque aliquam quaerat adipisci recusandae inventore sit maxime possimus asperiores quas omnis debitis non accusamus. Laborum, aspernatur numquam obcaecati tempora quo, assumenda minima, nostrum dolorum eveniet quasi optio quae blanditiis ducimus. Voluptatibus aut aperiam quis quasi ipsum perferendis sapiente nulla itaque" name="name"/> */}
+                                        {/* <input type="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore quis repellendus veniam unde sit, laboriosam, perspiciatis ullam voluptate, dolor tempore. Quisquam, numquam? Vero nesciunt dignissimos possimus laborum accusantium veniam maxime, delectus assumenda aspernatur, illo unde modi optio quia non magni consequatur reprehenderit eveniet ad! Eveniet consectetur minima aperiam corporis maxime perspiciatis, velit similique fugit quasi, est quaerat consequatur qui laborum deleniti eos necessitatibus quas reiciendis quibusdam nam aut excepturi repellat aliquam obcaecati voluptatum? Veniam, provident consequuntur itaque recusandae ad dicta facere quam culpa molestiae vel corporis nesciunt, exercitationem corrupti repellendus cum rerum perferendis eaque distinctio tenetur quibusdam! Eius, voluptates.</input> */}
+                                        {   ( isNutritionistStatus )
+                                            ?   <button
+                                                className="btn-save-changes"
+                                                type="submit"
+                                                ></button>
+                                            : null
+                                        }
+                                        </div>
+                                    </div>
+                                </form>
+                            :   null
+                    }
                         
-                        <div className="charts-switch-container">
+                        <form onSubmit={onPhysical_examSubmit}>
+                        <div className="accordion">
+                            <input
+                            className="accordion-input"
+                            type="checkbox"
+                            // defaultChecked
+                            name="patient_accordion"
+                            id="examen_fisico"
+                            />
+                            <label className="accordion-label" htmlFor="examen_fisico">
+                            Examen físico
+                            </label>
+                            <div className="accordion-content">
+                            <textarea
+                                className="input-text-patient-page"
+                                name="formPhysical_exam"
+                                spellCheck={false}
+                                defaultValue={defaultPatient.physical_exam}
+                                onChange={onInputChange}
+                                readOnly={ !isNutritionistStatus }
+                                placeholder="Escriba aquí :)"
+                            ></textarea>
+                            {   ( isNutritionistStatus )
+                                ?   <button
+                                    className="btn-save-changes"
+                                    type="submit"
+                                    ></button>
+                                : null
+                            }
+                            </div>
+                        </div>
+                        </form>
+                        <form onSubmit={onDiagnosisSubmit}>
+                        <div className="accordion">
+                            <input
+                            className="accordion-input"
+                            type="checkbox"
+                            // defaultChecked
+                            name="patient_accordion"
+                            id="diagnostico"
+                            />
+                            <label className="accordion-label" htmlFor="diagnostico">
+                            Diagnóstico
+                            </label>
+                            <div className="accordion-content">
+                            <textarea
+                                className="input-text-patient-page"
+                                name="formDiagnosis"
+                                spellCheck={false}
+                                defaultValue={defaultPatient.diagnosis}
+                                onChange={onInputChange}
+                                readOnly={ !isNutritionistStatus }
+                                placeholder="Escriba aquí :)"
+                            ></textarea>
+                            {   ( isNutritionistStatus )
+                                ?   <button
+                                    className="btn-save-changes"
+                                    type="submit"
+                                    ></button>
+                                : null
+                            }
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div className="right-container">
+                        <form onSubmit={onIndicationsSubmit}>
+                        <div className="accordion">
+                            <input
+                            className="accordion-input"
+                            type="checkbox"
+                            // defaultChecked
+                            name="patient_accordion"
+                            id="indicaciones"
+                            />
+                            <label className="accordion-label" htmlFor="indicaciones">
+                            Indicaciones
+                            </label>
+                            <div className="accordion-content">
+                            <textarea
+                                className="input-text-patient-page"
+                                name="formIndications"
+                                spellCheck={false}
+                                defaultValue={defaultPatient.indications}
+                                onChange={onInputChange}
+                                readOnly={ !isNutritionistStatus }
+                                placeholder="Escriba aquí :)"
+                            ></textarea>
+                            {   ( isNutritionistStatus )
+                                ?   <button
+                                    className="btn-save-changes"
+                                    type="submit"
+                                    ></button>
+                                : null
+                            }
+                            </div>
+                        </div>
+                        </form>
+                        <div className="accordion">
+                        <input
+                            className="accordion-input"
+                            type="checkbox"
+                            defaultChecked
+                            name="patient_accordion"
+                            id="graficos"
+                        />
+                        <label className="accordion-label" htmlFor="graficos">
+                            Gráficos
+                        </label>
+                        <div className="accordion-content">
+                            <div className="calification-wrapper">
+                                <div className="calification-indicator-container">
+                                    <p className="calification-title">Calificación nutricional: </p>
+                                    <span className="calification-indicator-chart"><p>{ nutritionalCalification.weightCalificationResult }</p></span>
+                                </div>
+                                <div className="calification-indicator-container">
+                                    <p className="calification-title">Calificación estatural: </p>
+                                    <span className="calification-indicator-chart"><p>{ nutritionalCalification.statureCalificationResult }</p></span>
+                                </div>
 
-                            <div className="charts-switch-wrapper">
-                                <button
-                                    className={ active === "1" ? "charts-switch-btn-active" : "charts-switch-btn" }
-                                    onClick={ handleChartsSwitch }
-                                    id={"1"}
-                                    hidden={ hideChartButtons.PEButton }
-                                >
-                                    P/E
-                                </button>
+                            </div>
 
-                                <button
-                                    className={ active === "2" ? "charts-switch-btn-active" : "charts-switch-btn" }
-                                    onClick={ handleChartsSwitch }
-                                    id={"2"}
-                                    hidden={ hideChartButtons.TEButton }
-                                >
-                                    T/E
-                                </button>
-                                <button
-                                    className={ active === "3" ? "charts-switch-btn-active" : "charts-switch-btn" }
-                                    onClick={ handleChartsSwitch }
-                                    id={"3"}
-                                    hidden={ hideChartButtons.PTButton }
-                                >
-                                    P/T
-                                </button>
-                                <button
-                                    className={ active === "4" ? "charts-switch-btn-active" : "charts-switch-btn" }
-                                    onClick={ handleChartsSwitch }
-                                    id={"4"}
-                                    hidden={ hideChartButtons.IMCButton }
-                                >
-                                    IMC/E
-                                </button>                                
+                            <div className="canvas">
+                                <Line data={ userData } options={ options } />
+
+                            </div>
+                            
+                            <div className="charts-switch-container">
+
+                                <div className="charts-switch-wrapper">
+                                    <button
+                                        className={ active === "1" ? "charts-switch-btn-active" : "charts-switch-btn" }
+                                        onClick={ handleChartsSwitch }
+                                        id={"1"}
+                                        hidden={ hideChartButtons.PEButton }
+                                    >
+                                        P/E
+                                    </button>
+
+                                    <button
+                                        className={ active === "2" ? "charts-switch-btn-active" : "charts-switch-btn" }
+                                        onClick={ handleChartsSwitch }
+                                        id={"2"}
+                                        hidden={ hideChartButtons.TEButton }
+                                    >
+                                        T/E
+                                    </button>
+                                    <button
+                                        className={ active === "3" ? "charts-switch-btn-active" : "charts-switch-btn" }
+                                        onClick={ handleChartsSwitch }
+                                        id={"3"}
+                                        hidden={ hideChartButtons.PTButton }
+                                    >
+                                        P/T
+                                    </button>
+                                    <button
+                                        className={ active === "4" ? "charts-switch-btn-active" : "charts-switch-btn" }
+                                        onClick={ handleChartsSwitch }
+                                        id={"4"}
+                                        hidden={ hideChartButtons.IMCButton }
+                                    >
+                                        IMC/E
+                                    </button>                                
+
+                                </div>
+                            </div>
+
+                            <div className="show-reference-chart-container">
+                                <button className="btn-show-reference-chart" type="button" onClick={ onShowHideReferenceChart }>
+                                    <span className="btn-reference-title">Mostrar/Ocultar referencia</span>
+                                </button>                            
+                            </div>
+                            
+                            <div className="reference-chart-title-container">
+                                <p className="reference-chart-title" hidden={ showHideReferenceChart }>Gráfico de referencia:</p>
+                            </div>
+                            <div className="canvas" hidden={ showHideReferenceChart }>
+                                <Line data={ referenceData } options={ options } />
 
                             </div>
                         </div>
-
-                        <div className="show-reference-chart-container">
-                            <button className="btn-show-reference-chart" type="button" onClick={ onShowHideReferenceChart }>
-                                <span className="btn-reference-title">Mostrar/Ocultar referencia</span>
-                            </button>                            
-                        </div>
-                        
-                        <div className="reference-chart-title-container">
-                            <p className="reference-chart-title" hidden={ showHideReferenceChart }>Gráfico de referencia:</p>
-                        </div>
-                        <div className="canvas" hidden={ showHideReferenceChart }>
-                            <Line data={ referenceData } options={ options } />
-
                         </div>
                     </div>
                     </div>
-                </div>
-                </div>
+                </>
+            }
             </div>
         </AppLayout>
       </>

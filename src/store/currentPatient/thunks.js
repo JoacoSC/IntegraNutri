@@ -118,13 +118,14 @@ export const startUpdatingCurrentPatientIMC = ( uid, patientID, newIMC ) => {
     }
 }
 
-export const startUpdatingCurrentPatientCorrectedAge = ( uid, patientID, correctedAge ) => {
+export const startUpdatingCurrentPatientCorrectedAge = ( uid, patientID, correctedAge, correctedAgeIsSet ) => {
     return async( dispatch ) => {
 
         // console.log(correctedAge)
 
         const newPatientInfoToFirestore = {
-            correctedAge: correctedAge
+            correctedAge,
+            correctedAgeIsSet,
         }
 
         const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
@@ -132,7 +133,7 @@ export const startUpdatingCurrentPatientCorrectedAge = ( uid, patientID, correct
     }
 }
 
-export const startUpdatingCurrentPatientUnixCorrectedBirthday = ( uid, patientID, unixCorrectedBirthday ) => {
+export const startUpdatingCurrentPatientUnixCorrectedBirthday = ( uid, patientID, unixCorrectedBirthday, correctedAgeIsSet ) => {
     return async( dispatch ) => {
 
         // console.log(unixCorrectedBirthday)
@@ -140,7 +141,8 @@ export const startUpdatingCurrentPatientUnixCorrectedBirthday = ( uid, patientID
         // console.log(patientID)
 
         const newPatientInfoToFirestore = {
-            unixCorrectedBirthday: unixCorrectedBirthday
+            unixCorrectedBirthday,
+            correctedAgeIsSet,
         }
 
         // console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
