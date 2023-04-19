@@ -74,7 +74,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         const displayName = sp_name + " " + sp_fatherName + " " + sp_motherName;
 
-        const rawRut = rut.raw;
+        // const rawRut = rut.raw;
 
         const email = sp_email;
         const address = sp_address;
@@ -91,9 +91,9 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         const password = generatePassword( 10 );
 
-        console.log({ displayName, rawRut, isValid, unixBirthday, sp_email, regionSeleccionada, comunaSeleccionada, sp_address, sp_phone, sp_gender, nextConsultation });
+        console.log({ displayName, rut, isValid, unixBirthday, sp_email, regionSeleccionada, comunaSeleccionada, sp_address, sp_phone, sp_gender, nextConsultation });
 
-        dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) )
+        dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) )
 
         dispatch ( startLoadingMyPatients( uid ) );
 

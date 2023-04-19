@@ -89,6 +89,13 @@ export const PatientPage = () => {
     
     const [lastWeight, setLastWeight] = useState(0);
     const [lastStature, setLastStature] = useState(0);
+    const [ageText, setAgeText] = useState('');
+    const [ageForCalcs, setAgeForCalcs] = useState({
+        d: 0,
+        m: 0,
+        y: 0,
+    });
+    const [unixBirthdayForCalcs, setUnixBirthdayForCalcs] = useState(0)
     
 
     const [active, setActive] = useState("0");
@@ -99,7 +106,8 @@ export const PatientPage = () => {
     const nutritionalCalification = useCalificationIndicator(
         lastWeight,
         lastStature,
-        unixCorrectedBirthday,
+        ageForCalcs,
+        unixBirthdayForCalcs,
         gender
     );
 
@@ -207,10 +215,11 @@ export const PatientPage = () => {
 
     }, [weight, stature])
 
-    const calculateAge = () => {
-        let d1 = fromUnixTime( unixBirthday ).getDate();
-        let m1 = fromUnixTime( unixBirthday ).getMonth();
-        let y1 = fromUnixTime( unixBirthday ).getFullYear();
+    const generateAgeText = ( unix ) => {
+
+        let d1 = fromUnixTime( unix ).getDate();
+        let m1 = fromUnixTime( unix ).getMonth();
+        let y1 = fromUnixTime( unix ).getFullYear();
         let date = new Date();
         let d2 = date.getDate();
         let m2 = date.getMonth();
@@ -256,58 +265,6 @@ export const PatientPage = () => {
             }
         }
     }
-
-    const calculateCorrectedAge = ( unixCorrectedBirthday ) => {
-        let d1 = fromUnixTime( unixCorrectedBirthday ).getDate();
-        let m1 = fromUnixTime( unixCorrectedBirthday ).getMonth();
-        let y1 = fromUnixTime( unixCorrectedBirthday ).getFullYear();
-        let date = new Date();
-        let d2 = date.getDate();
-        let m2 = date.getMonth();
-        let y2 = date.getFullYear();
-        let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        if (d1 > d2) {
-            d2 = d2 + month[m2];
-            m2 = m2 - 1;
-        }
-        if (m1 > m2) {
-            m2 = m2 + 12;
-            y2 = y2 - 1;
-        }
-        let d = d2 - d1;
-        let m = m2 - m1;
-        let y = y2 - y1;
-
-        if( y === 0 ){
-
-            if( d <= 15 ){
-                if( m === 1 ){
-                    return m + " mes"
-                }else{
-                    return m + " meses"
-                }
-            }else{
-                m2 = m + 1;
-                if( m2 === 1 ){
-                    return m2 + " mes"
-                }else{
-                    return m2 + " meses"
-                }
-            }
-            
-        }
-        if( y > 0 ){
-
-            if( d <= 15 ){
-                return y + " años " + m + " meses";
-            }else{
-                m2 = m + 1;
-                return y + " años " + m2 + " meses";
-            }
-        }
-    }
-
-    const ageText = calculateCorrectedAge( unixCorrectedBirthday );
     
     const defaultPatient = {
         unixAge: 0,
@@ -377,7 +334,7 @@ export const PatientPage = () => {
         
         dispatch( updateCurrentPatientAge({ y, m, d }) );
         dispatch( updateCurrentPatientCorrectedAge({ y, m, d }) );
-
+        
     }, [unixBirthday])
     
     
@@ -465,7 +422,7 @@ export const PatientPage = () => {
     const handleHideChartButtons = () => {
 
         // PE Button
-        if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
+        if( ageForCalcs.y <= 1 || ageForCalcs === 2 && ageForCalcs.m === 0 ){
             // De cero a dos
             setHideChartButtons({
                 PEButton: false,
@@ -474,7 +431,7 @@ export const PatientPage = () => {
                 IMCButton: true,
             })
         }
-        if ( correctedAge.y === 2 && correctedAge.m > 0 ){
+        if ( ageForCalcs.y === 2 && ageForCalcs.m > 0 ){
             // De dos a cinco
             setHideChartButtons({
                 PEButton: false,
@@ -484,7 +441,7 @@ export const PatientPage = () => {
             })
         }
         
-        if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
+        if( ageForCalcs.y > 2 && ageForCalcs.y <= 4 || ageForCalcs.y === 5 && ageForCalcs.m === 0 ){
             // De dos a cinco
             setHideChartButtons({
                 PEButton: false,
@@ -494,7 +451,7 @@ export const PatientPage = () => {
             })
         }
 
-        if( correctedAge.y === 5 && correctedAge.m > 0 ){
+        if( ageForCalcs.y === 5 && ageForCalcs.m > 0 ){
             // De cinco a diez
             setHideChartButtons({
                 PEButton: false,
@@ -503,7 +460,7 @@ export const PatientPage = () => {
                 IMCButton: false,
             })
         }
-        if( correctedAge.y > 5 && correctedAge.y <= 9 || correctedAge.y === 10 && correctedAge.m === 0 ){
+        if( ageForCalcs.y > 5 && ageForCalcs.y <= 9 || ageForCalcs.y === 10 && ageForCalcs.m === 0 ){
             // De cinco a diez
             setHideChartButtons({
                 PEButton: false,
@@ -513,7 +470,7 @@ export const PatientPage = () => {
             })
         }
 
-        if( correctedAge.y === 10 && correctedAge.m > 0 ){
+        if( ageForCalcs.y === 10 && ageForCalcs.m > 0 ){
             // De diez a diecinueve
             setHideChartButtons({
                 PEButton: true,
@@ -522,7 +479,7 @@ export const PatientPage = () => {
                 IMCButton: false,
             })
         }
-        if( correctedAge.y > 10 && correctedAge.y <= 18 || correctedAge.y === 19 && correctedAge.m === 0 ){
+        if( ageForCalcs.y > 10 && ageForCalcs.y <= 18 || ageForCalcs.y === 19 && ageForCalcs.m === 0 ){
             // De diez a diecinueve
             setHideChartButtons({
                 PEButton: true,
@@ -534,9 +491,21 @@ export const PatientPage = () => {
     }
 
     useEffect(() => {
+
+        if( correctedAgeIsSet ){
+            
+            setAgeForCalcs(correctedAge);
+            setUnixBirthdayForCalcs(unixCorrectedBirthday);
+            setAgeText( generateAgeText( unixCorrectedBirthday ) );
+        }else{
+            setAgeForCalcs(age);
+            setUnixBirthdayForCalcs(unixBirthday);
+            setAgeText( generateAgeText( unixBirthday ) );
+        }
+
         handleHideChartButtons();
 
-    }, [correctedAge])
+    }, [age, correctedAge])
     
 
     const handleChartsSwitch = ( event ) => {
@@ -573,7 +542,7 @@ export const PatientPage = () => {
 
                 // Graficos P/E
 
-                if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
+                if( ageForCalcs.y <= 1 || ageForCalcs === 2 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a GirlsPEFromZeroToTwoYears')
                     
@@ -618,7 +587,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if ( correctedAge.y === 2 && correctedAge.m > 0 ){
+                if ( ageForCalcs.y === 2 && ageForCalcs.m > 0 ){
 
                     // console.log('entré a GirlsPEFromTwoToFiveYears')
 
@@ -663,7 +632,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 2 && ageForCalcs.y <= 4 || ageForCalcs.y === 5 && ageForCalcs.m === 0 ){
                     // console.log('entré a GirlsPEFromTwoToFiveYears')
                     
                     setReferenceData({
@@ -707,7 +676,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y === 5 && correctedAge.m > 0 ){
+                if( ageForCalcs.y === 5 && ageForCalcs.m > 0 ){
                     
                     // console.log('entré a GirlsPEFromFiveToTenYears')
                                         
@@ -752,7 +721,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 5 && correctedAge.y <= 9 || correctedAge.y === 10 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 5 && ageForCalcs.y <= 9 || ageForCalcs.y === 10 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a GirlsPEFromFiveToTenYears')
                     
@@ -803,7 +772,7 @@ export const PatientPage = () => {
 
                 // Graficos P/E
 
-                if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
+                if( ageForCalcs.y <= 1 || ageForCalcs === 2 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a BoysPEFromZeroToTwoYears')
                     
@@ -848,7 +817,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if ( correctedAge.y === 2 && correctedAge.m > 0 ){
+                if ( ageForCalcs.y === 2 && ageForCalcs.m > 0 ){
 
                     // console.log('entré a BoysPEFromTwoToFiveYears')
 
@@ -893,7 +862,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 2 && ageForCalcs.y <= 4 || ageForCalcs.y === 5 && ageForCalcs.m === 0 ){
                     // console.log('entré a BoysPEFromTwoToFiveYears')
                     
                     setReferenceData({
@@ -937,7 +906,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y === 5 && correctedAge.m > 0 ){
+                if( ageForCalcs.y === 5 && ageForCalcs.m > 0 ){
                     
                     // console.log('entré a BoysPEFromFiveToTenYears')
                                         
@@ -982,7 +951,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 5 && correctedAge.y <= 9 || correctedAge.y === 10 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 5 && ageForCalcs.y <= 9 || ageForCalcs.y === 10 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a BoysPEFromFiveToTenYears')
                     
@@ -1061,7 +1030,7 @@ export const PatientPage = () => {
 
                 // Graficos T/E
 
-                if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
+                if( ageForCalcs.y <= 1 || ageForCalcs === 2 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a GirlsTEFromZeroToTwoYears')
                     
@@ -1106,7 +1075,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if ( correctedAge.y === 2 && correctedAge.m > 0 ){
+                if ( ageForCalcs.y === 2 && ageForCalcs.m > 0 ){
 
                     // console.log('entré a GirlsTEFromTwoToFiveYears')
 
@@ -1151,7 +1120,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 2 && ageForCalcs.y <= 4 || ageForCalcs.y === 5 && ageForCalcs.m === 0 ){
                     // console.log('entré a GirlsTEFromTwoToFiveYears')
                     
                     setReferenceData({
@@ -1195,7 +1164,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y === 5 && correctedAge.m > 0 ){
+                if( ageForCalcs.y === 5 && ageForCalcs.m > 0 ){
                     
                     // console.log('entré a GirlsTEFromFiveToNineteenYears')
                                         
@@ -1240,7 +1209,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 5 && correctedAge.y <= 18 || correctedAge.y === 19 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 5 && ageForCalcs.y <= 18 || ageForCalcs.y === 19 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a GirlsTEFromFiveToNineteenYears')
                     
@@ -1291,7 +1260,7 @@ export const PatientPage = () => {
 
                 // Graficos T/E
 
-                if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
+                if( ageForCalcs.y <= 1 || ageForCalcs === 2 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a BoysTEFromZeroToTwoYears')
                     
@@ -1336,7 +1305,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if ( correctedAge.y === 2 && correctedAge.m > 0 ){
+                if ( ageForCalcs.y === 2 && ageForCalcs.m > 0 ){
 
                     // console.log('entré a BoysTEFromTwoToFiveYears')
 
@@ -1381,7 +1350,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 2 && ageForCalcs.y <= 4 || ageForCalcs.y === 5 && ageForCalcs.m === 0 ){
                     // console.log('entré a BoysTEFromTwoToFiveYears')
                     
                     setReferenceData({
@@ -1425,7 +1394,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y === 5 && correctedAge.m > 0 ){
+                if( ageForCalcs.y === 5 && ageForCalcs.m > 0 ){
                     
                     // console.log('entré a BoysTEFromFiveToNineteenYears')
                                         
@@ -1470,7 +1439,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 5 && correctedAge.y <= 18 || correctedAge.y === 19 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 5 && ageForCalcs.y <= 18 || ageForCalcs.y === 19 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a BoysTEFromFiveToNineteenYears')
                     
@@ -1548,7 +1517,7 @@ export const PatientPage = () => {
 
                 // Graficos P/E
 
-                if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
+                if( ageForCalcs.y <= 1 || ageForCalcs === 2 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a GirlsPTFromZeroToTwoYears')
                     
@@ -1593,7 +1562,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if ( correctedAge.y === 2 && correctedAge.m > 0 ){
+                if ( ageForCalcs.y === 2 && ageForCalcs.m > 0 ){
 
                     // console.log('entré a GirlsPTFromTwoToFiveYears')
 
@@ -1638,7 +1607,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 2 && ageForCalcs.y <= 4 || ageForCalcs.y === 5 && ageForCalcs.m === 0 ){
                     // console.log('entré a GirlsPTFromTwoToFiveYears')
                     
                     setReferenceData({
@@ -1688,7 +1657,7 @@ export const PatientPage = () => {
 
                 // Graficos P/E
 
-                if( correctedAge.y <= 1 || correctedAge === 2 && correctedAge.m === 0 ){
+                if( ageForCalcs.y <= 1 || ageForCalcs === 2 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a BoysPTFromZeroToTwoYears')
                     
@@ -1733,7 +1702,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if ( correctedAge.y === 2 && correctedAge.m > 0 ){
+                if ( ageForCalcs.y === 2 && ageForCalcs.m > 0 ){
 
                     // console.log('entré a BoysPTFromTwoToFiveYears')
 
@@ -1778,7 +1747,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 2 && correctedAge.y <= 4 || correctedAge.y === 5 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 2 && ageForCalcs.y <= 4 || ageForCalcs.y === 5 && ageForCalcs.m === 0 ){
                     // console.log('entré a BoysPTFromTwoToFiveYears')
                     
                     setReferenceData({
@@ -1855,7 +1824,7 @@ export const PatientPage = () => {
 
                 // Graficos IMC/E
 
-                if( correctedAge.y === 5 && correctedAge.m > 0 ){
+                if( ageForCalcs.y === 5 && ageForCalcs.m > 0 ){
                     
                     // console.log('entré a GirlsIMCEFromFiveToNineteenYears')
                                         
@@ -1907,7 +1876,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 5 && correctedAge.y <= 18 || correctedAge.y === 19 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 5 && ageForCalcs.y <= 18 || ageForCalcs.y === 19 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a GirlsIMCEFromFiveToNineteenYears')
                     
@@ -1965,7 +1934,7 @@ export const PatientPage = () => {
 
                 // Graficos IMC/E
 
-                if( correctedAge.y === 5 && correctedAge.m > 0 ){
+                if( ageForCalcs.y === 5 && ageForCalcs.m > 0 ){
                     
                     // console.log('entré a BoysIMCEFromFiveToNineteenYears')
                                         
@@ -2017,7 +1986,7 @@ export const PatientPage = () => {
                         ]
                     })
                 }
-                if( correctedAge.y > 5 && correctedAge.y <= 18 || correctedAge.y === 19 && correctedAge.m === 0 ){
+                if( ageForCalcs.y > 5 && ageForCalcs.y <= 18 || ageForCalcs.y === 19 && ageForCalcs.m === 0 ){
 
                     // console.log('entré a BoysIMCEFromFiveToNineteenYears')
                     
@@ -2101,25 +2070,6 @@ export const PatientPage = () => {
     }
 
     useEffect(() => {
-
-        const d = fromUnixTime( unixBirthday ).getDate();
-        const m = fromUnixTime( unixBirthday ).getMonth();
-        const y = fromUnixTime( unixBirthday ).getFullYear();
-        const date = `${ y }, ${ m }, ${ d }`
-        
-        // const result = formatDistanceToNowStrict( new Date( y, m, d ) );
-        const result = formatDistanceToNowStrict(
-            new Date( 2021, 11, 10)
-          )
-        // console.log(date)
-    
-        // console.log(result)
-    }, [unixBirthday])
-
-    useEffect(() => {
-
-        // console.log('email: ', email)
-        // console.log('isLoading: ', isLoading)
 
         if( email !== null ){
             setIsLoading( false )
@@ -2253,7 +2203,7 @@ export const PatientPage = () => {
                         <div className="age-title">Edad</div>
                         <div className="age">
                             <p className="age-value">
-                                { calculateAge() }
+                                { generateAgeText( unixBirthday ) }
                             </p>
                         </div>
                     </div>
@@ -2276,7 +2226,7 @@ export const PatientPage = () => {
                             <div className="age-title">Edad Corregida</div>
                             <div className="age">
                                 <p className="age-value">
-                                    { calculateCorrectedAge( unixCorrectedBirthday ) }
+                                    { generateAgeText( unixCorrectedBirthday ) }
                                 </p>
                             </div>
                         </div>                    

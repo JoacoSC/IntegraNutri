@@ -26,7 +26,7 @@ export const RegisterPage = () => {
     const onSubmit = ( event ) => {
         event.preventDefault();
 
-        const rawRut = rut.raw;
+        // const rawRut = rut.raw;
 
         console.log( rut )
 
@@ -38,9 +38,9 @@ export const RegisterPage = () => {
 
         if ( !isValid ) return;
 
-        console.log({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender })
+        console.log({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender })
 
-        dispatch ( startCreatingUserWithEmailPassword({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) )
+        dispatch ( startCreatingUserWithEmailPassword({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) )
     }
     
     const handleRegionSeleccionada = (event) => {

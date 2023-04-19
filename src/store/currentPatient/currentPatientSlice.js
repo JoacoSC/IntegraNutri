@@ -94,15 +94,15 @@ export const currentPatientSlice = createSlice({
         },
 
         updateCurrentPatientCorrectedAge: (state,{ payload }) => {
-            console.log('payload: ', payload)
-            console.log('payload.correctedAge: ', payload.correctedAge)
+            // console.log('payload: ', payload)
+            // console.log('payload.correctedAge: ', payload.correctedAge)
             state.correctedAge = payload.correctedAge;
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
         },
 
         updateCurrentPatientUnixCorrectedBirthday: (state,{ payload }) => {
-            console.log('payload: ', payload)
-            console.log('payload.correctedAge: ', payload.correctedAge)
+            // console.log('payload: ', payload)
+            // console.log('payload.correctedAge: ', payload.correctedAge)
             state.unixCorrectedBirthday = payload.unixCorrectedBirthday;
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
         },

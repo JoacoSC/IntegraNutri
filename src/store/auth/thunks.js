@@ -46,13 +46,13 @@ export const startGoogleSignIn = ( isNutritionist ) => {
     }
 }
 
-export const startCreatingUserWithEmailPassword = ({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) => {
+export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) => {
     return async( dispatch ) => {
 
         dispatch( checkingCredentials() );
         
         const newUser = {
-            rut: rawRut,
+            rut,
             displayName,
             unixBirthday,
             region: regionSeleccionada,
@@ -77,14 +77,14 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rawRut, unixBi
     }
 }
 
-export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) => {
+export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) => {
     return async( dispatch ) => {
 
         // dispatch( checkingCredentials() );
         dispatch( isRegisteringPatient( true ) );
         
         const newUser = {
-            rut: rawRut,
+            rut,
             displayName,
             unixBirthday,
             email,
@@ -100,6 +100,18 @@ export const startCreatingPatient = ({ displayName, rawRut, unixBirthday, email,
             weight: [{}],
             stature: [{}],
             imc: [{}],
+            unixCorrectedBirthday: null,
+            age: {
+                y: 0,
+                m: 0,
+                d: 0,
+            },
+            correctedAge: {
+                y: 0,
+                m: 0,
+                d: 0,
+            },
+            correctedAgeIsSet: false,
         }
 
         console.log(newUser)

@@ -78,7 +78,7 @@ export const MyPatientsPage = () => {
                                     <div className="my-patients-info-item-container">
                                         Rut
                                         <div className="my-patients-info-rut">
-                                            { patient.rut }
+                                            { patient.rut.formatted }
                                         </div>
                                     </div>
                                     <div className="my-patients-info-item-container">

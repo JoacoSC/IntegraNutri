@@ -35,6 +35,14 @@ export const JournalPage = () => {
       consultationsPerDay,
     } = useSelector((state) => state.journal);
 
+    console.log(
+        'workingDayStartHours: ', workingDayStartHours,
+        'workingDayStartMinutes: ', workingDayStartMinutes,
+        'consultationHours: ', consultationHours,
+        'consultationMinutes: ', consultationMinutes,
+        'consultationsPerDay: ', consultationsPerDay,
+        )
+
     // console.log(workingDayStartHours,
     //     workingDayStartMinutes,
     //     consultationHours,
@@ -54,7 +62,7 @@ export const JournalPage = () => {
 
     const [consultationSlotsArray, setConsultationSlotsArray] = useState([]);
 
-    const [isLoading, setIsLoading] = useState( false );
+    const [isLoading, setIsLoading] = useState( true );
 
     const daysRef = useRef( new Array() );
 
@@ -162,7 +170,7 @@ export const JournalPage = () => {
 
     useEffect(() => {
 
-        daysRef.current[0].click();
+        daysRef.current[0]?.click();
         dispatch( clearCurrentPatient() );
     
     }, [patients])
@@ -181,9 +189,9 @@ export const JournalPage = () => {
         // console.log('isLoading: ', isLoading)
 
         if( isNutritionist !== undefined ){
-            setIsLoading( true )
-        }else{
             setIsLoading( false )
+        }else{
+            setIsLoading( true )
         }
     
 
@@ -195,99 +203,106 @@ export const JournalPage = () => {
         <AppLayout>
 
             <div className="main">
-                <LoadingScreen isLoading = { isLoading } />
-                <div className="logout">
-                    <button className="btn-logout" type="button" onClick={ onLogout }>
-                        Cerrar sesión
-                    </button>
-                </div>
-                <div className="main-welcome">
-                    <h1>Dr. { displayName }</h1>
-                    <p>Hola doctor, echemos un vistazo a sus pacientes de hoy</p>
-
-                </div>
-                <div className="next-consultation">
-                    <h3>Próximas consultas</h3>
-                    {/* <ModalPacienteEspontaneo /> */}
-                </div>
-                <div className="journal">
-                    <div className="month-days">
-                        { daysArray.map( (day, index) => (
-
-                            <div className="day" key={ index }>
-                                {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                <div className="day-ellipse" ref={(element) => daysRef.current.push(element)} onClick={ () => handleCurrentDay( index ) }>{ format( day, "dd") }</div>
-                                <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div>
-                            </div>
-                        ))}
+            {
+                ( isLoading )
+                ?   <LoadingScreen isLoading = { isLoading } />
+                : <>
+                    <div className="logout">
+                        <button className="btn-logout" type="button" onClick={ onLogout }>
+                            Cerrar sesión
+                        </button>
                     </div>
-                    <div className="month-line"></div>
-                    <div className="today">
-                        <div className="today-label">{ capitalizeFirst(format( currentDay, "PPPP"))}</div>
-                        <div className="patient-number">
-                            {
-                                ( patientsNumber > 0 )
-                                    ?   (patientsNumber > 1) 
-                                        ?   `${ patientsNumber } pacientes`
-                                        :   `${ patientsNumber } paciente`
-                                    :   'No hay pacientes para hoy'
-                                
-                            }
+                    <div className="main-welcome">
+                        <h1>Dr. { displayName }</h1>
+                        <p>Hola doctor, echemos un vistazo a sus pacientes de hoy</p>
+
+                    </div>
+                    <div className="next-consultation">
+                        <h3>Próximas consultas</h3>
+                        {/* <ModalPacienteEspontaneo /> */}
+                    </div>
+                    <div className="journal">
+                        <div className="month-days">
+                            { daysArray.map( (day, index) => (
+
+                                <div className="day" key={ index }>
+                                    {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
+                                    <div className="day-ellipse" ref={(element) => daysRef.current.push(element)} onClick={ () => handleCurrentDay( index ) }>{ format( day, "dd") }</div>
+                                    <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div>
+                                </div>
+                            ))}
                         </div>
-                    </div>
-                    <div className="today-consultations">
-
-                        { consultationSlotsArray.map( ( consultationSlot, index ) => (
-
-                            <div className="consultation" key={ index }>
-                                <div className="time">
-                                    <div className="hour-wrapper">
-                                        {
-                                            ( consultationSlot.patient != null )
-                                            ?   <div><div className="hour">{ format( fromUnixTime(consultationSlot.patient.nextConsultation), "hh")}:{format( fromUnixTime(consultationSlot.patient.nextConsultation), "mm")}</div>
-                                                <div className="ampm">{format( fromUnixTime(consultationSlot.patient.nextConsultation), "aa")}</div></div>
-                                                
-                                            :   <div><div className="hour">{ format( fromUnixTime(consultationSlot), "hh")}:{format( fromUnixTime(consultationSlot), "mm")}</div>
-                                                <div className="ampm">{format( fromUnixTime(consultationSlot), "aa")}</div></div>
-                                        }
-                                        
-                                    </div>
-                                    <div className="hr"></div>
-                                </div>
-                                <div className="consultation-wrapper">
-                                    <div className="blank-space"></div>
-
-                                    {
-                                        (consultationSlot.patient != undefined )
-                                        ?   <Link to={'../patient?patientID='+consultationSlot.patient.id} className="consultation-info">
-                                                <div className="avatar">{ consultationSlot.patient.displayName.substring(0,2) }</div>
-                                                <div className="journal-patient-info">
-                                                    <div className="patient-name">{ consultationSlot.patient.displayName }</div>
-                                                    <div className="consultation-hour">
-                                                        {format(fromUnixTime(consultationSlot.patient.nextConsultation), "hh:mm") +
-                                                        " - " +
-                                                        format(
-                                                            add(fromUnixTime(consultationSlot.patient.nextConsultation), {
-                                                            hours: consultationHours,
-                                                            minutes: consultationMinutes,
-                                                            }),
-                                                            "hh:mm"
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </Link>
-
-                                        :   <ModalNewConsultation consultationSlot = { consultationSlot }/>
-                                    }
-
-                                </div>
+                        <div className="month-line"></div>
+                        <div className="today">
+                            <div className="today-label">{ capitalizeFirst(format( currentDay, "PPPP"))}</div>
+                            <div className="patient-number">
+                                {
+                                    ( patientsNumber > 0 )
+                                        ?   (patientsNumber > 1) 
+                                            ?   `${ patientsNumber } pacientes`
+                                            :   `${ patientsNumber } paciente`
+                                        :   'No hay pacientes para hoy'
+                                    
+                                }
                             </div>
-                        
-                        ))}
-                        
+                        </div>
+                        <div className="today-consultations">
+
+                            { consultationSlotsArray.map( ( consultationSlot, index ) => (
+
+                                <div className="consultation" key={ index }>
+                                    <div className="time">
+                                        <div className="hour-wrapper">
+                                            {
+                                                ( consultationSlot.patient != null )
+                                                ?   <div><div className="hour">{ format( fromUnixTime(consultationSlot.patient.nextConsultation), "hh")}:{format( fromUnixTime(consultationSlot.patient.nextConsultation), "mm")}</div>
+                                                    <div className="ampm">{format( fromUnixTime(consultationSlot.patient.nextConsultation), "aa")}</div></div>
+                                                    
+                                                :   <div><div className="hour">{ format( fromUnixTime(consultationSlot), "hh")}:{format( fromUnixTime(consultationSlot), "mm")}</div>
+                                                    <div className="ampm">{format( fromUnixTime(consultationSlot), "aa")}</div></div>
+                                            }
+                                            
+                                        </div>
+                                        <div className="hr"></div>
+                                    </div>
+                                    <div className="consultation-wrapper">
+                                        <div className="blank-space"></div>
+
+                                        {
+                                            (consultationSlot.patient != undefined )
+                                            ?   <Link to={'../patient?patientID='+consultationSlot.patient.id} className="consultation-info">
+                                                    <div className="avatar">{ consultationSlot.patient.displayName.substring(0,2) }</div>
+                                                    <div className="journal-patient-info">
+                                                        <div className="patient-name">{ consultationSlot.patient.displayName }</div>
+                                                        <div className="consultation-hour">
+                                                            {format(fromUnixTime(consultationSlot.patient.nextConsultation), "hh:mm") +
+                                                            " - " +
+                                                            format(
+                                                                add(fromUnixTime(consultationSlot.patient.nextConsultation), {
+                                                                hours: consultationHours,
+                                                                minutes: consultationMinutes,
+                                                                }),
+                                                                "hh:mm"
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </Link>
+
+                                            :   <ModalNewConsultation consultationSlot = { consultationSlot }/>
+                                        }
+
+                                    </div>
+                                </div>
+                            
+                            ))}
+                            
+                        </div>
+                        <ModalEditJournal/>
                     </div>
-                    <ModalEditJournal/>
-                </div>
+                </>
+            }
+                
+                
             </div>
         </AppLayout>
         

@@ -62,7 +62,7 @@ export const ModalNewPatient = () => {
         
         console.log({ uid, name, fatherName, motherName, rut, isValid, birthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender });
 
-        const rawRut = rut.raw;
+        // const rawRut = rut.raw;
 
         const displayName = name + " " + fatherName + " " + motherName;
 
@@ -80,7 +80,7 @@ export const ModalNewPatient = () => {
 
         console.log({regionSeleccionada, comunaSeleccionada})
 
-        dispatch ( startCreatingPatient({ displayName, rawRut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) )
+        dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) )
 
         // TODO:
         // TODO:

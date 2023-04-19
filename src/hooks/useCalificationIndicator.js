@@ -1,33 +1,8 @@
 import { fromUnixTime } from "date-fns";
 
-export const useCalificationIndicator = ( weight, stature, unixCorrectedBirthday, gender ) => {
+export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirthdayForCalcs, gender ) => {
 
-    const calculateAgeForCalificationIndicator = () => {
-        let d1 = fromUnixTime( unixCorrectedBirthday ).getDate();
-        let m1 = fromUnixTime( unixCorrectedBirthday ).getMonth();
-        let y1 = fromUnixTime( unixCorrectedBirthday ).getFullYear();
-        let date = new Date();
-        let d2 = date.getDate();
-        let m2 = date.getMonth();
-        let y2 = date.getFullYear();
-        let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        if (d1 > d2) {
-            d2 = d2 + month[m2];
-            m2 = m2 - 1;
-        }
-        if (m1 > m2) {
-            m2 = m2 + 12;
-            y2 = y2 - 1;
-        }
-        let d = d2 - d1;
-        let m = m2 - m1;
-        let y = y2 - y1;
-        
-        return {y, m, d};
-        
-    }
-
-    const age = calculateAgeForCalificationIndicator();
+    const age = ageForCalcs;
 
     const result = {
         ok: {
