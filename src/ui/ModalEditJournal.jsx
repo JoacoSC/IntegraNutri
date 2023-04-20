@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Modal from 'react-modal';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 
 import { useForm } from "../hooks";
-import { startEditJournal } from "../store/journal";
+import { isEditingJournal, startEditJournal } from "../store/journal";
 
 import './components';
 
@@ -13,6 +13,10 @@ export const ModalEditJournal = () => {
     const [openModal, setOpenModal] = useState(false);
 
     const dispatch = useDispatch()
+
+    const {
+        journalID,
+    } = useSelector((state) => state.journal);
 
     const { workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay, onInputChange, formState } = useForm({
         workingDayStartHours: 8,
@@ -25,13 +29,26 @@ export const ModalEditJournal = () => {
     const onSubmit = ( event ) => {
         event.preventDefault();
         console.log({ workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay });
-        dispatch( startEditJournal( workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay ) );
+        dispatch( startEditJournal( journalID, workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay ) );
         
+        
+    }
+
+    const onModalOpen = () => {
+
+        setOpenModal(true)
+        dispatch( isEditingJournal( true ))
+    }
+
+    const onModalClose = () => {
+
+        setOpenModal(false)
+        dispatch( isEditingJournal( false ))
     }
 
     return (
         <>
-            <button className="btn-edit" type="button" onClick={() => setOpenModal(true)}></button>
+            <button className="btn-edit" type="button" onClick={ () => onModalOpen() }></button>
             <CSSTransition
                 timeout={300}
                 classNames="overlay"
@@ -42,7 +59,7 @@ export const ModalEditJournal = () => {
                 ariaHideApp={false}
                 className="modal-container"
                 >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
+                <div className="btn-modal-close" onClick={ () => onModalClose() }>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
                     </svg>

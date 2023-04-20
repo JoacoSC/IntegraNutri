@@ -8,6 +8,7 @@ import { loadUserInfo } from "../../helpers/loadUserInfo";
 import { wipeUserInfo } from "../userInfo";
 import { startLoadingMyPatients } from "../patients";
 import { sendPasswordResetEmail } from "firebase/auth";
+import { startCreatingJournal, unsetJournal } from "../journal";
 
 export const checkingAuthentication = ( email, password ) => {
     
@@ -71,9 +72,9 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirth
 
         await setDoc( newDoc, newUser );
 
-        dispatch( login({ uid, displayName }))
-
-        
+        dispatch( login({ uid, displayName }) )
+        dispatch( startCreatingJournal( uid ) )
+                
     }
 }
 
@@ -208,6 +209,7 @@ export const startLogout = () => {
 
         dispatch( logout() );
         dispatch( wipeUserInfo() );
+        dispatch( unsetJournal() )
 
     }
 }

@@ -38,7 +38,7 @@ export const AppRouter = () => {
 
       dispatch ( startLoadingMyPatients( uid ) );
 
-      dispatch ( startLoadingMyJournal( uid ) );
+      // dispatch ( startLoadingMyJournal( uid ) );
 
       // TODO: Aquí, después de cargar toda la información necesaria, debería poner algo como un checkingAuthentication(),
       // para aplicar una pantalla de carga que desaparezca cuando toda la informacion esté cargada apropiadamente en el store.

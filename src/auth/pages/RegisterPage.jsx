@@ -41,6 +41,7 @@ export const RegisterPage = () => {
         console.log({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender })
 
         dispatch ( startCreatingUserWithEmailPassword({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) )
+        
     }
     
     const handleRegionSeleccionada = (event) => {

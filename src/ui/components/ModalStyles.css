@@ -1,5 +1,105 @@
 /* ************** Modal *****************/
-  
+
+.welcome-modal{
+    display: grid;
+    grid-template-rows: auto auto;
+    position: absolute;
+    width: 60vw;
+    height: auto;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #EFF3FC;
+    border-radius: 20px 8px 8px 20px;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+    transition: all 500ms ease;
+    outline: none;
+}
+
+.welcome-modal-header{
+    background-color: var(--clr-primary);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+.welcome-modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem 2rem 1rem;
+}
+
+.welcome-modal-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-modal-content{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.example-btn-edit-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-btn-edit{
+    position: relative;
+    appearance: none;
+    display: flex;
+    margin: 2rem 1rem 2rem 1rem;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 50%;
+    background: #5d437e;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.example-btn-edit::before{
+    position: absolute;
+    content: var(--edit-icon);
+    top: 10px;
+    left: 11px;
+}
+
+.welcome-btn-close{
+    appearance: none;
+    position: relative;
+    font-family: "Metropolis", sans-serif;
+    font-size: 1rem;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    cursor: pointer;
+    transition: all 50ms ease;
+}
+
+.welcome-btn-close:hover{
+    transform: scale(0.99);
+    background: var(--clr-btn-secondary-hover);
+}
+
+.welcome-btn-close:active{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-active);
+}
+
 .modal-container{
     display: grid;
     grid-template-rows: auto auto;
@@ -16,6 +116,7 @@
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
     overflow-y: auto;
     transition: all 500ms ease;
+    outline: none;
 }
 
 .btn-modal-close{

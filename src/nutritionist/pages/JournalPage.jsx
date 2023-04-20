@@ -9,9 +9,10 @@ import { ModalNewConsultation, ModalPacienteEspontaneo } from '../../ui'
 import { addHours, setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
-import { startLoadingMyJournal } from '../../store/journal';
+import { startCreatingJournal, startLoadingMyJournal } from '../../store/journal';
 import { clearCurrentPatient } from '../../store/currentPatient';
 import { LoadingScreen } from '../../ui/LoadingScreen';
+import { ModalWelcome } from '../../ui/ModalWelcome';
 
 
 
@@ -28,20 +29,23 @@ export const JournalPage = () => {
     const { isNutritionist } = useSelector( state => state.userInfo )
 
     const {
-      workingDayStartHours,
-      workingDayStartMinutes,
-      consultationHours,
-      consultationMinutes,
-      consultationsPerDay,
+        journalID,
+        workingDayStartHours,
+        workingDayStartMinutes,
+        consultationHours,
+        consultationMinutes,
+        consultationsPerDay,
+        journalIsSet,
+        isEditingJournal,
     } = useSelector((state) => state.journal);
 
-    console.log(
-        'workingDayStartHours: ', workingDayStartHours,
-        'workingDayStartMinutes: ', workingDayStartMinutes,
-        'consultationHours: ', consultationHours,
-        'consultationMinutes: ', consultationMinutes,
-        'consultationsPerDay: ', consultationsPerDay,
-        )
+    // console.log(
+    //     'workingDayStartHours: ', workingDayStartHours,
+    //     'workingDayStartMinutes: ', workingDayStartMinutes,
+    //     'consultationHours: ', consultationHours,
+    //     'consultationMinutes: ', consultationMinutes,
+    //     'consultationsPerDay: ', consultationsPerDay,
+    //     )
 
     // console.log(workingDayStartHours,
     //     workingDayStartMinutes,
@@ -63,6 +67,8 @@ export const JournalPage = () => {
     const [consultationSlotsArray, setConsultationSlotsArray] = useState([]);
 
     const [isLoading, setIsLoading] = useState( true );
+
+    const [updateJournal, setUpdateJournal] = useState(false);
 
     const daysRef = useRef( new Array() );
 
@@ -188,16 +194,28 @@ export const JournalPage = () => {
         // console.log('isNutritionist: ', isNutritionist)
         // console.log('isLoading: ', isLoading)
 
-        if( isNutritionist !== undefined ){
+        if( journalID !== null ){
             setIsLoading( false )
         }else{
             setIsLoading( true )
         }
     
 
-    }, [isNutritionist])
+    }, [journalID])
     
+    useEffect(() => {
+    
+        setUpdateJournal( !updateJournal )
+        daysRef.current[0]?.click();
+        console.log('first')
 
+    }, [ isEditingJournal ])
+    
+    useEffect(() => {
+    
+        dispatch ( startLoadingMyJournal( uid ) )
+    }, [])
+    
     return (
     
         <AppLayout>
@@ -207,6 +225,9 @@ export const JournalPage = () => {
                 ( isLoading )
                 ?   <LoadingScreen isLoading = { isLoading } />
                 : <>
+                    {
+                        (!journalIsSet) ? <ModalWelcome /> : null
+                    }
                     <div className="logout">
                         <button className="btn-logout" type="button" onClick={ onLogout }>
                             Cerrar sesión
