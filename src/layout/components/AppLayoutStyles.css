@@ -330,12 +330,19 @@ body{
     text-decoration: none;
 }
 
+.avatar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem; 
+    height: 3rem;
+}
+
 .avatar{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3rem; 
-    height: 3rem;
+    padding: 1rem;
     border-radius: 50%;
     background: #627CE7;
     font-family: "Metropolis", sans-serif;

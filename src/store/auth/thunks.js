@@ -179,6 +179,8 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
 
         const result = await loginWithEmailPassword({ email, password })
 
+        console.log(result)
+
         if ( result.errorCode === 'auth/wrong-password' ) {
             console.log('Contraseña incorrecta')
             dispatch( logout( result.errorMessage ) )
@@ -189,6 +191,14 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
         }
         if ( result.errorCode === 'auth/too-many-requests' ) {
             console.log('Demasiados intentos fallidos, intente nuevamente mas tarde')
+            dispatch( logout( result.errorMessage ) )
+            return {
+                ok: false,
+                errorCode: result.errorCode,
+            }
+        }
+        if ( result.errorCode === 'auth/user-not-found' ) {
+            console.log('Usuario no encontrado, por favor registrese o active su cuenta a través del link enviado a su correo')
             dispatch( logout( result.errorMessage ) )
             return {
                 ok: false,

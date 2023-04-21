@@ -34207,8 +34207,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                 return result;
             }else{
-                result.weightCalificationResult = 'Error'
-                result.statureCalificationResult = 'Error'
+                result.weightCalificationResult = 'Faltan datos'
+                result.statureCalificationResult = 'Faltan datos'
                 return result;
             }
             
@@ -34230,8 +34230,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
                     if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                         return result;
                     }else{
-                        result.weightCalificationResult = 'Error'
-                        result.statureCalificationResult = 'Error'
+                        result.weightCalificationResult = 'Faltan datos'
+                        result.statureCalificationResult = 'Faltan datos'
                         return result;
                     }
                 }else{
@@ -34244,8 +34244,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
                     if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                         return result;
                     }else{
-                        result.weightCalificationResult = 'Error'
-                        result.statureCalificationResult = 'Error'
+                        result.weightCalificationResult = 'Faltan datos'
+                        result.statureCalificationResult = 'Faltan datos'
                         return result;
                     }
                 }
@@ -34261,8 +34261,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
                 if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                     return result;
                 }else{
-                    result.weightCalificationResult = 'Error'
-                    result.statureCalificationResult = 'Error'
+                    result.weightCalificationResult = 'Faltan datos'
+                    result.statureCalificationResult = 'Faltan datos'
                     return result;
                 }
 
@@ -34277,8 +34277,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
                 if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                     return result;
                 }else{
-                    result.weightCalificationResult = 'Error'
-                    result.statureCalificationResult = 'Error'
+                    result.weightCalificationResult = 'Faltan datos'
+                    result.statureCalificationResult = 'Faltan datos'
                     return result;
                 }
             }
@@ -34293,8 +34293,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                 return result;
             }else{
-                result.weightCalificationResult = 'Error'
-                result.statureCalificationResult = 'Error'
+                result.weightCalificationResult = 'Faltan datos'
+                result.statureCalificationResult = 'Faltan datos'
                 return result;
             }
         }
@@ -34323,8 +34323,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                 return result;
             }else{
-                result.weightCalificationResult = 'Error'
-                result.statureCalificationResult = 'Error'
+                result.weightCalificationResult = 'Faltan datos'
+                result.statureCalificationResult = 'Faltan datos'
                 return result;
             }
             
@@ -34346,8 +34346,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
                     if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                         return result;
                     }else{
-                        result.weightCalificationResult = 'Error'
-                        result.statureCalificationResult = 'Error'
+                        result.weightCalificationResult = 'Faltan datos'
+                        result.statureCalificationResult = 'Faltan datos'
                         return result;
                     }
                 }else{
@@ -34360,8 +34360,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
                     if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                         return result;
                     }else{
-                        result.weightCalificationResult = 'Error'
-                        result.statureCalificationResult = 'Error'
+                        result.weightCalificationResult = 'Faltan datos'
+                        result.statureCalificationResult = 'Faltan datos'
                         return result;
                     }
                 }
@@ -34377,8 +34377,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
                 if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                     return result;
                 }else{
-                    result.weightCalificationResult = 'Error'
-                    result.statureCalificationResult = 'Error'
+                    result.weightCalificationResult = 'Faltan datos'
+                    result.statureCalificationResult = 'Faltan datos'
                     return result;
                 }
 
@@ -34393,8 +34393,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
                 if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                     return result;
                 }else{
-                    result.weightCalificationResult = 'Error'
-                    result.statureCalificationResult = 'Error'
+                    result.weightCalificationResult = 'Faltan datos'
+                    result.statureCalificationResult = 'Faltan datos'
                     return result;
                 }
             }
@@ -34409,8 +34409,8 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                 return result;
             }else{
-                result.weightCalificationResult = 'Error'
-                result.statureCalificationResult = 'Error'
+                result.weightCalificationResult = 'Faltan datos'
+                result.statureCalificationResult = 'Faltan datos'
                 return result;
             }
         }

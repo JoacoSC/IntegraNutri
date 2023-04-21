@@ -71,7 +71,9 @@ export const MyPatientsPage = () => {
                         :   patients.map(( patient ) => (
 
                             <Link to={'../patient?patientID='+patient.id} className="patient-item" key={ patient.id }>
-                                <div className="avatar">{ patient.displayName.substring(0,2) }</div>
+                                <div className="avatar-container">
+                                    <div className="avatar">{ patient.displayName.substring(0,2) }</div>
+                                </div>
                                 <div className="my-patients-patient-info">
                                     <div className="my-patients-patient-name">{ patient.displayName }</div>
                                     <div className="my-patients-info-container">

@@ -82,6 +82,8 @@ export const LoginPage = () => {
                             ?   'Contraseña incorrecta'
                             :   (errorCode === 'auth/too-many-requests')
                                 ?   'Demasiados intentos fallidos, intente nuevamente más tarde'
+                                :   (errorCode === 'auth/user-not-found')
+                                ?   'Usuario no encontrado, por favor registrese o active su cuenta a través del link enviado a su correo'
                                 :   null
                         }
                         </div>
