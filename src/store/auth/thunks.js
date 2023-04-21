@@ -7,7 +7,7 @@ import { checkingCredentials, logout, login, isRegisteringPatient, registeredPat
 import { loadUserInfo } from "../../helpers/loadUserInfo";
 import { wipeUserInfo } from "../userInfo";
 import { startLoadingMyPatients } from "../patients";
-import { sendPasswordResetEmail } from "firebase/auth";
+import { sendPasswordResetEmail, updatePassword } from "firebase/auth";
 import { startCreatingJournal, unsetJournal } from "../journal";
 
 export const checkingAuthentication = ( email, password ) => {
@@ -256,5 +256,18 @@ export const resetPassword = ( email ) => {
 
         console.log('Email enviado al correo: ', email)
 
+    }
+}
+
+export const setNewPassword = ( newPassword ) => {
+    return async( dispatch ) => {
+
+        const user = FirebaseAuth.currentUser;
+
+        updatePassword(user, newPassword).then(() => {
+            console.log('Contraseña cambiada con exito')
+          }).catch((error) => {
+            console.log('Ocurrió un error :(', error.errorCode)
+          });
     }
 }

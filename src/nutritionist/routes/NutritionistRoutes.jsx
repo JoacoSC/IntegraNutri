@@ -10,6 +10,8 @@ export const NutritionistRoutes = () => {
   const { isNutritionistStatus } = useSelector( state => state.auth );
   const dispatch = useDispatch();
 
+  console.log('5. Yo soy NutritionistRoutes, si soy nutricionista me quedo aqui y sino, te saco a PatientRoutes')
+
   // console.log( isNutritionistStatus )
 
   if (isNutritionistStatus === false) return <PatientRoutes />;

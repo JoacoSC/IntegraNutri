@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { LoginPage, PasswordReset, PatientActivationPage, RegisterPage } from "../pages"
 
 export const AuthRoutes = () => {
+  console.log('3. Ahora estoy en AuthRoutes, esperando para el login')
   return (
     <>
         <Routes>

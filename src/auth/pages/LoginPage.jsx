@@ -6,6 +6,7 @@ import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth
 
 import { AuthLayout } from '../layout/AuthLayout';
 import { unsetJournal } from '../../store/journal';
+import { switchIsNutritionistSelector } from '../../store/loginHelper';
 
 export const LoginPage = () => {
 
@@ -25,6 +26,7 @@ export const LoginPage = () => {
 
     const onCheckBox = () => {
         setIsNutritionist(isNutritionist => !isNutritionist);
+        dispatch( switchIsNutritionistSelector(!isNutritionist) );
     }
 
     const onSubmit = async ( event ) => {

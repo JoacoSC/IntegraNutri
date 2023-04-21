@@ -5,6 +5,7 @@ export const PublicRoute = ({ children }) => {
   
     const { isLogged } = useSelector( state => state.auth);
     // const isLogged = false;
+    console.log('2. Estoy en PublicRoute, y de aquí entro a -> AuthRoutes')
 
     return ( !isLogged )
     ? children

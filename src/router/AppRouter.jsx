@@ -19,8 +19,10 @@ import { startLoadingMyJournal } from "../store/journal"
 export const AppRouter = () => {
 
   const { isLogged, uid } = useSelector( state => state.auth );
-  const { isNutritionistStatus } = useSelector( state => state.auth );
+  const { isNutritionist } = useSelector( state => state.userInfo );
   const dispatch = useDispatch();
+
+  const { isNutritionistSelector } = useSelector( state => state.loginHelper )
 
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export const AppRouter = () => {
       if ( !user ) return dispatch( logout() );
 
       const { uid, email, displayName, photoURL } = user;
-      
+
       dispatch( login({ uid, email, displayName, photoURL }) );
 
       dispatch( redirectNutritionistOrPatient( uid ) );
@@ -38,16 +40,41 @@ export const AppRouter = () => {
 
       dispatch ( startLoadingMyPatients( uid ) );
 
+      // if( isNutritionist === isNutritionistSelector ){
+
+      // dispatch( login({ uid, email, displayName, photoURL }) );
+
+      // dispatch( redirectNutritionistOrPatient( uid ) );
+
+      // dispatch( startLoadingUserInfo( uid ) );
+
+      // dispatch ( startLoadingMyPatients( uid ) );
+
+      // }else{
+
+      //   dispatch( startLogout() );
+      //   console.log('Usuario no encontrado, verifique la selección de "Soy nutricionista" o "Soy Paciente"')
+      // }
+      
+      // dispatch( login({ uid, email, displayName, photoURL }) );
+
+      // dispatch( redirectNutritionistOrPatient( uid ) );
+
+      // dispatch( startLoadingUserInfo( uid ) );
+
+      // dispatch ( startLoadingMyPatients( uid ) );
+
+      // ESTE DISPATCH NO VA
+
       // dispatch ( startLoadingMyJournal( uid ) );
-
-      // TODO: Aquí, después de cargar toda la información necesaria, debería poner algo como un checkingAuthentication(),
-      // para aplicar una pantalla de carga que desaparezca cuando toda la informacion esté cargada apropiadamente en el store.
-      // Debería actualizar la página de alguna forma, para aplicar los horarios corresponientes de la agenda 
-
+      
+      // ESTE DISPATCH NO VA
 
     })
 
-  }, [])
+  }, [isNutritionist])
+
+  console.log('1. Estoy en AppRouter.jsx')
 
   return (
     <>
