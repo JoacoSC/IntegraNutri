@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 
 import { checkingCredentials, logout, login, isRegisteringPatient, registeredPatientUID, setIsNutritionistStatus } from "./";
 import { loadUserInfo } from "../../helpers/loadUserInfo";
-import { wipeUserInfo } from "../userInfo";
+import { startLoadingUserInfo, wipeUserInfo } from "../userInfo";
 import { startLoadingMyPatients } from "../patients";
 import { EmailAuthProvider, reauthenticateWithCredential, sendPasswordResetEmail, updatePassword } from "firebase/auth";
 import { startCreatingJournal, unsetJournal } from "../journal";
@@ -176,14 +176,14 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
 
         dispatch( checkingCredentials() );
 
-        console.log('startLoginWithEmailPassword')
+        // console.log('startLoginWithEmailPassword')
 
         const result = await loginWithEmailPassword({ email, password })
 
-        console.log(result)
+        // console.log(result)
 
         if ( result.errorCode === 'auth/wrong-password' ) {
-            console.log('Contraseña incorrecta')
+            // console.log('Contraseña incorrecta')
             dispatch( logout( result.errorMessage ) )
             return {
                 ok: false,
@@ -191,7 +191,7 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
             }
         }
         if ( result.errorCode === 'auth/too-many-requests' ) {
-            console.log('Demasiados intentos fallidos, intente nuevamente mas tarde')
+            // console.log('Demasiados intentos fallidos, intente nuevamente mas tarde')
             dispatch( logout( result.errorMessage ) )
             return {
                 ok: false,
@@ -199,7 +199,7 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
             }
         }
         if ( result.errorCode === 'auth/user-not-found' ) {
-            console.log('Usuario no encontrado, por favor registrese o active su cuenta a través del link enviado a su correo')
+            // console.log('Usuario no encontrado, por favor registrese o active su cuenta a través del link enviado a su correo')
             dispatch( logout( result.errorMessage ) )
             return {
                 ok: false,
@@ -245,8 +245,12 @@ export const redirectNutritionistOrPatient = ( uid ) => {
             
         }else{
             dispatch( setIsNutritionistStatus(nutriBoolean) )
-        }
+            
+            dispatch( startLoadingUserInfo( uid ) );
 
+            dispatch ( startLoadingMyPatients( uid ) );
+        }
+        
     }
 }
 

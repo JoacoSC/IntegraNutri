@@ -36,9 +36,11 @@ export const AppRouter = () => {
 
       dispatch( redirectNutritionistOrPatient( uid ) );
 
-      dispatch( startLoadingUserInfo( uid ) );
+      // console.log('second')
 
-      dispatch ( startLoadingMyPatients( uid ) );
+      // dispatch( startLoadingUserInfo( uid ) );
+
+      // dispatch ( startLoadingMyPatients( uid ) );
 
       // if( isNutritionist === isNutritionistSelector ){
 

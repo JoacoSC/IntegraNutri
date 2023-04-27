@@ -32,11 +32,11 @@ export const LoginPage = () => {
     const onSubmit = async ( event ) => {
         event.preventDefault();
 
-        console.log({ email, password });
+        // console.log({ email, password });
         const result = await dispatch( startLoginWithEmailPassword({ email, password, isNutritionist }) ) ;
         
         if( result?.ok === false ){
-            console.log('Codigo de error: ', result.errorCode);
+            // console.log('Codigo de error: ', result.errorCode);
             setErrorCode(result.errorCode)
             setError(true);
         }

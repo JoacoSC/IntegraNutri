@@ -81,7 +81,7 @@ export const startLoadingMyJournal = ( uid ) => {
             journal.push({ id: doc.id, ...doc.data() });
         });
 
-        console.log(journal)
+        // console.log(journal)
 
         const journalID = journal[0].jid
         const workingDayStartHours = journal[0].workingDayStartHours

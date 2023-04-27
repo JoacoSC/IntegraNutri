@@ -207,14 +207,17 @@ export const JournalPage = () => {
     
         setUpdateJournal( !updateJournal )
         daysRef.current[0]?.click();
-        console.log('first')
+        // console.log('first')
 
     }, [ isEditingJournal ])
     
     useEffect(() => {
     
-        dispatch ( startLoadingMyJournal( uid ) )
-    }, [])
+        if( isNutritionist !== null && isNutritionist !== false ){
+            dispatch ( startLoadingMyJournal( uid ) )
+            
+        }
+    }, [isNutritionist])
     
     return (
     

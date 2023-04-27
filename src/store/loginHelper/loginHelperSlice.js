@@ -11,23 +11,23 @@ export const loginHelperSlice = createSlice({
     },
     reducers: {
         switchIsNutritionistSelector: (state,{ payload }) => {
-            console.log(payload)
+            // console.log(payload)
             state.isNutritionistSelector = payload;
         },
         switchPatientPasswordChangedSuccesfully: (state,{ payload }) => {
-            console.log(payload)
+            // console.log(payload)
             state.patientPasswordChangedSuccesfully = payload;
         },
         disableConfirmBtn: (state,{ payload }) => {
-            console.log(payload)
+            // console.log(payload)
             state.disableConfirmBtn = payload;
         },
         switchError: (state,{ payload }) => {
-            console.log(payload)
+            // console.log(payload)
             state.error = payload;
         },
         setErrorCode: (state,{ payload }) => {
-            console.log(payload)
+            // console.log(payload)
             state.errorCode = payload;
         },
     }
