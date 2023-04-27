@@ -7,8 +7,9 @@ import { checkingCredentials, logout, login, isRegisteringPatient, registeredPat
 import { loadUserInfo } from "../../helpers/loadUserInfo";
 import { wipeUserInfo } from "../userInfo";
 import { startLoadingMyPatients } from "../patients";
-import { sendPasswordResetEmail, updatePassword } from "firebase/auth";
+import { EmailAuthProvider, reauthenticateWithCredential, sendPasswordResetEmail, updatePassword } from "firebase/auth";
 import { startCreatingJournal, unsetJournal } from "../journal";
+import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../loginHelper";
 
 export const checkingAuthentication = ( email, password ) => {
     
@@ -259,15 +260,53 @@ export const resetPassword = ( email ) => {
     }
 }
 
-export const setNewPassword = ( newPassword ) => {
+export const setNewPassword = ( actualPassword, newPassword ) => {
     return async( dispatch ) => {
 
+        dispatch( disableConfirmBtn( true ) );
+        dispatch( switchError( false ) );
+        dispatch( setErrorCode( null ) );
+
+        console.log('reauthenticate')
+        
         const user = FirebaseAuth.currentUser;
 
-        updatePassword(user, newPassword).then(() => {
-            console.log('Contraseña cambiada con exito')
-          }).catch((error) => {
-            console.log('Ocurrió un error :(', error.errorCode)
-          });
+        const credential = EmailAuthProvider.credential(
+            user.email,
+            actualPassword
+        )
+        reauthenticateWithCredential(user, credential).then(() => {
+            
+            updatePassword(user, newPassword).then(() => {
+                dispatch( switchPatientPasswordChangedSuccesfully(true) )
+            }).catch((error) => {
+                console.log('Ocurrió un error :(', {error})
+            });
+
+        }).catch((error) => {
+            
+            if ( error.code === 'auth/wrong-password' ) {
+                console.log('Contraseña incorrecta');
+                dispatch( switchError( true ) );
+                dispatch( setErrorCode( error.code ) );
+            }
+            if ( error.code === 'auth/too-many-requests' ) {
+                console.log('Demasiados intentos fallidos, intente nuevamente mas tarde')
+                dispatch( switchError( true ) );
+                dispatch( setErrorCode( error.code ) );
+            }
+        });
+
+        dispatch( disableConfirmBtn( false ) );
+
+        
+    }
+}
+
+export const reauthenticate = ( actualPassword ) => {
+    return async( dispatch ) => {
+
+        
+
     }
 }

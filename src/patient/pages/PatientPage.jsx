@@ -55,6 +55,7 @@ import {
 import { ModalUpdatePatientValues } from "../../ui/ModalUpdatePatientValues";
 import { ModalUpdateCorrectedAge } from "../../ui/ModalUpdateCorrectedAge";
 import { LoadingScreen } from "../../ui/LoadingScreen";
+import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
 
 
 export const PatientPage = () => {
@@ -1038,35 +1039,35 @@ export const PatientPage = () => {
                         labels: GirlsTEFromZeroToTwoYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: GirlsTEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1083,35 +1084,35 @@ export const PatientPage = () => {
                         labels: GirlsTEFromTwoToFiveYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1127,35 +1128,35 @@ export const PatientPage = () => {
                         labels: GirlsTEFromTwoToFiveYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: GirlsTEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1172,35 +1173,35 @@ export const PatientPage = () => {
                         labels: GirlsTEFromFiveToNineteenYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1217,35 +1218,35 @@ export const PatientPage = () => {
                         labels: GirlsTEFromFiveToNineteenYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: GirlsTEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1268,35 +1269,35 @@ export const PatientPage = () => {
                         labels: BoysTEFromZeroToTwoYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: BoysTEFromZeroToTwoYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: BoysTEFromZeroToTwoYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: BoysTEFromZeroToTwoYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: BoysTEFromZeroToTwoYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: BoysTEFromZeroToTwoYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1313,35 +1314,35 @@ export const PatientPage = () => {
                         labels: BoysTEFromTwoToFiveYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1357,35 +1358,35 @@ export const PatientPage = () => {
                         labels: BoysTEFromTwoToFiveYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: BoysTEFromTwoToFiveYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1402,35 +1403,35 @@ export const PatientPage = () => {
                         labels: BoysTEFromFiveToNineteenYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1447,35 +1448,35 @@ export const PatientPage = () => {
                         labels: BoysTEFromFiveToNineteenYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Cm)",
                                 data: BoysTEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
@@ -1832,42 +1833,42 @@ export const PatientPage = () => {
                         labels: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+3DE (Kg)",
+                                label: "+3DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus3DE ),
                                 borderColor: 'rgba(0,166,110, 0.3)',
                                 backgroundColor: 'rgba(0,166,110, 0.3)',
@@ -1884,42 +1885,42 @@ export const PatientPage = () => {
                         labels: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+3DE (Kg)",
+                                label: "+3DE (Kg/m²)",
                                 data: GirlsIMCEFromFiveToNineteenYears.map( (data) => data.Plus3DE ),
                                 borderColor: 'rgba(0,166,110, 0.3)',
                                 backgroundColor: 'rgba(0,166,110, 0.3)',
@@ -1942,42 +1943,42 @@ export const PatientPage = () => {
                         labels: BoysIMCEFromFiveToNineteenYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+3DE (Kg)",
+                                label: "+3DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus3DE ),
                                 borderColor: 'rgba(0,166,110, 0.3)',
                                 backgroundColor: 'rgba(0,166,110, 0.3)',
@@ -1994,42 +1995,42 @@ export const PatientPage = () => {
                         labels: BoysIMCEFromFiveToNineteenYears.map( (data) => data.months ),
                         datasets: [
                             {
-                                label: "-2DE (Kg)",
+                                label: "-2DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Minus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "-1DE (Kg)",
+                                label: "-1DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Minus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "Mediana (Kg)",
+                                label: "Mediana (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Median ),
                                 borderColor: 'rgba(35,31,32, 0.3)',
                                 backgroundColor: 'rgba(35,31,32, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+1DE (Kg)",
+                                label: "+1DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus1DE ),
                                 borderColor: 'rgba(237,2,140, 0.3)',
                                 backgroundColor: 'rgba(237,2,140, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+2DE (Kg)",
+                                label: "+2DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus2DE ),
                                 borderColor: 'rgba(0,174,239, 0.3)',
                                 backgroundColor: 'rgba(0,174,239, 0.3)',
                                 pointRadius: 1,
                             },
                             {
-                                label: "+3DE (Kg)",
+                                label: "+3DE (Kg/m²)",
                                 data: BoysIMCEFromFiveToNineteenYears.map( (data) => data.Plus3DE ),
                                 borderColor: 'rgba(0,166,110, 0.3)',
                                 backgroundColor: 'rgba(0,166,110, 0.3)',
@@ -2079,6 +2080,15 @@ export const PatientPage = () => {
     
 
     }, [email])
+
+    useEffect(() => {
+    
+        dispatch( switchPatientPasswordChangedSuccesfully( false ) )
+        dispatch( disableConfirmBtn( false ) );
+        dispatch( switchError( false ) );
+        dispatch( setErrorCode( null ) );
+    }, [])
+    
     
     return (
       <>

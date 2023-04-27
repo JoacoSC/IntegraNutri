@@ -74,7 +74,7 @@ export const AppRouter = () => {
 
   }, [isNutritionist])
 
-  console.log('1. Estoy en AppRouter.jsx')
+  // console.log('1. Estoy en AppRouter.jsx')
 
   return (
     <>

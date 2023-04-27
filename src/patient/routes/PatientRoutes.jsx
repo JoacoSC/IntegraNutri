@@ -8,7 +8,7 @@ export const PatientRoutes = () => {
   const { isNutritionistStatus } = useSelector( state => state.auth );
   const dispatch = useDispatch();
 
-  console.log('6. Yo soy PatientRoutes, aquí llego despues de que me echen de NutritionistRoutes')
+  // console.log('6. Yo soy PatientRoutes, aquí llego despues de que me echen de NutritionistRoutes')
 
   // console.log( isNutritionistStatus )
 
