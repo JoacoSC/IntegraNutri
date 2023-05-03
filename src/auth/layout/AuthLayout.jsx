@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom"
 import '../components/AuthLayoutStyles.css';
+import Logo from "../../../assets/imgs/auth/Logo.svg"
 
 export const AuthLayout = ({ children, title, btnTitle, url}) => {
-
-    const logo = "../../../assets/imgs/auth/Logo.svg"
 
     return (
     <>
@@ -17,7 +16,7 @@ export const AuthLayout = ({ children, title, btnTitle, url}) => {
                 <div className="container-top">
                     <ul>
                         <li>
-                            <img className="logo" src={ logo } alt="Logo de App_Nutricionista"/>
+                            <img className="logo" src={ Logo } alt="Logo de App_Nutricionista"/>
 
                         </li>
                         <li>

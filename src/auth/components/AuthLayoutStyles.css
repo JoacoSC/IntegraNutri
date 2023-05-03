@@ -13,6 +13,8 @@
 
     --animation-curve: cubic-bezier(0.34, 1.36, 0.2, 1);
 
+    --background: url(../../../assets/imgs/auth/Fondo.svg);
+
     --google-logo: url(../../../assets/imgs/auth/google_logo.svg);
 
     /* --nutri-icon: url(../../imgs/auth/login/nutritionist_icon.svg); */
@@ -23,6 +25,8 @@
     /* --patient-icon: url(../../imgs/auth/login/patient_icon.svg); */
     --patient-grey-icon: url(../../../assets/imgs/auth/patient_icon_grey.svg);
     --patient-icon-text: url(../../../assets/imgs/auth/patient_text_and_icon.svg);
+
+    --phone-code: url(../../../assets/imgs/auth/phone-code.svg);
 
 }
 
@@ -41,7 +45,7 @@ body{
 .background{
     display: flex;
     align-items: center;
-    background-image: url(../assets/imgs/auth/Fondo.svg);
+    background-image: var(--background);
     background-repeat: no-repeat;
 }
 
@@ -449,7 +453,7 @@ body{
 .phone-code::before{
     height: 30px;
     width: 99px;
-    background: url(../../../assets/imgs/auth/phone-code.svg);
+    background: var(--phone-code);
     position: absolute;
     display: block;
     content: '';

@@ -70,6 +70,8 @@ export const JournalPage = () => {
 
     const [updateJournal, setUpdateJournal] = useState(false);
 
+    const [isAddingNewConsultation, setIsAddingNewConsultation] = useState(false);
+
     const daysRef = useRef( new Array() );
 
     // const [isEditingJournal, setIsEditingJournal] = useMemo( () => /* ALGO */  );
@@ -210,6 +212,14 @@ export const JournalPage = () => {
         // console.log('first')
 
     }, [ isEditingJournal ])
+
+    useEffect(() => {
+    
+        setIsAddingNewConsultation( !isAddingNewConsultation )
+        daysRef.current[0]?.click();
+        // console.log('first')
+
+    }, [ isAddingNewConsultation ])
     
     useEffect(() => {
     
@@ -237,8 +247,8 @@ export const JournalPage = () => {
                         </button>
                     </div>
                     <div className="main-welcome">
-                        <h1>Dr. { displayName }</h1>
-                        <p>Hola doctor, echemos un vistazo a sus pacientes de hoy</p>
+                        <h1>Nut. { displayName }</h1>
+                        <p>Hola nutricionista, echemos un vistazo a sus pacientes de hoy</p>
 
                     </div>
                     <div className="next-consultation">

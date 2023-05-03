@@ -12,7 +12,7 @@ import './components';
 import { addDays, format, fromUnixTime, getUnixTime, set } from "date-fns";
 import { useEffect } from "react";
 import { startLoadingMyPatients, uploadPatientNewConsultation } from "../store/patients";
-import { startLoadingMyJournal } from "../store/journal";
+import { isAddingNewConsultation, startLoadingMyJournal } from "../store/journal";
 import { regiones } from "../helpers";
 import { ComunasSelect } from "./ComunasSelect";
 
@@ -110,13 +110,16 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         event.preventDefault();
 
+        dispatch( isAddingNewConsultation( true ) )
+
         // console.log(patients);
 
         // console.log(rut.raw);
         let tempPatient
 
         patients.forEach(patient => {
-            if (patient.rut === rut.raw) {
+
+            if (patient.rut.raw === rut.raw) {
 
                 tempPatient = patient;
             }
@@ -124,6 +127,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         setCurrentPatient( tempPatient );
         setIsFirstQuery(false);
+        dispatch( isAddingNewConsultation( false ) )
     }
     
     // useEffect(() => {
