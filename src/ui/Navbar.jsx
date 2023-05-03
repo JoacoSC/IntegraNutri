@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './components';
+import NutritionistApp_sm from '../../assets/imgs/navbar/NutritionistApp_sm.svg'
 import Home_sm from '../../assets/imgs/navbar/Home_sm.svg'
 import Patients from '../../assets/imgs/navbar/Patients.svg'
 import Calendar_sm from '../../assets/imgs/navbar/Calendar_sm.svg'
@@ -24,7 +25,7 @@ export const Navbar = () => {
             <ul className="nav__list">
                 <li className="nav__item__logo" data-tooltip="NutritionistApp">
                     <a href="#">
-                        <img src="../../assets/imgs/navbar/NutritionistApp_sm.svg" className="logo-item" alt="Icono NutritionistApp"/>                    
+                        <img src={ NutritionistApp_sm } className="logo-item" alt="Icono NutritionistApp"/>                    
                     </a>
                 </li>
                 {   (isNutritionistStatus)

@@ -57,6 +57,8 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         // const unixBirthday = getUnixTime( formattedBirthday );
 
+        dispatch( isAddingNewConsultation( false ) )
+
     }
 
     const onSpontaneousPatient = ( event ) => {
@@ -99,11 +101,14 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         // TODO: Agregar el NextConsultation al formulario, mostrarlo por consola, 
         // hacer el registro del paciente y asignarle el NextConsultation
+
+        dispatch( isAddingNewConsultation( false ) )
     }
 
     const handleSpontaneousPatientForm = ( event ) => {
         event.preventDefault();
         setShowSpontaneousPatientForm(!showSpontaneousPatientForm);
+        dispatch( isAddingNewConsultation( true ) )
     }
 
     const onRutSubmit = ( event ) => {
@@ -127,7 +132,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         setCurrentPatient( tempPatient );
         setIsFirstQuery(false);
-        dispatch( isAddingNewConsultation( false ) )
+        
     }
     
     // useEffect(() => {

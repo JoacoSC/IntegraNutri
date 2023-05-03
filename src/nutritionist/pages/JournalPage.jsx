@@ -211,15 +211,7 @@ export const JournalPage = () => {
         daysRef.current[0]?.click();
         // console.log('first')
 
-    }, [ isEditingJournal ])
-
-    useEffect(() => {
-    
-        setIsAddingNewConsultation( !isAddingNewConsultation )
-        daysRef.current[0]?.click();
-        // console.log('first')
-
-    }, [ isAddingNewConsultation ])
+    }, [ isEditingJournal, isAddingNewConsultation ])
     
     useEffect(() => {
     

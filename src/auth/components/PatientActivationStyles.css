@@ -4,12 +4,18 @@
     box-sizing: border-box;
 }
 
+:root{
+    
+    --background: url(../../../assets/imgs/auth/Fondo.svg);
+
+}
+
 .activation-background{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url(../assets/imgs/auth/Fondo.svg);
+    background-image: var( --background );
     background-repeat: no-repeat;
     background-size: cover;
 }
