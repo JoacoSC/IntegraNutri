@@ -447,16 +447,20 @@ body{
     justify-content: center;
 }
 
+.patient-item-container{
+    display: flex;
+}
+
 .patient-item{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
     margin-top: 2rem;;
-    padding: 1rem;
+    padding: 1rem 0 1rem 1rem;
     background-color: white;
     color: black;
-    border-radius: 50px;
+    border-radius: 50px 0 0 50px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -506,6 +510,26 @@ body{
     color: #000000;
 }
 
+.my-patients-info-actions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;;
+    padding: 1rem 2rem 1rem 1rem;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 0 50px 50px 0;
+    padding-left: 1rem;
+    border-left: 1px solid grey;
+    font-family: "Metropolis", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+}
+
 .my-patients-info-rut{
     display: flex;
     align-items: center;
@@ -543,6 +567,28 @@ body{
     background-color: #5192C1;
     border-radius: 10px;
     color: white;
+}
+
+.btn-my-patients-info-delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    width: fit-content;
+    height: 2rem;
+    padding: 0.8rem;
+    background-color: #ca3535;
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 100ms;
+}
+
+.btn-my-patients-info-delete:hover{
+    background-color: #d64242;
+    transform: scale(0.98);
 }
 
 .no-patients{

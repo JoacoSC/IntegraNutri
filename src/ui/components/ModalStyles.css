@@ -355,3 +355,37 @@
 }
 
 /* *********** Weight/Stature Update Modal ************ */
+
+/* *********** Delete Patient Modal ************ */
+
+.modal-delete-patient-container{
+    display: grid;
+    grid-template-rows: auto auto;
+    position: absolute;
+    width: 50vw;
+    height: 28vh;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #EFF3FC;
+    border-radius: 20px 8px 8px 20px;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+    transition: all 500ms ease;
+}
+
+.modal-delete-patient-container-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 2rem;
+    margin-top: 1rem;
+    font-family: "Metropolis", sans-serif;
+    font-size: 1rem;
+    color: black;
+}
+
+/* *********** Delete Patient Modal ************ */

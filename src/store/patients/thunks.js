@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, setDoc } from "firebase/firestore/lite";
+import { collection, deleteDoc, doc, getDocs, setDoc } from "firebase/firestore/lite";
 import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
 import { setMyPatients } from "./";
 
@@ -44,5 +44,18 @@ export const uploadPatientNewConsultation = ( consultationSlot, patientID ) => {
 
         // dispatch( setMyPatients( patients ) )
 
+    }
+}
+
+export const startDeletePatient = ( patientID ) => {
+    return async( dispatch ) => {
+
+        const uid = FirebaseAuth.currentUser.uid;
+        
+        const resp = await deleteDoc(doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` ));
+
+        console.log(resp)
+
+        dispatch( startLoadingMyPatients( uid ) )
     }
 }
