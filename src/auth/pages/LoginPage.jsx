@@ -48,7 +48,7 @@ export const LoginPage = () => {
 
   return (
     <>
-        <AuthLayout title="Login" btnTitle="Registrarse" url="/auth/register">
+        <AuthLayout title="Iniciar Sesión" btnTitle="Registrarse" url="/auth/register">
             <form onSubmit={ onSubmit }>
                 <div className="container-form">
 

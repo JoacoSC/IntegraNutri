@@ -54,8 +54,6 @@ export const startDeletePatient = ( patientID ) => {
         
         const resp = await deleteDoc(doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` ));
 
-        console.log(resp)
-
         dispatch( startLoadingMyPatients( uid ) )
     }
 }

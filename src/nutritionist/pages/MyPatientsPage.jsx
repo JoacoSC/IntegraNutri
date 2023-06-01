@@ -50,7 +50,7 @@ export const MyPatientsPage = () => {
                     </button>
                 </div>
                 <div className="main-welcome">
-                    <h1>Dr. { displayName }</h1>
+                    <h1>Nut. { displayName }</h1>
                 </div>
                 <div className="next-consultation">
                     <h3>Mis pacientes</h3>
