@@ -104,7 +104,7 @@ body{
     gap: 1rem;
 }
 
-.next-consultation{
+.sub-title{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -569,7 +569,7 @@ body{
     color: white;
 }
 
-.btn-my-patients-info-delete{
+.btn-delete{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -586,7 +586,7 @@ body{
     transition: all 100ms;
 }
 
-.btn-my-patients-info-delete:hover{
+.btn-delete:hover{
     background-color: #d64242;
     transform: scale(0.98);
 }
@@ -1279,3 +1279,68 @@ body{
 
 
 /* **************** Patient chart ****************** */
+/* **************** Settings page ****************** */
+
+.settings-container{
+    display: grid;
+    height: auto;
+    margin: 2rem 3rem 2rem 2rem;
+    background-color: var(--clr-primary);
+    border-radius: 30px;
+}
+
+.settings-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 3rem 3rem 3rem ;
+}
+
+.settings-item-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.settings-item-title{
+    margin-bottom: 2rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.settings-options-container{
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem 1.5rem;
+    border: 2px solid #55367F;
+    border-radius: 10px;
+}
+
+.settings-option-info{
+    margin-right: auto;
+}
+
+.settings-option-title{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.settings-option-description{
+    margin-top: 1rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.settings-option-action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* **************** Settings page ****************** */
+

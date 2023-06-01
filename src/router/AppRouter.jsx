@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { onAuthStateChanged } from "firebase/auth"
 
 import { useDispatch, useSelector } from "react-redux"
@@ -12,18 +12,11 @@ import { NutritionistRoutes } from "../nutritionist/routes/NutritionistRoutes"
 import { PatientRoutes } from "../patient/routes/PatientRoutes"
 
 import { login, logout, redirectNutritionistOrPatient } from "../store/auth"
-import { startLoadingMyPatients } from "../store/patients"
-import { startLoadingUserInfo } from "../store/userInfo"
-import { startLoadingMyJournal } from "../store/journal"
 
 export const AppRouter = () => {
 
-  const { isLogged, uid } = useSelector( state => state.auth );
   const { isNutritionist } = useSelector( state => state.userInfo );
   const dispatch = useDispatch();
-
-  const { isNutritionistSelector } = useSelector( state => state.loginHelper )
-
 
   useEffect(() => {
     
@@ -36,47 +29,9 @@ export const AppRouter = () => {
 
       dispatch( redirectNutritionistOrPatient( uid ) );
 
-      // console.log('second')
-
-      // dispatch( startLoadingUserInfo( uid ) );
-
-      // dispatch ( startLoadingMyPatients( uid ) );
-
-      // if( isNutritionist === isNutritionistSelector ){
-
-      // dispatch( login({ uid, email, displayName, photoURL }) );
-
-      // dispatch( redirectNutritionistOrPatient( uid ) );
-
-      // dispatch( startLoadingUserInfo( uid ) );
-
-      // dispatch ( startLoadingMyPatients( uid ) );
-
-      // }else{
-
-      //   dispatch( startLogout() );
-      //   console.log('Usuario no encontrado, verifique la selección de "Soy nutricionista" o "Soy Paciente"')
-      // }
-      
-      // dispatch( login({ uid, email, displayName, photoURL }) );
-
-      // dispatch( redirectNutritionistOrPatient( uid ) );
-
-      // dispatch( startLoadingUserInfo( uid ) );
-
-      // dispatch ( startLoadingMyPatients( uid ) );
-
-      // ESTE DISPATCH NO VA
-
-      // dispatch ( startLoadingMyJournal( uid ) );
-      
-      // ESTE DISPATCH NO VA
-
     })
 
   }, [isNutritionist])
-
-  // console.log('1. Estoy en AppRouter.jsx')
 
   return (
     <>

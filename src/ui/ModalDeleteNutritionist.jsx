@@ -3,8 +3,9 @@ import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { startDeletePatient } from '../store/patients';
+import { useForm } from '../hooks';
 
-export const ModalDeletePatient = ({ displayName, patientID }) => {
+export const ModalDeleteNutritionist = () => {
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -12,28 +13,28 @@ export const ModalDeletePatient = ({ displayName, patientID }) => {
 
     const dispatch = useDispatch();
 
-    const deletePatient = ( event ) => {
+    const { password, onInputChange } = useForm();
+
+    const deleteAccountSubmit = ( event ) => {
         event.preventDefault();
 
-        setOpenModal(false);
+        dispatch(  )
 
-        dispatch( startDeletePatient( patientID ) )
-        
-        console.log('Paciente eliminado');
+        // TODO: Continuar con el dispatch para eliminar la cuenta del usuario
+        // TODO: Continuar con el dispatch para eliminar la cuenta del usuario
+        // TODO: Continuar con el dispatch para eliminar la cuenta del usuario
     }
 
     const cancelSubmit = ( event ) => {
         event.preventDefault();
 
         setOpenModal(false);
-        
-        console.log('No hice nada');
     }
 
     return (
         <>
             
-            <button className="btn-delete" type="button" onClick={() => setOpenModal(true)}>
+            <button className="btn-modal-alt" type="button" onClick={() => setOpenModal(true)}>
                 Eliminar
             </button>
             <CSSTransition
@@ -44,7 +45,7 @@ export const ModalDeletePatient = ({ displayName, patientID }) => {
                 closeTimeoutMS={500}
                 isOpen={ openModal }
                 ariaHideApp={false}
-                className="modal-delete-patient-container"
+                className="modal-delete-nutritionist-container"
                 >
                 <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -52,16 +53,21 @@ export const ModalDeletePatient = ({ displayName, patientID }) => {
                     </svg>
                 </div>
                 <h1 className="modal-header">
-                    Eliminar paciente
+                    Eliminar cuenta
                 </h1>
 
                 <form ref={form}>
-                    <div className="modal-delete-patient-container-form">
+                    <div className="modal-delete-nutritionist-container-form">
 
-                        <p>Está seguro de eliminar al paciente: <b>{ displayName }</b>?</p>
+                        <p>Por favor, ingrese su contraseña a continuación: </p>
+
+                        <div className="form-item">
+                            <label className="input-label">Contraseña</label>
+                            <input className="input-text-style" type="password" name="password" onChange={ onInputChange }/>
+                        </div>
 
                         <div className="form-btn-group">
-                            <button className="btn-modal-alt" type="submit" onClick={ deletePatient }>
+                            <button className="btn-modal-alt" type="submit" onClick={ cancelSubmit }>
                                 Eliminar
                             </button>
                             <button className="btn-modal-primary" onClick={ cancelSubmit }>

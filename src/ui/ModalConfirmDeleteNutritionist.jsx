@@ -3,8 +3,9 @@ import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { startDeletePatient } from '../store/patients';
+import { ModalDeleteNutritionist } from './ModalDeleteNutritionist';
 
-export const ModalDeletePatient = ({ displayName, patientID }) => {
+export const ModalConfirmDeleteNutritionist = () => {
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -12,22 +13,11 @@ export const ModalDeletePatient = ({ displayName, patientID }) => {
 
     const dispatch = useDispatch();
 
-    const deletePatient = ( event ) => {
-        event.preventDefault();
-
-        setOpenModal(false);
-
-        dispatch( startDeletePatient( patientID ) )
-        
-        console.log('Paciente eliminado');
-    }
-
+    
     const cancelSubmit = ( event ) => {
         event.preventDefault();
 
         setOpenModal(false);
-        
-        console.log('No hice nada');
     }
 
     return (
@@ -44,7 +34,7 @@ export const ModalDeletePatient = ({ displayName, patientID }) => {
                 closeTimeoutMS={500}
                 isOpen={ openModal }
                 ariaHideApp={false}
-                className="modal-delete-patient-container"
+                className="modal-confirm-delete-nutritionist-container"
                 >
                 <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -52,18 +42,17 @@ export const ModalDeletePatient = ({ displayName, patientID }) => {
                     </svg>
                 </div>
                 <h1 className="modal-header">
-                    Eliminar paciente
+                    Eliminar cuenta
                 </h1>
 
                 <form ref={form}>
-                    <div className="modal-delete-patient-container-form">
+                    <div className="modal-confirm-delete-nutritionist-container-form">
 
-                        <p>Está seguro de eliminar al paciente: <b>{ displayName }</b>?</p>
+                        <p>¿Está seguro de eliminar su cuenta permanentemente?, esto provocará que se elimine toda la información de su cuenta.</p>
+                        <p><b>Esta acción no se puede deshacer.</b></p>
 
                         <div className="form-btn-group">
-                            <button className="btn-modal-alt" type="submit" onClick={ deletePatient }>
-                                Eliminar
-                            </button>
+                            <ModalDeleteNutritionist/>
                             <button className="btn-modal-primary" onClick={ cancelSubmit }>
                                 Cancelar
                             </button>

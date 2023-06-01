@@ -97,10 +97,11 @@ export const Navbar = () => {
                                 </a>
                             </li>
                             <li className="nav__item" data-tooltip="Ajustes">
-                                <a href="#">
+                                <Link to="../settings">
                                     <img src={ Settings_sm } className="filter-clr" alt="Icono Ajustes"/>
                                     <div className="btn-ellipse"></div>
-                                </a>
+                                </Link>
+                                
                             </li>
                         </>
                     :   <>

@@ -52,7 +52,7 @@ export const MyPatientsPage = () => {
                 <div className="main-welcome">
                     <h1>Nut. { displayName }</h1>
                 </div>
-                <div className="next-consultation">
+                <div className="sub-title">
                     <h3>Mis pacientes</h3>
                     <ModalNewPatient />
                 </div>
