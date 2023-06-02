@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import Modal from 'react-modal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
-import { startDeletePatient } from '../store/patients';
 import { useForm } from '../hooks';
+import { startDeleteAccount } from '../store/auth';
 
 export const ModalDeleteNutritionist = () => {
 
@@ -15,14 +15,17 @@ export const ModalDeleteNutritionist = () => {
 
     const { password, onInputChange } = useForm();
 
+    const { disableConfirmBtn, error, errorCode } = useSelector( state => state.loginHelper )
+
+    const { userdataID } = useSelector( state => state.userInfo )
+
+    const { journalID } = useSelector( state => state.journal )
+
     const deleteAccountSubmit = ( event ) => {
         event.preventDefault();
 
-        dispatch(  )
+        dispatch( startDeleteAccount( password, userdataID, journalID ) )
 
-        // TODO: Continuar con el dispatch para eliminar la cuenta del usuario
-        // TODO: Continuar con el dispatch para eliminar la cuenta del usuario
-        // TODO: Continuar con el dispatch para eliminar la cuenta del usuario
     }
 
     const cancelSubmit = ( event ) => {
@@ -66,8 +69,22 @@ export const ModalDeleteNutritionist = () => {
                             <input className="input-text-style" type="password" name="password" onChange={ onInputChange }/>
                         </div>
 
+                        {
+                            ( error )
+                            ? <div className="login-error-message">
+                            {
+                                (errorCode === 'auth/wrong-password')
+                                ?   'Contraseña incorrecta'
+                                :   (errorCode === 'auth/too-many-requests')
+                                    ?   'Demasiados intentos fallidos, intente nuevamente más tarde'
+                                    :   null
+                            }
+                            </div>
+                            : null
+                        }
+
                         <div className="form-btn-group">
-                            <button className="btn-modal-alt" type="submit" onClick={ cancelSubmit }>
+                            <button className="btn-modal-alt" type="submit" onClick={ deleteAccountSubmit } disabled= { disableConfirmBtn }>
                                 Eliminar
                             </button>
                             <button className="btn-modal-primary" onClick={ cancelSubmit }>

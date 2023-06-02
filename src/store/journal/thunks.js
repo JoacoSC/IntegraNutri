@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, setDoc } from "firebase/firestore/lite";
+import { collection, deleteDoc, doc, getDocs, setDoc } from "firebase/firestore/lite";
 import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
 import { editJournal, isEditingJournal, setMyJournal, updateJournalID } from "./";
 
@@ -102,5 +102,24 @@ export const startLoadingMyJournal = ( uid ) => {
             journalIsSet
         }))
 
+    }
+}
+
+export const deleteJournalFromDB = ( uid, jid ) => {
+    return async( dispatch ) => {
+
+        console.log(`Borrando journal del usuario ${ uid } de la base de datos...`)
+
+        // await deleteDoc(doc( FirebaseDB, `users/${ uid }/` ));
+
+        try {
+            // Elimina el documento del usuario en Firestore
+            await deleteDoc(doc( FirebaseDB, `users/${ uid }/journal/${ jid }` ));
+            console.log("Journal eliminado con éxito!");
+        } catch (error) {
+            console.log(error);
+            // Maneja el error según tus necesidades
+        }
+        
     }
 }

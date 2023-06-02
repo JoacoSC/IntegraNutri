@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AuthLayout } from '../../auth/layout/AuthLayout';
 import { useForm } from '../../hooks';
-import { reauthenticate, resetPassword, setNewPassword } from '../../store/auth';
+import { resetPassword, setNewPassword } from '../../store/auth';
 
 export const PatientPasswordReset = () => {
 

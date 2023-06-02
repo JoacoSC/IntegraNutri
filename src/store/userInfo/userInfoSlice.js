@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const userInfoSlice = createSlice({
     name: 'userInfo',
     initialState: {
+        userdataID: null,
         address: null,
         city: null,
         displayName: null,
@@ -15,6 +16,7 @@ export const userInfoSlice = createSlice({
     },
     reducers: {
         setUserInfo: (state, { payload } ) => {
+            state.userdataID = payload.id;
             state.address = payload.address;
             state.city = payload.city;
             state.displayName = payload.displayName;
@@ -26,6 +28,7 @@ export const userInfoSlice = createSlice({
             state.unixBirthday = payload.unixBirthday;
         },
         wipeUserInfo: (state ) => {
+            state.userdataID = null;
             state.address = null;
             state.city = null;
             state.displayName = null;

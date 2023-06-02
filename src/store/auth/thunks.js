@@ -1,14 +1,14 @@
-import { collection, doc, getDocs, setDoc } from "firebase/firestore/lite";
+import { collection, getDocs, setDoc, doc, deleteDoc } from "firebase/firestore/lite";
 import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
 import { loginWithEmailPassword, logoutFirebase, registerPatientFromEmail, registerUserWithEmailPassword, signInWithGoogle } from "../../firebase/providers";
 import emailjs from "@emailjs/browser";
 
 import { checkingCredentials, logout, login, isRegisteringPatient, registeredPatientUID, setIsNutritionistStatus } from "./";
 import { loadUserInfo } from "../../helpers/loadUserInfo";
-import { startLoadingUserInfo, wipeUserInfo } from "../userInfo";
+import { deleteUserDataFromDB, startLoadingUserInfo, wipeUserInfo } from "../userInfo";
 import { startLoadingMyPatients } from "../patients";
-import { EmailAuthProvider, reauthenticateWithCredential, sendPasswordResetEmail, updatePassword } from "firebase/auth";
-import { startCreatingJournal, unsetJournal } from "../journal";
+import { EmailAuthProvider, deleteUser, reauthenticateWithCredential, sendPasswordResetEmail, updatePassword } from "firebase/auth";
+import { deleteJournalFromDB, startCreatingJournal, unsetJournal } from "../journal";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../loginHelper";
 
 export const checkingAuthentication = ( email, password ) => {
@@ -307,10 +307,63 @@ export const setNewPassword = ( actualPassword, newPassword ) => {
     }
 }
 
-export const reauthenticate = ( actualPassword ) => {
+export const startDeleteAccount = ( password, userdataID, journalID ) => {
     return async( dispatch ) => {
 
-        
+        dispatch( disableConfirmBtn( true ) );
+        dispatch( switchError( false ) );
+        dispatch( setErrorCode( null ) );
 
+        console.log('Re-autenticando')
+        
+        const user = FirebaseAuth.currentUser;
+        const uid = FirebaseAuth.currentUser.uid;
+        const udid = userdataID;
+        const jid = journalID;
+
+        const credential = EmailAuthProvider.credential(
+            user.email,
+            password
+        )
+        reauthenticateWithCredential(user, credential).then(() => {
+            
+            // La re-autenticación fue exitosa, procede con la eliminación de la cuenta
+            console.log('Re-autenticación exitosa!')
+
+            dispatch( deleteUserDataFromDB( uid, udid ) )
+
+            dispatch( deleteJournalFromDB( uid, jid ) )
+
+            console.log('Eliminando cuenta del usuario...')
+            deleteUser(user)
+            .then(() => {
+                // La cuenta del usuario ha sido eliminada exitosamente
+                // Puedes realizar alguna acción adicional si es necesario
+                console.log('Cuenta eliminada con éxito!')
+            })
+            .catch((error) => {
+                // Ocurrió un error al eliminar la cuenta del usuario
+                // Maneja el error de acuerdo a tus necesidades
+                console.log(error)
+            });
+
+        }).catch((error) => {
+            
+            if ( error.code === 'auth/wrong-password' ) {
+                console.log('Contraseña incorrecta');
+                dispatch( switchError( true ) );
+                dispatch( setErrorCode( error.code ) );
+            }
+            if ( error.code === 'auth/too-many-requests' ) {
+                console.log('Demasiados intentos fallidos, intente nuevamente mas tarde')
+                dispatch( switchError( true ) );
+                dispatch( setErrorCode( error.code ) );
+            }
+        });
+
+        dispatch( disableConfirmBtn( false ) );
+
+        
     }
 }
+
