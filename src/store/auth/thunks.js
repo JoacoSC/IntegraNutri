@@ -75,7 +75,7 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirth
 
         dispatch( startCreatingJournal( uid ) )
         // dispatch( login({ uid, displayName }) )
-        dispatch( logout() );
+        dispatch( startLogout() );
                 
     }
 }
@@ -164,7 +164,7 @@ export const startCreatingPatientFromEmail = ( email, password, uid, patientUID 
 
         console.log( `Usuario creado con exito: Authentication-UID:${ uid } - patientUID: ${ displayName } - NutriUID: ${ photoURL }` )
 
-        dispatch( logout() );
+        dispatch( startLogout() );
 
         // TODO: Aquí debo hacer un dispatch para cambiar el estado de emailActivated a TRUE en FireStore
         // TODO: Aquí debo hacer un dispatch para cambiar el estado de emailActivated a TRUE en FireStore
