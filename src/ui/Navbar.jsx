@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './components';
 
 import IntegraNutri_ellipse from '../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
@@ -17,9 +17,21 @@ import Dishes_sm from '../../assets/imgs/navbar/Dishes_sm.svg'
 import Settings_sm from '../../assets/imgs/navbar/Settings_sm.svg'
 import Lock from '../../assets/imgs/navbar/Lock.svg'
 
+import Logout from '../../assets/imgs/navbar/Log_out.svg'
+
+import { startLogout } from '../store/auth';
+
 export const Navbar = () => {
 
     const { isNutritionistStatus } = useSelector( state => state.auth)
+
+    const dispatch = useDispatch();
+
+    const onLogout = () => {
+        
+        dispatch( startLogout() );
+
+    }
 
     return(
         <div className="navbar">
@@ -104,6 +116,12 @@ export const Navbar = () => {
                                 </Link>
                                 
                             </li>
+                            <li className="nav__item" data-tooltip="Cerrar Sesión">
+                                <Link onClick={ onLogout }>
+                                    <img src={ Logout } className="filter-clr" alt="Icono Cerrar Sesión"/>
+                                    <div className="btn-ellipse"></div>
+                                </Link>
+                            </li>
                         </>
                     :   <>
                             <li className="nav__item" data-tooltip="Inicio">
@@ -115,6 +133,12 @@ export const Navbar = () => {
                             <li className="nav__item" data-tooltip="Cambiar contraseña">
                                 <Link to="../passwordReset">
                                     <img src={ Lock } className="filter-clr" alt="Icono Contraseña"/>
+                                    <div className="btn-ellipse"></div>
+                                </Link>
+                            </li>
+                            <li className="nav__item" data-tooltip="Cerrar Sesión">
+                                <Link onClick={ onLogout }>
+                                    <img src={ Logout } className="filter-clr" alt="Icono Cerrar Sesión"/>
                                     <div className="btn-ellipse"></div>
                                 </Link>
                             </li>
