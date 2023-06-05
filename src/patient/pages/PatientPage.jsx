@@ -61,10 +61,9 @@ import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChan
 export const PatientPage = () => {
 
     
-    const { uid, displayName, photoURL, isNutritionistStatus } = useSelector( state => state.auth )
+    const { uid, displayName, photoURL, isNutritionistStatus, email } = useSelector( state => state.auth )
 
     const {
-        email,
         patientName,
         nextConsultation,
         anamnesis,
