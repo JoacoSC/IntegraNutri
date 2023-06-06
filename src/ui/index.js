@@ -7,3 +7,4 @@ export * from './ModalNewPatient';
 export * from './ModalPacienteEspontaneo';
 export * from './ComunasSelect';
 export * from './ModalDeletePatient';
+export * from './ModalTallaDiana';

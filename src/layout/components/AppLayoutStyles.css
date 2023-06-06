@@ -612,14 +612,27 @@ body{
 /* ************* Patient card ************** */
 
 /* ************* Patient info ************** */
+.patient-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .patient-card{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto;
-    margin: 4rem auto 1rem;
+    height: 10rem;
+    width: fit-content;
+    margin: 4rem 2rem 1rem auto;
     border: 1px solid #ECEDED;
     border-radius: 20px;
+}
+
+.patient-alt-buttons{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
 }
 
 .form-style{
