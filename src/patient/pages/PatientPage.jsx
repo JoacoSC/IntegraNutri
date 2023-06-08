@@ -2246,7 +2246,7 @@ export const PatientPage = () => {
                             <button type="submit" hidden></button>
                         </div>
                         <div className="patient-alt-buttons">
-                            <ModalTallaDiana />
+                            <ModalTallaDiana uid={ uid } patientID={ patientID } />
                         </div>
                     </div>
                     {

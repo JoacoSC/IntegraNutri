@@ -1,13 +1,15 @@
-import { format } from 'date-fns';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
-import { startUpdatingCurrentPatientIMC ,startUpdatingCurrentPatientStature, startUpdatingCurrentPatientWeight, updateCurrentPatientIMC, updateCurrentPatientStature, updateCurrentPatientWeight } from '../store/currentPatient';
+import { startUpdatingCurrentPatientTallaDiana } from '../store/currentPatient';
 import './components';
 
-export const ModalTallaDiana = () => {
+export const ModalTallaDiana = ({
+        uid,
+        patientID
+    }) => {
 
     const { gender } = useSelector( state => state.currentPatient )
 
@@ -28,15 +30,16 @@ export const ModalTallaDiana = () => {
         const motherStatureValue = parseInt(motherStature, 10);
         
         if( gender === 'Masculino' ){
-            const result = ( fatherStatureValue + ( motherStatureValue + 13 ) ) /2
-            console.log('masculino: ', result)
+            const tallaDiana = ( fatherStatureValue + ( motherStatureValue + 13 ) ) /2
+            dispatch( startUpdatingCurrentPatientTallaDiana( uid, patientID, tallaDiana ) )
+
         }else if( gender === 'Femenino' ){
-            const result = ( ( fatherStatureValue - 13 ) + motherStatureValue ) /2
-            console.log('femenino: ', result)
+            const tallaDiana = ( ( fatherStatureValue - 13 ) + motherStatureValue ) /2
+            dispatch( startUpdatingCurrentPatientTallaDiana( uid, patientID, tallaDiana ) )
+            
         }else{
             console.log('No c')
         }
-        // updatePatientValues();
 
     }
 

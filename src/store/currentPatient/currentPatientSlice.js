@@ -34,6 +34,7 @@ export const currentPatientSlice = createSlice({
             y: 0,
           },
         correctedAgeIsSet: false,
+        tallaDiana: null,
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -59,6 +60,7 @@ export const currentPatientSlice = createSlice({
             state.imc = payload.imc;
             state.correctedAge = payload.correctedAge;
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
+            state.tallaDiana = payload.tallaDiana;
         },
 
         updateCurrentPatientAnamnesis: (state,{ payload }) => {
@@ -107,6 +109,10 @@ export const currentPatientSlice = createSlice({
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
         },
 
+        updateCurrentPatientTallaDiana: (state,{ payload }) => {
+            state.tallaDiana = payload;
+        },
+
         clearCurrentPatient: ( state ) => {
             state.id = null;
             state.address = null;
@@ -139,6 +145,7 @@ export const currentPatientSlice = createSlice({
                 y: 0,
               };
             state.correctedAgeIsSet = false;
+            state.tallaDiana = null;
         },
     }
 });
@@ -151,12 +158,13 @@ export const {
     updateCurrentPatientPhysical_exam,
     updateCurrentPatientDiagnosis,
     updateCurrentPatientIndications,
-    clearCurrentPatient,
     updateCurrentPatientWeight,
     updateCurrentPatientStature,
     updateCurrentPatientIMC,
     updateCurrentPatientAge,
     updateCurrentPatientCorrectedAge,
     updateCurrentPatientUnixCorrectedBirthday,
+    updateCurrentPatientTallaDiana,
+    clearCurrentPatient,
 
 } = currentPatientSlice.actions;
