@@ -468,6 +468,7 @@
     font-family: "Metropolis", sans-serif;
     font-weight: 500;
     font-size: 0.8rem;
+    text-align: center;
     background: var(--clr-btn-secondary);
     color: white;
     border: none;

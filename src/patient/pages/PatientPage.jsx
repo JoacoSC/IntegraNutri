@@ -83,7 +83,8 @@ export const PatientPage = () => {
             d: 0,
             m: 0,
             y: 0,
-        }
+        },
+        tallaDiana,
     } = useSelector((state) => state.currentPatient);
 
     const [isLoading, setIsLoading] = useState( true );
@@ -2246,7 +2247,17 @@ export const PatientPage = () => {
                             <button type="submit" hidden></button>
                         </div>
                         <div className="patient-alt-buttons">
-                            <ModalTallaDiana uid={ uid } patientID={ patientID } />
+                            <div className="talla-diana-container">
+                                <ModalTallaDiana uid={ uid } patientID={ patientID } />
+                                {
+                                    (!!tallaDiana)
+
+                                    ?<div className="talla-diana-result">{ tallaDiana } cm</div>
+                                    : null
+                                    
+                                }
+                                
+                            </div>
                         </div>
                     </div>
                     {

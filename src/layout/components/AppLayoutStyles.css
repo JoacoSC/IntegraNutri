@@ -355,6 +355,7 @@ body{
 .patient-name{
     font-family: "Metropolis", sans-serif;
     font-size: 1rem;
+    text-align: center;
     /* font-weight: 500; */
     color: #000000;
     font-weight: 600;
@@ -1017,6 +1018,24 @@ body{
 }
 
 /* **************** Patient age ****************** */
+
+/* **************** Patient Talla Diana ****************** */
+
+.talla-diana-result{
+    display: flex;
+    justify-content: center;
+    margin-top: -1rem;
+    padding: 1.5rem 0 0.5rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    /* border: 1px solid #ECEDED; */
+    border-radius: 0 0 15px 15px;
+    background-color: #F5EEFF;
+    color: #452372;
+}
+
+/* **************** Patient Talla Diana ****************** */
 
 /* ************* Patient card ************** */
 
