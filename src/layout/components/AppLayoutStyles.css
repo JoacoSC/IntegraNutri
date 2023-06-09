@@ -1024,15 +1024,70 @@ body{
 .talla-diana-result{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: -1rem;
-    padding: 1.5rem 0 0.5rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 500;
-    font-size: 0.9rem;
+    padding: 1.2rem 0 0.2rem;
     /* border: 1px solid #ECEDED; */
     border-radius: 0 0 15px 15px;
     background-color: #F5EEFF;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
     color: #452372;
+}
+
+.talla-diana-info{
+    margin-left: 0.2rem;
+    list-style: none;
+    position: relative;
+    z-index: 99;
+}
+
+.talla-diana-info:hover{
+    transform: scale(0.96);
+}
+
+.talla-diana-info::before{
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(50% + 3.5rem);
+    top: -0.35rem;
+    background: var(--clr-primary);
+    color: white;
+    padding: 0.6rem;
+    border-radius: var(--radius);
+    transition: all 150ms ease;
+    opacity: 0;
+    scale: 0;
+    
+}
+
+.talla-diana-info::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: transparent;
+    left: calc(50% + 5.5rem);
+    top: 0.35rem;
+    transition: all 150ms ease;
+    transform: rotate(45deg);
+    opacity: 0;
+    scale: 0;
+}
+
+.talla-diana-info:hover::after{
+    opacity: 1;
+    scale: 1;
+    left: calc(50% + 4.4rem);
+    background-color: var(--clr-primary);
+}
+
+.talla-diana-info:hover::before{
+    opacity: 1;
+    scale: 1;
+    left: calc(50% + 4.7rem);
 }
 
 /* **************** Patient Talla Diana ****************** */
