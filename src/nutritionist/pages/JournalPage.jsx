@@ -243,11 +243,11 @@ export const JournalPage = () => {
                         <p>Hola nutricionista, echemos un vistazo a sus pacientes de hoy</p>
 
                     </div>
+                    <div className="journal">
                     <div className="sub-title">
                         <h3>Próximas consultas</h3>
                         {/* <ModalPacienteEspontaneo /> */}
                     </div>
-                    <div className="journal">
                         <div className="month-days">
                             { daysArray.map( (day, index) => (
 
