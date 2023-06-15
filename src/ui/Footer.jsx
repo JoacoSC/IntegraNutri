@@ -30,6 +30,9 @@ export const Footer = () => {
         </div>
         <div className='footer-bottom'>
             <img className="footer-logo" src={ Logo } alt="Logo de App_Nutricionista"/>
+            <p className='footer-text-bold'>IntegraNutri v1.1</p>
+            <br/>
+            <br/>
             <p className='footer-text'>Desarrollado por Joaquín Salinas ☕</p>
             <br/>
             <p className='footer-text'>salinascastillojoaquin@gmail.com</p>

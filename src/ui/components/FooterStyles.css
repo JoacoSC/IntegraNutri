@@ -58,6 +58,14 @@
     text-align: center;
 }
 
+.footer-text-bold{
+    font-family: "Metropolis", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+}
+
 .footer-link{
     margin-bottom: 1rem;
     text-decoration: none;
