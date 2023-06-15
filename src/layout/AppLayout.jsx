@@ -9,6 +9,8 @@ export const AppLayout = ({ children }) => {
             <Navbar/>
 
             { children }
+
+            
             
         </div>
     </>

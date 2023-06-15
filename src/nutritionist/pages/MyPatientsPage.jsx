@@ -4,7 +4,7 @@ import { es } from 'date-fns/locale'
 import { startLogout } from '../../store/auth';
 import { AppLayout } from '../../layout/AppLayout';
 import { setDefaultOptions } from 'date-fns/esm';
-import { ModalNewPatient, ModalNewConsultation } from '../../ui';
+import { ModalNewPatient, ModalNewConsultation, Footer } from '../../ui';
 import { getUnixTime, set } from 'date-fns';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -134,6 +134,7 @@ export const MyPatientsPage = () => {
 
                 </div>
             </div>
+            <Footer/>
         </AppLayout>
         
   )

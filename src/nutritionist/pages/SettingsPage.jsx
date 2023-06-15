@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { startLogout } from "../../store/auth";
 import { AppLayout } from "../../layout/AppLayout"
 import { ModalConfirmDeleteNutritionist } from "../../ui/ModalConfirmDeleteNutritionist";
+import { Footer } from "../../ui";
 
 export const SettingsPage = () => {
 
@@ -49,6 +50,7 @@ export const SettingsPage = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </AppLayout>
     )
 }

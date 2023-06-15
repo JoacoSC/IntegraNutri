@@ -56,7 +56,7 @@ import { ModalUpdatePatientValues } from "../../ui/ModalUpdatePatientValues";
 import { ModalUpdateCorrectedAge } from "../../ui/ModalUpdateCorrectedAge";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
-import { ModalTallaDiana } from "../../ui";
+import { Footer, ModalTallaDiana } from "../../ui";
 
 
 export const PatientPage = () => {
@@ -2094,7 +2094,7 @@ export const PatientPage = () => {
     return (
       <>
         <AppLayout>
-            <div className="main-content">
+            <div className="main">
             {
                 ( isLoading )
                 ?   <LoadingScreen isLoading = { isLoading } />
@@ -2507,6 +2507,7 @@ export const PatientPage = () => {
                 </>
             }
             </div>
+            <Footer/>
         </AppLayout>
       </>
     );

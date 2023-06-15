@@ -5,7 +5,7 @@ import { add, format, fromUnixTime, getUnixTime, set, setHours, setMinutes, setS
 
 import { startLogout } from '../../store/auth';
 import { AppLayout } from '../../layout/AppLayout';
-import { ModalNewConsultation, ModalPacienteEspontaneo } from '../../ui'
+import { Footer, ModalNewConsultation, ModalPacienteEspontaneo } from '../../ui'
 import { addHours, setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
@@ -224,12 +224,12 @@ export const JournalPage = () => {
     return (
     
         <AppLayout>
+        {
+            ( isLoading )
+            ?   <LoadingScreen isLoading = { isLoading } />
+            : <>
 
             <div className="main">
-            {
-                ( isLoading )
-                ?   <LoadingScreen isLoading = { isLoading } />
-                : <>
                     {
                         (!journalIsSet) ? <ModalWelcome /> : null
                     }
@@ -325,11 +325,12 @@ export const JournalPage = () => {
                         </div>
                         <ModalEditJournal/>
                     </div>
-                </>
-            }
                 
                 
             </div>
+            <Footer/>
+            </>
+        }
         </AppLayout>
         
   )
