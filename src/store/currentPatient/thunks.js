@@ -20,6 +20,10 @@ export const startLoadingCurrentPatient = ( uid, patientID ) => {
 export const startLoadingPatientInfo = ( displayName, photoURL ) => {
     return async( dispatch ) => {
 
+        console.log('startLoadingPatientInfo')
+        console.log('displayName: ', displayName)
+        console.log('photoURL: ', photoURL)
+
         const collectionRef = doc( FirebaseDB, `users/${ photoURL }/patients/${ displayName }` );
         const result = await getDoc( collectionRef );
 

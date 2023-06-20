@@ -13,6 +13,7 @@ import { startCreatingJournal, startLoadingMyJournal } from '../../store/journal
 import { clearCurrentPatient } from '../../store/currentPatient';
 import { LoadingScreen } from '../../ui/LoadingScreen';
 import { ModalWelcome } from '../../ui/ModalWelcome';
+import { startLoadingMyPatientsTest } from '../../store/patients';
 
 
 
@@ -220,6 +221,10 @@ export const JournalPage = () => {
             
         }
     }, [isNutritionist])
+
+    // const onTest = () => {
+    //     // dispatch(startLoadingMyPatientsTest());
+    // }
     
     return (
     
@@ -238,6 +243,11 @@ export const JournalPage = () => {
                             Cerrar sesión
                         </button>
                     </div>
+                    {/* <div className="logout">
+                        <button className="btn-logout" type="button" onClick={ onTest }>
+                            Test
+                        </button>
+                    </div> */}
                     <div className="main-welcome">
                         <h1>Nut. { displayName }</h1>
                         <p>Hola nutricionista, echemos un vistazo a sus pacientes de hoy</p>

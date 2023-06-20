@@ -57,3 +57,25 @@ export const startDeletePatient = ( patientID ) => {
         dispatch( startLoadingMyPatients( uid ) )
     }
 }
+
+// export const startLoadingMyPatientsTest = () => {
+//     return async( dispatch ) => {
+
+//         const collectionRef = collection( FirebaseDB, `users/t0yjLtoTdQQnjUK0lHmY9XCYG2j1/patients` );
+//         const docs = await getDocs( collectionRef );
+
+//         const patients = [];
+
+//         docs.forEach( doc => {
+//             patients.push({ id: doc.id, ...doc.data() });
+//         });
+
+//         const originalPatient = patients[0]
+
+//         console.log(originalPatient)
+
+//         const docRef = doc( FirebaseDB, `users/t0yjLtoTdQQnjUK0lHmY9XCYG2j1/patients/mBYd3tGjBhqYypkhixjP` );
+//         await setDoc( docRef, originalPatient, { merge: true });
+
+//     }
+// }

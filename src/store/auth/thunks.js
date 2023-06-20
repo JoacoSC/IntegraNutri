@@ -183,6 +183,8 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
 
         const result = await loginWithEmailPassword({ email, password })
 
+        console.log('result: ', result)
+
         // console.log(result)
 
         if ( result.errorCode === 'auth/wrong-password' ) {

@@ -4,9 +4,9 @@
   <g clip-path="url(#a)">
     <rect width="22.458" height="15.804" x="8.318" y="7.514" fill="#fff" rx="3"/>
     <path fill="#fff" d="M28.637 7.514h-18.18c-1.182 0-2.14.943-2.14 2.107v11.59c0 1.163.958 2.107 2.14 2.107h18.18c1.181 0 2.139-.944 2.139-2.107V9.62c0-1.164-.958-2.107-2.14-2.107Z"/>
-    <path fill="#F93939" fill-rule="evenodd" d="M8.318 15.943h22.458v7.375H8.318v-7.375Z" clip-rule="evenodd"/>
-    <path fill="#1A47B8" fill-rule="evenodd" d="M8.318 7.514h9.625v8.429H8.318V7.514Z" clip-rule="evenodd"/>
-    <path fill="#fff" fill-rule="evenodd" d="m13.13 13.021-1.572.815.3-1.724-1.27-1.222 1.756-.251.786-1.57.786 1.57 1.757.253-1.272 1.22.301 1.724" clip-rule="evenodd"/>
+    <path fill="#F93939" fillRule="evenodd" d="M8.318 15.943h22.458v7.375H8.318v-7.375Z" clipRule="evenodd"/>
+    <path fill="#1A47B8" fillRule="evenodd" d="M8.318 7.514h9.625v8.429H8.318V7.514Z" clipRule="evenodd"/>
+    <path fill="#fff" fillRule="evenodd" d="m13.13 13.021-1.572.815.3-1.724-1.27-1.222 1.756-.251.786-1.57.786 1.57 1.757.253-1.272 1.22.301 1.724" clipRule="evenodd"/>
   </g>
   <defs>
     <clipPath id="a">
