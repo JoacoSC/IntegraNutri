@@ -6,7 +6,7 @@ import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientTallaDiana } from '../store/currentPatient';
 import './components';
 
-export const ModalTallaDiana = ({
+export const ModalPerimetroCefalico = ({
         uid,
         patientID
     }) => {
@@ -14,7 +14,7 @@ export const ModalTallaDiana = ({
     const { gender } = useSelector( state => state.currentPatient )
 
     const [openModal, setOpenModal] = useState(false);
-
+    
     const { 
         fatherStature,
         motherStature,
@@ -46,7 +46,7 @@ export const ModalTallaDiana = ({
     return (
         <>
             <div className="alt-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
-                Calcular Talla Diana&nbsp;
+                Calcular Perímetro Cefálico&nbsp;
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 7H12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
                     <path d="M5 12H12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
@@ -63,7 +63,7 @@ export const ModalTallaDiana = ({
                 closeTimeoutMS={500}
                 isOpen={ openModal }
                 ariaHideApp={false}
-                className="modal-talla-diana-container"
+                className="modal-perimetro-cefalico-container"
                 >
                 <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -71,25 +71,40 @@ export const ModalTallaDiana = ({
                     </svg>
                 </div>
                 <h1 className="modal-header">
-                    Calcular Talla Diana
+                    Calcular Perímetro Cefálico
                 </h1>
 
                 <form onSubmit={ onSubmit }>
-                    <div className="weight-stature-container-form" onSubmit={ onSubmit }>
+                    <div className="modal-perimetro-cefalico-container-form" onSubmit={ onSubmit }>
 
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">
-                                    Estatura del padre
+                                    Medición
                                 </label>
                                     <input className="input-text-style" type="number" name="fatherStature" onChange={ onInputChange }/>
                             </div>
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">
-                                    Estatura de la madre
+                                    Registro
                                 </label>
-                                    <input className="input-text-style" type="number" name="motherStature" onChange={ onInputChange }/>
+                                    <select className="input-text-style" name="motherStature" onChange={ onInputChange }>
+                                        <option>+ 2DE</option>
+                                        <option>+ 1DE</option>
+                                        <option>Mediana</option>
+                                        <option>- 1DE</option>
+                                        <option>- 2DE</option>
+                                    </select>
                             </div>            
+                            <div className="form-item w-50 pr-8">
+                                <label className="input-label">
+                                    Clasificación
+                                </label>
+                                <input className="input-text-style" type="text" name="fatherStature" readOnly/>
+                            </div>            
+                        </div>
+                        <div className="modal-chart-container">
+                            <img src='../../assets/imgs/patient/perimetro_cefalico.png' className='modal-chart'/>
                         </div>
                         
                         <div className="form-btn">

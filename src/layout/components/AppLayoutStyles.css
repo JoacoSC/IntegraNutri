@@ -664,6 +664,8 @@ body{
     display: flex;
     flex-direction: column;
     margin-right: auto;
+    margin-top: 3.5rem;
+    gap: 2rem;
 }
 
 .form-style{
@@ -1051,12 +1053,21 @@ body{
 
 /* **************** Patient Talla Diana ****************** */
 
+.talla-diana-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;
+    min-width: 200px;
+}
+
 .talla-diana-result{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -1rem;
     padding: 1.2rem 0 0.2rem;
+    width: 100%;
     /* border: 1px solid #ECEDED; */
     border-radius: 0 0 15px 15px;
     background-color: white;

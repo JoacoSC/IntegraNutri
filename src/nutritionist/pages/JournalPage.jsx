@@ -13,9 +13,6 @@ import { startCreatingJournal, startLoadingMyJournal } from '../../store/journal
 import { clearCurrentPatient } from '../../store/currentPatient';
 import { LoadingScreen } from '../../ui/LoadingScreen';
 import { ModalWelcome } from '../../ui/ModalWelcome';
-import { startLoadingMyPatientsTest } from '../../store/patients';
-
-
 
 export const JournalPage = () => {
 
