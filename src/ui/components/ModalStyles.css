@@ -514,7 +514,7 @@
     display: grid;
     grid-template-rows: auto auto;
     position: absolute;
-    width: 50vw;
+    width: 60vw;
     height: 70vh;
     top: 50%;
     left: 50%;
@@ -541,9 +541,23 @@
     min-height: 300px;
     margin: auto;
     width: 100%;
-    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    padding: 2rem 0.5rem 1.2rem 0.5rem;
     border-radius: 15px;
     background-color: white;
+}
+
+.modal-chart-title{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.modal-chart-subtitle{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
 .modal-chart{
@@ -552,6 +566,73 @@
     margin: auto;
     width: 100%;
     padding: 1rem 0 1rem 0;
+}
+
+.flex-direction-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.h-2{
+    height: 2rem;
+}
+.perimetro-cefalico-info{
+    display: flex;
+    align-items: center;
+    width: 25px;
+    margin-left: 0.2rem;
+    list-style: none;
+    position: relative;
+    z-index: 99;
+}
+
+.perimetro-cefalico-info:hover{
+    transform: scale(0.96);
+}
+
+.perimetro-cefalico-info::before{
+    content: attr(data-tooltip);
+    width: 10rem;
+    position: absolute;
+    left: calc(50% - 6.5rem);
+    top: 3rem;
+    background: var(--clr-primary);
+    color: white;
+    padding: 0.6rem;
+    border-radius: var(--radius);
+    transition: all 150ms ease;
+    opacity: 0;
+    scale: 0;
+    
+}
+
+.perimetro-cefalico-info::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: transparent;
+    left: 0;
+    top: 8rem;
+    transition: all 150ms ease;
+    transform: rotate(45deg);
+    opacity: 0;
+    scale: 0;
+}
+
+.perimetro-cefalico-info:hover::after{
+    opacity: 1;
+    scale: 1;
+    left: 0.4rem;
+    top: 2.7rem;
+    background-color: var(--clr-primary);
+}
+
+.perimetro-cefalico-info:hover::before{
+    opacity: 1;
+    scale: 1;
+    left: calc(50% - 10rem);
 }
 
 /* *********** Perímetro Cefálico Modal ************ */

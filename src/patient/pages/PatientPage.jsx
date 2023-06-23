@@ -83,6 +83,7 @@ export const PatientPage = () => {
             y: 0,
         },
         tallaDiana,
+        perimetroCefalico,
     } = useSelector((state) => state.currentPatient);
 
     const [isLoading, setIsLoading] = useState( true );
@@ -2245,7 +2246,7 @@ export const PatientPage = () => {
                             <button type="submit" hidden></button>
                         </div>
                         <div className="patient-alt-buttons">
-                            <div className="talla-diana-container">
+                            <div className="alt-button-container">
                             {
                                 (isNutritionistStatus)
                                 ?   <ModalTallaDiana uid={ uid } patientID={ patientID } />
@@ -2265,9 +2266,9 @@ export const PatientPage = () => {
                                 {
                                     (!!tallaDiana)
 
-                                    ?<div className="talla-diana-result">
+                                    ?<div className="alt-button-result">
                                         { tallaDiana } cm
-                                        <div className="talla-diana-info" data-tooltip="Este resultado puede presentar una variabilidad de hasta +-8,5 cm">
+                                        <div className="alt-button-info" data-tooltip="Este resultado puede presentar una variabilidad de hasta +-8,5 cm">
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fillRule="evenodd" clipRule="evenodd" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7C12.5523 7 13 7.44772 13 8ZM13 17V11H11V17H13Z" fill="#6D22D0"/>
                                             </svg>
@@ -2279,34 +2280,30 @@ export const PatientPage = () => {
                                 
                             </div>
 
-                            <div className="talla-diana-container">
+                            <div className="alt-button-container">
 
                                 {
                                     (isNutritionistStatus)
                                     ?   <ModalPerimetroCefalico uid={ uid } patientID={ patientID } />
                                     :   <>
-                                            <div className="talla-diana-btn-patient" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
+                                            <div className="perimetro-cefalico-btn-patient" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
                                                 Perímetro Cefálico&nbsp;
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M5 7H12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                                    <path d="M5 12H12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                                    <path d="M5 17H12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                                    <path d="M19 20L22 17M19 20L16 17M19 20L19 4M19 4L16 7M19 4L22 7" stroke="white" strokeWidth="2"/>
+                                                <svg width="22" height="20" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="13" cy="15" r="7.75" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                                    <circle cx="10.75" cy="13.5" r="1" fill="white" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
+                                                    <circle cx="15.25" cy="13.5" r="1" fill="white" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6188 17.25C10.3383 17.25 10.198 17.25 10.124 17.3631C10.05 17.4763 10.099 17.5884 10.1971 17.8127C10.6285 18.7994 11.7207 19.5 13 19.5C14.2793 19.5 15.3715 18.7994 15.8029 17.8127C15.901 17.5884 15.95 17.4763 15.876 17.3631C15.802 17.25 15.6618 17.25 15.3813 17.25H10.6188Z" fill="white"/>
+                                                    <path d="M24 4L21.25 1M24 4L21.25 7M24 4L2 4M2 4L4.75 7M2 4L4.75 1" stroke="white" stroke-width="2"/>
                                                 </svg>
 
                                             </div>
                                         </>
                                 }
                                     {
-                                        (!!tallaDiana)
+                                        (!!perimetroCefalico)
 
-                                        ?<div className="talla-diana-result">
-                                            { tallaDiana }
-                                            <div className="talla-diana-info" data-tooltip="Este resultado puede presentar una variabilidad de hasta +-8,5 cm">
-                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" clipRule="evenodd" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7C12.5523 7 13 7.44772 13 8ZM13 17V11H11V17H13Z" fill="#6D22D0"/>
-                                                </svg>
-                                            </div>
+                                        ?<div className="alt-button-result">
+                                            { perimetroCefalico.PCeMedicion } cm - { perimetroCefalico.PCeClasificacion }
                                         </div>
                                         : null
                                         

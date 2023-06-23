@@ -1050,10 +1050,10 @@ body{
 }
 
 /* **************** Patient age ****************** */
+/* **************** Alt Buttons ****************** */
 
-/* **************** Patient Talla Diana ****************** */
 
-.talla-diana-container{
+.alt-button-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1061,12 +1061,15 @@ body{
     min-width: 200px;
 }
 
-.talla-diana-result{
+
+
+
+.alt-button-result{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -1rem;
-    padding: 1.2rem 0 0.2rem;
+    padding: 1.4rem 0 0.5rem;
     width: 100%;
     /* border: 1px solid #ECEDED; */
     border-radius: 0 0 15px 15px;
@@ -1077,19 +1080,19 @@ body{
     color: #452372;
 }
 
-.talla-diana-info{
+.alt-button-info{
     margin-left: 0.2rem;
     list-style: none;
     position: relative;
-    z-index: 99;
 }
 
-.talla-diana-info:hover{
+.alt-button-info:hover{
     transform: scale(0.96);
 }
 
-.talla-diana-info::before{
+.alt-button-info::before{
     content: attr(data-tooltip);
+    width: 8rem;
     position: absolute;
     left: calc(50% + 3.5rem);
     top: -0.35rem;
@@ -1103,7 +1106,7 @@ body{
     
 }
 
-.talla-diana-info::after{
+.alt-button-info::after{
     content: "";
     position: absolute;
     width: 12px;
@@ -1118,21 +1121,58 @@ body{
     scale: 0;
 }
 
-.talla-diana-info:hover::after{
+.alt-button-info:hover::after{
     opacity: 1;
     scale: 1;
     left: calc(50% + 4.4rem);
     background-color: var(--clr-primary);
 }
 
-.talla-diana-info:hover::before{
+.alt-button-info:hover::before{
     opacity: 1;
     scale: 1;
     left: calc(50% + 4.7rem);
 }
 
-/* **************** Patient Talla Diana ****************** */
+.talla-diana-btn-patient{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    position: relative;
+    padding: 0 1rem 0;
+    width: 100%;
+    height: 30px;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: center;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
 
+.perimetro-cefalico-btn-patient{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    position: relative;
+    padding: 0 1rem 0;
+    width: 100%;
+    height: 30px;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: center;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+/* **************** Alt Buttons ****************** */
 /* ************* Patient card ************** */
 
 .accordion-container{

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
-import { startUpdatingCurrentPatientTallaDiana } from '../store/currentPatient';
+import { startUpdatingCurrentPatientPerimetroCefalico } from '../store/currentPatient';
 import './components';
 
 export const ModalPerimetroCefalico = ({
@@ -14,10 +14,12 @@ export const ModalPerimetroCefalico = ({
     const { gender } = useSelector( state => state.currentPatient )
 
     const [openModal, setOpenModal] = useState(false);
+
+    const [PCeClasificacion, setPCeClasificacion] = useState('');
     
     const { 
-        fatherStature,
-        motherStature,
+        PCeMedicion,
+        PCeRegistro,
         onInputChange
     } = useForm();
 
@@ -26,32 +28,50 @@ export const ModalPerimetroCefalico = ({
     const onSubmit = ( event ) => {
         event.preventDefault();
 
-        const fatherStatureValue = parseInt(fatherStature, 10);
-        const motherStatureValue = parseInt(motherStature, 10);
-        
-        if( gender === 'Masculino' ){
-            const tallaDiana = ( fatherStatureValue + ( motherStatureValue + 13 ) ) /2
-            dispatch( startUpdatingCurrentPatientTallaDiana( uid, patientID, tallaDiana ) )
-
-        }else if( gender === 'Femenino' ){
-            const tallaDiana = ( ( fatherStatureValue - 13 ) + motherStatureValue ) /2
-            dispatch( startUpdatingCurrentPatientTallaDiana( uid, patientID, tallaDiana ) )
-            
-        }else{
-            console.log('No c')
+        const perimetroCefalico = {
+            PCeMedicion,
+            PCeRegistro,
+            PCeClasificacion
         }
 
+        dispatch( startUpdatingCurrentPatientPerimetroCefalico( uid, patientID, perimetroCefalico ) )
+
     }
+
+    const onModalClose = () => {
+        setOpenModal(false)
+        setPCeClasificacion( '' )
+    }
+
+    useEffect(() => {
+        
+        if( PCeRegistro === '+2DE' ){
+            setPCeClasificacion( 'Macrocefalia' )
+        }else if( PCeRegistro === '+1DE' ){
+            setPCeClasificacion( 'Normal' )
+        }else if( PCeRegistro === 'Mediana' ){
+            setPCeClasificacion( 'Normal' )
+        }else if( PCeRegistro === '-1DE' ){
+            setPCeClasificacion( 'Normal' )
+        }else if( PCeRegistro === '-2DE' ){
+            setPCeClasificacion( 'Microcefalia' )
+        }else{
+            setPCeClasificacion( '' )
+        }
+
+    }, [PCeRegistro])
+    
 
     return (
         <>
             <div className="alt-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
                 Calcular Perímetro Cefálico&nbsp;
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 7H12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M5 12H12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M5 17H12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M19 20L22 17M19 20L16 17M19 20L19 4M19 4L16 7M19 4L22 7" stroke="white" strokeWidth="2"/>
+                <svg width="22" height="20" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="13" cy="15" r="7.75" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="10.75" cy="13.5" r="1" fill="white" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
+                    <circle cx="15.25" cy="13.5" r="1" fill="white" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6188 17.25C10.3383 17.25 10.198 17.25 10.124 17.3631C10.05 17.4763 10.099 17.5884 10.1971 17.8127C10.6285 18.7994 11.7207 19.5 13 19.5C14.2793 19.5 15.3715 18.7994 15.8029 17.8127C15.901 17.5884 15.95 17.4763 15.876 17.3631C15.802 17.25 15.6618 17.25 15.3813 17.25H10.6188Z" fill="white"/>
+                    <path d="M24 4L21.25 1M24 4L21.25 7M24 4L2 4M2 4L4.75 7M2 4L4.75 1" stroke="white" stroke-width="2"/>
                 </svg>
 
             </div>
@@ -65,7 +85,7 @@ export const ModalPerimetroCefalico = ({
                 ariaHideApp={false}
                 className="modal-perimetro-cefalico-container"
                 >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
+                <div className="btn-modal-close" onClick={ () => onModalClose() }>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
                     </svg>
@@ -82,34 +102,70 @@ export const ModalPerimetroCefalico = ({
                                 <label className="input-label">
                                     Medición
                                 </label>
-                                    <input className="input-text-style" type="number" name="fatherStature" onChange={ onInputChange }/>
+                                    <input className="input-text-style h-2" type="number" name="PCeMedicion" onChange={ onInputChange }/>
                             </div>
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">
                                     Registro
                                 </label>
-                                    <select className="input-text-style" name="motherStature" onChange={ onInputChange }>
-                                        <option>+ 2DE</option>
-                                        <option>+ 1DE</option>
-                                        <option>Mediana</option>
-                                        <option>- 1DE</option>
-                                        <option>- 2DE</option>
+                                    <select className="input-text-style h-2" name="PCeRegistro" onChange={ onInputChange }>
+                                        <option selected>Seleccione una opción</option>
+                                        <option value='+2DE'>+ 2DE</option>
+                                        <option value='+1DE'>+ 1DE</option>
+                                        <option value='Mediana'>Mediana</option>
+                                        <option value='-1DE'>- 1DE</option>
+                                        <option value='-2DE'>- 2DE</option>
                                     </select>
                             </div>            
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">
                                     Clasificación
                                 </label>
-                                <input className="input-text-style" type="text" name="fatherStature" readOnly/>
+                                <div className='flex-direction-row'>
+                                    <input className="input-text-style h-2" type="text" name="PCeClasificacion" value={ PCeClasificacion } readOnly/>
+                                    {
+                                        (PCeClasificacion === 'Macrocefalia')
+                                        ?   <div className="perimetro-cefalico-info" data-tooltip="En caso de Macrocefalia, hay que corregir por talla. Se debe modificar la edad con la que se evalúa el PCe del niño o niña, por aquella edad en la que su talla corresponda a la mediana.">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12ZM11 16C11 15.4477 11.4477 15 12 15C12.5523 15 13 15.4477 13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16ZM11 7V13H13L13 7H11Z" fill="#FF3939"/>
+                                                </svg>
+                                            </div>
+                                        :   null
+                                    }
+                                </div>
                             </div>            
                         </div>
                         <div className="modal-chart-container">
-                            <img src='../../assets/imgs/patient/perimetro_cefalico.png' className='modal-chart'/>
+                            {
+                                (gender === 'Masculino')
+                                ?   <>
+                                        <p className='modal-chart-title'>
+                                            PERÍMETRO CEFÁLICO POR EDAD EN NIÑOS DESDE EL NACIMIENTO A 3 AÑOS
+                                        </p>
+                                        <br/>
+                                        <p className='modal-chart-subtitle'>
+                                            MEDIANA Y DESVIACIÓN ESTÁNDAR
+                                        </p>
+                                        <img src='../../assets/imgs/patient/perimetro_cefalico_masculino.png' className='modal-chart'/> 
+                                    </>
+                                :   (gender === 'Femenino')
+                                    ?   <>
+                                            <p className='modal-chart-title'>
+                                                PERÍMETRO CEFÁLICO POR EDAD EN NIÑAS DESDE EL NACIMIENTO A 3 AÑOS
+                                            </p>
+                                            <br/>
+                                            <p className='modal-chart-subtitle'>
+                                                MEDIANA Y DESVIACIÓN ESTÁNDAR
+                                            </p>
+                                            <img src='../../assets/imgs/patient/perimetro_cefalico_femenino.png' className='modal-chart'/> 
+                                        </>
+                                    :   null
+                            }
                         </div>
                         
                         <div className="form-btn">
                             <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) }>
-                                Calcular
+                                Guardar
                             </button>
                         </div>
                     </div>
