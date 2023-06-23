@@ -2283,21 +2283,23 @@ export const PatientPage = () => {
                             <div className="alt-button-container">
 
                                 {
-                                    (isNutritionistStatus)
-                                    ?   <ModalPerimetroCefalico uid={ uid } patientID={ patientID } />
-                                    :   <>
-                                            <div className="perimetro-cefalico-btn-patient" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
-                                                Perímetro Cefálico&nbsp;
-                                                <svg width="22" height="20" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <circle cx="13" cy="15" r="7.75" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                                    <circle cx="10.75" cy="13.5" r="1" fill="white" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
-                                                    <circle cx="15.25" cy="13.5" r="1" fill="white" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6188 17.25C10.3383 17.25 10.198 17.25 10.124 17.3631C10.05 17.4763 10.099 17.5884 10.1971 17.8127C10.6285 18.7994 11.7207 19.5 13 19.5C14.2793 19.5 15.3715 18.7994 15.8029 17.8127C15.901 17.5884 15.95 17.4763 15.876 17.3631C15.802 17.25 15.6618 17.25 15.3813 17.25H10.6188Z" fill="white"/>
-                                                    <path d="M24 4L21.25 1M24 4L21.25 7M24 4L2 4M2 4L4.75 7M2 4L4.75 1" stroke="white" stroke-width="2"/>
-                                                </svg>
+                                    ( ageForCalcs.y < 3 )
+                                    ?   (isNutritionistStatus)
+                                        ?   <ModalPerimetroCefalico uid={ uid } patientID={ patientID } />
+                                        :   <>
+                                                <div className="perimetro-cefalico-btn-patient" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
+                                                    Perímetro Cefálico&nbsp;
+                                                    <svg width="22" height="20" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <circle cx="13" cy="15" r="7.75" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                                        <circle cx="10.75" cy="13.5" r="1" fill="white" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
+                                                        <circle cx="15.25" cy="13.5" r="1" fill="white" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6188 17.25C10.3383 17.25 10.198 17.25 10.124 17.3631C10.05 17.4763 10.099 17.5884 10.1971 17.8127C10.6285 18.7994 11.7207 19.5 13 19.5C14.2793 19.5 15.3715 18.7994 15.8029 17.8127C15.901 17.5884 15.95 17.4763 15.876 17.3631C15.802 17.25 15.6618 17.25 15.3813 17.25H10.6188Z" fill="white"/>
+                                                        <path d="M24 4L21.25 1M24 4L21.25 7M24 4L2 4M2 4L4.75 7M2 4L4.75 1" stroke="white" stroke-width="2"/>
+                                                    </svg>
 
-                                            </div>
-                                        </>
+                                                </div>
+                                            </>
+                                    : null
                                 }
                                     {
                                         (!!perimetroCefalico)
