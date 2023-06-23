@@ -5,6 +5,8 @@ import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientPerimetroCefalico } from '../store/currentPatient';
 import './components';
+import PCe_masculino from '../../assets/imgs/patient/perimetro_cefalico_masculino.png'
+import PCe_femenino from '../../assets/imgs/patient/perimetro_cefalico_femenino.png'
 
 export const ModalPerimetroCefalico = ({
         uid,
@@ -146,7 +148,7 @@ export const ModalPerimetroCefalico = ({
                                         <p className='modal-chart-subtitle'>
                                             MEDIANA Y DESVIACIÓN ESTÁNDAR
                                         </p>
-                                        <img src='../../assets/imgs/patient/perimetro_cefalico_masculino.png' className='modal-chart'/> 
+                                        <img src={ PCe_masculino } className='modal-chart'/> 
                                     </>
                                 :   (gender === 'Femenino')
                                     ?   <>
@@ -157,7 +159,7 @@ export const ModalPerimetroCefalico = ({
                                             <p className='modal-chart-subtitle'>
                                                 MEDIANA Y DESVIACIÓN ESTÁNDAR
                                             </p>
-                                            <img src='../../assets/imgs/patient/perimetro_cefalico_femenino.png' className='modal-chart'/> 
+                                            <img src={ PCe_femenino } className='modal-chart'/> 
                                         </>
                                     :   null
                             }
