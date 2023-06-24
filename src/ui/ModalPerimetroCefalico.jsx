@@ -104,7 +104,7 @@ export const ModalPerimetroCefalico = ({
                                 <label className="input-label">
                                     Medición
                                 </label>
-                                    <input className="input-text-style h-2" type="number" name="PCeMedicion" onChange={ onInputChange }/>
+                                    <input className="input-text-style h-2" type="number" step=".01" name="PCeMedicion" onChange={ onInputChange }/>
                             </div>
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">
