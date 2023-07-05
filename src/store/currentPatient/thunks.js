@@ -1,7 +1,7 @@
 import { async } from "@firebase/util";
 import { doc, getDoc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
-import { setCurrentPatient, updateCurrentPatientPerimetroCefalico, updateCurrentPatientTallaDiana } from "./";
+import { setCurrentPatient, updateCurrentPatientPerimetroCefalico, updateCurrentPatientPerimetroCintura, updateCurrentPatientTallaDiana } from "./";
 
 
 export const startLoadingCurrentPatient = ( uid, patientID ) => {
@@ -189,5 +189,23 @@ export const startUpdatingCurrentPatientPerimetroCefalico = ( uid, patientID, pe
         await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
 
         dispatch(updateCurrentPatientPerimetroCefalico( perimetroCefalico ))
+    }
+}
+
+export const startUpdatingCurrentPatientPerimetroCintura = ( uid, patientID, perimetroCintura ) => {
+    return async( dispatch ) => {
+
+        console.log(perimetroCintura)
+
+        const newPatientInfoToFirestore = {
+            perimetroCintura,
+        }
+
+        // console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
+
+        const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+        await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+
+        dispatch(updateCurrentPatientPerimetroCintura( perimetroCintura ))
     }
 }

@@ -3,12 +3,12 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
-import { startUpdatingCurrentPatientPerimetroCefalico } from '../store/currentPatient';
+import { startUpdatingCurrentPatientPerimetroCintura } from '../store/currentPatient';
 import './components';
-import PCe_masculino from '../../assets/imgs/patient/perimetro_cefalico_masculino.png'
-import PCe_femenino from '../../assets/imgs/patient/perimetro_cefalico_femenino.png'
+import PC_masculino from '../../assets/imgs/patient/perimetro_cintura_masculino.png'
+import PC_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino.png'
 
-export const ModalPerimetroCefalico = ({
+export const ModalPerimetroCintura = ({
         uid,
         patientID
     }) => {
@@ -17,11 +17,11 @@ export const ModalPerimetroCefalico = ({
 
     const [openModal, setOpenModal] = useState(false);
 
-    const [PCeClasificacion, setPCeClasificacion] = useState('');
+    const [PCClasificacion, setPCClasificacion] = useState('');
     
     const { 
-        PCeMedicion,
-        PCeRegistro,
+        PCMedicion,
+        PCRegistro,
         onInputChange
     } = useForm();
 
@@ -30,44 +30,40 @@ export const ModalPerimetroCefalico = ({
     const onSubmit = ( event ) => {
         event.preventDefault();
 
-        const perimetroCefalico = {
-            PCeMedicion,
-            PCeRegistro,
-            PCeClasificacion
+        const perimetroCintura = {
+            PCMedicion,
+            PCRegistro,
+            PCClasificacion
         }
 
-        dispatch( startUpdatingCurrentPatientPerimetroCefalico( uid, patientID, perimetroCefalico ) )
+        dispatch( startUpdatingCurrentPatientPerimetroCintura( uid, patientID, perimetroCintura ) )
 
     }
 
     const onModalClose = () => {
         setOpenModal(false)
-        setPCeClasificacion( '' )
+        setPCClasificacion( '' )
     }
 
     useEffect(() => {
         
-        if( PCeRegistro === '+2DE' ){
-            setPCeClasificacion( 'Macrocefalia' )
-        }else if( PCeRegistro === '+1DE' ){
-            setPCeClasificacion( 'Normal' )
-        }else if( PCeRegistro === 'Mediana' ){
-            setPCeClasificacion( 'Normal' )
-        }else if( PCeRegistro === '-1DE' ){
-            setPCeClasificacion( 'Normal' )
-        }else if( PCeRegistro === '-2DE' ){
-            setPCeClasificacion( 'Microcefalia' )
+        if( PCRegistro === 'menor75' ){
+            setPCClasificacion( 'Normal' )
+        }else if( PCRegistro === 'entre7590' ){
+            setPCClasificacion( 'Riesgo de Obesidad Abdominal' )
+        }else if( PCRegistro === 'mayor90' ){
+            setPCClasificacion( 'Obesidad Abdominal' )
         }else{
-            setPCeClasificacion( '' )
+            setPCClasificacion( '' )
         }
 
-    }, [PCeRegistro])
+    }, [PCRegistro])
     
 
     return (
         <>
             <div className="alt-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
-                Calcular Perímetro Cefálico&nbsp;
+                Calcular Perímetro de Cintura&nbsp;
                 <svg width="22" height="20" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="13" cy="15" r="7.75" stroke="white" strokeWidth="2" strokeLinecap="round"/>
                     <circle cx="10.75" cy="13.5" r="1" fill="white" stroke="white" strokeWidth="0.5" strokeLinecap="round"/>
@@ -93,7 +89,7 @@ export const ModalPerimetroCefalico = ({
                     </svg>
                 </div>
                 <h1 className="modal-header">
-                    Calcular Perímetro Cefálico
+                    Calcular Perímetro de Cintura
                 </h1>
 
                 <form onSubmit={ onSubmit }>
@@ -104,19 +100,17 @@ export const ModalPerimetroCefalico = ({
                                 <label className="input-label">
                                     Medición
                                 </label>
-                                    <input className="input-text-style h-2" type="number" step=".01" name="PCeMedicion" onChange={ onInputChange }/>
+                                    <input className="input-text-style h-2" type="number" step=".01" name="PCMedicion" onChange={ onInputChange }/>
                             </div>
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">
                                     Registro
                                 </label>
-                                    <select className="input-text-style h-2" name="PCeRegistro" onChange={ onInputChange }>
+                                    <select className="input-text-style h-2" name="PCRegistro" onChange={ onInputChange }>
                                         <option selected>Seleccione una opción</option>
-                                        <option value='+2DE'>+ 2DE</option>
-                                        <option value='+1DE'>+ 1DE</option>
-                                        <option value='Mediana'>Mediana</option>
-                                        <option value='-1DE'>- 1DE</option>
-                                        <option value='-2DE'>- 2DE</option>
+                                        <option value='menor75'>&lt; p75</option>
+                                        <option value='entre7590'>{"≥"} p75 y &lt; p90</option>
+                                        <option value='mayor90'>{"≥"} p90</option>
                                     </select>
                             </div>            
                             <div className="form-item w-50 pr-8">
@@ -124,16 +118,16 @@ export const ModalPerimetroCefalico = ({
                                     Clasificación
                                 </label>
                                 <div className='flex-direction-row'>
-                                    <input className="input-text-style h-2" type="text" name="PCeClasificacion" value={ PCeClasificacion } readOnly/>
-                                    {
-                                        (PCeClasificacion === 'Macrocefalia')
+                                    <input className="input-text-style h-2" type="text" name="PCClasificacion" value={ PCClasificacion } readOnly/>
+                                    {/* {
+                                        (PCClasificacion === 'Macrocefalia')
                                         ?   <div className="perimetro-cefalico-info" data-tooltip="En caso de Macrocefalia, hay que corregir por talla. Se debe modificar la edad con la que se evalúa el PCe del niño o niña, por aquella edad en la que su talla corresponda a la mediana.">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fillRule="evenodd" clipRule="evenodd" d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12ZM11 16C11 15.4477 11.4477 15 12 15C12.5523 15 13 15.4477 13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16ZM11 7V13H13L13 7H11Z" fill="#FF3939"/>
                                                 </svg>
                                             </div>
                                         :   null
-                                    }
+                                    } */}
                                 </div>
                             </div>            
                         </div>
@@ -142,24 +136,16 @@ export const ModalPerimetroCefalico = ({
                                 (gender === 'Masculino')
                                 ?   <>
                                         <p className='modal-chart-title'>
-                                            PERÍMETRO CEFÁLICO POR EDAD EN NIÑOS DESDE EL NACIMIENTO A 3 AÑOS
-                                        </p>
-                                        <br/>
-                                        <p className='modal-chart-subtitle'>
-                                            MEDIANA Y DESVIACIÓN ESTÁNDAR
-                                        </p>
-                                        <img src={ PCe_masculino } className='modal-chart'/> 
+                                            PERÍMETRO DE CINTURA POR EDAD EN NIÑOS Y ADOLESCENTES DE 5 a 19 AÑOS
+                                        </p>                                        
+                                        <img src={ PC_masculino } className='modal-chart'/> 
                                     </>
                                 :   (gender === 'Femenino')
                                     ?   <>
                                             <p className='modal-chart-title'>
-                                                PERÍMETRO CEFÁLICO POR EDAD EN NIÑAS DESDE EL NACIMIENTO A 3 AÑOS
-                                            </p>
-                                            <br/>
-                                            <p className='modal-chart-subtitle'>
-                                                MEDIANA Y DESVIACIÓN ESTÁNDAR
-                                            </p>
-                                            <img src={ PCe_femenino } className='modal-chart'/> 
+                                                PERÍMETRO DE CINTURA POR EDAD EN NIÑAS Y ADOLESCENTES DE 5 a 19 AÑOS
+                                            </p>                                            
+                                            <img src={ PC_femenino } className='modal-chart'/> 
                                         </>
                                     :   null
                             }

@@ -654,7 +654,7 @@ body{
     justify-content: center;
     height: 10rem;
     width: fit-content;
-    margin: 4rem 2rem 1rem auto;
+    margin: 4rem 2rem 1rem 2rem;
     border: 1px solid #ECEDED;
     border-radius: 20px;
     background-color: white;
@@ -663,7 +663,7 @@ body{
 .patient-alt-buttons{
     display: flex;
     flex-direction: column;
-    margin-right: auto;
+    margin-right: 2rem;
     margin-top: 3.5rem;
     gap: 2rem;
 }
@@ -1078,6 +1078,7 @@ body{
     font-weight: 500;
     font-size: 0.9rem;
     color: #452372;
+    text-align: center;
 }
 
 .alt-button-info{

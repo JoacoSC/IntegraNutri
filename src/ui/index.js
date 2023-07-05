@@ -9,7 +9,7 @@ export * from './ComunasSelect';
 export * from './ModalDeletePatient';
 export * from './ModalTallaDiana';
 export * from './ModalPerimetroCefalico';
-export * from './ModalPerimetroCefalico';
+export * from './ModalPerimetroCintura';
 export * from './ModalUpdateCorrectedAge';
 export * from './ModalUpdatePatientValues';
 export * from './Footer';

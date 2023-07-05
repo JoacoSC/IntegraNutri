@@ -16,7 +16,7 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
         stature: stature,
         weight: weight,
     }
-
+    
     const boysPEfrom0to5 = () => {
 
         if ( age.y === 0 ){

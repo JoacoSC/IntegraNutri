@@ -70,12 +70,14 @@ export const startDeletePatient = ( patientID ) => {
 //             patients.push({ id: doc.id, ...doc.data() });
 //         });
 
-//         const originalPatient = patients[0]
+//         console.log(patients)
 
-//         console.log(originalPatient)
+//         // const originalPatient = patients[0]
 
-//         const docRef = doc( FirebaseDB, `users/t0yjLtoTdQQnjUK0lHmY9XCYG2j1/patients/mBYd3tGjBhqYypkhixjP` );
-//         await setDoc( docRef, originalPatient, { merge: true });
+//         // console.log(originalPatient)
+
+//         // const docRef = doc( FirebaseDB, `users/t0yjLtoTdQQnjUK0lHmY9XCYG2j1/patients/mBYd3tGjBhqYypkhixjP` );
+//         // await setDoc( docRef, originalPatient, { merge: true });
 
 //     }
 // }
