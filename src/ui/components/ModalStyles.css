@@ -515,7 +515,7 @@
     grid-template-rows: auto auto;
     position: absolute;
     width: 60vw;
-    height: 70vh;
+    height: 75vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -558,6 +558,14 @@
     font-weight: 700;
     font-size: 0.8rem;
     text-align: center;
+}
+
+.modal-chart-ref{
+    padding: 0 2rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: justify;
 }
 
 .modal-chart{

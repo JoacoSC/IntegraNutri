@@ -16,6 +16,664 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
         stature: stature,
         weight: weight,
     }
+
+    const boysPEfrom0to1 = () => {
+
+        if ( age.y === 0 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 2.5 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight <= 3.4 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight <= 4.3 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight <= 5.0 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight <= 5.6 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight <= 6.0 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight <= 6.4 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight <= 6.7 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight <= 6.9 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight <= 7.1 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight <= 7.4 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight <= 7.6 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 2.5 && weight <= 2.9 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight > 3.4 && weight <= 3.9 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight > 4.3 && weight <= 4.9 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight > 5.0 && weight <= 5.7 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight > 5.6 && weight <= 6.2 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight > 6.0 && weight <= 6.7 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight > 6.4 && weight <= 7.1 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight > 6.7 && weight <= 7.4 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight > 6.9 && weight <= 7.7 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight > 7.1 && weight <= 8.0 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight > 7.4 && weight <= 8.2 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight > 7.6 && weight <= 8.4 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 2.9 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight > 3.9 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight > 4.9 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight > 5.7 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight > 6.2 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight > 6.7 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight > 7.1 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight > 7.4 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight > 7.7 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight > 8.0 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight > 8.2 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight > 8.4 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+        }
+
+        if ( age.y === 1 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 7.7 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight <= 7.9 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight <= 8.1 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight <= 8.3 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight <= 8.4 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight <= 8.6 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight <= 8.8 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight <= 8.9 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight <= 9.1 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight <= 9.2 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight <= 9.4 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight <= 9.5 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 7.7 && weight <= 8.6 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight > 7.9 && weight <= 8.8 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight > 8.1 && weight <= 9.0 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight > 8.3 && weight <= 9.2 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight > 8.4 && weight <= 9.4 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight > 8.6 && weight <= 9.6 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight > 8.8 && weight <= 9.8 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight > 8.9 && weight <= 10.0 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight > 9.1 && weight <= 10.1 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight > 9.2 && weight <= 10.3 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight > 9.4 && weight <= 10.5 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight > 9.5 && weight <= 10.7 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 8.6 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight > 8.8 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight > 9.0 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight > 9.2 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight > 9.4 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight > 9.6 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight > 9.8 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight > 10.0 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight > 10.1 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight > 10.3 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight > 10.5 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight > 10.7 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+        }
+
+    }
+
+    const girlsPEfrom0to1 = () => {
+
+        if ( age.y === 0 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 2.4 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight <= 3.2 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight <= 3.9 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight <= 4.5 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight <= 5.0 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight <= 5.4 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight <= 5.7 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight <= 6.0 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight <= 6.3 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight <= 6.5 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight <= 6.7 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight <= 6.9 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 2.4 && weight <= 2.8 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight > 3.2 && weight <= 3.6 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight > 3.9 && weight <= 4.5 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight > 4.5 && weight <= 5.2 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight > 5.0 && weight <= 5.7 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight > 5.4 && weight <= 6.1 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight > 5.7 && weight <= 6.5 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight > 6.0 && weight <= 6.8 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight > 6.3 && weight <= 7.0 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight > 6.5 && weight <= 7.3 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight > 6.7 && weight <= 7.5 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight > 6.9 && weight <= 7.7 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 2.8 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight > 3.6 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight > 4.5 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight > 5.2 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight > 5.7 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight > 6.1 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight > 6.5 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight > 6.8 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight > 7.0 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight > 7.3 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight > 7.5 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight > 7.7 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+        }
+    
+        if ( age.y === 1 ){
+
+            // *** Desnutricion ***
+                
+            if( age.m === 0 && weight <= 7.0 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight <= 7.2 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight <= 7.4 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight <= 7.6 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight <= 7.7 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight <= 7.9 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight <= 8.1 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight <= 8.2 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight <= 8.4 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight <= 8.6 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight <= 8.7 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight <= 8.9 ){
+                result.weightCalificationResult = 'Desnutrición';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Desnutricion ***
+    
+            // *** Riesgo de desnutrir ***
+    
+            if( age.m === 0 && weight > 7.0 && weight <= 2.8 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight > 7.2 && weight <= 3.6 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight > 7.4 && weight <= 4.5 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight > 7.6 && weight <= 5.2 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight > 7.7 && weight <= 5.7 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight > 7.9 && weight <= 6.1 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight > 8.1 && weight <= 6.5 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight > 8.2 && weight <= 6.8 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight > 8.4 && weight <= 7.0 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight > 8.6 && weight <= 7.3 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight > 8.7 && weight <= 7.5 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight > 8.9 && weight <= 7.7 ){
+                result.weightCalificationResult = 'Riesgo de Desnutrir';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Riesgo de desnutrir ***
+    
+            // *** Normal o Eutrófico ***
+    
+            if( age.m === 0 && weight > 7.9 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 1 && weight > 8.1 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 2 && weight > 8.3 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 3 && weight > 8.5 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 4 && weight > 8.7 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 5 && weight > 8.9 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 6 && weight > 9.1 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 7 && weight > 9.2 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 8 && weight > 9.4 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 9 && weight > 9.6 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 10 && weight > 9.8 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+            if( age.m === 11 && weight > 10.0 ){
+                result.weightCalificationResult = 'Normal o Eutrófico';
+                result.ok.weightCalification = true;
+            }
+    
+            // *** Normal o Eutrófico ***
+    
+        }
+    }
     
     const boysPEfrom0to5 = () => {
 
@@ -34201,7 +34859,7 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
             
             // *** P/E luego de confirmar que no hay P/T mayor a +1DE
 
-            girlsPEfrom0to5();
+            girlsPEfrom0to1();
 
             
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
@@ -34303,23 +34961,21 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
 
         if ( age.y < 1 ){
             result.ageMsg = 'tengo menos de 1 año'
-
+            
             boysTEfrom0to5();
             
             // *** P/T para evaluar que no sea mayor a +1DE ***
-            
+
             boysPTfrom0to1();
 
-        
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                 return result;
             }
             
             // *** P/E luego de confirmar que no hay P/T mayor a +1DE
-
-            boysPEfrom0to5();
-
             
+            boysPEfrom0to1();
+
             if( result.ok.weightCalification === true && result.ok.statureCalification === true ){
                 return result;
             }else{
@@ -34328,7 +34984,6 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
                 return result;
             }
             
-    
             // *** Edad === 1 año y más ***
     
         }

@@ -1261,6 +1261,10 @@ body{
     transition: 150ms all ease-in;
 }
 
+.h-50{
+    min-height: 175px;
+}
+
 .canvas{
     position: relative;
     height: 100%;

@@ -138,14 +138,28 @@ export const ModalPerimetroCintura = ({
                                         <p className='modal-chart-title'>
                                             PERÍMETRO DE CINTURA POR EDAD EN NIÑOS Y ADOLESCENTES DE 5 a 19 AÑOS
                                         </p>                                        
-                                        <img src={ PC_masculino } className='modal-chart'/> 
+                                        <img src={ PC_masculino } className='modal-chart'/>
+                                        <p className='modal-chart-ref'>
+                                            Referencias:
+                                        </p>
+                                        <br/>
+                                        <p className='modal-chart-ref'>
+                                            Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
+                                        </p>
                                     </>
                                 :   (gender === 'Femenino')
                                     ?   <>
                                             <p className='modal-chart-title'>
                                                 PERÍMETRO DE CINTURA POR EDAD EN NIÑAS Y ADOLESCENTES DE 5 a 19 AÑOS
                                             </p>                                            
-                                            <img src={ PC_femenino } className='modal-chart'/> 
+                                            <img src={ PC_femenino } className='modal-chart'/>
+                                            <p className='modal-chart-ref'>
+                                                Referencias:
+                                            </p>
+                                            <br/>
+                                            <p className='modal-chart-ref'>
+                                                Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
+                                            </p>
                                         </>
                                     :   null
                             }

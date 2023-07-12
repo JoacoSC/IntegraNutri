@@ -2513,7 +2513,7 @@ export const PatientPage = () => {
                             </label>
                             <div className="accordion-content">
                             <textarea
-                                className="input-text-patient-page"
+                                className="input-text-patient-page h-50"
                                 name="formDiagnosis"
                                 spellCheck={false}
                                 defaultValue={defaultPatient.diagnosis}

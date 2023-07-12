@@ -138,6 +138,7 @@ export const RegisterPage = () => {
                             <select className="select-style" name="gender" onChange={ onInputChange }>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
+                                <option value="No binario">No binario</option>
                             </select>
                         </div>
                         <div className="form-btn">

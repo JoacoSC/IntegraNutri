@@ -144,22 +144,36 @@ export const ModalPerimetroCefalico = ({
                                         <p className='modal-chart-title'>
                                             PERÍMETRO CEFÁLICO POR EDAD EN NIÑOS DESDE EL NACIMIENTO A 3 AÑOS
                                         </p>
-                                        <br/>
+                                        {/* <br/>
                                         <p className='modal-chart-subtitle'>
                                             MEDIANA Y DESVIACIÓN ESTÁNDAR
-                                        </p>
+                                        </p> */}
                                         <img src={ PCe_masculino } className='modal-chart'/> 
+                                        <p className='modal-chart-ref'>
+                                            Referencias:
+                                        </p>
+                                        <br/>
+                                        <p className='modal-chart-ref'>
+                                            Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
+                                        </p>
                                     </>
                                 :   (gender === 'Femenino')
                                     ?   <>
                                             <p className='modal-chart-title'>
                                                 PERÍMETRO CEFÁLICO POR EDAD EN NIÑAS DESDE EL NACIMIENTO A 3 AÑOS
                                             </p>
-                                            <br/>
+                                            {/* <br/>
                                             <p className='modal-chart-subtitle'>
                                                 MEDIANA Y DESVIACIÓN ESTÁNDAR
-                                            </p>
+                                            </p> */}
                                             <img src={ PCe_femenino } className='modal-chart'/> 
+                                            <p className='modal-chart-ref'>
+                                                Referencias:
+                                            </p>
+                                            <br/>
+                                            <p className='modal-chart-ref'>
+                                                Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
+                                            </p>
                                         </>
                                     :   null
                             }

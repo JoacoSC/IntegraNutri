@@ -53,7 +53,6 @@ export const MyPatientsPage = () => {
                     <h1>Nut. { displayName }</h1>
                 </div>
                 <div className="sub-title">
-                    <h3>Mis pacientes</h3>
                     <ModalNewPatient />
                 </div>
                 <div className="main-patient-list">

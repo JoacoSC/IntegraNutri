@@ -139,8 +139,6 @@ export const ModalPacienteEspontaneo = () => {
                             <select className="select-style" name="genero" onChange={ onInputChange }>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
-                                <option value="No binario">No binario</option>
-                                <option value="Otro">Otro</option>
                             </select>
                         </div>
                         <div className="form-btn">
