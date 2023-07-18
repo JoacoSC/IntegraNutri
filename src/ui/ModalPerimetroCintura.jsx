@@ -5,8 +5,8 @@ import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientPerimetroCintura } from '../store/currentPatient';
 import './components';
-import PC_masculino from '../../assets/imgs/patient/perimetro_cintura_masculino.png'
-import PC_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino.png'
+import PC_masculino from '../../assets/imgs/patient/perimetro_cintura_masculino_v2.svg'
+import PC_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino_v2.svg'
 
 export const ModalPerimetroCintura = ({
         uid,
@@ -135,31 +135,31 @@ export const ModalPerimetroCintura = ({
                             {
                                 (gender === 'Masculino')
                                 ?   <>
-                                        <p className='modal-chart-title'>
+                                        {/* <p className='modal-chart-title'>
                                             PERÍMETRO DE CINTURA POR EDAD EN NIÑOS Y ADOLESCENTES DE 5 a 19 AÑOS
-                                        </p>                                        
+                                        </p>                                         */}
                                         <img src={ PC_masculino } className='modal-chart'/>
-                                        <p className='modal-chart-ref'>
+                                        {/* <p className='modal-chart-ref'>
                                             Referencias:
                                         </p>
                                         <br/>
                                         <p className='modal-chart-ref'>
                                             Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
-                                        </p>
+                                        </p> */}
                                     </>
                                 :   (gender === 'Femenino')
                                     ?   <>
-                                            <p className='modal-chart-title'>
+                                            {/* <p className='modal-chart-title'>
                                                 PERÍMETRO DE CINTURA POR EDAD EN NIÑAS Y ADOLESCENTES DE 5 a 19 AÑOS
-                                            </p>                                            
+                                            </p> */}
                                             <img src={ PC_femenino } className='modal-chart'/>
-                                            <p className='modal-chart-ref'>
+                                            {/* <p className='modal-chart-ref'>
                                                 Referencias:
                                             </p>
                                             <br/>
                                             <p className='modal-chart-ref'>
                                                 Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
-                                            </p>
+                                            </p> */}
                                         </>
                                     :   null
                             }

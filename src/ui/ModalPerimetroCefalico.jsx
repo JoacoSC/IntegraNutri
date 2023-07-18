@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
+import Modal from 'react-modal';
 import { CSSTransition } from "react-transition-group";
+
 import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientPerimetroCefalico } from '../store/currentPatient';
+import PCe_masculino from '../../assets/imgs/patient/perimetro_cefalico_masculino_v2.svg'
+import PCe_femenino from '../../assets/imgs/patient/perimetro_cefalico_femenino_v2.svg'
 import './components';
-import PCe_masculino from '../../assets/imgs/patient/perimetro_cefalico_masculino.png'
-import PCe_femenino from '../../assets/imgs/patient/perimetro_cefalico_femenino.png'
 
 export const ModalPerimetroCefalico = ({
         uid,
@@ -141,39 +142,39 @@ export const ModalPerimetroCefalico = ({
                             {
                                 (gender === 'Masculino')
                                 ?   <>
-                                        <p className='modal-chart-title'>
+                                        {/* <p className='modal-chart-title'>
                                             PERÍMETRO CEFÁLICO POR EDAD EN NIÑOS DESDE EL NACIMIENTO A 3 AÑOS
-                                        </p>
+                                        </p> */}
                                         {/* <br/>
                                         <p className='modal-chart-subtitle'>
                                             MEDIANA Y DESVIACIÓN ESTÁNDAR
                                         </p> */}
                                         <img src={ PCe_masculino } className='modal-chart'/> 
-                                        <p className='modal-chart-ref'>
+                                        {/* <p className='modal-chart-ref'>
                                             Referencias:
                                         </p>
                                         <br/>
                                         <p className='modal-chart-ref'>
                                             Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
-                                        </p>
+                                        </p> */}
                                     </>
                                 :   (gender === 'Femenino')
                                     ?   <>
-                                            <p className='modal-chart-title'>
+                                            {/* <p className='modal-chart-title'>
                                                 PERÍMETRO CEFÁLICO POR EDAD EN NIÑAS DESDE EL NACIMIENTO A 3 AÑOS
-                                            </p>
+                                            </p> */}
                                             {/* <br/>
                                             <p className='modal-chart-subtitle'>
                                                 MEDIANA Y DESVIACIÓN ESTÁNDAR
                                             </p> */}
                                             <img src={ PCe_femenino } className='modal-chart'/> 
-                                            <p className='modal-chart-ref'>
+                                            {/* <p className='modal-chart-ref'>
                                                 Referencias:
                                             </p>
                                             <br/>
                                             <p className='modal-chart-ref'>
                                                 Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
-                                            </p>
+                                            </p> */}
                                         </>
                                     :   null
                             }
