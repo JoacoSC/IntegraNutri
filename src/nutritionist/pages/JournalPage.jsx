@@ -1,15 +1,15 @@
-import { useEffect, useState, useMemo, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { es } from 'date-fns/locale'
-import { add, format, fromUnixTime, getUnixTime, set, setHours, setMinutes, setSeconds } from 'date-fns'
+import { add, format, fromUnixTime, getUnixTime, set } from 'date-fns'
 
 import { startLogout } from '../../store/auth';
 import { AppLayout } from '../../layout/AppLayout';
-import { Footer, ModalNewConsultation, ModalPacienteEspontaneo } from '../../ui'
-import { addHours, setDefaultOptions } from 'date-fns/esm';
+import { Footer, ModalDeleteConsultation, ModalNewConsultation } from '../../ui'
+import { setDefaultOptions } from 'date-fns/esm';
 import { Link } from 'react-router-dom';
 import { ModalEditJournal } from '../../ui/ModalEditJournal';
-import { startCreatingJournal, startLoadingMyJournal } from '../../store/journal';
+import { startLoadingMyJournal } from '../../store/journal';
 import { clearCurrentPatient } from '../../store/currentPatient';
 import { LoadingScreen } from '../../ui/LoadingScreen';
 import { ModalWelcome } from '../../ui/ModalWelcome';
@@ -303,23 +303,30 @@ export const JournalPage = () => {
 
                                         {
                                             (consultationSlot.patient != undefined )
-                                            ?   <Link to={'../patient?patientID='+consultationSlot.patient.id} className="consultation-info">
-                                                    <div className="avatar">{ consultationSlot.patient.displayName.substring(0,2) }</div>
-                                                    <div className="journal-patient-info">
-                                                        <div className="patient-name">{ consultationSlot.patient.displayName }</div>
-                                                        <div className="consultation-hour">
-                                                            {format(fromUnixTime(consultationSlot.patient.nextConsultation), "hh:mm") +
-                                                            " - " +
-                                                            format(
-                                                                add(fromUnixTime(consultationSlot.patient.nextConsultation), {
-                                                                hours: consultationHours,
-                                                                minutes: consultationMinutes,
-                                                                }),
-                                                                "hh:mm"
-                                                            )}
+                                            ?   <>
+                                                    <div className='consultation-info-container'>
+                                                        <Link to={'../patient?patientID='+consultationSlot.patient.id} className="consultation-info">
+                                                            <div className="avatar">{ consultationSlot.patient.displayName.substring(0,2) }</div>
+                                                            <div className="journal-patient-info">
+                                                                <div className="patient-name">{ consultationSlot.patient.displayName }</div>
+                                                                <div className="consultation-hour">
+                                                                    {format(fromUnixTime(consultationSlot.patient.nextConsultation), "hh:mm") +
+                                                                    " - " +
+                                                                    format(
+                                                                        add(fromUnixTime(consultationSlot.patient.nextConsultation), {
+                                                                        hours: consultationHours,
+                                                                        minutes: consultationMinutes,
+                                                                        }),
+                                                                        "hh:mm"
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        </Link>
+                                                        <div className='consultation-action-delete'>
+                                                            <ModalDeleteConsultation patient={ consultationSlot.patient } />
                                                         </div>
                                                     </div>
-                                                </Link>
+                                                </>
 
                                             :   <ModalNewConsultation consultationSlot = { consultationSlot }/>
                                         }

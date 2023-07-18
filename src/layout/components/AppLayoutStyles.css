@@ -346,6 +346,10 @@ body{
     margin: 0 3rem;
 }
 
+.consultation-info-container{
+    position: relative;
+}
+
 .consultation-info{
     display: flex;
     flex-direction: row;
@@ -357,6 +361,16 @@ body{
     border-radius: 50px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.consultation-action-delete{
+    position: absolute;
+    top: 2.5rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    margin-left: auto;
 }
 
 .avatar-container{

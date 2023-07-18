@@ -43,8 +43,8 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
     const onNewConsultationSubmit = ( event ) => {
         event.preventDefault();
 
-        console.log(currentPatient);
-        console.log(currentPatient.id);
+        // console.log(currentPatient);
+        // console.log(currentPatient.id);
 
 
         dispatch( uploadPatientNewConsultation( consultationSlot, currentPatient.id ) );

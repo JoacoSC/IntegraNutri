@@ -47,6 +47,31 @@ export const uploadPatientNewConsultation = ( consultationSlot, patientID ) => {
     }
 }
 
+export const startDeleteConsultation = ( patientID ) => {
+    return async( dispatch ) => {
+
+        const uid = FirebaseAuth.currentUser.uid;
+
+        const consultationToFireStore = {
+            nextConsultation: null
+        }
+        // console.log(patientID)
+
+        const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+        await setDoc( docRef, consultationToFireStore, { merge: true });
+        
+
+        // const patients = [];
+
+        // docs.forEach( doc => {
+        //     patients.push({ id: doc.id, ...doc.data() });
+        // });
+
+        dispatch( startLoadingMyPatients( uid ) )
+
+    }
+}
+
 export const startDeletePatient = ( patientID ) => {
     return async( dispatch ) => {
 
