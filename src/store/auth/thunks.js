@@ -65,17 +65,24 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirth
             isNutritionist: true,
         }
 
-        const { uid, ok, errorMessage } = await registerUserWithEmailPassword( displayName, email, password );
+        console.log('ENTRÉ A THUNKS: ',newUser)
 
-        if ( !ok ) return dispatch( logout({ errorMessage }) );
+        // const { uid, ok, errorMessage } = await registerUserWithEmailPassword( displayName, email, password );
 
-        const newDoc = doc( collection( FirebaseDB, `users/${ uid }/userData` ) );
+        // if ( !ok ) return dispatch( logout({ errorMessage }) );
 
-        await setDoc( newDoc, newUser );
+        // console.log('Registrado con éxito')
 
-        dispatch( startCreatingJournal( uid ) )
-        // dispatch( login({ uid, displayName }) )
-        dispatch( startLogout() );
+        // const newDoc = doc( collection( FirebaseDB, `users/${ uid }/userData` ) );
+
+        // await setDoc( newDoc, newUser );
+        // console.log('Almacenando en la base de datos...')
+
+        // dispatch( startCreatingJournal( uid ) )
+        // console.log('Creando agenda...')
+        // // dispatch( login({ uid, displayName }) )
+        // dispatch( startLogout() );
+        // console.log('Redirigiendo al login...')
                 
     }
 }
@@ -242,7 +249,7 @@ export const redirectNutritionistOrPatient = ( uid ) => {
             nutriBoolean = doc.data().isNutritionist ;
         })
 
-        // console.log(nutriBoolean)
+        console.log(nutriBoolean)
 
         if (nutriBoolean === undefined || nutriBoolean === false){
             nutriBoolean = false;

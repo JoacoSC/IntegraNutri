@@ -1,14 +1,17 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRut } from 'react-rut-formatter';
 import { addDays, fromUnixTime, getUnixTime, set } from 'date-fns'
 
-import { useForm } from '../../hooks';
+import { useForm, useFormValidations } from '../../hooks';
 import { startCreatingUserWithEmailPassword } from '../../store/auth';
 
 import { AuthLayout } from '../layout/AuthLayout';
 import { regiones } from '../../helpers';
-import { ComunasSelect } from '../../ui';
+import { ComunasSelect, ErrorManager } from '../../ui';
+
+import passwordVisible from "../../../assets/imgs/auth/show_password.svg"
+import passwordHidden from "../../../assets/imgs/auth/hide_password.svg"
 
 export const RegisterPage = () => {
 
@@ -17,30 +20,36 @@ export const RegisterPage = () => {
     const [regionSeleccionada, setRegionSeleccionada] = useState('');
     const [comunaSeleccionada, setComunaSeleccionada] = useState('');
     const [comunas, setComunas] = useState([]);
+    const [rutValidation, setRutValidation] = useState(true)
+    const [passwordIsVisible, setPasswordIsVisible] = useState(false)
+    const [confirmPasswordIsVisible, setConfirmPasswordIsVisible] = useState(false)
+    const [passwordInputType, setPasswordInputType] = useState('password')
+    const [confirmPasswordInputType, setConfirmPasswordInputType] = useState('password')
+    // const [error, setError] = useState(null);
+    // const [errorCode, setErrorCode] = useState('')
 
-    const { name, fatherName, motherName, birthday, email, password, confirm_password, region, city, address, phone, gender, onInputChange, formState } = useForm();
+    const { disableConfirmBtn, error, errorCode } = useSelector( state => state.loginHelper )
+
+    const { name, fatherName, motherName, birthday, email, password, confirm_password, region, city, address = '', phone = '', gender = '', onInputChange, formState } = useForm();
     // const {  onInputChange, formState } = useForm();
 
     const { isValid, rut, updateRut } = useRut();
 
+    const { isFormValid, isPasswordValid } = useFormValidations({ password, confirm_password });
+    
     const onSubmit = ( event ) => {
         event.preventDefault();
-
-        // const rawRut = rut.raw;
-
-        console.log( rut )
-
-        const displayName = name + " " + fatherName + " " + motherName;
-
+        
+        const displayName = name + ' ' + fatherName + ' ' + motherName;
+        
         const formattedBirthday = addDays( set( new Date( birthday ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 );
-
+        
         const unixBirthday = getUnixTime( formattedBirthday );
 
-        if ( !isValid ) return;
-
-        console.log({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender })
-
-        dispatch ( startCreatingUserWithEmailPassword({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) )
+        setRutValidation( isValid )
+        if ( isFormValid === true && isValid ){
+            dispatch ( startCreatingUserWithEmailPassword({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) )
+        }
         
     }
     
@@ -55,9 +64,25 @@ export const RegisterPage = () => {
     const handleComunaSeleccionada = (event) => {
         const comuna = event.target.value;
         setComunaSeleccionada(comuna)
-        console.log(`Comuna seleccionada: ${comuna}`);
     };
-    
+
+    const switchPasswordVisibility = () => {
+        setPasswordIsVisible( !passwordIsVisible )
+        if(passwordIsVisible){
+            setPasswordInputType('password')
+        }else{
+            setPasswordInputType('text')
+        }
+    }
+    const switchConfirmPasswordVisibility = () => {
+        setConfirmPasswordIsVisible( !confirmPasswordIsVisible )
+        if(confirmPasswordIsVisible){
+            setConfirmPasswordInputType('password')
+        }else{
+            setConfirmPasswordInputType('text')
+        }
+    }
+
     return (
         <>
             <AuthLayout title="Registro" btnTitle="Iniciar Sesión" url="/auth/login">
@@ -67,45 +92,65 @@ export const RegisterPage = () => {
 
                         <div className="form-item">
                             <label className="input-label">Nombre</label>
-                            <input className="input-text-style" type="text" name="name" onChange={ onInputChange }/>
+                            <input className="input-text-style" type="text" name="name" onChange={ onInputChange } required/>
                         </div>
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Apellido Paterno</label>
-                                <input className="input-text-style" type="text" name="fatherName" onChange={ onInputChange }/>
+                                <input className="input-text-style" type="text" name="fatherName" onChange={ onInputChange } required/>
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Apellido Materno</label>
-                                <input className="input-text-style" type="text" name="motherName" onChange={ onInputChange }/>
+                                <input className="input-text-style" type="text" name="motherName" onChange={ onInputChange } required/>
                             </div>                
                         </div>
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">RUT</label>
-                                <input className="input-text-style" type="text" name="rut" value={ rut.formatted } onChange={ (e) => updateRut(e.target.value) }/>
+                                <input className="input-text-style" type="text" name="rut" maxLength="12" value={ rut.formatted } onChange={ (e) => updateRut(e.target.value) } required/>
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Fecha de Nacimiento</label>
-                                <input className="input-text-style input-date" type="date" name="birthday" onChange={ onInputChange }/>
+                                <input className="input-text-style input-date" type="date" name="birthday" onChange={ onInputChange } required/>
                                 <span className="input-date-icon"></span>
                             </div>                
                         </div>
                         <div className="form-item">
                             <label className="input-label">Email</label>
-                            <input className="input-text-style" type="email" name="email" onChange={ onInputChange }/>
+                            <input className="input-text-style" type="email" name="email" onChange={ onInputChange } required/>
                         </div>
                         <div className="form-item">
                             <label className="input-label">Contraseña</label>
-                            <input className="input-text-style" type="password" name="password" onChange={ onInputChange }/>
+                            <div className='input-password-container'>
+                                <input className="input-password-style" type={ passwordInputType } name="password" minLength="6" onChange={ onInputChange } required/>
+                                <div className='input-password-visibility-style' onClick={ switchPasswordVisibility }>
+                                    {
+                                        (passwordIsVisible)
+                                        ?   <img src={ passwordHidden }/>
+                                        :   <img src={ passwordVisible }/>
+                                    }
+                                </div>
+
+                            </div>
                         </div>
                         <div className="form-item">
                             <label className="input-label">Confirmar contraseña</label>
-                            <input className="input-text-style" type="password" name="confirm_password" onChange={ onInputChange }/>
+                            <div className='input-password-container'>
+                                <input className="input-password-style" type={ confirmPasswordInputType } name="confirm_password" minLength="6" onChange={ onInputChange } required/>
+                                <div className='input-password-visibility-style' onClick={ switchConfirmPasswordVisibility }>
+                                    {
+                                        (confirmPasswordIsVisible)
+                                        ?   <img src={ passwordHidden }/>
+                                        :   <img src={ passwordVisible }/>
+                                    }
+                                </div>
+
+                            </div>
                         </div>
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">Región</label>
-                                <select className="select-style" name="region" value={regionSeleccionada} onChange={handleRegionSeleccionada}>
+                                <select className="select-style" name="region" value={regionSeleccionada} onChange={handleRegionSeleccionada} required>
                                     <option value="Seleccione una región">Seleccione una región</option>
                                     {regiones.map((region) => (
                                     <option key={region.nombre} value={region.nombre}>
@@ -136,13 +181,26 @@ export const RegisterPage = () => {
                         <div className="form-item">
                             <label className="input-label">Género</label>
                             <select className="select-style" name="gender" onChange={ onInputChange }>
+                                <option value="">Seleccione una opción</option>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="No binario">No binario</option>
                             </select>
                         </div>
+                        {
+                            ( error )
+                            ?   <ErrorManager errorCode= { errorCode }/>
+                            :   null
+                        }
+                        {
+                            ( !rutValidation )
+                            ?   <div className="login-error-message">
+                                    El RUT ingresado no es un RUT válido, revíselo e intente nuevamente
+                                </div>
+                            :   null
+                        }
                         <div className="form-btn">
-                            <button className="btn-submit" type="submit">
+                            <button className="btn-submit" type="submit" disabled={ disableConfirmBtn }>
                                 Registrarse
                             </button>
                         </div>

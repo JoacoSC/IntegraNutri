@@ -14,7 +14,7 @@ export const ModalDeleteConsultation = ({ patient = {} }) => {
 
     const dispatch = useDispatch();
 
-    const deletePatient = ( event ) => {
+    const deleteConsultation = ( event ) => {
         event.preventDefault();
 
         setOpenModal(false);
@@ -63,7 +63,7 @@ export const ModalDeleteConsultation = ({ patient = {} }) => {
                         <p>Está seguro de eliminar la consulta de: <b>{ patient.displayName }</b>?</p>
 
                         <div className="form-btn-group">
-                            <button className="btn-modal-alt" type="submit" onClick={ deletePatient }>
+                            <button className="btn-modal-alt" type="submit" onClick={ deleteConsultation }>
                                 Eliminar
                             </button>
                             <button className="btn-modal-primary" onClick={ cancelSubmit }>

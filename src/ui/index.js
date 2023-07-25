@@ -13,4 +13,6 @@ export * from './ModalPerimetroCintura';
 export * from './ModalUpdateCorrectedAge';
 export * from './ModalUpdatePatientValues';
 export * from './ModalDeleteConsultation';
+export * from './ModalPresionArterial';
+export * from './ErrorManager';
 export * from './Footer';

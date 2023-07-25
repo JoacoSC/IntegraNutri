@@ -68,7 +68,7 @@ export const ModalUpdatePatientValues = ({
     return (
         <>
             <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
-                Actualizar valores&nbsp;
+                Actualizar peso/talla&nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                     <path stroke="#fff" strokeWidth="2" d="m11.667 12.5-3.334 3.333 3.334 3.334"/>
                     <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M15.052 7.083A5.834 5.834 0 0 1 10 15.833"/>

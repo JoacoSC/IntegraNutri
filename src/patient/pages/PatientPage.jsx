@@ -54,7 +54,7 @@ import {
 } from "../../data";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
-import { Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
+import { Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
 
 
 export const PatientPage = () => {
@@ -2419,6 +2419,7 @@ export const PatientPage = () => {
                         ?   <div className="update-values-btn-container">
                                 
                                 <ModalUpdatePatientValues type='peso' age={ ageText } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/>
+                                {/* <ModalPresionArterial/> */}
                                 <ModalUpdateCorrectedAge age={ age } unixBirthday={ unixBirthday } uid={ uid } patientID={ patientID } />
                                 
                             </div>

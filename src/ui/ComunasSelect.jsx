@@ -4,7 +4,7 @@ export const ComunasSelect = ({ comunaSeleccionada, comunas, handleComunaSelecci
 
     return (
 
-        <select className="select-style" name="city" value={comunaSeleccionada} onChange={handleComunaSeleccionada}>
+        <select className="select-style" name="city" value={comunaSeleccionada} onChange={handleComunaSeleccionada} required>
           {comunas.map((comuna) => (
             <option key={comuna} value={comuna}>
               {comuna}
