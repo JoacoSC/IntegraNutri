@@ -50,16 +50,18 @@ export const registerUserWithEmailPassword = async( displayName, email, password
 
     } catch (error) {
 
-        console.log(error)
+        console.log({error})
         // Handle Errors here.
         
         const errorMessage = error.message;
+        const errorCode = error.code;
 
-        // console.log({ errorCode, errorMessage })
+        console.log({ errorCode, errorMessage })
         
         return{
             ok: false,
-            errorMessage
+            errorMessage,
+            errorCode,
 
         }
     }

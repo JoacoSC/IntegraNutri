@@ -12,6 +12,7 @@ import { ComunasSelect, ErrorManager } from '../../ui';
 
 import passwordVisible from "../../../assets/imgs/auth/show_password.svg"
 import passwordHidden from "../../../assets/imgs/auth/hide_password.svg"
+import { setErrorCode, switchError } from '../../store/loginHelper';
 
 export const RegisterPage = () => {
 
@@ -28,9 +29,9 @@ export const RegisterPage = () => {
     // const [error, setError] = useState(null);
     // const [errorCode, setErrorCode] = useState('')
 
-    const { disableConfirmBtn, error, errorCode } = useSelector( state => state.loginHelper )
+    const { disableConfirmBtn, error, errorCode } = useSelector( state => state.loginHelper );
 
-    const { name, fatherName, motherName, birthday, email, password, confirm_password, region, city, address = '', phone = '', gender = '', onInputChange, formState } = useForm();
+    const { name, fatherName, motherName, birthday, email, password, confirm_password, region, city, address = '', phone = '', gender = 'No especificado', onInputChange, formState } = useForm();
     // const {  onInputChange, formState } = useForm();
 
     const { isValid, rut, updateRut } = useRut();
@@ -47,8 +48,11 @@ export const RegisterPage = () => {
         const unixBirthday = getUnixTime( formattedBirthday );
 
         setRutValidation( isValid )
+        console.log('isFormValid: ', isFormValid)
+        console.log('isValid: ', isValid)
         if ( isFormValid === true && isValid ){
             dispatch ( startCreatingUserWithEmailPassword({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) )
+            
         }
         
     }
@@ -91,36 +95,58 @@ export const RegisterPage = () => {
                     <div className="container-form" onSubmit={ onSubmit }>
 
                         <div className="form-item">
-                            <label className="input-label">Nombre</label>
+                            <div className='input-label-container'>
+                                <label className="input-label">Nombre</label>
+                                <label className="input-label-required">*</label>
+                                <label className="input-label-required-text">* Campos obligatorios</label>
+                            </div>
                             <input className="input-text-style" type="text" name="name" onChange={ onInputChange } required/>
                         </div>
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
-                                <label className="input-label">Apellido Paterno</label>
+                                <div className='input-label-container'>
+                                    <label className="input-label">Apellido Paterno</label>
+                                    <label className="input-label-required">*</label>
+                                </div>
                                 <input className="input-text-style" type="text" name="fatherName" onChange={ onInputChange } required/>
                             </div>
                             <div className="form-item w-50 pl-8">
-                                <label className="input-label">Apellido Materno</label>
+                                <div className='input-label-container'>
+                                    <label className="input-label">Apellido Materno</label>
+                                    <label className="input-label-required">*</label>
+                                </div>
                                 <input className="input-text-style" type="text" name="motherName" onChange={ onInputChange } required/>
                             </div>                
                         </div>
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
-                                <label className="input-label">RUT</label>
+                                <div className='input-label-container'>
+                                    <label className="input-label">RUT</label>
+                                    <label className="input-label-required">*</label>
+                                </div>
                                 <input className="input-text-style" type="text" name="rut" maxLength="12" value={ rut.formatted } onChange={ (e) => updateRut(e.target.value) } required/>
                             </div>
                             <div className="form-item w-50 pl-8">
-                                <label className="input-label">Fecha de Nacimiento</label>
+                                <div className='input-label-container'>
+                                    <label className="input-label">Fecha de Nacimiento</label>
+                                    <label className="input-label-required">*</label>
+                                </div>
                                 <input className="input-text-style input-date" type="date" name="birthday" onChange={ onInputChange } required/>
                                 <span className="input-date-icon"></span>
                             </div>                
                         </div>
                         <div className="form-item">
-                            <label className="input-label">Email</label>
+                            <div className='input-label-container'>
+                                <label className="input-label">Email</label>
+                                <label className="input-label-required">*</label>
+                            </div>
                             <input className="input-text-style" type="email" name="email" onChange={ onInputChange } required/>
                         </div>
                         <div className="form-item">
-                            <label className="input-label">Contraseña</label>
+                            <div className='input-label-container'>
+                                <label className="input-label">Contraseña</label>
+                                <label className="input-label-required">*</label>
+                            </div>
                             <div className='input-password-container'>
                                 <input className="input-password-style" type={ passwordInputType } name="password" minLength="6" onChange={ onInputChange } required/>
                                 <div className='input-password-visibility-style' onClick={ switchPasswordVisibility }>
@@ -134,7 +160,10 @@ export const RegisterPage = () => {
                             </div>
                         </div>
                         <div className="form-item">
-                            <label className="input-label">Confirmar contraseña</label>
+                            <div className='input-label-container'>
+                                <label className="input-label">Confirmar contraseña</label>
+                                <label className="input-label-required">*</label>
+                            </div>
                             <div className='input-password-container'>
                                 <input className="input-password-style" type={ confirmPasswordInputType } name="confirm_password" minLength="6" onChange={ onInputChange } required/>
                                 <div className='input-password-visibility-style' onClick={ switchConfirmPasswordVisibility }>
@@ -149,7 +178,10 @@ export const RegisterPage = () => {
                         </div>
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
-                                <label className="input-label">Región</label>
+                                <div className='input-label-container'>
+                                    <label className="input-label">Región</label>
+                                    <label className="input-label-required">*</label>
+                                </div>
                                 <select className="select-style" name="region" value={regionSeleccionada} onChange={handleRegionSeleccionada} required>
                                     <option value="Seleccione una región">Seleccione una región</option>
                                     {regiones.map((region) => (
@@ -160,7 +192,10 @@ export const RegisterPage = () => {
                                 </select>
                             </div>
                             <div className="form-item w-50 pl-8">
-                                <label className="input-label">Comuna</label>
+                                <div className='input-label-container'>
+                                    <label className="input-label">Comuna</label>
+                                    <label className="input-label-required">*</label>
+                                </div>
                                 {
                                     <ComunasSelect
                                     comunaSeleccionada={comunaSeleccionada}
@@ -181,7 +216,7 @@ export const RegisterPage = () => {
                         <div className="form-item">
                             <label className="input-label">Género</label>
                             <select className="select-style" name="gender" onChange={ onInputChange }>
-                                <option value="">Seleccione una opción</option>
+                                <option value="No especificado">Seleccione una opción</option>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="No binario">No binario</option>

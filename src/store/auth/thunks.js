@@ -65,24 +65,34 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirth
             isNutritionist: true,
         }
 
-        console.log('ENTRÉ A THUNKS: ',newUser)
+        // console.log('ENTRÉ A THUNKS: ',newUser)
 
-        // const { uid, ok, errorMessage } = await registerUserWithEmailPassword( displayName, email, password );
+        const { uid, ok, errorMessage, errorCode } = await registerUserWithEmailPassword( displayName, email, password );
 
-        // if ( !ok ) return dispatch( logout({ errorMessage }) );
+        // console.log('errorMessage: ', errorMessage)
+        // console.log('errorCode: ', errorCode)
+        if ( !ok ){
+            // console.log('errorMessage: ', errorMessage)
+            // console.log('errorCode: ', errorCode)
+            dispatch( logout({ errorMessage }) );
+            dispatch( setErrorCode( errorCode ) );
+            dispatch( switchError( true ) );
+            return 
+        } 
+            
 
-        // console.log('Registrado con éxito')
+        console.log('Registrado con éxito')
 
-        // const newDoc = doc( collection( FirebaseDB, `users/${ uid }/userData` ) );
+        const newDoc = doc( collection( FirebaseDB, `users/${ uid }/userData` ) );
 
-        // await setDoc( newDoc, newUser );
-        // console.log('Almacenando en la base de datos...')
+        await setDoc( newDoc, newUser );
+        console.log('Almacenando en la base de datos...')
 
-        // dispatch( startCreatingJournal( uid ) )
-        // console.log('Creando agenda...')
-        // // dispatch( login({ uid, displayName }) )
-        // dispatch( startLogout() );
-        // console.log('Redirigiendo al login...')
+        dispatch( startCreatingJournal( uid ) )
+        console.log('Creando agenda...')
+        // dispatch( login({ uid, displayName }) )
+        dispatch( startLogout() );
+        console.log('Redirigiendo al login...')
                 
     }
 }

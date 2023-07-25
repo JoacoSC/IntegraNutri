@@ -113,10 +113,28 @@ body{
     height: 75px;
 }
 
+.input-label-container{
+    display: flex;
+}
+
 .input-label{
     color: #909398;
     margin-bottom: .8rem;
     margin-top: .5rem;
+}
+
+.input-label-required{
+    padding-left: 0.1rem;
+    padding-top: 0.2rem;
+    font-size: 1.3rem;
+    color: red;
+}
+
+.input-label-required-text{
+    margin-left: auto;
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: .8rem;
 }
 
 .form-btn{
@@ -344,7 +362,7 @@ body{
     border: 1px solid rgba(163,32,211, 1);
 }
 .input-password-visibility-style:active img{
-    transform: scale(0.9);
+    transform: scale(0.85);
 }
 
 .form-switch-item{
@@ -521,6 +539,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0.5rem;
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;

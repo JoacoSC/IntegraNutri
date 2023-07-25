@@ -1,27 +1,39 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setErrorCode, switchError } from "../store/loginHelper";
 
 export const useFormValidations = ({ password, confirm_password }) => {
     
     const dispatch = useDispatch();
-
-    const validations = {
+    const [validations, setValidations] = useState({
         isPasswordValid: null,
-    }
+    })
 
-    if ( password !== confirm_password ){
+    // const validations = {
+    //     isPasswordValid: null,
+    // }
 
-        dispatch( setErrorCode( 'password-dont-match' ) );
-        dispatch( switchError( true ) );
-        validations.isPasswordValid = false;
-    }
-    if ( password === confirm_password ){
+    useEffect(() => {
+        if ( password !== confirm_password ){
 
-        dispatch( setErrorCode( null ) );
-        dispatch( switchError( false ) );
-        validations.isPasswordValid = true;
-    }
+            dispatch( setErrorCode( 'password-dont-match' ) );
+            dispatch( switchError( true ) );
+            setValidations({
+                isPasswordValid: false
+            })
+        }
+        if ( password === confirm_password ){
+    
+            dispatch( setErrorCode( null ) );
+            dispatch( switchError( false ) );
+            setValidations({
+                isPasswordValid: true
+            })
+        }
+    }, [password, confirm_password])
+    
+
+    
     // NO SE POR QUE PERO SI PONGO ESTO LA APLICACION NO PARA DE RE-RENDERIZARSE
 
     // if ( rutValidation !== true ){
@@ -33,6 +45,9 @@ export const useFormValidations = ({ password, confirm_password }) => {
         isFormValid: Object.values(validations).every(item => item),
         ...validations
     }
+
+    // console.log('validations: ', validations)
+    // console.log('result: ', result)
 
     return result;
 }
