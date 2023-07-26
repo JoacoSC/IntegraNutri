@@ -7,6 +7,8 @@ import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth
 import { AuthLayout } from '../layout/AuthLayout';
 import { unsetJournal } from '../../store/journal';
 import { switchIsNutritionistSelector } from '../../store/loginHelper';
+import passwordVisible from "../../../assets/imgs/auth/show_password.svg"
+import passwordHidden from "../../../assets/imgs/auth/hide_password.svg"
 
 export const LoginPage = () => {
 
@@ -15,6 +17,8 @@ export const LoginPage = () => {
     const [isNutritionist, setIsNutritionist] = useState( true );
     const [error, setError] = useState(false);
     const [errorCode, setErrorCode] = useState('')
+    const [passwordIsVisible, setPasswordIsVisible] = useState(false)
+    const [passwordInputType, setPasswordInputType] = useState('password')
 
     const dispatch = useDispatch();
 
@@ -39,6 +43,15 @@ export const LoginPage = () => {
             // console.log('Codigo de error: ', result.errorCode);
             setErrorCode(result.errorCode)
             setError(true);
+        }
+    }
+
+    const switchPasswordVisibility = () => {
+        setPasswordIsVisible( !passwordIsVisible )
+        if(passwordIsVisible){
+            setPasswordInputType('password')
+        }else{
+            setPasswordInputType('text')
         }
     }
 
@@ -70,11 +83,21 @@ export const LoginPage = () => {
                     </div>
                     <div className="form-item">
                         <label className="input-label">Email</label>
-                        <input className="input-text-style" type="email" name="email" onChange={ onInputChange }/>
+                        <input className="input-text-style" type="email" name="email" onChange={ onInputChange } required/>
                     </div>
                     <div className="form-item">
                         <label className="input-label">Contraseña</label>
-                        <input className="input-text-style" type="password" name="password" onChange={ onInputChange }/>
+                        <div className='input-password-container'>
+                            <input className="input-password-style" type={ passwordInputType } name="password" onChange={ onInputChange } required/>
+                            <div className='input-password-visibility-style' onClick={ switchPasswordVisibility }>
+                                {
+                                    (passwordIsVisible)
+                                    ?   <img src={ passwordHidden }/>
+                                    :   <img src={ passwordVisible }/>
+                                }
+                            </div>
+
+                        </div>
                     </div>
                     {
                         ( error )
