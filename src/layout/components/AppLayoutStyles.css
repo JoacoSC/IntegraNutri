@@ -14,6 +14,9 @@
     --clr-btn-alt-active: #d84437;
     --clr-day-ellipse-primary: rgba(164, 164, 164, 0.25);
     --clr-day-ellipse-active: rgb(255, 188, 177);
+    --box-shadow: 0px 9px 15px 0px rgba(69,35,114,0.2);
+    --alt-box-shadow: 0px 3px 6px 0px rgba(69, 35, 114, 0.3);
+    --button-shadow: 0px 6px 10px 0px rgba(109, 34, 208,0.2);
 
 
     /* Border radius */
@@ -44,6 +47,7 @@
     --food-wo-bg: url(../../../assets/imgs/background/pattern_base_without_bg.svg);
     
     
+    --dropdown-arrow: url(../../../assets/imgs/patient/dropdown_arrow.svg);
     --arrow-dropdown: url(../../../assets/imgs/patient/arrow_drop_down.svg);
     --weight-icon: url(../../../assets/imgs/patient/weight_icon.svg);
     --stature-icon: url(../../../assets/imgs/patient/stature_icon.svg);
@@ -162,6 +166,7 @@ body{
     margin-right: 3rem;
     cursor: pointer;
     transition: all 150ms ease;
+    box-shadow: var(--alt-box-shadow);
 }
 
 .btn-logout:hover{
@@ -400,8 +405,16 @@ body{
     font-size: 1rem;
     text-align: center;
     /* font-weight: 500; */
-    color: #000000;
-    font-weight: 600;
+    font-weight: 500;
+}
+
+.patient-gender{
+    margin: 1rem 0 0;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 500;
+    /* font-weight: 500; */
 }
 
 .consultation-hour{
@@ -660,18 +673,41 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+
+.patient-navbar{
+    display: flex;
+}
+
+.patient-consultation-time-container{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: var(--clr-primary);
+    color: white;
+    box-shadow: var(--alt-box-shadow);
+}
+
+.patient-consultation-time{
+    margin-top: 0.2rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+
 
 .patient-card{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10rem;
-    width: fit-content;
-    margin: 4rem 2rem 1rem 2rem;
-    border: 1px solid #ECEDED;
+    margin: 1rem 2rem 1rem 2rem;
     border-radius: 20px;
     background-color: white;
+    box-shadow: var(--box-shadow);
 }
 
 .patient-alt-buttons{
@@ -691,11 +727,15 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    padding: 0 2rem;
-    border-right: 1px solid #ECEDED;
+    min-width: 220px;
+    /* height: 210px; */
+    padding: 2rem 1rem 1rem;
+    background-color: var(--clr-primary);
     border-radius: 20px 0px 0px 20px;
-    background-image: linear-gradient(to left bottom, #ffc6ff, #ffc3ec, #ffc2da, #ffc3cc, #ffc5c1);
+    color: white;
+    /* border-right: 1px solid #ECEDED; */
+    /* border-radius: 20px 0px 0px 20px; */
+    /* background-image: linear-gradient(to left bottom, #ffc6ff, #ffc3ec, #ffc2da, #ffc3cc, #ffc5c1); */
 
 }
 
@@ -708,33 +748,88 @@ body{
     height: 4rem;
     border-radius: 50%;
     border: 3px solid white;
-    background: #627CE7;
+    /* background: #627CE7; */
+    background: white;
     font-family: "Metropolis", sans-serif;
     font-weight: 500;
     font-size: 1rem;
     color: white;
 }
 
-.patient-consultation-time{
-    margin-top: 0.2rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 400;
-    font-size: 0.8rem;
-    text-align: center;
+/* ************* Patient info ************** */
+
+.patient-info-container{
+    display: flex;
+    flex-direction: column;
 }
 
-/* ************* Patient info ************** */
+.patient-info-first-half-container{
+    display: flex;
+    border-bottom: 2px solid #ECEDED;
+}
+.patient-info-second-half-container{
+    display: flex;
+}
+
+.patient-parameter-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.7rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #7b7b7b;
+}
+
+.patient-parameter-icon{
+    max-height: 25px;
+}
+
+.patient-parameter-value-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.patient-parameter-value{
+    border: none;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--clr-primary);
+}
+
+.patient-parameter-unit{
+    
+    padding-left: 0.3rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--clr-primary);
+}
 
 /* **************** Patient weight ****************** */
 
 .patient-weight{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     min-width: 180px;
     height: 100%;
     padding: 2rem 0 1rem 2rem;
-    border-right: 1px solid #ECEDED;
+    border-right: 1px solid #ECEDED; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0.5rem;
+    width: 200px;
+    border-right: 2px solid #ECEDED;
+    /* padding: 0 1rem; */
 }
 
 .weight-icon{
@@ -748,50 +843,11 @@ body{
     padding-bottom: 0.4rem;
 }
 
-.weight-title{
-    display: flex;
-    margin-top: 0.8rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.weight-indicator-panel{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.2rem;
-    margin-left: 1rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 500;
-    font-size: 0.8rem;
-    background-color: #FFF3F1;
-    color: #FF8976;
-    border-radius: 10px;
-}
 
 .weight{
     display: flex;
-    align-items: flex-end;
-    margin-top: 0.7rem;
-}
-.weight-value{
-    border: none;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 700;
-    font-size: 1.6rem;
-}
-
-.weight-value:focus{
-    outline: none;
-    border: 1px solid rgba(163,32,211, 1);
-}
-
-.weight-kg{
-    margin: 0.3rem 1rem 0 1rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 700;
-    font-size: 1.6rem;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 .update-values-btn-container{
@@ -879,13 +935,19 @@ body{
 /* **************** Patient stature ****************** */
 
 .patient-stature{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     min-width: 180px;
     height: 100%;
     padding: 2rem 0 1rem 2rem;
-    border-right: 1px solid #ECEDED;
+    border-right: 1px solid #ECEDED; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0.5rem;
+    width: 200px;
+    /* padding: 1rem; */
 }
 
 .stature-icon{
@@ -899,35 +961,10 @@ body{
     padding-bottom: 0.4rem;
 }
 
-.stature-title{
-    margin-top: 0.8rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-}
-
 .stature{
     display: flex;
     align-items: flex-end;
     margin-top: 0.7rem;
-}
-.stature-value{
-    border: none;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 700;
-    font-size: 1.6rem;
-}
-
-.stature-value:focus{
-    outline: none;
-    border: 1px solid rgba(163,32,211, 1);
-}
-
-.stature-cm{
-    margin: 0.3rem 1rem 0 1rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 700;
-    font-size: 1.6rem;
 }
 
 .stature-update-btn{
@@ -1003,21 +1040,38 @@ body{
 /* **************** Patient stature ****************** */
 /* **************** Patient age ****************** */
 
-.patient-age{
+.patient-age-container{
     display: flex;
+}
+
+.patient-age{
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    padding: 2rem 1rem 1rem 2rem;
+    padding: 2rem 1rem 1rem 2rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    padding-bottom: 1rem;
+    /* padding: 1rem; */
+    border-right: 2px solid #ECEDED;
 }
 
 .patient-corrected-age{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
     padding: 2rem 1.5rem 1rem 2rem;
-    border-left: 1px solid #ECEDED;
+    border-left: 1px solid #ECEDED; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 1rem;
+    width: 200px;
+    /* padding: 1rem; */
 }
 
 .age-icon{
@@ -1031,37 +1085,10 @@ body{
     padding-bottom: 0.4rem;
 }
 
-.age-title{
-    margin-top: 0.8rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-}
-
 .age{
     display: flex;
     align-items: flex-end;
     margin-top: 0.7rem;
-}
-.age-value{
-    display: flex;
-    margin: 0.3rem 1rem 0 0rem;
-    border: none;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 700;
-    font-size: 1.6rem;
-}
-
-.age-value:focus{
-    outline: none;
-    border: 1px solid rgba(163,32,211, 1);
-}
-
-.age-cm{
-    margin: 0.3rem 0.3rem;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
 }
 
 /* **************** Patient age ****************** */

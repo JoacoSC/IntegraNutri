@@ -7,31 +7,12 @@ import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientIMC ,startUpdatingCurrentPatientStature, startUpdatingCurrentPatientWeight, updateCurrentPatientIMC, updateCurrentPatientStature, updateCurrentPatientWeight } from '../store/currentPatient';
 import './components';
 
-export const ModalUpdatePatientValues = ({
-        type = '',
-        age = 'NaN años NaN meses',
-        uid,
-        patientID,
-        weight = {
-            A: null,
-            B: null,
-            C: null,
-        },
-        stature = {
-            A: null,
-            B: null,
-            C: null,
-        },
-        imc = {
-            A: null,
-            B: null,
-            C: null,
-        },
-        lastWeight,
-        lastStature
-    }) => {
+export const ModalUpdatePatientValues = ({ updatePatientValuesObject }) => {
+
+    const {type, age, uid, patientID, weight, stature, imc, lastWeight, lastStature} = updatePatientValuesObject;
 
     const [openModal, setOpenModal] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(false);
 
     const { 
         weightForm = lastWeight,
@@ -65,9 +46,24 @@ export const ModalUpdatePatientValues = ({
         dispatch( startUpdatingCurrentPatientIMC( uid, patientID, newIMC ) );
     }
 
+    const onCloseModal = () => {
+        setOpenModal(false)
+        setOpenDropdown(false)
+        console.log('openDropdown',openDropdown)
+    }
+
     return (
         <>
-            <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
+            <button onClick={ () => setOpenModal(true) } className='dropdown-item-btn'>
+                Actualizar peso/talla&nbsp;
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                    <path stroke="#fff" strokeWidth="2" d="m11.667 12.5-3.334 3.333 3.334 3.334"/>
+                    <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M15.052 7.083A5.834 5.834 0 0 1 10 15.833"/>
+                    <path stroke="#fff" strokeWidth="2" d="m8.333 7.5 3.334-3.333L8.333.833"/>
+                    <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M4.948 12.917A5.833 5.833 0 0 1 10 4.167"/>
+                </svg>
+            </button>
+            {/* <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
                 Actualizar peso/talla&nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                     <path stroke="#fff" strokeWidth="2" d="m11.667 12.5-3.334 3.333 3.334 3.334"/>
@@ -76,7 +72,7 @@ export const ModalUpdatePatientValues = ({
                     <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M4.948 12.917A5.833 5.833 0 0 1 10 4.167"/>
                 </svg>
 
-            </div>
+            </div> */}
             <CSSTransition
                 timeout={300}
                 classNames="overlay"
@@ -120,7 +116,7 @@ export const ModalUpdatePatientValues = ({
                         </div>
                         
                         <div className="form-btn">
-                            <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) }>
+                            <button className="btn-modal-submit" type="submit" onClick={ onCloseModal }>
                                 Actualizar
                             </button>
                         </div>

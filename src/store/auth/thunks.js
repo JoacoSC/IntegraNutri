@@ -200,7 +200,7 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
 
         const result = await loginWithEmailPassword({ email, password })
 
-        console.log('result: ', result)
+        // console.log('result: ', result)
 
         // console.log(result)
 
@@ -259,7 +259,7 @@ export const redirectNutritionistOrPatient = ( uid ) => {
             nutriBoolean = doc.data().isNutritionist ;
         })
 
-        console.log(nutriBoolean)
+        // console.log(nutriBoolean)
 
         if (nutriBoolean === undefined || nutriBoolean === false){
             nutriBoolean = false;

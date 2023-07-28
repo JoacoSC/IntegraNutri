@@ -15,4 +15,5 @@ export * from './ModalUpdatePatientValues';
 export * from './ModalDeleteConsultation';
 export * from './ModalPresionArterial';
 export * from './ErrorManager';
+export * from './Dropdown';
 export * from './Footer';
