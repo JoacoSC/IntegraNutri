@@ -62,9 +62,10 @@ import Dropdown_arrow from '../../../assets/imgs/patient/dropdown_arrow.svg'
 export const PatientPage = () => {
 
     
-    const { uid, displayName, photoURL, isNutritionistStatus, email } = useSelector( state => state.auth )
+    const { uid, displayName, photoURL, isNutritionistStatus } = useSelector( state => state.auth )
 
     const {
+        email,
         patientName,
         nextConsultation,
         anamnesis,
@@ -2159,7 +2160,13 @@ export const PatientPage = () => {
         'lastStature' : lastStature,
         'imc' : imc,
     }
-    
+
+    const updateCorrectedAgeObject = {
+        'age' : age,
+        'unixBirthday' : unixBirthday,
+        'uid' : uid,
+        'patientID' : patientID,
+    }
     
     return (
       <>
@@ -2203,7 +2210,10 @@ export const PatientPage = () => {
                                         : ""}
                                 </div> */}
                             </div>
-                            <Dropdown updatePatientValuesObject = { updatePatientValuesObject }/>
+                            <Dropdown
+                                updatePatientValuesObject = { updatePatientValuesObject }
+                                updateCorrectedAgeObject = { updateCorrectedAgeObject }
+                            />
                             
                         </div>
                         <div className="patient-card">
@@ -2463,7 +2473,7 @@ export const PatientPage = () => {
                                 
                                 {/* <ModalUpdatePatientValues type='peso' age={ ageText } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/> */}
                                 {/* <ModalPresionArterial/> */}
-                                <ModalUpdateCorrectedAge age={ age } unixBirthday={ unixBirthday } uid={ uid } patientID={ patientID } />
+                                {/* <ModalUpdateCorrectedAge age={ age } unixBirthday={ unixBirthday } uid={ uid } patientID={ patientID } /> */}
                                 
                             </div>
                         :   null

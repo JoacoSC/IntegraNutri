@@ -7,6 +7,8 @@ import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientIMC ,startUpdatingCurrentPatientStature, startUpdatingCurrentPatientWeight, updateCurrentPatientIMC, updateCurrentPatientStature, updateCurrentPatientWeight } from '../store/currentPatient';
 import './components';
 
+import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
+
 export const ModalUpdatePatientValues = ({ updatePatientValuesObject }) => {
 
     const {type, age, uid, patientID, weight, stature, imc, lastWeight, lastStature} = updatePatientValuesObject;
@@ -55,13 +57,12 @@ export const ModalUpdatePatientValues = ({ updatePatientValuesObject }) => {
     return (
         <>
             <button onClick={ () => setOpenModal(true) } className='dropdown-item-btn'>
-                Actualizar peso/talla&nbsp;
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                    <path stroke="#fff" strokeWidth="2" d="m11.667 12.5-3.334 3.333 3.334 3.334"/>
-                    <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M15.052 7.083A5.834 5.834 0 0 1 10 15.833"/>
-                    <path stroke="#fff" strokeWidth="2" d="m8.333 7.5 3.334-3.333L8.333.833"/>
-                    <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M4.948 12.917A5.833 5.833 0 0 1 10 4.167"/>
-                </svg>
+                <label className='dropdown-item-img'>
+                    <img src={ UpdateValues }/>
+                </label>
+                <p>
+                    Actualizar peso/talla&nbsp;
+                </p>
             </button>
             {/* <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
                 Actualizar peso/talla&nbsp;

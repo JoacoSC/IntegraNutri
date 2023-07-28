@@ -7,16 +7,11 @@ import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientCorrectedAge, startUpdatingCurrentPatientUnixCorrectedBirthday, updateCurrentPatientCorrectedAge, updateCurrentPatientUnixCorrectedBirthday } from '../store/currentPatient';
 import './components';
 
-export const ModalUpdateCorrectedAge = ({
-        age = {
-            d: 0,
-            m: 0,
-            y: 0,
-          },
-        unixBirthday,
-        uid,
-        patientID
-    }) => {
+import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
+
+export const ModalUpdateCorrectedAge = ({ updateCorrectedAgeObject }) => {
+
+    const { age, unixBirthday, uid, patientID } = updateCorrectedAgeObject;
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -233,7 +228,15 @@ export const ModalUpdateCorrectedAge = ({
     
     return (
         <>
-            <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
+            <button onClick={ () => setOpenModal(true) } className='dropdown-item-btn'>
+                <label className='dropdown-item-img'>
+                    <img src={ UpdateValues }/>
+                </label>
+                <p>
+                    Crear/Modificar Edad Corregida&nbsp;
+                </p>
+            </button>
+            {/* <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
                 Crear/Modificar Edad Corregida&nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                     <path stroke="#fff" strokeWidth="2" d="m11.667 12.5-3.334 3.333 3.334 3.334"/>
@@ -241,8 +244,7 @@ export const ModalUpdateCorrectedAge = ({
                     <path stroke="#fff" strokeWidth="2" d="m8.333 7.5 3.334-3.333L8.333.833"/>
                     <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M4.948 12.917A5.833 5.833 0 0 1 10 4.167"/>
                 </svg>
-
-            </div>
+            </div> */}
             <CSSTransition
                 timeout={300}
                 classNames="overlay"
