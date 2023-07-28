@@ -8,6 +8,7 @@ import { startUpdatingCurrentPatientCorrectedAge, startUpdatingCurrentPatientUni
 import './components';
 
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
+import CorrectedAgeIcon from '../../assets/imgs/patient/corrected_age_icon.svg'
 
 export const ModalUpdateCorrectedAge = ({ updateCorrectedAgeObject }) => {
 
@@ -230,7 +231,8 @@ export const ModalUpdateCorrectedAge = ({ updateCorrectedAgeObject }) => {
         <>
             <button onClick={ () => setOpenModal(true) } className='dropdown-item-btn'>
                 <label className='dropdown-item-img'>
-                    <img src={ UpdateValues }/>
+                    {/* <img src={ UpdateValues }/> */}
+                    <img src={ CorrectedAgeIcon }/>
                 </label>
                 <p>
                     Crear/Modificar Edad Corregida&nbsp;

@@ -116,6 +116,11 @@
     cursor: pointer;
 }
 
+.dropdown-item-img img{
+    width: 20px;
+    height: 20px;
+}
+
 .dropdown-item-btn{
     display: flex;
     align-items: center;

@@ -54,7 +54,7 @@ import {
 } from "../../data";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
-import { Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
+import { Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues, TallaDiana } from "../../ui";
 import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
 import Dropdown_arrow from '../../../assets/imgs/patient/dropdown_arrow.svg'
 
@@ -2210,150 +2210,167 @@ export const PatientPage = () => {
                                         : ""}
                                 </div> */}
                             </div>
-                            <Dropdown
-                                updatePatientValuesObject = { updatePatientValuesObject }
-                                updateCorrectedAgeObject = { updateCorrectedAgeObject }
-                            />
+                            {
+                                (isNutritionistStatus)
+                                ?   <Dropdown
+                                        uid = { uid }
+                                        patientID = { patientID }
+                                        gender = { gender }
+                                        age = { ageForCalcs }
+                                        updatePatientValuesObject = { updatePatientValuesObject }
+                                        updateCorrectedAgeObject = { updateCorrectedAgeObject }
+                                    />
+                                :   null
+                            }
                             
                         </div>
-                        <div className="patient-card">
-                            <div className="patient-data">
-                                <div className="patient-avatar">
-                                {/* {patientName.substring(0, 2)} */}
-                                <img src={ IntegraNutri_ellipse } className="logo-item" alt="Icono IntegraNutri"/>
-                                </div>
-                                <div className="patient-name">{patientName}</div>
-                                <div className="patient-gender"><b>Género: </b>{gender}</div>
-                                
-                            </div>
-                            <div className="patient-info-container">
-                                <div className="patient-info-first-half-container">
-                                    <div className="patient-age">
-                                        {/* <div className="age-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
-                                                <circle cx="21.5" cy="21.5" r="21.5" fill="#DBFFD6"/>
-                                                <circle cx="20" cy="17" r="4" stroke="#5EC151" strokeLinecap="round" strokeWidth="2"/>
-                                                <path fill="#5EC151" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
-                                                <rect width="9" height="8" x="22" y="23" stroke="#5EC151" strokeWidth="2" rx="2"/>
-                                                <path fill="#5EC151" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
-                                                <path stroke="#5EC151" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
-                                                <rect width="2" height="1" x="24" y="26" fill="#5EC151" rx=".5"/>
-                                                <rect width="2" height="1" x="24" y="28" fill="#5EC151" rx=".5"/>
-                                                <rect width="2" height="1" x="27" y="26" fill="#5EC151" rx=".5"/>
-                                                <rect width="2" height="1" x="27" y="28" fill="#5EC151" rx=".5"/>
-                                            </svg>
-                                        </div> */}
-                                        <div className="patient-parameter-title">
-                                            {/* <img src={ Age_icon } className="patient-parameter-icon" alt="Icono IntegraNutri"/> */}
-                                            <p>Edad</p>
-                                        </div>
-                                        <div className="patient-parameter-value-container">
-                                            <p className="patient-parameter-value">
-                                                { generateAgeText( unixBirthday ) }
-                                            </p>
-                                        </div>
+                        <div className="patient-primary-card-row">
+                            <div className="patient-primary-card">
+                                <div className="patient-data">
+                                    <div className="patient-avatar">
+                                    {/* {patientName.substring(0, 2)} */}
+                                    <img src={ IntegraNutri_ellipse } className="logo-item" alt="Icono IntegraNutri"/>
                                     </div>
-                                    <div className="patient-corrected-age">
-                                        {/* <div className="age-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
-                                                <circle cx="21.5" cy="21.5" r="21.5" fill="#D6EEFF"/>
-                                                <circle cx="20" cy="17" r="4" stroke="#5192C1" strokeLinecap="round" strokeWidth="2"/>
-                                                <path fill="#5192C1" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
-                                                <rect width="9" height="8" x="22" y="23" stroke="#5192C1" strokeWidth="2" rx="2"/>
-                                                <path fill="#5192C1" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
-                                                <path stroke="#5192C1" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
-                                                <rect width="2" height="1" x="24" y="26" fill="#5192C1" rx=".5"/>
-                                                <rect width="2" height="1" x="24" y="28" fill="#5192C1" rx=".5"/>
-                                                <rect width="2" height="1" x="27" y="26" fill="#5192C1" rx=".5"/>
-                                                <rect width="2" height="1" x="27" y="28" fill="#5192C1" rx=".5"/>
-                                            </svg>
-                                        </div> */}
-                                        <div className="patient-parameter-title">Edad Corregida</div>
-                                        <div className="patient-parameter-value-container">
-                                            {   ( correctedAgeIsSet === true )
-                                                ?   <p className="patient-parameter-value">
-                                                        { generateAgeText( unixCorrectedBirthday ) }
-                                                    </p>
-                                                :   <p className="patient-parameter-value">
-                                                        No aplica
-                                                    </p>
-                                            }
-                                        </div>
-                                    </div>  
-
+                                    <div className="patient-name">{patientName}</div>
+                                    <div className="patient-gender"><b>Género: </b>{gender}</div>
+                                    
                                 </div>
-                                <div className="patient-info-second-half-container">
-                                    <div className="patient-weight">
-                                        {/* <div className="weight-icon">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="43"
-                                            height="43"
-                                            fill="none"
-                                            viewBox="0 0 43 43"
-                                        >
-                                            <circle cx="21.5" cy="21.5" r="21.5" fill="#F5EEFF" />
-                                            <path
-                                            stroke="#452372"
-                                            strokeLinecap="round"
-                                            strokeWidth="2"
-                                            d="M33.591 26.106a12 12 0 1 0-23.182 0M22 11v2.667m-8.485.847L15.4 16.4m15.085-1.886L28.6 16.4m4.991 9.705-2.576-.69m-20.606.69 2.576-.69"
-                                            />
-                                            <path
-                                            stroke="#927CB0"
-                                            strokeWidth="2"
-                                            d="M24.717 22.618c.485 1.04-.204 2.388-1.54 3.01-1.334.622-2.81.284-3.294-.756-.553-1.186-2.143-7.956-2.964-11.532-.12-.522.547-.833.87-.405 2.212 2.927 6.375 8.497 6.928 9.683Z"
-                                            />
-                                        </svg>
-                                        </div> */}
-                                        <div className="patient-parameter-title">
-                                            Peso
-                                            {/* <span className="weight-indicator-panel"><p>Obesidad</p></span> */}
+                                <div className="patient-info-container">
+                                    <div className="patient-info-first-half-container">
+                                        <div className="patient-age">
+                                            {/* <div className="age-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
+                                                    <circle cx="21.5" cy="21.5" r="21.5" fill="#DBFFD6"/>
+                                                    <circle cx="20" cy="17" r="4" stroke="#5EC151" strokeLinecap="round" strokeWidth="2"/>
+                                                    <path fill="#5EC151" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
+                                                    <rect width="9" height="8" x="22" y="23" stroke="#5EC151" strokeWidth="2" rx="2"/>
+                                                    <path fill="#5EC151" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
+                                                    <path stroke="#5EC151" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
+                                                    <rect width="2" height="1" x="24" y="26" fill="#5EC151" rx=".5"/>
+                                                    <rect width="2" height="1" x="24" y="28" fill="#5EC151" rx=".5"/>
+                                                    <rect width="2" height="1" x="27" y="26" fill="#5EC151" rx=".5"/>
+                                                    <rect width="2" height="1" x="27" y="28" fill="#5EC151" rx=".5"/>
+                                                </svg>
+                                            </div> */}
+                                            <div className="patient-parameter-title">
+                                                {/* <img src={ Age_icon } className="patient-parameter-icon" alt="Icono IntegraNutri"/> */}
+                                                <p>Edad</p>
+                                            </div>
+                                            <div className="patient-parameter-value-container">
+                                                <p className="patient-parameter-value">
+                                                    { generateAgeText( unixBirthday ) }
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div className="patient-parameter-value-container">
-                                            <p className= "patient-parameter-value"> {
-                                                (weightLength > 0)
-                                                ? weight[weightLength - 1].A
-                                                : 'NaN'
-                                            } </p>
-                                            <div className="patient-parameter-unit">Kg</div>
+                                        <div className="patient-corrected-age">
+                                            {/* <div className="age-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="none" viewBox="0 0 43 43">
+                                                    <circle cx="21.5" cy="21.5" r="21.5" fill="#D6EEFF"/>
+                                                    <circle cx="20" cy="17" r="4" stroke="#5192C1" strokeLinecap="round" strokeWidth="2"/>
+                                                    <path fill="#5192C1" fillRule="evenodd" d="M21.327 24.076C20.889 24.026 20.445 24 20 24c-1.92 0-3.806.474-5.369 1.373-1.562.9-2.75 2.197-3.3 3.738a1 1 0 0 0 1.883.672c.362-1.01 1.182-1.967 2.415-2.676 1.014-.584 2.235-.957 3.529-1.07a3.005 3.005 0 0 1 2.169-1.961Z" clipRule="evenodd"/>
+                                                    <rect width="9" height="8" x="22" y="23" stroke="#5192C1" strokeWidth="2" rx="2"/>
+                                                    <path fill="#5192C1" d="M22 25a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2h-9Z"/>
+                                                    <path stroke="#5192C1" strokeLinecap="round" strokeWidth="2" d="M24 22v1m5-1v1"/>
+                                                    <rect width="2" height="1" x="24" y="26" fill="#5192C1" rx=".5"/>
+                                                    <rect width="2" height="1" x="24" y="28" fill="#5192C1" rx=".5"/>
+                                                    <rect width="2" height="1" x="27" y="26" fill="#5192C1" rx=".5"/>
+                                                    <rect width="2" height="1" x="27" y="28" fill="#5192C1" rx=".5"/>
+                                                </svg>
+                                            </div> */}
+                                            <div className="patient-parameter-title">Edad Corregida</div>
+                                            <div className="patient-parameter-value-container">
+                                                {   ( correctedAgeIsSet === true )
+                                                    ?   <p className="patient-parameter-value">
+                                                            { generateAgeText( unixCorrectedBirthday ) }
+                                                        </p>
+                                                    :   <p className="patient-parameter-value">
+                                                            No aplica
+                                                        </p>
+                                                }
+                                            </div>
+                                        </div>  
+
+                                    </div>
+                                    <div className="patient-info-second-half-container">
+                                        <div className="patient-weight">
+                                            {/* <div className="weight-icon">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="43"
+                                                height="43"
+                                                fill="none"
+                                                viewBox="0 0 43 43"
+                                            >
+                                                <circle cx="21.5" cy="21.5" r="21.5" fill="#F5EEFF" />
+                                                <path
+                                                stroke="#452372"
+                                                strokeLinecap="round"
+                                                strokeWidth="2"
+                                                d="M33.591 26.106a12 12 0 1 0-23.182 0M22 11v2.667m-8.485.847L15.4 16.4m15.085-1.886L28.6 16.4m4.991 9.705-2.576-.69m-20.606.69 2.576-.69"
+                                                />
+                                                <path
+                                                stroke="#927CB0"
+                                                strokeWidth="2"
+                                                d="M24.717 22.618c.485 1.04-.204 2.388-1.54 3.01-1.334.622-2.81.284-3.294-.756-.553-1.186-2.143-7.956-2.964-11.532-.12-.522.547-.833.87-.405 2.212 2.927 6.375 8.497 6.928 9.683Z"
+                                                />
+                                            </svg>
+                                            </div> */}
+                                            <div className="patient-parameter-title">
+                                                Peso
+                                                {/* <span className="weight-indicator-panel"><p>Obesidad</p></span> */}
+                                            </div>
+                                            <div className="patient-parameter-value-container">
+                                                <p className= "patient-parameter-value"> {
+                                                    (weightLength > 0)
+                                                    ? weight[weightLength - 1].A
+                                                    : 'NaN'
+                                                } </p>
+                                                <div className="patient-parameter-unit">Kg</div>
+                                                
+                                            </div>
                                             
                                         </div>
-                                        
-                                    </div>
-                                    <div className="patient-stature">
-                                        {/* <div className="stature-icon">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="43"
-                                            height="43"
-                                            fill="none"
-                                            viewBox="0 0 43 43"
-                                        >
-                                            <circle cx="21.5" cy="21.5" r="21.5" fill="#FFF3F1" />
-                                            <path
-                                            fill="#FF8976"
-                                            d="m18 12-.707-.707.707-.707.707.707L18 12Zm1 15a1 1 0 1 1-2 0h2Zm-6.707-10.707 5-5 1.414 1.414-5 5-1.414-1.414Zm6.414-5 5 5-1.414 1.414-5-5 1.414-1.414ZM19 12v15h-2V12h2Zm7 20-.707.707.707.707.707-.707L26 32Zm1-15a1 1 0 1 0-2 0h2Zm-6.707 10.707 5 5 1.414-1.414-5-5-1.414 1.414Zm6.414 5 5-5-1.414-1.414-5 5 1.414 1.414ZM27 32V17h-2v15h2Z"
-                                            />
-                                        </svg>
-                                        </div> */}
-                                        <div className="patient-parameter-title">Talla</div>
-                                        <div className="patient-parameter-value-container">
-                                            <p className= "patient-parameter-value"> { 
-                                                (statureLength > 0)
-                                                ? stature[statureLength - 1].A
-                                                : 'NaN'
-                                            } </p>
-                                            <div className="patient-parameter-unit">Cm</div>
-                                            
+                                        <div className="patient-stature">
+                                            {/* <div className="stature-icon">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="43"
+                                                height="43"
+                                                fill="none"
+                                                viewBox="0 0 43 43"
+                                            >
+                                                <circle cx="21.5" cy="21.5" r="21.5" fill="#FFF3F1" />
+                                                <path
+                                                fill="#FF8976"
+                                                d="m18 12-.707-.707.707-.707.707.707L18 12Zm1 15a1 1 0 1 1-2 0h2Zm-6.707-10.707 5-5 1.414 1.414-5 5-1.414-1.414Zm6.414-5 5 5-1.414 1.414-5-5 1.414-1.414ZM19 12v15h-2V12h2Zm7 20-.707.707.707.707.707-.707L26 32Zm1-15a1 1 0 1 0-2 0h2Zm-6.707 10.707 5 5 1.414-1.414-5-5-1.414 1.414Zm6.414 5 5-5-1.414-1.414-5 5 1.414 1.414ZM27 32V17h-2v15h2Z"
+                                                />
+                                            </svg>
+                                            </div> */}
+                                            <div className="patient-parameter-title">Talla</div>
+                                            <div className="patient-parameter-value-container">
+                                                <p className= "patient-parameter-value"> { 
+                                                    (statureLength > 0)
+                                                    ? stature[statureLength - 1].A
+                                                    : 'NaN'
+                                                } </p>
+                                                <div className="patient-parameter-unit">Cm</div>
+                                                
+                                            </div>
                                         </div>
+
                                     </div>
 
                                 </div>
 
+                                <button type="submit" hidden></button>
                             </div>
-
-                            <button type="submit" hidden></button>
+                        </div>
+                        <div className="patient-secondary-card-row">
+                            {
+                                (!!tallaDiana)
+                                ?   <TallaDiana tallaDiana = { tallaDiana }/>
+                                :   null
+                            }
                         </div>
                         {/* <div className="patient-alt-buttons">
                             <div className="alt-button-container">
@@ -2467,17 +2484,7 @@ export const PatientPage = () => {
                             
                         </div> */}
                     </div>
-                    {
-                        (isNutritionistStatus)
-                        ?   <div className="update-values-btn-container">
-                                
-                                {/* <ModalUpdatePatientValues type='peso' age={ ageText } uid={ uid } patientID={ patientID } weight={ weight } lastWeight={ lastWeight } stature={ stature } lastStature={ lastStature } imc={ imc }/> */}
-                                {/* <ModalPresionArterial/> */}
-                                {/* <ModalUpdateCorrectedAge age={ age } unixBirthday={ unixBirthday } uid={ uid } patientID={ patientID } /> */}
-                                
-                            </div>
-                        :   null
-                    }
+                    
                     
                     
                     <div className="accordion-container">

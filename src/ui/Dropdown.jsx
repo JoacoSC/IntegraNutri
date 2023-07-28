@@ -5,8 +5,13 @@ import './components';
 import { Link } from 'react-router-dom';
 import { ModalUpdatePatientValues } from './ModalUpdatePatientValues';
 import { ModalUpdateCorrectedAge } from './ModalUpdateCorrectedAge';
+import { ModalTallaDiana } from './ModalTallaDiana';
 
 export const Dropdown = ({
+        uid,
+        patientID,
+        gender,
+        age,
         updatePatientValuesObject,
         updateCorrectedAgeObject,
     }) => {
@@ -14,6 +19,9 @@ export const Dropdown = ({
     const [openDropdown, setOpenDropdown] = useState(false);
 
     const dropdownMenu = useRef();
+
+    // console.log('gender: ',gender)
+    // console.log('age: ',age)
 
     // const {
     //     type,
@@ -41,8 +49,8 @@ export const Dropdown = ({
     // })
 
     // console.log('openDropdown: ',openDropdown)
-    console.log('updatePatientValuesObject: ',updatePatientValuesObject)
-    console.log('openDropdown',openDropdown)
+    // console.log('updatePatientValuesObject: ',updatePatientValuesObject)
+    // console.log('openDropdown',openDropdown)
 
 
     return (
@@ -65,6 +73,10 @@ export const Dropdown = ({
                                 <div className='dropdown-item-container'>
                                     <ModalUpdateCorrectedAge updateCorrectedAgeObject = { updateCorrectedAgeObject } />
                                 </div>
+                                <div className='dropdown-item-container'>
+                                    <ModalTallaDiana uid={ uid } patientID={ patientID } />
+                                </div>
+                                
                                 {/* <div className='dropdown-item-container'>
                                     <button onClick={ buttonTest } className='dropdown-item-btn'>
                                         Soy un item

@@ -698,9 +698,11 @@ body{
     text-align: center;
 }
 
+.patient-primary-card-row{
+    display: flex;
+}
 
-
-.patient-card{
+.patient-primary-card{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -708,6 +710,13 @@ body{
     border-radius: 20px;
     background-color: white;
     box-shadow: var(--box-shadow);
+}
+
+.patient-secondary-card-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .patient-alt-buttons{
@@ -1127,6 +1136,8 @@ body{
     margin-left: 0.2rem;
     list-style: none;
     position: relative;
+    width: 20px;
+    height: 20px;
 }
 
 .alt-button-info:hover{
@@ -1167,14 +1178,14 @@ body{
 .alt-button-info:hover::after{
     opacity: 1;
     scale: 1;
-    left: calc(50% + 4.4rem);
+    left: calc(50% + 1.4rem);
     background-color: var(--clr-primary);
 }
 
 .alt-button-info:hover::before{
     opacity: 1;
     scale: 1;
-    left: calc(50% + 4.7rem);
+    left: calc(50% + 1.7rem);
 }
 
 .talla-diana-btn-patient{
