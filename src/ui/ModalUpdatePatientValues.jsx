@@ -51,7 +51,7 @@ export const ModalUpdatePatientValues = ({ updatePatientValuesObject }) => {
     const onCloseModal = () => {
         setOpenModal(false)
         setOpenDropdown(false)
-        console.log('openDropdown',openDropdown)
+        // console.log('openDropdown',openDropdown)
     }
 
     return (

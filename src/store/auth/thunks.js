@@ -134,7 +134,7 @@ export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, pa
             correctedAgeIsSet: false,
         }
 
-        console.log(newUser)
+        // console.log(newUser)
 
         const uid = FirebaseAuth.currentUser.uid;
 
@@ -155,7 +155,7 @@ export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, pa
 
         }
 
-        console.log( templateParams )
+        // console.log( templateParams )
 
         emailjs.send('service_xueiflu', 'template_lf0jvcb', templateParams, '41EFlO3aJuRq71GVI')
         .then((result) => {

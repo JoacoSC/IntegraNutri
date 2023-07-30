@@ -554,11 +554,12 @@ body{
     color: #9f0000;
 }
 
-.passwrod-change-successful-message{
+.password-change-successful-message{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;

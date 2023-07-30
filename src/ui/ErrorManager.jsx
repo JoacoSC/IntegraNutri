@@ -20,6 +20,9 @@ export const ErrorManager = ({ errorCode }) => {
         if(errorCode === 'auth/email-already-in-use'){
             setErrorMsg('Este email ya tiene una cuenta en IntegraNutri, utilice otra dirección de correo o solicite ayuda en: integranutricion.cl@gmail.com')
         }
+        if(errorCode === 'auth/wrong-password'){
+            setErrorMsg('Contraseña incorrecta')
+        }
     }, [errorCode])
 
     return (
