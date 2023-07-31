@@ -9,9 +9,9 @@ import './components';
 
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
 
-export const ModalUpdatePatientValues = ({ updatePatientValuesObject }) => {
+export const ModalUpdatePatientValues = ({ patientObject }) => {
 
-    const {type, age, uid, patientID, weight, stature, imc, lastWeight, lastStature} = updatePatientValuesObject;
+    const { ageText, uid, patientID, weight, stature, imc, lastWeight, lastStature} = patientObject;
 
     const [openModal, setOpenModal] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(false);
@@ -32,11 +32,11 @@ export const ModalUpdatePatientValues = ({ updatePatientValuesObject }) => {
     }
 
     const updatePatientValues = () => {
-        const newWeight = [ ...weight, { A: weightForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ];
-        const newStature = [ ...stature, { A: statureForm, B: age, C: format( new Date(), "dd/MM/yyyy") } ];
+        const newWeight = [ ...weight, { A: weightForm, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ];
+        const newStature = [ ...stature, { A: statureForm, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ];
         const IMCValue = weightForm / (statureForm/100)**2
 
-        const newIMC = [ ...imc, { A: IMCValue, B: age, C: format( new Date(), "dd/MM/yyyy") } ]
+        const newIMC = [ ...imc, { A: IMCValue, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ]
 
         dispatch( updateCurrentPatientWeight( newWeight ) );
         dispatch( startUpdatingCurrentPatientWeight( uid, patientID, newWeight ) );
@@ -112,7 +112,7 @@ export const ModalUpdatePatientValues = ({ updatePatientValuesObject }) => {
                                     
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Edad del paciente</label>
-                                <input className="input-text-style" type="text" name="age" defaultValue={ age } readOnly/>
+                                <input className="input-text-style" type="text" name="ageText" defaultValue={ ageText } readOnly/>
                             </div>                
                         </div>
                         

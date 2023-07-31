@@ -8,12 +8,9 @@ import './components';
 
 import TallaDianaIcon from '../../assets/imgs/patient/talla_diana_icon.svg'
 
-export const ModalTallaDiana = ({
-        uid,
-        patientID
-    }) => {
+export const ModalTallaDiana = ({ patientObject }) => {
 
-    const { gender } = useSelector( state => state.currentPatient )
+    const { uid, patientID, gender } = patientObject;
 
     const [openModal, setOpenModal] = useState(false);
 

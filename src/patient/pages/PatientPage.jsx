@@ -2149,23 +2149,20 @@ export const PatientPage = () => {
         dispatch( setErrorCode( null ) );
     }, []);
 
-    const updatePatientValuesObject = {
-        'type': 'peso',
-        'age' : ageText,
+    const patientObject = {
         'uid' : uid,
         'patientID' : patientID,
+        'type': 'peso',
+        'age' : age,
+        'ageText' : ageText,
         'weight' : weight,
         'lastWeight' : lastWeight,
         'stature' : stature,
         'lastStature' : lastStature,
         'imc' : imc,
-    }
-
-    const updateCorrectedAgeObject = {
-        'age' : age,
         'unixBirthday' : unixBirthday,
-        'uid' : uid,
-        'patientID' : patientID,
+        'gender' : gender,
+        'ageForCalcs' : ageForCalcs,
     }
     
     return (
@@ -2213,12 +2210,7 @@ export const PatientPage = () => {
                             {
                                 (isNutritionistStatus)
                                 ?   <Dropdown
-                                        uid = { uid }
-                                        patientID = { patientID }
-                                        gender = { gender }
-                                        age = { ageForCalcs }
-                                        updatePatientValuesObject = { updatePatientValuesObject }
-                                        updateCorrectedAgeObject = { updateCorrectedAgeObject }
+                                        patientObject = { patientObject }
                                     />
                                 :   null
                             }

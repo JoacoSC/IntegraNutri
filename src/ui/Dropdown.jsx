@@ -7,14 +7,7 @@ import { ModalUpdatePatientValues } from './ModalUpdatePatientValues';
 import { ModalUpdateCorrectedAge } from './ModalUpdateCorrectedAge';
 import { ModalTallaDiana } from './ModalTallaDiana';
 
-export const Dropdown = ({
-        uid,
-        patientID,
-        gender,
-        age,
-        updatePatientValuesObject,
-        updateCorrectedAgeObject,
-    }) => {
+export const Dropdown = ({ patientObject }) => {
 
     const [openDropdown, setOpenDropdown] = useState(false);
 
@@ -67,14 +60,14 @@ export const Dropdown = ({
                     ?   <>
                             <div className='dropdown-menu-container'>
                                 <div className='dropdown-item-container'>
-                                    <ModalUpdatePatientValues updatePatientValuesObject = { updatePatientValuesObject } />
+                                    <ModalUpdatePatientValues patientObject={ patientObject } />
                                     
                                 </div>
                                 <div className='dropdown-item-container'>
-                                    <ModalUpdateCorrectedAge updateCorrectedAgeObject = { updateCorrectedAgeObject } />
+                                    <ModalUpdateCorrectedAge patientObject={ patientObject } />
                                 </div>
                                 <div className='dropdown-item-container'>
-                                    <ModalTallaDiana uid={ uid } patientID={ patientID } />
+                                    <ModalTallaDiana patientObject={ patientObject } />
                                 </div>
                                 
                                 {/* <div className='dropdown-item-container'>

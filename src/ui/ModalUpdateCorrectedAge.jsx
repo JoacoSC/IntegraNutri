@@ -10,9 +10,9 @@ import './components';
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
 import CorrectedAgeIcon from '../../assets/imgs/patient/corrected_age_icon.svg'
 
-export const ModalUpdateCorrectedAge = ({ updateCorrectedAgeObject }) => {
+export const ModalUpdateCorrectedAge = ({ patientObject }) => {
 
-    const { age, unixBirthday, uid, patientID } = updateCorrectedAgeObject;
+    const { age, unixBirthday, uid, patientID } = patientObject;
 
     const [openModal, setOpenModal] = useState(false);
 
