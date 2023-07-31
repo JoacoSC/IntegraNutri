@@ -6,12 +6,16 @@ import { Link } from 'react-router-dom';
 import { ModalUpdatePatientValues } from './ModalUpdatePatientValues';
 import { ModalUpdateCorrectedAge } from './ModalUpdateCorrectedAge';
 import { ModalTallaDiana } from './ModalTallaDiana';
+import { ModalPerimetroCefalico } from './ModalPerimetroCefalico';
+import { useSelector } from 'react-redux';
 
 export const Dropdown = ({ patientObject }) => {
 
     const [openDropdown, setOpenDropdown] = useState(false);
 
     const dropdownMenu = useRef();
+
+    const { age } = useSelector( state => state.currentPatient )
 
     // console.log('gender: ',gender)
     // console.log('age: ',age)
@@ -69,6 +73,14 @@ export const Dropdown = ({ patientObject }) => {
                                 <div className='dropdown-item-container'>
                                     <ModalTallaDiana patientObject={ patientObject } />
                                 </div>
+                                {
+                                    ( age.y < 3 )
+                                    ?   <div className='dropdown-item-container'>
+                                            <ModalPerimetroCefalico patientObject={ patientObject } />
+                                        </div>
+                                    :   null
+                                }
+                                
                                 
                                 {/* <div className='dropdown-item-container'>
                                     <button onClick={ buttonTest } className='dropdown-item-btn'>

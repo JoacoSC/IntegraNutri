@@ -16,5 +16,6 @@ export * from './ModalDeleteConsultation';
 export * from './ModalPresionArterial';
 export * from './ErrorManager';
 export * from './Dropdown';
-export * from './TallaDiana';
+export * from './CardTallaDiana';
+export * from './CardPerimetroCefalico';
 export * from './Footer';

@@ -54,7 +54,7 @@ import {
 } from "../../data";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
-import { Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues, TallaDiana } from "../../ui";
+import { CardPerimetroCefalico, CardTallaDiana, Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
 import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
 import Dropdown_arrow from '../../../assets/imgs/patient/dropdown_arrow.svg'
 
@@ -266,7 +266,14 @@ export const PatientPage = () => {
                 return y + " años " + m + " meses";
             }else{
                 m2 = m + 1;
-                return y + " años " + m2 + " meses";
+                if( m2 === 12 ){
+                    y2 = y + 1;
+                    m2 = 0;
+                    return y2 + " años " + m2 + " meses";
+                }else{
+
+                    return y + " años " + m2 + " meses";
+                }
             }
         }
     }
@@ -2225,6 +2232,12 @@ export const PatientPage = () => {
                                     </div>
                                     <div className="patient-name">{patientName}</div>
                                     <div className="patient-gender"><b>Género: </b>{gender}</div>
+                                    <div className="patient-gender"><b>Fecha de nacimiento: </b>
+                                    {   (unixBirthday)
+                                        ?   format(fromUnixTime(unixBirthday), "dd/MMM/yyyy")
+                                        :   null
+                                        
+                                    }</div>
                                     
                                 </div>
                                 <div className="patient-info-container">
@@ -2360,7 +2373,13 @@ export const PatientPage = () => {
                         <div className="patient-secondary-card-row">
                             {
                                 (!!tallaDiana)
-                                ?   <TallaDiana tallaDiana = { tallaDiana }/>
+                                ?   <CardTallaDiana tallaDiana = { tallaDiana }/>
+                                :   null
+                            }
+                        
+                            {
+                                (!!perimetroCefalico && ageForCalcs.y < 3)
+                                ?   <CardPerimetroCefalico/>
                                 :   null
                             }
                         </div>

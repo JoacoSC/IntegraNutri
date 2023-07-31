@@ -4,7 +4,7 @@ import AvatarMasculino from '../../assets/imgs/patient/avatar_masculino.svg'
 import AvatarFemenino from '../../assets/imgs/patient/avatar_femenino.svg'
 import TallaDianaForAvatar from '../../assets/imgs/patient/talla_diana-for-avatar.svg'
 
-export const TallaDiana = ({ tallaDiana }) => {
+export const CardTallaDiana = ({ tallaDiana }) => {
 
     const { gender } = useSelector((state) => state.currentPatient);
 

@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    height: 180px;
     min-width: 200px;
     margin: 1rem 1rem 1rem 1rem;
     border-radius: 20px;
@@ -23,8 +24,11 @@
 .patient-secondary-card-content{
     display: flex;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.5rem;
+    height: 100%;
 }
+
+/* TALLA DIANA */
 
 .talla-diana-avatar{
     padding: 1rem 0 1rem 2rem;
@@ -44,6 +48,38 @@
     font-weight: 600;
     font-size: 1.2rem;
 }
+
+/* TALLA DIANA */
+
+/* PERIMETRO CEFALICO */
+
+.perimetro-cefalico-measure{
+    padding: 0.5rem 0 0 0;
+    height: 45px;
+}
+
+.perimetro-cefalico-avatar{
+    padding: 0 0 1rem 0;
+    height: 70px;
+}
+
+.perimetro-cefalico-value-container{
+    display: flex;
+    justify-content: center;
+    padding-left: 0.5rem;
+    gap: 1rem;
+}
+
+.perimetro-cefalico-value{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* PERIMETRO CEFALICO */
 
 .patient-secondary-card-footer{
     padding: 0 2rem 0.8rem;
