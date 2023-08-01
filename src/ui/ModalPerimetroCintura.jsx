@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientPerimetroCintura } from '../store/currentPatient';
-import './components';
+
 import PC_masculino from '../../assets/imgs/patient/perimetro_cintura_masculino_v2.svg'
 import PC_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino_v2.svg'
+import TallaDianaIcon from '../../assets/imgs/patient/talla_diana_icon.svg'
+import './components';
 
-export const ModalPerimetroCintura = ({
-        uid,
-        patientID
-    }) => {
+export const ModalPerimetroCintura = ({ patientObject }) => {
+
+    const { uid, patientID } = patientObject;
 
     const { gender } = useSelector( state => state.currentPatient )
 
@@ -62,17 +63,14 @@ export const ModalPerimetroCintura = ({
 
     return (
         <>
-            <div className="alt-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
-                Calcular Perímetro de Cintura&nbsp;
-                <svg width="22" height="20" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="13" cy="15" r="7.75" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <circle cx="10.75" cy="13.5" r="1" fill="white" stroke="white" strokeWidth="0.5" strokeLinecap="round"/>
-                    <circle cx="15.25" cy="13.5" r="1" fill="white" stroke="white" strokeWidth="0.5" strokeLinecap="round"/>
-                    <path fillRule="evenodd" clipRule="evenodd" d="M10.6188 17.25C10.3383 17.25 10.198 17.25 10.124 17.3631C10.05 17.4763 10.099 17.5884 10.1971 17.8127C10.6285 18.7994 11.7207 19.5 13 19.5C14.2793 19.5 15.3715 18.7994 15.8029 17.8127C15.901 17.5884 15.95 17.4763 15.876 17.3631C15.802 17.25 15.6618 17.25 15.3813 17.25H10.6188Z" fill="white"/>
-                    <path d="M24 4L21.25 1M24 4L21.25 7M24 4L2 4M2 4L4.75 7M2 4L4.75 1" stroke="white" strokeWidth="2"/>
-                </svg>
-
-            </div>
+            <button onClick={ () => setOpenModal(true) } className='dropdown-item-btn'>
+                <label className='dropdown-item-img'>
+                    <img src={ TallaDianaIcon }/>
+                </label>
+                <p>
+                    Calcular Perímetro de Cintura&nbsp;
+                </p>
+            </button>
             <CSSTransition
                 timeout={300}
                 classNames="overlay"

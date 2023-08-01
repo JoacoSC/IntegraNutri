@@ -18,4 +18,5 @@ export * from './ErrorManager';
 export * from './Dropdown';
 export * from './CardTallaDiana';
 export * from './CardPerimetroCefalico';
+export * from './CardPerimetroCintura';
 export * from './Footer';

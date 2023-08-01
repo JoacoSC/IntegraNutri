@@ -3,10 +3,8 @@ import { CSSTransition } from "react-transition-group";
 import Modal from 'react-modal';
 import './components';
 import { Link } from 'react-router-dom';
-import { ModalUpdatePatientValues } from './ModalUpdatePatientValues';
-import { ModalUpdateCorrectedAge } from './ModalUpdateCorrectedAge';
+import { ModalUpdatePatientValues, ModalUpdateCorrectedAge, ModalPerimetroCefalico, ModalPerimetroCintura } from './';
 import { ModalTallaDiana } from './ModalTallaDiana';
-import { ModalPerimetroCefalico } from './ModalPerimetroCefalico';
 import { useSelector } from 'react-redux';
 
 export const Dropdown = ({ patientObject }) => {
@@ -77,6 +75,13 @@ export const Dropdown = ({ patientObject }) => {
                                     ( age.y < 3 )
                                     ?   <div className='dropdown-item-container'>
                                             <ModalPerimetroCefalico patientObject={ patientObject } />
+                                        </div>
+                                    :   null
+                                }
+                                {
+                                    ( age.y > 5 && age.y < 20 )
+                                    ?   <div className='dropdown-item-container'>
+                                            <ModalPerimetroCintura patientObject={ patientObject } />
                                         </div>
                                     :   null
                                 }

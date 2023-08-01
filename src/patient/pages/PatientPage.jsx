@@ -54,7 +54,7 @@ import {
 } from "../../data";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
-import { CardPerimetroCefalico, CardTallaDiana, Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
+import { CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
 import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
 import Dropdown_arrow from '../../../assets/imgs/patient/dropdown_arrow.svg'
 
@@ -2373,13 +2373,19 @@ export const PatientPage = () => {
                         <div className="patient-secondary-card-row">
                             {
                                 (!!tallaDiana)
-                                ?   <CardTallaDiana tallaDiana = { tallaDiana }/>
+                                ?   <CardTallaDiana/>
                                 :   null
                             }
                         
                             {
                                 (!!perimetroCefalico && ageForCalcs.y < 3)
                                 ?   <CardPerimetroCefalico/>
+                                :   null
+                            }
+
+                            {
+                                (!!perimetroCintura && ageForCalcs.y > 5)
+                                ?   <CardPerimetroCintura/>
                                 :   null
                             }
                         </div>

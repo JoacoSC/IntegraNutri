@@ -45,8 +45,8 @@
     align-items: center;
     padding-left: 0.5rem;
     font-family: "Metropolis", sans-serif;
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
 /* TALLA DIANA */
@@ -81,6 +81,28 @@
 
 /* PERIMETRO CEFALICO */
 
+/* PERIMETRO CINTURA */
+.perimetro-cintura-avatar-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.perimetro-cintura-avatar{
+    /* padding: 1rem 0 1rem 2rem; */
+    height: 80px;
+}
+
+.perimetro-cintura-measure{
+    position: absolute;
+    width: 38px;
+    top: 3.5rem;
+    left: calc(50% - 1.2rem);
+}
+
+/* PERIMETRO CINTURA */
+
 .patient-secondary-card-footer{
     padding: 0 2rem 0.8rem;
     font-family: "Metropolis", sans-serif;
@@ -88,4 +110,26 @@
     font-size: 0.8rem;
     text-align: center;
     color: #7b7b7b;
+}
+
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.pl-1{
+    padding-left: 1rem;
+}
+.pr-1{
+    padding-right: 1rem;
+}
+.pl-2{
+    padding-left: 2rem;
+}
+.pr-2{
+    padding-right: 2rem;
 }
