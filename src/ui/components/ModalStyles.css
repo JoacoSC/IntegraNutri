@@ -570,6 +570,20 @@
     gap: 2rem;
 }
 
+.modal-chart-info-container{
+    display: flex;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.modal-chart-info{
+    padding: 0.5rem 1rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
 .modal-chart-container{
     height: 100%;
     min-height: 300px;

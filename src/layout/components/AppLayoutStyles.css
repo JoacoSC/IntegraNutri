@@ -700,6 +700,8 @@ body{
 
 .patient-primary-card-row{
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .patient-primary-card{

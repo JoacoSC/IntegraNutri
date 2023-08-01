@@ -4,16 +4,59 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
 import './components';
-import PA_masculino from '../../assets/imgs/patient/perimetro_cintura_masculino_v2.svg'
-import PA_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino_v2.svg'
 
-export const ModalPresionArterial = () => {
+import PA_M1 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_1.svg'
+import PA_M2 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_2.svg'
+import PA_M3 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_3.svg'
+import PA_M4 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_4.svg'
+import PA_M5 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_5.svg'
+import PA_M6 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_6.svg'
+import PA_M7 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_7.svg'
+import PA_M8 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_8.svg'
+import PA_M9 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_9.svg'
+import PA_M10 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_10.svg'
+import PA_M11 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_11.svg'
+import PA_M12 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_12.svg'
+import PA_M13 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_13.svg'
+import PA_M14 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_14.svg'
+import PA_M15 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_15.svg'
+import PA_M16 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_16.svg'
+import PA_M17 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_masculino_17.svg'
+
+import PA_F1 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_1.svg'
+import PA_F2 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_2.svg'
+import PA_F3 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_3.svg'
+import PA_F4 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_4.svg'
+import PA_F5 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_5.svg'
+import PA_F6 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_6.svg'
+import PA_F7 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_7.svg'
+import PA_F8 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_8.svg'
+import PA_F9 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_9.svg'
+import PA_F10 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_10.svg'
+import PA_F11 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_11.svg'
+import PA_F12 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_12.svg'
+import PA_F13 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_13.svg'
+import PA_F14 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_14.svg'
+import PA_F15 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_15.svg'
+import PA_F16 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_16.svg'
+import PA_F17 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arterial_femenino_17.svg'
+// import PA_masculino from '../../assets/imgs/patient/perimetro_cintura_masculino_v2.svg'
+// import PA_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino_v2.svg'
+// import PA_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino_v2.svg'
+import TallaDianaIcon from '../../assets/imgs/patient/talla_diana_icon.svg'
+import { startUpdatingCurrentPatientPresionArterial } from '../store/currentPatient';
+
+export const ModalPresionArterial = ({ patientObject }) => {
+
+    const { uid, patientID, ageText, ageForCalcs, stature } = patientObject;
 
     const { gender } = useSelector( state => state.currentPatient )
 
     const [openModal, setOpenModal] = useState(false);
 
     const [PAClasificacion, setPAClasificacion] = useState('');
+
+    const statureLength = stature?.length;
     
     const { 
         PAMedicion,
@@ -26,13 +69,13 @@ export const ModalPresionArterial = () => {
     const onSubmit = ( event ) => {
         event.preventDefault();
 
-        const perimetroCintura = {
+        const presionArterial = {
             PAMedicion,
             PARegistro,
             PAClasificacion
         }
 
-        console.log(perimetroCintura)
+        dispatch( startUpdatingCurrentPatientPresionArterial( uid, patientID, presionArterial ) )
 
         // dispatch( startUpdatingCurrentPatientPerimetroCintura( uid, patientID, perimetroCintura ) )
 
@@ -61,16 +104,14 @@ export const ModalPresionArterial = () => {
 
     return (
         <>
-            <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
-                Evaluación de presión arterial&nbsp;
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                    <path stroke="#fff" strokeWidth="2" d="m11.667 12.5-3.334 3.333 3.334 3.334"/>
-                    <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M15.052 7.083A5.834 5.834 0 0 1 10 15.833"/>
-                    <path stroke="#fff" strokeWidth="2" d="m8.333 7.5 3.334-3.333L8.333.833"/>
-                    <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M4.948 12.917A5.833 5.833 0 0 1 10 4.167"/>
-                </svg>
-
-            </div>
+            <button onClick={ () => setOpenModal(true) } className='dropdown-item-btn'>
+                <label className='dropdown-item-img'>
+                    <img src={ TallaDianaIcon }/>
+                </label>
+                <p>
+                    Evaluación de presión arterial&nbsp;
+                </p>
+            </button>
             <CSSTransition
                 timeout={300}
                 classNames="overlay"
@@ -105,7 +146,7 @@ export const ModalPresionArterial = () => {
                                     Percentil
                                 </label>
                                     <select className="input-text-style h-2" name="PARegistro" onChange={ onInputChange }>
-                                        <option selected>Seleccione una opción</option>
+                                        <option>Seleccione una opción</option>
                                         <option value='50'>50</option>
                                         <option value='90'>90</option>
                                         <option value='95'>95</option>
@@ -130,14 +171,110 @@ export const ModalPresionArterial = () => {
                                 </div>
                             </div>            
                         </div>
+                        <div className='modal-chart-info-container'>
+                            <div className='modal-chart-info'>
+                                <b>Edad: </b>{ ageText }
+                            </div>
+                            <div className='modal-chart-info'>
+                                <b>Estatura: </b>
+                                {   (statureLength > 0)
+                                    ? stature[statureLength - 1].A + ' cm'
+                                    : ''
+                                }
+                            </div>
+                        </div>
                         <div className="modal-chart-container">
                             {
                                 (gender === 'Masculino')
                                 ?   <>
                                         {/* <p className='modal-chart-title'>
                                             PERÍMETRO DE CINTURA POR EDAD EN NIÑOS Y ADOLESCENTES DE 5 a 19 AÑOS
-                                        </p>                                         */}
-                                        <img src={ PA_masculino } className='modal-chart'/>
+                                        </p>*/}
+                                        {
+                                            ( ageForCalcs.y === 1 )
+                                            ?   <img src={ PA_M1 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 2 )
+                                            ?   <img src={ PA_M2 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 3 )
+                                            ?   <img src={ PA_M3 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 4 )
+                                            ?   <img src={ PA_M4 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 5 )
+                                            ?   <img src={ PA_M5 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 6 )
+                                            ?   <img src={ PA_M6 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 7 )
+                                            ?   <img src={ PA_M7 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 8 )
+                                            ?   <img src={ PA_M8 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 9 )
+                                            ?   <img src={ PA_M9 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 10 )
+                                            ?   <img src={ PA_M10 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 11 )
+                                            ?   <img src={ PA_M11 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 12 )
+                                            ?   <img src={ PA_M12 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 13 )
+                                            ?   <img src={ PA_M13 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 14 )
+                                            ?   <img src={ PA_M14 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 15 )
+                                            ?   <img src={ PA_M15 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 16 )
+                                            ?   <img src={ PA_M16 } className='modal-chart'/>
+                                            :   null
+                                        }
+                                        {
+                                            ( ageForCalcs.y === 17 )
+                                            ?   <img src={ PA_M17 } className='modal-chart'/>
+                                            :   null
+                                        }
                                         {/* <p className='modal-chart-ref'>
                                             Referencias:
                                         </p>
@@ -151,7 +288,91 @@ export const ModalPresionArterial = () => {
                                             {/* <p className='modal-chart-title'>
                                                 PERÍMETRO DE CINTURA POR EDAD EN NIÑAS Y ADOLESCENTES DE 5 a 19 AÑOS
                                             </p> */}
-                                            <img src={ PA_femenino } className='modal-chart'/>
+                                            {
+                                                ( ageForCalcs.y === 1 )
+                                                ?   <img src={ PA_F1 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 2 )
+                                                ?   <img src={ PA_F2 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 3 )
+                                                ?   <img src={ PA_F3 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 4 )
+                                                ?   <img src={ PA_F4 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 5 )
+                                                ?   <img src={ PA_F5 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 6 )
+                                                ?   <img src={ PA_F6 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 7 )
+                                                ?   <img src={ PA_F7 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 8 )
+                                                ?   <img src={ PA_F8 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 9 )
+                                                ?   <img src={ PA_F9 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 10 )
+                                                ?   <img src={ PA_F10 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 11 )
+                                                ?   <img src={ PA_F11 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 12 )
+                                                ?   <img src={ PA_F12 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 13 )
+                                                ?   <img src={ PA_F13 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 14 )
+                                                ?   <img src={ PA_F14 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 15 )
+                                                ?   <img src={ PA_F15 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 16 )
+                                                ?   <img src={ PA_F16 } className='modal-chart'/>
+                                                :   null
+                                            }
+                                            {
+                                                ( ageForCalcs.y === 17 )
+                                                ?   <img src={ PA_F17 } className='modal-chart'/>
+                                                :   null
+                                            }
                                             {/* <p className='modal-chart-ref'>
                                                 Referencias:
                                             </p>

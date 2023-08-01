@@ -133,3 +133,9 @@
 .pr-2{
     padding-right: 2rem;
 }
+.p-2{
+    padding: 2rem;
+}
+.h-auto{
+    height: auto;
+}

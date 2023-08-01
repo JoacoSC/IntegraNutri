@@ -57,6 +57,7 @@ import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChan
 import { CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
 import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
 import Dropdown_arrow from '../../../assets/imgs/patient/dropdown_arrow.svg'
+import { CardPresionArterial } from "../../ui/CardPresionArterial";
 
 
 export const PatientPage = () => {
@@ -88,6 +89,7 @@ export const PatientPage = () => {
         tallaDiana,
         perimetroCefalico,
         perimetroCintura,
+        presionArterial,
     } = useSelector((state) => state.currentPatient);
 
     const [isLoading, setIsLoading] = useState( true );
@@ -2369,6 +2371,11 @@ export const PatientPage = () => {
 
                                 <button type="submit" hidden></button>
                             </div>
+                            {
+                                (!!presionArterial && ageForCalcs.y > 0)
+                                ?   <CardPresionArterial/>
+                                :   null
+                            }
                         </div>
                         <div className="patient-secondary-card-row">
                             {
@@ -2376,18 +2383,17 @@ export const PatientPage = () => {
                                 ?   <CardTallaDiana/>
                                 :   null
                             }
-                        
                             {
                                 (!!perimetroCefalico && ageForCalcs.y < 3)
                                 ?   <CardPerimetroCefalico/>
                                 :   null
                             }
-
                             {
                                 (!!perimetroCintura && ageForCalcs.y > 5)
                                 ?   <CardPerimetroCintura/>
                                 :   null
                             }
+                            
                         </div>
                         {/* <div className="patient-alt-buttons">
                             <div className="alt-button-container">
