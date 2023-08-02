@@ -674,6 +674,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 1rem;
 }
 
 .patient-navbar{
@@ -1140,6 +1141,7 @@ body{
     position: relative;
     width: 20px;
     height: 20px;
+    margin-top: 30px;
 }
 
 .alt-button-info:hover{
@@ -1150,7 +1152,7 @@ body{
     content: attr(data-tooltip);
     width: 8rem;
     position: absolute;
-    left: calc(50% + 3.5rem);
+    left: calc(50% - 6.5rem);
     top: -0.35rem;
     background: var(--clr-primary);
     color: white;
@@ -1169,8 +1171,8 @@ body{
     height: 12px;
     border-radius: 2px;
     background-color: transparent;
-    left: calc(50% + 5.5rem);
-    top: 0.35rem;
+    left: calc(50% - 0.4rem);
+    top: 4rem;
     transition: all 150ms ease;
     transform: rotate(45deg);
     opacity: 0;
@@ -1180,14 +1182,14 @@ body{
 .alt-button-info:hover::after{
     opacity: 1;
     scale: 1;
-    left: calc(50% + 1.4rem);
+    top: calc(50% + 0.7rem);
     background-color: var(--clr-primary);
 }
 
 .alt-button-info:hover::before{
     opacity: 1;
     scale: 1;
-    left: calc(50% + 1.7rem);
+    top: calc(50% + 1rem);
 }
 
 .talla-diana-btn-patient{
@@ -1572,3 +1574,23 @@ body{
 
 /* **************** Settings page ****************** */
 
+@media screen and (max-width: 1450px){
+
+    .patient-primary-card{
+        flex-direction: column;
+        margin: 1rem;
+    }
+    .patient-data{
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+    }
+    .patient-info-container{
+        padding: 1rem 0 1.5rem 0;
+    }
+    .patient-primary-card-row{
+        align-items: center;
+    }
+    .patient-secondary-card{
+        width: 400px;
+    }
+}

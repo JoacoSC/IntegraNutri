@@ -7,7 +7,7 @@ export const CardPresionArterial = () => {
     const { presionArterial, gender } = useSelector((state) => state.currentPatient);
 
     return (
-        <div className='patient-secondary-card h-auto'>
+        <div className='patient-secondary-card'>
             <div className='patient-secondary-card-title'>
                 Presión Arterial
             </div>
