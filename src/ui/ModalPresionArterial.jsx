@@ -43,7 +43,7 @@ import PA_F17 from '../../assets/imgs/patient/imgs_presion_arterial/presion_arte
 // import PA_masculino from '../../assets/imgs/patient/perimetro_cintura_masculino_v2.svg'
 // import PA_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino_v2.svg'
 // import PA_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino_v2.svg'
-import TallaDianaIcon from '../../assets/imgs/patient/talla_diana_icon.svg'
+import HeartIconWhite from '../../assets/imgs/patient/heart_icon_white.svg'
 import { startUpdatingCurrentPatientPresionArterial } from '../store/currentPatient';
 
 export const ModalPresionArterial = ({ patientObject }) => {
@@ -106,7 +106,7 @@ export const ModalPresionArterial = ({ patientObject }) => {
         <>
             <button onClick={ () => setOpenModal(true) } className='dropdown-item-btn'>
                 <label className='dropdown-item-img'>
-                    <img src={ TallaDianaIcon }/>
+                    <img src={ HeartIconWhite }/>
                 </label>
                 <p>
                     Evaluación de presión arterial&nbsp;

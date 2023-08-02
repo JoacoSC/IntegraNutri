@@ -7,7 +7,7 @@ import { startUpdatingCurrentPatientPerimetroCintura } from '../store/currentPat
 
 import PC_masculino from '../../assets/imgs/patient/perimetro_cintura_masculino_v2.svg'
 import PC_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino_v2.svg'
-import TallaDianaIcon from '../../assets/imgs/patient/talla_diana_icon.svg'
+import PerimetroCinturaIcon from '../../assets/imgs/patient/perimetro_cintura-for-avatar-icon.svg'
 import './components';
 
 export const ModalPerimetroCintura = ({ patientObject }) => {
@@ -65,7 +65,7 @@ export const ModalPerimetroCintura = ({ patientObject }) => {
         <>
             <button onClick={ () => setOpenModal(true) } className='dropdown-item-btn'>
                 <label className='dropdown-item-img'>
-                    <img src={ TallaDianaIcon }/>
+                    <img src={ PerimetroCinturaIcon }/>
                 </label>
                 <p>
                     Calcular Perímetro de Cintura&nbsp;

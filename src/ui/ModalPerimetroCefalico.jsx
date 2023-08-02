@@ -7,7 +7,7 @@ import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientPerimetroCefalico } from '../store/currentPatient';
 import PCe_masculino from '../../assets/imgs/patient/perimetro_cefalico_masculino_v2.svg'
 import PCe_femenino from '../../assets/imgs/patient/perimetro_cefalico_femenino_v2.svg'
-import TallaDianaIcon from '../../assets/imgs/patient/talla_diana_icon.svg'
+import PerimetroCefalicoIcon from '../../assets/imgs/patient/perimetro_cefalico-for-avatar-icon.svg'
 import './components';
 
 
@@ -70,7 +70,7 @@ export const ModalPerimetroCefalico = ({ patientObject }) => {
         <>
             <button onClick={ () => setOpenModal(true) } className='dropdown-item-btn'>
                 <label className='dropdown-item-img'>
-                    <img src={ TallaDianaIcon }/>
+                    <img src={ PerimetroCefalicoIcon }/>
                 </label>
                 <p>
                     Calcular Perímetro Cefálico&nbsp;
