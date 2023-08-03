@@ -214,8 +214,9 @@ export const PatientPage = () => {
 
         updateChart();        
         if( weight !== null && stature !== null ){
-            setLastWeight( weight[weight.length - 1].A )
-            setLastStature( stature[stature.length - 1].A )
+            // tt = tt.replace(/,/g, '.')
+            setLastWeight( weight[weight.length - 1].A.replace(/,/g, '.') )
+            setLastStature( stature[stature.length - 1].A.replace(/,/g, '.') )
             
             // console.log(lastWeight)
         }
@@ -438,6 +439,7 @@ export const PatientPage = () => {
         // PE Button
         if( ageForCalcs.y <= 1 || ageForCalcs === 2 && ageForCalcs.m === 0 ){
             // De cero a dos
+            
             setHideChartButtons({
                 PEButton: false,
                 TEButton: false,
@@ -447,6 +449,7 @@ export const PatientPage = () => {
         }
         if ( ageForCalcs.y === 2 && ageForCalcs.m > 0 ){
             // De dos a cinco
+            
             setHideChartButtons({
                 PEButton: false,
                 TEButton: false,
@@ -457,6 +460,7 @@ export const PatientPage = () => {
         
         if( ageForCalcs.y > 2 && ageForCalcs.y <= 4 || ageForCalcs.y === 5 && ageForCalcs.m === 0 ){
             // De dos a cinco
+            
             setHideChartButtons({
                 PEButton: false,
                 TEButton: false,
@@ -467,8 +471,9 @@ export const PatientPage = () => {
 
         if( ageForCalcs.y === 5 && ageForCalcs.m > 0 ){
             // De cinco a diez
+            
             setHideChartButtons({
-                PEButton: false,
+                PEButton: true,
                 TEButton: false,
                 PTButton: true,
                 IMCButton: false,
@@ -476,8 +481,9 @@ export const PatientPage = () => {
         }
         if( ageForCalcs.y > 5 && ageForCalcs.y <= 9 || ageForCalcs.y === 10 && ageForCalcs.m === 0 ){
             // De cinco a diez
+            
             setHideChartButtons({
-                PEButton: false,
+                PEButton: true,
                 TEButton: false,
                 PTButton: true,
                 IMCButton: false,
@@ -486,6 +492,7 @@ export const PatientPage = () => {
 
         if( ageForCalcs.y === 10 && ageForCalcs.m > 0 ){
             // De diez a diecinueve
+            
             setHideChartButtons({
                 PEButton: true,
                 TEButton: false,
@@ -495,6 +502,7 @@ export const PatientPage = () => {
         }
         if( ageForCalcs.y > 10 && ageForCalcs.y <= 18 || ageForCalcs.y === 19 && ageForCalcs.m === 0 ){
             // De diez a diecinueve
+            
             setHideChartButtons({
                 PEButton: true,
                 TEButton: false,
@@ -502,6 +510,7 @@ export const PatientPage = () => {
                 IMCButton: false,
             })
         }
+        
     }
 
     useEffect(() => {
@@ -574,6 +583,11 @@ export const PatientPage = () => {
         
 
     }, [correctedAgeIsSet])
+
+    useEffect(() => {
+        handleHideChartButtons();
+    }, [ageForCalcs])
+    
 
     // console.log('ageForCalcs: ', ageForCalcs)
     
