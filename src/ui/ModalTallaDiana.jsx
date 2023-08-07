@@ -24,9 +24,9 @@ export const ModalTallaDiana = ({ patientObject }) => {
 
     const onSubmit = ( event ) => {
         event.preventDefault();
-
-        const fatherStatureValue = parseInt(fatherStature, 10);
-        const motherStatureValue = parseInt(motherStature, 10);
+        
+        const fatherStatureValue = parseFloat(fatherStature.replace(/,/g, '.'));
+        const motherStatureValue = parseFloat(motherStature.replace(/,/g, '.'));
         
         if( gender === 'Masculino' ){
             const tallaDiana = ( fatherStatureValue + ( motherStatureValue + 13 ) ) /2
@@ -89,13 +89,13 @@ export const ModalTallaDiana = ({ patientObject }) => {
                                 <label className="input-label">
                                     Estatura del padre
                                 </label>
-                                    <input className="input-text-style" type="number" name="fatherStature" onChange={ onInputChange }/>
+                                    <input className="input-text-style" type="text" name="fatherStature" onChange={ onInputChange }/>
                             </div>
                             <div className="form-item w-50 pr-8">
                                 <label className="input-label">
                                     Estatura de la madre
                                 </label>
-                                    <input className="input-text-style" type="number" name="motherStature" onChange={ onInputChange }/>
+                                    <input className="input-text-style" type="text" name="motherStature" onChange={ onInputChange }/>
                             </div>            
                         </div>
                         

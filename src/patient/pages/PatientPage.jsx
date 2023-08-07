@@ -215,8 +215,8 @@ export const PatientPage = () => {
         updateChart();        
         if( weight !== null && stature !== null ){
             // tt = tt.replace(/,/g, '.')
-            setLastWeight( weight[weight.length - 1].A.replace(/,/g, '.') )
-            setLastStature( stature[stature.length - 1].A.replace(/,/g, '.') )
+            setLastWeight( weight[weight.length - 1].A?.replace(/,/g, '.') )
+            setLastStature( stature[stature.length - 1].A?.replace(/,/g, '.') )
             
             // console.log(lastWeight)
         }
@@ -2342,11 +2342,14 @@ export const PatientPage = () => {
                                             </div>
                                             <div className="patient-parameter-value-container">
                                                 <p className= "patient-parameter-value"> {
-                                                    (weightLength > 0)
-                                                    ? weight[weightLength - 1].A
-                                                    : 'NaN'
+                                                    (weightLength > 1)
+                                                    ?   <>
+                                                            {weight[weightLength - 1].A}
+                                                            <div className="patient-parameter-unit">Kg</div> 
+                                                        </>
+                                                    : 'No hay datos'
                                                 } </p>
-                                                <div className="patient-parameter-unit">Kg</div>
+                                                
                                                 
                                             </div>
                                             
@@ -2370,11 +2373,14 @@ export const PatientPage = () => {
                                             <div className="patient-parameter-title">Talla</div>
                                             <div className="patient-parameter-value-container">
                                                 <p className= "patient-parameter-value"> { 
-                                                    (statureLength > 0)
-                                                    ? stature[statureLength - 1].A
-                                                    : 'NaN'
+                                                    (statureLength > 1)
+                                                    ?   <>
+                                                        {stature[statureLength - 1].A}
+                                                        <div className="patient-parameter-unit">Cm</div>
+
+                                                    </> 
+                                                    : 'No hay datos'
                                                 } </p>
-                                                <div className="patient-parameter-unit">Cm</div>
                                                 
                                             </div>
                                         </div>

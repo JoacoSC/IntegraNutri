@@ -298,7 +298,7 @@ body{
 }
 
 .input-text-style{
-    padding: 0;
+    padding: 0.5rem;
     border: none;
     height: 3rem;
     font-family: "Metropolis", sans-serif;

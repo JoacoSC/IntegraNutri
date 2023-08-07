@@ -75,6 +75,7 @@ export const ModalNewPatient = () => {
         // console.log('gender: ', gender)
         if ( isValid ){
             dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) )
+            setOpenModal(false)
             
         }
 

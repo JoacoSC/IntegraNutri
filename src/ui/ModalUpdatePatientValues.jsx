@@ -32,9 +32,12 @@ export const ModalUpdatePatientValues = ({ patientObject }) => {
     }
 
     const updatePatientValues = () => {
-        const newWeight = [ ...weight, { A: weightForm, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ];
-        const newStature = [ ...stature, { A: statureForm, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ];
-        const IMCValue = weightForm / (statureForm/100)**2
+        
+        const weightFormValidation = weightForm.replace(/,/g, '.')
+        const statureFormValidation = statureForm.replace(/,/g, '.')
+        const newWeight = [ ...weight, { A: weightFormValidation, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ];
+        const newStature = [ ...stature, { A: statureFormValidation, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ];
+        const IMCValue = weightFormValidation / (statureFormValidation/100)**2
 
         const newIMC = [ ...imc, { A: IMCValue, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ]
 

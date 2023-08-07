@@ -85,11 +85,17 @@ export const Navbar = () => {
                                     <div className="btn-ellipse"></div>
                                 </a>
                             </li>
-                            <li className="nav__item" data-tooltip="Exámenes">
+                            {/* <li className="nav__item" data-tooltip="Exámenes">
                                 <a href="#">
                                     <img src={ Medical_exams_sm } className="filter-clr" alt="Icono Exámenes"/>
                                     <div className="btn-ellipse"></div>
                                 </a>
+                            </li> */}
+                            <li className="nav__item" data-tooltip="Exámenes">
+                                    <Link to="../patientExams">
+                                    <img src={ Medical_exams_sm } className="filter-clr" alt="Icono Exámenes"/>
+                                    <div className="btn-ellipse"></div>
+                                    </Link>
                             </li>
                             <li className="nav__item" data-tooltip="Calculadora">
                                 <a href="#">
