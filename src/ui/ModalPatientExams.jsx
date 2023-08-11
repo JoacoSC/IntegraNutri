@@ -133,11 +133,24 @@ export const ModalPatientExams = ({ uid, patientID }) => {
                         <div className="patient-exams-wrapper">
                             <div className="patient-exams-item-container">
                                 <div className="patient-exams-title-container">
-                                    <p className="patient-exams-title">Último examen ingresado</p>
+                                    <p className="patient-exams-title">
+                                        {
+                                            (showExamsHistory)
+                                            ?   'Exámenes ingresados'
+                                            :   ( actualExamIndex === examsHistory.length - 1 )
+                                                ?   'Último examen ingresado'
+                                                :   'Fecha de examen: ' + examsHistory[ actualExamIndex ].exam_date
+                                        
+                                        }
+                                    </p>
                                     {
                                         (examsHistory.length > 1)
                                             ?   <button className="patient-prev-exams-btn" onClick={ showPreviousExams }>
-                                                    Ver exámenes anteriores
+                                                {
+                                                    (showExamsHistory)
+                                                    ?   'Volver'
+                                                    :   'Ver todos los exámenes'
+                                                }
                                                 </button>
                                             :   null
                                     }

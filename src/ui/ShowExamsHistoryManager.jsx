@@ -12,7 +12,7 @@ export const ShowExamsHistoryManager = ({ examsHistory }) => {
     }
 
     return (
-        <div className="exams-container">
+        <div className="exams-container flex-column-reverse">
         
             {examsHistory.map((exam, index) => (
                 <div className="exam-item cursor-pointer" key={ index } onClick={ () => onExamHistoryItem( index ) }>
