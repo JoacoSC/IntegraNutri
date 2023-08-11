@@ -11,7 +11,7 @@ export const CardPresionArterial = () => {
             <div className='patient-secondary-card-title'>
                 Presión Arterial
             </div>
-            <div className='patient-secondary-card-content p-2'>
+            <div className='patient-secondary-card-content'>
                 <div className='perimetro-cintura-avatar-container'>
                     <img src={ HeartIcon } className='perimetro-cintura-avatar'/>
                 </div>

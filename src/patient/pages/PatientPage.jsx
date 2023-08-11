@@ -54,7 +54,7 @@ import {
 } from "../../data";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
-import { CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
+import { CardPatientExams, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
 import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
 import Dropdown_arrow from '../../../assets/imgs/patient/dropdown_arrow.svg'
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
@@ -2345,7 +2345,7 @@ export const PatientPage = () => {
                                                     (weightLength > 1)
                                                     ?   <>
                                                             {weight[weightLength - 1].A}
-                                                            <div className="patient-parameter-unit">Kg</div> 
+                                                            &nbsp;Kg
                                                         </>
                                                     : 'No hay datos'
                                                 } </p>
@@ -2376,7 +2376,7 @@ export const PatientPage = () => {
                                                     (statureLength > 1)
                                                     ?   <>
                                                         {stature[statureLength - 1].A}
-                                                        <div className="patient-parameter-unit">Cm</div>
+                                                        &nbsp;Cm
 
                                                     </> 
                                                     : 'No hay datos'
@@ -2391,13 +2391,21 @@ export const PatientPage = () => {
 
                                 <button type="submit" hidden></button>
                             </div>
+                            <div>
+                                {
+                                    <CardPatientExams uid = { uid } patientID = { patientID }/>
+                                }
+                                
+                                
+
+                            </div>
+                        </div>
+                        <div className="patient-secondary-card-row">
                             {
                                 (!!presionArterial && ageForCalcs.y > 0)
                                 ?   <CardPresionArterial/>
                                 :   null
                             }
-                        </div>
-                        <div className="patient-secondary-card-row">
                             {
                                 (!!tallaDiana)
                                 ?   <CardTallaDiana/>

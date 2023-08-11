@@ -80,20 +80,20 @@ export const MyPatientsPage = () => {
                                         <div className="my-patients-info-item-container">
                                             Rut
                                             <div className="my-patients-info-rut">
-                                                { patient.rut.formatted }
+                                                <p>{ patient.rut.formatted }</p>
                                             </div>
                                         </div>
                                         <div className="my-patients-info-item-container">
                                             Comuna
                                             <div className="my-patients-info-city">
-                                                { patient.city }
+                                                <p>{ patient.city }</p>
                                             </div>
 
                                         </div>
                                         <div className="my-patients-info-item-container">
                                             Región
                                             <div className="my-patients-info-region">
-                                                { patient.region }
+                                                <p>{ patient.region }</p>
                                             </div>
 
                                         </div>

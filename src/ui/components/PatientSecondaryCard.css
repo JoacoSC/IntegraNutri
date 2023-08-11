@@ -24,14 +24,14 @@
 .patient-secondary-card-content{
     display: flex;
     justify-content: center;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     height: 100%;
 }
 
 /* TALLA DIANA */
 
 .talla-diana-avatar{
-    padding: 1rem 0 1rem 2rem;
+    padding: 1rem 0 1rem 1rem;
     height: 100px;
 }
 
@@ -133,9 +133,27 @@
 .pr-2{
     padding-right: 2rem;
 }
+.pt-1{
+    padding-top: 1rem;
+}
+.pt-2{
+    padding-top: 2rem;
+}
+.pb-1{
+    padding-bottom: 1rem;
+}
+.pb-2{
+    padding-bottom: 2rem;
+}
 .p-2{
     padding: 2rem;
 }
 .h-auto{
     height: auto;
+}
+.h-400{
+    height: 376px;
+}
+.cursor-pointer{
+    cursor: pointer;
 }

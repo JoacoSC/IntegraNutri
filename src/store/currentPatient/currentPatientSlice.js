@@ -38,6 +38,8 @@ export const currentPatientSlice = createSlice({
         perimetroCefalico: null,
         perimetroCintura: null,
         presionArterial: null,
+        examsHistory: [],
+        actualExamIndex: null,
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -67,6 +69,8 @@ export const currentPatientSlice = createSlice({
             state.perimetroCefalico = payload.perimetroCefalico;
             state.perimetroCintura = payload.perimetroCintura;
             state.presionArterial = payload.presionArterial;
+            state.examsHistory = payload.examsHistory;
+            state.actualExamIndex = payload.actualExamIndex;
         },
 
         updateCurrentPatientAnamnesis: (state,{ payload }) => {
@@ -131,6 +135,14 @@ export const currentPatientSlice = createSlice({
             state.presionArterial = payload;
         },
 
+        updateCurrentPatientExamsHistory: (state,{ payload }) => {
+            state.examsHistory = payload;
+        },
+
+        updateCurrentPatientActualExamIndex: (state,{ payload }) => {
+            state.actualExamIndex = payload;
+        },
+
         clearCurrentPatient: ( state ) => {
             state.id = null;
             state.address = null;
@@ -167,6 +179,8 @@ export const currentPatientSlice = createSlice({
             state.perimetroCefalico = null;
             state.perimetroCintura = null;
             state.presionArterial = null;
+            state.examsHistory = [];
+            state.actualExamIndex = null;
         },
     }
 });
@@ -189,6 +203,8 @@ export const {
     updateCurrentPatientPerimetroCefalico,
     updateCurrentPatientPerimetroCintura,
     updateCurrentPatientPresionArterial,
+    updateCurrentPatientExamsHistory,
+    updateCurrentPatientActualExamIndex,
     clearCurrentPatient,
 
 } = currentPatientSlice.actions;
