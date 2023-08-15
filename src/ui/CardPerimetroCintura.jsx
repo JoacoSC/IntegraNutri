@@ -25,7 +25,7 @@ export const CardPerimetroCintura = () => {
                     <img src={ PerimetroCinturaForAvatar } className='perimetro-cintura-measure'/>
 
                 </div>
-                <div className='perimetro-cefalico-value-container flex-column pr-2'>
+                <div className='perimetro-cefalico-value-container flex-column'>
                     <p className='perimetro-cefalico-value'><b>Medición:&nbsp;</b>{ perimetroCintura.PCMedicion } cm</p>
                     <p className='perimetro-cefalico-value'>
                         <b>Registro:&nbsp;</b>

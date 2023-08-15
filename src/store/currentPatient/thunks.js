@@ -238,8 +238,9 @@ export const startUpdatingExamsHistory = ( uid, patientID, newExamsHistory ) => 
         }
 
         const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
-        await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+        const resp = await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
 
+        console.log('resp: ', resp)
         dispatch(updateCurrentPatientExamsHistory( newExamsHistory ))
     }
 }

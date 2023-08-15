@@ -6,6 +6,8 @@ import { ModalPatientExams } from './ModalPatientExams';
 
 export const CardPatientExams = ({ uid, patientID }) => {
 
+    const { isNutritionistStatus } = useSelector( state => state.auth )
+
     const { 
         examsHistory = [{
             exam_date: '',
@@ -102,10 +104,16 @@ export const CardPatientExams = ({ uid, patientID }) => {
                 
             </div>
             <div className='flex-row'>
-                        <ModalAddPatientExam uid={ uid } patientID={ patientID }/>
-                        <ModalPatientExams uid={ uid } patientID={ patientID }/>
 
-                    </div>
+                {
+                    ( isNutritionistStatus )
+                    ?   <ModalAddPatientExam uid={ uid } patientID={ patientID }/>
+                    :   null
+                }
+                
+                <ModalPatientExams uid={ uid } patientID={ patientID }/>
+
+            </div>
             {/* <div className='patient-secondary-card-footer'>
                 <p>Este resultado puede presentar una variabilidad de hasta +-8,5 cm</p>
             </div> */}
