@@ -44,16 +44,16 @@ export const Navbar = () => {
                 {   (isNutritionistStatus)
                     ?   <>
                             <li className="nav__item" data-tooltip="Inicio">
-                            <Link to="../">
-                                <img src={ Home_sm } className="filter-clr" alt="Icono Inicio"/>
-                                <div className="btn-ellipse"></div>
-                            </Link>
+                                <Link to="../">
+                                    <img src={ Home_sm } className="filter-clr" alt="Icono Inicio"/>
+                                    <div className="btn-ellipse"></div>
+                                </Link>
                             </li>
                             <li className="nav__item" data-tooltip="Pacientes">
-                                    <Link to="../myPatients">
-                                    <img src={ Patients } className="filter-clr" alt="Icono Pacientes"/>
-                                    <div className="btn-ellipse"></div>
-                                    </Link>
+                                <Link to="../myPatients">
+                                <img src={ Patients } className="filter-clr" alt="Icono Pacientes"/>
+                                <div className="btn-ellipse"></div>
+                                </Link>
                             </li>
                             <li className="nav__item" data-tooltip="Calendario">
                                 <a href="#">
@@ -91,11 +91,17 @@ export const Navbar = () => {
                                     <div className="btn-ellipse"></div>
                                 </a>
                             </li>
-                            <li className="nav__item" data-tooltip="Calculadora">
+                            {/* <li className="nav__item" data-tooltip="Calculadora">
                                 <a href="#">
                                     <img src={ Calc_sm } className="filter-clr" alt="Icono Calculadora"/>
                                     <div className="btn-ellipse"></div>
                                 </a>
+                            </li> */}
+                            <li className="nav__item" data-tooltip="Calculadora">
+                                <Link to="../calculator">
+                                <img src={ Calc_sm } className="filter-clr" alt="Icono Calculadora"/>
+                                <div className="btn-ellipse"></div>
+                                </Link>
                             </li>
                             <li className="nav__item" data-tooltip="Archivos">
                                 <a href="#">

@@ -5,6 +5,7 @@ import { journalSlice } from './journal';
 import { patientsSlice } from './patients';
 import { userInfoSlice } from './userInfo';
 import { loginHelperSlice } from './loginHelper';
+import { calculatorSlice } from './calculator';
 
 export const store = configureStore({
     reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
         patients: patientsSlice.reducer,
         currentPatient: currentPatientSlice.reducer,
         loginHelper: loginHelperSlice.reducer,
+        calculator: calculatorSlice.reducer,
     },
 })

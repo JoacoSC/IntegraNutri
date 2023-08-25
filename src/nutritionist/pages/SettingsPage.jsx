@@ -28,10 +28,6 @@ export const SettingsPage = () => {
                 <div className="main-welcome">
                     <h1>Nut. { displayName }</h1>
                 </div>
-                <div className="sub-title">
-                    <h3>Configuración</h3>
-                    {/* <ModalBtn /> */}
-                </div>
                 <div className="settings-container">
                     <div className="settings-wrapper">
                         <div className="settings-item-container">
