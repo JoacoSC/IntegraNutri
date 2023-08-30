@@ -144,10 +144,10 @@ export const CalculatorPage = () => {
                 <div className="main-welcome">
                     <h1>Nut. { displayName }</h1>
                 </div>
-                <div className="settings-container">
-                    <div className="settings-wrapper">
-                        <div className="settings-item-container">
-                            <p className="settings-item-title">Calculadora de alimentos</p>
+                <div className="calculator-main-container">
+                    <div className="calculator-wrapper">
+                        
+                            <p className="calculator-item-title">Calculadora de alimentos</p>
                                 <div className="calculator-container">
                                     <table className="calculator-table">
                                         <tbody>
@@ -165,10 +165,34 @@ export const CalculatorPage = () => {
                                                 <td className="portion-input-container">
                                                     <input name="cereal_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>140</td>
-                                                <td>30,0</td>
-                                                <td>1,0</td>
-                                                <td>3,0</td>
+                                                <td>
+                                                    {
+                                                        (cereal_portion == 0)
+                                                            ?   '140'
+                                                            :   cereal_portion * 140
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (cereal_portion == 0)
+                                                            ?   '30'
+                                                            :   cereal_portion * 30
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (cereal_portion == 0)
+                                                            ?   '1,0'
+                                                            :   cereal_portion * 1.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (cereal_portion == 0)
+                                                            ?   '3,0'
+                                                            :   cereal_portion * 3.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th rowSpan="2">Verduras</th>
@@ -176,30 +200,102 @@ export const CalculatorPage = () => {
                                                 <td className="portion-input-container">
                                                     <input name="gen_veg_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>30</td>
-                                                <td>5,0</td>
-                                                <td>0,0</td>
-                                                <td>2,0</td>
+                                                <td>
+                                                    {
+                                                        (gen_veg_portion == 0)
+                                                            ?   '30'
+                                                            :   gen_veg_portion * 30
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (gen_veg_portion == 0)
+                                                            ?   '5,0'
+                                                            :   gen_veg_portion * 5.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (gen_veg_portion == 0)
+                                                            ?   '0,0'
+                                                            :   gen_veg_portion * 0.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (gen_veg_portion == 0)
+                                                            ?   '2,0'
+                                                            :   gen_veg_portion * 2.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Libre consumo</td>
                                                 <td className="portion-input-container">
                                                     <input name="free_veg_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>10</td>
-                                                <td>2,5</td>
-                                                <td>0,0</td>
-                                                <td>0,0</td>
+                                                <td>
+                                                    {
+                                                        (free_veg_portion == 0)
+                                                            ?   '10'
+                                                            :   free_veg_portion * 10
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (free_veg_portion == 0)
+                                                            ?   '2,5'
+                                                            :   free_veg_portion * 2.5
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (free_veg_portion == 0)
+                                                            ?   '0,0'
+                                                            :   free_veg_portion * 0.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (free_veg_portion == 0)
+                                                            ?   '0,0'
+                                                            :   free_veg_portion * 0.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th colSpan="2">Frutas</th>
                                                 <td className="portion-input-container">
                                                     <input name="fruit_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>65</td>
-                                                <td>15,0</td>
-                                                <td>0,0</td>
-                                                <td>1,0</td>
+                                                <td>
+                                                    {
+                                                        (fruit_portion == 0)
+                                                            ?   '65'
+                                                            :   fruit_portion * 65
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (fruit_portion == 0)
+                                                            ?   '15,0'
+                                                            :   fruit_portion * 15.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (fruit_portion == 0)
+                                                            ?   '0,0'
+                                                            :   fruit_portion * 0.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (fruit_portion == 0)
+                                                            ?   '1,0'
+                                                            :   fruit_portion * 1.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th rowSpan="3">Carnes, huevos, y legumbres secas</th>
@@ -207,30 +303,102 @@ export const CalculatorPage = () => {
                                                 <td className="portion-input-container">
                                                     <input name="hi_fat_meat" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>120</td>
-                                                <td>1,0</td>
-                                                <td>8,0</td>
-                                                <td>11,0</td>
+                                                <td>
+                                                    {
+                                                        (hi_fat_meat == 0)
+                                                            ?   '120'
+                                                            :   hi_fat_meat * 120
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (hi_fat_meat == 0)
+                                                            ?   '1,0'
+                                                            :   hi_fat_meat * 1.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (hi_fat_meat == 0)
+                                                            ?   '8,0'
+                                                            :   hi_fat_meat * 8.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (hi_fat_meat == 0)
+                                                            ?   '11,0'
+                                                            :   hi_fat_meat * 11.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Baja en grasas</td>
                                                 <td className="portion-input-container">
                                                     <input name="low_fat_meat" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>65</td>
-                                                <td>1,0</td>
-                                                <td>2,0</td>
-                                                <td>11,0</td>
+                                                <td>
+                                                    {
+                                                        (low_fat_meat == 0)
+                                                            ?   '65'
+                                                            :   low_fat_meat * 65
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (low_fat_meat == 0)
+                                                            ?   '1,0'
+                                                            :   low_fat_meat * 1.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (low_fat_meat == 0)
+                                                            ?   '2,0'
+                                                            :   low_fat_meat * 2.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (low_fat_meat == 0)
+                                                            ?   '11,0'
+                                                            :   low_fat_meat * 11.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Leguminosas</td>
                                                 <td className="portion-input-container">
                                                     <input name="legumes_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>170</td>
-                                                <td>30,0</td>
-                                                <td>1,0</td>
-                                                <td>11,0</td>
+                                                <td>
+                                                    {
+                                                        (legumes_portion == 0)
+                                                            ?   '170'
+                                                            :   legumes_portion * 170
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (legumes_portion == 0)
+                                                            ?   '30,0'
+                                                            :   legumes_portion * 30.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (legumes_portion == 0)
+                                                            ?   '1,0'
+                                                            :   legumes_portion * 1.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (legumes_portion == 0)
+                                                            ?   '11,0'
+                                                            :   legumes_portion * 11.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th rowSpan="3">Lácteos</th>
@@ -238,30 +406,102 @@ export const CalculatorPage = () => {
                                                 <td className="portion-input-container">
                                                     <input name="hi_fat_dairy_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>110</td>
-                                                <td>9,0</td>
-                                                <td>6,0</td>
-                                                <td>5,0</td>
+                                                <td>
+                                                    {
+                                                        (hi_fat_dairy_portion == 0)
+                                                            ?   '110'
+                                                            :   hi_fat_dairy_portion * 110
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (hi_fat_dairy_portion == 0)
+                                                            ?   '9,0'
+                                                            :   hi_fat_dairy_portion * 9.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (hi_fat_dairy_portion == 0)
+                                                            ?   '6,0'
+                                                            :   hi_fat_dairy_portion * 6.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (hi_fat_dairy_portion == 0)
+                                                            ?   '5,0'
+                                                            :   hi_fat_dairy_portion * 5.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Medios en grasas</td>
                                                 <td className="portion-input-container">
                                                     <input name="mid_fat_dairy_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>85</td>
-                                                <td>9,0</td>
-                                                <td>3,0</td>
-                                                <td>5,0</td>
+                                                <td>
+                                                    {
+                                                        (mid_fat_dairy_portion == 0)
+                                                            ?   '85'
+                                                            :   mid_fat_dairy_portion * 85
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (mid_fat_dairy_portion == 0)
+                                                            ?   '9,0'
+                                                            :   mid_fat_dairy_portion * 9.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (mid_fat_dairy_portion == 0)
+                                                            ?   '3,0'
+                                                            :   mid_fat_dairy_portion * 3.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (mid_fat_dairy_portion == 0)
+                                                            ?   '5,0'
+                                                            :   mid_fat_dairy_portion * 5.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Bajos en grasas</td>
                                                 <td className="portion-input-container">
                                                     <input name="low_fat_dairy_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>70</td>
-                                                <td>10,0</td>
-                                                <td>0,0</td>
-                                                <td>7,0</td>
+                                                <td>
+                                                    {
+                                                        (low_fat_dairy_portion == 0)
+                                                            ?   '70'
+                                                            :   low_fat_dairy_portion * 70
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (low_fat_dairy_portion == 0)
+                                                            ?   '10,0'
+                                                            :   low_fat_dairy_portion * 10.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (low_fat_dairy_portion == 0)
+                                                            ?   '0,0'
+                                                            :   low_fat_dairy_portion * 0.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (low_fat_dairy_portion == 0)
+                                                            ?   '7,0'
+                                                            :   low_fat_dairy_portion * 7.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th rowSpan="2">Aceites y grasas</th>
@@ -269,30 +509,102 @@ export const CalculatorPage = () => {
                                                 <td className="portion-input-container">
                                                     <input name="oil_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>180</td>
-                                                <td>0,0</td>
-                                                <td>20,0</td>
-                                                <td>0,0</td>
+                                                <td>
+                                                    {
+                                                        (oil_portion == 0)
+                                                            ?   '180'
+                                                            :   oil_portion * 180
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (oil_portion == 0)
+                                                            ?   '0,0'
+                                                            :   oil_portion * 0.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (oil_portion == 0)
+                                                            ?   '20,0'
+                                                            :   oil_portion * 20.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (oil_portion == 0)
+                                                            ?   '0,0'
+                                                            :   oil_portion * 0.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Alimentos altos en lípidos</td>
                                                 <td className="portion-input-container">
                                                     <input name="hi_lipid_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>175</td>
-                                                <td>5,0</td>
-                                                <td>15,0</td>
-                                                <td>5,0</td>
+                                                <td>
+                                                    {
+                                                        (hi_lipid_portion == 0)
+                                                            ?   '175'
+                                                            :   hi_lipid_portion * 175
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (hi_lipid_portion == 0)
+                                                            ?   '5,0'
+                                                            :   hi_lipid_portion * 5.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (hi_lipid_portion == 0)
+                                                            ?   '15,0'
+                                                            :   hi_lipid_portion * 15.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (hi_lipid_portion == 0)
+                                                            ?   '5,0'
+                                                            :   hi_lipid_portion * 5.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th colSpan="2">Azúcares y otros</th>
                                                 <td className="portion-input-container">
                                                     <input name="sugar_portion" type="number" placeholder="0" onChange={ onInputChange }/>
                                                 </td>
-                                                <td>20</td>
-                                                <td>5,0</td>
-                                                <td>0,0</td>
-                                                <td>0,0</td>
+                                                <td>
+                                                    {
+                                                        (sugar_portion == 0)
+                                                            ?   '20'
+                                                            :   sugar_portion * 20
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (sugar_portion == 0)
+                                                            ?   '5,0'
+                                                            :   sugar_portion * 5.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (sugar_portion == 0)
+                                                            ?   '0,0'
+                                                            :   sugar_portion * 0.0
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {
+                                                        (sugar_portion == 0)
+                                                            ?   '0,0'
+                                                            :   sugar_portion * 0.0
+                                                    }
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th colSpan="2">Aportes</th>
@@ -344,8 +656,7 @@ export const CalculatorPage = () => {
                                             </tr>
                                         </tbody>
                                     </table>
-                                    
-                                </div>
+                                
                         </div>
                     </div>
                 </div>
