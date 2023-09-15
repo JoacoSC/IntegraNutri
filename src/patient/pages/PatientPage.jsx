@@ -118,6 +118,8 @@ export const PatientPage = () => {
         gender
     );
 
+    // console.log('nutritionalCalification: ', nutritionalCalification)
+
     const [showHideReferenceChart, setShowHideReferenceChart] = useState(true)
 
     const [ hideChartButtons, setHideChartButtons ] = useState({
@@ -234,7 +236,7 @@ export const PatientPage = () => {
         let y2 = date.getFullYear();
         let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         if (d1 > d2) {
-            d2 = d2 + month[m2];
+            d2 = d2 + month[m2 + 1];
             m2 = m2 - 1;
         }
         if (m1 > m2) {
@@ -336,7 +338,7 @@ export const PatientPage = () => {
         let y2 = date.getFullYear();
         let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         if (d1 > d2) {
-            d2 = d2 + month[m2];
+            d2 = d2 + month[m2 + 1];
             m2 = m2 - 1;
         }
         if (m1 > m2) {
@@ -577,12 +579,13 @@ export const PatientPage = () => {
             setUnixBirthdayForCalcs(unixBirthday);
             setAgeText( generateAgeText( unixBirthday ) );
             // console.log('ageForCalcs: ', ageForCalcs)
+
         }
 
         handleHideChartButtons();
         
 
-    }, [correctedAgeIsSet])
+    }, [correctedAge])
 
     useEffect(() => {
         handleHideChartButtons();
@@ -2401,6 +2404,8 @@ export const PatientPage = () => {
                             </div>
                         </div>
                         <div className="patient-secondary-card-row">
+                                
+                                {/* <CardEstadioTanner/> */}
                             {
                                 (!!presionArterial && ageForCalcs.y > 0)
                                 ?   <CardPresionArterial/>

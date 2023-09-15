@@ -49,7 +49,7 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
 
         const correctedAgeIsSet = true;
 
-        console.log('correctedAge: ', correctedAge)
+        // console.log('correctedAge111: ', correctedAge)
         
         dispatch( updateCurrentPatientCorrectedAge({ correctedAge, correctedAgeIsSet }) );
         dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
@@ -90,7 +90,7 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
         let y2 = date.getFullYear();
         let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         if (d1 > d2) {
-            d2 = d2 + month[m2];
+            d2 = d2 + month[m2 + 1];
             m2 = m2 - 1;
         }
         if (m1 > m2) {
@@ -115,7 +115,7 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
         let y2 = date.getFullYear();
         let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         if (d1 > d2) {
-            d2 = d2 + month[m2];
+            d2 = d2 + month[m2 + 1];
             m2 = m2 - 1;
         }
         if (m1 > m2) {
@@ -157,25 +157,42 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
 
     const calculateCorrectedAge = ( unixCorrectedBirthday ) => {
         
+        // console.log('----')
         let d1 = fromUnixTime( unixCorrectedBirthday ).getDate();
+        // console.log('d1: ', d1)
         let m1 = fromUnixTime( unixCorrectedBirthday ).getMonth();
+        // console.log('m1: ', m1)
         let y1 = fromUnixTime( unixCorrectedBirthday ).getFullYear();
+        // console.log('y1: ', y1)
         let date = new Date();
         let d2 = date.getDate();
+        // console.log('d2: ', d2)
         let m2 = date.getMonth();
+        // console.log('m2: ', m2)
         let y2 = date.getFullYear();
+        // console.log('y2: ', y2)
         let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        if (d1 > d2) {
-            d2 = d2 + month[m2];
-            m2 = m2 - 1;
+        if (d1 > d2) { // (1 > 6) --- (31 > 6) --- (30 > 6)
+            d2 = d2 + month[m2 + 1]; // 36 ---- 37
+            m2 = m2 - 1; // 7 ---- 8
         }
-        if (m1 > m2) {
-            m2 = m2 + 12;
-            y2 = y2 - 1;
+        if (m1 > m2) { // (8 > 8) --- (7 > 7) --- (7 > 7)
+            m2 = m2 + 12; // 
+            y2 = y2 - 1; // 
         }
-        let d = d2 - d1;
-        let m = m2 - m1;
-        let y = y2 - y1;
+        let d = d2 - d1; // d = 5 --- d = 5 --- d = 6
+        let m = m2 - m1; // m = 0 --- m = 0 --- m = 0
+        let y = y2 - y1; // y = 0 --- y = 0 --- y = 0
+
+        // console.log('d: ', d)
+        // console.log('d1: ', d1)
+        // console.log('d2: ', d2)
+        // console.log('m: ', m)
+        // console.log('m1: ', m1)
+        // console.log('m2: ', m2)
+        // console.log('y: ', y)
+        // console.log('y1: ', y1)
+        // console.log('y2: ', y2)
 
         if( y === 0 ){
 

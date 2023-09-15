@@ -100,8 +100,8 @@ export const ModalPatientExams = ({ uid, patientID }) => {
     }, [actualExamIndex])
     
 
-    console.log('examsHistory: ', examsHistory)
-    console.log('actualExamIndex: ', actualExamIndex)
+    // console.log('examsHistory: ', examsHistory)
+    // console.log('actualExamIndex: ', actualExamIndex)
 
     return (
                 <>

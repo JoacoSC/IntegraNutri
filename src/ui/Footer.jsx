@@ -25,7 +25,18 @@ export const Footer = () => {
             </div>            
             <div className='footer-section'>
                 <p className='footer-title'>Redes Sociales</p>
-                <p className='footer-text'>En construcción 👷</p>
+                {/* <Link  to={{ pathname: "https://www.instagram.com/integranutri_cl/" }} target="_blank" className='footer-link'>
+                    <p className='footer-text'>Instagram</p>
+                </Link> */}
+                <a
+                    href="https://www.instagram.com/integranutri_cl/"
+                    target='_blank'
+                    rel="noopener noreferrer"
+                    aria-label='Instagram'
+                    >
+                    <p className='footer-text'>Instagram</p>
+                </a>
+                
             </div>
         </div>
         <div className='footer-bottom'>
