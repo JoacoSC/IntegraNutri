@@ -3,7 +3,7 @@ import { CSSTransition } from "react-transition-group";
 import Modal from 'react-modal';
 import './components';
 import { Link } from 'react-router-dom';
-import { ModalUpdatePatientValues, ModalUpdateCorrectedAge, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial } from './';
+import { ModalUpdatePatientValues, ModalUpdateCorrectedAge, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalUpdateEstadioTanner } from './';
 import { ModalTallaDiana } from './ModalTallaDiana';
 import { useSelector } from 'react-redux';
 
@@ -67,6 +67,9 @@ export const Dropdown = ({ patientObject }) => {
                                 </div>
                                 <div className='dropdown-item-container'>
                                     <ModalUpdateCorrectedAge patientObject={ patientObject } />
+                                </div>
+                                <div className='dropdown-item-container'>
+                                    <ModalUpdateEstadioTanner patientObject={ patientObject } />
                                 </div>
                                 <div className='dropdown-item-container'>
                                     <ModalTallaDiana patientObject={ patientObject } />

@@ -54,7 +54,21 @@ import {
 } from "../../data";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
-import { CardPatientExams, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer, ModalPerimetroCefalico, ModalPerimetroCintura, ModalPresionArterial, ModalTallaDiana, ModalUpdateCorrectedAge, ModalUpdatePatientValues } from "../../ui";
+import {
+    CardEstadioTanner,
+    CardPatientExams,
+    CardPerimetroCefalico,
+    CardPerimetroCintura,
+    CardTallaDiana,
+    Dropdown,
+    Footer,
+    ModalPerimetroCefalico,
+    ModalPerimetroCintura,
+    ModalPresionArterial,
+    ModalTallaDiana,
+    ModalUpdateCorrectedAge,
+    ModalUpdatePatientValues
+} from "../../ui";
 import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
 import Dropdown_arrow from '../../../assets/imgs/patient/dropdown_arrow.svg'
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
@@ -2405,7 +2419,7 @@ export const PatientPage = () => {
                         </div>
                         <div className="patient-secondary-card-row">
                                 
-                                {/* <CardEstadioTanner/> */}
+                                <CardEstadioTanner/>
                             {
                                 (!!presionArterial && ageForCalcs.y > 0)
                                 ?   <CardPresionArterial/>
