@@ -1,10 +1,10 @@
-import { addDays, differenceInMilliseconds, format, formatDistance, formatDistanceToNowStrict, fromUnixTime, getUnixTime, milliseconds, set, subMilliseconds } from 'date-fns';
+import { addDays, differenceInMilliseconds, format, formatDistance, formatDistanceToNowStrict, fromUnixTime, getUnixTime, milliseconds, set, sub, subMilliseconds } from 'date-fns';
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
-import { startUpdatingCurrentPatientCorrectedAge, startUpdatingCurrentPatientUnixCorrectedBirthday, updateCurrentPatientCorrectedAge, updateCurrentPatientUnixCorrectedBirthday } from '../store/currentPatient';
+import { startUpdatingCurrentPatientBiologicalAge, startUpdatingCurrentPatientUnixBiologicalBirthday, updateCurrentPatientBiologicalAge, updateCurrentPatientUnixBiologicalBirthday } from '../store/currentPatient';
 import './components';
 
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
@@ -44,7 +44,6 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
     const [unixCorrectedBirthday, setUnixCorrectedBirthday] = useState()
 
     const {
-        birthdayForm,
         TannerRegistro,
         ChronologicalAge,
         onInputChange
@@ -64,17 +63,21 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
         // const correctedUnixBirthday = birthdayForm;
 
-        const correctedAge = calculateAgeObject( unixCorrectedBirthday );
+        const unixBiologicalBirthday = getUnixTime( sub( new Date(), {
+            years: biologicalAge.y,
+            months: biologicalAge.m,
+            days: biologicalAge.d,
+        } ) );
 
-        const correctedAgeIsSet = true;
+        const biologicalAgeIsSet = true;
 
         // console.log('correctedAge111: ', correctedAge)
         
-        dispatch( updateCurrentPatientCorrectedAge({ correctedAge, correctedAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
+        dispatch( updateCurrentPatientBiologicalAge({ biologicalAge, biologicalAgeIsSet }) );
+        dispatch( startUpdatingCurrentPatientBiologicalAge( uid, patientID, biologicalAge, biologicalAgeIsSet ) );
 
-        dispatch( updateCurrentPatientUnixCorrectedBirthday({ unixCorrectedBirthday, correctedAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday, correctedAgeIsSet )  );
+        dispatch( updateCurrentPatientUnixBiologicalBirthday({ unixBiologicalBirthday, biologicalAgeIsSet }) );
+        dispatch( startUpdatingCurrentPatientUnixBiologicalBirthday( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet )  );
 
 
     }
@@ -83,20 +86,20 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
         setOpenModal(false)
 
-        const correctedAge = {
+        setBiologicalAge({
             y: 0,
             m: 0,
             d: 0,
-        };
+        });
 
-        const unixCorrectedBirthday = null;
-        const correctedAgeIsSet = false;
+        const unixBiologicalBirthday = null;
+        const biologicalAgeIsSet = false;
 
-        dispatch( updateCurrentPatientCorrectedAge({ correctedAge, correctedAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
+        dispatch( updateCurrentPatientBiologicalAge({ biologicalAge, biologicalAgeIsSet }) );
+        dispatch( startUpdatingCurrentPatientBiologicalAge( uid, patientID, biologicalAge, biologicalAgeIsSet ) );
 
-        dispatch( updateCurrentPatientUnixCorrectedBirthday({ unixCorrectedBirthday, correctedAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday, correctedAgeIsSet )  );
+        dispatch( updateCurrentPatientUnixBiologicalBirthday({ unixBiologicalBirthday, biologicalAgeIsSet }) );
+        dispatch( startUpdatingCurrentPatientUnixBiologicalBirthday( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet )  );
     }
 
     const calculateAgeObject = ( unixCorrectedBirthday ) => {
@@ -355,13 +358,6 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     useEffect(() => {
         
-        setUnixCorrectedBirthday( getUnixTime(addDays( set( new Date( birthdayForm ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 )) )
-        setCorrectedAge( calculateCorrectedAge( unixCorrectedBirthday ) );
-        
-    }, [onInputChange])
-
-    useEffect(() => {
-        
         handleTannerRegistro();
 
     }, [TannerRegistro])
@@ -388,13 +384,6 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
     useEffect(() => {
         setChronologicalAgeText( calculateAge( unixBirthday ) );
     }, [])
-    
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO:
-    // TODO: Usar differenceInMilliseconds() y subMilliseconds() para calcular la diferencia de tiempo entre edad
-    // TODO: cronologica y edad biologica, y para establecer la nueva "fecha de nacimiento" corregida
     
     return (
         <>
@@ -445,7 +434,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                     Registro
                                 </label>
                                     <select className="input-text-style h-2" name="TannerRegistro" onChange={ onInputChange }>
-                                        <option selected>Seleccione una opción</option>
+                                        <option>Seleccione una opción</option>
                                         <option value='GradoI'>Grado I</option>
                                         <option value='GradoII'>Grado II</option>
                                         <option value='GradoIII'>Grado III</option>

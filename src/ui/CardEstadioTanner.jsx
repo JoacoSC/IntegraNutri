@@ -1,12 +1,78 @@
 import { useSelector } from 'react-redux';
 import './components';
-import AvatarMasculino from '../../assets/imgs/patient/avatar_masculino.svg'
-import AvatarFemenino from '../../assets/imgs/patient/avatar_femenino.svg'
+import BiologicalAge from '../../assets/imgs/patient/biological_age.svg'
 import PerimetroCinturaForAvatar from '../../assets/imgs/patient/perimetro_cintura-for-avatar.svg'
+import { useEffect, useState } from 'react';
+import { fromUnixTime } from 'date-fns';
 
 export const CardEstadioTanner = () => {
 
-    const { perimetroCintura, gender } = useSelector((state) => state.currentPatient);
+    const { unixBiologicalBirthday = 0, gender } = useSelector((state) => state.currentPatient);
+
+    const [biologicalAgeText, setBiologicalAgeText] = useState('');
+
+    const calculateAge = ( value ) => {
+        let d1 = fromUnixTime( value ).getDate();
+        let m1 = fromUnixTime( value ).getMonth();
+        let y1 = fromUnixTime( value ).getFullYear();
+        let date = new Date();
+        let d2 = date.getDate();
+        let m2 = date.getMonth();
+        let y2 = date.getFullYear();
+        let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (d1 > d2) {
+            d2 = d2 + month[m2 + 1];
+            m2 = m2 - 1;
+        }
+        if (m1 > m2) {
+            m2 = m2 + 12;
+            y2 = y2 - 1;
+        }
+        let d = d2 - d1;
+        let m = m2 - m1;
+        let y = y2 - y1;
+
+        if( y === 0 ){
+
+            if( d <= 15 ){
+                if( m === 1 ){
+                    return m + " mes"
+                }else{
+                    return m + " meses"
+                }
+            }else{
+                m2 = m + 1;
+                if( m2 === 1 ){
+                    return m2 + " mes"
+                }else{
+                    return m2 + " meses"
+                }
+            }
+            
+        }
+        if( y > 0 ){
+
+            if( d <= 15 ){
+                return y + " años " + m + " meses";
+            }else{
+                m2 = m + 1;
+                if( m2 === 12 ){
+                    y2 = y + 1;
+                    m2 = 0;
+                    return y2 + " años " + m2 + " meses";
+                }else{
+
+                    return y + " años " + m2 + " meses";
+                }
+            }
+        }
+    }
+
+    useEffect(() => {
+        
+        setBiologicalAgeText(calculateAge( unixBiologicalBirthday ));
+
+    }, [unixBiologicalBirthday])
 
     return (
         <div className='patient-secondary-card'>
@@ -16,17 +82,12 @@ export const CardEstadioTanner = () => {
             <div className='patient-secondary-card-content pl-2'>
                 <div className='perimetro-cintura-avatar-container flex-column'>
                     {
-                        ( gender === 'Masculino' )
-                        ?   <img src={ AvatarMasculino } className='perimetro-cintura-avatar'/>
-                        :   ( gender === 'Femenino' )
-                            ?   <img src={ AvatarFemenino } className='perimetro-cintura-avatar'/>
-                            :   null
+                        <img src={ BiologicalAge } className='perimetro-cintura-avatar'/>
+                        
                     }
-                    <img src={ PerimetroCinturaForAvatar } className='perimetro-cintura-measure'/>
-
                 </div>
                 <div className='perimetro-cefalico-value-container flex-column'>
-                    <p className='perimetro-cefalico-value'><b>Medición:&nbsp;</b>10 cm</p>
+                    <p className='perimetro-cefalico-value'><b>Edad biológica:&nbsp;</b>{ biologicalAgeText }</p>
                     <p className='perimetro-cefalico-value'>
                         <b>Registro:&nbsp;</b>p75
                     </p>

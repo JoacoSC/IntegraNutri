@@ -16,6 +16,7 @@ export const currentPatientSlice = createSlice({
         rut: null,
         unixBirthday: null,
         unixCorrectedBirthday: null,
+        unixBiologicalBirthday: null,
         anamnesis: null,
         physical_exam: null,
         diagnosis: null,
@@ -34,6 +35,12 @@ export const currentPatientSlice = createSlice({
             y: 0,
           },
         correctedAgeIsSet: false,
+        biologicalAge: {
+            d: 0,
+            m: 0,
+            y: 0,
+          },
+        biologicalAgeIsSet: false,
         tallaDiana: null,
         perimetroCefalico: null,
         perimetroCintura: null,
@@ -56,6 +63,7 @@ export const currentPatientSlice = createSlice({
             state.rut = payload.rut;
             state.unixBirthday = payload.unixBirthday;
             state.unixCorrectedBirthday = payload.unixCorrectedBirthday;
+            state.unixBiologicalBirthday = payload.unixBiologicalBirthday;
             state.anamnesis = payload.anamnesis;
             state.physical_exam = payload.physical_exam;
             state.diagnosis = payload.diagnosis;
@@ -64,7 +72,9 @@ export const currentPatientSlice = createSlice({
             state.stature = payload.stature;
             state.imc = payload.imc;
             state.correctedAge = payload.correctedAge;
+            state.biologicalAge = payload.biologicalAge;
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
+            state.biologicalAgeIsSet = payload.biologicalAgeIsSet;
             state.tallaDiana = payload.tallaDiana;
             state.perimetroCefalico = payload.perimetroCefalico;
             state.perimetroCintura = payload.perimetroCintura;
@@ -117,6 +127,20 @@ export const currentPatientSlice = createSlice({
             // console.log('payload.correctedAge: ', payload.correctedAge)
             state.unixCorrectedBirthday = payload.unixCorrectedBirthday;
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
+        },
+
+        updateCurrentPatientBiologicalAge: (state,{ payload }) => {
+            // console.log('payload: ', payload)
+            // console.log('payload.biologicalAge: ', payload.biologicalAge)
+            state.biologicalAge = payload.biologicalAge;
+            state.biologicalAgeIsSet = payload.biologicalAgeIsSet;
+        },
+
+        updateCurrentPatientUnixBiologicalBirthday: (state,{ payload }) => {
+            // console.log('payload: ', payload)
+            // console.log('payload.biologicalAge: ', payload.biologicalAge)
+            state.unixBiologicalBirthday = payload.unixBiologicalBirthday;
+            state.biologicalAgeIsSet = payload.biologicalAgeIsSet;
         },
 
         updateCurrentPatientTallaDiana: (state,{ payload }) => {
@@ -199,6 +223,8 @@ export const {
     updateCurrentPatientAge,
     updateCurrentPatientCorrectedAge,
     updateCurrentPatientUnixCorrectedBirthday,
+    updateCurrentPatientBiologicalAge,
+    updateCurrentPatientUnixBiologicalBirthday,
     updateCurrentPatientTallaDiana,
     updateCurrentPatientPerimetroCefalico,
     updateCurrentPatientPerimetroCintura,

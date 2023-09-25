@@ -156,6 +156,40 @@ export const startUpdatingCurrentPatientUnixCorrectedBirthday = ( uid, patientID
     }
 }
 
+export const startUpdatingCurrentPatientBiologicalAge = ( uid, patientID, biologicalAge, biologicalAgeIsSet ) => {
+    return async( dispatch ) => {
+
+        // console.log(biologicalAge)
+
+        const newPatientInfoToFirestore = {
+            biologicalAge,
+            biologicalAgeIsSet,
+        }
+
+        const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+        await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+    }
+}
+
+export const startUpdatingCurrentPatientUnixBiologicalBirthday = ( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet ) => {
+    return async( dispatch ) => {
+
+        // console.log(unixBiologicalBirthday)
+        // console.log(uid)
+        // console.log(patientID)
+
+        const newPatientInfoToFirestore = {
+            unixBiologicalBirthday,
+            biologicalAgeIsSet,
+        }
+
+        // console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
+
+        const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+        await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+    }
+}
+
 export const startUpdatingCurrentPatientTallaDiana = ( uid, patientID, tallaDiana ) => {
     return async( dispatch ) => {
 

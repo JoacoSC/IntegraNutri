@@ -100,6 +100,12 @@ export const PatientPage = () => {
             m: 0,
             y: 0,
         },
+        biologicalAgeIsSet,
+        biologicalAge = {
+            d: 0,
+            m: 0,
+            y: 0,
+        },
         tallaDiana,
         perimetroCefalico,
         perimetroCintura,
@@ -2418,8 +2424,13 @@ export const PatientPage = () => {
                             </div>
                         </div>
                         <div className="patient-secondary-card-row">
+
+                            {
+                                (biologicalAgeIsSet)
+                                ?   <CardEstadioTanner/>
+                                :   null
+                            }    
                                 
-                                <CardEstadioTanner/>
                             {
                                 (!!presionArterial && ageForCalcs.y > 0)
                                 ?   <CardPresionArterial/>
