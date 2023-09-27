@@ -170,17 +170,14 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
             if( age.m === 9 && weight > 8.0 ){
                 result.weightCalificationResult = 'Normal o Eutrófico';
                 result.ok.weightCalification = true;
-                console.log('entre a m=9')
             }
             if( age.m === 10 && weight > 8.2 ){
                 result.weightCalificationResult = 'Normal o Eutrófico';
                 result.ok.weightCalification = true;
-                console.log('entre a m=10')
             }
             if( age.m === 11 && weight > 8.4 ){
                 result.weightCalificationResult = 'Normal o Eutrófico';
                 result.ok.weightCalification = true;
-                console.log('entre a m=11')
             }
     
             // *** Normal o Eutrófico ***
@@ -25764,7 +25761,7 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
 
         const IMC = weight / (stature/100)**2
 
-        console.log('IMC: ', IMC)
+        // console.log('IMC: ', IMC)
 
         if ( age.y === 5 ){
 
@@ -35108,7 +35105,7 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
         }
         if ( age.y > 5 && age.y < 19 ){
 
-            console.log('tengo entre 5 y 19 años')
+            // console.log('tengo entre 5 y 19 años')
 
             boysTEfrom5to19();
 

@@ -27,7 +27,8 @@ import {
     updateCurrentPatientWeight,
     updateCurrentPatientAge,
     clearCurrentPatient,
-    updateCurrentPatientCorrectedAge
+    updateCurrentPatientCorrectedAge,
+    updateCurrentPatientBiologicalAge
 } from "../../store/currentPatient";
 
 import { AppLayout } from "../../layout/AppLayout";
@@ -92,6 +93,7 @@ export const PatientPage = () => {
         imc,
         unixBirthday,
         unixCorrectedBirthday,
+        unixBiologicalBirthday,
         gender,
         age,
         correctedAgeIsSet = null,
@@ -347,11 +349,11 @@ export const PatientPage = () => {
     
     }, [patientID])
 
-    useEffect(() => {
+    const calculateAgeObject = ( unixValue ) => {
 
-        let d1 = fromUnixTime( unixBirthday ).getDate();
-        let m1 = fromUnixTime( unixBirthday ).getMonth();
-        let y1 = fromUnixTime( unixBirthday ).getFullYear();
+        let d1 = fromUnixTime( unixValue ).getDate();
+        let m1 = fromUnixTime( unixValue ).getMonth();
+        let y1 = fromUnixTime( unixValue ).getFullYear();
         let date = new Date();
         let d2 = date.getDate();
         let m2 = date.getMonth();
@@ -368,12 +370,149 @@ export const PatientPage = () => {
         let d = d2 - d1;
         let m = m2 - m1;
         let y = y2 - y1;
+
+        return { y, m, d }
+    }
+
+    const calculateAgeForCalcsObject = () => {
+
+            if( biologicalAgeIsSet){
+                // console.log('correctedAge: ', correctedAge)
+
+                if(biologicalAge.d > 15){
+                    if(biologicalAge.m == 11){
+                        
+                        setAgeForCalcs({
+                            d: 0,
+                            m: 0,
+                            y: biologicalAge.y + 1,
+                        });
+                    }else{
+
+                        // console.log('biologicalAge.m: ', biologicalAge.m)
+                        // console.log('biologicalAge.m + 1: ', biologicalAge.m + 1)
+
+                        setAgeForCalcs({
+                            d: 0,
+                            m: biologicalAge.m + 1,
+                            y: biologicalAge.y,
+                        });
+                        // console.log('corrected_ageForCalcs11: ', ageForCalcs)
+                    }
+                }else{
+                    setAgeForCalcs({
+                        d: 0,
+                        m: biologicalAge.m,
+                        y: biologicalAge.y,
+                    });
+                }
+                setUnixBirthdayForCalcs(unixBiologicalBirthday);
+                setAgeText( generateAgeText( unixBiologicalBirthday ) );
+                
+                
+            }else if( correctedAgeIsSet ) {
+
+                if(correctedAge.d > 15){
+                    if(correctedAge.m == 11){
+                        
+                        setAgeForCalcs({
+                            d: 0,
+                            m: 0,
+                            y: correctedAge.y + 1,
+                        });
+                    }else{
+
+                        // console.log('correctedAge.m: ', correctedAge.m)
+                        // console.log('correctedAge.m + 1: ', correctedAge.m + 1)
+
+                        setAgeForCalcs({
+                            d: 0,
+                            m: correctedAge.m + 1,
+                            y: correctedAge.y,
+                        });
+                        // console.log('corrected_ageForCalcs11: ', ageForCalcs)
+                    }
+                }else{
+                    setAgeForCalcs({
+                        d: 0,
+                        m: correctedAge.m,
+                        y: correctedAge.y,
+                    });
+                }
+                setUnixBirthdayForCalcs(unixCorrectedBirthday);
+                setAgeText( generateAgeText( unixCorrectedBirthday ) );
+                
+                // console.log('corrected_ageForCalcs: ', ageForCalcs)
+
+            }else{
+
+                if(age.d > 15){
+                    if(age.m == 11){
+                        
+                        setAgeForCalcs({
+                            d: 0,
+                            m: 0,
+                            y: age.y + 1,
+                        });
+                    }else{
+
+                        setAgeForCalcs({
+                            d: 0,
+                            m: age.m + 1,
+                            y: age.y,
+                        });
+                    }
+                }else{
+                    setAgeForCalcs({
+                        d: 0,
+                        m: age.m,
+                        y: age.y,
+                    });
+                }
+                setUnixBirthdayForCalcs(unixBirthday);
+                setAgeText( generateAgeText( unixBirthday ) );
+                
+            }
+            
+            // console.log('ageForCalcs: ', ageForCalcs)
+    }
+
+    useEffect(() => {
+
+        const result = calculateAgeObject( unixBirthday )
         
-        dispatch( updateCurrentPatientAge({ y, m, d }) );
-        dispatch( updateCurrentPatientCorrectedAge({ y, m, d }) );
+        dispatch( updateCurrentPatientAge( result ) );
+        // dispatch( updateCurrentPatientCorrectedAge({ y, m, d }) );
         
     }, [unixBirthday])
-    
+
+    useEffect(() => {
+
+        if( correctedAgeIsSet ){
+
+            const correctedAge = calculateAgeObject( unixCorrectedBirthday );
+            
+            dispatch( updateCurrentPatientCorrectedAge( correctedAge ) );
+        }
+        
+    }, [correctedAgeIsSet])
+
+    useEffect(() => {
+
+        if( biologicalAgeIsSet ){
+
+            const biologicalAge = calculateAgeObject( unixBiologicalBirthday );
+            
+            dispatch( updateCurrentPatientBiologicalAge( biologicalAge ) );
+        }
+        
+    }, [biologicalAgeIsSet])
+
+    useEffect(() => {
+        
+        calculateAgeForCalcsObject();
+
+    }, [age, unixCorrectedBirthday, unixBiologicalBirthday])    
     
     const onLogout = () => {
             
@@ -535,77 +674,77 @@ export const PatientPage = () => {
         
     }
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if( correctedAgeIsSet ){
-            // console.log('correctedAge: ', correctedAge)
+    //     if( correctedAgeIsSet ){
+    //         // console.log('correctedAge: ', correctedAge)
             
-            if(correctedAge.d > 15){
-                if(correctedAge.m == 11){
+    //         if(correctedAge.d > 15){
+    //             if(correctedAge.m == 11){
                     
-                    setAgeForCalcs({
-                        d: 0,
-                        m: 0,
-                        y: correctedAge.y + 1,
-                    });
-                }else{
+    //                 setAgeForCalcs({
+    //                     d: 0,
+    //                     m: 0,
+    //                     y: correctedAge.y + 1,
+    //                 });
+    //             }else{
 
-                    // console.log('correctedAge.m: ', correctedAge.m)
-                    // console.log('correctedAge.m + 1: ', correctedAge.m + 1)
+    //                 // console.log('correctedAge.m: ', correctedAge.m)
+    //                 // console.log('correctedAge.m + 1: ', correctedAge.m + 1)
 
-                    setAgeForCalcs({
-                        d: 0,
-                        m: correctedAge.m + 1,
-                        y: correctedAge.y,
-                    });
-                    // console.log('corrected_ageForCalcs11: ', ageForCalcs)
-                }
-            }else{
-                setAgeForCalcs({
-                    d: 0,
-                    m: correctedAge.m,
-                    y: correctedAge.y,
-                });
-            }
-            setUnixBirthdayForCalcs(unixCorrectedBirthday);
-            setAgeText( generateAgeText( unixCorrectedBirthday ) );
+    //                 setAgeForCalcs({
+    //                     d: 0,
+    //                     m: correctedAge.m + 1,
+    //                     y: correctedAge.y,
+    //                 });
+    //                 // console.log('corrected_ageForCalcs11: ', ageForCalcs)
+    //             }
+    //         }else{
+    //             setAgeForCalcs({
+    //                 d: 0,
+    //                 m: correctedAge.m,
+    //                 y: correctedAge.y,
+    //             });
+    //         }
+    //         setUnixBirthdayForCalcs(unixCorrectedBirthday);
+    //         setAgeText( generateAgeText( unixCorrectedBirthday ) );
             
-            // console.log('corrected_ageForCalcs: ', ageForCalcs)
-        }else{
+    //         // console.log('corrected_ageForCalcs: ', ageForCalcs)
+    //     }else{
 
-            if(age.d > 15){
-                if(age.m == 11){
+    //         if(age.d > 15){
+    //             if(age.m == 11){
                     
-                    setAgeForCalcs({
-                        d: 0,
-                        m: 0,
-                        y: age.y + 1,
-                    });
-                }else{
+    //                 setAgeForCalcs({
+    //                     d: 0,
+    //                     m: 0,
+    //                     y: age.y + 1,
+    //                 });
+    //             }else{
 
-                    setAgeForCalcs({
-                        d: 0,
-                        m: age.m + 1,
-                        y: age.y,
-                    });
-                }
-            }else{
-                setAgeForCalcs({
-                    d: 0,
-                    m: age.m,
-                    y: age.y,
-                });
-            }
-            setUnixBirthdayForCalcs(unixBirthday);
-            setAgeText( generateAgeText( unixBirthday ) );
-            // console.log('ageForCalcs: ', ageForCalcs)
+    //                 setAgeForCalcs({
+    //                     d: 0,
+    //                     m: age.m + 1,
+    //                     y: age.y,
+    //                 });
+    //             }
+    //         }else{
+    //             setAgeForCalcs({
+    //                 d: 0,
+    //                 m: age.m,
+    //                 y: age.y,
+    //             });
+    //         }
+    //         setUnixBirthdayForCalcs(unixBirthday);
+    //         setAgeText( generateAgeText( unixBirthday ) );
+    //         // console.log('ageForCalcs: ', ageForCalcs)
 
-        }
+    //     }
 
-        handleHideChartButtons();
+    //     handleHideChartButtons();
         
 
-    }, [correctedAge])
+    // }, [correctedAge])
 
     useEffect(() => {
         handleHideChartButtons();

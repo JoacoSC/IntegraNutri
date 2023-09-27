@@ -71,8 +71,8 @@ export const currentPatientSlice = createSlice({
             state.weight = payload.weight;
             state.stature = payload.stature;
             state.imc = payload.imc;
-            state.correctedAge = payload.correctedAge;
-            state.biologicalAge = payload.biologicalAge;
+            // state.correctedAge = payload.correctedAge;
+            // state.biologicalAge = payload.biologicalAge;
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
             state.biologicalAgeIsSet = payload.biologicalAgeIsSet;
             state.tallaDiana = payload.tallaDiana;
@@ -115,16 +115,15 @@ export const currentPatientSlice = createSlice({
             state.age = payload;
         },
 
-        updateCurrentPatientCorrectedAge: (state,{ payload }) => {
+        updateCurrentPatientCorrectedAge: (state, { payload } ) => {
             // console.log('payload: ', payload)
-            // console.log('payload.correctedAge: ', payload.correctedAge)
-            state.correctedAge = payload.correctedAge;
-            state.correctedAgeIsSet = payload.correctedAgeIsSet;
+            // console.log('payload.correctedAge: ', payload)
+            state.correctedAge = payload;
         },
 
         updateCurrentPatientUnixCorrectedBirthday: (state,{ payload }) => {
-            // console.log('payload: ', payload)
-            // console.log('payload.correctedAge: ', payload.correctedAge)
+            // console.log('payload.unixCorrectedBirthday: ', payload.unixCorrectedBirthday)
+            // console.log('payload.correctedAgeIsSet: ', payload.correctedAgeIsSet)
             state.unixCorrectedBirthday = payload.unixCorrectedBirthday;
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
         },
@@ -132,8 +131,7 @@ export const currentPatientSlice = createSlice({
         updateCurrentPatientBiologicalAge: (state,{ payload }) => {
             // console.log('payload: ', payload)
             // console.log('payload.biologicalAge: ', payload.biologicalAge)
-            state.biologicalAge = payload.biologicalAge;
-            state.biologicalAgeIsSet = payload.biologicalAgeIsSet;
+            state.biologicalAge = payload;
         },
 
         updateCurrentPatientUnixBiologicalBirthday: (state,{ payload }) => {

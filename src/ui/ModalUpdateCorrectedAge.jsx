@@ -51,8 +51,8 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
 
         // console.log('correctedAge111: ', correctedAge)
         
-        dispatch( updateCurrentPatientCorrectedAge({ correctedAge, correctedAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
+        dispatch( updateCurrentPatientCorrectedAge( correctedAge ) );
+        // dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
 
         dispatch( updateCurrentPatientUnixCorrectedBirthday({ unixCorrectedBirthday, correctedAgeIsSet }) );
         dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday, correctedAgeIsSet )  );
@@ -73,8 +73,8 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
         const unixCorrectedBirthday = null;
         const correctedAgeIsSet = false;
 
-        dispatch( updateCurrentPatientCorrectedAge({ correctedAge, correctedAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
+        dispatch( updateCurrentPatientCorrectedAge( correctedAge ) );
+        // dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
 
         dispatch( updateCurrentPatientUnixCorrectedBirthday({ unixCorrectedBirthday, correctedAgeIsSet }) );
         dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday, correctedAgeIsSet )  );

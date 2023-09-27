@@ -73,8 +73,8 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
         // console.log('correctedAge111: ', correctedAge)
         
-        dispatch( updateCurrentPatientBiologicalAge({ biologicalAge, biologicalAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientBiologicalAge( uid, patientID, biologicalAge, biologicalAgeIsSet ) );
+        dispatch( updateCurrentPatientBiologicalAge( biologicalAge ) );
+        // dispatch( startUpdatingCurrentPatientBiologicalAge( uid, patientID, biologicalAge, biologicalAgeIsSet ) );
 
         dispatch( updateCurrentPatientUnixBiologicalBirthday({ unixBiologicalBirthday, biologicalAgeIsSet }) );
         dispatch( startUpdatingCurrentPatientUnixBiologicalBirthday( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet )  );
@@ -95,8 +95,8 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         const unixBiologicalBirthday = null;
         const biologicalAgeIsSet = false;
 
-        dispatch( updateCurrentPatientBiologicalAge({ biologicalAge, biologicalAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientBiologicalAge( uid, patientID, biologicalAge, biologicalAgeIsSet ) );
+        dispatch( updateCurrentPatientBiologicalAge( biologicalAge ) );
+        // dispatch( startUpdatingCurrentPatientBiologicalAge( uid, patientID, biologicalAge, biologicalAgeIsSet ) );
 
         dispatch( updateCurrentPatientUnixBiologicalBirthday({ unixBiologicalBirthday, biologicalAgeIsSet }) );
         dispatch( startUpdatingCurrentPatientUnixBiologicalBirthday( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet )  );
