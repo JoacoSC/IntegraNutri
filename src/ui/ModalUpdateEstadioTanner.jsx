@@ -36,6 +36,18 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     const [ageDifference, setAgeDifference] = useState(0);
 
+    const [ageDifferenceDateObject, setAgeDifferenceDateObject] = useState({
+        d: 0,
+        m: 0,
+        y: 0,
+    });
+
+    const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
+
+    const [inputTextStyleClassname, setInputTextStyleClassname] = useState('input-text-style h-2');
+
+    const [btnModalPrimaryClassname, setBtnModalPrimaryClassname] = useState('btn-modal-primary');
+
     const [biologicalAgeMilliseconds, setBiologicalAgeMilliseconds] = useState(0)
     const [chronologicalAgeMilliseconds, setChronologicalAgeMilliseconds] = useState(0)
 
@@ -271,41 +283,82 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     const handleTannerRegistro = () => {
 
-        if( TannerRegistro === 'GradoI' ){
-            setBiologicalAgeText('< 10 años y 6 meses')
-            setBiologicalAge(null)
-        }else if( TannerRegistro === 'GradoII' ){
-            setBiologicalAgeText('10 años y 6 meses')
-            setBiologicalAge({
-                y: 10,
-                m: 6,
-                d: 0,
-            })
-        }else if( TannerRegistro === 'GradoIII' ){
-            setBiologicalAgeText('11 años')
-            setBiologicalAge({
-                y: 11,
-                m: 0,
-                d: 0,
-            })
-        }else if( TannerRegistro === 'GradoIV' ){
-            setBiologicalAgeText('12 años, si no hay menarquia')
-            setBiologicalAge({
-                y: 12,
-                m: 0,
-                d: 0,
-            })
-        }else if( TannerRegistro === 'GradoV' ){
-            setBiologicalAgeText('12 años y 8 meses')
-            setBiologicalAge({
-                y: 12,
-                m: 8,
-                d: 0,
-            })
-        }else{
-            setBiologicalAgeText('Ingrese un valor válido')
-            setBiologicalAge(null)
+        if( gender === 'Femenino'){
+            if( TannerRegistro === 'GradoI' ){
+                setBiologicalAgeText('< 10 años y 6 meses')
+                setBiologicalAge(null)
+            }else if( TannerRegistro === 'GradoII' ){
+                setBiologicalAgeText('10 años y 6 meses')
+                setBiologicalAge({
+                    y: 10,
+                    m: 6,
+                    d: 0,
+                })
+            }else if( TannerRegistro === 'GradoIII' ){
+                setBiologicalAgeText('11 años')
+                setBiologicalAge({
+                    y: 11,
+                    m: 0,
+                    d: 0,
+                })
+            }else if( TannerRegistro === 'GradoIV' ){
+                setBiologicalAgeText('12 años, si no hay menarquia')
+                setBiologicalAge({
+                    y: 12,
+                    m: 0,
+                    d: 0,
+                })
+            }else if( TannerRegistro === 'GradoV' ){
+                setBiologicalAgeText('12 años y 8 meses')
+                setBiologicalAge({
+                    y: 12,
+                    m: 8,
+                    d: 0,
+                })
+            }else{
+                setBiologicalAgeText('Ingrese un valor válido')
+                setBiologicalAge(null)
+            }
         }
+
+        if( gender === 'Masculino' ){
+            if( TannerRegistro === 'GradoI' ){
+                setBiologicalAgeText('< 12 años')
+                setBiologicalAge(null)
+            }else if( TannerRegistro === 'GradoII' ){
+                setBiologicalAgeText('12 años')
+                setBiologicalAge({
+                    y: 12,
+                    m: 0,
+                    d: 0,
+                })
+            }else if( TannerRegistro === 'GradoIII' ){
+                setBiologicalAgeText('12 años y 6 meses')
+                setBiologicalAge({
+                    y: 12,
+                    m: 6,
+                    d: 0,
+                })
+            }else if( TannerRegistro === 'GradoIV' ){
+                setBiologicalAgeText('13 años y 6 meses')
+                setBiologicalAge({
+                    y: 13,
+                    m: 6,
+                    d: 0,
+                })
+            }else if( TannerRegistro === 'GradoV' ){
+                setBiologicalAgeText('14 años y 6 meses')
+                setBiologicalAge({
+                    y: 14,
+                    m: 6,
+                    d: 0,
+                })
+            }else{
+                setBiologicalAgeText('Ingrese un valor válido')
+                setBiologicalAge(null)
+            }
+        }
+        
 
         
     }
@@ -338,10 +391,9 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
     const handleAgeDifference = () => {
 
         setAgeDifference(Math.abs(biologicalAgeMilliseconds - chronologicalAgeMilliseconds))
-        // console.log('ageDifference: ', ageDifference)
     }
 
-    const setAgeDifferenceDate = () => {
+    const handleAgeDifferenceDate = () => {
         
         if( ageDifference === 0){
             setAgeDifferenceText('Indefinido')
@@ -351,6 +403,17 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         }
     }
 
+    const handleAgeDifferenceDateObject = () => {
+        if( ageDifference === 0){
+            setAgeDifferenceDateObject({
+                y: 0,
+                m: 0,
+                d: 0,
+            })
+        }else{
+            setAgeDifferenceDateObject( calculateAgeObject( getUnixTime( subMilliseconds( new Date(), ageDifference ) ) ) )
+        }
+    }
 
     useEffect(() => {
         updateCorrectedAgeAndBirthday();
@@ -377,9 +440,29 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     useEffect(() => {
         
-        setAgeDifferenceDate();
+        handleAgeDifferenceDate();
 
     }, [ageDifference])
+
+    useEffect(() => {
+        
+        handleAgeDifferenceDateObject();
+
+    }, [ageDifference])
+
+    useEffect(() => {
+
+        if( ageDifferenceDateObject.y < 2 ){
+            setDisableSubmitBtn( true )
+            setInputTextStyleClassname( 'input-text-danger-style h-2' )
+            setBtnModalPrimaryClassname( 'btn-modal-primary-disabled' )
+        }else{
+            setDisableSubmitBtn( false )
+            setInputTextStyleClassname( 'input-text-style h-2' )
+            setBtnModalPrimaryClassname( 'btn-modal-primary' )
+        }
+
+    }, [ageDifferenceDateObject])
 
     useEffect(() => {
         setChronologicalAgeText( calculateAge( unixBirthday ) );
@@ -465,7 +548,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                     Diferencia
                                 </label>
                                 <div className='flex-direction-row'>
-                                    <input className="input-text-style h-2" type="text" value={ ageDifferenceText } name="AgeDifference" readOnly/>
+                                    <input className={ inputTextStyleClassname } type="text" value={ ageDifferenceText } name="AgeDifference" readOnly/>
                                     
                                 </div>
                             </div>            
@@ -513,10 +596,19 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                         </div>
                         
                         <div className="form-btn-group">
-                            <button className="btn-modal-primary" type="submit" onClick={ () => updatePatientValues() }>
+                            <button
+                                className={ btnModalPrimaryClassname }
+                                type="submit"
+                                onClick={ () => updatePatientValues() }
+                                disabled={ disableSubmitBtn }
+                            >
                                 Actualizar
                             </button>
-                            <button className="btn-modal-alt" type="submit" onClick={ () => deleteCorrectedAge() }>
+                            <button
+                                className="btn-modal-alt"
+                                type="submit"
+                                onClick={ () => deleteCorrectedAge() }
+                            >
                                 Eliminar edad corregida
                             </button>
                         </div>

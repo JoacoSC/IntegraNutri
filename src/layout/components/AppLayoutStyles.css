@@ -9,6 +9,9 @@
     --clr-btn-secondary: #6d22d0;
     --clr-btn-secondary-hover: #6821c6;
     --clr-btn-secondary-active: #7d37d8;
+    --clr-btn-secondary-disabled: #d9bcff;
+    --clr-btn-secondary-disabled-hover: #d9bcff;
+    --clr-btn-secondary-disabled-active: #d9bcff;
     --clr-btn-alt: #d02822;
     --clr-btn-alt-hover: #c62121;
     --clr-btn-alt-active: #d84437;

@@ -316,6 +316,26 @@ body{
     border: 1px solid rgba(163,32,211, 1);
 }
 
+.input-text-danger-style{
+    padding: 0.5rem;
+    border: none;
+    height: 3rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #9f0000;
+    padding-left: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 0, 0, 0.486);
+    box-shadow: 1px 0px 6px 1px rgba(233,238,253,0.75);
+    transition: 150ms all ease-in;
+}
+
+.input-text-danger-style:focus{
+    outline: none;
+    border: 1px solid rgba(255, 0, 0, 0.79);
+}
+
 .input-password-container{
     display: flex;
     height: 2.4rem;

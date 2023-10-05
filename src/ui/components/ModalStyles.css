@@ -214,6 +214,34 @@
     background: var(--clr-btn-secondary-active);
 }
 
+.btn-modal-primary-disabled{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    width: 100%;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: var(--clr-btn-secondary-disabled);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.9rem;
+    margin-bottom: 3rem;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-modal-primary-disabled:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-disabled-hover);
+}
+
+.btn-modal-primary-disabled:active{
+    transform: scale(0.96);
+    background: var(--clr-btn-secondary-disabled-active);
+}
+
 .btn-modal-alt{
     display: flex;
     justify-content: center;

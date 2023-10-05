@@ -13,7 +13,7 @@ export const Dropdown = ({ patientObject }) => {
 
     const dropdownMenu = useRef();
 
-    const { age } = useSelector( state => state.currentPatient )
+    const { age, gender } = useSelector( state => state.currentPatient )
 
     // console.log('gender: ',gender)
     // console.log('age: ',age)
@@ -68,9 +68,27 @@ export const Dropdown = ({ patientObject }) => {
                                 <div className='dropdown-item-container'>
                                     <ModalUpdateCorrectedAge patientObject={ patientObject } />
                                 </div>
-                                <div className='dropdown-item-container'>
-                                    <ModalUpdateEstadioTanner patientObject={ patientObject } />
-                                </div>
+                                {
+
+                                    ( gender === 'Femenino' )
+                                    ?   ( age.y >= 8 && age.y <= 14 )
+                                        ?   <div className='dropdown-item-container'>
+                                                <ModalUpdateEstadioTanner patientObject={ patientObject } />
+                                            </div>
+                                        :   null
+                                    :   null
+                                }
+                                {
+                                    ( gender === 'Masculino' )
+                                    ?   ( age.y >= 10 && age.y <= 15 )
+                                        ?   <div className='dropdown-item-container'>
+                                                <ModalUpdateEstadioTanner patientObject={ patientObject } />
+                                            </div>
+                                        :   null
+                                    :   null
+
+                                }
+                                
                                 <div className='dropdown-item-container'>
                                     <ModalTallaDiana patientObject={ patientObject } />
                                 </div>

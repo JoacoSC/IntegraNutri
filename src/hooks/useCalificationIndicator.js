@@ -4,7 +4,7 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
 
     const age = ageForCalcs;
 
-    console.log('useCalificationIndicator age: ', age);
+    // console.log('useCalificationIndicator age: ', age);
 
     const result = {
         ok: {
