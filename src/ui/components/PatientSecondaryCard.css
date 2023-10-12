@@ -70,6 +70,10 @@
     gap: 1rem;
 }
 
+.padding-left-none{
+    padding-left: 0;
+}
+
 .perimetro-cefalico-value{
     display: flex;
     align-items: center;

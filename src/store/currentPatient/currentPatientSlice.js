@@ -41,6 +41,7 @@ export const currentPatientSlice = createSlice({
             y: 0,
           },
         biologicalAgeIsSet: false,
+        estadioTanner: null,
         tallaDiana: null,
         perimetroCefalico: null,
         perimetroCintura: null,
@@ -73,6 +74,7 @@ export const currentPatientSlice = createSlice({
             state.imc = payload.imc;
             // state.correctedAge = payload.correctedAge;
             // state.biologicalAge = payload.biologicalAge;
+            state.estadioTanner = payload.estadioTanner;
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
             state.biologicalAgeIsSet = payload.biologicalAgeIsSet;
             state.tallaDiana = payload.tallaDiana;
@@ -126,6 +128,12 @@ export const currentPatientSlice = createSlice({
             // console.log('payload.correctedAgeIsSet: ', payload.correctedAgeIsSet)
             state.unixCorrectedBirthday = payload.unixCorrectedBirthday;
             state.correctedAgeIsSet = payload.correctedAgeIsSet;
+        },
+
+        updateCurrentPatientEstadioTanner: (state,{ payload }) => {
+            // console.log('payload: ', payload)
+            // console.log('payload.biologicalAge: ', payload.biologicalAge)
+            state.estadioTanner = payload;
         },
 
         updateCurrentPatientBiologicalAge: (state,{ payload }) => {
@@ -191,11 +199,17 @@ export const currentPatientSlice = createSlice({
                 m: 0,
                 y: 0,
               };
+            state.biologicalAge = {
+                d: 0,
+                m: 0,
+                y: 0,
+              };
             state.correctedAge = {
                 d: 0,
                 m: 0,
                 y: 0,
               };
+            state.estadioTanner = null;
             state.correctedAgeIsSet = false;
             state.tallaDiana = null;
             state.perimetroCefalico = null;
@@ -221,6 +235,7 @@ export const {
     updateCurrentPatientAge,
     updateCurrentPatientCorrectedAge,
     updateCurrentPatientUnixCorrectedBirthday,
+    updateCurrentPatientEstadioTanner,
     updateCurrentPatientBiologicalAge,
     updateCurrentPatientUnixBiologicalBirthday,
     updateCurrentPatientTallaDiana,

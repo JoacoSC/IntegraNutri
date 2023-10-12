@@ -7,9 +7,13 @@ import { fromUnixTime } from 'date-fns';
 
 export const CardEstadioTanner = () => {
 
-    const { unixBiologicalBirthday = 0, gender } = useSelector((state) => state.currentPatient);
+    const { weight, stature, unixBiologicalBirthday = 0, estadioTanner, gender } = useSelector((state) => state.currentPatient);
+
+    console.log( estadioTanner )
 
     const [biologicalAgeText, setBiologicalAgeText] = useState('');
+
+    const [tannerIMC, setTannerIMC] = useState(0);
 
     const calculateAge = ( value ) => {
         let d1 = fromUnixTime( value ).getDate();
@@ -68,11 +72,24 @@ export const CardEstadioTanner = () => {
         }
     }
 
+    const calculateTannerIMC = ( weight, stature ) => {
+
+        const lastWeight = weight[weight?.length - 1].A
+
+        const lastStature = stature[stature?.length - 1].A
+
+        const IMC = lastWeight / (lastStature/100)**2;
+
+        return IMC.toFixed(2);
+
+    }
+
     useEffect(() => {
         
         setBiologicalAgeText(calculateAge( unixBiologicalBirthday ));
+        setTannerIMC( calculateTannerIMC( weight, stature ) )
 
-    }, [unixBiologicalBirthday])
+    }, [unixBiologicalBirthday, weight, stature])
 
     return (
         <div className='patient-secondary-card'>
@@ -86,12 +103,12 @@ export const CardEstadioTanner = () => {
                         
                     }
                 </div>
-                <div className='perimetro-cefalico-value-container flex-column'>
+                <div className='perimetro-cefalico-value-container flex-column padding-left-none'>
                     <p className='perimetro-cefalico-value'><b>Edad biológica:&nbsp;</b>{ biologicalAgeText }</p>
+                    <p className='perimetro-cefalico-value'><b>Estadio Tanner:&nbsp;</b>Grado { estadioTanner }</p>
                     <p className='perimetro-cefalico-value'>
-                        <b>Registro:&nbsp;</b>p75
+                        <b>IMC:&nbsp;</b>{ tannerIMC }
                     </p>
-                    <p className='perimetro-cefalico-value'><b>Clasificación:&nbsp;</b>Una clasificación</p>
                 </div>
                 {/* <div className="alt-button-info" data-tooltip="Este resultado puede presentar una variabilidad de hasta +-8,5 cm">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

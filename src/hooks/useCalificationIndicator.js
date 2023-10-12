@@ -4,7 +4,7 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
 
     const age = ageForCalcs;
 
-    // console.log('useCalificationIndicator age: ', age);
+    console.log('useCalificationIndicator age: ', age);
 
     const result = {
         ok: {
@@ -30306,7 +30306,7 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
 
         const IMC = weight / (stature/100)**2
 
-        console.log('IMC: ', IMC)
+        // console.log('IMC: ', IMC)
         
         if ( age.y === 5 ){
 

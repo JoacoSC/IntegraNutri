@@ -196,6 +196,18 @@ body{
     flex-direction: row;
 }
 
+.wrap{
+    flex-wrap: wrap;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
 .link-no-decoration{
     text-decoration: none;
     color: black;
@@ -316,6 +328,14 @@ body{
     border: 1px solid rgba(163,32,211, 1);
 }
 
+.input-text-width{
+    width: 300px;
+}
+
+.input-text-width-w-icon{
+    width: 274px;
+}
+
 .input-text-danger-style{
     padding: 0.5rem;
     border: none;
@@ -334,6 +354,26 @@ body{
 .input-text-danger-style:focus{
     outline: none;
     border: 1px solid rgba(255, 0, 0, 0.79);
+}
+
+.input-text-success-style{
+    padding: 0.5rem;
+    border: none;
+    height: 3rem;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(0, 155, 0);
+    padding-left: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 21, 0.486);
+    box-shadow: 1px 0px 6px 1px rgba(233,238,253,0.75);
+    transition: 150ms all ease-in;
+}
+
+.input-text-success-style:focus{
+    outline: none;
+    border: 1px solid rgba(0, 255, 85, 0.79);
 }
 
 .input-password-container{

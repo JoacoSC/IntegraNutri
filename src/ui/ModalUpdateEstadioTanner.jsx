@@ -4,13 +4,13 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
-import { startUpdatingCurrentPatientBiologicalAge, startUpdatingCurrentPatientUnixBiologicalBirthday, updateCurrentPatientBiologicalAge, updateCurrentPatientUnixBiologicalBirthday } from '../store/currentPatient';
+import { updateCurrentPatientEstadioTanner, startUpdatingCurrentPatientUnixBiologicalBirthday, updateCurrentPatientBiologicalAge, updateCurrentPatientUnixBiologicalBirthday } from '../store/currentPatient';
 import './components';
 
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
 import CorrectedAgeIcon from '../../assets/imgs/patient/corrected_age_icon.svg'
-import Tanner_masculino from '../../assets/imgs/patient/estadios_tanner_masculino.png'
-import Tanner_femenino from '../../assets/imgs/patient/estadios_tanner_femenino.png'
+import Tanner_masculino from '../../assets/imgs/patient/estadios_tanner/estadios_tanner_masculino.jpg'
+import Tanner_femenino from '../../assets/imgs/patient/estadios_tanner/estadios_tanner_femenino.jpg'
 
 export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
@@ -44,7 +44,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
 
-    const [inputTextStyleClassname, setInputTextStyleClassname] = useState('input-text-style h-2');
+    const [inputTextStyleClassname, setInputTextStyleClassname] = useState('input-text-style input-text-width-w-icon h-2');
 
     const [btnModalPrimaryClassname, setBtnModalPrimaryClassname] = useState('btn-modal-primary');
 
@@ -56,7 +56,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
     const [unixCorrectedBirthday, setUnixCorrectedBirthday] = useState()
 
     const {
-        TannerRegistro,
+        estadioTanner,
         ChronologicalAge,
         onInputChange
     } = useForm();
@@ -83,13 +83,15 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
         const biologicalAgeIsSet = true;
 
-        // console.log('correctedAge111: ', correctedAge)
+        // console.log('estadioTanner: ', estadioTanner)
         
         dispatch( updateCurrentPatientBiologicalAge( biologicalAge ) );
+        dispatch( updateCurrentPatientEstadioTanner( estadioTanner ) );
+        
         // dispatch( startUpdatingCurrentPatientBiologicalAge( uid, patientID, biologicalAge, biologicalAgeIsSet ) );
 
         dispatch( updateCurrentPatientUnixBiologicalBirthday({ unixBiologicalBirthday, biologicalAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientUnixBiologicalBirthday( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet )  );
+        dispatch( startUpdatingCurrentPatientUnixBiologicalBirthday( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet, estadioTanner )  );
 
 
     }
@@ -108,10 +110,11 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         const biologicalAgeIsSet = false;
 
         dispatch( updateCurrentPatientBiologicalAge( biologicalAge ) );
+        dispatch( updateCurrentPatientEstadioTanner( null ) );
         // dispatch( startUpdatingCurrentPatientBiologicalAge( uid, patientID, biologicalAge, biologicalAgeIsSet ) );
 
         dispatch( updateCurrentPatientUnixBiologicalBirthday({ unixBiologicalBirthday, biologicalAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientUnixBiologicalBirthday( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet )  );
+        dispatch( startUpdatingCurrentPatientUnixBiologicalBirthday( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet, estadioTanner )  );
     }
 
     const calculateAgeObject = ( unixCorrectedBirthday ) => {
@@ -281,34 +284,34 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         }
     }
 
-    const handleTannerRegistro = () => {
+    const handleEstadioTanner = () => {
 
         if( gender === 'Femenino'){
-            if( TannerRegistro === 'GradoI' ){
+            if( estadioTanner === 'I' ){
                 setBiologicalAgeText('< 10 años y 6 meses')
                 setBiologicalAge(null)
-            }else if( TannerRegistro === 'GradoII' ){
+            }else if( estadioTanner === 'II' ){
                 setBiologicalAgeText('10 años y 6 meses')
                 setBiologicalAge({
                     y: 10,
                     m: 6,
                     d: 0,
                 })
-            }else if( TannerRegistro === 'GradoIII' ){
+            }else if( estadioTanner === 'III' ){
                 setBiologicalAgeText('11 años')
                 setBiologicalAge({
                     y: 11,
                     m: 0,
                     d: 0,
                 })
-            }else if( TannerRegistro === 'GradoIV' ){
+            }else if( estadioTanner === 'IV' ){
                 setBiologicalAgeText('12 años, si no hay menarquia')
                 setBiologicalAge({
                     y: 12,
                     m: 0,
                     d: 0,
                 })
-            }else if( TannerRegistro === 'GradoV' ){
+            }else if( estadioTanner === 'V' ){
                 setBiologicalAgeText('12 años y 8 meses')
                 setBiologicalAge({
                     y: 12,
@@ -322,31 +325,31 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         }
 
         if( gender === 'Masculino' ){
-            if( TannerRegistro === 'GradoI' ){
+            if( estadioTanner === 'I' ){
                 setBiologicalAgeText('< 12 años')
                 setBiologicalAge(null)
-            }else if( TannerRegistro === 'GradoII' ){
+            }else if( estadioTanner === 'II' ){
                 setBiologicalAgeText('12 años')
                 setBiologicalAge({
                     y: 12,
                     m: 0,
                     d: 0,
                 })
-            }else if( TannerRegistro === 'GradoIII' ){
+            }else if( estadioTanner === 'III' ){
                 setBiologicalAgeText('12 años y 6 meses')
                 setBiologicalAge({
                     y: 12,
                     m: 6,
                     d: 0,
                 })
-            }else if( TannerRegistro === 'GradoIV' ){
+            }else if( estadioTanner === 'IV' ){
                 setBiologicalAgeText('13 años y 6 meses')
                 setBiologicalAge({
                     y: 13,
                     m: 6,
                     d: 0,
                 })
-            }else if( TannerRegistro === 'GradoV' ){
+            }else if( estadioTanner === 'V' ){
                 setBiologicalAgeText('14 años y 6 meses')
                 setBiologicalAge({
                     y: 14,
@@ -421,9 +424,9 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     useEffect(() => {
         
-        handleTannerRegistro();
+        handleEstadioTanner();
 
-    }, [TannerRegistro])
+    }, [estadioTanner])
 
     
     useEffect(() => {
@@ -452,14 +455,28 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     useEffect(() => {
 
-        if( ageDifferenceDateObject.y < 2 ){
-            setDisableSubmitBtn( true )
-            setInputTextStyleClassname( 'input-text-danger-style h-2' )
-            setBtnModalPrimaryClassname( 'btn-modal-primary-disabled' )
+        if( ageDifferenceDateObject.y === 0 && ageDifferenceDateObject.m === 0 && ageDifferenceDateObject.d === 0 ){
+            // console.log('Es indefinido');
         }else{
-            setDisableSubmitBtn( false )
-            setInputTextStyleClassname( 'input-text-style h-2' )
-            setBtnModalPrimaryClassname( 'btn-modal-primary' )
+            // console.log('No es indefinido');
+        }
+        if( ageDifferenceDateObject.y === 0 && ageDifferenceDateObject.m === 0 && ageDifferenceDateObject.d === 0 ){   
+
+            setDisableSubmitBtn( true )
+            setInputTextStyleClassname( 'input-text-style input-text-width-w-icon h-2' )
+            setBtnModalPrimaryClassname( 'btn-modal-primary-disabled' )
+
+        }else{
+            if( ageDifferenceDateObject.y < 1 ){
+                setDisableSubmitBtn( true )
+                setInputTextStyleClassname( 'input-text-danger-style input-text-width-w-icon h-2' )
+                setBtnModalPrimaryClassname( 'btn-modal-primary-disabled' )
+            }else{
+                setDisableSubmitBtn( false )
+                setInputTextStyleClassname( 'input-text-success-style input-text-width h-2' )
+                setBtnModalPrimaryClassname( 'btn-modal-primary' )
+            }
+
         }
 
     }, [ageDifferenceDateObject])
@@ -508,48 +525,57 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                 </h1>
 
                 <form onSubmit={ onSubmit }>
-                    <div className="modal-perimetro-cefalico-container-form" onSubmit={ onSubmit }>
+                    <div className="modal-perimetro-cefalico-container-form " onSubmit={ onSubmit }>
 
-                        <div className="form-group">
+                        <div className="form-group wrap justify-content-center">
                             
-                            <div className="form-item w-50 pr-8">
+                            <div className="form-item w-50 pr-8 align-items-center">
                                 <label className="input-label">
                                     Registro
                                 </label>
-                                    <select className="input-text-style h-2" name="TannerRegistro" onChange={ onInputChange }>
+                                    <select className="input-text-style input-text-width h-2" name="estadioTanner" onChange={ onInputChange }>
                                         <option>Seleccione una opción</option>
-                                        <option value='GradoI'>Grado I</option>
-                                        <option value='GradoII'>Grado II</option>
-                                        <option value='GradoIII'>Grado III</option>
-                                        <option value='GradoIV'>Grado IV</option>
-                                        <option value='GradoV'>Grado V</option>
+                                        <option value='I'>Grado I</option>
+                                        <option value='II'>Grado II</option>
+                                        <option value='III'>Grado III</option>
+                                        <option value='IV'>Grado IV</option>
+                                        <option value='V'>Grado V</option>
                                     </select>
                             </div>            
-                            <div className="form-item w-50 pr-8">
+                            <div className="form-item w-50 pr-8 align-items-center">
                                 <label className="input-label">
                                     Edad Biológica
                                 </label>
                                 <div className='flex-direction-row'>
-                                    <input className="input-text-style h-2" type="text" value={ biologicalAgeText } name="BiologicalAge" readOnly/>
+                                    <input className="input-text-style input-text-width h-2" type="text" value={ biologicalAgeText } name="BiologicalAge" readOnly/>
                                     
                                 </div>
                             </div>            
-                            <div className="form-item w-50 pr-8">
+                            <div className="form-item w-50 pr-8 align-items-center">
                                 <label className="input-label">
                                     Edad Cronológica
                                 </label>
                                 <div className='flex-direction-row'>
-                                    <input className="input-text-style h-2" type="text" value={ chronologicalAgeText } name="ChronologicalAge" readOnly/>
+                                    <input className="input-text-style input-text-width h-2" type="text" value={ chronologicalAgeText } name="ChronologicalAge" readOnly/>
                                     
                                 </div>
                             </div>            
-                            <div className="form-item w-50 pr-8">
+                            <div className="form-item w-50 pr-8 align-items-center">
                                 <label className="input-label">
                                     Diferencia
                                 </label>
                                 <div className='flex-direction-row'>
                                     <input className={ inputTextStyleClassname } type="text" value={ ageDifferenceText } name="AgeDifference" readOnly/>
                                     
+                                {
+                                    (disableSubmitBtn === true)
+                                    ?   <div className="perimetro-cefalico-info" data-tooltip="Cuando la edad biológica y la edad cronológica (edad desde el nacimiento) presenten una diferencia mayor a 1 año se justifica evaluar por edad biológica.">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12ZM11 16C11 15.4477 11.4477 15 12 15C12.5523 15 13 15.4477 13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16ZM11 7V13H13L13 7H11Z" fill="#6D22D0"/>
+                                            </svg>
+                                        </div>
+                                    :   null
+                                }
                                 </div>
                             </div>            
                         </div>
@@ -564,7 +590,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                         <p className='modal-chart-subtitle'>
                                             MEDIANA Y DESVIACIÓN ESTÁNDAR
                                         </p> */}
-                                        <img src={ Tanner_masculino } className='modal-chart'/> 
+                                        <img src={ Tanner_masculino } className='modal-chart border-radius-5'/> 
                                         {/* <p className='modal-chart-ref'>
                                             Referencias:
                                         </p>
@@ -582,7 +608,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                             <p className='modal-chart-subtitle'>
                                                 MEDIANA Y DESVIACIÓN ESTÁNDAR
                                             </p> */}
-                                            <img src={ Tanner_femenino } className='modal-chart'/> 
+                                            <img src={ Tanner_femenino } className='modal-chart border-radius-5'/> 
                                             {/* <p className='modal-chart-ref'>
                                                 Referencias:
                                             </p>

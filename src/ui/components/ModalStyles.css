@@ -649,8 +649,12 @@
     min-height: 300px;
     margin: auto;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 5px;
     /* padding: 1rem 2rem 1rem 2rem; */
+}
+
+.border-radius-5{
+    border-radius: 5px;
 }
 
 .flex-direction-row{
@@ -974,3 +978,25 @@
 }
 
 /* *********** Patient Estadio Tanner ************ */
+
+@media screen and (max-width: 1080px){
+
+    .input-text-width{
+        width: 250px;
+    }
+
+    .input-text-width-w-icon{
+        width: 224px;
+    }
+}
+
+@media screen and (max-width: 900px){
+
+    .input-text-width{
+        width: 200px;
+    }
+
+    .input-text-width-w-icon{
+        width: 174px;
+    }
+}

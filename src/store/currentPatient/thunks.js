@@ -171,7 +171,7 @@ export const startUpdatingCurrentPatientBiologicalAge = ( uid, patientID, biolog
     }
 }
 
-export const startUpdatingCurrentPatientUnixBiologicalBirthday = ( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet ) => {
+export const startUpdatingCurrentPatientUnixBiologicalBirthday = ( uid, patientID, unixBiologicalBirthday, biologicalAgeIsSet, estadioTanner ) => {
     return async( dispatch ) => {
 
         // console.log(unixBiologicalBirthday)
@@ -181,6 +181,7 @@ export const startUpdatingCurrentPatientUnixBiologicalBirthday = ( uid, patientI
         const newPatientInfoToFirestore = {
             unixBiologicalBirthday,
             biologicalAgeIsSet,
+            estadioTanner,
         }
 
         // console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
