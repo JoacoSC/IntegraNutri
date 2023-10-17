@@ -1752,6 +1752,10 @@ th {
     color: white;
 }
 
+.text-align-center{
+    text-align: center;
+}
+
 @media screen and (max-width: 1450px){
 
     .patient-primary-card{

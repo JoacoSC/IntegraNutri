@@ -1,4 +1,4 @@
-import { addDays, differenceInMilliseconds, format, formatDistance, formatDistanceToNowStrict, fromUnixTime, getUnixTime, milliseconds, set, sub, subMilliseconds } from 'date-fns';
+import { addDays, differenceInMilliseconds, format, formatDistance, formatDistanceToNowStrict, fromUnixTime, getUnixTime, milliseconds, set, sub, subMilliseconds, subMonths } from 'date-fns';
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -42,6 +42,8 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         y: 0,
     });
 
+    const [disableMesesMenarquia, setDisableMesesMenarquia] = useState(true);
+
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
 
     const [inputTextStyleClassname, setInputTextStyleClassname] = useState('input-text-style input-text-width-w-icon h-2');
@@ -57,6 +59,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     const {
         estadioTanner,
+        mesesMenarquia = 0,
         ChronologicalAge,
         onInputChange
     } = useForm();
@@ -83,7 +86,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
         const biologicalAgeIsSet = true;
 
-        // console.log('estadioTanner: ', estadioTanner)
+        // console.log('mesesMenarquia: ', mesesMenarquia)
         
         dispatch( updateCurrentPatientBiologicalAge( biologicalAge ) );
         dispatch( updateCurrentPatientEstadioTanner( estadioTanner ) );
@@ -288,9 +291,11 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
         if( gender === 'Femenino'){
             if( estadioTanner === 'I' ){
+                setDisableMesesMenarquia( true )
                 setBiologicalAgeText('< 10 años y 6 meses')
                 setBiologicalAge(null)
             }else if( estadioTanner === 'II' ){
+                setDisableMesesMenarquia( true )
                 setBiologicalAgeText('10 años y 6 meses')
                 setBiologicalAge({
                     y: 10,
@@ -298,6 +303,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                     d: 0,
                 })
             }else if( estadioTanner === 'III' ){
+                setDisableMesesMenarquia( true )
                 setBiologicalAgeText('11 años')
                 setBiologicalAge({
                     y: 11,
@@ -305,6 +311,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                     d: 0,
                 })
             }else if( estadioTanner === 'IV' ){
+                setDisableMesesMenarquia( true )
                 setBiologicalAgeText('12 años, si no hay menarquia')
                 setBiologicalAge({
                     y: 12,
@@ -312,6 +319,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                     d: 0,
                 })
             }else if( estadioTanner === 'V' ){
+                setDisableMesesMenarquia( false )
                 setBiologicalAgeText('12 años y 8 meses')
                 setBiologicalAge({
                     y: 12,
@@ -366,6 +374,35 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         
     }
 
+    const handleMesesMenarquia = () => {
+        
+        if( mesesMenarquia === 0 ){
+
+        }else{
+
+            const tempBiologicalAge = calculateAgeObject( getUnixTime( subMonths( sub( new Date(), {
+                years: 12,
+                months: 8,
+                days: 0,
+            } ), mesesMenarquia ) ) )
+
+            // console.log(tempBiologicalAge)
+
+            setBiologicalAge({
+                y: tempBiologicalAge.y,
+                m: tempBiologicalAge.m,
+                d: 0,
+            })
+
+            setBiologicalAgeText(` ${ tempBiologicalAge.y } años y ${ tempBiologicalAge.m } meses`)
+            
+    
+            // setAgeDifferenceText( calculateAge( getUnixTime( subMonths( subMilliseconds( new Date(), ageDifference ), mesesMenarquia ) ) ) )
+            
+        }
+
+    }
+
     const setBiologicalChronologicalAgeMilliseconds = () => {
 
         if( biologicalAge!== null ){
@@ -397,7 +434,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
     }
 
     const handleAgeDifferenceDate = () => {
-        
+
         if( ageDifference === 0){
             setAgeDifferenceText('Indefinido')
         }else{
@@ -428,6 +465,12 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     }, [estadioTanner])
 
+    useEffect(() => {
+        
+        handleMesesMenarquia();
+
+    }, [mesesMenarquia])
+
     
     useEffect(() => {
         
@@ -445,7 +488,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         
         handleAgeDifferenceDate();
 
-    }, [ageDifference])
+    }, [ageDifference, mesesMenarquia])
 
     useEffect(() => {
         
@@ -576,6 +619,20 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                         </div>
                                     :   null
                                 }
+                                </div>
+                            </div>
+                            <div className="form-item w-50 pr-8 align-items-center">
+                                <label className="input-label text-align-center">
+                                    Meses transcurridos desde su menarquia (opcional)
+                                </label>
+                                <div className='flex-direction-row'>
+                                    <input
+                                        className="input-text-style input-text-width h-2"
+                                        type="text"
+                                        name="mesesMenarquia"
+                                        disabled={ disableMesesMenarquia }
+                                        onChange={ onInputChange }/>
+                                    
                                 </div>
                             </div>            
                         </div>
