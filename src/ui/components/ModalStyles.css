@@ -298,6 +298,37 @@
 }
 /* ************** Modal *****************/
 
+/* ************** Journal *****************/
+.modal-edit-journal-container-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 3rem;
+    gap: 2rem;
+}
+
+.journal-row-container{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.journal-row-title{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-right: 4rem;
+    width: 50px;
+}
+
+.journal-row-item{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+/* ************** Journal *****************/
+
 /* *********** New Consultation Modal ************ */
 
 .new-consultation-form-group{
