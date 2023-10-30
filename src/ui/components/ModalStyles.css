@@ -310,7 +310,7 @@
 .journal-row-container{
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1.5rem;
     margin: 1rem 0;
 }
 
@@ -324,9 +324,64 @@
 
 .journal-row-item{
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
     align-items: center;
+    padding: 1rem 0;
+    gap: 1rem;
+    text-align: center;
 }
+
+.journal-input-number{
+    width: 100%;
+    max-width: 50px;
+}
+
+.btn-select-everything{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    width: 100%;
+    min-width: 150px;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-select-everything:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-hover);
+}
+
+.btn-select-everything:active{
+    transform: scale(0.96);
+    background: var(--clr-btn-secondary-active);
+}
+
+.modal-accordion{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ECEDED;
+    border-radius: 20px;
+}
+
+.modal-accordion-content{
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    gap: 1rem;
+    
+}
+
+.width-100{
+    width: 100%;
+}
+
 /* ************** Journal *****************/
 
 /* *********** New Consultation Modal ************ */

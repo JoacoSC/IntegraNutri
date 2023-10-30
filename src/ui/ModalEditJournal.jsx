@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
@@ -19,6 +19,14 @@ export const ModalEditJournal = () => {
     const [isFridayChecked, setIsFridayChecked] = useState(false);
     const [isSaturdayChecked, setIsSaturdayChecked] = useState(false);
     const [isSundayChecked, setIsSundayChecked] = useState(false);
+
+    const mondayCheckbox = useRef();
+    const tuesdayCheckbox = useRef();
+    const wednesdayCheckbox = useRef();
+    const thursdayCheckbox = useRef();
+    const fridayCheckbox = useRef();
+    const saturdayCheckbox = useRef();
+    const sundayCheckbox = useRef();
 
     const dispatch = useDispatch()
 
@@ -46,6 +54,65 @@ export const ModalEditJournal = () => {
 
     const onSubmit = ( event ) => {
         event.preventDefault();
+
+        // TODO: El journal ideal debe tener:
+        // 
+        // El código Unix de cada hora de consulta, esté disponible o no
+        // Bajo el código Unix debe haber una propiedad que me indique si la hora de consulta está disponible
+        // Otra propiedad con los datos del paciente que agendó esa hora de consulta
+        // 
+        // 
+
+        const journalParams = {
+            workingDays: {
+                Monday: {
+                    startTime: '09:00',
+                    consultationDuration: '00:45',
+                    consultationsPerDay: 8,
+                },
+                Wednesday: {
+                    startTime: '10:00',
+                    consultationDuration: '01:00',
+                    consultationsPerDay: 6,
+                },
+                Friday: {
+                    startTime: '09:30',
+                    consultationDuration: '00:45',
+                    consultationsPerDay: 6,
+                }
+            }
+        }
+        const journal = {
+            
+            // Unix del día a las 12:00, para calcular el día de la semana, numero de día, etc.
+            347839273400: {
+                dayName: 'Monday',
+                isWorkingDay: boolean,
+                consultationSlots: {     // En el JournalPage se comparará a través de un arreglo que contenga los días desde hoy
+                                    // hasta 60 días ( o más )
+                    // Horas del día
+                    347839273400: {
+                        isAvailable: boolean,
+                        patientData: {
+                            // Patient data
+                        }
+                    },
+                    347843234500: {
+                        isAvailable: boolean,
+                        patientData: {
+                            // Patient data
+                        }
+                    },
+                    347838767600: {
+                        isAvailable: boolean,
+                        patientData: {
+                            // Patient data
+                        }
+                    },
+                }
+            }
+
+        } 
         
         if( isMondayChecked ){
             console.log({mondayStartTime, mondayEndTime})
@@ -80,6 +147,43 @@ export const ModalEditJournal = () => {
         // dispatch( startEditJournal( journalID, workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay ) );
         
         
+    }
+
+    const handleSelectEverythingCheckbox = ( event ) => {
+
+        event.preventDefault();
+        // const isChecked = event.target.checked;
+
+        // daysRef.current[0]?.click();
+        if(!mondayCheckbox.current.checked){   
+            mondayCheckbox.current.click();
+        }
+        if(!tuesdayCheckbox.current.checked){   
+            tuesdayCheckbox.current.click();
+        }
+        if(!wednesdayCheckbox.current.checked){   
+            wednesdayCheckbox.current.click();
+        }
+        if(!thursdayCheckbox.current.checked){   
+            thursdayCheckbox.current.click();
+        }
+        if(!fridayCheckbox.current.checked){   
+            fridayCheckbox.current.click();
+        }
+        if(!saturdayCheckbox.current.checked){   
+            saturdayCheckbox.current.click();
+        }
+        if(!sundayCheckbox.current.checked){   
+            sundayCheckbox.current.click();
+        }
+
+        setIsMondayChecked( true )
+        setIsTuesdayChecked( true )
+        setIsWednesdayChecked( true )
+        setIsThursdayChecked( true )
+        setIsFridayChecked( true )
+        setIsSaturdayChecked( true )
+        setIsSundayChecked( true )
     }
 
     const handleMondayCheckbox = ( event ) => {
@@ -170,118 +274,287 @@ export const ModalEditJournal = () => {
                 </h1>
 
                 <form onSubmit={ onSubmit }>
-                    <div className="modal-edit-journal-container-form" onSubmit={ onSubmit }>
-                    <div className="flex-column">
-                        <label className="pt-1 pb-2">Días de la semana</label>
+                    <div className="modal-edit-journal-container-form">
+                    <div className="flex-column width-100">
                         <div className="journal-row-container">
                             <div className="journal-row-item">
-                                <input type="checkbox" name="checkEverything"></input> 
-                                <label className="">Seleccionar todos</label>
+                                <button className="btn-select-everything" onClick={ handleSelectEverythingCheckbox }>
+                                    Seleccionar todos
+                                </button> 
+                                {/* <label className="">Seleccionar todos</label> */}
                             </div>
                         </div>
-                        <hr/>
                         <div className="journal-row-container">
-                            <div className="journal-row-title">
-                                <input type="checkbox" value={ isMondayChecked } onChange={ handleMondayCheckbox }/>                                
-                                <label className="">Lunes:</label>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Inicio de la jornada:</label>
-                                <input type="time" name="mondayStartTime" disabled={ !isMondayChecked } onChange={ onInputChange }></input>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Fin de la jornada:</label>
-                                <input type="time" name="mondayEndTime" disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                            <div className="modal-accordion width-100">
+                                <input
+                                className="accordion-input"
+                                type="checkbox"
+                                defaultChecked
+                                name="patient_accordion"
+                                id="mondayAccordion"
+                                />
+                                <label className="accordion-label" htmlFor="mondayAccordion">
+                                <input type="checkbox" ref={ mondayCheckbox } value={ isMondayChecked } onChange={ handleMondayCheckbox }/>
+                                Lunes
+                                </label>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Inicio de la jornada:</label>
+                                        <input type="time" name="mondayStartTime" disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Duración de cada consulta:</label>
+                                        <input type="time" name="mondayConsultationDuration" disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Descanso post-consulta:</label>
+                                        <input type="time" name="mondayPostConsultationDuration" disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Cantidad de consultas del día:</label>
+                                        <input className="journal-input-number" type="number" name="mondayConsultationPerDay" disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                </div>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Previsualización de la jornada:</label>
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <hr/>
                         <div className="journal-row-container">
-                            <div className="journal-row-title">
-                                <input type="checkbox" value={ isTuesdayChecked } onChange={ handleTuesdayCheckbox }/> 
-                                <label className="">Martes:</label>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Inicio de la jornada:</label>
-                                <input type="time" name="tuesdayStartTime" disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Fin de la jornada:</label>
-                                <input type="time" name="tuesdayEndTime" disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                            <div className="modal-accordion width-100">
+                                <input
+                                className="accordion-input"
+                                type="checkbox"
+                                // defaultChecked
+                                name="patient_accordion"
+                                id="tuesdayAccordion"
+                                />
+                                <label className="accordion-label" htmlFor="tuesdayAccordion">
+                                <input type="checkbox" ref={ tuesdayCheckbox } value={ isTuesdayChecked } onChange={ handleTuesdayCheckbox }/>
+                                Martes
+                                </label>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Inicio de la jornada:</label>
+                                        <input type="time" name="tuesdayStartTime" disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Duración de cada consulta:</label>
+                                        <input type="time" name="tuesdayConsultationDuration" disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Descanso post-consulta:</label>
+                                        <input type="time" name="tuesdayPostConsultationDuration" disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Cantidad de consultas del día:</label>
+                                        <input className="journal-input-number" type="number" name="tuesdayConsultationPerDay" disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                </div>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Previsualización de la jornada:</label>
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <hr/>
                         <div className="journal-row-container">
-                            <div className="journal-row-title">
-                                <input type="checkbox" value={ isWednesdayChecked } onChange={ handleWednesdayCheckbox }/> 
-                                <label className="">Miércoles:</label>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Inicio de la jornada:</label>
-                                <input type="time" name="wednesdayStartTime" disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Fin de la jornada:</label>
-                                <input type="time" name="wednesdayEndTime" disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                            <div className="modal-accordion width-100">
+                                <input
+                                className="accordion-input"
+                                type="checkbox"
+                                // defaultChecked
+                                name="patient_accordion"
+                                id="wednesdayAccordion"
+                                />
+                                <label className="accordion-label" htmlFor="wednesdayAccordion">
+                                <input type="checkbox" ref={ wednesdayCheckbox } value={ isWednesdayChecked } onChange={ handleWednesdayCheckbox }/>
+                                Miércoles
+                                </label>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Inicio de la jornada:</label>
+                                        <input type="time" name="wednesdayStartTime" disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Duración de cada consulta:</label>
+                                        <input type="time" name="wednesdayConsultationDuration" disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Descanso post-consulta:</label>
+                                        <input type="time" name="wednesdayPostConsultationDuration" disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Cantidad de consultas del día:</label>
+                                        <input className="journal-input-number" type="number" name="wednesdayConsultationPerDay" disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                </div>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Previsualización de la jornada:</label>
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <hr/>
                         <div className="journal-row-container">
-                            <div className="journal-row-title">
-                                <input type="checkbox" value={ isThursdayChecked } onChange={ handleThursdayCheckbox }/> 
-                                <label className="">Jueves:</label>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Inicio de la jornada:</label>
-                                <input type="time" name="thursdayStartTime" disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Fin de la jornada:</label>
-                                <input type="time" name="thursdayEndTime" disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                            <div className="modal-accordion width-100">
+                                <input
+                                className="accordion-input"
+                                type="checkbox"
+                                // defaultChecked
+                                name="patient_accordion"
+                                id="thursdayAccordion"
+                                />
+                                <label className="accordion-label" htmlFor="thursdayAccordion">
+                                <input type="checkbox" ref={ thursdayCheckbox } value={ isThursdayChecked } onChange={ handleThursdayCheckbox }/>
+                                Jueves
+                                </label>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Inicio de la jornada:</label>
+                                        <input type="time" name="thursdayStartTime" disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Duración de cada consulta:</label>
+                                        <input type="time" name="thursdayConsultationDuration" disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Descanso post-consulta:</label>
+                                        <input type="time" name="thursdayPostConsultationDuration" disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Cantidad de consultas del día:</label>
+                                        <input className="journal-input-number" type="number" name="thursdayConsultationPerDay" disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                </div>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Previsualización de la jornada:</label>
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <hr/>
                         <div className="journal-row-container">
-                            <div className="journal-row-title">
-                                <input type="checkbox" value={ isFridayChecked } onChange={ handleFridayCheckbox }/> 
-                                <label className="">Viernes:</label>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Inicio de la jornada:</label>
-                                <input type="time" name="fridayStartTime" disabled={ !isFridayChecked } onChange={ onInputChange }></input>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Fin de la jornada:</label>
-                                <input type="time" name="fridayEndTime" disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                            <div className="modal-accordion width-100">
+                                <input
+                                className="accordion-input"
+                                type="checkbox"
+                                // defaultChecked
+                                name="patient_accordion"
+                                id="fridayAccordion"
+                                />
+                                <label className="accordion-label" htmlFor="fridayAccordion">
+                                <input type="checkbox" ref={ fridayCheckbox } value={ isFridayChecked } onChange={ handleFridayCheckbox }/>
+                                Viernes
+                                </label>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Inicio de la jornada:</label>
+                                        <input type="time" name="fridayStartTime" disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Duración de cada consulta:</label>
+                                        <input type="time" name="fridayConsultationDuration" disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Descanso post-consulta:</label>
+                                        <input type="time" name="fridayPostConsultationDuration" disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Cantidad de consultas del día:</label>
+                                        <input className="journal-input-number" type="number" name="fridayConsultationPerDay" disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                </div>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Previsualización de la jornada:</label>
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <hr/>
                         <div className="journal-row-container">
-                            <div className="journal-row-title">
-                                <input type="checkbox" value={ isSaturdayChecked } onChange={ handleSaturdayCheckbox }/> 
-                                <label className="">Sábado:</label>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Inicio de la jornada:</label>
-                                <input type="time" name="saturdayStartTime" disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Fin de la jornada:</label>
-                                <input type="time" name="saturdayEndTime" disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                            <div className="modal-accordion width-100">
+                                <input
+                                className="accordion-input"
+                                type="checkbox"
+                                // defaultChecked
+                                name="patient_accordion"
+                                id="saturdayAccordion"
+                                />
+                                <label className="accordion-label" htmlFor="saturdayAccordion">
+                                <input type="checkbox" ref={ saturdayCheckbox } value={ isSaturdayChecked } onChange={ handleSaturdayCheckbox }/>
+                                Sábado
+                                </label>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Inicio de la jornada:</label>
+                                        <input type="time" name="saturdayStartTime" disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Duración de cada consulta:</label>
+                                        <input type="time" name="saturdayConsultationDuration" disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Descanso post-consulta:</label>
+                                        <input type="time" name="saturdayPostConsultationDuration" disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Cantidad de consultas del día:</label>
+                                        <input className="journal-input-number" type="number" name="saturdayConsultationPerDay" disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                </div>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Previsualización de la jornada:</label>
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <hr/>
                         <div className="journal-row-container">
-                            <div className="journal-row-title">
-                                <input type="checkbox" value={ isSundayChecked } onChange={ handleSundayCheckbox }/> 
-                                <label className="">Domingo:</label>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Inicio de la jornada:</label>
-                                <input type="time" name="sundayStartTime" disabled={ !isSundayChecked } onChange={ onInputChange }></input>
-                            </div>
-                            <div className="journal-row-item">
-                                <label className="">Fin de la jornada:</label>
-                                <input type="time" name="sundayEndTime" disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                            <div className="modal-accordion width-100">
+                                <input
+                                className="accordion-input"
+                                type="checkbox"
+                                // defaultChecked
+                                name="patient_accordion"
+                                id="sundayAccordion"
+                                />
+                                <label className="accordion-label" htmlFor="sundayAccordion">
+                                <input type="checkbox" ref={ sundayCheckbox } value={ isSundayChecked } onChange={ handleSundayCheckbox }/>
+                                Domingo
+                                </label>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Inicio de la jornada:</label>
+                                        <input type="time" name="sundayStartTime" disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Duración de cada consulta:</label>
+                                        <input type="time" name="sundayConsultationDuration" disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Descanso post-consulta:</label>
+                                        <input type="time" name="sundayPostConsultationDuration" disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                    <div className="journal-row-item">
+                                        <label className="">Cantidad de consultas del día:</label>
+                                        <input className="journal-input-number" type="number" name="sundayConsultationPerDay" disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                    </div>
+                                </div>
+                                <div className="accordion-content modal-accordion-content">
+                                    <div className="journal-row-item">
+                                        <label className="">Previsualización de la jornada:</label>
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
                             {/* <div className="form-item w-50 pr-8">
