@@ -382,6 +382,12 @@
     width: 100%;
 }
 
+.journal-preview-container{
+    margin: 0 1rem 1rem 1rem;
+    padding: 1rem;
+    background-color: var(--clr-primary);
+    color: white;
+}
 /* ************** Journal *****************/
 
 /* *********** New Consultation Modal ************ */
