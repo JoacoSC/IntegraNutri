@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 
 import { useForm } from "../hooks";
-import { isEditingJournal, startEditJournal } from "../store/journal";
+import { isEditingJournal, newJournalIsSet, setNewJournal, startCreatingNewJournal, startEditJournal } from "../store/journal";
 
 import './components';
 
@@ -61,6 +61,7 @@ export const ModalEditJournal = () => {
 
     const {
         journalID,
+        newJournal,
     } = useSelector((state) => state.journal);
 
     const {
@@ -146,15 +147,49 @@ export const ModalEditJournal = () => {
         // Otra propiedad con los datos del paciente que agendó esa hora de consulta
         // 
         // 
+        
+        const newJournal = {
+            mondayJournal: {},
+            tuesdayJournal: {},
+            wednesdayJournal: {},
+            thursdayJournal: {},
+            fridayJournal: {},
+            saturdayJournal: {},
+            sundayJournal: {},
+        }
 
-        console.log({
-            mondayConsultationDuration,
-            mondayPostConsultationDuration,
-            mondayStartTimeAM,
-            mondayStartTimePM,
-            mondayConsultationQuantityAM,
-            mondayConsultationQuantityPM
-        })
+        if( isMondayChecked ){
+            console.log( mondayJournal )
+            newJournal.mondayJournal = mondayJournal;
+        }
+        if( isTuesdayChecked ){
+            console.log( tuesdayJournal )
+            newJournal.tuesdayJournal = tuesdayJournal;
+        }
+        if( isWednesdayChecked ){
+            console.log( wednesdayJournal )
+            newJournal.wednesdayJournal = wednesdayJournal;
+        }
+        if( isThursdayChecked ){
+            console.log( thursdayJournal )
+            newJournal.thursdayJournal = thursdayJournal;
+        }
+        if( isFridayChecked ){
+            console.log( fridayJournal )
+            newJournal.fridayJournal = fridayJournal;
+        }
+        if( isSaturdayChecked ){
+            console.log( saturdayJournal )
+            newJournal.saturdayJournal = saturdayJournal;
+        }
+        if( isSundayChecked ){
+            console.log( sundayJournal )
+            newJournal.sundayJournal = sundayJournal;
+        }
+
+        console.log('newJournal: ', newJournal)
+
+        dispatch( startCreatingNewJournal( journalID, newJournal ) )
 
         // const journalParams = {
         //     workingDays: {
@@ -346,7 +381,7 @@ export const ModalEditJournal = () => {
                 
                 let startTime = startTimeAM;
                 let endTime = handleSumOfTimeValues( startTimeAM, consultationDuration )
-                journalAM?.push([ startTime, endTime ]);
+                journalAM?.push({ startTime: startTime, endTime: endTime });
             }else{
                 let sumValue = '00:00';
                 for (let j = 1; j < i; j++) {
@@ -357,7 +392,7 @@ export const ModalEditJournal = () => {
 
                 let startTime = handleSumOfTimeValues( startTimeAM, sumValue )
                 let endTime = handleSumOfTimeValues( startTime, consultationDuration )
-                journalAM.push([ startTime, endTime ]);
+                journalAM?.push({ startTime: startTime, endTime: endTime });
             }
         }
         
@@ -371,7 +406,7 @@ export const ModalEditJournal = () => {
                 
                 let startTime = startTimePM;
                 let endTime = handleSumOfTimeValues( startTimePM, consultationDuration )
-                journalPM?.push([ startTime, endTime ]);
+                journalPM?.push({ startTime: startTime, endTime: endTime });
             }else{
                 let sumValue = '00:00';
                 for (let j = 1; j < i; j++) {
@@ -382,7 +417,7 @@ export const ModalEditJournal = () => {
 
                 let startTime = handleSumOfTimeValues( startTimePM, sumValue )
                 let endTime = handleSumOfTimeValues( startTime, consultationDuration )
-                journalPM.push([ startTime, endTime ]);
+                journalPM?.push({ startTime: startTime, endTime: endTime });
             }
         }
         
@@ -649,7 +684,10 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+
+                                                        {/* <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div> */}
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -660,7 +698,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -675,7 +713,6 @@ export const ModalEditJournal = () => {
                                 <input
                                 className="accordion-input"
                                 type="checkbox"
-                                defaultChecked
                                 name="patient_accordion"
                                 id="tuesdayAccordion"
                                 />
@@ -730,7 +767,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -741,7 +778,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -756,7 +793,6 @@ export const ModalEditJournal = () => {
                                 <input
                                 className="accordion-input"
                                 type="checkbox"
-                                defaultChecked
                                 name="patient_accordion"
                                 id="wednesdayAccordion"
                                 />
@@ -811,7 +847,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -822,7 +858,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -837,7 +873,6 @@ export const ModalEditJournal = () => {
                                 <input
                                 className="accordion-input"
                                 type="checkbox"
-                                defaultChecked
                                 name="patient_accordion"
                                 id="thursdayAccordion"
                                 />
@@ -892,7 +927,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -903,7 +938,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -918,7 +953,6 @@ export const ModalEditJournal = () => {
                                 <input
                                 className="accordion-input"
                                 type="checkbox"
-                                defaultChecked
                                 name="patient_accordion"
                                 id="fridayAccordion"
                                 />
@@ -973,7 +1007,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -984,7 +1018,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -999,7 +1033,6 @@ export const ModalEditJournal = () => {
                                 <input
                                 className="accordion-input"
                                 type="checkbox"
-                                defaultChecked
                                 name="patient_accordion"
                                 id="saturdayAccordion"
                                 />
@@ -1054,7 +1087,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -1065,7 +1098,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -1080,7 +1113,6 @@ export const ModalEditJournal = () => {
                                 <input
                                 className="accordion-input"
                                 type="checkbox"
-                                defaultChecked
                                 name="patient_accordion"
                                 id="sundayAccordion"
                                 />
@@ -1135,7 +1167,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -1146,7 +1178,7 @@ export const ModalEditJournal = () => {
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div>
+                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}

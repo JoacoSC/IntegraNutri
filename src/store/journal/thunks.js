@@ -1,6 +1,6 @@
 import { collection, deleteDoc, doc, getDocs, setDoc } from "firebase/firestore/lite";
 import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
-import { editJournal, isEditingJournal, setMyJournal, updateJournalID } from "./";
+import { editJournal, isEditingJournal, newJournalIsSet, setMyJournal, setNewJournal, updateJournalID } from "./";
 
 export const startCreatingJournal = ( uid ) => {
     return async( dispatch ) => {
@@ -123,3 +123,25 @@ export const deleteJournalFromDB = ( uid, jid ) => {
         
     }
 }
+
+export const startCreatingNewJournal = ( journalID, newJournal ) => {
+    return async( dispatch ) => {
+
+        // dispatch( isRegisteringPatient( true ) );
+
+        const updateJournal = {
+            newJournal,
+            newJournalIsSet: true,
+        }
+
+        const uid = FirebaseAuth.currentUser.uid;
+
+        const newDoc = doc( FirebaseDB, `users/${ uid }/journal/${ journalID }` );
+
+        await setDoc( newDoc, updateJournal,  { merge: true } );
+
+        dispatch( setNewJournal( newJournal ) )
+        dispatch( newJournalIsSet( true ) )
+    }
+}
+

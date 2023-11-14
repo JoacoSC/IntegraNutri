@@ -12,6 +12,8 @@ export const journalSlice = createSlice({
         journalIsSet: false,
         isEditingJournal: false,
         isAddingNewConsultation: false,
+        newJournalIsSet: false,
+        newJournal: {},
 
     },
     reducers: {
@@ -57,6 +59,14 @@ export const journalSlice = createSlice({
         isAddingNewConsultation: (state, { payload }) => {
 
             state.isAddingNewConsultation = payload;
+        },
+        newJournalIsSet: (state, { payload }) => {
+
+            state.newJournalIsSet = payload;
+        },
+        setNewJournal: (state, { payload }) => {
+
+            state.newJournal = payload;
         }
         
     }
@@ -71,4 +81,6 @@ export const {
     isEditingJournal,
     unsetJournal,
     isAddingNewConsultation,
+    newJournalIsSet,
+    setNewJournal,
     } = journalSlice.actions;
