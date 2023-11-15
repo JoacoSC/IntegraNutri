@@ -20,31 +20,31 @@ export const ModalEditJournal = () => {
     const [isSaturdayChecked, setIsSaturdayChecked] = useState(false);
     const [isSundayChecked, setIsSundayChecked] = useState(false);
     
-    const [mondayJournal, setMondayJournal] = useState({
+    const [monday, setMonday] = useState({
         journalAM: [],
         journalPM: [],
     });
-    const [tuesdayJournal, setTuesdayJournal] = useState({
+    const [tuesday, setTuesday] = useState({
         journalAM: [],
         journalPM: [],
     });
-    const [wednesdayJournal, setWednesdayJournal] = useState({
+    const [wednesday, setWednesday] = useState({
         journalAM: [],
         journalPM: [],
     });
-    const [thursdayJournal, setThursdayJournal] = useState({
+    const [thursday, setThursday] = useState({
         journalAM: [],
         journalPM: [],
     });
-    const [fridayJournal, setFridayJournal] = useState({
+    const [friday, setFriday] = useState({
         journalAM: [],
         journalPM: [],
     });
-    const [saturdayJournal, setSaturdayJournal] = useState({
+    const [saturday, setSaturday] = useState({
         journalAM: [],
         journalPM: [],
     });
-    const [sundayJournal, setSundayJournal] = useState({
+    const [sunday, setSunday] = useState({
         journalAM: [],
         journalPM: [],
     });
@@ -149,42 +149,42 @@ export const ModalEditJournal = () => {
         // 
         
         const newJournal = {
-            mondayJournal: {},
-            tuesdayJournal: {},
-            wednesdayJournal: {},
-            thursdayJournal: {},
-            fridayJournal: {},
-            saturdayJournal: {},
-            sundayJournal: {},
+            monday: {},
+            tuesday: {},
+            wednesday: {},
+            thursday: {},
+            friday: {},
+            saturday: {},
+            sunday: {},
         }
 
         if( isMondayChecked ){
-            console.log( mondayJournal )
-            newJournal.mondayJournal = mondayJournal;
+            console.log( monday )
+            newJournal.monday = monday;
         }
         if( isTuesdayChecked ){
-            console.log( tuesdayJournal )
-            newJournal.tuesdayJournal = tuesdayJournal;
+            console.log( tuesday )
+            newJournal.tuesday = tuesday;
         }
         if( isWednesdayChecked ){
-            console.log( wednesdayJournal )
-            newJournal.wednesdayJournal = wednesdayJournal;
+            console.log( wednesday )
+            newJournal.wednesday = wednesday;
         }
         if( isThursdayChecked ){
-            console.log( thursdayJournal )
-            newJournal.thursdayJournal = thursdayJournal;
+            console.log( thursday )
+            newJournal.thursday = thursday;
         }
         if( isFridayChecked ){
-            console.log( fridayJournal )
-            newJournal.fridayJournal = fridayJournal;
+            console.log( friday )
+            newJournal.friday = friday;
         }
         if( isSaturdayChecked ){
-            console.log( saturdayJournal )
-            newJournal.saturdayJournal = saturdayJournal;
+            console.log( saturday )
+            newJournal.saturday = saturday;
         }
         if( isSundayChecked ){
-            console.log( sundayJournal )
-            newJournal.sundayJournal = sundayJournal;
+            console.log( sunday )
+            newJournal.sunday = sunday;
         }
 
         console.log('newJournal: ', newJournal)
@@ -465,9 +465,9 @@ export const ModalEditJournal = () => {
         setIsSundayChecked( false )
     }, [ openModal ])
 
-    useEffect(() => {
+    useEffect(() => { 
 
-        setMondayJournal( handleJournalPreview( 
+        setMonday( handleJournalPreview( 
             mondayConsultationDuration,
             mondayPostConsultationDuration,
             mondayConsultationQuantityAM,
@@ -485,7 +485,7 @@ export const ModalEditJournal = () => {
 
     useEffect(() => {
 
-        setTuesdayJournal( handleJournalPreview( 
+        setTuesday( handleJournalPreview( 
             tuesdayConsultationDuration,
             tuesdayPostConsultationDuration,
             tuesdayConsultationQuantityAM,
@@ -503,7 +503,7 @@ export const ModalEditJournal = () => {
 
     useEffect(() => {
 
-        setWednesdayJournal( handleJournalPreview( 
+        setWednesday( handleJournalPreview( 
             wednesdayConsultationDuration,
             wednesdayPostConsultationDuration,
             wednesdayConsultationQuantityAM,
@@ -521,7 +521,7 @@ export const ModalEditJournal = () => {
 
     useEffect(() => {
 
-        setThursdayJournal( handleJournalPreview( 
+        setThursday( handleJournalPreview( 
             thursdayConsultationDuration,
             thursdayPostConsultationDuration,
             thursdayConsultationQuantityAM,
@@ -539,7 +539,7 @@ export const ModalEditJournal = () => {
         
     useEffect(() => {
 
-        setFridayJournal( handleJournalPreview( 
+        setFriday( handleJournalPreview( 
             fridayConsultationDuration,
             fridayPostConsultationDuration,
             fridayConsultationQuantityAM,
@@ -557,7 +557,7 @@ export const ModalEditJournal = () => {
 
     useEffect(() => {
 
-        setSaturdayJournal( handleJournalPreview( 
+        setSaturday( handleJournalPreview( 
             saturdayConsultationDuration,
             saturdayPostConsultationDuration,
             saturdayConsultationQuantityAM,
@@ -575,7 +575,7 @@ export const ModalEditJournal = () => {
 
     useEffect(() => {
 
-        setSundayJournal( handleJournalPreview( 
+        setSunday( handleJournalPreview( 
             sundayConsultationDuration,
             sundayPostConsultationDuration,
             sundayConsultationQuantityAM,
@@ -679,30 +679,27 @@ export const ModalEditJournal = () => {
                                     <div className="journal-row-item">
                                         <label className="">Previsualización de la jornada:</label>
                                         <div className="journal-monday-preview flex-row">
-                                            <div className="AM-preview">
-                                                { mondayJournal?.journalAM.map( (consultationSlot, index) => (
+                                        <div className="AM-preview">
+                                            { monday?.journalAM?.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
-                                                        {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
+                                                <div className="day" key={ index }>
+                                                    {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
+                                                    <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                    {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className="background-preview">Almuerzo</div>
+                                        <div className="PM-preview">
+                                            { monday?.journalPM?.map( (consultationSlot, index) => (
 
-                                                        {/* <div className="day-ellipse">{ consultationSlot[0] + ' - ' + consultationSlot[1] }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
-
-                                                        {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
-                                                    </div>
-                                                ))}
-                                            </div>
-                                            <div className="background-preview">Almuerzo</div>
-                                            <div className="PM-preview">
-                                                { mondayJournal?.journalPM.map( (consultationSlot, index) => (
-
-                                                    <div className="day" key={ index }>
-                                                        {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
-                                                        {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
-                                                    </div>
-                                                ))}
-                                            </div>
+                                                <div className="day" key={ index }>
+                                                    {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
+                                                    <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                    {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
+                                                </div>
+                                            ))}
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -763,7 +760,7 @@ export const ModalEditJournal = () => {
                                         <label className="">Previsualización de la jornada:</label>
                                         <div className="journal-tuesday-preview flex-row">
                                             <div className="AM-preview">
-                                                { tuesdayJournal?.journalAM.map( (consultationSlot, index) => (
+                                                { tuesday?.journal?.journalAM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -774,7 +771,7 @@ export const ModalEditJournal = () => {
                                             </div>
                                             <div className="background-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { tuesdayJournal?.journalPM.map( (consultationSlot, index) => (
+                                                { tuesday?.journal?.journalPM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -843,7 +840,7 @@ export const ModalEditJournal = () => {
                                         <label className="">Previsualización de la jornada:</label>
                                         <div className="journal-wednesday-preview flex-row">
                                             <div className="AM-preview">
-                                                { wednesdayJournal?.journalAM.map( (consultationSlot, index) => (
+                                                { wednesday?.journal?.journalAM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -854,7 +851,7 @@ export const ModalEditJournal = () => {
                                             </div>
                                             <div className="background-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { wednesdayJournal?.journalPM.map( (consultationSlot, index) => (
+                                                { wednesday?.journal?.journalPM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -923,7 +920,7 @@ export const ModalEditJournal = () => {
                                         <label className="">Previsualización de la jornada:</label>
                                         <div className="journal-thursday-preview flex-row">
                                             <div className="AM-preview">
-                                                { thursdayJournal?.journalAM.map( (consultationSlot, index) => (
+                                                { thursday?.journal?.journalAM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -934,7 +931,7 @@ export const ModalEditJournal = () => {
                                             </div>
                                             <div className="background-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { thursdayJournal?.journalPM.map( (consultationSlot, index) => (
+                                                { thursday?.journal?.journalPM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -1003,7 +1000,7 @@ export const ModalEditJournal = () => {
                                         <label className="">Previsualización de la jornada:</label>
                                         <div className="journal-friday-preview flex-row">
                                             <div className="AM-preview">
-                                                { fridayJournal?.journalAM.map( (consultationSlot, index) => (
+                                                { friday?.journal?.journalAM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -1014,7 +1011,7 @@ export const ModalEditJournal = () => {
                                             </div>
                                             <div className="background-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { fridayJournal?.journalPM.map( (consultationSlot, index) => (
+                                                { friday?.journal?.journalPM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -1083,7 +1080,7 @@ export const ModalEditJournal = () => {
                                         <label className="">Previsualización de la jornada:</label>
                                         <div className="journal-saturday-preview flex-row">
                                             <div className="AM-preview">
-                                                { saturdayJournal?.journalAM.map( (consultationSlot, index) => (
+                                                { saturday?.journal?.journalAM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -1094,7 +1091,7 @@ export const ModalEditJournal = () => {
                                             </div>
                                             <div className="background-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { saturdayJournal?.journalPM.map( (consultationSlot, index) => (
+                                                { saturday?.journal?.journalPM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -1163,7 +1160,7 @@ export const ModalEditJournal = () => {
                                         <label className="">Previsualización de la jornada:</label>
                                         <div className="journal-sunday-preview flex-row">
                                             <div className="AM-preview">
-                                                { sundayJournal?.journalAM.map( (consultationSlot, index) => (
+                                                { sunday?.journal?.journalAM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
@@ -1174,7 +1171,7 @@ export const ModalEditJournal = () => {
                                             </div>
                                             <div className="background-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { sundayJournal?.journalPM.map( (consultationSlot, index) => (
+                                                { sunday?.journal?.journalPM.map( (consultationSlot, index) => (
 
                                                     <div className="day" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}

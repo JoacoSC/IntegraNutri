@@ -90,6 +90,8 @@ export const startLoadingMyJournal = ( uid ) => {
         const consultationMinutes = journal[0].consultationMinutes
         const consultationsPerDay = journal[0].consultationsPerDay
         const journalIsSet = journal[0].journalIsSet
+        const newJournalIsSet = journal[0].newJournalIsSet
+        const newJournal = journal[0].newJournal
 
 
         dispatch( setMyJournal({
@@ -99,7 +101,9 @@ export const startLoadingMyJournal = ( uid ) => {
             consultationHours,
             consultationMinutes,
             consultationsPerDay,
-            journalIsSet
+            journalIsSet,
+            newJournalIsSet,
+            newJournal,
         }))
 
     }

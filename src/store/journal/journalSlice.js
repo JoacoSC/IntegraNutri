@@ -13,7 +13,7 @@ export const journalSlice = createSlice({
         isEditingJournal: false,
         isAddingNewConsultation: false,
         newJournalIsSet: false,
-        newJournal: {},
+        newJournal: null,
 
     },
     reducers: {
@@ -36,6 +36,8 @@ export const journalSlice = createSlice({
             state.consultationMinutes = payload.consultationMinutes;
             state.consultationsPerDay = payload.consultationsPerDay;
             state.journalIsSet = payload.journalIsSet;
+            state.newJournalIsSet = payload.newJournalIsSet;
+            state.newJournal = payload.newJournal;
         },
         updateJournalID: (state, { payload }) => {
 
