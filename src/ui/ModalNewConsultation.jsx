@@ -188,7 +188,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                     </svg>
                 </div>
                 <h1 className="modal-header">
-                    Agendar consulta: { format( fromUnixTime(consultationSlot), "dd-MM-yyyy hh:mm") }
+                    Agendar consulta: { format( fromUnixTime(consultationSlot.startTime), "dd-MM-yyyy hh:mm") }
                 </h1>
 
                 <form onSubmit={ onRutSubmit }>

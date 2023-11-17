@@ -26,7 +26,7 @@ export const uploadPatientNewConsultation = ( consultationSlot, patientID ) => {
         const uid = FirebaseAuth.currentUser.uid;
 
         const consultationToFireStore = {
-            nextConsultation: consultationSlot
+            nextConsultation: consultationSlot.startTime
         }
         // console.log(consultationToFireStore)
         // console.log(patientID)
