@@ -74,6 +74,8 @@ export const JournalPage = () => {
     
     const [workingDaysArray, setWorkingDaysArray] = useState([]);
 
+    const [patientNextConsultationCounter, setPatientNextConsultationCounter] = useState(0)
+
     const daysRef = useRef( new Array() );
 
     // const [isEditingJournal, setIsEditingJournal] = useMemo( () => /* ALGO */  );
@@ -89,14 +91,233 @@ export const JournalPage = () => {
 
     const handleCurrentDay = ( key ) => {
         
-        const currentDay = daysArray[ key ];
-        const formattedCurrentDay = set(currentDay, {
-          hours: workingDayStartHours,
-          minutes: workingDayStartMinutes,
-          seconds: 0,
-          miliseconds: 0,
-        });
-        setCurrentDay( formattedCurrentDay );
+        if( newJournal === undefined ){
+
+            const currentDay = daysArray[ key ];
+            const formattedCurrentDay = set(currentDay, {
+              hours: workingDayStartHours,
+              minutes: workingDayStartMinutes,
+              seconds: 0,
+              miliseconds: 0,
+            });
+            setCurrentDay( formattedCurrentDay );
+        }else{
+            const currentDay = daysArray[ key ];
+
+            // monday
+
+            if( newJournal?.monday?.journalAM !== undefined ){
+                if( format( currentDay, "iiii") === 'lunes' ){
+                    if( newJournal?.monday?.journalAM.length > 0 ){
+                        
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.monday.journalAM[0].startTime.slice(0, 2),
+                          minutes: newJournal.monday.journalAM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }else{
+
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.monday.journalPM[0].startTime.slice(0, 2),
+                          minutes: newJournal.monday.journalPM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }
+                }
+            }
+            
+
+            // monday
+            // tuesday
+
+            if( newJournal?.tuesday?.journalAM !== undefined ){
+                if( format( currentDay, "iiii") === 'martes' ){
+                    if( newJournal?.tuesday?.journalAM.length > 0 ){
+                        
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.tuesday.journalAM[0].startTime.slice(0, 2),
+                          minutes: newJournal.tuesday.journalAM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }else{
+
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.tuesday.journalPM[0].startTime.slice(0, 2),
+                          minutes: newJournal.tuesday.journalPM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }
+                }
+            }
+            
+
+            // tuesday
+            // wednesday
+
+            if( newJournal?.wednesday?.journalAM !== undefined ){
+                if( format( currentDay, "iiii") === 'miércoles' ){
+                    if( newJournal?.wednesday?.journalAM.length > 0 ){
+                        
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.wednesday.journalAM[0].startTime.slice(0, 2),
+                          minutes: newJournal.wednesday.journalAM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }else{
+
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.wednesday.journalPM[0].startTime.slice(0, 2),
+                          minutes: newJournal.wednesday.journalPM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }
+                }
+            }
+            
+
+            // wednesday
+            // thursday
+
+            if( newJournal?.thursday?.journalAM !== undefined ){
+                if( format( currentDay, "iiii") === 'jueves' ){
+                    if( newJournal?.thursday?.journalAM.length > 0 ){
+                        
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.thursday.journalAM[0].startTime.slice(0, 2),
+                          minutes: newJournal.thursday.journalAM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }else{
+
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.thursday.journalPM[0].startTime.slice(0, 2),
+                          minutes: newJournal.thursday.journalPM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }
+                }
+            }
+            
+
+            // thursday
+            // friday
+
+            if( newJournal?.friday?.journalAM !== undefined ){
+                if( format( currentDay, "iiii") === 'viernes' ){
+                    if( newJournal?.friday?.journalAM.length > 0 ){
+                        
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.friday.journalAM[0].startTime.slice(0, 2),
+                          minutes: newJournal.friday.journalAM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }else{
+
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.friday.journalPM[0].startTime.slice(0, 2),
+                          minutes: newJournal.friday.journalPM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }
+                }
+            }
+            
+
+            // friday
+            // saturday
+
+            if( newJournal?.saturday?.journalAM !== undefined ){
+                if( format( currentDay, "iiii") === 'sábado' ){
+                    if( newJournal?.saturday?.journalAM.length > 0 ){
+                        
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.saturday.journalAM[0].startTime.slice(0, 2),
+                          minutes: newJournal.saturday.journalAM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }else{
+
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.saturday.journalPM[0].startTime.slice(0, 2),
+                          minutes: newJournal.saturday.journalPM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }
+                }
+            }
+            
+
+            // saturday
+            // sunday
+
+            if( newJournal?.sunday?.journalAM !== undefined ){
+                if( format( currentDay, "iiii") === 'domingo' ){
+                    if( newJournal?.sunday?.journalAM.length > 0 ){
+                        
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.sunday.journalAM[0].startTime.slice(0, 2),
+                          minutes: newJournal.sunday.journalAM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }else{
+
+                        const formattedCurrentDay = set(currentDay, {
+                          hours: newJournal.sunday.journalPM[0].startTime.slice(0, 2),
+                          minutes: newJournal.sunday.journalPM[0].startTime.slice(3, 5),
+                          seconds: 0,
+                          miliseconds: 0,
+                        });
+                        // console.log('formattedCurrentDay :', formattedCurrentDay)
+                        setCurrentDay( formattedCurrentDay );
+                    }
+                }
+            }
+            
+
+            // sunday
+            
+            
+            // setCurrentDay( formattedCurrentDay );
+        }
     }
 
     const handleWorkingDaysArray = () => {
@@ -165,12 +386,16 @@ export const JournalPage = () => {
         
             // console.log(consultationSlot)
             if (consultationSlot == patient.nextConsultation) {
+                setPatientNextConsultationCounter(patientNextConsultationCounter + 1);
+                console.log('patientNextConsultationCounter: ', patientNextConsultationCounter)
                 // console.log(`${consultationIndex}: ${consultationIndex} - ${patientIndex}: ${patient.nextConsultation}`)
                 consultationSlotsArray[consultationIndex] = {...consultationSlot, patient }
                 // console.log(consultationSlot)
             }
             
         });
+
+        // console.log('consultationSlotsArray: ',consultationSlotsArray)
         
     });
 
@@ -181,23 +406,432 @@ export const JournalPage = () => {
         
         // setDaysArray(array)
 
+    const handleConsultationSlotsArrayGeneration = () => {
 
+        if( newJournal === undefined ){
+        
+            const array = []
+            let tempCurrentDay = currentDay
+            array[0] = getUnixTime(currentDay)
+    
+            for (let i = 1; i < consultationsPerDay; i++) {
+                tempCurrentDay = add(tempCurrentDay, {
+                  hours: consultationHours,
+                  minutes: consultationMinutes,
+                });
+                array[i] = getUnixTime(tempCurrentDay)
+                // console.log(array[i])
+                
+            }
+            // console.log('array: ', array)
+            setConsultationSlotsArray( array )
+        }else{
+
+            // console.log('currentDay :', currentDay)
+
+            // monday
+
+            if( format( currentDay, "iiii") === 'lunes' ){
+
+    
+                if( newJournal?.monday?.journalAM !== undefined ){
+    
+                    const array = []
+                    let tempCurrentDay = currentDay
+                    let index = 0;
+        
+                    if( newJournal.monday.journalAM.length > 0 ){
+                        // console.log('first')
+        
+                        const arrayAMLength = newJournal.monday.journalAM.length
+                        array[ index ] = getUnixTime(currentDay)
+        
+                        for (let i = 1; i < arrayAMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.monday.journalAM[i].startTime.slice(0, 2),
+                                minutes: newJournal.monday.journalAM[i].startTime.slice(3, 5),
+                            });
+                            array[i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+        
+                        index = index + arrayAMLength;
+                    }
+        
+                    if( newJournal.monday.journalPM.length > 0 ){
+                        // console.log('second')
+        
+                        const arrayPMLength = newJournal.monday.journalPM.length
+                        array[ index ] = getUnixTime(
+                                            set( tempCurrentDay, {               
+                                                hours: newJournal.monday.journalPM[0].startTime.slice(0, 2),
+                                                minutes: newJournal.monday.journalPM[0].startTime.slice(3, 5),
+                                            })
+                                        )
+        
+                        for (let i = 1; i < arrayPMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.monday.journalPM[i].startTime.slice(0, 2),
+                                minutes: newJournal.monday.journalPM[i].startTime.slice(3, 5),
+                            });
+                            array[index + i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+                    }
+    
+                    setConsultationSlotsArray( array )
+                }
+            }
+
+            // monday
+            // tuesday
+
+            if( format( currentDay, "iiii") === 'martes' ){
+
+    
+                if( newJournal?.tuesday?.journalAM !== undefined ){
+    
+                    const array = []
+                    let tempCurrentDay = currentDay
+                    let index = 0;
+        
+                    if( newJournal.tuesday.journalAM.length > 0 ){
+                        // console.log('first')
+        
+                        const arrayAMLength = newJournal.tuesday.journalAM.length
+                        array[ index ] = getUnixTime(currentDay)
+        
+                        for (let i = 1; i < arrayAMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.tuesday.journalAM[i].startTime.slice(0, 2),
+                                minutes: newJournal.tuesday.journalAM[i].startTime.slice(3, 5),
+                            });
+                            array[i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+        
+                        index = index + arrayAMLength;
+                    }
+        
+                    if( newJournal.tuesday.journalPM.length > 0 ){
+                        // console.log('second')
+        
+                        const arrayPMLength = newJournal.tuesday.journalPM.length
+                        array[ index ] = getUnixTime(
+                                            set( tempCurrentDay, {               
+                                                hours: newJournal.tuesday.journalPM[0].startTime.slice(0, 2),
+                                                minutes: newJournal.tuesday.journalPM[0].startTime.slice(3, 5),
+                                            })
+                                        )
+        
+                        for (let i = 1; i < arrayPMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.tuesday.journalPM[i].startTime.slice(0, 2),
+                                minutes: newJournal.tuesday.journalPM[i].startTime.slice(3, 5),
+                            });
+                            array[index + i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+                    }
+    
+                    setConsultationSlotsArray( array )
+                }
+            }
+
+            // tuesday
+            // wednesday
+
+            if( format( currentDay, "iiii") === 'miércoles' ){
+
+    
+                if( newJournal?.wednesday?.journalAM !== undefined ){
+    
+                    const array = []
+                    let tempCurrentDay = currentDay
+                    let index = 0;
+        
+                    if( newJournal.wednesday.journalAM.length > 0 ){
+                        // console.log('first')
+        
+                        const arrayAMLength = newJournal.wednesday.journalAM.length
+                        array[ index ] = getUnixTime(currentDay)
+        
+                        for (let i = 1; i < arrayAMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.wednesday.journalAM[i].startTime.slice(0, 2),
+                                minutes: newJournal.wednesday.journalAM[i].startTime.slice(3, 5),
+                            });
+                            array[i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+        
+                        index = index + arrayAMLength;
+                    }
+        
+                    if( newJournal.wednesday.journalPM.length > 0 ){
+                        // console.log('second')
+        
+                        const arrayPMLength = newJournal.wednesday.journalPM.length
+                        array[ index ] = getUnixTime(
+                                            set( tempCurrentDay, {               
+                                                hours: newJournal.wednesday.journalPM[0].startTime.slice(0, 2),
+                                                minutes: newJournal.wednesday.journalPM[0].startTime.slice(3, 5),
+                                            })
+                                        )
+        
+                        for (let i = 1; i < arrayPMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.wednesday.journalPM[i].startTime.slice(0, 2),
+                                minutes: newJournal.wednesday.journalPM[i].startTime.slice(3, 5),
+                            });
+                            array[index + i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+                    }
+    
+                    setConsultationSlotsArray( array )
+                }
+            }
+
+            // wednesday
+            // thursday
+
+            if( format( currentDay, "iiii") === 'jueves' ){
+
+    
+                if( newJournal?.thursday?.journalAM !== undefined ){
+    
+                    const array = []
+                    let tempCurrentDay = currentDay
+                    let index = 0;
+        
+                    if( newJournal.thursday.journalAM.length > 0 ){
+                        // console.log('first')
+        
+                        const arrayAMLength = newJournal.thursday.journalAM.length
+                        array[ index ] = getUnixTime(currentDay)
+        
+                        for (let i = 1; i < arrayAMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.thursday.journalAM[i].startTime.slice(0, 2),
+                                minutes: newJournal.thursday.journalAM[i].startTime.slice(3, 5),
+                            });
+                            array[i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+        
+                        index = index + arrayAMLength;
+                    }
+        
+                    if( newJournal.thursday.journalPM.length > 0 ){
+                        // console.log('second')
+        
+                        const arrayPMLength = newJournal.thursday.journalPM.length
+                        array[ index ] = getUnixTime(
+                                            set( tempCurrentDay, {               
+                                                hours: newJournal.thursday.journalPM[0].startTime.slice(0, 2),
+                                                minutes: newJournal.thursday.journalPM[0].startTime.slice(3, 5),
+                                            })
+                                        )
+        
+                        for (let i = 1; i < arrayPMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.thursday.journalPM[i].startTime.slice(0, 2),
+                                minutes: newJournal.thursday.journalPM[i].startTime.slice(3, 5),
+                            });
+                            array[index + i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+                    }
+    
+                    setConsultationSlotsArray( array )
+                }
+            }
+
+            // thursday
+            // friday
+
+            if( format( currentDay, "iiii") === 'viernes' ){
+
+    
+                if( newJournal?.friday?.journalAM !== undefined ){
+    
+                    const array = []
+                    let tempCurrentDay = currentDay
+                    let index = 0;
+        
+                    if( newJournal.friday.journalAM.length > 0 ){
+                        // console.log('first')
+        
+                        const arrayAMLength = newJournal.friday.journalAM.length
+                        array[ index ] = getUnixTime(currentDay)
+        
+                        for (let i = 1; i < arrayAMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.friday.journalAM[i].startTime.slice(0, 2),
+                                minutes: newJournal.friday.journalAM[i].startTime.slice(3, 5),
+                            });
+                            array[i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+        
+                        index = index + arrayAMLength;
+                    }
+        
+                    if( newJournal.friday.journalPM.length > 0 ){
+                        // console.log('second')
+        
+                        const arrayPMLength = newJournal.friday.journalPM.length
+                        array[ index ] = getUnixTime(
+                                            set( tempCurrentDay, {               
+                                                hours: newJournal.friday.journalPM[0].startTime.slice(0, 2),
+                                                minutes: newJournal.friday.journalPM[0].startTime.slice(3, 5),
+                                            })
+                                        )
+        
+                        for (let i = 1; i < arrayPMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.friday.journalPM[i].startTime.slice(0, 2),
+                                minutes: newJournal.friday.journalPM[i].startTime.slice(3, 5),
+                            });
+                            array[index + i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+                    }
+    
+                    setConsultationSlotsArray( array )
+                }
+            }
+
+            // friday
+            // saturday
+
+            if( format( currentDay, "iiii") === 'sábado' ){
+
+    
+                if( newJournal?.saturday?.journalAM !== undefined ){
+    
+                    const array = []
+                    let tempCurrentDay = currentDay
+                    let index = 0;
+        
+                    if( newJournal.saturday.journalAM.length > 0 ){
+                        // console.log('first')
+        
+                        const arrayAMLength = newJournal.saturday.journalAM.length
+                        array[ index ] = getUnixTime(currentDay)
+        
+                        for (let i = 1; i < arrayAMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.saturday.journalAM[i].startTime.slice(0, 2),
+                                minutes: newJournal.saturday.journalAM[i].startTime.slice(3, 5),
+                            });
+                            array[i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+        
+                        index = index + arrayAMLength;
+                    }
+        
+                    if( newJournal.saturday.journalPM.length > 0 ){
+                        // console.log('second')
+        
+                        const arrayPMLength = newJournal.saturday.journalPM.length
+                        array[ index ] = getUnixTime(
+                                            set( tempCurrentDay, {               
+                                                hours: newJournal.saturday.journalPM[0].startTime.slice(0, 2),
+                                                minutes: newJournal.saturday.journalPM[0].startTime.slice(3, 5),
+                                            })
+                                        )
+        
+                        for (let i = 1; i < arrayPMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.saturday.journalPM[i].startTime.slice(0, 2),
+                                minutes: newJournal.saturday.journalPM[i].startTime.slice(3, 5),
+                            });
+                            array[index + i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+                    }
+    
+                    setConsultationSlotsArray( array )
+                }
+            }
+
+            // saturday
+            // sunday
+
+            if( format( currentDay, "iiii") === 'domingo' ){
+
+    
+                if( newJournal?.sunday?.journalAM !== undefined ){
+    
+                    const array = []
+                    let tempCurrentDay = currentDay
+                    let index = 0;
+        
+                    if( newJournal.sunday.journalAM.length > 0 ){
+                        // console.log('first')
+        
+                        const arrayAMLength = newJournal.sunday.journalAM.length
+                        array[ index ] = getUnixTime(currentDay)
+        
+                        for (let i = 1; i < arrayAMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.sunday.journalAM[i].startTime.slice(0, 2),
+                                minutes: newJournal.sunday.journalAM[i].startTime.slice(3, 5),
+                            });
+                            array[i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+        
+                        index = index + arrayAMLength;
+                    }
+        
+                    if( newJournal.sunday.journalPM.length > 0 ){
+                        // console.log('second')
+        
+                        const arrayPMLength = newJournal.sunday.journalPM.length
+                        array[ index ] = getUnixTime(
+                                            set( tempCurrentDay, {               
+                                                hours: newJournal.sunday.journalPM[0].startTime.slice(0, 2),
+                                                minutes: newJournal.sunday.journalPM[0].startTime.slice(3, 5),
+                                            })
+                                        )
+        
+                        for (let i = 1; i < arrayPMLength; i++) {
+                            tempCurrentDay = set(tempCurrentDay, {               
+                                hours: newJournal.sunday.journalPM[i].startTime.slice(0, 2),
+                                minutes: newJournal.sunday.journalPM[i].startTime.slice(3, 5),
+                            });
+                            array[index + i] = getUnixTime(tempCurrentDay)
+                            // console.log(array[i])
+                        }
+                    }
+    
+                    setConsultationSlotsArray( array )
+                }
+            }
+
+            // sunday
+            
+    
+            // for (let i = 1; i < consultationsPerDay; i++) {          SEPARAR ENTRE journalAM y PM
+            //     tempCurrentDay = add(tempCurrentDay, {               
+            //       hours: consultationHours,                          HACER UN SLICE DEL STRING Y PONERLO AQUÍ
+            //       minutes: consultationMinutes,                      LO MISMO
+            //     });
+            //     array[i] = getUnixTime(tempCurrentDay)               LO MISMO
+            //     // console.log(array[i])
+                
+            // }
+            // console.log('array: ', array)
+            // setConsultationSlotsArray( array )
+        }
+    }
  
     useEffect(() => {
-        const array = []
-        let tempCurrentDay = currentDay
-        array[0] = getUnixTime(currentDay)
-
-        for (let i = 1; i < consultationsPerDay; i++) {
-            tempCurrentDay = add(tempCurrentDay, {
-              hours: consultationHours,
-              minutes: consultationMinutes,
-            });
-            array[i] = getUnixTime(tempCurrentDay)
-            // console.log(array[i])
-            
-        }
-        setConsultationSlotsArray( array )
+        handleConsultationSlotsArrayGeneration();
     }, [ currentDay ])
 
     // const onNewConsultation = ( consultationSlot ) => {
