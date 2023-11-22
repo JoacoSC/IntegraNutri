@@ -44,22 +44,22 @@ export const Navbar = () => {
                 {   (isNutritionistStatus)
                     ?   <>
                             <li className="nav__item" data-tooltip="Inicio">
-                                <Link to="../">
+                                <Link to="../home">
                                     <img src={ Home_sm } className="filter-clr" alt="Icono Inicio"/>
                                     <div className="btn-ellipse"></div>
                                 </Link>
                             </li>
                             <li className="nav__item" data-tooltip="Pacientes">
                                 <Link to="../myPatients">
-                                <img src={ Patients } className="filter-clr" alt="Icono Pacientes"/>
-                                <div className="btn-ellipse"></div>
+                                    <img src={ Patients } className="filter-clr" alt="Icono Pacientes"/>
+                                    <div className="btn-ellipse"></div>
                                 </Link>
                             </li>
                             <li className="nav__item" data-tooltip="Calendario">
-                                <a href="#">
+                                <Link to="../journal">
                                     <img src={ Calendar_sm } className="filter-clr" alt="Icono Calendario"/>
                                     <div className="btn-ellipse"></div>
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav__item" data-tooltip="Estadísticas">
                                 <a href="#">

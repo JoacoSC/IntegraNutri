@@ -462,7 +462,7 @@ export const JournalPage = () => {
                             });
                             array[i] =  {
                                             startTime: getUnixTime(tempCurrentDay),
-                                            endTime: getUnixTime( add( tempCurrentDay, {
+                                            endTime: getUnixTime( set( tempCurrentDay, {
                                                 hours: newJournal.monday.journalAM[i].endTime.slice(0, 2),
                                                 minutes: newJournal.monday.journalAM[i].endTime.slice(3, 5),
                                             } ) ),
@@ -497,7 +497,7 @@ export const JournalPage = () => {
                             });
                             array[index + i] = {
                                                     startTime: getUnixTime(tempCurrentDay),
-                                                    endTime: getUnixTime( add( tempCurrentDay, {
+                                                    endTime: getUnixTime( set( tempCurrentDay, {
                                                         hours: newJournal.monday.journalPM[i].endTime.slice(0, 2),
                                                         minutes: newJournal.monday.journalPM[i].endTime.slice(3, 5),
                                                     } ) ),
@@ -541,12 +541,13 @@ export const JournalPage = () => {
                             });
                             array[i] = {
                                 startTime: getUnixTime(tempCurrentDay),
-                                endTime: getUnixTime( add( tempCurrentDay, {
+                                endTime: getUnixTime( set( tempCurrentDay, {
                                     hours: newJournal.tuesday.journalAM[i].endTime.slice(0, 2),
                                     minutes: newJournal.tuesday.journalAM[i].endTime.slice(3, 5),
                                 } ) ),
                             }
-                            // console.log(array[i])
+                            // console.log( 'startTime: ', format(fromUnixTime(array[i].startTime), 'hh:mm' ) )
+                            // console.log( 'endTime: ', format(fromUnixTime(array[i].endTime), 'hh:mm' ) )
                         }
         
                         index = index + arrayAMLength;
@@ -576,7 +577,7 @@ export const JournalPage = () => {
                             });
                             array[index + i] = {
                                                 startTime: getUnixTime(tempCurrentDay),
-                                                endTime: getUnixTime( add( tempCurrentDay, {
+                                                endTime: getUnixTime( set( tempCurrentDay, {
                                                     hours: newJournal.tuesday.journalPM[i].endTime.slice(0, 2),
                                                     minutes: newJournal.tuesday.journalPM[i].endTime.slice(3, 5),
                                                 } ) ),
@@ -620,7 +621,7 @@ export const JournalPage = () => {
                             });
                             array[i] = {
                                             startTime: getUnixTime(tempCurrentDay),
-                                            endTime: getUnixTime( add( tempCurrentDay, {
+                                            endTime: getUnixTime( set( tempCurrentDay, {
                                                 hours: newJournal.wednesday.journalAM[i].endTime.slice(0, 2),
                                                 minutes: newJournal.wednesday.journalAM[i].endTime.slice(3, 5),
                                             } ) ),
@@ -655,7 +656,7 @@ export const JournalPage = () => {
                             });
                             array[index + i] = {
                                                     startTime: getUnixTime(tempCurrentDay),
-                                                    endTime: getUnixTime( add( tempCurrentDay, {
+                                                    endTime: getUnixTime( set( tempCurrentDay, {
                                                         hours: newJournal.wednesday.journalPM[i].endTime.slice(0, 2),
                                                         minutes: newJournal.wednesday.journalPM[i].endTime.slice(3, 5),
                                                     } ) ),
@@ -699,7 +700,7 @@ export const JournalPage = () => {
                             });
                             array[i] = {
                                             startTime: getUnixTime(tempCurrentDay),
-                                            endTime: getUnixTime( add( tempCurrentDay, {
+                                            endTime: getUnixTime( set( tempCurrentDay, {
                                                 hours: newJournal.thursday.journalAM[i].endTime.slice(0, 2),
                                                 minutes: newJournal.thursday.journalAM[i].endTime.slice(3, 5),
                                             } ) ),
@@ -734,7 +735,7 @@ export const JournalPage = () => {
                             });
                             array[index + i] = {
                                                     startTime: getUnixTime(tempCurrentDay),
-                                                    endTime: getUnixTime( add( tempCurrentDay, {
+                                                    endTime: getUnixTime( set( tempCurrentDay, {
                                                         hours: newJournal.thursday.journalPM[i].endTime.slice(0, 2),
                                                         minutes: newJournal.thursday.journalPM[i].endTime.slice(3, 5),
                                                     } ) ),
@@ -778,7 +779,7 @@ export const JournalPage = () => {
                             });
                             array[i] = {
                                             startTime: getUnixTime(tempCurrentDay),
-                                            endTime: getUnixTime( add( tempCurrentDay, {
+                                            endTime: getUnixTime( set( tempCurrentDay, {
                                                 hours: newJournal.friday.journalAM[i].endTime.slice(0, 2),
                                                 minutes: newJournal.friday.journalAM[i].endTime.slice(3, 5),
                                             } ) ),
@@ -813,7 +814,7 @@ export const JournalPage = () => {
                             });
                             array[index + i] = {
                                                     startTime: getUnixTime(tempCurrentDay),
-                                                    endTime: getUnixTime( add( tempCurrentDay, {
+                                                    endTime: getUnixTime( set( tempCurrentDay, {
                                                         hours: newJournal.friday.journalPM[i].endTime.slice(0, 2),
                                                         minutes: newJournal.friday.journalPM[i].endTime.slice(3, 5),
                                                     } ) ),
@@ -857,7 +858,7 @@ export const JournalPage = () => {
                             });
                             array[i] = {
                                             startTime: getUnixTime(tempCurrentDay),
-                                            endTime: getUnixTime( add( tempCurrentDay, {
+                                            endTime: getUnixTime( set( tempCurrentDay, {
                                                 hours: newJournal.saturday.journalAM[i].endTime.slice(0, 2),
                                                 minutes: newJournal.saturday.journalAM[i].endTime.slice(3, 5),
                                             } ) ),
@@ -892,7 +893,7 @@ export const JournalPage = () => {
                             });
                             array[index + i] = {
                                                     startTime: getUnixTime(tempCurrentDay),
-                                                    endTime: getUnixTime( add( tempCurrentDay, {
+                                                    endTime: getUnixTime( set( tempCurrentDay, {
                                                         hours: newJournal.saturday.journalPM[i].endTime.slice(0, 2),
                                                         minutes: newJournal.saturday.journalPM[i].endTime.slice(3, 5),
                                                     } ) ),
@@ -936,7 +937,7 @@ export const JournalPage = () => {
                             });
                             array[i] = {
                                             startTime: getUnixTime(tempCurrentDay),
-                                            endTime: getUnixTime( add( tempCurrentDay, {
+                                            endTime: getUnixTime( set( tempCurrentDay, {
                                                 hours: newJournal.sunday.journalAM[i].endTime.slice(0, 2),
                                                 minutes: newJournal.sunday.journalAM[i].endTime.slice(3, 5),
                                             } ) ),
@@ -971,7 +972,7 @@ export const JournalPage = () => {
                             });
                             array[index + i] = {
                                                     startTime: getUnixTime(tempCurrentDay),
-                                                    endTime: getUnixTime( add( tempCurrentDay, {
+                                                    endTime: getUnixTime( set( tempCurrentDay, {
                                                         hours: newJournal.sunday.journalPM[i].endTime.slice(0, 2),
                                                         minutes: newJournal.sunday.journalPM[i].endTime.slice(3, 5),
                                                     } ) ),
@@ -996,7 +997,7 @@ export const JournalPage = () => {
             //     // console.log(array[i])
                 
             // }
-            console.log('consultationSlotsArray: ', consultationSlotsArray)
+            // console.log('consultationSlotsArray: ', consultationSlotsArray)
             // setConsultationSlotsArray( array )
         }
     }

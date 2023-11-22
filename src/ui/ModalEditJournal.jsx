@@ -139,14 +139,6 @@ export const ModalEditJournal = () => {
 
     const onSubmit = ( event ) => {
         event.preventDefault();
-
-        // TODO: El journal ideal debe tener:
-        // 
-        // El código Unix de cada hora de consulta, esté disponible o no
-        // Bajo el código Unix debe haber una propiedad que me indique si la hora de consulta está disponible
-        // Otra propiedad con los datos del paciente que agendó esa hora de consulta
-        // 
-        // 
         
         const newJournal = {
             monday: {},
@@ -159,121 +151,37 @@ export const ModalEditJournal = () => {
         }
 
         if( isMondayChecked ){
-            console.log( monday )
+            // console.log( monday )
             newJournal.monday = monday;
         }
         if( isTuesdayChecked ){
-            console.log( tuesday )
+            // console.log( tuesday )
             newJournal.tuesday = tuesday;
         }
         if( isWednesdayChecked ){
-            console.log( wednesday )
+            // console.log( wednesday )
             newJournal.wednesday = wednesday;
         }
         if( isThursdayChecked ){
-            console.log( thursday )
+            // console.log( thursday )
             newJournal.thursday = thursday;
         }
         if( isFridayChecked ){
-            console.log( friday )
+            // console.log( friday )
             newJournal.friday = friday;
         }
         if( isSaturdayChecked ){
-            console.log( saturday )
+            // console.log( saturday )
             newJournal.saturday = saturday;
         }
         if( isSundayChecked ){
-            console.log( sunday )
+            // console.log( sunday )
             newJournal.sunday = sunday;
         }
 
-        console.log('newJournal: ', newJournal)
+        // console.log('newJournal: ', newJournal)
 
         dispatch( startCreatingNewJournal( journalID, newJournal ) )
-
-        // const journalParams = {
-        //     workingDays: {
-        //         Monday: {
-        //             startTime: '09:00',
-        //             consultationDuration: '00:45',
-        //             consultationsPerDay: 8,
-        //         },
-        //         Wednesday: {
-        //             startTime: '10:00',
-        //             consultationDuration: '01:00',
-        //             consultationsPerDay: 6,
-        //         },
-        //         Friday: {
-        //             startTime: '09:30',
-        //             consultationDuration: '00:45',
-        //             consultationsPerDay: 6,
-        //         }
-        //     }
-        // }
-        // const journal = {
-            
-        //     // Unix del día a las 12:00, para calcular el día de la semana, numero de día, etc.
-        //     347839273400: {
-        //         dayName: 'Monday',
-        //         isWorkingDay: boolean,
-        //         consultationSlots: {     // En el JournalPage se comparará a través de un arreglo que contenga los días desde hoy
-        //                             // hasta 60 días ( o más )
-        //             // Horas del día
-        //             347839273400: {
-        //                 isAvailable: boolean,
-        //                 patientData: {
-        //                     // Patient data
-        //                 }
-        //             },
-        //             347843234500: {
-        //                 isAvailable: boolean,
-        //                 patientData: {
-        //                     // Patient data
-        //                 }
-        //             },
-        //             347838767600: {
-        //                 isAvailable: boolean,
-        //                 patientData: {
-        //                     // Patient data
-        //                 }
-        //             },
-        //         }
-        //     }
-
-        // } 
-        
-        // if( isMondayChecked ){
-        //     console.log({mondayStartTime, mondayEndTime})
-        // }
-        // if( isTuesdayChecked ){
-        //     console.log({tuesdayStartTime, tuesdayEndTime})
-        // }
-        // if( isWednesdayChecked ){
-        //     console.log({wednesdayStartTime, wednesdayEndTime})
-        // }
-        // if( isThursdayChecked ){
-        //     console.log({thursdayStartTime, thursdayEndTime})
-        // }
-        // if( isFridayChecked ){
-        //     console.log({fridayStartTime, fridayEndTime})
-        // }
-        // if( isSaturdayChecked ){
-        //     console.log({saturdayStartTime, saturdayEndTime})
-        // }
-        // if( isSundayChecked ){
-        //     console.log({sundayStartTime, sundayEndTime})
-        // }
-
-        // console.log(isMondayChecked)
-        // console.log(isTuesdayChecked)
-        // console.log(isWednesdayChecked)
-        // console.log(isThursdayChecked)
-        // console.log(isFridayChecked)
-        // console.log(isSaturdayChecked)
-        // console.log(isSundayChecked)
-        
-        // dispatch( startEditJournal( journalID, workingDayStartHours, workingDayStartMinutes, consultationHours, consultationMinutes, consultationsPerDay ) );
-        
         
     }
 
@@ -637,69 +545,69 @@ export const ModalEditJournal = () => {
                                 <input type="checkbox" ref={ mondayCheckbox } value={ isMondayChecked } onChange={ handleMondayCheckbox }/>
                                 Lunes
                                 </label>
-                                <div className="accordion-content modal-accordion-content flex-column">
-                                    <div className="journal-row-item">
-                                        <div className="journal-row-item flex-row">
+                                <div className="accordion-content modal-accordion-content flex-column journal-content-background">
+                                    <div className="journal-row-item gap-0">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input type="time" name="mondayConsultationDuration" defaultValue='00:45' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="mondayConsultationDuration" defaultValue='00:45' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input type="time" name="mondayPostConsultationDuration" defaultValue='00:15' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="mondayPostConsultationDuration" defaultValue='00:15' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
                                             </div>
                                         </div>                                        
-                                        <div className="journal-row-item flex-row">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="flex-column">
                                                 <label className="">Jornada AM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada AM:</label>
-                                                    <input type="time" name="mondayStartTimeAM" defaultValue='08:00' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="mondayStartTimeAM" defaultValue='08:00' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada AM:</label>
-                                                    <input className="journal-input-number" type="number" name="mondayConsultationQuantityAM" defaultValue='5' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="mondayConsultationQuantityAM" defaultValue='5' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                             <div className="flex-column">
                                                 <label className="">Jornada PM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada PM:</label>
-                                                    <input type="time" name="mondayStartTimePM" defaultValue='14:00' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="mondayStartTimePM" defaultValue='14:00' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada PM:</label>
-                                                    <input className="journal-input-number" type="number" name="mondayConsultationQuantityPM" defaultValue='4' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="mondayConsultationQuantityPM" defaultValue='4' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="accordion-content modal-accordion-content journal-preview-container">
-                                    <div className="journal-row-item">
+                                    <div className="journal-row-item width-100">
                                         <label className="">Previsualización de la jornada:</label>
-                                        <div className="journal-monday-preview flex-row">
-                                        <div className="AM-preview">
-                                            { monday?.journalAM?.map( (consultationSlot, index) => (
+                                        <div className="journal-preview flex-row width-100">
+                                            <div className="AM-preview">
+                                                { monday?.journalAM?.map( (consultationSlot, index) => (
 
-                                                <div className="day" key={ index }>
-                                                    {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                    <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
-                                                    {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <div className="background-preview">Almuerzo</div>
-                                        <div className="PM-preview">
-                                            { monday?.journalPM?.map( (consultationSlot, index) => (
+                                                    <div className="journal-consultation-preview-container" key={ index }>
+                                                        {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div className="lunch-preview">Almuerzo</div>
+                                            <div className="PM-preview">
+                                                { monday?.journalPM?.map( (consultationSlot, index) => (
 
-                                                <div className="day" key={ index }>
-                                                    {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                    <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
-                                                    {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
-                                                </div>
-                                            ))}
-                                        </div>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
+                                                        {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -717,65 +625,65 @@ export const ModalEditJournal = () => {
                                 <input type="checkbox" ref={ tuesdayCheckbox } value={ isTuesdayChecked } onChange={ handleTuesdayCheckbox }/>
                                 Martes
                                 </label>
-                                <div className="accordion-content modal-accordion-content flex-column">
-                                    <div className="journal-row-item">
-                                        <div className="journal-row-item flex-row">
+                                <div className="accordion-content modal-accordion-content flex-column journal-content-background">
+                                    <div className="journal-row-item gap-0">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input type="time" name="tuesdayConsultationDuration" defaultValue='00:45' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="tuesdayConsultationDuration" defaultValue='00:45' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input type="time" name="tuesdayPostConsultationDuration" defaultValue='00:15' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="tuesdayPostConsultationDuration" defaultValue='00:15' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
                                             </div>
                                         </div>                                        
-                                        <div className="journal-row-item flex-row">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="flex-column">
                                                 <label className="">Jornada AM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada AM:</label>
-                                                    <input type="time" name="tuesdayStartTimeAM" defaultValue='08:00' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="tuesdayStartTimeAM" defaultValue='08:00' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada AM:</label>
-                                                    <input className="journal-input-number" type="number" name="tuesdayConsultationQuantityAM" defaultValue='5' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="tuesdayConsultationQuantityAM" defaultValue='5' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                             <div className="flex-column">
                                                 <label className="">Jornada PM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada PM:</label>
-                                                    <input type="time" name="tuesdayStartTimePM" defaultValue='14:00' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="tuesdayStartTimePM" defaultValue='14:00' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada PM:</label>
-                                                    <input className="journal-input-number" type="number" name="tuesdayConsultationQuantityPM" defaultValue='4' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="tuesdayConsultationQuantityPM" defaultValue='4' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="accordion-content modal-accordion-content journal-preview-container">
-                                    <div className="journal-row-item">
+                                    <div className="journal-row-item width-100">
                                         <label className="">Previsualización de la jornada:</label>
-                                        <div className="journal-tuesday-preview flex-row">
+                                        <div className="journal-preview flex-row width-100">
                                             <div className="AM-preview">
-                                                { tuesday?.journal?.journalAM.map( (consultationSlot, index) => (
+                                                { tuesday?.journalAM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
                                             </div>
-                                            <div className="background-preview">Almuerzo</div>
+                                            <div className="lunch-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { tuesday?.journal?.journalPM.map( (consultationSlot, index) => (
+                                                { tuesday?.journalPM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -797,65 +705,65 @@ export const ModalEditJournal = () => {
                                 <input type="checkbox" ref={ wednesdayCheckbox } value={ isWednesdayChecked } onChange={ handleWednesdayCheckbox }/>
                                 Miércoles
                                 </label>
-                                <div className="accordion-content modal-accordion-content flex-column">
-                                    <div className="journal-row-item">
-                                        <div className="journal-row-item flex-row">
+                                <div className="accordion-content modal-accordion-content flex-column journal-content-background">
+                                    <div className="journal-row-item gap-0">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input type="time" name="wednesdayConsultationDuration" defaultValue='00:45' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="wednesdayConsultationDuration" defaultValue='00:45' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input type="time" name="wednesdayPostConsultationDuration" defaultValue='00:15' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="wednesdayPostConsultationDuration" defaultValue='00:15' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
                                             </div>
                                         </div>                                        
-                                        <div className="journal-row-item flex-row">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="flex-column">
                                                 <label className="">Jornada AM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada AM:</label>
-                                                    <input type="time" name="wednesdayStartTimeAM" defaultValue='08:00' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="wednesdayStartTimeAM" defaultValue='08:00' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada AM:</label>
-                                                    <input className="journal-input-number" type="number" name="wednesdayConsultationQuantityAM" defaultValue='5' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="wednesdayConsultationQuantityAM" defaultValue='5' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                             <div className="flex-column">
                                                 <label className="">Jornada PM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada PM:</label>
-                                                    <input type="time" name="wednesdayStartTimePM" defaultValue='14:00' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="wednesdayStartTimePM" defaultValue='14:00' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada PM:</label>
-                                                    <input className="journal-input-number" type="number" name="wednesdayConsultationQuantityPM" defaultValue='4' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="wednesdayConsultationQuantityPM" defaultValue='4' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="accordion-content modal-accordion-content journal-preview-container">
-                                    <div className="journal-row-item">
+                                    <div className="journal-row-item width-100">
                                         <label className="">Previsualización de la jornada:</label>
-                                        <div className="journal-wednesday-preview flex-row">
+                                        <div className="journal-preview flex-row width-100">
                                             <div className="AM-preview">
-                                                { wednesday?.journal?.journalAM.map( (consultationSlot, index) => (
+                                                { wednesday?.journalAM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
                                             </div>
-                                            <div className="background-preview">Almuerzo</div>
+                                            <div className="lunch-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { wednesday?.journal?.journalPM.map( (consultationSlot, index) => (
+                                                { wednesday?.journalPM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -877,65 +785,65 @@ export const ModalEditJournal = () => {
                                 <input type="checkbox" ref={ thursdayCheckbox } value={ isThursdayChecked } onChange={ handleThursdayCheckbox }/>
                                 Jueves
                                 </label>
-                                <div className="accordion-content modal-accordion-content flex-column">
-                                    <div className="journal-row-item">
-                                        <div className="journal-row-item flex-row">
+                                <div className="accordion-content modal-accordion-content flex-column journal-content-background">
+                                    <div className="journal-row-item gap-0">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input type="time" name="thursdayConsultationDuration" defaultValue='00:45' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="thursdayConsultationDuration" defaultValue='00:45' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input type="time" name="thursdayPostConsultationDuration" defaultValue='00:15' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="thursdayPostConsultationDuration" defaultValue='00:15' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
                                             </div>
                                         </div>                                        
-                                        <div className="journal-row-item flex-row">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="flex-column">
                                                 <label className="">Jornada AM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada AM:</label>
-                                                    <input type="time" name="thursdayStartTimeAM" defaultValue='08:00' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="thursdayStartTimeAM" defaultValue='08:00' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada AM:</label>
-                                                    <input className="journal-input-number" type="number" name="thursdayConsultationQuantityAM" defaultValue='5' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="thursdayConsultationQuantityAM" defaultValue='5' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                             <div className="flex-column">
                                                 <label className="">Jornada PM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada PM:</label>
-                                                    <input type="time" name="thursdayStartTimePM" defaultValue='14:00' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="thursdayStartTimePM" defaultValue='14:00' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada PM:</label>
-                                                    <input className="journal-input-number" type="number" name="thursdayConsultationQuantityPM" defaultValue='4' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="thursdayConsultationQuantityPM" defaultValue='4' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="accordion-content modal-accordion-content journal-preview-container">
-                                    <div className="journal-row-item">
+                                    <div className="journal-row-item width-100">
                                         <label className="">Previsualización de la jornada:</label>
-                                        <div className="journal-thursday-preview flex-row">
+                                        <div className="journal-preview flex-row width-100">
                                             <div className="AM-preview">
-                                                { thursday?.journal?.journalAM.map( (consultationSlot, index) => (
+                                                { thursday?.journalAM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
                                             </div>
-                                            <div className="background-preview">Almuerzo</div>
+                                            <div className="lunch-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { thursday?.journal?.journalPM.map( (consultationSlot, index) => (
+                                                { thursday?.journalPM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -957,65 +865,65 @@ export const ModalEditJournal = () => {
                                 <input type="checkbox" ref={ fridayCheckbox } value={ isFridayChecked } onChange={ handleFridayCheckbox }/>
                                 Viernes
                                 </label>
-                                <div className="accordion-content modal-accordion-content flex-column">
-                                    <div className="journal-row-item">
-                                        <div className="journal-row-item flex-row">
+                                <div className="accordion-content modal-accordion-content flex-column journal-content-background">
+                                    <div className="journal-row-item gap-0">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input type="time" name="fridayConsultationDuration" defaultValue='00:45' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="fridayConsultationDuration" defaultValue='00:45' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input type="time" name="fridayPostConsultationDuration" defaultValue='00:15' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="fridayPostConsultationDuration" defaultValue='00:15' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
                                             </div>
                                         </div>                                        
-                                        <div className="journal-row-item flex-row">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="flex-column">
                                                 <label className="">Jornada AM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada AM:</label>
-                                                    <input type="time" name="fridayStartTimeAM" defaultValue='08:00' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="fridayStartTimeAM" defaultValue='08:00' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada AM:</label>
-                                                    <input className="journal-input-number" type="number" name="fridayConsultationQuantityAM" defaultValue='5' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="fridayConsultationQuantityAM" defaultValue='5' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                             <div className="flex-column">
                                                 <label className="">Jornada PM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada PM:</label>
-                                                    <input type="time" name="fridayStartTimePM" defaultValue='14:00' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="fridayStartTimePM" defaultValue='14:00' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada PM:</label>
-                                                    <input className="journal-input-number" type="number" name="fridayConsultationQuantityPM" defaultValue='4' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="fridayConsultationQuantityPM" defaultValue='4' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="accordion-content modal-accordion-content journal-preview-container">
-                                    <div className="journal-row-item">
+                                    <div className="journal-row-item width-100">
                                         <label className="">Previsualización de la jornada:</label>
-                                        <div className="journal-friday-preview flex-row">
+                                        <div className="journal-preview flex-row width-100">
                                             <div className="AM-preview">
-                                                { friday?.journal?.journalAM.map( (consultationSlot, index) => (
+                                                { friday?.journalAM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
                                             </div>
-                                            <div className="background-preview">Almuerzo</div>
+                                            <div className="lunch-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { friday?.journal?.journalPM.map( (consultationSlot, index) => (
+                                                { friday?.journalPM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -1037,65 +945,65 @@ export const ModalEditJournal = () => {
                                 <input type="checkbox" ref={ saturdayCheckbox } value={ isSaturdayChecked } onChange={ handleSaturdayCheckbox }/>
                                 Sábado
                                 </label>
-                                <div className="accordion-content modal-accordion-content flex-column">
-                                    <div className="journal-row-item">
-                                        <div className="journal-row-item flex-row">
+                                <div className="accordion-content modal-accordion-content flex-column journal-content-background">
+                                    <div className="journal-row-item gap-0">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input type="time" name="saturdayConsultationDuration" defaultValue='00:45' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="saturdayConsultationDuration" defaultValue='00:45' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input type="time" name="saturdayPostConsultationDuration" defaultValue='00:15' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="saturdayPostConsultationDuration" defaultValue='00:15' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
                                             </div>
                                         </div>                                        
-                                        <div className="journal-row-item flex-row">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="flex-column">
                                                 <label className="">Jornada AM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada AM:</label>
-                                                    <input type="time" name="saturdayStartTimeAM" defaultValue='08:00' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="saturdayStartTimeAM" defaultValue='08:00' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada AM:</label>
-                                                    <input className="journal-input-number" type="number" name="saturdayConsultationQuantityAM" defaultValue='5' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="saturdayConsultationQuantityAM" defaultValue='5' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                             <div className="flex-column">
                                                 <label className="">Jornada PM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada PM:</label>
-                                                    <input type="time" name="saturdayStartTimePM" defaultValue='14:00' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="saturdayStartTimePM" defaultValue='14:00' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada PM:</label>
-                                                    <input className="journal-input-number" type="number" name="saturdayConsultationQuantityPM" defaultValue='4' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="saturdayConsultationQuantityPM" defaultValue='4' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="accordion-content modal-accordion-content journal-preview-container">
-                                    <div className="journal-row-item">
+                                    <div className="journal-row-item width-100">
                                         <label className="">Previsualización de la jornada:</label>
-                                        <div className="journal-saturday-preview flex-row">
+                                        <div className="journal-preview flex-row width-100">
                                             <div className="AM-preview">
-                                                { saturday?.journal?.journalAM.map( (consultationSlot, index) => (
+                                                { saturday?.journalAM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
                                             </div>
-                                            <div className="background-preview">Almuerzo</div>
+                                            <div className="lunch-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { saturday?.journal?.journalPM.map( (consultationSlot, index) => (
+                                                { saturday?.journalPM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
@@ -1117,65 +1025,65 @@ export const ModalEditJournal = () => {
                                 <input type="checkbox" ref={ sundayCheckbox } value={ isSundayChecked } onChange={ handleSundayCheckbox }/>
                                 Domingo
                                 </label>
-                                <div className="accordion-content modal-accordion-content flex-column">
-                                    <div className="journal-row-item">
-                                        <div className="journal-row-item flex-row">
+                                <div className="accordion-content modal-accordion-content flex-column journal-content-background">
+                                    <div className="journal-row-item gap-0">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input type="time" name="sundayConsultationDuration" defaultValue='00:45' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="sundayConsultationDuration" defaultValue='00:45' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input type="time" name="sundayPostConsultationDuration" defaultValue='00:15' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                <input className="font-metropolis-08" type="time" name="sundayPostConsultationDuration" defaultValue='00:15' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
                                             </div>
                                         </div>                                        
-                                        <div className="journal-row-item flex-row">
+                                        <div className="journal-item-background journal-row-item flex-row">
                                             <div className="flex-column">
                                                 <label className="">Jornada AM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada AM:</label>
-                                                    <input type="time" name="sundayStartTimeAM" defaultValue='08:00' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="sundayStartTimeAM" defaultValue='08:00' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada AM:</label>
-                                                    <input className="journal-input-number" type="number" name="sundayConsultationQuantityAM" defaultValue='5' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="sundayConsultationQuantityAM" defaultValue='5' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                             <div className="flex-column">
                                                 <label className="">Jornada PM</label>
                                                 <div className="journal-row-item">
                                                     <label className="">Inicio de la jornada PM:</label>
-                                                    <input type="time" name="sundayStartTimePM" defaultValue='14:00' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                    <input className="font-metropolis-08" type="time" name="sundayStartTimePM" defaultValue='14:00' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                                 <div className="journal-row-item">
                                                     <label className="">Cantidad de consultas de jornada PM:</label>
-                                                    <input className="journal-input-number" type="number" name="sundayConsultationQuantityPM" defaultValue='4' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                    <input className="journal-input-number font-metropolis-08" type="number" name="sundayConsultationQuantityPM" defaultValue='4' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="accordion-content modal-accordion-content journal-preview-container">
-                                    <div className="journal-row-item">
+                                    <div className="journal-row-item width-100">
                                         <label className="">Previsualización de la jornada:</label>
-                                        <div className="journal-sunday-preview flex-row">
+                                        <div className="journal-preview flex-row width-100">
                                             <div className="AM-preview">
-                                                { sunday?.journal?.journalAM.map( (consultationSlot, index) => (
+                                                { sunday?.journalAM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
                                             </div>
-                                            <div className="background-preview">Almuerzo</div>
+                                            <div className="lunch-preview">Almuerzo</div>
                                             <div className="PM-preview">
-                                                { sunday?.journal?.journalPM.map( (consultationSlot, index) => (
+                                                { sunday?.journalPM.map( (consultationSlot, index) => (
 
-                                                    <div className="day" key={ index }>
+                                                    <div className="journal-consultation-preview-container" key={ index }>
                                                         {/* <div className="month-label">{ capitalizeFirst(format( day, "MMM")) }</div> */}
-                                                        <div className="day-ellipse">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
+                                                        <div className="journal-consultation-preview">{ consultationSlot.startTime + ' - ' + consultationSlot.endTime }</div>
                                                         {/* <div className="day-label">{ capitalizeFirst(format( day, "eee")) }</div> */}
                                                     </div>
                                                 ))}
