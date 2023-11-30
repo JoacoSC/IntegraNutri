@@ -1,6 +1,6 @@
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
-import { setUserInfo } from "./";
+import { setUserDisplayName, setUserInfo } from "./";
 
 
 
@@ -20,6 +20,26 @@ export const startLoadingUserInfo = ( uid ) => {
         // console.log(userInfo);
 
         dispatch( setUserInfo( userInfo ) )
+
+    }
+}
+
+export const startLoadingUserDisplayName = ( uid ) => {
+    return async( dispatch ) => {
+
+        const collectionRef = collection( FirebaseDB, `users/${ uid }/userData` );
+        const docs = await getDocs( collectionRef );
+
+        let userDisplayName = null;
+
+        docs.forEach( doc => {
+            userDisplayName = doc.data().displayName;
+        });
+        
+
+        // console.log(userDisplayName);
+
+        dispatch( setUserDisplayName( userDisplayName ) )
 
     }
 }

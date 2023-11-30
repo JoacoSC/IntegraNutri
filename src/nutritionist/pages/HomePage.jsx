@@ -9,13 +9,17 @@ import { add, format, fromUnixTime, getUnixTime, sub } from "date-fns";
 import { setDefaultOptions } from 'date-fns/esm';
 import { es } from 'date-fns/locale'
 
+import Nutri_face_scarf from '../../../assets/imgs/navbar/Nutri_face_scarf.svg'
+
 export const HomePage = () => {
 
     setDefaultOptions({ locale: es })
 
     const dispatch = useDispatch();
 
-    const { uid, displayName } = useSelector( state => state.auth )
+    const { uid, email } = useSelector( state => state.auth )
+
+    const { userDataID, displayName, rut, region, city } = useSelector( state => state.userInfo )
 
     const { patients } = useSelector( state => state.patients )
 
@@ -77,21 +81,25 @@ export const HomePage = () => {
         
     }
 
-    useEffect(() => {
+    const handleLoadingScreen = () => {
 
-        // console.log('isNutritionist: ', isNutritionist)
+        console.log('rut: ', rut)
         // console.log('isLoading: ', isLoading)
 
-        if( uid !== null ){
+        if( rut !== null ){
             setIsLoading( false )
             // console.log('newJournalIsSet: ', newJournalIsSet)
             // console.log('newJournal: ', newJournal)
         }else{
             setIsLoading( true )
         }
-    
+    }
 
-    }, [uid])
+    useEffect(() => {
+
+        handleLoadingScreen();
+        
+    }, [rut])
 
     useEffect(() => {
         if( patients !== undefined ){
@@ -99,7 +107,6 @@ export const HomePage = () => {
             handlePatientsArray();
         }
     }, [patients])
-    
     
     return (
         <AppLayout>
@@ -127,35 +134,67 @@ export const HomePage = () => {
                         <p>Hola nutricionista, echemos un vistazo a sus pacientes de hoy</p>
 
                     </div>
-                    <div className="home-item-container">
-                        <div className="sub-title">
-                            <h3>Próximos pacientes</h3>
-                        </div>
-                        <div className="home-item">
-                            {
-                                nextConsultationPatientsSorted.map( ( patient, index ) => (
-                                    ( patient.nextConsultation > currentTime )
-                                    ?   <div className="next-patient-item" key={ index }>
-                                            <div>
-                                                { patient.displayName }
-                                            </div>
-                                            <div>
-                                                { 
-                                                    ( format( fromUnixTime( patient.nextConsultation ), "dd/MM/yyyy") === format( fromUnixTime( currentTime ), "dd/MM/yyyy") )
-                                                    ?   'Hoy'
-                                                    :   ( format( sub( fromUnixTime( patient.nextConsultation ), { days: 1 } ), "dd/MM/yyyy") === format( fromUnixTime( currentTime ), "dd/MM/yyyy") )
-                                                        ?   'Mañana'
-                                                        :   capitalizeFirst(format( fromUnixTime( patient.nextConsultation ), "dd/MM/yyyy"))
-                                                }
-                                            </div>
-                                            <div>
-                                                { format( fromUnixTime( patient.nextConsultation ), 'HH:mm' ) }
-                                            </div>
+                    <div className="home-container">
+                        <div className="home-item-container">
+                            <div className="sub-title">
+                                <h3>Próximos pacientes</h3>
+                            </div>
+                            <div className="home-item">
+                                {
+                                    ( nextConsultationPatientsSorted.length > 0 )
+                                    ?   nextConsultationPatientsSorted.map( ( patient, index ) => (
+                                            ( patient.nextConsultation > currentTime )
+                                            ?   <div className="next-patient-item" key={ index }>
+                                                    <div>
+                                                        { patient.displayName }
+                                                    </div>
+                                                    <div>
+                                                        { 
+                                                            ( format( fromUnixTime( patient.nextConsultation ), "dd/MM/yyyy") === format( fromUnixTime( currentTime ), "dd/MM/yyyy") )
+                                                            ?   'Hoy'
+                                                            :   ( format( sub( fromUnixTime( patient.nextConsultation ), { days: 1 } ), "dd/MM/yyyy") === format( fromUnixTime( currentTime ), "dd/MM/yyyy") )
+                                                                ?   'Mañana'
+                                                                :   capitalizeFirst(format( fromUnixTime( patient.nextConsultation ), "dd/MM/yyyy"))
+                                                        }
+                                                    </div>
+                                                    <div>
+                                                        { format( fromUnixTime( patient.nextConsultation ), 'HH:mm' ) }
+                                                    </div>
+                                                </div>
+                                            :   null
+                                        ) )
+                                    :   <div className="next-patient-item">
+                                            No hay pacientes agendados
                                         </div>
-                                    :   null
-                                ) )
-                            }
+                                }
+                            </div>
                         </div>
+                        <div className="home-item-container">
+                            <div className="id-card-container">
+                                <div className="id-card-avatar">
+                                    <img src={ Nutri_face_scarf } className="id-card-avatar-img" alt="Icono IntegraNutri"/>
+                                </div>
+                                <div className="id-card-data">
+                                    <p className="id-card-data-name">{ displayName }</p>
+                                </div>
+                                <div className="id-card-data">
+                                    <p>{ rut }</p>
+                                </div>
+                                <div className="id-card-data">
+                                    <p>{ region }, { city }</p>
+                                </div>
+                                <div className="id-card-data">
+                                    <p>{ email }</p>
+                                </div>
+                                <div className="id-card-data">
+                                    <p className="id-card-data-link">{ `www.integranutritest.netlify.app/share?uid=${uid}` }</p>
+                                </div>
+                                <div className="id-card-data">
+                                    <p className="id-card-data-uid">UID: { uid }</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     
             </div>

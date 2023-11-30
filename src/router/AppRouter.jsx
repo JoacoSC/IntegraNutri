@@ -12,6 +12,7 @@ import { NutritionistRoutes } from "../nutritionist/routes/NutritionistRoutes"
 import { PatientRoutes } from "../patient/routes/PatientRoutes"
 
 import { login, logout, redirectNutritionistOrPatient } from "../store/auth"
+import { ShareRoutes } from "../share/routes/ShareRoutes"
 
 export const AppRouter = () => {
 
@@ -52,6 +53,12 @@ export const AppRouter = () => {
             <PrivateRoute>
               <PatientRoutes />
             </PrivateRoute>
+          }/>
+
+          <Route path="share/*" element={
+            
+              <ShareRoutes/>
+            
           }/>
 
           <Route path="/*" element={

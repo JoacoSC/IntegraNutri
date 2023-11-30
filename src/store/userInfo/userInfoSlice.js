@@ -27,6 +27,11 @@ export const userInfoSlice = createSlice({
             state.rut = payload.rut;
             state.unixBirthday = payload.unixBirthday;
         },
+        setUserDisplayName: (state, { payload } ) => {
+            
+            state.displayName = payload;
+            
+        },
         wipeUserInfo: (state ) => {
             state.userdataID = null;
             state.address = null;
@@ -46,5 +51,6 @@ export const userInfoSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const {
     setUserInfo,
+    setUserDisplayName,
     wipeUserInfo,
 } = userInfoSlice.actions;
