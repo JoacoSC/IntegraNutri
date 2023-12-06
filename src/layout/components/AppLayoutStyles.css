@@ -16,6 +16,7 @@
     --clr-btn-alt-hover: #c62121;
     --clr-btn-alt-active: #d84437;
     --clr-day-ellipse-primary: rgba(164, 164, 164, 0.25);
+    --clr-day-ellipse-primary-unavailable: rgba(119, 119, 119, 0.25);
     --clr-day-ellipse-active: rgb(255, 188, 177);
     --input-shadow: 0px 1px 3px 0px rgba(69,35,114,0.2);
     --box-shadow: 0px 9px 15px 0px rgba(69,35,114,0.2);
@@ -172,6 +173,20 @@ body{
     gap: 1rem;
     padding: 1.5rem 3rem 1rem;
     background-color: var(--clr-primary);
+}
+
+.day-ellipse-unavailable{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--clr-day-ellipse-primary-unavailable);
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: rgb(148, 148, 148);
 }
 /* ************* SharePage ************** */
 
