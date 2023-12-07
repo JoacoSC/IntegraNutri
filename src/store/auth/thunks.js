@@ -247,6 +247,18 @@ export const startLogout = () => {
     }
 }
 
+export const startLogoutSharePage = () => {
+    return async( dispatch ) => {
+
+        await logoutFirebase();
+
+        dispatch( logout() );
+        // dispatch( wipeUserInfo() );
+        // dispatch( unsetJournal() )
+
+    }
+}
+
 export const redirectNutritionistOrPatient = ( uid ) => {
     return async( dispatch ) => {
 

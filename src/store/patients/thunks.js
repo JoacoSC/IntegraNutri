@@ -47,6 +47,33 @@ export const uploadPatientNewConsultation = ( consultationSlot, patientID ) => {
     }
 }
 
+export const uploadPatientNewConsultationFromSharePage = ( consultationSlot, patientID, uid ) => {
+    return async( dispatch ) => {
+
+        // const uid = FirebaseAuth.currentUser.uid;
+
+        const consultationToFireStore = {
+            nextConsultation: consultationSlot
+        }
+        // console.log(consultationToFireStore)
+        // console.log(patientID)
+        // console.log(uid)
+
+        const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+        await setDoc( docRef, consultationToFireStore, { merge: true });
+        
+
+        // const patients = [];
+
+        // docs.forEach( doc => {
+        //     patients.push({ id: doc.id, ...doc.data() });
+        // });
+
+        // dispatch( setMyPatients( patients ) )
+
+    }
+}
+
 export const startDeleteConsultation = ( patientID ) => {
     return async( dispatch ) => {
 

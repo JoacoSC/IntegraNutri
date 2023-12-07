@@ -9,7 +9,9 @@ import { useLocation } from "react-router-dom";
 import { startLoadingMyJournal } from "../../store/journal";
 import { startLoadingUserDisplayName } from "../../store/userInfo";
 import { add, differenceInCalendarDays, format, fromUnixTime, getDaysInMonth, getUnixTime, lastDayOfWeek, set, startOfWeek } from "date-fns";
-import { startLoadingMyPatients } from "../../store/patients";
+import { startLoadingMyPatients, uploadPatientNewConsultationFromSharePage } from "../../store/patients";
+import { ModalNewConsultationSharePage } from "../../ui";
+import { startLogoutSharePage } from "../../store/auth";
 
 export const SharePage = () => {
 
@@ -125,23 +127,6 @@ export const SharePage = () => {
             tempArray.push('domingo');
         }
         setWorkingDaysArray( tempArray )
-    }
-
-    const registerNextConsultation = ( consultationSlot ) => {
-
-        console.log('consultationSlot: ', consultationSlot)
-
-        // TODO:
-        // TODO:
-        // TODO:
-        // TODO:
-        // TODO:
-
-        if( isLogged === true ){
-            // Registrar el consultationSlot en el nextConsultation del usuario con dispatch( uploadPatientNewConsultation( consultationSlot, patientID ) )
-        }else{
-            // Solicitar Inicio de sesión o Registro
-        }
     }
 
     const handleCurrentDay = ( indexA, indexB ) => {
@@ -880,6 +865,12 @@ export const SharePage = () => {
 
     // }
 
+    const onLogout = () => {
+            
+        dispatch( startLogoutSharePage() );
+    
+    }
+
     useEffect(() => {
 
         if( uid !== '' ){
@@ -915,6 +906,15 @@ export const SharePage = () => {
                 ?   <LoadingScreen isLoading = { isLoading } />
                 :   <>
                         <div className="food-background flex-column align-items-center p-2">
+                            {
+                                ( isLogged === true)
+                                ?   <div className="logout">
+                                        <button className="btn-logout" type="button" onClick={onLogout}>
+                                            Cerrar sesión
+                                        </button>
+                                    </div>
+                                :   null
+                            }
                             <div className="main-welcome">
                                 <h1>Agenda de { displayName }</h1>
                             </div>
@@ -958,8 +958,9 @@ export const SharePage = () => {
                                         ( currentCalendarValue?.consultationSlotsAvailable?.length > 0 )
                                         ?   currentCalendarValue.consultationSlotsAvailable.map( ( consultationSlot, index ) => ( 
                                                 <div className="day" key={ index }>
-                                                                    
-                                                    <div className="day-ellipse" onClick={ () => registerNextConsultation( consultationSlot ) }>{ format( fromUnixTime( consultationSlot ), 'HH:mm') }</div>
+
+                                                    <ModalNewConsultationSharePage consultationSlot = { consultationSlot } />
+                                                    {/* <div className="day-ellipse" onClick={ () => registerNextConsultation( consultationSlot ) }>{ format( fromUnixTime( consultationSlot ), 'HH:mm') }</div> */}
                                                     
                                                 </div>
                                                 
