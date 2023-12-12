@@ -1145,6 +1145,98 @@
 
 /* *********** Patient Estadio Tanner ************ */
 
+/* *********** SharePage New Consultation ************ */
+
+.modal-new-consultation-container{
+    display: grid;
+    grid-template-rows: auto;
+    position: absolute;
+    width: 70vw;
+    max-width: 800px;
+    height: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #EFF3FC;
+    border-radius: 20px;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+    transition: all 500ms ease;
+}
+
+.new-consultation-container-form{
+    display: grid;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    grid-template-rows: repeat(2, 5rem);
+    row-gap: 1rem;
+}
+
+.new-consultation-form{
+    display: flex;
+    justify-content: center;
+    text-wrap: wrap;
+    padding-top: 1.5rem;
+}
+
+.new-consultation-label{
+    text-align: center;
+    font-weight: 400;
+    font-size: 1rem;
+    color: black;
+}
+
+.new-consultation-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.modal-login-container{
+    display: grid;
+    grid-template-rows: auto;
+    position: absolute;
+    padding-bottom: 2rem;
+    width: 70vw;
+    max-width: 800px;
+    height: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #EFF3FC;
+    border-radius: 20px;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+    transition: all 500ms ease;
+}
+.modal-register-container{
+    display: grid;
+    grid-template-rows: auto;
+    position: absolute;
+    padding-bottom: 2rem;
+    width: 70vw;
+    max-width: 800px;
+    height: max-content;
+    max-height: 80vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #EFF3FC;
+    border-radius: 20px;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+    transition: all 500ms ease;
+}
+/* *********** SharePage New Consultation ************ */
+
 @media screen and (max-width: 1080px){
 
     .input-text-width{

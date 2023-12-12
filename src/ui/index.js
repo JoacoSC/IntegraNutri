@@ -29,3 +29,4 @@ export * from './CardPatientExams';
 export * from './CardEstadioTanner';
 export * from './Footer';
 export * from './ModalLogin';
+export * from './ModalPatientRegister';

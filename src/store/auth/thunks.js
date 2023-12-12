@@ -247,6 +247,81 @@ export const startLogout = () => {
     }
 }
 
+export const startCreatingPatientSharePage = ({ uid, displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) => {
+    return async( dispatch ) => {
+
+        // dispatch( checkingCredentials() );
+        dispatch( isRegisteringPatient( true ) );
+        
+        const newUser = {
+            rut,
+            displayName,
+            unixBirthday,
+            email,
+            password,
+            region: regionSeleccionada,
+            city: comunaSeleccionada,
+            address,
+            phone,
+            gender,
+            isNutritionist: false,
+            emailActivated: false,
+            nextConsultation: nextConsultation,
+            weight: [{}],
+            stature: [{}],
+            imc: [{}],
+            unixCorrectedBirthday: null,
+            age: {
+                y: 0,
+                m: 0,
+                d: 0,
+            },
+            correctedAge: {
+                y: 0,
+                m: 0,
+                d: 0,
+            },
+            correctedAgeIsSet: false,
+        }
+
+        console.log('newUser: ', newUser)
+
+        const newDoc = doc( collection( FirebaseDB, `users/${ uid }/patients` ) );
+
+        await setDoc( newDoc, newUser );
+
+        console.log('newDoc: ', newDoc)
+
+        const patientUID = newDoc._key.path.segments[3];
+        
+        dispatch( registeredPatientUID( patientUID ) );
+
+        const templateParams = {
+            displayName,
+            email,
+            password,
+            uid,
+            patientUID,
+
+        }
+
+        // console.log( templateParams )
+
+        emailjs.send('service_xueiflu', 'template_lf0jvcb', templateParams, '41EFlO3aJuRq71GVI')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+
+        dispatch( isRegisteringPatient( false ) );
+        // const result = await dispatch( startLoginWithEmailPassword({ email, password }) ) ;
+        // console.log(result)
+        // dispatch ( startLoadingMyPatients( uid ) );
+        
+    }
+}
+
 export const startLogoutSharePage = () => {
     return async( dispatch ) => {
 

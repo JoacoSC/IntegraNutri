@@ -12,7 +12,7 @@ import './components';
 
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
 import { uploadPatientNewConsultationFromSharePage } from '../store/patients';
-import { ModalLogin } from './ModalLogin';
+import { ModalLogin, ModalPatientRegister } from './';
 
 export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
 
@@ -22,7 +22,7 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
 
     const { uid = '' } = queryString.parse( location.search );
 
-    const { isLogged, isNutritionistStatus, displayName: patientID } = useSelector( state => state.auth );
+    const { isLogged, isNutritionistStatus, displayName: patientID, registeredPatientUID } = useSelector( state => state.auth );
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -89,7 +89,7 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
 
     return (
         <>
-            <div className="day-ellipse" onClick={ () => setOpenModal( true ) }>{ format( fromUnixTime( consultationSlot ), 'HH:mm') }</div>
+            <div className="calendar-consultation-preview" onClick={ () => setOpenModal( true ) }>{ format( fromUnixTime( consultationSlot ), 'HH:mm') }</div>
             {/* <div className="weight-update-btn" data-tooltip="Actualizar" onClick={() => setOpenModal(true)}>
                 Actualizar peso/talla&nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
@@ -108,7 +108,7 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
                 closeTimeoutMS={500}
                 isOpen={ openModal }
                 ariaHideApp={false}
-                className="modal-weight-stature-container"
+                className="modal-new-consultation-container"
                 >
                 <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -124,16 +124,14 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
                             </h1>
 
                             <form onSubmit={ onSubmit }>
-                                <div className="weight-stature-container-form">
+                                <div className="new-consultation-container-form">
 
                                     {
                                         ( !uploadNewConsultationSuccess )
-                                        ?   <div className="form-group">
-                                                <div className="form-item w-50 pr-8">
-                                                    <label className="input-label">
-                                                        ¿Está seguro de agendar una consulta para el { format( fromUnixTime( consultationSlot ), 'dd/MM/yyyy' ) + ' a las ' + format( fromUnixTime( consultationSlot ), 'HH:mm' ) + '?' }
-                                                    </label>
-                                                </div>                
+                                        ?   <div className="new-consultation-form">
+                                                <label className="new-consultation-label">
+                                                    ¿Está seguro de agendar una consulta para el <b>{ format( fromUnixTime( consultationSlot ), 'dd/MM/yyyy' )}</b> a las <b>{ format( fromUnixTime( consultationSlot ), 'HH:mm' ) + '?' }</b>
+                                                </label>
                                             </div>
                                         :   null
                                     }
@@ -147,7 +145,7 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
                                     }
                                     {
                                         ( !uploadNewConsultationSuccess )
-                                        ?   <div className="form-btn flex-row">
+                                        ?   <div className="new-consultation-btn">
                                                 <button className="btn-modal-submit" type="submit" onClick={ registerNextConsultation }>
                                                     Aceptar
                                                 </button>
@@ -166,22 +164,27 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
                             </h1>
 
                             <form onSubmit={ onSubmit }>
-                                <div className="weight-stature-container-form">
+                                <div className="new-consultation-container-form">
 
-                                    <div className="form-group">
-                                        <div className="form-item w-50 pr-8">
-                                            <label className="input-label">
-                                                Por favor inicie sesión o cree una cuenta para agendar una hora. 
-                                            </label>
-                                        </div>                
-                                    </div>
+                                    {
+                                        ( registeredPatientUID === null )
+                                        ?   <>
+                                                <div className="new-consultation-form">
+                                                    <label className="new-consultation-label">
+                                                        Por favor inicie sesión o cree una cuenta para agendar una hora. 
+                                                    </label>
+                                                </div>
+                                                
+                                                <div className="new-consultation-btn">
+                                                    <ModalLogin />
+                                                    <ModalPatientRegister/>
+                                                </div>
+                                            </>
+                                        :   <div className="password-change-successful-message">
+                                                Cuenta creada correctamente, por favor revise su correo electrónico, active su cuenta y luego inicie sesión para poder agendar una hora.
+                                            </div>
+                                    }
                                     
-                                    <div className="form-btn flex-row">
-                                        <ModalLogin />
-                                        <Link to="/auth/register" className="btn-modal-submit link-no-decoration">
-                                            Crear cuenta
-                                        </Link>
-                                    </div>
                                 </div>
                             </form>
                         </>

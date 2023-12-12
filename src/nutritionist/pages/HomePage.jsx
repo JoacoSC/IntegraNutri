@@ -10,6 +10,7 @@ import { setDefaultOptions } from 'date-fns/esm';
 import { es } from 'date-fns/locale'
 
 import Nutri_face_scarf from '../../../assets/imgs/navbar/Nutri_face_scarf.svg'
+import { Link } from "react-router-dom";
 
 export const HomePage = () => {
 
@@ -144,23 +145,20 @@ export const HomePage = () => {
                                     ( nextConsultationPatientsSorted.length > 0 )
                                     ?   nextConsultationPatientsSorted.map( ( patient, index ) => (
                                             ( patient.nextConsultation > currentTime )
-                                            ?   <div className="next-patient-item" key={ index }>
+                                            ?   <Link to={'../patient?patientID='+patient.id} className="next-patient-item" key={ index }>
                                                     <div>
                                                         { patient.displayName }
                                                     </div>
-                                                    <div>
+                                                    <div className="next-patient-date-time">
                                                         { 
                                                             ( format( fromUnixTime( patient.nextConsultation ), "dd/MM/yyyy") === format( fromUnixTime( currentTime ), "dd/MM/yyyy") )
-                                                            ?   'Hoy'
+                                                            ?   'Hoy ' + format( fromUnixTime( patient.nextConsultation ), 'HH:mm' )
                                                             :   ( format( sub( fromUnixTime( patient.nextConsultation ), { days: 1 } ), "dd/MM/yyyy") === format( fromUnixTime( currentTime ), "dd/MM/yyyy") )
-                                                                ?   'Mañana'
-                                                                :   capitalizeFirst(format( fromUnixTime( patient.nextConsultation ), "dd/MM/yyyy"))
+                                                                ?   'Mañana ' + format( fromUnixTime( patient.nextConsultation ), 'HH:mm' )
+                                                                :   capitalizeFirst(format( fromUnixTime( patient.nextConsultation ), "dd/MM/yyyy HH:mm"))
                                                         }
                                                     </div>
-                                                    <div>
-                                                        { format( fromUnixTime( patient.nextConsultation ), 'HH:mm' ) }
-                                                    </div>
-                                                </div>
+                                                </Link>
                                             :   null
                                         ) )
                                     :   <div className="next-patient-item">

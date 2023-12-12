@@ -51,8 +51,9 @@ export const ModalLogin = () => {
             // console.log('Codigo de error: ', result.errorCode);
             setErrorCode(result.errorCode)
             setError(true);
+        }else{
+            setOpenModal(false)
         }
-        setOpenModal(false)
     }
 
     const switchPasswordVisibility = () => {
@@ -117,7 +118,7 @@ export const ModalLogin = () => {
                 closeTimeoutMS={500}
                 isOpen={ openModal }
                 ariaHideApp={false}
-                className="modal-weight-stature-container"
+                className="modal-login-container"
                 >
                 <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">

@@ -37,6 +37,10 @@
     /* z-index: 99; */
 }
 
+.footer-bottom a{
+    text-decoration: none;
+}
+
 .footer-title{
     margin-bottom: 3rem;
     font-family: "Metropolis", sans-serif;

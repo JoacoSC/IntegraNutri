@@ -68,6 +68,8 @@ export const SharePage = () => {
 
     const [currentCalendarValue, setCurrentCalendarValue] = useState({});
 
+    const [monthCounter, setMonthCounter] = useState(0);
+
     const [currentDay, setCurrentDay] = useState(
         set(new Date(), {
           hours: workingDayStartHours,
@@ -179,13 +181,30 @@ export const SharePage = () => {
         setDaysArray(array)
     }
 
+    const handleNextMonth = () => {
+        
+        setMonthCounter( monthCounter + 1 )
+        // handleStartOfTheMonth(+1);
+
+    }
+
+    const handlePrevMonth = () => {
+        
+        setMonthCounter( monthCounter - 1 )
+        // handleStartOfTheMonth(-1);
+    }
+
+    const handleStartOfTheMonth = ( value ) => {
+        // console.log(startOfTheMonth)
+        setStartOfTheMonth( set( new Date(), { year: format( new Date(), 'y' ), month: format( new Date(), 'M' ) - 1 + value, date: 1 }) )
+        // console.log(startOfTheMonth)
+    }
+
     const handleCreateCalendar = () => {
 
         // const currentMonth = format( new Date(), 'M' ) - 1;
-
+        // console.log(startOfTheMonth)
         // console.log('currentMonth: ', currentMonth)
-
-        setStartOfTheMonth( set( new Date(), { year: format( new Date(), 'y' ), month: format( new Date(), 'M' ) - 1, date: 1 }) )
         
         const daysOfMonth = getDaysInMonth( startOfTheMonth )
 
@@ -889,13 +908,25 @@ export const SharePage = () => {
 
     useEffect(() => {
         handleCreateCalendar();
-    }, [nextConsultationsArray, newJournal])
+    }, [nextConsultationsArray, newJournal, startOfTheMonth])
 
     useEffect(() => {
         
         handleDaysArray();
 
     }, []);
+
+    useEffect(() => {
+        
+        handleStartOfTheMonth( 0 );
+
+    }, []);
+
+    useEffect(() => {
+        
+        handleStartOfTheMonth( monthCounter );
+
+    }, [monthCounter]);
     
     // console.log('currentDay: ', currentDay)
 
@@ -906,68 +937,89 @@ export const SharePage = () => {
                 ?   <LoadingScreen isLoading = { isLoading } />
                 :   <>
                         <div className="food-background flex-column align-items-center p-2">
-                            {
-                                ( isLogged === true)
-                                ?   <div className="logout">
-                                        <button className="btn-logout" type="button" onClick={onLogout}>
-                                            Cerrar sesión
-                                        </button>
-                                    </div>
-                                :   null
-                            }
+
+                            <div className="sharepage-logout-container">
+                                {
+                                    ( isLogged === true)
+                                    ?   <div className="logout">
+                                            <button className="btn-logout" type="button" onClick={onLogout}>
+                                                Cerrar sesión
+                                            </button>
+                                        </div>
+                                    :   null
+                                }
+
+                            </div>
                             <div className="main-welcome">
                                 <h1>Agenda de { displayName }</h1>
                             </div>
-                            <div className="calendar-container">
-                                <div className="calendar">
-                                    <div className="date-names-container">
-                                        { 
-                                            calendarNamesOfDays.map( (name, index) => ( 
-                                        
-                                                            
-                                                    <p className="date-names-item" key={ index }>{ name }</p>
+                            <div className="flex-column">
+                                <div className="calendar-container">
+                                    <div className="calendar flex-column align-items-center">
+                                        <div className="month-year-container">
+                                            <div className="calendar-next-prev-day-ellipse" onClick={ () => handlePrevMonth() }><p>{ "<" }</p></div>
+                                            {
+                                                <p>{ capitalizeFirst( format( startOfTheMonth, 'MMMM y' ) ) }</p>
+                                            }
+                                            <div className="calendar-next-prev-day-ellipse" onClick={ () => handleNextMonth() }><p>{ ">" }</p></div>
+                                        </div>
+                                        <div className="date-names-container">
+                                            { 
+                                                calendarNamesOfDays.map( (name, index) => ( 
+                                            
+                                                                
+                                                        <p className="date-names-item" key={ index }>{ name }</p>
+                                                        
                                                     
-                                                
+                                                ) )
+                                            }
+                                        </div>
+                                        { 
+                                            calendarArray.map( (week, indexA) => ( 
+                                                <div className="calendar-weeks" key={ indexA }>
+                                                    {
+                                                        week.map( (day, indexB) => ( 
+                                                    
+                                                            <div className="" key={ indexB }>
+                                                                        
+                                                                <div className={ (day.isAvailable ? ( day.date === currentDay ) ? "calendar-day-ellipse-active" : "calendar-day-ellipse" : "calendar-day-ellipse-unavailable") } ref={(element) => daysRef.current.push(element)} onClick={ () => handleCurrentDay( indexA, indexB ) }>{ format( day.date, "dd") }</div>
+                                                                
+                                                            </div>
+                                                            
+                                                        ) )
+                                                    }
+                                                </div>
                                             ) )
                                         }
+
                                     </div>
-                                    { 
-                                        calendarArray.map( (week, indexA) => ( 
-                                            <div className="calendar-weeks" key={ indexA }>
-                                                {
-                                                    week.map( (day, indexB) => ( 
-                                                
-                                                        <div className="day" key={ indexB }>
-                                                                    
-                                                            <div className={ (day.isAvailable ? "day-ellipse" : "day-ellipse-unavailable") } ref={(element) => daysRef.current.push(element)} onClick={ () => handleCurrentDay( indexA, indexB ) }>{ format( day.date, "dd") }</div>
-                                                            
-                                                        </div>
-                                                        
-                                                    ) )
-                                                }
-                                            </div>
-                                        ) )
-                                    }
-
                                 </div>
-                            </div>
-                            <div hidden={ !isConsultationSlotAvailable }>
-                                <div className="calendar-container">
-                                    <p>{format( currentDay, 'iiii' ) + ' ' + format( currentDay, 'dd' ) + ' de ' + format( currentDay, 'MMMM' )}</p>
-                                    {
-                                        ( currentCalendarValue?.consultationSlotsAvailable?.length > 0 )
-                                        ?   currentCalendarValue.consultationSlotsAvailable.map( ( consultationSlot, index ) => ( 
-                                                <div className="day" key={ index }>
-
-                                                    <ModalNewConsultationSharePage consultationSlot = { consultationSlot } />
-                                                    {/* <div className="day-ellipse" onClick={ () => registerNextConsultation( consultationSlot ) }>{ format( fromUnixTime( consultationSlot ), 'HH:mm') }</div> */}
-                                                    
+                                {
+                                    ( isConsultationSlotAvailable )
+                                    ?   <div className="flex-column align-items-center">
+                                            <div className="calendar-extension-container flex-column">
+                                                <div>
+                                                    <p className="calendar-extension-title">{capitalizeFirst( format( currentDay, 'iiii' ) + ' ' + format( currentDay, 'dd' ) + ' de ' + format( currentDay, 'MMMM' ) )}</p>
                                                 </div>
-                                                
-                                            ) )
-                                        :   null
-                                    }
-                                </div>
+                                                <div className="calendar-extension-consultations">
+                                                    {
+                                                        ( currentCalendarValue?.consultationSlotsAvailable?.length > 0 )
+                                                        ?   currentCalendarValue.consultationSlotsAvailable.map( ( consultationSlot, index ) => ( 
+                                                                <div className="day" key={ index }>
+
+                                                                    <ModalNewConsultationSharePage consultationSlot = { consultationSlot } />
+                                                                    {/* <div className="day-ellipse" onClick={ () => registerNextConsultation( consultationSlot ) }>{ format( fromUnixTime( consultationSlot ), 'HH:mm') }</div> */}
+                                                                    
+                                                                </div>
+                                                                
+                                                            ) )
+                                                        :   null
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    :   null
+                                }
                             </div>
                             
                         </div>

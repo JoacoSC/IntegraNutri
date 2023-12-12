@@ -123,32 +123,69 @@ body{
 
 
 /* ************* SharePage ************** */
+.sharepage-main-content{
+
+}
 
 .food-background{
     height: max-content;
-    min-height: 100%;
+    min-height: 100vh;
     background-color: #F8F2FF;
     /* background-color: #fcf9ff; */
     background-image: var(--food-wo-bg);
     background-size: 13rem;
 }
 
+.sharepage-logout-container{
+    display: flex;
+    width: 100%;
+}
+.sharepage-logout-container div{
+    margin-left: auto;
+}
 .min-height-100vh{
     min-height: 100vh;
 }
 
 .calendar-container{
     display: flex;
-    height: auto;
+    height: max-content;
+    max-width: max-content;
+    gap: 1rem;
     margin: 2rem 3rem 2rem 2rem;
-    padding: 1rem 1rem;
-    background-color: var(--clr-primary);
+    /* padding: 1rem 1rem; */
+    /* background-color: var(--clr-primary); */
+    background-color: white;
     border-radius: 30px;
 }
+
+/* .calendar-container p{
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+} */
+
 
 .calendar{
     background-color: white;
     border-radius: 20px;
+    color: white;
+}
+
+.month-year-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 1.5rem;
+    text-wrap: nowrap;
+    font-weight: 600;
+    font-size: 1.2rem;
+    background-color: var(--clr-primary);
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+    /* color: white; */
 }
 
 .date-names-container{
@@ -156,8 +193,12 @@ body{
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    margin: 1.5rem 3rem 1rem;
+    padding: 1.5rem 3rem 1rem;
     /* color: white; */
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: var(--clr-primary);
+    /* color: black; */
 }
 
 .date-names-item{
@@ -172,21 +213,129 @@ body{
     flex-direction: row;
     gap: 1rem;
     padding: 1.5rem 3rem 1rem;
-    background-color: var(--clr-primary);
+    /* background-color: var(--clr-primary); */
+    background-color: white;
+    border-radius: 0 0 15px 15px;
 }
 
-.day-ellipse-unavailable{
+.calendar-next-prev-day-ellipse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    /* border: 1px solid white; */
+    background-color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--clr-primary);
+    cursor: pointer;
+}
+
+.calendar-next-prev-day-ellipse:hover{
+    transform: scale(1.1);
+}
+
+.calendar-day-ellipse{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background: var(--clr-day-ellipse-primary-unavailable);
-    font-family: "Metropolis", sans-serif;
+    border: 1px solid var(--clr-btn-secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    color: black;
+    cursor: pointer;
+    transition: ease all 200ms;
+    /* background-color: var(--clr-btn-secondary-active); */
+}
+
+.calendar-day-ellipse:hover{
+    color: white;
+    background-color: var(--clr-btn-secondary-active);
+}
+
+.calendar-day-ellipse-active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid var(--clr-btn-secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: ease all 200ms;
+    color: white;
+    background-color: var(--clr-btn-secondary-active);
+}
+
+.calendar-day-ellipse-unavailable{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
     font-weight: 600;
     font-size: 1rem;
     color: rgb(148, 148, 148);
+}
+
+.calendar-extension-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    max-width: 500px;
+    gap: 1rem;
+    /* margin: 0 3rem 2rem 2rem; */
+    /* padding: 1rem 1rem; */
+    background-color: var(--clr-primary);
+    /* background-color: white; */
+    border-radius: 30px;
+}
+
+.calendar-extension-title{
+    padding: 1.5rem 0 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.calendar-extension-consultations{
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    padding: 1rem 1rem 1.5rem 1rem;
+}
+
+.calendar-consultation-preview{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem 0 1rem;
+    width: 100%;
+    height: 3rem;
+    border-radius: 5px;
+    background: var(--clr-day-ellipse-primary);
+    font-family: "Metropolis", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: ease all 100ms;
+}
+
+.calendar-consultation-preview:hover{
+    background: var(--clr-day-ellipse-primary-unavailable);
 }
 /* ************* SharePage ************** */
 
@@ -211,24 +360,42 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin: 2rem 3rem 1rem;
+    margin: 2rem 1rem 1rem;
     padding-bottom: 1rem;
     color: white;
 }
 
 .next-patient-item{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     width: 90%;
     margin-top: 0.5rem;
     padding: 1rem 1rem 1rem 1rem;
     background-color: white;
+    font-weight: 500;
     color: black;
-    border-radius: 50px;
+    border-radius: 10px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.next-patient-item:hover{
+    transform: scale( 1.008 );
+}
+
+.next-patient-date-time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 0 0 0 auto;
+    /* gap: 1rem; */
+    border-radius: 10px;
+    background-color: var(--clr-btn-secondary);
+    color: white;
+    text-align: center;
 }
 
 .id-card-container{
@@ -267,6 +434,13 @@ body{
 
 .id-card-data{
     /* color: white; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
+    width: 100%;
+    /* text-overflow: ellipsis; */
+    overflow: hidden;
+    text-align: center;
 }
 
 .id-card-data-name{
@@ -279,6 +453,13 @@ body{
     /* color: white; */
     font-weight: 600;
     font-size: 1rem;
+    /* white-space: nowrap; */
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    /* text-overflow: ellipsis; */
+    /* overflow: hidden; */
 }
 
 .id-card-data-uid{
