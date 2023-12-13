@@ -19,6 +19,7 @@ import { ErrorManager } from "./ErrorManager";
 
 export const ModalNewConsultation = ({ consultationSlot }) => {
 
+    console.log('consultationSlot: ', consultationSlot)
     const { uid } = useSelector( state => state.auth );
 
     const { patients } = useSelector( state => state.patients );
@@ -51,8 +52,6 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
 
         dispatch( uploadPatientNewConsultation( consultationSlot, currentPatient.id ) );
-
-        dispatch ( startLoadingMyPatients( uid ) );
         
         // console.log({ consultationTime, consultationDate });
 
@@ -188,7 +187,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                     </svg>
                 </div>
                 <h1 className="modal-header">
-                    Agendar consulta: { format( fromUnixTime(consultationSlot.startTime), "dd-MM-yyyy hh:mm") }
+                    Agendar consulta: { format( fromUnixTime(consultationSlot.startTime), "dd-MM-yyyy HH:mm") }
                 </h1>
 
                 <form onSubmit={ onRutSubmit }>

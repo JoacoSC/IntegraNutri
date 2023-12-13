@@ -75,6 +75,8 @@ export const JournalPage = () => {
     const [workingDaysArray, setWorkingDaysArray] = useState([]);
 
     const [patientsNumber, setPatientsNumber] = useState(0)
+    
+    const [currentDayIndex, setCurrentDayIndex] = useState(0)
 
     // const [patientNextConsultationCounter, setPatientNextConsultationCounter] = useState(0)
 
@@ -92,6 +94,8 @@ export const JournalPage = () => {
     };
 
     const handleCurrentDay = ( key ) => {
+
+        setCurrentDayIndex( key )
         
         if( newJournal === undefined ){
 
@@ -415,15 +419,26 @@ export const JournalPage = () => {
         
             const array = []
             let tempCurrentDay = currentDay
-            array[0] = getUnixTime(currentDay)
-    
+            array[0] = {
+                            startTime: getUnixTime(currentDay),
+                            endTime: getUnixTime(add(currentDay, {
+                                hours: consultationHours,
+                                minutes: consultationMinutes,
+                              })),
+                        }
             for (let i = 1; i < consultationsPerDay; i++) {
                 tempCurrentDay = add(tempCurrentDay, {
                   hours: consultationHours,
                   minutes: consultationMinutes,
                 });
-                array[i] = getUnixTime(tempCurrentDay)
-                // console.log(array[i])
+                array[i] =  {
+                                startTime: getUnixTime(tempCurrentDay),
+                                endTime: getUnixTime(add(tempCurrentDay, {
+                                    hours: consultationHours,
+                                    minutes: consultationMinutes,
+                                  })),
+                            }
+                console.log(array[i])
                 
             }
             // console.log('array: ', array)
@@ -1023,8 +1038,8 @@ export const JournalPage = () => {
 
     useEffect(() => {
 
-        daysRef.current[0]?.click();
-        dispatch( clearCurrentPatient() );
+        daysRef.current[currentDayIndex]?.click();
+        // dispatch( clearCurrentPatient() );
     
     }, [patients])
 
@@ -1069,6 +1084,10 @@ export const JournalPage = () => {
     useEffect(() => {
         handleWorkingDaysArray();
     }, [newJournal])
+
+    // useEffect(() => {
+    //     daysRef.current[0]?.click();
+    // }, [])
     
 
     // const onTest = () => {
@@ -1158,8 +1177,14 @@ export const JournalPage = () => {
                                             ?   <div><div className="hour">{ format( fromUnixTime(consultationSlot.patient.nextConsultation), "hh")}:{format( fromUnixTime(consultationSlot.patient.nextConsultation), "mm")}</div>
                                                 <div className="ampm">{format( fromUnixTime(consultationSlot.patient.nextConsultation), "aa")}</div></div>
                                                 
-                                            :   <div><div className="hour">{ format( fromUnixTime(consultationSlot.startTime), "hh")}:{format( fromUnixTime(consultationSlot.startTime), "mm")}</div>
-                                                <div className="ampm">{format( fromUnixTime(consultationSlot.startTime), "aa")}</div></div>
+                                            :   <div>
+                                                    <div className="hour">
+                                                        { format( fromUnixTime(consultationSlot.startTime), "hh")}:{format( fromUnixTime(consultationSlot.startTime), "mm")}
+                                                    </div>
+                                                    <div className="ampm">
+                                                        {format( fromUnixTime(consultationSlot.startTime), "aa")}
+                                                    </div>
+                                                </div>
                                         }
                                         
                                     </div>

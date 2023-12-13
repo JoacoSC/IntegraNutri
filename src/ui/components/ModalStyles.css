@@ -528,7 +528,7 @@
     grid-template-rows: auto auto;
     position: absolute;
     width: 50vw;
-    height: 27vh;
+    height: max-content;
     top: 50%;
     left: 55%;
     transform: translate(-50%, -50%);
@@ -546,11 +546,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 0 1rem 0;
     row-gap: 2rem;
     margin-top: 1rem;
     font-family: "Metropolis", sans-serif;
     font-size: 1rem;
     color: black;
+    text-align: center;
 }
 
 /* *********** Cancel Consultation Modal ************ */

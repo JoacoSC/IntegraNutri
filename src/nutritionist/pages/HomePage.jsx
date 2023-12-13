@@ -11,6 +11,7 @@ import { es } from 'date-fns/locale'
 
 import Nutri_face_scarf from '../../../assets/imgs/navbar/Nutri_face_scarf.svg'
 import { Link } from "react-router-dom";
+import { startLoadingMyJournal } from "../../store/journal";
 
 export const HomePage = () => {
 
@@ -18,7 +19,7 @@ export const HomePage = () => {
 
     const dispatch = useDispatch();
 
-    const { uid, email } = useSelector( state => state.auth )
+    const { uid, email, isNutritionist } = useSelector( state => state.auth )
 
     const { userDataID, displayName, rut, region, city } = useSelector( state => state.userInfo )
 
@@ -108,6 +109,14 @@ export const HomePage = () => {
             handlePatientsArray();
         }
     }, [patients])
+
+    useEffect(() => {
+    
+        if( isNutritionist !== null && isNutritionist !== false ){
+            dispatch ( startLoadingMyJournal( uid ) )
+            
+        }
+    }, [isNutritionist])
     
     return (
         <AppLayout>
@@ -176,7 +185,7 @@ export const HomePage = () => {
                                     <p className="id-card-data-name">{ displayName }</p>
                                 </div>
                                 <div className="id-card-data">
-                                    <p>{ rut }</p>
+                                    <p>{ rut.formatted }</p>
                                 </div>
                                 <div className="id-card-data">
                                     <p>{ region }, { city }</p>
@@ -185,7 +194,7 @@ export const HomePage = () => {
                                     <p>{ email }</p>
                                 </div>
                                 <div className="id-card-data">
-                                    <p className="id-card-data-link">{ `www.integranutritest.netlify.app/share?uid=${uid}` }</p>
+                                    <p className="id-card-data-link">{ `testintegranutri.netlify.app/share?uid=${uid}` }</p>
                                 </div>
                                 <div className="id-card-data">
                                     <p className="id-card-data-uid">UID: { uid }</p>

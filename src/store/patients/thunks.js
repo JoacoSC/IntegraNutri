@@ -36,6 +36,7 @@ export const uploadPatientNewConsultation = ( consultationSlot, patientID ) => {
         await setDoc( docRef, consultationToFireStore, { merge: true });
         
 
+        dispatch ( startLoadingMyPatients( uid ) );
         // const patients = [];
 
         // docs.forEach( doc => {
