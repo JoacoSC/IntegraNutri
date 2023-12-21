@@ -65,44 +65,58 @@ export const ModalEditJournal = () => {
     } = useSelector((state) => state.journal);
 
     const {
-        mondayConsultationDuration = '00:45',
-        mondayPostConsultationDuration = '00:15',
+        mondayConsultationDurationHours = '00',
+        mondayConsultationDurationMinutes = '45',
+        mondayPostConsultationDurationHours = '00',
+        mondayPostConsultationDurationMinutes = '15',
         mondayStartTimeAM = '08:00',
         mondayStartTimePM = '14:00',
         mondayConsultationQuantityAM = '5',
         mondayConsultationQuantityPM = '4',
-        tuesdayConsultationDuration = '00:45',
-        tuesdayPostConsultationDuration = '00:15',
+        tuesdayConsultationDurationHours = '00',
+        tuesdayConsultationDurationMinutes = '45',
+        tuesdayPostConsultationDurationHours = '00',
+        tuesdayPostConsultationDurationMinutes = '15',
         tuesdayStartTimeAM = '08:00',
         tuesdayStartTimePM = '14:00',
         tuesdayConsultationQuantityAM = '5',
         tuesdayConsultationQuantityPM = '4',
-        wednesdayConsultationDuration = '00:45',
-        wednesdayPostConsultationDuration = '00:15',
+        wednesdayConsultationDurationHours = '00',
+        wednesdayConsultationDurationMinutes = '45',
+        wednesdayPostConsultationDurationHours = '00',
+        wednesdayPostConsultationDurationMinutes = '15',
         wednesdayStartTimeAM = '08:00',
         wednesdayStartTimePM = '14:00',
         wednesdayConsultationQuantityAM = '5',
         wednesdayConsultationQuantityPM = '4',
-        thursdayConsultationDuration = '00:45',
-        thursdayPostConsultationDuration = '00:15',
+        thursdayConsultationDurationHours = '00',
+        thursdayConsultationDurationMinutes = '45',
+        thursdayPostConsultationDurationHours = '00',
+        thursdayPostConsultationDurationMinutes = '15',
         thursdayStartTimeAM = '08:00',
         thursdayStartTimePM = '14:00',
         thursdayConsultationQuantityAM = '5',
         thursdayConsultationQuantityPM = '4',
-        fridayConsultationDuration = '00:45',
-        fridayPostConsultationDuration = '00:15',
+        fridayConsultationDurationHours = '00',
+        fridayConsultationDurationMinutes = '45',
+        fridayPostConsultationDurationHours = '00',
+        fridayPostConsultationDurationMinutes = '15',
         fridayStartTimeAM = '08:00',
         fridayStartTimePM = '14:00',
         fridayConsultationQuantityAM = '5',
         fridayConsultationQuantityPM = '4',
-        saturdayConsultationDuration = '00:45',
-        saturdayPostConsultationDuration = '00:15',
+        saturdayConsultationDurationHours = '00',
+        saturdayConsultationDurationMinutes = '45',
+        saturdayPostConsultationDurationHours = '00',
+        saturdayPostConsultationDurationMinutes = '15',
         saturdayStartTimeAM = '08:00',
         saturdayStartTimePM = '14:00',
         saturdayConsultationQuantityAM = '5',
         saturdayConsultationQuantityPM = '4',
-        sundayConsultationDuration = '00:45',
-        sundayPostConsultationDuration = '00:15',
+        sundayConsultationDurationHours = '00',
+        sundayConsultationDurationMinutes = '45',
+        sundayPostConsultationDurationHours = '00',
+        sundayPostConsultationDurationMinutes = '15',
         sundayStartTimeAM = '08:00',
         sundayStartTimePM = '14:00',
         sundayConsultationQuantityAM = '5',
@@ -277,8 +291,12 @@ export const ModalEditJournal = () => {
         dispatch( isEditingJournal( false ))
     }
 
-    const handleJournalPreview = ( consultationDuration, postConsultationDuration, consultationQuantityAM, consultationQuantityPM, startTimeAM, startTimePM ) => {
+    const handleJournalPreview = ( consultationDurationHours, consultationDurationMinutes, postConsultationDurationHours, postConsultationDurationMinutes, consultationQuantityAM, consultationQuantityPM, startTimeAM, startTimePM ) => {
         
+        const consultationDuration = consultationDurationHours + ':' + consultationDurationMinutes;
+
+        const postConsultationDuration = postConsultationDurationHours + ':' + postConsultationDurationMinutes;
+
         const consultationInterval = handleSumOfTimeValues( consultationDuration, postConsultationDuration )
         
         const journalAM = []
@@ -376,16 +394,20 @@ export const ModalEditJournal = () => {
     useEffect(() => { 
 
         setMonday( handleJournalPreview( 
-            mondayConsultationDuration,
-            mondayPostConsultationDuration,
+            mondayConsultationDurationHours,
+            mondayConsultationDurationMinutes,
+            mondayPostConsultationDurationHours,
+            mondayPostConsultationDurationMinutes,
             mondayConsultationQuantityAM,
             mondayConsultationQuantityPM,
             mondayStartTimeAM,
             mondayStartTimePM
             ) );
 
-    }, [mondayConsultationDuration,
-        mondayPostConsultationDuration,
+    }, [mondayConsultationDurationHours,
+        mondayConsultationDurationMinutes,
+        mondayPostConsultationDurationHours,
+        mondayPostConsultationDurationMinutes,
         mondayStartTimeAM,
         mondayConsultationQuantityAM,
         mondayStartTimePM,
@@ -394,16 +416,20 @@ export const ModalEditJournal = () => {
     useEffect(() => {
 
         setTuesday( handleJournalPreview( 
-            tuesdayConsultationDuration,
-            tuesdayPostConsultationDuration,
+            tuesdayConsultationDurationHours,
+            tuesdayConsultationDurationMinutes,
+            tuesdayPostConsultationDurationHours,
+            tuesdayPostConsultationDurationMinutes,
             tuesdayConsultationQuantityAM,
             tuesdayConsultationQuantityPM,
             tuesdayStartTimeAM,
             tuesdayStartTimePM
             ) );
 
-    }, [tuesdayConsultationDuration,
-        tuesdayPostConsultationDuration,
+    }, [tuesdayConsultationDurationHours,
+        tuesdayConsultationDurationMinutes,
+        tuesdayPostConsultationDurationHours,
+        tuesdayPostConsultationDurationMinutes,
         tuesdayStartTimeAM,
         tuesdayConsultationQuantityAM,
         tuesdayStartTimePM,
@@ -412,16 +438,20 @@ export const ModalEditJournal = () => {
     useEffect(() => {
 
         setWednesday( handleJournalPreview( 
-            wednesdayConsultationDuration,
-            wednesdayPostConsultationDuration,
+            wednesdayConsultationDurationHours,
+            wednesdayConsultationDurationMinutes,
+            wednesdayPostConsultationDurationHours,
+            wednesdayPostConsultationDurationMinutes,
             wednesdayConsultationQuantityAM,
             wednesdayConsultationQuantityPM,
             wednesdayStartTimeAM,
             wednesdayStartTimePM
             ) );
 
-    }, [wednesdayConsultationDuration,
-        wednesdayPostConsultationDuration,
+    }, [wednesdayConsultationDurationHours,
+        wednesdayConsultationDurationMinutes,
+        wednesdayPostConsultationDurationHours,
+        wednesdayPostConsultationDurationMinutes,
         wednesdayStartTimeAM,
         wednesdayConsultationQuantityAM,
         wednesdayStartTimePM,
@@ -430,16 +460,20 @@ export const ModalEditJournal = () => {
     useEffect(() => {
 
         setThursday( handleJournalPreview( 
-            thursdayConsultationDuration,
-            thursdayPostConsultationDuration,
+            thursdayConsultationDurationHours,
+            thursdayConsultationDurationMinutes,
+            thursdayPostConsultationDurationHours,
+            thursdayPostConsultationDurationMinutes,
             thursdayConsultationQuantityAM,
             thursdayConsultationQuantityPM,
             thursdayStartTimeAM,
             thursdayStartTimePM
             ) );
 
-    }, [thursdayConsultationDuration,
-        thursdayPostConsultationDuration,
+    }, [thursdayConsultationDurationHours,
+        thursdayConsultationDurationMinutes,
+        thursdayPostConsultationDurationHours,
+        thursdayPostConsultationDurationMinutes,
         thursdayStartTimeAM,
         thursdayConsultationQuantityAM,
         thursdayStartTimePM,
@@ -448,16 +482,20 @@ export const ModalEditJournal = () => {
     useEffect(() => {
 
         setFriday( handleJournalPreview( 
-            fridayConsultationDuration,
-            fridayPostConsultationDuration,
+            fridayConsultationDurationHours,
+            fridayConsultationDurationMinutes,
+            fridayPostConsultationDurationHours,
+            fridayPostConsultationDurationMinutes,
             fridayConsultationQuantityAM,
             fridayConsultationQuantityPM,
             fridayStartTimeAM,
             fridayStartTimePM
             ) );
 
-    }, [fridayConsultationDuration,
-        fridayPostConsultationDuration,
+    }, [fridayConsultationDurationHours,
+        fridayConsultationDurationMinutes,
+        fridayPostConsultationDurationHours,
+        fridayPostConsultationDurationMinutes,
         fridayStartTimeAM,
         fridayConsultationQuantityAM,
         fridayStartTimePM,
@@ -466,16 +504,20 @@ export const ModalEditJournal = () => {
     useEffect(() => {
 
         setSaturday( handleJournalPreview( 
-            saturdayConsultationDuration,
-            saturdayPostConsultationDuration,
+            saturdayConsultationDurationHours,
+            saturdayConsultationDurationMinutes,
+            saturdayPostConsultationDurationHours,
+            saturdayPostConsultationDurationMinutes,
             saturdayConsultationQuantityAM,
             saturdayConsultationQuantityPM,
             saturdayStartTimeAM,
             saturdayStartTimePM
             ) );
 
-    }, [saturdayConsultationDuration,
-        saturdayPostConsultationDuration,
+    }, [saturdayConsultationDurationHours,
+        saturdayConsultationDurationMinutes,
+        saturdayPostConsultationDurationHours,
+        saturdayPostConsultationDurationMinutes,
         saturdayStartTimeAM,
         saturdayConsultationQuantityAM,
         saturdayStartTimePM,
@@ -484,16 +526,20 @@ export const ModalEditJournal = () => {
     useEffect(() => {
 
         setSunday( handleJournalPreview( 
-            sundayConsultationDuration,
-            sundayPostConsultationDuration,
+            sundayConsultationDurationHours,
+            sundayConsultationDurationMinutes,
+            sundayPostConsultationDurationHours,
+            sundayPostConsultationDurationMinutes,
             sundayConsultationQuantityAM,
             sundayConsultationQuantityPM,
             sundayStartTimeAM,
             sundayStartTimePM
             ) );
 
-    }, [sundayConsultationDuration,
-        sundayPostConsultationDuration,
+    }, [sundayConsultationDurationHours,
+        sundayConsultationDurationMinutes,
+        sundayPostConsultationDurationHours,
+        sundayPostConsultationDurationMinutes,
         sundayStartTimeAM,
         sundayConsultationQuantityAM,
         sundayStartTimePM,
@@ -542,7 +588,7 @@ export const ModalEditJournal = () => {
                                 id="mondayAccordion"
                                 />
                                 <label className="accordion-label" htmlFor="mondayAccordion">
-                                <input type="checkbox" ref={ mondayCheckbox } value={ isMondayChecked } onChange={ handleMondayCheckbox }/>
+                                <input className="pr-2" type="checkbox" ref={ mondayCheckbox } value={ isMondayChecked } onChange={ handleMondayCheckbox }/>
                                 Lunes
                                 </label>
                                 <div className="accordion-content modal-accordion-content flex-column journal-content-background">
@@ -550,11 +596,29 @@ export const ModalEditJournal = () => {
                                         <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="mondayConsultationDuration" defaultValue='00:45' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="mondayConsultationDurationHours" defaultValue='00' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="mondayConsultationDurationMinutes" defaultValue='45' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="mondayPostConsultationDuration" defaultValue='00:15' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="mondayPostConsultationDurationHours" defaultValue='00' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="mondayPostConsultationDurationMinutes" defaultValue='15' disabled={ !isMondayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                         </div>                                        
                                         <div className="journal-item-background journal-row-item flex-row">
@@ -622,7 +686,7 @@ export const ModalEditJournal = () => {
                                 id="tuesdayAccordion"
                                 />
                                 <label className="accordion-label" htmlFor="tuesdayAccordion">
-                                <input type="checkbox" ref={ tuesdayCheckbox } value={ isTuesdayChecked } onChange={ handleTuesdayCheckbox }/>
+                                <input className="pr-2" type="checkbox" ref={ tuesdayCheckbox } value={ isTuesdayChecked } onChange={ handleTuesdayCheckbox }/>
                                 Martes
                                 </label>
                                 <div className="accordion-content modal-accordion-content flex-column journal-content-background">
@@ -630,11 +694,29 @@ export const ModalEditJournal = () => {
                                         <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="tuesdayConsultationDuration" defaultValue='00:45' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="tuesdayConsultationDurationHours" defaultValue='00' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="tuesdayConsultationDurationMinutes" defaultValue='45' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="tuesdayPostConsultationDuration" defaultValue='00:15' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="tuesdayPostConsultationDurationHours" defaultValue='00' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="tuesdayPostConsultationDurationMinutes" defaultValue='15' disabled={ !isTuesdayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                         </div>                                        
                                         <div className="journal-item-background journal-row-item flex-row">
@@ -702,7 +784,7 @@ export const ModalEditJournal = () => {
                                 id="wednesdayAccordion"
                                 />
                                 <label className="accordion-label" htmlFor="wednesdayAccordion">
-                                <input type="checkbox" ref={ wednesdayCheckbox } value={ isWednesdayChecked } onChange={ handleWednesdayCheckbox }/>
+                                <input className="pr-2" type="checkbox" ref={ wednesdayCheckbox } value={ isWednesdayChecked } onChange={ handleWednesdayCheckbox }/>
                                 Miércoles
                                 </label>
                                 <div className="accordion-content modal-accordion-content flex-column journal-content-background">
@@ -710,11 +792,29 @@ export const ModalEditJournal = () => {
                                         <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="wednesdayConsultationDuration" defaultValue='00:45' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="wednesdayConsultationDurationHours" defaultValue='00' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="wednesdayConsultationDurationMinutes" defaultValue='45' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="wednesdayPostConsultationDuration" defaultValue='00:15' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="wednesdayPostConsultationDurationHours" defaultValue='00' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="wednesdayPostConsultationDurationMinutes" defaultValue='15' disabled={ !isWednesdayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                         </div>                                        
                                         <div className="journal-item-background journal-row-item flex-row">
@@ -782,7 +882,7 @@ export const ModalEditJournal = () => {
                                 id="thursdayAccordion"
                                 />
                                 <label className="accordion-label" htmlFor="thursdayAccordion">
-                                <input type="checkbox" ref={ thursdayCheckbox } value={ isThursdayChecked } onChange={ handleThursdayCheckbox }/>
+                                <input className="pr-2" type="checkbox" ref={ thursdayCheckbox } value={ isThursdayChecked } onChange={ handleThursdayCheckbox }/>
                                 Jueves
                                 </label>
                                 <div className="accordion-content modal-accordion-content flex-column journal-content-background">
@@ -790,11 +890,29 @@ export const ModalEditJournal = () => {
                                         <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="thursdayConsultationDuration" defaultValue='00:45' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="thursdayConsultationDurationHours" defaultValue='00' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="thursdayConsultationDurationMinutes" defaultValue='45' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="thursdayPostConsultationDuration" defaultValue='00:15' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="thursdayPostConsultationDurationHours" defaultValue='00' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="thursdayPostConsultationDurationMinutes" defaultValue='15' disabled={ !isThursdayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                         </div>                                        
                                         <div className="journal-item-background journal-row-item flex-row">
@@ -862,7 +980,7 @@ export const ModalEditJournal = () => {
                                 id="fridayAccordion"
                                 />
                                 <label className="accordion-label" htmlFor="fridayAccordion">
-                                <input type="checkbox" ref={ fridayCheckbox } value={ isFridayChecked } onChange={ handleFridayCheckbox }/>
+                                <input className="pr-2" type="checkbox" ref={ fridayCheckbox } value={ isFridayChecked } onChange={ handleFridayCheckbox }/>
                                 Viernes
                                 </label>
                                 <div className="accordion-content modal-accordion-content flex-column journal-content-background">
@@ -870,11 +988,29 @@ export const ModalEditJournal = () => {
                                         <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="fridayConsultationDuration" defaultValue='00:45' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="fridayConsultationDurationHours" defaultValue='00' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="fridayConsultationDurationMinutes" defaultValue='45' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="fridayPostConsultationDuration" defaultValue='00:15' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="fridayPostConsultationDurationHours" defaultValue='00' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="fridayPostConsultationDurationMinutes" defaultValue='15' disabled={ !isFridayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                         </div>                                        
                                         <div className="journal-item-background journal-row-item flex-row">
@@ -942,7 +1078,7 @@ export const ModalEditJournal = () => {
                                 id="saturdayAccordion"
                                 />
                                 <label className="accordion-label" htmlFor="saturdayAccordion">
-                                <input type="checkbox" ref={ saturdayCheckbox } value={ isSaturdayChecked } onChange={ handleSaturdayCheckbox }/>
+                                <input className="pr-2" type="checkbox" ref={ saturdayCheckbox } value={ isSaturdayChecked } onChange={ handleSaturdayCheckbox }/>
                                 Sábado
                                 </label>
                                 <div className="accordion-content modal-accordion-content flex-column journal-content-background">
@@ -950,11 +1086,29 @@ export const ModalEditJournal = () => {
                                         <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="saturdayConsultationDuration" defaultValue='00:45' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="saturdayConsultationDurationHours" defaultValue='00' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="saturdayConsultationDurationMinutes" defaultValue='45' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="saturdayPostConsultationDuration" defaultValue='00:15' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="saturdayPostConsultationDurationHours" defaultValue='00' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="saturdayPostConsultationDurationMinutes" defaultValue='15' disabled={ !isSaturdayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                         </div>                                        
                                         <div className="journal-item-background journal-row-item flex-row">
@@ -1022,7 +1176,7 @@ export const ModalEditJournal = () => {
                                 id="sundayAccordion"
                                 />
                                 <label className="accordion-label" htmlFor="sundayAccordion">
-                                <input type="checkbox" ref={ sundayCheckbox } value={ isSundayChecked } onChange={ handleSundayCheckbox }/>
+                                <input className="pr-2" type="checkbox" ref={ sundayCheckbox } value={ isSundayChecked } onChange={ handleSundayCheckbox }/>
                                 Domingo
                                 </label>
                                 <div className="accordion-content modal-accordion-content flex-column journal-content-background">
@@ -1030,11 +1184,29 @@ export const ModalEditJournal = () => {
                                         <div className="journal-item-background journal-row-item flex-row">
                                             <div className="journal-row-item">
                                                 <label className="">Duración de cada consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="sundayConsultationDuration" defaultValue='00:45' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="sundayConsultationDurationHours" defaultValue='00' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div className="flex-row">
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="sundayConsultationDurationMinutes" defaultValue='45' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                             <div className="journal-row-item">
                                                 <label className="">Descanso post-consulta:</label>
-                                                <input className="font-metropolis-08" type="time" name="sundayPostConsultationDuration" defaultValue='00:15' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="sundayPostConsultationDurationHours" defaultValue='00' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                    Horas
+
+                                                </div>
+                                                <div>
+                                                    <input className="font-metropolis-08 consultation-duration-input" type="number" name="sundayPostConsultationDurationMinutes" defaultValue='15' disabled={ !isSundayChecked } onChange={ onInputChange }></input>
+                                                    Minutos
+
+                                                </div>
                                             </div>
                                         </div>                                        
                                         <div className="journal-item-background journal-row-item flex-row">

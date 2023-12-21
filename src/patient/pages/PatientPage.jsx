@@ -70,7 +70,8 @@ import {
     ModalUpdateCorrectedAge,
     ModalUpdatePatientValues
 } from "../../ui";
-import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
+// import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
+import Nutri_face_scarf from '../../../assets/imgs/navbar/Nutri_face_scarf.svg'
 import Dropdown_arrow from '../../../assets/imgs/patient/dropdown_arrow.svg'
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
 
@@ -2404,9 +2405,9 @@ export const PatientPage = () => {
                         <div className="patient-primary-card-row">
                             <div className="patient-primary-card">
                                 <div className="patient-data">
-                                    <div className="patient-avatar">
+                                    <div className="patient-primary-card-avatar">
                                     {/* {patientName.substring(0, 2)} */}
-                                    <img src={ IntegraNutri_ellipse } className="logo-item" alt="Icono IntegraNutri"/>
+                                    <img src={ Nutri_face_scarf } className="patient-primary-card-avatar-img" alt="Icono IntegraNutri"/>
                                     </div>
                                     <div className="patient-name">{patientName}</div>
                                     <div className="patient-gender"><b>Género: </b>{gender}</div>

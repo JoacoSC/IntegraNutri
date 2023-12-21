@@ -13,6 +13,7 @@ import { PatientRoutes } from "../patient/routes/PatientRoutes"
 
 import { login, logout, redirectNutritionistOrPatient } from "../store/auth"
 import { ShareRoutes } from "../share/routes/ShareRoutes"
+import { LandingRoutes } from "../landing/routes/LandingRoutes"
 
 export const AppRouter = () => {
 
@@ -56,14 +57,16 @@ export const AppRouter = () => {
           }/>
 
           <Route path="share/*" element={
-            
               <ShareRoutes/>
-            
           }/>
+          {/* <Route path="/*" element={
+              <LandingRoutes/>
+          }/> */}
 
           <Route path="/*" element={
             <PublicRoute>
-              <AuthRoutes/>
+              <LandingRoutes/>
+              {/* <AuthRoutes/> */}
             </PublicRoute>
           }/>
       </Routes>

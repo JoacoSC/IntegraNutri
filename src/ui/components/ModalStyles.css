@@ -353,6 +353,10 @@
     font-size: 0.8rem;
 }
 
+.consultation-duration-input{
+    width: 40px;
+    margin-right: 0.5rem;
+}
 .journal-input-number{
     width: 100%;
     max-width: 50px;

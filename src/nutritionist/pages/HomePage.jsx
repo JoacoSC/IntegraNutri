@@ -194,7 +194,7 @@ export const HomePage = () => {
                                     <p>{ email }</p>
                                 </div>
                                 <div className="id-card-data">
-                                    <p className="id-card-data-link">{ `testintegranutri.netlify.app/share?uid=${uid}` }</p>
+                                    <p className="id-card-data-link">{ `integranutri.cl/share?uid=${uid}` }</p>
                                 </div>
                                 <div className="id-card-data">
                                     <p className="id-card-data-uid">UID: { uid }</p>
