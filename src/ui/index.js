@@ -28,5 +28,6 @@ export * from './CardPerimetroCintura';
 export * from './CardPatientExams';
 export * from './CardEstadioTanner';
 export * from './Footer';
+export * from './LandingFooter';
 export * from './ModalLogin';
 export * from './ModalPatientRegister';

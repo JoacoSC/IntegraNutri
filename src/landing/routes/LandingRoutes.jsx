@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom"
 // import { PatientPage } from "../pages/PatientPage"
 // import { PatientPasswordReset } from "../pages/PatientPasswordReset";
-import { LandingPage } from "../pages/LandingPage";
+import { LandingPage, PrivacyPage, ShoppingCartPage, TermsPage } from "../pages";
+import { VoucherPage } from "../pages/VoucherPage";
 
 export const LandingRoutes = () => {
 
@@ -20,6 +21,10 @@ export const LandingRoutes = () => {
   return (
     <Routes>
         <Route path="/home" element={ <LandingPage /> }/>
+        <Route path="/cart" element={ <ShoppingCartPage /> }/>
+        <Route path="/terms" element={ <TermsPage /> }/>
+        <Route path="/privacy" element={ <PrivacyPage /> }/>
+        <Route path="/voucher" element={ <VoucherPage /> }/>
         {/* <Route path="passwordReset" element={ <PatientPasswordReset /> }/> */}
 
         <Route path="/*" element={ <Navigate to="/home"/> }/>

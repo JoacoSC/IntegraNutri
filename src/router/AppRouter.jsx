@@ -64,10 +64,9 @@ export const AppRouter = () => {
           }/> */}
 
           <Route path="/*" element={
-            <PublicRoute>
-              <LandingRoutes/>
-              {/* <AuthRoutes/> */}
-            </PublicRoute>
+
+            <LandingRoutes/>
+            
           }/>
       </Routes>
     </>

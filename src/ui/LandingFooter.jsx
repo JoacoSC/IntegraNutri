@@ -2,22 +2,20 @@ import './components';
 import Logo from "../../assets/imgs/auth/Logo_Vertical.svg"
 import { Link } from 'react-router-dom';
 
-export const Footer = () => {
+export const LandingFooter = () => {
 
     return (
     <>
-        <div className='footer'>
+        
+        <div className='footer margin-left-0'>
             <div className='footer-section'>
-                <p className='footer-title'>Mapa del sitio</p>
-                    <Link to="../" className='footer-link'>
-                        <p className='footer-text'>Inicio</p>
-                    </Link>
-                    <Link to="../myPatients" className='footer-link'>
-                        <p className='footer-text'>Mis Pacientes</p>
-                    </Link>
-                    <Link to="../settings" className='footer-link'>
-                        <p className='footer-text'>Configuración de la cuenta</p>
-                    </Link>
+                <p className='footer-title'>Ayuda</p>
+                <Link to='../terms' className='footer-link'>
+                    <p className='footer-text'>Términos y condiciones</p>
+                </Link>
+                <Link to='../privacy' className='footer-link'>
+                    <p className='footer-text'>Política de Privacidad</p>
+                </Link>
             </div>            
             <div className='footer-section'>
                 <p className='footer-title'>Contacto</p>
@@ -57,7 +55,7 @@ export const Footer = () => {
                 
             </div>
         </div>
-        <div className='footer-bottom'>
+        <div className='footer-bottom margin-left-0 pl-0'>
             <img className="footer-logo" src={ Logo } alt="Logo de App_Nutricionista"/>
             <p className='footer-text-bold'>IntegraNutri v1.2.0</p>
             <br/>
@@ -80,3 +78,5 @@ export const Footer = () => {
     </>
     )
 }
+
+

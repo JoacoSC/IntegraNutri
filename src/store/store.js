@@ -6,6 +6,9 @@ import { patientsSlice } from './patients';
 import { userInfoSlice } from './userInfo';
 import { loginHelperSlice } from './loginHelper';
 import { calculatorSlice } from './calculator';
+import { shoppingCartSlice } from './shoppingCart';
+import { subscriptionSlice } from './subscription';
+import { buyOrderSlice } from './buyOrder';
 
 export const store = configureStore({
     reducer: {
@@ -16,5 +19,8 @@ export const store = configureStore({
         currentPatient: currentPatientSlice.reducer,
         loginHelper: loginHelperSlice.reducer,
         calculator: calculatorSlice.reducer,
+        subscription: subscriptionSlice.reducer,
+        shoppingCart: shoppingCartSlice.reducer,
+        buyOrder: buyOrderSlice.reducer,
     },
 })

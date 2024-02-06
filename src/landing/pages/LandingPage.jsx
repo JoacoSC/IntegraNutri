@@ -3,57 +3,152 @@ import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellip
 import IntegraNutri_texto from '../../../assets/imgs/auth/IntegraNutri_Texto.svg'
 import Webapp_example_1 from '../../../assets/imgs/landing/webapp_example_1.svg'
 import Webapp_example_2 from '../../../assets/imgs/landing/webapp_example_2.svg'
-import Nutri_face_scarf from '../../../assets/imgs/navbar/Nutri_face_scarf.svg'
-import Logo from "../../../assets/imgs/auth/Logo_Vertical.svg"
+import Cloud_icon from '../../../assets/imgs/landing/cloud_icon.svg'
+import Up_icon from '../../../assets/imgs/landing/up_icon.svg'
+import Precision_icon from '../../../assets/imgs/landing/precision_icon.svg'
+import Transformation_icon from '../../../assets/imgs/landing/transformation_icon.svg'
+import Safe_icon from '../../../assets/imgs/landing/safe_icon.svg'
+import Organized_icon from '../../../assets/imgs/landing/organized_icon.svg'
+import Patient_icon from '../../../assets/imgs/landing/patient_icon.svg'
+import Time_icon from '../../../assets/imgs/landing/time_icon.svg'
+import Chart_icon from '../../../assets/imgs/landing/chart_icon.svg'
+import Refresh_icon from '../../../assets/imgs/landing/refresh_icon.svg'
+import Journal_icon from '../../../assets/imgs/landing/journal_icon.svg'
+import Bar_chart_icon from '../../../assets/imgs/landing/bar_chart_icon.svg'
+import Like_icon from '../../../assets/imgs/landing/like_icon.svg'
+import Gear_icon from '../../../assets/imgs/landing/gear_icon.svg'
+import Menu_icon from '../../../assets/imgs/landing/menu_icon.svg'
+import { useRef, useState } from 'react'
+import { LandingFooter } from '../../ui/LandingFooter'
+import { useSelector } from 'react-redux'
 
 export const LandingPage = () => {
 
+    const { isLogged } = useSelector( state => state.auth );
+
+    const topRef = useRef();
+    const homeRef = useRef();
+    const infoRef = useRef();
+    const benefitsRef = useRef();
+    const membershipsRef = useRef();
+    const menuCheckbox = useRef();
+
+    const [visible, setVisible] = useState(false)
+    const [menuChecked, setMenuChecked] = useState(false);
+
+    const handleScrollToTop = (  ) => {
+        topRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+    const handleHomeClick = (  ) => {
+        homeRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+    const handleInfoClick = (  ) => {
+        infoRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+    const handleBenefitsClick = (  ) => {
+        benefitsRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+    const handleMembershipsClick = (  ) => {
+        membershipsRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+
+    const toggleVisible = () => { 
+        const scrolled = document.documentElement.scrollTop; 
+        if (scrolled > 300){ 
+          setVisible(true) 
+        }  
+        else if (scrolled <= 300){ 
+          setVisible(false) 
+        } 
+    }; 
+
+    const handleMenu = () => {
+
+        // menuCheckbox.current.checked = !menuCheckbox.current.checked;
+
+        // const isChecked = menuCheckbox.current.checked;
+
+        // // Realiza las acciones que necesitas con el estado del checkbox
+        // if (isChecked) {
+        // // El checkbox está marcado
+        // console.log('El menú está activado');
+        // // Agrega aquí lógica adicional según tus necesidades
+        // } else {
+        // // El checkbox está desmarcado
+        // console.log('El menú está desactivado');
+        // // Agrega aquí lógica adicional según tus necesidades
+        // }
+
+        setMenuChecked(!menuChecked);
+        
+    }
+
+    window.addEventListener('scroll', toggleVisible);
+
     return (
         <div className="landing-main-container">
-            <div className="landing-header">
+            <button className='btn-scroll-to-top' style={{display: visible ? 'inline' : 'none'}} onClick={ handleScrollToTop }>
+                <img src={ Up_icon } alt="Icono IntegraNutri"/>
+            </button>
+            <div ref={ topRef } className="landing-header">
                 <div className="landing-logo-container">
-                    <img src={ IntegraNutri_ellipse } className="landing-logo-img" alt="Icono IntegraNutri"/>
-                    <img src={ IntegraNutri_texto } className="landing-logo-text" alt="Icono IntegraNutri"/>
+                    <Link to='../home'>
+                        <img src={ IntegraNutri_ellipse } className="landing-logo-img" alt="Icono IntegraNutri"/>
+                        <img src={ IntegraNutri_texto } className="landing-logo-text" alt="Icono IntegraNutri"/>
+                    </Link>
                 </div>
                 <div className="landing-nav">
-                    <li className="landing-nav-item" data-tooltip="Inicio">
-                        <Link to="../home">
-                            Inicio
-                        </Link>
-                    </li>
-                    <li className="landing-nav-item" data-tooltip="Inicio">
-                        <Link to="../home">
-                            Info
-                        </Link>
-                    </li>
-                    <li className="landing-nav-item" data-tooltip="Inicio">
-                        <Link to="../home">
-                            Beneficios
-                        </Link>
-                    </li>
-                    <li className="landing-nav-item" data-tooltip="Inicio">
-                        <Link to="../home">
-                            Membresías
-                        </Link>
-                    </li>
-                    <li className="landing-nav-item" data-tooltip="Inicio">
-                        <Link to="../auth/login" className="link-no-decoration">
-                            <div className="landing-btn-login">
-                                    Iniciar Sesión
-
-                            </div>
-                        </Link>
-                    </li>
+                    <div className="menu-icon-container">
+                        <input ref={menuCheckbox} type="checkbox" checked={ menuChecked } hidden readOnly/>
+                        <img src={Menu_icon} alt="Menú" onClick={handleMenu} />
+                    </div>
+                    <ul className={` ${menuChecked ? 'landing-nav-list-active' : 'landing-nav-list'}`}>
+                        <li className="landing-nav-item" data-tooltip="Inicio">
+                            <a onClick={ handleHomeClick }>
+                                Inicio
+                            </a>
+                        </li>
+                        <li className="landing-nav-item" data-tooltip="Inicio">
+                            <a onClick={ handleInfoClick }>
+                                Info
+                            </a>
+                        </li>
+                        <li className="landing-nav-item" data-tooltip="Inicio">
+                            <a onClick={ handleBenefitsClick }>
+                                Beneficios
+                            </a>
+                        </li>
+                        <li className="landing-nav-item" data-tooltip="Inicio">
+                            <a onClick={ handleMembershipsClick }>
+                                Membresías
+                            </a>
+                        </li>
+                        {
+                            ( isLogged === true )
+                            ?   <li className="landing-nav-item-login" data-tooltip="Inicio">
+                                    <Link to="../nutritionist" className="link-no-decoration">
+                                        <div className="landing-btn-login">
+                                                Ir a IntegraNutri
+                                        </div>
+                                    </Link>
+                                </li>
+                            :   <li className="landing-nav-item-login" data-tooltip="Inicio">
+                                    <Link to="../auth/login" className="link-no-decoration">
+                                        <div className="landing-btn-login">
+                                                Iniciar Sesión
+                                        </div>
+                                    </Link>
+                                </li>
+                        }
+                    </ul>
                 </div>
             </div>
-            <div className="landing-section">
-            </div>
-            <div className="landing-section">
+            <div ref={ homeRef } className="landing-section">
                 <div className="landing-img-container">
                     <div className="landing-title-container">
                         <h1 className='landing-title'>Bienvenido a IntegraNutri!</h1>
                         <p className='landing-description'>Potencia tu atención nutricional con IntegraNutri: Una herramienta integral para nutricionistas modernos.</p>
-                        <button className='btn-action'>Suscribirme</button>
+                        <button className='btn-action' onClick={ handleMembershipsClick }>Suscribirme</button>
                     </div>
                     <div className="landing-img-stack">
                         <div className="landing-img-1">
@@ -72,15 +167,38 @@ export const LandingPage = () => {
                     <div className="curveSection"></div>
                 </div>
             </div>
-            <div className="landing-section">
+            <div ref={ infoRef } className="landing-section">
                 <div className="landing-info">
                     <h1 className='landing-title'>Información sobre IntegraNutri</h1>
                     <div className='info-card-container'>
                         <div className='info-card'>
-                            <p>Consectetur in qui enim proident. Eu dolor id quis sit consectetur magna sint quis veniam sint eiusmod veniam labore id. Cillum aliquip sint sint ad duis consequat incididunt eu voluptate duis sit sit tempor. Esse laborum adipisicing esse id consectetur velit in labore irure. Elit consectetur minim enim ex commodo voluptate sint ut labore elit fugiat sint cillum deserunt. Dolor minim proident fugiat consequat labore.</p>
+                            <div className="info-card-img">
+                                <img src={ Cloud_icon } alt="Icono IntegraNutri"/>
+                            </div>
+                            <p>IntegraNutri ha sido concebida como una plataforma web exclusiva para profesionales de la nutrición,
+                             con el propósito de proporcionar herramientas y recursos que simplifiquen sus labores cotidianas. <br/><br/>
+                             La singularidad de IntegraNutri radica en su base de datos en la nube, asegurando así la disponibilidad
+                              constante de la información desde cualquier dispositivo con conexión a internet.<br/><br/> Adiós al uso de Excel;
+                               sumérgete en la experiencia única que ofrece IntegraNutri.</p>
                         </div>
                         <div className='info-card'>
-                            <p>Consectetur in qui enim proident. Eu dolor id quis sit consectetur magna sint quis veniam sint eiusmod veniam labore id. Cillum aliquip sint sint ad duis consequat incididunt eu voluptate duis sit sit tempor. Esse laborum adipisicing esse id consectetur velit in labore irure. Elit consectetur minim enim ex commodo voluptate sint ut labore elit fugiat sint cillum deserunt. Dolor minim proident fugiat consequat labore.</p>
+                            <div className="info-card-img">
+                                <img src={ Precision_icon } alt="Icono IntegraNutri"/>
+                            </div>
+                        <p>Esta plataforma ha sido meticulosamente diseñada, tomando como referencia los Patrones de Crecimiento
+                             para la evaluación nutricional de niños, niñas y adolescentes desde el nacimiento hasta los 19 años de edad,
+                              según las directrices establecidas por el Ministerio de Salud (MINSAL).<br/><br/>
+                               De esta manera, IntegraNutri se alinea con los estándares más actualizados y confiables en el ámbito
+                                de la evaluación nutricional pediátrica.</p>
+                        </div>
+                        <div className='info-card'>
+                            <div className="info-card-img">
+                                <img src={ Transformation_icon } alt="Icono IntegraNutri"/>
+                            </div>
+                        <p>La versatilidad de IntegraNutri no solo reside en su acceso a través de múltiples dispositivos,
+                             sino también en su capacidad para transformar la gestión de información nutricional,
+                              reemplazando las metodologías obsoletas por un enfoque moderno y eficaz.<br/><br/>
+                               Vive la revolución en el cuidado nutricional con IntegraNutri.</p>
                         </div>
                     </div>
                 </div>
@@ -90,22 +208,114 @@ export const LandingPage = () => {
                     <div className="curveSection-2"></div>
                 </div>
             </div>
-            <div className="landing-section">
+            <div ref={ benefitsRef } className="landing-section">
                 <div className="landing-benefits">
                 <h1 className='landing-title'>Beneficios</h1>
-                    <div className='info-card-container'>
-                        <div className='info-card'>
-                            <img src={ IntegraNutri_ellipse } className="info-card-img" alt="Icono IntegraNutri"/>
-                            <p>Consectetur in qui enim proident. Eu dolor id quis sit consectetur magna sint quis veniam sint eiusmod veniam labore id. Cillum aliquip sint sint ad duis consequat incididunt eu voluptate duis sit sit tempor. Esse laborum adipisicing esse id consectetur velit in labore irure. Elit consectetur minim enim ex commodo voluptate sint ut labore elit fugiat sint cillum deserunt. Dolor minim proident fugiat consequat labore.</p>
+                    <div className='benefits-card-container'>
+                        <div className='benefits-card'>
+                            <div className='benefits-item'>
+                                <div className="benefits-card-img">
+                                    <img src={ Safe_icon } alt="Icono IntegraNutri"/>
+                                </div>
+                                <h3>
+                                    Seguro
+                                </h3>
+                                <p>IntegraNutri proporciona un acceso seguro y fiable a su plataforma, 
+                                garantizando la privacidad de los datos del profesional nutricionista.</p>
+                            </div>
+                            <div className='benefits-item'>
+                                <div className="benefits-card-img">
+                                    <img src={ Organized_icon } alt="Icono IntegraNutri"/>
+                                </div>
+                                <h3>
+                                    Organizado
+                                </h3>
+                                <p>Facilita la gestión eficiente de la información del paciente, 
+                                permitiendo un seguimiento preciso de historiales clínicos y progresos de manera organizada.</p>
+                            </div>
+                            <div className='benefits-item'>
+                                <div className="benefits-card-img">
+                                    <img src={ Patient_icon } alt="Icono IntegraNutri"/>
+                                </div>
+                                <h3>
+                                    Individualizado
+                                </h3>
+                                <p>Los pacientes están conectados mediante su perfil propio, 
+                                donde podrán visualizar antecedentes relevantes en su atención.</p>
+                            </div>
+                            <div className='benefits-item'>
+                                <div className="benefits-card-img">
+                                    <img src={ Time_icon } alt="Icono IntegraNutri"/>
+                                </div>
+                                <h3>
+                                    Eficiente
+                                </h3>
+                                <p>La plataforma integra funciones de recordatorio de citas y seguimientos, 
+                                optimizando la organización del profesional y mejorando la puntualidad en el cumplimiento
+                                de compromisos.</p>
+                                </div>
+                            <div className='benefits-item'>
+                                <div className="benefits-card-img">
+                                    <img src={ Chart_icon } alt="Icono IntegraNutri"/>
+                                </div>
+                                <h3>
+                                    Ilustrativo
+                                </h3>
+                                <p>Ofrece curvas de evolución para sus indicadores.</p>
+                            </div>
                         </div>
-                        <div className='info-card'>
-                            <img src={ IntegraNutri_ellipse } className="info-card-img" alt="Icono IntegraNutri"/>
-                            <p>Consectetur in qui enim proident. Eu dolor id quis sit consectetur magna sint quis veniam sint eiusmod veniam labore id. Cillum aliquip sint sint ad duis consequat incididunt eu voluptate duis sit sit tempor. Esse laborum adipisicing esse id consectetur velit in labore irure. Elit consectetur minim enim ex commodo voluptate sint ut labore elit fugiat sint cillum deserunt. Dolor minim proident fugiat consequat labore.</p>
-                        </div>
-                        <div className='info-card'>
-                            <img src={ IntegraNutri_ellipse } className="info-card-img" alt="Icono IntegraNutri"/>
-                            <p>Consectetur in qui enim proident. Eu dolor id quis sit consectetur magna sint quis veniam sint eiusmod veniam labore id. Cillum aliquip sint sint ad duis consequat incididunt eu voluptate duis sit sit tempor. Esse laborum adipisicing esse id consectetur velit in labore irure. Elit consectetur minim enim ex commodo voluptate sint ut labore elit fugiat sint cillum deserunt. Dolor minim proident fugiat consequat labore.</p>
-                        </div>
+                            <div className='benefits-card'>
+                                <div className='benefits-item'>
+                                    <div className="benefits-card-img">
+                                        <img src={ Gear_icon } alt="Icono IntegraNutri"/>
+                                    </div>
+                                    <h3>
+                                    Automatizada
+                                    </h3>
+                                    <p>La plataforma es automatizada, lo que permite la clasificación automática de datos 
+                                    ingresados según indicadores, mediciones, etc., optimizando los tiempos de atención.</p>
+                                    </div>
+                                <div className='benefits-item'>
+                                    <div className="benefits-card-img">
+                                        <img src={ Journal_icon } alt="Icono IntegraNutri"/>
+                                    </div>
+                                    <h3>
+                                        Personalizable
+                                    </h3>
+                                    <p>Cuenta con una agenda personalizable y enlace con redirección a su agenda, 
+                                    permitiendo que los pacientes agenden de manera automática.</p>
+                                    </div>
+                                <div className='benefits-item'>
+                                    <div className="benefits-card-img">
+                                        <img src={ Bar_chart_icon } alt="Icono IntegraNutri"/>
+                                    </div>
+                                    <h3>
+                                        Racional
+                                    </h3>
+                                    <p>Proporciona herramientas analíticas para evaluar estadísticas y tendencias, 
+                                    facilitando la toma de decisiones informadas en el proceso de tratamiento nutricional.</p>
+                                    </div>
+                                <div className='benefits-item'>
+                                    <div className="benefits-card-img">
+                                        <img src={ Like_icon } alt="Icono IntegraNutri"/>
+                                    </div>
+                                    <h3>
+                                    Accesible
+                                    </h3>
+                                    <p>IntegraNutri se destaca por su interfaz intuitiva y amigable, facilitando su uso 
+                                    tanto para profesionales como para pacientes, promoviendo una experiencia positiva.</p>
+                                    </div>
+                                <div className='benefits-item'>
+                                    <div className="benefits-card-img">
+                                        <img src={ Refresh_icon } alt="Icono IntegraNutri"/>
+                                    </div>
+                                    <h3>
+                                        Adaptativo
+                                    </h3>
+                                    <p>Ofrece actualizaciones regulares y mejoras continuas, demostrando un compromiso 
+                                    constante con la excelencia y la satisfacción tanto de profesionales como de pacientes.</p>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -114,21 +324,53 @@ export const LandingPage = () => {
                     <div className="curveSection"></div>
                 </div>
             </div>
-            <div className="landing-section">
+            <div ref={ membershipsRef } className="landing-section">
                 <div className="landing-memberships">
                     <h1 className='landing-title'>Membresías</h1>
                     <div className='memberships-card-container'>
-                        <div className='memberships-card'>
-                            <img src={ IntegraNutri_ellipse } className="memberships-card-img" alt="Icono IntegraNutri"/>
-                            <p>Elit quis commodo cillum excepteur. Sint nostrud enim do officia mollit nisi exercitation Lorem. Laboris ullamco irure enim eu culpa consequat sint cillum. Sunt nulla nisi eu duis reprehenderit proident excepteur exercitation adipisicing consequat esse commodo irure. Occaecat ad incididunt excepteur exercitation minim eu ipsum commodo officia aliquip. Nisi est pariatur labore consequat occaecat et incididunt in et sit dolore anim. Do ut aute culpa sint deserunt laboris consequat sunt.</p>
-                            <p>Ea velit dolore magna reprehenderit deserunt aliqua officia. Veniam aliquip exercitation eiusmod in eiusmod aliqua quis reprehenderit sint duis ex nulla quis. Nostrud duis est ad enim anim id nulla. Mollit ut consequat cillum anim nostrud ut nulla ipsum velit reprehenderit. Magna duis velit adipisicing non sit exercitation duis commodo labore laborum. Consequat aute duis mollit cillum et exercitation esse.</p>
-                            <button className='btn-action-memberships-card'>Suscribirme</button>
-                        </div>
-                        <div className='memberships-card'>
-                            <img src={ IntegraNutri_ellipse } className="memberships-card-img" alt="Icono IntegraNutri"/>
-                            <p>Elit duis deserunt ex adipisicing nulla mollit. Consequat aute velit proident labore ullamco. Nisi ut fugiat duis ullamco voluptate adipisicing fugiat sit et. Esse culpa occaecat proident tempor. Laboris culpa culpa qui Lorem esse Lorem non ad anim excepteur aliqua magna.</p>
-                            <p>Ullamco deserunt pariatur incididunt cillum minim reprehenderit do. Pariatur aliqua enim labore consequat sint ad exercitation esse amet pariatur. Eiusmod qui sunt in mollit quis qui ex. Adipisicing consequat anim cupidatat laboris non amet elit commodo eiusmod aute. Non cupidatat ipsum cillum elit esse. Nostrud aute sunt culpa cillum non et aute eu dolore aliquip. Veniam sunt nostrud fugiat dolor elit nulla nulla ad anim esse.</p>
-                            <button className='btn-action-memberships-card'>Suscribirme</button>
+                        <div className='memberships-card text-align-center'>
+                            <img src={ IntegraNutri_ellipse } className="memberships-card-img" alt="Icono Paquete Infanto Juvenil"/>
+                            <h1>Paquete Infanto Juvenil</h1>
+                            <p>Te damos la bienvenida a Integranutri, la plataforma líder en apoyo nutricional profesional. Con nuestro paquete "Infanto Juvenil", brindamos opciones flexibles para que puedas aprovechar al máximo nuestros servicios.
+                            <br/><br/>Para hacer aún más accesible la excelencia en nutrición, ofrecemos un <b>descuento del 50% en todas las membresías</b>. Este descuento se aplicará automáticamente al realizar la compra.
+                            </p>
+                            <ul className='text-align-left w-90'>
+                                <b><h3 className='text-align-center'>Beneficios Incluidos:</h3></b>
+                                <br/>
+                                <li>
+                                    Pacientes activos ilimitados
+                                </li>	
+                                <li>Almacenamiento ilimitado</li>
+                                <li>Conexión paciente nutricionista</li>
+                                <li>No más Excel</li>
+                                <li>Automatización de resultados</li>
+                                <li>Link de agenda para RRSS</li>
+                                <li>Historial de atenciones</li>
+                                <li>Progreso mediante curvas</li>
+                                <li>Descuento Exclusivo: 50% en Todas las Membresías</li>
+                                <li>Mucho más</li>
+                            </ul>
+                                <b><h3 className='text-align-center'>Opciones de Membresía:</h3></b>
+                            <div className='subscriptions-container'>
+                                <div className='subscription'>
+                                    <p className='text-align-center'>
+                                        <b>Mensual</b>:<br/><br/><br/> $15,900/mes<br/><br/>(<b>$7,950/mes</b> descuento incluido)
+                                    </p>
+                                    <Link to='../cart?item=0' className='btn-action-memberships-card'>Suscribirme</Link>
+                                </div>
+                                <div className='subscription'>
+                                    <p className='text-align-center'>
+                                        <b>Trimestral<br/> (3 meses)</b>:<br/><br/> $13,900/mes<br/><br/>(<b>$6,950/mes</b> descuento incluido)
+                                    </p>
+                                    <Link to='../cart?item=1' className='btn-action-memberships-card'>Suscribirme</Link>
+                                </div>
+                                <div className='subscription'>
+                                    <p className='text-align-center'>
+                                        <b>Semestral<br/> (6 meses)</b>:<br/><br/> $12,900/mes<br/><br/>(<b>$6,450/mes</b> descuento incluido)
+                                    </p>
+                                    <Link to='../cart?item=2' className='btn-action-memberships-card'>Suscribirme</Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -138,50 +380,7 @@ export const LandingPage = () => {
                     <div className="curveSection-3"></div>
                 </div>
             </div>
-            <div className='footer margin-left-0'>
-                <div className='footer-section'>
-                    <p className='footer-title'>Mapa del sitio</p>
-                        
-                </div>            
-                <div className='footer-section'>
-                    <p className='footer-title'>Contacto</p>
-                    <p className='footer-text'>Puedes ponerte en contacto con nosotros en: integranutricion.cl@gmail.com.</p>
-                </div>            
-                <div className='footer-section'>
-                    <p className='footer-title'>Redes Sociales</p>
-                    {/* <Link  to={{ pathname: "https://www.instagram.com/integranutri_cl/" }} target="_blank" className='footer-link'>
-                        <p className='footer-text'>Instagram</p>
-                    </Link> */}
-                    <a
-                        href="https://www.instagram.com/integranutri_cl/"
-                        target='_blank'
-                        rel="noopener noreferrer"
-                        aria-label='Instagram'
-                        >
-                        <p className='footer-text'>Instagram</p>
-                    </a>
-                    
-                </div>
-            </div>
-            <div className='footer-bottom margin-left-0 pl-0'>
-                <img className="footer-logo" src={ Logo } alt="Logo de App_Nutricionista"/>
-                <p className='footer-text-bold'>IntegraNutri v1.2.0</p>
-                <br/>
-                <br/>
-                <p className='footer-text'>Desarrollado por Joaquín Salinas ☕</p>
-                <br/>
-                <a
-                    href="https://www.instagram.com/_joaco.sc_/"
-                    target='_blank'
-                    rel="noopener noreferrer"
-                    aria-label='Instagram'
-                    >
-                    <p className='footer-text'>_joaco.sc_</p>
-                </a>
-                <br/>
-                <p className='footer-text'>salinascastillojoaquin@gmail.com</p>
-                
-            </div>
+            <LandingFooter/>
             </div>
     )
 }

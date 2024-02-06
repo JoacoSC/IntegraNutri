@@ -283,6 +283,8 @@ export const SharePage = () => {
                                         }
                                     }
 
+                                    console.log('consultationSlotsArray:', dayObject.consultationSlots)
+
                                     if( nextConsultationsArray.length > 0 ){
 
                                         const consultationSlotsArray = dayObject.consultationSlots;
@@ -304,20 +306,21 @@ export const SharePage = () => {
                                                 }
                                             }
                                         }
-
-                                        // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
-
-                                        if( tempConsultationSlotsAvailableLength === 0 ){
-                                            dayObject.isAvailable = false;
-                                        }else{
-                                            dayObject.isAvailable = true;
-                                        }
-
-                                        dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
-
-                                        // console.log('dayObject: ', dayObject)
-
                                     }
+
+                                    // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
+
+                                    if( tempConsultationSlotsAvailableLength === 0 ){
+                                        dayObject.isAvailable = false;
+                                    }else{
+                                        dayObject.isAvailable = true;
+                                    }
+
+                                    dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
+
+                                    // console.log('dayObject: ', dayObject)
+
+                                    
 
                                 }else{
                                     dayObject.isAvailable = false
@@ -384,20 +387,21 @@ export const SharePage = () => {
                                                 }
                                             }
                                         }
-
-                                        // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
-
-                                        if( tempConsultationSlotsAvailableLength === 0 ){
-                                            dayObject.isAvailable = false;
-                                        }else{
-                                            dayObject.isAvailable = true;
-                                        }
-
-                                        dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
-
-                                        // console.log('dayObject: ', dayObject)
-
                                     }
+
+                                    // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
+
+                                    if( tempConsultationSlotsAvailableLength === 0 ){
+                                        dayObject.isAvailable = false;
+                                    }else{
+                                        dayObject.isAvailable = true;
+                                    }
+
+                                    dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
+
+                                    // console.log('dayObject: ', dayObject)
+
+                                    
 
                                 }else{
                                     dayObject.isAvailable = false
@@ -464,20 +468,21 @@ export const SharePage = () => {
                                                 }
                                             }
                                         }
-
-                                        // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
-
-                                        if( tempConsultationSlotsAvailableLength === 0 ){
-                                            dayObject.isAvailable = false;
-                                        }else{
-                                            dayObject.isAvailable = true;
-                                        }
-
-                                        dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
-
-                                        // console.log('dayObject: ', dayObject)
-
                                     }
+
+                                    // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
+
+                                    if( tempConsultationSlotsAvailableLength === 0 ){
+                                        dayObject.isAvailable = false;
+                                    }else{
+                                        dayObject.isAvailable = true;
+                                    }
+
+                                    dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
+
+                                    // console.log('dayObject: ', dayObject)
+
+                                    
 
                                 }else{
                                     dayObject.isAvailable = false
@@ -544,20 +549,21 @@ export const SharePage = () => {
                                                 }
                                             }
                                         }
-
-                                        // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
-
-                                        if( tempConsultationSlotsAvailableLength === 0 ){
-                                            dayObject.isAvailable = false;
-                                        }else{
-                                            dayObject.isAvailable = true;
-                                        }
-
-                                        dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
-
-                                        // console.log('dayObject: ', dayObject)
-
                                     }
+
+                                    // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
+
+                                    if( tempConsultationSlotsAvailableLength === 0 ){
+                                        dayObject.isAvailable = false;
+                                    }else{
+                                        dayObject.isAvailable = true;
+                                    }
+
+                                    dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
+
+                                    // console.log('dayObject: ', dayObject)
+
+                                    
 
                                 }else{
                                     dayObject.isAvailable = false
@@ -624,20 +630,21 @@ export const SharePage = () => {
                                                 }
                                             }
                                         }
-
-                                        // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
-
-                                        if( tempConsultationSlotsAvailableLength === 0 ){
-                                            dayObject.isAvailable = false;
-                                        }else{
-                                            dayObject.isAvailable = true;
-                                        }
-
-                                        dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
-
-                                        // console.log('dayObject: ', dayObject)
-
                                     }
+
+                                    // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
+
+                                    if( tempConsultationSlotsAvailableLength === 0 ){
+                                        dayObject.isAvailable = false;
+                                    }else{
+                                        dayObject.isAvailable = true;
+                                    }
+
+                                    dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
+
+                                    // console.log('dayObject: ', dayObject)
+
+                                    
 
                                 }else{
                                     dayObject.isAvailable = false
@@ -704,20 +711,21 @@ export const SharePage = () => {
                                                 }
                                             }
                                         }
-
-                                        // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
-
-                                        if( tempConsultationSlotsAvailableLength === 0 ){
-                                            dayObject.isAvailable = false;
-                                        }else{
-                                            dayObject.isAvailable = true;
-                                        }
-
-                                        dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
-
-                                        // console.log('dayObject: ', dayObject)
-
                                     }
+
+                                    // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
+
+                                    if( tempConsultationSlotsAvailableLength === 0 ){
+                                        dayObject.isAvailable = false;
+                                    }else{
+                                        dayObject.isAvailable = true;
+                                    }
+
+                                    dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
+
+                                    // console.log('dayObject: ', dayObject)
+
+                                    
 
                                 }else{
                                     dayObject.isAvailable = false
@@ -784,20 +792,21 @@ export const SharePage = () => {
                                                 }
                                             }
                                         }
-
-                                        // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
-
-                                        if( tempConsultationSlotsAvailableLength === 0 ){
-                                            dayObject.isAvailable = false;
-                                        }else{
-                                            dayObject.isAvailable = true;
-                                        }
-
-                                        dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
-
-                                        // console.log('dayObject: ', dayObject)
-
                                     }
+
+                                    // console.log('tempConsultationSlotsAvailable: ', tempConsultationSlotsAvailable)
+
+                                    if( tempConsultationSlotsAvailableLength === 0 ){
+                                        dayObject.isAvailable = false;
+                                    }else{
+                                        dayObject.isAvailable = true;
+                                    }
+
+                                    dayObject.consultationSlotsAvailableLength = tempConsultationSlotsAvailableLength;
+
+                                    // console.log('dayObject: ', dayObject)
+
+                                    
 
                                 }else{
                                     dayObject.isAvailable = false
@@ -849,6 +858,8 @@ export const SharePage = () => {
             
             
         }
+
+        // console.log('nextConsultationsArray:', array)
 
         setNextConsultationsArray( array )
 
@@ -929,6 +940,7 @@ export const SharePage = () => {
     }, [monthCounter]);
     
     // console.log('currentDay: ', currentDay)
+    // console.log('calendarArray: ', calendarArray)
 
     return (
         <div className="flex-column min-height-100vh">
