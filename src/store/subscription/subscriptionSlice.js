@@ -6,20 +6,14 @@ export const subscriptionSlice = createSlice({
         isActive: false,
         subStart: null,
         subEnd: null,
-        membership: null,
+        membership: {},
     },
     reducers: {
-        setSubscriptionActive: (state, { payload }) => {
-            state.isActive = payload;
-        },
-        setSubscriptionStart: (state, { payload }) => {
-            state.subStart = payload;
-        },
-        setSubscriptionEnd: (state, { payload }) => {
-            state.subEnd = payload;
-        },
-        setMembership: (state, { payload }) => {
-            state.membership = payload;
+        setSubscription: (state, { payload }) => {
+            state.isActive = payload.isActive;
+            state.subStart = payload.subStart;
+            state.subEnd = payload.subEnd;
+            state.membership = payload.membership;
         },
     }
 });
@@ -27,8 +21,5 @@ export const subscriptionSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { 
-    setSubscriptionActive,
-    setSubscriptionStart,
-    setSubscriptionEnd,
-    setMembership,
+    setSubscription,
 } = subscriptionSlice.actions;

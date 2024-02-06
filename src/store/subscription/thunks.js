@@ -1,20 +1,23 @@
-import { collection, deleteDoc, doc, getDocs, setDoc } from "firebase/firestore/lite";
+import { collection, deleteDoc, doc, getDoc, getDocs, setDoc } from "firebase/firestore/lite";
 import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
+import { setSubscription } from "./subscriptionSlice";
 
 
-export const startSetSubscriptionActive = ( uid ) => {
+export const startSetSubscription = ( uid ) => {
     return async( dispatch ) => {
 
-        // const collectionRef = collection( FirebaseDB, `users/${ uid }/patients` );
-        // const docs = await getDocs( collectionRef );
+        const documentRef = doc( FirebaseDB, `users/${ uid }/subscription/S-1` );
+        const result = await getDoc( documentRef );
 
-        // const patients = [];
+        const subscription = result.data()
+        
+        if (subscription && subscription.isActive) {
+            // Acceder a las propiedades de subscription aquí
+            dispatch( setSubscription( subscription ) )
 
-        // docs.forEach( doc => {
-        //     patients.push({ id: doc.id, ...doc.data() });
-        // });
-
-        // dispatch( setMyPatients( patients ) )
+            // console.log('subscription: ',subscription)
+        }
+        
 
     }
 }

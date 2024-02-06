@@ -22,7 +22,8 @@ export const VoucherPage = () => {
 
     const { status = '', buyOrder = '' } = queryString.parse( location.search );
 
-    const { isLogged } = useSelector( state => state.auth );
+    const { isLogged, uid } = useSelector( state => state.auth );
+
     const { 
         transaction_date= '2024-02-06T02:50:00.314Z',
         amount= 0,
@@ -111,7 +112,9 @@ export const VoucherPage = () => {
         if( buyOrder !== '0' || buyOrder !== undefined ){
 
             dispatch( startSetBuyOrder( buyOrder ) )
+            
         }
+
     }, [buyOrder])
 
     useEffect(() => {

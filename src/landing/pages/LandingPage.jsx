@@ -18,13 +18,15 @@ import Bar_chart_icon from '../../../assets/imgs/landing/bar_chart_icon.svg'
 import Like_icon from '../../../assets/imgs/landing/like_icon.svg'
 import Gear_icon from '../../../assets/imgs/landing/gear_icon.svg'
 import Menu_icon from '../../../assets/imgs/landing/menu_icon.svg'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { LandingFooter } from '../../ui/LandingFooter'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export const LandingPage = () => {
 
-    const { isLogged } = useSelector( state => state.auth );
+    const dispatch = useDispatch();
+
+    const { isLogged, uid } = useSelector( state => state.auth );
 
     const topRef = useRef();
     const homeRef = useRef();
