@@ -6,14 +6,27 @@ import { setSubscription } from "./subscriptionSlice";
 export const startSetSubscription = ( uid ) => {
     return async( dispatch ) => {
 
-        const documentRef = doc( FirebaseDB, `users/${ uid }/subscription/S-1` );
-        const result = await getDoc( documentRef );
+        //Consultando cantidad de suscripciones
 
-        const subscription = result.data()
+        const collectionRef = collection( FirebaseDB, `users/${ uid }/subscription` );
+        const docs = await getDocs( collectionRef );
+
+        const subscription = [];
+
+        docs.forEach( doc => {
+            subscription.push({ id: doc.id, ...doc.data() });
+        });
+
+        // const documentRef = doc( FirebaseDB, `users/${ uid }/subscription/S-1` );
+        // const result = await getDoc( documentRef );
+
+        // const subscription = result.data()
+
+        const currentSubscription = subscription[subscription.length - 1];
         
-        if (subscription && subscription.isActive) {
+        if (currentSubscription && currentSubscription.isActive) {
             // Acceder a las propiedades de subscription aquí
-            dispatch( setSubscription( subscription ) )
+            dispatch( setSubscription( currentSubscription ) )
 
             // console.log('subscription: ',subscription)
         }

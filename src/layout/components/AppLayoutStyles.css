@@ -52,11 +52,11 @@
     --food-wo-bg: url(../../../assets/imgs/background/pattern_base_without_bg.svg);
 
     --landing-img-ellipse: url(../../../assets/imgs/landing/ellipse.svg);
-    --landing-background-ellipses: url(../../../assets/imgs/landing/background-ellipses.svg);
-    --landing-background-lines: url(../../../assets/imgs/landing/background-lines.svg);
-    --landing-background-wave: url(../../../assets/imgs/landing/background-wave.svg);
-    --landing-background-wave-2: url(../../../assets/imgs/landing/background-wave-2.svg);
-    --landing-background-wave-3: url(../../../assets/imgs/landing/background-wave-3.svg);
+    --landing-background-ellipses: url(../../../assets/imgs/landing/background_ellipses.svg);
+    --landing-background-lines: url(../../../assets/imgs/landing/background_lines.svg);
+    --landing-background-wave: url(../../../assets/imgs/landing/background_wave.svg);
+    --landing-background-wave-2: url(../../../assets/imgs/landing/background_wave_2.svg);
+    --landing-background-wave-3: url(../../../assets/imgs/landing/background_wave_3.svg);
     
     
     --dropdown-arrow: url(../../../assets/imgs/patient/dropdown_arrow.svg);

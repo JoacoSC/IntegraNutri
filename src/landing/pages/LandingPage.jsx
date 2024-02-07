@@ -1,96 +1,102 @@
-import { Link } from 'react-router-dom'
-import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
-import IntegraNutri_texto from '../../../assets/imgs/auth/IntegraNutri_Texto.svg'
-import Webapp_example_1 from '../../../assets/imgs/landing/webapp_example_1.svg'
-import Webapp_example_2 from '../../../assets/imgs/landing/webapp_example_2.svg'
-import Cloud_icon from '../../../assets/imgs/landing/cloud_icon.svg'
-import Up_icon from '../../../assets/imgs/landing/up_icon.svg'
-import Precision_icon from '../../../assets/imgs/landing/precision_icon.svg'
-import Transformation_icon from '../../../assets/imgs/landing/transformation_icon.svg'
-import Safe_icon from '../../../assets/imgs/landing/safe_icon.svg'
-import Organized_icon from '../../../assets/imgs/landing/organized_icon.svg'
-import Patient_icon from '../../../assets/imgs/landing/patient_icon.svg'
-import Time_icon from '../../../assets/imgs/landing/time_icon.svg'
-import Chart_icon from '../../../assets/imgs/landing/chart_icon.svg'
-import Refresh_icon from '../../../assets/imgs/landing/refresh_icon.svg'
-import Journal_icon from '../../../assets/imgs/landing/journal_icon.svg'
-import Bar_chart_icon from '../../../assets/imgs/landing/bar_chart_icon.svg'
-import Like_icon from '../../../assets/imgs/landing/like_icon.svg'
-import Gear_icon from '../../../assets/imgs/landing/gear_icon.svg'
-import Menu_icon from '../../../assets/imgs/landing/menu_icon.svg'
-import { useEffect, useRef, useState } from 'react'
-import { LandingFooter } from '../../ui/LandingFooter'
-import { useDispatch, useSelector } from 'react-redux'
+// Librerías externas
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+// Componentes
+import { LandingFooter } from '../../ui/LandingFooter';
+
+// Imágenes y estilos
+import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg';
+import IntegraNutri_texto from '../../../assets/imgs/auth/IntegraNutri_Texto.svg';
+import * as Landing_images from '../../../assets/imgs/landing/';
+import { texts } from './';
+
+// Definición del componente SubscriptionLink
+const SubscriptionLink = ({ to, className, isSubscribed, children }) => {
+    if (isSubscribed) {
+      return <strong>Ya tienes una suscripción activa con esta membresía.</strong>;
+    } else {
+      return <Link to={to} className={className}>{children}</Link>;
+    }
+};
+
+// Componente de Beneficio
+const BenefitItem = ({imgSrc, title, description}) => (
+    <div className='benefits-item'>
+        <div className="benefits-card-img">
+            <img src={ imgSrc } alt={ title }/>
+        </div>
+        <h3>{ title }</h3>
+        <p>{ description }</p>
+    </div>
+);
+
+// Componente InfoCard
+const InfoCard = ({imgSrc, description}) => (
+    <div className='info-card'>
+        <div className="info-card-img">
+            <img src={ imgSrc } alt="Icono IntegraNutri"/>
+        </div>
+        <p>{ description }</p>
+    </div>
+);
 
 export const LandingPage = () => {
 
-    const dispatch = useDispatch();
-
-    const { isLogged, uid } = useSelector( state => state.auth );
-
-    const topRef = useRef();
-    const homeRef = useRef();
-    const infoRef = useRef();
-    const benefitsRef = useRef();
-    const membershipsRef = useRef();
-    const menuCheckbox = useRef();
-
-    const [visible, setVisible] = useState(false)
+    // Declaraciones de estado
+    const [visible, setVisible] = useState(false);
     const [menuChecked, setMenuChecked] = useState(false);
 
-    const handleScrollToTop = (  ) => {
-        topRef.current?.scrollIntoView({behavior: 'smooth'});
-    }
-    const handleHomeClick = (  ) => {
-        homeRef.current?.scrollIntoView({behavior: 'smooth'});
-    }
-    const handleInfoClick = (  ) => {
-        infoRef.current?.scrollIntoView({behavior: 'smooth'});
-    }
-    const handleBenefitsClick = (  ) => {
-        benefitsRef.current?.scrollIntoView({behavior: 'smooth'});
-    }
-    const handleMembershipsClick = (  ) => {
-        membershipsRef.current?.scrollIntoView({behavior: 'smooth'});
-    }
+    // Declaraciones de referencias
+    const benefitsRef = useRef();
+    const homeRef = useRef();
+    const infoRef = useRef();
+    const membershipsRef = useRef();
+    const menuCheckbox = useRef();
+    const topRef = useRef();
 
-    const toggleVisible = () => { 
-        const scrolled = document.documentElement.scrollTop; 
-        if (scrolled > 300){ 
-          setVisible(true) 
-        }  
-        else if (scrolled <= 300){ 
-          setVisible(false) 
-        } 
-    }; 
 
-    const handleMenu = () => {
+    // Declaraciones de Redux
+    const dispatch = useDispatch();
+    const { isLogged, uid } = useSelector( state => state.auth );
+    const subscription = useSelector( state => state.subscription );
+    const isSubscribed = subscription.isActive;
 
-        // menuCheckbox.current.checked = !menuCheckbox.current.checked;
+    // Funciones manejadoras
+    const handleScrollTo = (ref) => {
+        ref.current?.scrollIntoView({behavior: 'smooth'});
+    };
 
-        // const isChecked = menuCheckbox.current.checked;
+    const handleMenu = useCallback(() => {
+        setMenuChecked((prevMenuChecked) => !prevMenuChecked);
+    }, []);
 
-        // // Realiza las acciones que necesitas con el estado del checkbox
-        // if (isChecked) {
-        // // El checkbox está marcado
-        // console.log('El menú está activado');
-        // // Agrega aquí lógica adicional según tus necesidades
-        // } else {
-        // // El checkbox está desmarcado
-        // console.log('El menú está desactivado');
-        // // Agrega aquí lógica adicional según tus necesidades
-        // }
+    // Efectos
+    useEffect(() => {
 
-        setMenuChecked(!menuChecked);
-        
-    }
+        const toggleVisible = () => { 
+            const scrolled = document.documentElement.scrollTop; 
+            if (scrolled > 300){ 
+                setVisible(true) 
+            }  
+            else if (scrolled <= 300){ 
+                setVisible(false) 
+            } 
+        };
 
-    window.addEventListener('scroll', toggleVisible);
+        window.addEventListener('scroll', toggleVisible);
+
+        return () => {
+        window.removeEventListener('scroll', toggleVisible);
+        };
+
+    }, []);
 
     return (
         <div className="landing-main-container">
-            <button className='btn-scroll-to-top' style={{display: visible ? 'inline' : 'none'}} onClick={ handleScrollToTop }>
-                <img src={ Up_icon } alt="Icono IntegraNutri"/>
+            <button className='btn-scroll-to-top' style={{display: visible ? 'inline' : 'none'}} onClick={() => handleScrollTo(topRef)}>
+                <img src={ Landing_images.Up_icon } alt="Icono IntegraNutri"/>
             </button>
             <div ref={ topRef } className="landing-header">
                 <div className="landing-logo-container">
@@ -102,26 +108,26 @@ export const LandingPage = () => {
                 <div className="landing-nav">
                     <div className="menu-icon-container">
                         <input ref={menuCheckbox} type="checkbox" checked={ menuChecked } hidden readOnly/>
-                        <img src={Menu_icon} alt="Menú" onClick={handleMenu} />
+                        <img src={Landing_images.Menu_icon} alt="Menú" onClick={handleMenu} />
                     </div>
                     <ul className={` ${menuChecked ? 'landing-nav-list-active' : 'landing-nav-list'}`}>
                         <li className="landing-nav-item" data-tooltip="Inicio">
-                            <a onClick={ handleHomeClick }>
+                            <a onClick={() => handleScrollTo(homeRef)}>
                                 Inicio
                             </a>
                         </li>
                         <li className="landing-nav-item" data-tooltip="Inicio">
-                            <a onClick={ handleInfoClick }>
+                            <a onClick={() => handleScrollTo(infoRef)}>
                                 Info
                             </a>
                         </li>
                         <li className="landing-nav-item" data-tooltip="Inicio">
-                            <a onClick={ handleBenefitsClick }>
+                            <a onClick={() => handleScrollTo(benefitsRef)}>
                                 Beneficios
                             </a>
                         </li>
                         <li className="landing-nav-item" data-tooltip="Inicio">
-                            <a onClick={ handleMembershipsClick }>
+                            <a onClick={() => handleScrollTo(membershipsRef)}>
                                 Membresías
                             </a>
                         </li>
@@ -150,14 +156,14 @@ export const LandingPage = () => {
                     <div className="landing-title-container">
                         <h1 className='landing-title'>Bienvenido a IntegraNutri!</h1>
                         <p className='landing-description'>Potencia tu atención nutricional con IntegraNutri: Una herramienta integral para nutricionistas modernos.</p>
-                        <button className='btn-action' onClick={ handleMembershipsClick }>Suscribirme</button>
+                        <button className='btn-action' onClick={() => handleScrollTo(membershipsRef)}>Suscribirme</button>
                     </div>
                     <div className="landing-img-stack">
                         <div className="landing-img-1">
-                            <img src={ Webapp_example_1 } className="" alt="Icono IntegraNutri"/>
+                            <img src={ Landing_images.Webapp_example_1 } className="" alt="Icono IntegraNutri"/>
                         </div>
                         <div className="landing-img-2">
-                            <img src={ Webapp_example_2 } className="" alt="Icono IntegraNutri"/>
+                            <img src={ Landing_images.Webapp_example_2 } className="" alt="Icono IntegraNutri"/>
                         </div>
 
                     </div>
@@ -173,35 +179,13 @@ export const LandingPage = () => {
                 <div className="landing-info">
                     <h1 className='landing-title'>Información sobre IntegraNutri</h1>
                     <div className='info-card-container'>
-                        <div className='info-card'>
-                            <div className="info-card-img">
-                                <img src={ Cloud_icon } alt="Icono IntegraNutri"/>
-                            </div>
-                            <p>IntegraNutri ha sido concebida como una plataforma web exclusiva para profesionales de la nutrición,
-                             con el propósito de proporcionar herramientas y recursos que simplifiquen sus labores cotidianas. <br/><br/>
-                             La singularidad de IntegraNutri radica en su base de datos en la nube, asegurando así la disponibilidad
-                              constante de la información desde cualquier dispositivo con conexión a internet.<br/><br/> Adiós al uso de Excel;
-                               sumérgete en la experiencia única que ofrece IntegraNutri.</p>
-                        </div>
-                        <div className='info-card'>
-                            <div className="info-card-img">
-                                <img src={ Precision_icon } alt="Icono IntegraNutri"/>
-                            </div>
-                        <p>Esta plataforma ha sido meticulosamente diseñada, tomando como referencia los Patrones de Crecimiento
-                             para la evaluación nutricional de niños, niñas y adolescentes desde el nacimiento hasta los 19 años de edad,
-                              según las directrices establecidas por el Ministerio de Salud (MINSAL).<br/><br/>
-                               De esta manera, IntegraNutri se alinea con los estándares más actualizados y confiables en el ámbito
-                                de la evaluación nutricional pediátrica.</p>
-                        </div>
-                        <div className='info-card'>
-                            <div className="info-card-img">
-                                <img src={ Transformation_icon } alt="Icono IntegraNutri"/>
-                            </div>
-                        <p>La versatilidad de IntegraNutri no solo reside en su acceso a través de múltiples dispositivos,
-                             sino también en su capacidad para transformar la gestión de información nutricional,
-                              reemplazando las metodologías obsoletas por un enfoque moderno y eficaz.<br/><br/>
-                               Vive la revolución en el cuidado nutricional con IntegraNutri.</p>
-                        </div>
+                        {texts.infoCards.map((card, index) => (
+                            <InfoCard 
+                                key={index}
+                                imgSrc={card.imgSrc}
+                                description={card.description}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
@@ -215,109 +199,25 @@ export const LandingPage = () => {
                 <h1 className='landing-title'>Beneficios</h1>
                     <div className='benefits-card-container'>
                         <div className='benefits-card'>
-                            <div className='benefits-item'>
-                                <div className="benefits-card-img">
-                                    <img src={ Safe_icon } alt="Icono IntegraNutri"/>
-                                </div>
-                                <h3>
-                                    Seguro
-                                </h3>
-                                <p>IntegraNutri proporciona un acceso seguro y fiable a su plataforma, 
-                                garantizando la privacidad de los datos del profesional nutricionista.</p>
-                            </div>
-                            <div className='benefits-item'>
-                                <div className="benefits-card-img">
-                                    <img src={ Organized_icon } alt="Icono IntegraNutri"/>
-                                </div>
-                                <h3>
-                                    Organizado
-                                </h3>
-                                <p>Facilita la gestión eficiente de la información del paciente, 
-                                permitiendo un seguimiento preciso de historiales clínicos y progresos de manera organizada.</p>
-                            </div>
-                            <div className='benefits-item'>
-                                <div className="benefits-card-img">
-                                    <img src={ Patient_icon } alt="Icono IntegraNutri"/>
-                                </div>
-                                <h3>
-                                    Individualizado
-                                </h3>
-                                <p>Los pacientes están conectados mediante su perfil propio, 
-                                donde podrán visualizar antecedentes relevantes en su atención.</p>
-                            </div>
-                            <div className='benefits-item'>
-                                <div className="benefits-card-img">
-                                    <img src={ Time_icon } alt="Icono IntegraNutri"/>
-                                </div>
-                                <h3>
-                                    Eficiente
-                                </h3>
-                                <p>La plataforma integra funciones de recordatorio de citas y seguimientos, 
-                                optimizando la organización del profesional y mejorando la puntualidad en el cumplimiento
-                                de compromisos.</p>
-                                </div>
-                            <div className='benefits-item'>
-                                <div className="benefits-card-img">
-                                    <img src={ Chart_icon } alt="Icono IntegraNutri"/>
-                                </div>
-                                <h3>
-                                    Ilustrativo
-                                </h3>
-                                <p>Ofrece curvas de evolución para sus indicadores.</p>
-                            </div>
+                            {texts.benefitItems_1.map((item, index) => (
+                                <BenefitItem 
+                                    key={index}
+                                    imgSrc={item.imgSrc}
+                                    title={item.title}
+                                    description={item.description}
+                                />
+                            ))}
                         </div>
-                            <div className='benefits-card'>
-                                <div className='benefits-item'>
-                                    <div className="benefits-card-img">
-                                        <img src={ Gear_icon } alt="Icono IntegraNutri"/>
-                                    </div>
-                                    <h3>
-                                    Automatizada
-                                    </h3>
-                                    <p>La plataforma es automatizada, lo que permite la clasificación automática de datos 
-                                    ingresados según indicadores, mediciones, etc., optimizando los tiempos de atención.</p>
-                                    </div>
-                                <div className='benefits-item'>
-                                    <div className="benefits-card-img">
-                                        <img src={ Journal_icon } alt="Icono IntegraNutri"/>
-                                    </div>
-                                    <h3>
-                                        Personalizable
-                                    </h3>
-                                    <p>Cuenta con una agenda personalizable y enlace con redirección a su agenda, 
-                                    permitiendo que los pacientes agenden de manera automática.</p>
-                                    </div>
-                                <div className='benefits-item'>
-                                    <div className="benefits-card-img">
-                                        <img src={ Bar_chart_icon } alt="Icono IntegraNutri"/>
-                                    </div>
-                                    <h3>
-                                        Racional
-                                    </h3>
-                                    <p>Proporciona herramientas analíticas para evaluar estadísticas y tendencias, 
-                                    facilitando la toma de decisiones informadas en el proceso de tratamiento nutricional.</p>
-                                    </div>
-                                <div className='benefits-item'>
-                                    <div className="benefits-card-img">
-                                        <img src={ Like_icon } alt="Icono IntegraNutri"/>
-                                    </div>
-                                    <h3>
-                                    Accesible
-                                    </h3>
-                                    <p>IntegraNutri se destaca por su interfaz intuitiva y amigable, facilitando su uso 
-                                    tanto para profesionales como para pacientes, promoviendo una experiencia positiva.</p>
-                                    </div>
-                                <div className='benefits-item'>
-                                    <div className="benefits-card-img">
-                                        <img src={ Refresh_icon } alt="Icono IntegraNutri"/>
-                                    </div>
-                                    <h3>
-                                        Adaptativo
-                                    </h3>
-                                    <p>Ofrece actualizaciones regulares y mejoras continuas, demostrando un compromiso 
-                                    constante con la excelencia y la satisfacción tanto de profesionales como de pacientes.</p>
-                                </div>
-                            </div>
+                        <div className='benefits-card'>
+                            {texts.benefitItems_2.map((item, index) => (
+                                <BenefitItem 
+                                    key={index}
+                                    imgSrc={item.imgSrc}
+                                    title={item.title}
+                                    description={item.description}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -358,19 +258,37 @@ export const LandingPage = () => {
                                     <p className='text-align-center'>
                                         <b>Mensual</b>:<br/><br/><br/> $15,900/mes<br/><br/>(<b>$7,950/mes</b> descuento incluido)
                                     </p>
-                                    <Link to='../cart?item=0' className='btn-action-memberships-card'>Suscribirme</Link>
+                                    <SubscriptionLink
+                                        to='../cart?item=0'
+                                        className='btn-action-memberships-card'
+                                        isSubscribed={isSubscribed}  // Asegúrate de que isSubscribed sea un booleano
+                                        >
+                                        Suscribirme
+                                    </SubscriptionLink>
                                 </div>
                                 <div className='subscription'>
                                     <p className='text-align-center'>
                                         <b>Trimestral<br/> (3 meses)</b>:<br/><br/> $13,900/mes<br/><br/>(<b>$6,950/mes</b> descuento incluido)
                                     </p>
-                                    <Link to='../cart?item=1' className='btn-action-memberships-card'>Suscribirme</Link>
+                                    <SubscriptionLink
+                                        to='../cart?item=1'
+                                        className='btn-action-memberships-card'
+                                        isSubscribed={isSubscribed}  // Asegúrate de que isSubscribed sea un booleano
+                                        >
+                                        Suscribirme
+                                    </SubscriptionLink>
                                 </div>
                                 <div className='subscription'>
                                     <p className='text-align-center'>
                                         <b>Semestral<br/> (6 meses)</b>:<br/><br/> $12,900/mes<br/><br/>(<b>$6,450/mes</b> descuento incluido)
                                     </p>
-                                    <Link to='../cart?item=2' className='btn-action-memberships-card'>Suscribirme</Link>
+                                    <SubscriptionLink
+                                        to='../cart?item=2'
+                                        className='btn-action-memberships-card'
+                                        isSubscribed={isSubscribed}  // Asegúrate de que isSubscribed sea un booleano
+                                        >
+                                        Suscribirme
+                                    </SubscriptionLink>
                                 </div>
                             </div>
                         </div>
