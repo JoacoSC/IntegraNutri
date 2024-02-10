@@ -34,10 +34,6 @@ export const AppRouter = () => {
 
       dispatch( startSetSubscription( uid ) )
 
-      // TODO: Chequear si la suscripción ha caducado aquí
-      // TODO: Chequear si la suscripción ha caducado aquí
-      // TODO: Chequear si la suscripción ha caducado aquí
-
     })
 
   }, [isNutritionist])

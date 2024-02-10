@@ -545,6 +545,30 @@
     transition: all 500ms ease;
 }
 
+.modal-subscription-container{
+    /* display: grid;
+    grid-template-rows: auto auto; */
+    position: absolute;
+    width: 80vw;
+    height: max-content;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+
+    /* background-color: #EFF3FC; */
+    /* border-radius: 20px 8px 8px 20px; */
+    /* box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75); */
+    /* overflow-y: auto; */
+    /* transition: all 500ms ease; */
+}
+
+.overlay-transparent.ReactModal__Overlay {
+    background-color: transparent !important;
+}
+
 .modal-delete-consultation-container-form{
     display: flex;
     justify-content: center;

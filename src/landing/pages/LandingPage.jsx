@@ -11,6 +11,9 @@ import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellip
 import IntegraNutri_texto from '../../../assets/imgs/auth/IntegraNutri_Texto.svg';
 import * as Landing_images from '../../../assets/imgs/landing/';
 import { texts } from './';
+import { AlertBox } from '../../ui/AlertBox';
+import { ModalLoginCard, ModalSubscription } from '../../ui';
+import { startLogout } from '../../store/auth';
 
 // Definición del componente SubscriptionLink
 const SubscriptionLink = ({ to, className, isSubscribed, children }) => {
@@ -62,6 +65,7 @@ export const LandingPage = () => {
     const { isLogged, uid } = useSelector( state => state.auth );
     const subscription = useSelector( state => state.subscription );
     const isSubscribed = subscription.isActive;
+    const message = subscription.message;
 
     // Funciones manejadoras
     const handleScrollTo = (ref) => {
@@ -71,6 +75,12 @@ export const LandingPage = () => {
     const handleMenu = useCallback(() => {
         setMenuChecked((prevMenuChecked) => !prevMenuChecked);
     }, []);
+
+    const onLogout = () => {
+        
+        dispatch( startLogout() );
+
+    }
 
     // Efectos
     useEffect(() => {
@@ -95,6 +105,9 @@ export const LandingPage = () => {
 
     return (
         <div className="landing-main-container">
+            {
+                <ModalSubscription/>
+            }
             <button className='btn-scroll-to-top' style={{display: visible ? 'inline' : 'none'}} onClick={() => handleScrollTo(topRef)}>
                 <img src={ Landing_images.Up_icon } alt="Icono IntegraNutri"/>
             </button>
@@ -133,13 +146,20 @@ export const LandingPage = () => {
                         </li>
                         {
                             ( isLogged === true )
-                            ?   <li className="landing-nav-item-login" data-tooltip="Inicio">
-                                    <Link to="../nutritionist" className="link-no-decoration">
-                                        <div className="landing-btn-login">
-                                                Ir a IntegraNutri
-                                        </div>
-                                    </Link>
-                                </li>
+                            ?   <>
+                                    <li className="landing-nav-item-login" data-tooltip="Inicio">
+                                        <Link to="../nutritionist" className="link-no-decoration">
+                                            <div className="landing-btn-login">
+                                                    Ir a IntegraNutri
+                                            </div>
+                                        </Link>
+                                    </li>
+                                    <li className="landing-nav-item-login" data-tooltip="Inicio">
+                                        <button className="landing-btn-logout" type="button" onClick={ onLogout }>
+                                            Cerrar sesión
+                                        </button>
+                                    </li>
+                            </>
                             :   <li className="landing-nav-item-login" data-tooltip="Inicio">
                                     <Link to="../auth/login" className="link-no-decoration">
                                         <div className="landing-btn-login">
@@ -154,6 +174,7 @@ export const LandingPage = () => {
             <div ref={ homeRef } className="landing-section">
                 <div className="landing-img-container">
                     <div className="landing-title-container">
+                        {/* { message && <AlertBox message={ message }/> } */}
                         <h1 className='landing-title'>Bienvenido a IntegraNutri!</h1>
                         <p className='landing-description'>Potencia tu atención nutricional con IntegraNutri: Una herramienta integral para nutricionistas modernos.</p>
                         <button className='btn-action' onClick={() => handleScrollTo(membershipsRef)}>Suscribirme</button>
@@ -258,39 +279,72 @@ export const LandingPage = () => {
                                     <p className='text-align-center'>
                                         <b>Mensual</b>:<br/><br/><br/> $15,900/mes<br/><br/>(<b>$7,950/mes</b> descuento incluido)
                                     </p>
-                                    <SubscriptionLink
-                                        to='../cart?item=0'
-                                        className='btn-action-memberships-card'
-                                        isSubscribed={isSubscribed}  // Asegúrate de que isSubscribed sea un booleano
-                                        >
-                                        Suscribirme
-                                    </SubscriptionLink>
+                                    
+                                    {
+                                        ( isLogged === true )
+                                        ?   <SubscriptionLink
+                                                to='../cart?item=0'
+                                                className='btn-action-memberships-card'
+                                                isSubscribed={isSubscribed}  // Asegúrate de que isSubscribed sea un booleano
+                                                >
+                                                Suscribirme
+                                            </SubscriptionLink>
+                                        :   <>
+                                                <div className='cart-subscription-actions'>
+                                                    <ModalLoginCard/>
+
+                                                </div>
+                                            </>
+                                    }
                                 </div>
                                 <div className='subscription'>
                                     <p className='text-align-center'>
                                         <b>Trimestral<br/> (3 meses)</b>:<br/><br/> $13,900/mes<br/><br/>(<b>$6,950/mes</b> descuento incluido)
                                     </p>
-                                    <SubscriptionLink
-                                        to='../cart?item=1'
-                                        className='btn-action-memberships-card'
-                                        isSubscribed={isSubscribed}  // Asegúrate de que isSubscribed sea un booleano
-                                        >
-                                        Suscribirme
-                                    </SubscriptionLink>
+                                    {
+                                        ( isLogged === true )
+                                        ?   <SubscriptionLink
+                                                to='../cart?item=1'
+                                                className='btn-action-memberships-card'
+                                                isSubscribed={isSubscribed}  // Asegúrate de que isSubscribed sea un booleano
+                                                >
+                                                Suscribirme
+                                            </SubscriptionLink>
+                                        :   <>
+                                                <div className='cart-subscription-actions'>
+                                                    <ModalLoginCard/>
+
+                                                </div>
+                                            </>
+                                    }
                                 </div>
                                 <div className='subscription'>
                                     <p className='text-align-center'>
                                         <b>Semestral<br/> (6 meses)</b>:<br/><br/> $12,900/mes<br/><br/>(<b>$6,450/mes</b> descuento incluido)
                                     </p>
-                                    <SubscriptionLink
-                                        to='../cart?item=2'
-                                        className='btn-action-memberships-card'
-                                        isSubscribed={isSubscribed}  // Asegúrate de que isSubscribed sea un booleano
-                                        >
-                                        Suscribirme
-                                    </SubscriptionLink>
+                                    {
+                                        ( isLogged === true )
+                                        ?   <SubscriptionLink
+                                                to='../cart?item=2'
+                                                className='btn-action-memberships-card'
+                                                isSubscribed={isSubscribed}  // Asegúrate de que isSubscribed sea un booleano
+                                                >
+                                                Suscribirme
+                                            </SubscriptionLink>
+                                        :   <>
+                                                <div className='cart-subscription-actions'>
+                                                    <ModalLoginCard/>
+
+                                                </div>
+                                            </>
+                                    }
                                 </div>
                             </div>
+                                {
+                                    ( isLogged === true )
+                                    ?   null
+                                    :   <h5>¿No tienes una cuenta? <Link to='../auth/register' className="login-link">Registrarme</Link></h5>
+                                }
                         </div>
                     </div>
                 </div>

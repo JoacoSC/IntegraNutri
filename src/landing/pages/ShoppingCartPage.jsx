@@ -8,7 +8,7 @@ import { LandingFooter } from '../../ui/LandingFooter'
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import { useDispatch, useSelector } from 'react-redux'
-import { ModalLoginCart } from '../../ui/ModalLoginCart'
+import { ModalLoginCard } from '../../ui/ModalLoginCard'
 import { useFetch } from '../../hooks'
 import { setSelectedSubscription, startSetSubscriptions } from '../../store/shoppingCart'
 
@@ -220,7 +220,7 @@ export const ShoppingCartPage = () => {
                                 :   <>
                                         <div className='cart-subscription-actions'>
                                             <Link to="../home" className='btn-action-alt'>Volver</Link>
-                                            <ModalLoginCart/>
+                                            <ModalLoginCard/>
 
                                         </div>
                                         <h5>¿No tienes una cuenta? <Link to='../auth/register' className="login-link">Registrarme</Link></h5>

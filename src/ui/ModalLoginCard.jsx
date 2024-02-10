@@ -16,7 +16,7 @@ import passwordVisible from "../../assets/imgs/auth/show_password.svg"
 import passwordHidden from "../../assets/imgs/auth/hide_password.svg"
 import { startLoginWithEmailPassword } from '../store/auth';
 
-export const ModalLoginCart = () => {
+export const ModalLoginCard = () => {
 
     
     const { status } = useSelector( state => state.auth )

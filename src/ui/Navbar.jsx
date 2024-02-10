@@ -37,7 +37,7 @@ export const Navbar = () => {
         <div className="navbar">
             <ul className="nav__list">
                 <li className="nav__item__logo" data-tooltip="NutritionistApp">
-                    <a href="#">
+                    <a href="/home">
                         <img src={ IntegraNutri_ellipse } className="logo-item" alt="Icono IntegraNutri"/>
                     </a>
                 </li>

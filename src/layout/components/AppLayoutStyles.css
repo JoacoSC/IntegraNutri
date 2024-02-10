@@ -236,6 +236,15 @@ body{
     text-decoration: none;
     cursor: pointer;
 }
+.landing-nav-item-login button{
+    font-family: "Metropolis", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    /* color: white; */
+    appearance: none;
+    text-decoration: none;
+    cursor: pointer;
+}
 .landing-nav-item-login p{
     font-size: 1.2rem;
     font-weight: 500;
@@ -263,6 +272,30 @@ body{
 }
 
 .landing-btn-login:focus{
+    outline: none;
+    border: 1px solid #a320d3;
+}
+
+.landing-btn-logout{
+    padding: 1rem;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    height: 3rem;
+    width: 10rem;
+    box-shadow: 0px 0px 3px 0px rgba(233,238,253,0.75);
+    color: black;
+    transition: 100ms ease all;
+}
+
+.landing-btn-logout:hover{
+    background-color: #fbfbfb;
+    transform:scale(0.99);
+}
+
+.landing-btn-logout:focus{
     outline: none;
     border: 1px solid #a320d3;
 }

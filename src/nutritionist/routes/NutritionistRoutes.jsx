@@ -8,7 +8,13 @@ export const NutritionistRoutes = () => {
 
   const { isNutritionistStatus } = useSelector( state => state.auth );
 
+  const { isActive } = useSelector( state => state.subscription );
+
   if (isNutritionistStatus === false) return <PatientRoutes />;
+
+  if (!isActive) {
+    return <Navigate to="/home" />;
+}
 
   return (
     <>

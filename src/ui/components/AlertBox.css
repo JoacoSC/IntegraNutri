@@ -1,0 +1,59 @@
+/* AlertBox.css */
+.alert-box {
+    padding: 15px;
+    background-color: #fcf8e3; /* color de fondo amarillo claro */
+    color: #8a6d3b; /* color de texto marrón */
+    border: 1px solid #8a6d3b; /* borde de color amarillo */
+    border-radius: 4px; /* bordes redondeados */
+    position: relative;
+    margin: 2rem 4rem 0 2rem;
+    font-size: 14px; /* tamaño de fuente más pequeño */
+    line-height: 1.5; /* espacio entre líneas */
+}
+
+.alert-box button {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0.7; 
+}
+
+.alert-box button:hover {
+    opacity: 1; /* botón más oscuro al pasar el ratón */
+}
+
+.modal-alert-box {
+    padding: 15px;
+    background-color: #fcf8e3; /* color de fondo amarillo claro */
+    color: #8a6d3b; /* color de texto marrón */
+    border: 1px solid #8a6d3b; /* borde de color amarillo */
+    border-radius: 4px; /* bordes redondeados */
+    position: relative;
+    /* margin: 2rem 4rem 0 2rem; */
+    font-size: 14px; /* tamaño de fuente más pequeño */
+    line-height: 1.5; /* espacio entre líneas */
+}
+
+.modal-alert-box button {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0.7; 
+}
+
+.modal-alert-box button:hover {
+    opacity: 1; /* botón más oscuro al pasar el ratón */
+}
+
+.close-icon {
+    width: 10px; /* ancho del icono */
+    height: 10px; /* altura del icono */
+}

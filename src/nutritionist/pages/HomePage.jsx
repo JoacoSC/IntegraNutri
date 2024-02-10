@@ -12,6 +12,7 @@ import { es } from 'date-fns/locale'
 import Nutri_face_scarf from '../../../assets/imgs/navbar/Nutri_face_scarf.svg'
 import { Link } from "react-router-dom";
 import { startLoadingMyJournal } from "../../store/journal";
+import { AlertBox } from "../../ui/AlertBox";
 
 export const HomePage = () => {
 
@@ -24,6 +25,8 @@ export const HomePage = () => {
     const { userDataID, displayName, rut, region, city } = useSelector( state => state.userInfo )
 
     const { patients } = useSelector( state => state.patients )
+
+    const { message } = useSelector( state => state.subscription )
 
     const [isLoading, setIsLoading] = useState( true );
 
@@ -144,6 +147,7 @@ export const HomePage = () => {
                         <p>Hola nutricionista, echemos un vistazo a sus pacientes de hoy</p>
 
                     </div>
+                    { message && <AlertBox message={ message }/>}
                     <div className="home-container">
                         <div className="home-item-container">
                             <div className="sub-title">

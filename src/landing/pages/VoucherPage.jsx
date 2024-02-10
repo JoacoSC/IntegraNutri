@@ -8,7 +8,7 @@ import { LandingFooter } from '../../ui/LandingFooter'
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import { useDispatch, useSelector } from 'react-redux'
-import { ModalLoginCart } from '../../ui/ModalLoginCart'
+import { ModalLoginCard } from '../../ui/ModalLoginCard'
 import { useFetch } from '../../hooks'
 import { startSetBuyOrder } from '../../store/buyOrder'
 

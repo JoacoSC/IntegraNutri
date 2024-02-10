@@ -31,3 +31,5 @@ export * from './Footer';
 export * from './LandingFooter';
 export * from './ModalLogin';
 export * from './ModalPatientRegister';
+export * from './ModalSubscription';
+export * from './ModalLoginCard';
