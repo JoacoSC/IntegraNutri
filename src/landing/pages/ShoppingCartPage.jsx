@@ -23,7 +23,8 @@ export const ShoppingCartPage = () => {
 
     const { isLogged, uid } = useSelector( state => state.auth );
 
-    const { data } = useFetch(`http://localhost:4200/api/create?item=${ item }&uid=${ uid }`);
+    const { data } = useFetch(`https://fair-pea-coat-ray.cyclic.app/api/create?item=${ item }&uid=${ uid }`);
+    // const { data } = useFetch(`http://localhost:4200/api/create?item=${ item }&uid=${ uid }`);
 
     const { subscriptions = [], selectedSubscription = {} } = useSelector( state => state.shoppingCart );
 
