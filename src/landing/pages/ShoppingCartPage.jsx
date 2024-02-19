@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ModalLoginCard } from '../../ui/ModalLoginCard'
 import { useFetch } from '../../hooks'
 import { setSelectedSubscription, startSetSubscriptions } from '../../store/shoppingCart'
+import { LoadingScreen } from '../../ui/LoadingScreen'
 
 export const ShoppingCartPage = () => {
 
@@ -34,6 +35,7 @@ export const ShoppingCartPage = () => {
     const [monthlyPrice, setMonthlyPrice] = useState(0);
     const [subscriptionDiscount, setSubscriptionDiscount] = useState(0);
     const [subscriptionMonths, setSubscriptionMonths] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
 
     const [visible, setVisible] = useState(false)
     const [menuChecked, setMenuChecked] = useState(false);
@@ -112,6 +114,8 @@ export const ShoppingCartPage = () => {
             setMonthlyPrice( data.subscriptionData.monthlyPrice )
             setSubscriptionDiscount( data.subscriptionData.subscriptionDiscount )
             setSubscriptionMonths( data.subscriptionData.subscriptionMonths )
+
+            setIsLoading(false);
         }
     }, [data])
     
@@ -163,71 +167,80 @@ export const ShoppingCartPage = () => {
                 <div className="landing-img-container">
                     
                     <div className='cart-container'>
-                        <div className='cart-detail'>
-                            {/* <h1>Resumen de tu suscripción: { ( item === '1' ) ? '1 Mes' : ( item === '2' ) ? '3 Meses' : ( item === '3' ) ? '6 Meses' : 'N/A'}</h1> */}
-                            <h1>Resumen de tu suscripción</h1>
-                            <br/>
-                            <div className='cart-subscription-details'>
-                                <h3>{ selectedSubscription.subscriptionDescription }</h3>
-                                <h3>${ formatearNumero( monthlyPrice ) }/mes</h3>
-                            </div>
-                            {
-                                ( subscriptionDiscount > 0 )
-                                ?   <div className='cart-subscription-details'>
-                                        <h3>Descuento:</h3>
-                                        <h3>{ formatearNumero( 100 * subscriptionDiscount ) }%</h3>
+                        {
+                            ( isLoading )
+                            ?   <div className="loading-white-background">
+                                    <div className="loading__dot"></div>
+                                    <div className="loading__dot"></div>
+                                    <div className="loading__dot"></div>
+                                </div>
+                            :   <div className='cart-detail'>
+                                    {/* <h1>Resumen de tu suscripción: { ( item === '1' ) ? '1 Mes' : ( item === '2' ) ? '3 Meses' : ( item === '3' ) ? '6 Meses' : 'N/A'}</h1> */}
+                                    <h1>Resumen de tu suscripción</h1>
+                                    <br/>
+                                    <div className='cart-subscription-details'>
+                                        <h3>{ selectedSubscription.subscriptionDescription }</h3>
+                                        <h3>${ formatearNumero( monthlyPrice ) }/mes</h3>
                                     </div>
-                                :   null
-                            }
-
-                            <div className='cart-subscription-details'>
-                                <h3>Duración de la suscripción:</h3>
-                                <h3>
                                     {
-                                        ( subscriptionMonths > 1 )
-                                        ?   `${ subscriptionMonths } meses`
-                                        :   `${ subscriptionMonths } mes`
+                                        ( subscriptionDiscount > 0 )
+                                        ?   <div className='cart-subscription-details'>
+                                                <h3>Descuento:</h3>
+                                                <h3>{ formatearNumero( 100 * subscriptionDiscount ) }%</h3>
+                                            </div>
+                                        :   null
                                     }
-                                </h3>
-                            </div>
-                            <br/>
-                            <div className='cart-subscription-details'>
-                                <h3>Subtotal:</h3>
-                                <h3>${ formatearNumero(subtotalAmount) }</h3>
-                            </div>
-                            {
-                                ( subscriptionDiscount > 0 )
-                                ?   <div className='cart-subscription-details'>
-                                        <h3>Total descuento:</h3>
-                                        <h3>-${ formatearNumero(subscriptionDiscount * subscriptionMonths * monthlyPrice ) }</h3>
-                                    </div>
-                                :   null
-                            }
-                            <br/>
-                            <div className='cart-subscription-hr'></div>
-                            <div className='cart-subscription-details'>
-                                <h3>Total:</h3>
-                                <h3>${ formatearNumero(totalAmount) }</h3>
-                                
-                            </div>
-                            <br/>
-                            {
-                                ( isLogged === true )
-                                ?   <div className='cart-subscription-actions'>
-                                        <Link to="../home" className='btn-action-alt'>Volver</Link>
-                                        <button onClick={ payment } className='btn-action'>Continuar</button>
-                                    </div>
-                                :   <>
-                                        <div className='cart-subscription-actions'>
-                                            <Link to="../home" className='btn-action-alt'>Volver</Link>
-                                            <ModalLoginCard/>
 
-                                        </div>
-                                        <h5>¿No tienes una cuenta? <Link to='../auth/register' className="login-link">Registrarme</Link></h5>
-                                    </>
-                            }
-                            
-                        </div>
+                                    <div className='cart-subscription-details'>
+                                        <h3>Duración de la suscripción:</h3>
+                                        <h3>
+                                            {
+                                                ( subscriptionMonths > 1 )
+                                                ?   `${ subscriptionMonths } meses`
+                                                :   `${ subscriptionMonths } mes`
+                                            }
+                                        </h3>
+                                    </div>
+                                    <br/>
+                                    <div className='cart-subscription-details'>
+                                        <h3>Subtotal:</h3>
+                                        <h3>${ formatearNumero(subtotalAmount) }</h3>
+                                    </div>
+                                    {
+                                        ( subscriptionDiscount > 0 )
+                                        ?   <div className='cart-subscription-details'>
+                                                <h3>Total descuento:</h3>
+                                                <h3>-${ formatearNumero(subscriptionDiscount * subscriptionMonths * monthlyPrice ) }</h3>
+                                            </div>
+                                        :   null
+                                    }
+                                    <br/>
+                                    <div className='cart-subscription-hr'></div>
+                                    <div className='cart-subscription-details'>
+                                        <h3>Total:</h3>
+                                        <h3>${ formatearNumero(totalAmount) }</h3>
+                                        
+                                    </div>
+                                    <br/>
+                                    {
+                                        ( isLogged === true )
+                                        ?   <div className='cart-subscription-actions'>
+                                                <Link to="../home" className='btn-action-alt'>Volver</Link>
+                                                <button onClick={ payment } className='btn-action'>Continuar</button>
+                                            </div>
+                                        :   <>
+                                                <div className='cart-subscription-actions'>
+                                                    <Link to="../home" className='btn-action-alt'>Volver</Link>
+                                                    <ModalLoginCard/>
+
+                                                </div>
+                                                <h5>¿No tienes una cuenta? <Link to='../auth/register' className="login-link">Registrarme</Link></h5>
+                                            </>
+                                    }
+                                    
+                                </div>
+                        }
+                        
                     </div>
                     
 

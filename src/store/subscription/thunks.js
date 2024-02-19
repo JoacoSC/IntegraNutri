@@ -3,12 +3,17 @@ import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
 import { setSubscription } from "./subscriptionSlice";
 
 function convertToISO(dateString) {
-    const [day, month, yearTime] = dateString.split('/');
-    const [year, time] = yearTime.split(', ');
-    // Asegúrate de que el día y el mes siempre tengan dos dígitos
+    const [date, time] = dateString.split(', ');
+    const [day, month, year] = date.split('/');
+    const [hour, minute] = time.split(':');
+
+    // Asegúrate de que el día, el mes, la hora y el minuto siempre tengan dos dígitos
     const paddedDay = day.padStart(2, '0');
     const paddedMonth = month.padStart(2, '0');
-    return `${year}-${paddedMonth}-${paddedDay}T${time}`;
+    const paddedHour = hour.padStart(2, '0');
+    const paddedMinute = minute.padStart(2, '0');
+
+    return `${year}-${paddedMonth}-${paddedDay}T${paddedHour}:${paddedMinute}`;
 }
 
 export const startSetSubscription = ( uid ) => {

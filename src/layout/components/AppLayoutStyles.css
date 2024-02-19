@@ -74,10 +74,34 @@
 }
 
 /* ===== Scrollbar CSS ===== */
-/* Firefox */
-* {
-scrollbar-width: auto;
-scrollbar-color: #e6d4fe var(--clr-day-ellipse-primary);
+/* Chrome */
+.scroller {
+    --scrollbar-color-thumb: #6D22D0;
+    --scrollbar-color-track: #d9c3f8;
+    --scrollbar-width: thin;
+    --scrollbar-width-legacy: 10px;
+}
+
+/* Modern browsers with `scrollbar-*` support */
+@supports (scrollbar-width: auto) {
+    .scroller {
+        scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+        scrollbar-width: var(--scrollbar-width);
+    }
+}
+
+/* Legacy browsers with `::-webkit-scrollbar-*` support */
+@supports selector(::-webkit-scrollbar) {
+    .scroller::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb);
+    }
+    .scroller::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track);
+    }
+    .scroller::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy);
+    }
 }
 
 /* Chrome, Edge, and Safari */
@@ -312,6 +336,7 @@ body{
     align-items: center;
     justify-content: center;
     padding: 2rem 2rem 10rem;
+    min-height: 500px;
     width: 100%;
     max-width: 100vw;
     /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
@@ -815,11 +840,13 @@ body{
 }
 
 .cart-container{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: fit-content;
+    height: 100%;
+    /* min-height: 400px; */
     width: 90%;
     max-width: 900px;
     min-width: 250px;
@@ -829,6 +856,7 @@ body{
     color: white;
     border-radius: 15px;
     box-shadow: 0px 9px 15px 0px rgba(69,35,114,0.6);
+    overflow: hidden;
 }
 .cart-detail{
     display: flex;
@@ -873,9 +901,13 @@ body{
 .voucher-details{
     display: flex;
     justify-content: center;
-    gap: 2rem;
     width: 100%;
-
+}
+.voucher-details strong{
+    margin: 0 auto 0 4rem;
+}
+.voucher-details p{
+    margin: 0 4rem 0 auto;
 }
 
 /* ************* Landing Page ************** */
@@ -2992,6 +3024,22 @@ th {
     .footer{
         flex-direction: column;
         align-items: center;
+    }
+
+    .voucher-details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    .voucher-details strong{
+        margin: 0;
+    }
+    .voucher-details p{
+        margin: 0;
     }
   }
 

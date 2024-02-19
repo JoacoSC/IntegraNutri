@@ -55,10 +55,7 @@ export const PrivacyPage = () => {
                 <div className="terms-background">
                     <div className='terms-card-container'>
                         <div className='terms-card'>
-                            {/* TODO: */}
-                            {/* TODO: */}
-                            {/* TODO: */}
-                            {/* TODO: REVISAR ESTO */}
+                            
                             <h1>Política de Privacidad de IntegraNutri</h1>
 
                             <p><strong>Fecha de última actualización:</strong> 27 de Diciembre de 2023</p>

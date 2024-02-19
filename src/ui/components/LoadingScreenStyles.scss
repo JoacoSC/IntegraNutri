@@ -25,6 +25,18 @@ $animation: cubic-bezier(0.45, 0, 0.55, 1);
   z-index: 1;
 }
 
+.loading-white-background{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  // margin-left: -2rem;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: white;
+}
+
 .loading__dot {
   height: 40px;
   width: 40px;
@@ -48,6 +60,24 @@ $animation: cubic-bezier(0.45, 0, 0.55, 1);
 
 @for $i from 1 through 3 {
   .loading div:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.1}s;
+  }
+}
+
+@keyframes loading-white-background {
+  0%,
+  100% {
+    transform: translatey(-2.5rem);
+    background-color: $clr-dark;
+  }
+  50% {
+    transform: translatey(2.5rem);
+    background-color: $clr-light;
+  }
+}
+
+@for $i from 1 through 3 {
+  .loading-white-background div:nth-child(#{$i}) {
     animation-delay: #{$i * 0.1}s;
   }
 }

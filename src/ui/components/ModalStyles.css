@@ -551,7 +551,7 @@
     position: absolute;
     width: 80vw;
     height: max-content;
-    top: 20%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
