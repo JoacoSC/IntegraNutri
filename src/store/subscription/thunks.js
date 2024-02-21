@@ -3,9 +3,16 @@ import { FirebaseAuth, FirebaseDB } from "../../firebase/config";
 import { setSubscription } from "./subscriptionSlice";
 
 function convertToISO(dateString) {
-    const [date, time] = dateString.split(', ');
-    const [day, month, year] = date.split('/');
-    const [hour, minute] = time.split(':');
+    const [date, timePart] = dateString.split(', ');
+    const [month, day, year] = date.split('/');
+    const [time, period] = timePart.split(' ');
+
+    let [hour, minute, second] = time.split(':');
+
+    // Convierte la hora a formato de 24 horas si es PM
+    if (period.toUpperCase() === 'PM') {
+        hour = (parseInt(hour) + 12).toString();
+    }
 
     // Asegúrate de que el día, el mes, la hora y el minuto siempre tengan dos dígitos
     const paddedDay = day.padStart(2, '0');
@@ -13,8 +20,11 @@ function convertToISO(dateString) {
     const paddedHour = hour.padStart(2, '0');
     const paddedMinute = minute.padStart(2, '0');
 
-    return `${year}-${paddedMonth}-${paddedDay}T${paddedHour}:${paddedMinute}`;
+    console.log('subEnd-ISO:', `${year}-${paddedMonth}-${paddedDay}T${paddedHour}:${paddedMinute}:${second}`)
+    return `${year}-${paddedMonth}-${paddedDay}T${paddedHour}:${paddedMinute}:${second}`;
 }
+
+
 
 export const startSetSubscription = ( uid ) => {
     return async( dispatch ) => {
