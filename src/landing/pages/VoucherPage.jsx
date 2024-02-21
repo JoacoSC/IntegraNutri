@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
 import IntegraNutri_texto from '../../../assets/imgs/auth/IntegraNutri_Texto.svg'
 import Menu_icon from '../../../assets/imgs/landing/menu_icon.svg'
+import Check_icon from '../../../assets/imgs/landing/check_icon.svg'
+import Error_icon from '../../../assets/imgs/landing/error_icon.svg'
 import { useEffect, useRef, useState } from 'react'
 import { LandingFooter } from '../../ui/LandingFooter'
 
@@ -127,17 +129,18 @@ export const VoucherPage = () => {
 
     useEffect(() => {
         handleScrollToTop();
+        dispatch( startSetBuyOrder( buyOrder ) )
     }, [])
 
     useEffect(() => {
 
-        if( buyOrder !== '0' || buyOrder !== undefined && membership.description !== undefined ){
+        if( buyOrder !== 'O-1-123456' ){
 
-            dispatch( startSetBuyOrder( buyOrder ) )
+            // dispatch( startSetBuyOrder( buyOrder ) )
             setIsLoading(false);
         }
 
-    }, [buyOrder, membership])
+    }, [buyOrder])
 
     useEffect(() => {
 
@@ -200,44 +203,115 @@ export const VoucherPage = () => {
                                 </div>
                             :   <div className='cart-detail'>
                                 {/* <h1>Resumen de tu suscripción: { ( item === '1' ) ? '1 Mes' : ( item === '2' ) ? '3 Meses' : ( item === '3' ) ? '6 Meses' : 'N/A'}</h1> */}
-                                <h1>Comprobante de pago</h1>
-                                <br/>
-                                <div className='voucher-details'>
-                                    <strong>Nombre del comercio:</strong>
-                                    <p>{ companyName }</p>
-                                </div>
-                                <div className='voucher-details'>
-                                    <strong>Orden de compra:</strong>
-                                    <p>{ buy_order }</p>
-                                </div>
-                                <div className='voucher-details'>
-                                    <strong>Fecha y hora:</strong>
-                                    <p>{ formattedTransactionDate }</p>
-                                </div>
-                                <div className='voucher-details'>
-                                    <strong>Monto:</strong>
-                                    <p>${ amount } CLP</p>
-                                </div>
-                                <div className='voucher-details'>
-                                    <strong>Código de autorización:</strong>
-                                    <p>{ authorization_code }</p>
-                                </div>
-                                <div className='voucher-details'>
-                                    <strong>Tipo de pago:</strong>
-                                    <p>{ getPaymentType( payment_type_code ) }</p>
-                                </div>
-                                <div className='voucher-details'>
-                                    <strong>Cuatro últimos dígitos de la tarjeta:</strong>
-                                    <p>{ card_detail.card_number }</p>
-                                </div>
-                                <div className='voucher-details'>
-                                    <strong>Descripción de la suscripción:</strong>
-                                    <p>{ membership.description }</p>
-                                </div>
-                                <div className='voucher-details'>
-                                    <strong>Estado de la transacción:</strong>
-                                    <p>{ getTransactionStatus( result ) }</p>
-                                </div>
+                                {
+                                    ( buyOrder === '0' )
+                                    ?   null
+                                    :   <>
+                                            <div className='voucher-details'>
+                                                <h1>Comprobante de pago</h1>
+                                            </div>
+                                            <br/>
+                                            <div className='voucher-details'>
+                                                <strong>Nombre del comercio:</strong>
+                                                <p>{ companyName }</p>
+                                            </div>
+                                            <div className='voucher-details'>
+                                                <strong>Orden de compra:</strong>
+                                                <p>{ buy_order }</p>
+                                            </div>
+                                            <div className='voucher-details'>
+                                                <strong>Fecha y hora:</strong>
+                                                <p>{ formattedTransactionDate }</p>
+                                            </div>
+                                            <div className='voucher-details'>
+                                                <strong>Monto:</strong>
+                                                <p>${ amount } CLP</p>
+                                            </div>
+                                            <div className='voucher-details'>
+                                                <strong>Código de autorización:</strong>
+                                                <p>{ authorization_code }</p>
+                                            </div>
+                                            <div className='voucher-details'>
+                                                <strong>Tipo de pago:</strong>
+                                                <p>{ getPaymentType( payment_type_code ) }</p>
+                                            </div>
+                                            <div className='voucher-details'>
+                                                <strong>Cuatro últimos dígitos de la tarjeta:</strong>
+                                                <p>{ card_detail.card_number }</p>
+                                            </div>
+                                            <div className='voucher-details'>
+                                                <strong>Descripción de la suscripción:</strong>
+                                                <p>{ membership.description }</p>
+                                            </div>
+                                            <div className='voucher-details'>
+                                                <strong>Estado de la transacción:</strong>
+                                                <p>{ getTransactionStatus( result ) }</p>
+                                            </div>
+                                        </>
+                                }
+                                {
+                                    (   status === '0000' )
+                                        ?   <>
+                                                <img src={ Check_icon } className='voucher-result-icon' alt='Icono de éxito'/>
+                                                <div className='voucher-details'>
+                                                    <h5>Pago realizado exitosamente.</h5>
+                                                </div>
+                                            </>
+                                        :   null
+                                    }
+                                    {
+                                        (   status === '0001' )
+                                        ?   <>
+                                                <img src={ Error_icon } className='voucher-result-icon' alt='Icono de error'/>
+                                                <div className='voucher-details'>
+                                                    <h5>Ocurrió algún error y tu medio de pago ha sido rechazado.</h5>
+                                                </div>
+                                                <div className='voucher-details'>
+                                                    <h5>No se hizo ningún cargo a tu cuenta.</h5>
+                                                </div>
+                                            </>
+                                        :   null
+                                    }
+                                    {
+                                        (   status === '0002' )
+                                        ?   <>
+                                                <img src={ Error_icon } className='voucher-result-icon' alt='Icono de error'/>
+                                                <div className='voucher-details'>
+                                                    <h5>Pago anulado por tiempo de espera.</h5>
+                                                </div>
+                                            </>
+                                        :   null
+                                    }
+                                    {
+                                        (   status === '0003' )
+                                        ?   <>
+                                                <img src={ Error_icon } className='voucher-result-icon' alt='Icono de error'/>
+                                                <div className='voucher-details'>
+                                                    <h5>Pago anulado por el usuario.</h5>
+                                                </div>
+                                            </>
+                                        :   null
+                                    }
+                                    {
+                                        (   status === '0004' )
+                                        ?   <>
+                                                <img src={ Error_icon } className='voucher-result-icon' alt='Icono de error'/>
+                                                <div className='voucher-details'>
+                                                    <h5>Pago anulado.</h5>
+                                                </div>
+                                            </>
+                                        :   null
+                                    }
+                                    {
+                                        (   status !== '0000' && status !== '0001' && status !== '0002' && status !== '0003' && status !== '0004' )
+                                        ?   <>
+                                                <img src={ Error_icon } className='voucher-result-icon' alt='Icono de error'/>
+                                                <div className='voucher-details'>
+                                                    <h5>Ocurrió algún error.</h5>
+                                                </div>
+                                            </>
+                                        :   null
+                                    }
                                 <br/>
                                 
                             </div>
