@@ -7,3 +7,5 @@ export * from './FooterStyles.css'
 export * from './DropdownStyles.css'
 export * from './PatientSecondaryCard.css'
 export * from './AlertBox.css'
+
+export * from './PatientForm'
