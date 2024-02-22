@@ -397,7 +397,7 @@ export const JournalPage = () => {
                 // console.log(`${consultationIndex}: ${consultationIndex} - ${patientIndex}: ${patient.nextConsultation}`)
                 consultationSlotsArray[consultationIndex] = {...consultationSlot, patient }
                 // console.log(consultationSlot)
-                console.log('consultationSlotsArray :', consultationSlotsArray)
+                // console.log('consultationSlotsArray :', consultationSlotsArray)
             }
             
         });

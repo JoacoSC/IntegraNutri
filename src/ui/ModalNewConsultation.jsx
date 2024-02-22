@@ -16,10 +16,11 @@ import { isAddingNewConsultation, startLoadingMyJournal } from "../store/journal
 import { regiones } from "../helpers";
 import { ComunasSelect } from "./ComunasSelect";
 import { ErrorManager } from "./ErrorManager";
+import { PatientForm } from "./components";
 
 export const ModalNewConsultation = ({ consultationSlot }) => {
 
-    console.log('consultationSlot: ', consultationSlot)
+    // console.log('consultationSlot: ', consultationSlot)
     const { uid } = useSelector( state => state.auth );
 
     const { patients } = useSelector( state => state.patients );
@@ -40,7 +41,17 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
     const [rutValidation, setRutValidation] = useState(true)
     const { disableConfirmBtn, error, errorCode } = useSelector( state => state.loginHelper );
 
-    const { sp_name, sp_fatherName, sp_motherName, sp_birthday, sp_email, sp_region, sp_city, sp_address = '', sp_phone = '', sp_gender = 'Femenino', consultationTime, consultationDate, onInputChange } = useForm();
+    const {
+        name,
+        fatherName,
+        motherName,
+        birthday,
+        email,
+        address = '',
+        phone = '',
+        gender = 'Femenino',
+        onInputChange
+    } = useForm();
 
     const { isValid, rut, updateRut } = useRut();
 
@@ -63,39 +74,30 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
     }
 
+    const generatePassword = ( length ) => {
+        let result           = '';
+        let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let charactersLength = characters.length;
+        for ( let i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
     const onSpontaneousPatient = ( event ) => {
         event.preventDefault();
 
-        const generatePassword = ( length ) => {
-            let result           = '';
-            let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let charactersLength = characters.length;
-            for ( let i = 0; i < length; i++ ) {
-                result += characters.charAt(Math.floor(Math.random() * charactersLength));
-            }
-            return result;
-        }
+        const displayName = name + " " + fatherName + " " + motherName;
 
-        const displayName = sp_name + " " + sp_fatherName + " " + sp_motherName;
-
-        // const rawRut = rut.raw;
-
-        const email = sp_email;
-        const address = sp_address;
-        const phone = sp_phone;
-        const gender = sp_gender;
-
-        const formattedBirthday = addDays( set( new Date( sp_birthday ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 );
+        const formattedBirthday = addDays( set( new Date( birthday ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 );
 
         const unixBirthday = getUnixTime( formattedBirthday );
 
-        console.log(fromUnixTime( unixBirthday ))
-
-        const nextConsultation = consultationSlot;
+        const nextConsultation = consultationSlot.startTime;
 
         const password = generatePassword( 10 );
 
-        console.log({ displayName, rut, isValid, unixBirthday, sp_email, regionSeleccionada, comunaSeleccionada, sp_address, sp_phone, sp_gender, nextConsultation });
+        console.log({ displayName, rut, isValid, unixBirthday, email, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation });
 
         setRutValidation( isValid )
 
@@ -104,10 +106,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
             dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) )
     
             dispatch ( startLoadingMyPatients( uid ) );
-    
-            // TODO: Agregar el NextConsultation al formulario, mostrarlo por consola, 
-            // hacer el registro del paciente y asignarle el NextConsultation
-    
+        
             dispatch( isAddingNewConsultation( false ) )
     
             setOpenModal(false)
@@ -163,6 +162,20 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
         console.log(`Comuna seleccionada: ${comuna}`);
     };
 
+    const patientFormProps = {
+        onSubmit: onSpontaneousPatient,
+        prefix: 'sp',
+        disableConfirmBtn,
+        onInputChange,
+        rutValidation,
+        regionSeleccionada,
+        setRegionSeleccionada,
+        comunaSeleccionada,
+        setComunaSeleccionada,
+        rut,
+        updateRut,
+    };
+
     return (
         <>
             
@@ -215,44 +228,44 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                                     
                                     <div className="form-item">
                                         <label className="input-label">Nombre</label>
-                                        <input className="input-text-style" type="text" name="name" value={ currentPatient.displayName } readOnly/>
+                                        <input className="input-text-style" type="text" name="query_name" value={ currentPatient.displayName } readOnly/>
                                     </div>
                                     <div className="form-group">
                                         <div className="form-item w-50 pr-8">
                                             <label className="input-label">RUT</label>
-                                            <input className="input-text-style" type="text" name="rut" value={ rut.formatted } readOnly/>
+                                            <input className="input-text-style" type="text" name="query_rut" value={ rut.formatted } readOnly/>
                                         </div>
                                         <div className="form-item w-50 pl-8">
                                             <label className="input-label">Fecha de Nacimiento</label>
-                                            <input className="input-text-style" type="text" name="birthday" value={ format(fromUnixTime(currentPatient.unixBirthday), "dd/MM/yyyy") } readOnly/>
+                                            <input className="input-text-style" type="text" name="query_birthday" value={ format(fromUnixTime(currentPatient.unixBirthday), "dd/MM/yyyy") } readOnly/>
                                             <span className="input-date-icon"></span>
                                         </div>                
                                     </div>
                                     <div className="form-item">
                                         <label className="input-label">Email</label>
-                                        <input className="input-text-style" type="email" name="email" value={ currentPatient.email } readOnly/>
+                                        <input className="input-text-style" type="email" name="query_email" value={ currentPatient.email } readOnly/>
                                     </div>
                                     <div className="form-group">
                                         <div className="form-item w-50 pr-8">
                                             <label className="input-label">Región</label>
-                                            <input className="input-text-style" type="text" name="region" value={ currentPatient.region } readOnly/>
+                                            <input className="input-text-style" type="text" name="query_region" value={ currentPatient.region } readOnly/>
                                         </div>
                                         <div className="form-item w-50 pl-8">
                                             <label className="input-label">Comuna</label>
-                                            <input className="input-text-style" type="text" name="city" value={ currentPatient.city } readOnly/>
+                                            <input className="input-text-style" type="text" name="query_city" value={ currentPatient.city } readOnly/>
                                         </div>      
                                     </div>
                                     <div className="form-item">
                                         <label className="input-label">Dirección</label>
-                                        <input className="input-text-style" type="text" name="address" value={ currentPatient.address } readOnly/>
+                                        <input className="input-text-style" type="text" name="query_address" value={ currentPatient.address } readOnly/>
                                     </div>
                                     <div className="form-item phone-code">
                                         <label className="input-label">Teléfono</label>
-                                        <input className="input-text-style phone-code-padding" type="text" name="phone" value={ currentPatient.phone } readOnly/>
+                                        <input className="input-text-style phone-code-padding" type="text" name="query_phone" value={ currentPatient.phone } readOnly/>
                                     </div>
                                     <div className="form-item">
                                         <label className="input-label">Género</label>
-                                        <input className="input-text-style" type="text" name="gender" value={ currentPatient.gender } readOnly/>
+                                        <input className="input-text-style" type="text" name="query_gender" value={ currentPatient.gender } readOnly/>
                                     </div>
                                 </div>
                             :   <div hidden={ !showSpontaneousPatientForm }>
@@ -263,123 +276,9 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                     }
                     </div>
                 </form>
-                <form onSubmit={ onSpontaneousPatient } hidden={ showSpontaneousPatientForm }>
-                    <div className="container-form">
-
-                        <div className="form-item">
-                            <div className='input-label-container'>
-                                <label className="input-label">Nombre</label>
-                                <label className="input-label-required">*</label>
-                                <label className="input-label-required-text">* Campos obligatorios</label>
-                            </div>
-                            <input className="input-text-style" type="text" name="sp_name" onChange={ onInputChange } required/>
-                        </div>
-                        <div className="form-group">
-                            <div className="form-item w-50 pr-8">
-                                <div className='input-label-container'>
-                                    <label className="input-label">Apellido Paterno</label>
-                                    <label className="input-label-required">*</label>
-                                </div>
-                                <input className="input-text-style" type="text" name="sp_fatherName" onChange={ onInputChange } required/>
-                            </div>
-                            <div className="form-item w-50 pl-8">
-                                <div className='input-label-container'>
-                                    <label className="input-label">Apellido Materno</label>
-                                    <label className="input-label-required">*</label>
-                                </div>
-                                <input className="input-text-style" type="text" name="sp_motherName" onChange={ onInputChange } required/>
-                            </div>                
-                        </div>
-                        <div className="form-group">
-                            <div className="form-item w-50 pr-8">
-                                <div className='input-label-container'>
-                                    <label className="input-label">RUT</label>
-                                    <label className="input-label-required">*</label>
-                                </div>
-                                <input className="input-text-style" type="text" name="rut" maxLength="12" value={ rut.formatted } onChange={ (e) => updateRut(e.target.value) } required/>
-                            </div>
-                            <div className="form-item w-50 pl-8">
-                                <div className='input-label-container'>
-                                    <label className="input-label">Fecha de Nacimiento</label>
-                                    <label className="input-label-required">*</label>
-                                </div>
-                                <input className="input-text-style input-date" type="date" name="sp_birthday" onChange={ onInputChange } required/>
-                                <span className="input-date-icon"></span>
-                            </div>                
-                        </div>
-                        <div className="form-item">
-                            <div className='input-label-container'>
-                                <label className="input-label">Email</label>
-                                <label className="input-label-required">*</label>
-                            </div>
-                            <input className="input-text-style" type="email" name="sp_email" onChange={ onInputChange } required/>
-                        </div>
-                        <div className="form-group">
-                            <div className="form-item w-50 pr-8">
-                                <div className='input-label-container'>
-                                    <label className="input-label">Región</label>
-                                    <label className="input-label-required">*</label>
-                                </div>
-                                <select className="select-style" name="region" value={regionSeleccionada} onChange={handleRegionSeleccionada} required>
-                                    <option value="Seleccione una región">Seleccione una región</option>
-                                    {regiones.map((region) => (
-                                    <option key={region.nombre} value={region.nombre}>
-                                        {region.nombre}
-                                    </option>
-                                    ))}
-                                </select>
-                            </div>
-                            <div className="form-item w-50 pl-8">
-                                <div className='input-label-container'>
-                                    <label className="input-label">Comuna</label>
-                                    <label className="input-label-required">*</label>
-                                </div>
-                                {
-                                    <ComunasSelect
-                                    comunaSeleccionada={comunaSeleccionada}
-                                    comunas={comunas}
-                                    handleComunaSeleccionada={handleComunaSeleccionada}
-                                    />
-                                }
-                            </div>      
-                        </div>
-                        <div className="form-item">
-                            <label className="input-label">Dirección</label>
-                            <input className="input-text-style" type="text" name="sp_address" onChange={ onInputChange }/>
-                        </div>
-                        <div className="form-item phone-code">
-                            <label className="input-label">Teléfono</label>
-                            <input className="input-text-style phone-code-padding" type="text" maxLength="8" name="sp_phone" onChange={ onInputChange }/>
-                        </div>
-                        <div className="form-item">
-                            <div className='input-label-container'>
-                                <label className="input-label">Género</label>
-                                <label className="input-label-required">*</label>
-                            </div>
-                            <select className="select-style" name="sp_gender" onChange={ onInputChange } required>
-                                <option value="Femenino">Femenino</option>
-                                <option value="Masculino">Masculino</option>
-                            </select>
-                        </div>
-                        {
-                            ( error )
-                            ?   <ErrorManager errorCode= { errorCode }/>
-                            :   null
-                        }
-                        {
-                            ( !rutValidation )
-                            ?   <div className="login-error-message">
-                                    El RUT ingresado no es un RUT válido, revíselo e intente nuevamente
-                                </div>
-                            :   null
-                        }
-                        <div className="form-btn">
-                            <button className="btn-modal-submit" type="submit">
-                                Registrar
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                <div hidden={ showSpontaneousPatientForm }>
+                    <PatientForm patientFormProps={ patientFormProps }/>
+                </div>
                 <form onSubmit={ onNewConsultationSubmit } hidden={ !showSpontaneousPatientForm }>
                     <div className="container-new-consultation">
 

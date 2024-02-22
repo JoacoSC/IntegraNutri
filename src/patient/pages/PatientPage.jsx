@@ -115,6 +115,32 @@ export const PatientPage = () => {
         presionArterial,
     } = useSelector((state) => state.currentPatient);
 
+    console.log('Patient Data: ', {
+        email,
+        patientName,
+        nextConsultation,
+        anamnesis,
+        physical_exam,
+        diagnosis,
+        indications,
+        weight,
+        stature,
+        imc,
+        unixBirthday,
+        unixCorrectedBirthday,
+        unixBiologicalBirthday,
+        gender,
+        age,
+        correctedAgeIsSet,
+        correctedAge,
+        biologicalAgeIsSet,
+        biologicalAge,
+        tallaDiana,
+        perimetroCefalico,
+        perimetroCintura,
+        presionArterial,
+    })
+
     const [isLoading, setIsLoading] = useState( true );
     
     const [lastWeight, setLastWeight] = useState(0);
