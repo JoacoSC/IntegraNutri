@@ -11,6 +11,7 @@ import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
 import CorrectedAgeIcon from '../../assets/imgs/patient/corrected_age_icon.svg'
 import Tanner_masculino from '../../assets/imgs/patient/estadios_tanner/estadios_tanner_masculino.jpg'
 import Tanner_femenino from '../../assets/imgs/patient/estadios_tanner/estadios_tanner_femenino.jpg'
+import { Tooltip } from '../common';
 
 export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
@@ -46,16 +47,18 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
 
-    const [inputTextStyleClassname, setInputTextStyleClassname] = useState('input-text-style input-text-width-w-icon h-2');
+    const [inputTextStyleClassname, setInputTextStyleClassname] = useState('input-text-style input-text-width-w-icon h-2 mr-05');
 
     const [btnModalPrimaryClassname, setBtnModalPrimaryClassname] = useState('btn-modal-primary');
 
-    const [biologicalAgeMilliseconds, setBiologicalAgeMilliseconds] = useState(0)
-    const [chronologicalAgeMilliseconds, setChronologicalAgeMilliseconds] = useState(0)
+    const [biologicalAgeMilliseconds, setBiologicalAgeMilliseconds] = useState(0);
+    const [chronologicalAgeMilliseconds, setChronologicalAgeMilliseconds] = useState(0);
 
-    const [birthday, setBirthday] = useState()
+    const [birthday, setBirthday] = useState();
 
-    const [unixCorrectedBirthday, setUnixCorrectedBirthday] = useState()
+    const [unixCorrectedBirthday, setUnixCorrectedBirthday] = useState();
+
+    const tooltipMessage = 'Cuando la edad biológica y la edad cronológica (edad desde el nacimiento) presenten una diferencia mayor a 1 año se justifica evaluar por edad biológica.'
 
     const {
         estadioTanner,
@@ -506,17 +509,17 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         if( ageDifferenceDateObject.y === 0 && ageDifferenceDateObject.m === 0 && ageDifferenceDateObject.d === 0 ){   
 
             setDisableSubmitBtn( true )
-            setInputTextStyleClassname( 'input-text-style input-text-width-w-icon h-2' )
+            setInputTextStyleClassname( 'input-text-style input-text-width-w-icon h-2 mr-05' )
             setBtnModalPrimaryClassname( 'btn-modal-primary-disabled' )
 
         }else{
             if( ageDifferenceDateObject.y < 1 ){
                 setDisableSubmitBtn( true )
-                setInputTextStyleClassname( 'input-text-danger-style input-text-width-w-icon h-2' )
+                setInputTextStyleClassname( 'input-text-danger-style input-text-width-w-icon h-2 mr-05' )
                 setBtnModalPrimaryClassname( 'btn-modal-primary-disabled' )
             }else{
                 setDisableSubmitBtn( false )
-                setInputTextStyleClassname( 'input-text-success-style input-text-width h-2' )
+                setInputTextStyleClassname( 'input-text-success-style input-text-width h-2 mr-05' )
                 setBtnModalPrimaryClassname( 'btn-modal-primary' )
             }
 
@@ -612,11 +615,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                     
                                 {
                                     (disableSubmitBtn === true)
-                                    ?   <div className="perimetro-cefalico-info" data-tooltip="Cuando la edad biológica y la edad cronológica (edad desde el nacimiento) presenten una diferencia mayor a 1 año se justifica evaluar por edad biológica.">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fillRule="evenodd" clipRule="evenodd" d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12ZM11 16C11 15.4477 11.4477 15 12 15C12.5523 15 13 15.4477 13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16ZM11 7V13H13L13 7H11Z" fill="#6D22D0"/>
-                                            </svg>
-                                        </div>
+                                    ?   <Tooltip tooltipMessage = { tooltipMessage }/>
                                     :   null
                                 }
                                 </div>

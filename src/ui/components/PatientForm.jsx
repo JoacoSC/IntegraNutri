@@ -5,6 +5,7 @@ import { regiones } from "../../helpers";
 import { useSelector } from "react-redux";
 import { useForm } from "../../hooks";
 import { useRut } from "react-rut-formatter";
+import { Tooltip } from "../../common";
 
 export const PatientForm = ({ patientFormProps }) => {
 
@@ -25,6 +26,10 @@ export const PatientForm = ({ patientFormProps }) => {
     } = patientFormProps;
 
     const [comunas, setComunas] = useState([]);
+    const [genderInputIsSet, setGenderInputIsSet] = useState(false);
+
+    const tooltipMessage = "Si el paciente no se identifica con el sexo biológico, habilite la opción 'identidad de genero'";
+
     const { error, errorCode } = useSelector( state => state.loginHelper );
 
     const handleRegionSeleccionada = (event) => {
@@ -40,6 +45,10 @@ export const PatientForm = ({ patientFormProps }) => {
         setComunaSeleccionada(comuna)
         console.log(`Comuna seleccionada: ${comuna}`);
     };
+
+    const handleGenderInputIsSet = () => {
+        setGenderInputIsSet( !genderInputIsSet )
+    }
 
     return (
         <form ref={ form } onSubmit={ onSubmit }>
@@ -146,6 +155,20 @@ export const PatientForm = ({ patientFormProps }) => {
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
                     </select>
+                </div>
+                <div className="form-item">
+                    <div className='input-label-container'>
+                        <label className="input-label mr-05">Identidad de género</label>
+                        <Tooltip tooltipMessage={ tooltipMessage }/>
+                    </div>
+                    <input className="input-text-style" type="text" name="genderIdentity" onChange={ onInputChange } hidden={ !genderInputIsSet }/>
+                    <div className="form-item-optional-btn-container">
+                        <button className="btn-sm" type="button" onClick={ handleGenderInputIsSet }>
+                            {
+                                ( !genderInputIsSet ) ? 'Agregar género' : 'Cancelar'
+                            }
+                        </button>
+                    </div>
                 </div>
                 {
                     ( error )

@@ -50,6 +50,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
         address = '',
         phone = '',
         biologicalSex = 'Femenino',
+        genderIdentity = '',
         onInputChange
     } = useForm();
 
@@ -97,13 +98,13 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         const password = generatePassword( 10 );
 
-        console.log({ displayName, rut, isValid, unixBirthday, email, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation });
+        console.log({ displayName, rut, isValid, unixBirthday, email, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation });
 
         setRutValidation( isValid )
 
         if ( isValid ){
 
-            dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation }) )
+            dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation }) )
     
             dispatch ( startLoadingMyPatients( uid ) );
         

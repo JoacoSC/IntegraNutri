@@ -97,7 +97,7 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirth
     }
 }
 
-export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation }) => {
+export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation }) => {
     return async( dispatch ) => {
 
         // dispatch( checkingCredentials() );
@@ -114,6 +114,7 @@ export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, pa
             address,
             phone,
             gender: biologicalSex,
+            genderIdentity,
             isNutritionist: false,
             emailActivated: false,
             nextConsultation: nextConsultation,
@@ -247,7 +248,7 @@ export const startLogout = () => {
     }
 }
 
-export const startCreatingPatientSharePage = ({ uid, displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation }) => {
+export const startCreatingPatientSharePage = ({ uid, displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation }) => {
     return async( dispatch ) => {
 
         // dispatch( checkingCredentials() );
@@ -264,6 +265,7 @@ export const startCreatingPatientSharePage = ({ uid, displayName, rut, unixBirth
             address,
             phone,
             gender: biologicalSex,
+            genderIdentity,
             isNutritionist: false,
             emailActivated: false,
             nextConsultation: nextConsultation,

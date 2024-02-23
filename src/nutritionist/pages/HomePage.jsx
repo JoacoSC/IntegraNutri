@@ -88,7 +88,7 @@ export const HomePage = () => {
 
     const handleLoadingScreen = () => {
 
-        console.log('rut: ', rut)
+        // console.log('rut: ', rut)
         // console.log('isLoading: ', isLoading)
 
         if( rut !== null ){

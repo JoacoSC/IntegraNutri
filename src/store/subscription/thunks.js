@@ -20,7 +20,7 @@ function convertToISO(dateString) {
     const paddedHour = hour.padStart(2, '0');
     const paddedMinute = minute.padStart(2, '0');
 
-    console.log('subEnd-ISO:', `${year}-${paddedMonth}-${paddedDay}T${paddedHour}:${paddedMinute}:${second}`)
+    // console.log('subEnd-ISO:', `${year}-${paddedMonth}-${paddedDay}T${paddedHour}:${paddedMinute}:${second}`)
     return `${year}-${paddedMonth}-${paddedDay}T${paddedHour}:${paddedMinute}:${second}`;
 }
 
@@ -47,19 +47,19 @@ export const startSetSubscription = ( uid ) => {
 
         const currentSubscription = subscription[subscription.length - 1];
 
-        console.log('currentSubscription: ',currentSubscription)
+        // console.log('currentSubscription: ',currentSubscription)
 
         // Obtén la fecha actual
         let now = new Date();
-        console.log('now: ',now)
+        // console.log('now: ',now)
 
         // Convierte la fecha de finalización de la suscripción a un objeto Date
         let subEnd = new Date(convertToISO(currentSubscription.subEnd));
-        console.log('subEnd: ',subEnd)
+        // console.log('subEnd: ',subEnd)
 
         // Calcula la diferencia en días entre la fecha actual y la fecha de finalización de la suscripción
         let diffInDays = Math.ceil((subEnd - now) / (1000 * 60 * 60 * 24));
-        console.log('diffInDays: ',diffInDays)
+        // console.log('diffInDays: ',diffInDays)
 
         // Inicializa el mensaje y la constante de estado de la suscripción
         let message = '';
@@ -75,8 +75,8 @@ export const startSetSubscription = ( uid ) => {
         }
 
         currentSubscription.message = message;
-        console.log('currentSubscription: ',currentSubscription)
-        console.log('message: ', message);
+        // console.log('currentSubscription: ',currentSubscription)
+        // console.log('message: ', message);
 
         dispatch( setSubscription( currentSubscription ) )
         // if (currentSubscription && currentSubscription.isActive) {

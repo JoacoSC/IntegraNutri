@@ -10,6 +10,7 @@ export const currentPatientSlice = createSlice({
         email: null,
         emailActivated: null,
         biologicalSex: null,
+        genderIdentity: null,
         nextConsultation: null,
         phone: null,
         region: null,
@@ -58,6 +59,7 @@ export const currentPatientSlice = createSlice({
             state.email = payload.email;
             state.emailActivated = payload.emailActivated;
             state.biologicalSex = payload.gender;
+            state.genderIdentity = payload.genderIdentity;
             state.nextConsultation = payload.nextConsultation;
             state.phone = payload.phone;
             state.region = payload.region;
@@ -181,6 +183,7 @@ export const currentPatientSlice = createSlice({
             state.email = null;
             state.emailActivated = null;
             state.biologicalSex = null;
+            state.genderIdentity = null;
             state.nextConsultation = null;
             state.phone = null;
             state.region = null;

@@ -96,6 +96,7 @@ export const PatientPage = () => {
         unixCorrectedBirthday,
         unixBiologicalBirthday,
         biologicalSex,
+        genderIdentity = '',
         age,
         correctedAgeIsSet = null,
         correctedAge = {
@@ -2410,7 +2411,25 @@ export const PatientPage = () => {
                                     <img src={ Nutri_face_scarf } className="patient-primary-card-avatar-img" alt="Icono IntegraNutri"/>
                                     </div>
                                     <div className="patient-name">{patientName}</div>
-                                    <div className="patient-biologicalSex"><b>Género: </b>{biologicalSex}</div>
+                                    {
+                                        ( genderIdentity && isNutritionistStatus )
+                                        ?   <div className="patient-biologicalSex">
+                                                <b>Sexo biológico: </b>
+                                                {
+                                                    biologicalSex
+                                                }
+                                            </div>
+                                        :   null
+                                        
+                                    }
+                                    <div className="patient-biologicalSex">
+                                        <b>Género: </b>
+                                        {
+                                            ( genderIdentity )
+                                            ?   genderIdentity
+                                            :   biologicalSex
+                                        }
+                                    </div>
                                     <div className="patient-biologicalSex"><b>Fecha de nacimiento: </b>
                                     {   (unixBirthday)
                                         ?   format(fromUnixTime(unixBirthday), "dd/MMM/yyyy")

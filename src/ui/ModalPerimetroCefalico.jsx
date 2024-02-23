@@ -9,6 +9,7 @@ import PCe_masculino from '../../assets/imgs/patient/perimetro_cefalico_masculin
 import PCe_femenino from '../../assets/imgs/patient/perimetro_cefalico_femenino_v2.svg'
 import PerimetroCefalicoIcon from '../../assets/imgs/patient/perimetro_cefalico-for-avatar-icon.svg'
 import './components';
+import { DangerTooltip } from '../common';
 
 
 export const ModalPerimetroCefalico = ({ patientObject }) => {
@@ -20,6 +21,8 @@ export const ModalPerimetroCefalico = ({ patientObject }) => {
     const [openModal, setOpenModal] = useState(false);
 
     const [PCeClasificacion, setPCeClasificacion] = useState('');
+
+    const tooltipMessage = 'En caso de Macrocefalia, hay que corregir por talla. Se debe modificar la edad con la que se evalúa el PCe del niño o niña, por aquella edad en la que su talla corresponda a la mediana.';
     
     const { 
         PCeMedicion,
@@ -123,14 +126,10 @@ export const ModalPerimetroCefalico = ({ patientObject }) => {
                                     Clasificación
                                 </label>
                                 <div className='flex-direction-row'>
-                                    <input className="input-text-style h-2" type="text" name="PCeClasificacion" value={ PCeClasificacion } readOnly/>
+                                    <input className="input-text-style h-2 mr-05" type="text" name="PCeClasificacion" value={ PCeClasificacion } readOnly/>
                                     {
                                         (PCeClasificacion === 'Macrocefalia')
-                                        ?   <div className="perimetro-cefalico-info" data-tooltip="En caso de Macrocefalia, hay que corregir por talla. Se debe modificar la edad con la que se evalúa el PCe del niño o niña, por aquella edad en la que su talla corresponda a la mediana.">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" clipRule="evenodd" d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12ZM11 16C11 15.4477 11.4477 15 12 15C12.5523 15 13 15.4477 13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16ZM11 7V13H13L13 7H11Z" fill="#FF3939"/>
-                                                </svg>
-                                            </div>
+                                        ?   <DangerTooltip tooltipMessage = { tooltipMessage }/>
                                         :   null
                                     }
                                 </div>

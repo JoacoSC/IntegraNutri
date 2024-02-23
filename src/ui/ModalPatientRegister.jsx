@@ -44,6 +44,7 @@ export const ModalPatientRegister = () => {
         address = '',
         phone = '',
         biologicalSex = 'Femenino',
+        genderIdentity = '',
         onInputChange
     } = useForm();
 
@@ -75,7 +76,7 @@ export const ModalPatientRegister = () => {
         setRutValidation( isValid )
 
         if ( isValid ){
-            dispatch ( startCreatingPatientSharePage({ uid, displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation }) )
+            dispatch ( startCreatingPatientSharePage({ uid, displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation }) )
             setOpenModal(false)
             
         }
