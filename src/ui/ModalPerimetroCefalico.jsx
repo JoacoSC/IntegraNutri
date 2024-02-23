@@ -15,7 +15,7 @@ export const ModalPerimetroCefalico = ({ patientObject }) => {
 
     const { uid, patientID } = patientObject;
 
-    const { gender } = useSelector( state => state.currentPatient )
+    const { biologicalSex } = useSelector( state => state.currentPatient )
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -138,7 +138,7 @@ export const ModalPerimetroCefalico = ({ patientObject }) => {
                         </div>
                         <div className="modal-chart-container">
                             {
-                                (gender === 'Masculino')
+                                (biologicalSex === 'Masculino')
                                 ?   <>
                                         {/* <p className='modal-chart-title'>
                                             PERÍMETRO CEFÁLICO POR EDAD EN NIÑOS DESDE EL NACIMIENTO A 3 AÑOS
@@ -156,7 +156,7 @@ export const ModalPerimetroCefalico = ({ patientObject }) => {
                                             Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
                                         </p> */}
                                     </>
-                                :   (gender === 'Femenino')
+                                :   (biologicalSex === 'Femenino')
                                     ?   <>
                                             {/* <p className='modal-chart-title'>
                                                 PERÍMETRO CEFÁLICO POR EDAD EN NIÑAS DESDE EL NACIMIENTO A 3 AÑOS

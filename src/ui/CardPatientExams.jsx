@@ -103,7 +103,7 @@ export const CardPatientExams = ({ uid, patientID }) => {
                 </div> */}
                 
             </div>
-            <div className='flex-row'>
+            <div className='patient-secondary-card-btn'>
 
                 {
                     ( isNutritionistStatus )

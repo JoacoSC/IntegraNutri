@@ -31,7 +31,7 @@ export const startGoogleSignIn = ( isNutritionist ) => {
             city,
             address,
             phone,
-            gender,
+            gender: biologicalSex,
             isNutritionist: true,
         }
 
@@ -48,7 +48,7 @@ export const startGoogleSignIn = ( isNutritionist ) => {
     }
 }
 
-export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) => {
+export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex }) => {
     return async( dispatch ) => {
 
         dispatch( checkingCredentials() );
@@ -61,7 +61,7 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirth
             city: comunaSeleccionada,
             address,
             phone,
-            gender,
+            gender: biologicalSex,
             isNutritionist: true,
         }
 
@@ -97,7 +97,7 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirth
     }
 }
 
-export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) => {
+export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation }) => {
     return async( dispatch ) => {
 
         // dispatch( checkingCredentials() );
@@ -113,7 +113,7 @@ export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, pa
             city: comunaSeleccionada,
             address,
             phone,
-            gender,
+            gender: biologicalSex,
             isNutritionist: false,
             emailActivated: false,
             nextConsultation: nextConsultation,
@@ -247,7 +247,7 @@ export const startLogout = () => {
     }
 }
 
-export const startCreatingPatientSharePage = ({ uid, displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) => {
+export const startCreatingPatientSharePage = ({ uid, displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation }) => {
     return async( dispatch ) => {
 
         // dispatch( checkingCredentials() );
@@ -263,7 +263,7 @@ export const startCreatingPatientSharePage = ({ uid, displayName, rut, unixBirth
             city: comunaSeleccionada,
             address,
             phone,
-            gender,
+            gender: biologicalSex,
             isNutritionist: false,
             emailActivated: false,
             nextConsultation: nextConsultation,

@@ -49,7 +49,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
         email,
         address = '',
         phone = '',
-        gender = 'Femenino',
+        biologicalSex = 'Femenino',
         onInputChange
     } = useForm();
 
@@ -97,13 +97,13 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         const password = generatePassword( 10 );
 
-        console.log({ displayName, rut, isValid, unixBirthday, email, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation });
+        console.log({ displayName, rut, isValid, unixBirthday, email, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation });
 
         setRutValidation( isValid )
 
         if ( isValid ){
 
-            dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) )
+            dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation }) )
     
             dispatch ( startLoadingMyPatients( uid ) );
         
@@ -265,7 +265,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                                     </div>
                                     <div className="form-item">
                                         <label className="input-label">Género</label>
-                                        <input className="input-text-style" type="text" name="query_gender" value={ currentPatient.gender } readOnly/>
+                                        <input className="input-text-style" type="text" name="query_biologicalSex" value={ currentPatient.biologicalSex } readOnly/>
                                     </div>
                                 </div>
                             :   <div hidden={ !showSpontaneousPatientForm }>

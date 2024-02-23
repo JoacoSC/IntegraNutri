@@ -39,7 +39,7 @@ export const ModalNewPatient = () => {
         email,
         address = '',
         phone = '',
-        gender = 'Femenino',
+        biologicalSex = 'Femenino',
         onInputChange
     } = useForm();
 
@@ -70,9 +70,9 @@ export const ModalNewPatient = () => {
 
         setRutValidation( isValid )
         
-        console.log('patient: ', { displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation })
+        console.log('patient: ', { displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation })
         if ( isValid ){
-            dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender, nextConsultation }) )
+            dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, nextConsultation }) )
             setOpenModal(false)
             
         }

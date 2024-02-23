@@ -1,6 +1,6 @@
 import { fromUnixTime } from "date-fns";
 
-export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirthdayForCalcs, gender ) => {
+export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirthdayForCalcs, biologicalSex ) => {
 
     const age = ageForCalcs;
 
@@ -34847,7 +34847,7 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
 
     }
     
-    if( gender === 'Femenino' ){
+    if( biologicalSex === 'Femenino' ){
 
         if ( age.y < 1 ){
             result.ageMsg = 'tengo menos de 1 año'
@@ -34987,7 +34987,7 @@ export const useCalificationIndicator = ( weight, stature, ageForCalcs, unixBirt
             }
         }
     }
-    if( gender === 'Masculino' ){
+    if( biologicalSex === 'Masculino' ){
 
         if ( age.y < 1 ){
             result.ageMsg = 'tengo menos de 1 año'

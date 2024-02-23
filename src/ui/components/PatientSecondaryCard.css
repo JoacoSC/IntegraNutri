@@ -28,6 +28,12 @@
     height: 100%;
 }
 
+.patient-secondary-card-btn{
+    display: flex;
+    align-items: center;
+    padding: 0 1rem 1rem 1rem;
+}
+
 /* TALLA DIANA */
 
 .talla-diana-avatar{

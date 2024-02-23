@@ -7,7 +7,7 @@ export const userInfoSlice = createSlice({
         address: null,
         city: null,
         displayName: null,
-        gender: null,
+        biologicalSex: null,
         isNutritionist: null,
         phone: null,
         region: null,
@@ -20,7 +20,7 @@ export const userInfoSlice = createSlice({
             state.address = payload.address;
             state.city = payload.city;
             state.displayName = payload.displayName;
-            state.gender = payload.gender;
+            state.biologicalSex = payload.gender;
             state.isNutritionist = payload.isNutritionist;
             state.phone = payload.phone;
             state.region = payload.region;
@@ -37,7 +37,7 @@ export const userInfoSlice = createSlice({
             state.address = null;
             state.city = null;
             state.displayName = null;
-            state.gender = null;
+            state.biologicalSex = null;
             state.isNutritionist = null;
             state.phone = null;
             state.region = null;

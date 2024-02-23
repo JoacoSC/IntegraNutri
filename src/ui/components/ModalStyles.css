@@ -964,10 +964,15 @@
     margin-top: 3rem;
 }
 
+.patient-exams-header{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
 .patient-exams-title-container{
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-right: auto;
 }
 
 .patient-exams-title{
@@ -977,64 +982,9 @@
     color: white;
 }
 
-.patient-exams-btn{
-    appearance: none;
-    position: relative;
-    font-family: "Metropolis", sans-serif;
-    font-size: 0.8rem;
-    background: var(--clr-btn-secondary);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    /* padding-left: 2.8rem; */
-    margin: 0 auto 1rem auto;
-    cursor: pointer;
-    transition: all 150ms ease;
-    white-space: nowrap;
-}
-
-
-.patient-exams-btn:hover{
-    transform: scale(0.98);
-    background: var(--clr-btn-secondary-hover);
-}
-
-.patient-exams-btn:active{
-    transform: scale(0.96);
-    background: var(--clr-btn-secondary-active);
-}
-
-/* .patient-exams-btn::before{
-    position: absolute;
-    content: var(--btn-add-icon);
-    top: 0.4rem;
-    left: 0.8rem;
-} */
-
-.patient-prev-exams-btn{
-    margin: 0 1rem 0 auto;
-    /* width: 200px; */
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--clr-btn-secondary);
-    border-radius: 20px;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: white;
-    background-color: var(--clr-btn-secondary);
-    box-shadow: var(--input-shadow);
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 100ms ease;
-}
-
-.patient-prev-exams-btn:hover{
-    transform: scale(1.01);
-}
-
-.patient-prev-exams-btn:active{
-    transform: scale(0.99);
+.patient-exams-btn-container{
+    display: flex;
+    align-items: center;
 }
 
 .exams-container{
@@ -1126,30 +1076,6 @@
 .exam-submit-btn-container{
     display: flex;
     margin-left: auto;
-}
-
-.exam-submit-btn{
-    width: 200px;
-    margin: 1rem 1rem 0 auto;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--clr-btn-secondary);
-    border-radius: 20px;
-    font-family: "Metropolis", sans-serif;
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: white;
-    background-color: var(--clr-btn-secondary);
-    box-shadow: var(--input-shadow);
-    cursor: pointer;
-    transition: all 100ms ease;
-}
-
-.exam-submit-btn:hover{
-    transform: scale(1.01);
-}
-
-.exam-submit-btn:active{
-    transform: scale(0.99);
 }
 
 /* *********** Patient Exams Modal ************ */

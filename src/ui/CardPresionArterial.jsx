@@ -4,7 +4,7 @@ import HeartIcon from '../../assets/imgs/patient/heart_icon.svg'
 
 export const CardPresionArterial = () => {
 
-    const { presionArterial, gender } = useSelector((state) => state.currentPatient);
+    const { presionArterial, biologicalSex } = useSelector((state) => state.currentPatient);
 
     return (
         <div className='patient-secondary-card'>

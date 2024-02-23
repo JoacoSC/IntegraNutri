@@ -106,7 +106,7 @@ export const ModalPatientExams = ({ uid, patientID }) => {
     return (
                 <>
             
-            <button className="patient-exams-btn" type="button" onClick={() => setOpenModal(true)}>
+            <button className="btn-sm" type="button" onClick={() => setOpenModal(true)}>
                 Ver exámenes
             </button>
             <CSSTransition
@@ -132,28 +132,32 @@ export const ModalPatientExams = ({ uid, patientID }) => {
                     <div className="patient-exams-container">
                         <div className="patient-exams-wrapper">
                             <div className="patient-exams-item-container">
-                                <div className="patient-exams-title-container">
-                                    <p className="patient-exams-title">
+                                <div className="patient-exams-header">
+                                    <div className="patient-exams-title-container">
+                                        <p className="patient-exams-title">
+                                            {
+                                                (showExamsHistory)
+                                                ?   'Exámenes ingresados'
+                                                :   ( actualExamIndex === examsHistory.length - 1 )
+                                                    ?   'Último examen ingresado'
+                                                    :   'Fecha de examen: ' + examsHistory[ actualExamIndex ].exam_date
+                                            
+                                            }
+                                        </p>
+                                    </div>
+                                    <div className="patient-exams-btn-container">
                                         {
-                                            (showExamsHistory)
-                                            ?   'Exámenes ingresados'
-                                            :   ( actualExamIndex === examsHistory.length - 1 )
-                                                ?   'Último examen ingresado'
-                                                :   'Fecha de examen: ' + examsHistory[ actualExamIndex ].exam_date
-                                        
+                                            (examsHistory.length > 1)
+                                                ?   <button className="btn-sm" onClick={ showPreviousExams }>
+                                                    {
+                                                        (showExamsHistory)
+                                                        ?   'Volver'
+                                                        :   'Ver todos los exámenes'
+                                                    }
+                                                    </button>
+                                                :   null
                                         }
-                                    </p>
-                                    {
-                                        (examsHistory.length > 1)
-                                            ?   <button className="patient-prev-exams-btn" onClick={ showPreviousExams }>
-                                                {
-                                                    (showExamsHistory)
-                                                    ?   'Volver'
-                                                    :   'Ver todos los exámenes'
-                                                }
-                                                </button>
-                                            :   null
-                                    }
+                                    </div>
                                 </div>
                                 {
                                     ( showExamsHistory )

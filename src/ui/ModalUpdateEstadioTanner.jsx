@@ -14,7 +14,7 @@ import Tanner_femenino from '../../assets/imgs/patient/estadios_tanner/estadios_
 
 export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
-    const { gender, age, ageForCalcs, unixBirthday, uid, patientID } = patientObject;
+    const { biologicalSex, age, ageForCalcs, unixBirthday, uid, patientID } = patientObject;
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -289,7 +289,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     const handleEstadioTanner = () => {
 
-        if( gender === 'Femenino'){
+        if( biologicalSex === 'Femenino'){
             if( estadioTanner === 'I' ){
                 setDisableMesesMenarquia( true )
                 setBiologicalAgeText('< 10 años y 6 meses')
@@ -332,7 +332,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
             }
         }
 
-        if( gender === 'Masculino' ){
+        if( biologicalSex === 'Masculino' ){
             if( estadioTanner === 'I' ){
                 setBiologicalAgeText('< 12 años')
                 setBiologicalAge(null)
@@ -638,7 +638,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                         </div>
                         <div className="modal-chart-container">
                             {
-                                (gender === 'Masculino')
+                                (biologicalSex === 'Masculino')
                                 ?   <>
                                         {/* <p className='modal-chart-title'>
                                             PERÍMETRO CEFÁLICO POR EDAD EN NIÑOS DESDE EL NACIMIENTO A 3 AÑOS
@@ -656,7 +656,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                             Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
                                         </p> */}
                                     </>
-                                :   (gender === 'Femenino')
+                                :   (biologicalSex === 'Femenino')
                                     ?   <>
                                             {/* <p className='modal-chart-title'>
                                                 PERÍMETRO CEFÁLICO POR EDAD EN NIÑAS DESDE EL NACIMIENTO A 3 AÑOS

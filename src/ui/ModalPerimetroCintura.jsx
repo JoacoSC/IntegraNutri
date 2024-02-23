@@ -14,7 +14,7 @@ export const ModalPerimetroCintura = ({ patientObject }) => {
 
     const { uid, patientID } = patientObject;
 
-    const { gender } = useSelector( state => state.currentPatient )
+    const { biologicalSex } = useSelector( state => state.currentPatient )
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -131,7 +131,7 @@ export const ModalPerimetroCintura = ({ patientObject }) => {
                         </div>
                         <div className="modal-chart-container">
                             {
-                                (gender === 'Masculino')
+                                (biologicalSex === 'Masculino')
                                 ?   <>
                                         {/* <p className='modal-chart-title'>
                                             PERÍMETRO DE CINTURA POR EDAD EN NIÑOS Y ADOLESCENTES DE 5 a 19 AÑOS
@@ -145,7 +145,7 @@ export const ModalPerimetroCintura = ({ patientObject }) => {
                                             Departamento de Nutrición y. Alimentos Ministerio de Salud. (2018). PATRONES DE CRECIMIENTO PARA LA EVALUACIÓN NUTRICIONAL DE NIÑOS, NIÑAS Y ADOLESCENTES DESDE EL NACIMIENTO HASTA LOS 19 AÑOS DE EDAD.
                                         </p> */}
                                     </>
-                                :   (gender === 'Femenino')
+                                :   (biologicalSex === 'Femenino')
                                     ?   <>
                                             {/* <p className='modal-chart-title'>
                                                 PERÍMETRO DE CINTURA POR EDAD EN NIÑAS Y ADOLESCENTES DE 5 a 19 AÑOS

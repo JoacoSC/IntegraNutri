@@ -139,10 +139,10 @@ export const PatientForm = ({ patientFormProps }) => {
                 </div>
                 <div className="form-item">
                     <div className='input-label-container'>
-                        <label className="input-label">Género</label>
+                        <label className="input-label">Sexo Biológico</label>
                         <label className="input-label-required">*</label>
                     </div>
-                    <select className="select-style" name="gender" onChange={ onInputChange } required>
+                    <select className="select-style" name="biologicalSex" onChange={ onInputChange } required>
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
                     </select>

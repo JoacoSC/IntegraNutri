@@ -151,6 +151,38 @@ body{
     background-size: 13rem;
 }
 
+/* ************* Buttons ************** */
+
+.btn-sm{
+    appearance: none;
+    position: relative;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+    transition: all 150ms ease;
+    white-space: nowrap;
+}
+
+
+.btn-sm:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-hover);
+}
+
+.btn-sm:active{
+    transform: scale(0.96);
+    background: var(--clr-btn-secondary-active);
+}
+
+/* ************* Buttons ************** */
+
 
 
 /* ************* Landing Page ************** */
@@ -1556,7 +1588,7 @@ body{
     font-weight: 500;
 }
 
-.patient-gender{
+.patient-biologicalSex{
     margin: 1rem 0 0;
     font-family: "Metropolis", sans-serif;
     font-size: 0.8rem;

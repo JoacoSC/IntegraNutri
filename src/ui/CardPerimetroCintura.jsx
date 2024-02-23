@@ -6,7 +6,7 @@ import PerimetroCinturaForAvatar from '../../assets/imgs/patient/perimetro_cintu
 
 export const CardPerimetroCintura = () => {
 
-    const { perimetroCintura, gender } = useSelector((state) => state.currentPatient);
+    const { perimetroCintura, biologicalSex } = useSelector((state) => state.currentPatient);
 
     return (
         <div className='patient-secondary-card'>
@@ -16,9 +16,9 @@ export const CardPerimetroCintura = () => {
             <div className='patient-secondary-card-content pl-2'>
                 <div className='perimetro-cintura-avatar-container flex-column'>
                     {
-                        ( gender === 'Masculino' )
+                        ( biologicalSex === 'Masculino' )
                         ?   <img src={ AvatarMasculino } className='perimetro-cintura-avatar'/>
-                        :   ( gender === 'Femenino' )
+                        :   ( biologicalSex === 'Femenino' )
                             ?   <img src={ AvatarFemenino } className='perimetro-cintura-avatar'/>
                             :   null
                     }

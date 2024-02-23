@@ -7,7 +7,7 @@ import { fromUnixTime } from 'date-fns';
 
 export const CardEstadioTanner = () => {
 
-    const { weight, stature, unixBiologicalBirthday = 0, estadioTanner, gender } = useSelector((state) => state.currentPatient);
+    const { weight, stature, unixBiologicalBirthday = 0, estadioTanner, biologicalSex } = useSelector((state) => state.currentPatient);
 
     // console.log( estadioTanner )
 

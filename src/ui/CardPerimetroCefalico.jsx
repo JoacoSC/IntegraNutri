@@ -6,7 +6,7 @@ import PerimetroCefalicoForAvatar from '../../assets/imgs/patient/perimetro_cefa
 
 export const CardPerimetroCefalico = () => {
 
-    const { perimetroCefalico, gender } = useSelector((state) => state.currentPatient);
+    const { perimetroCefalico, biologicalSex } = useSelector((state) => state.currentPatient);
 
     return (
         <div className='patient-secondary-card'>
@@ -17,9 +17,9 @@ export const CardPerimetroCefalico = () => {
                 <div className='flex-column pl-2'>
                     <img src={ PerimetroCefalicoForAvatar } className='perimetro-cefalico-measure'/>
                     {
-                        ( gender === 'Masculino' )
+                        ( biologicalSex === 'Masculino' )
                         ?   <img src={ AvatarMasculino } className='perimetro-cefalico-avatar'/>
-                        :   ( gender === 'Femenino' )
+                        :   ( biologicalSex === 'Femenino' )
                             ?   <img src={ AvatarFemenino } className='perimetro-cefalico-avatar'/>
                             :   null
                     }

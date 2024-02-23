@@ -10,7 +10,7 @@ import TallaDianaIcon from '../../assets/imgs/patient/talla_diana_icon.svg'
 
 export const ModalTallaDiana = ({ patientObject }) => {
 
-    const { uid, patientID, gender } = patientObject;
+    const { uid, patientID, biologicalSex } = patientObject;
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -28,11 +28,11 @@ export const ModalTallaDiana = ({ patientObject }) => {
         const fatherStatureValue = parseFloat(fatherStature.replace(/,/g, '.'));
         const motherStatureValue = parseFloat(motherStature.replace(/,/g, '.'));
         
-        if( gender === 'Masculino' ){
+        if( biologicalSex === 'Masculino' ){
             const tallaDiana = ( fatherStatureValue + ( motherStatureValue + 13 ) ) /2
             dispatch( startUpdatingCurrentPatientTallaDiana( uid, patientID, tallaDiana ) )
 
-        }else if( gender === 'Femenino' ){
+        }else if( biologicalSex === 'Femenino' ){
             const tallaDiana = ( ( fatherStatureValue - 13 ) + motherStatureValue ) /2
             dispatch( startUpdatingCurrentPatientTallaDiana( uid, patientID, tallaDiana ) )
             

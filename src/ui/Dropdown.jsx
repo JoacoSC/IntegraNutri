@@ -13,9 +13,9 @@ export const Dropdown = ({ patientObject }) => {
 
     const dropdownMenu = useRef();
 
-    const { age, gender } = useSelector( state => state.currentPatient )
+    const { age, biologicalSex } = useSelector( state => state.currentPatient )
 
-    // console.log('gender: ',gender)
+    // console.log('biologicalSex: ',biologicalSex)
     // console.log('age: ',age)
 
     // const {
@@ -70,7 +70,7 @@ export const Dropdown = ({ patientObject }) => {
                                 </div>
                                 {
 
-                                    ( gender === 'Femenino' )
+                                    ( biologicalSex === 'Femenino' )
                                     ?   ( age.y >= 8 && age.y <= 14 )
                                         ?   <div className='dropdown-item-container'>
                                                 <ModalUpdateEstadioTanner patientObject={ patientObject } />
@@ -79,7 +79,7 @@ export const Dropdown = ({ patientObject }) => {
                                     :   null
                                 }
                                 {
-                                    ( gender === 'Masculino' )
+                                    ( biologicalSex === 'Masculino' )
                                     ?   ( age.y >= 10 && age.y <= 15 )
                                         ?   <div className='dropdown-item-container'>
                                                 <ModalUpdateEstadioTanner patientObject={ patientObject } />

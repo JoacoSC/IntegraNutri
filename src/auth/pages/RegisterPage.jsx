@@ -31,7 +31,7 @@ export const RegisterPage = () => {
 
     const { disableConfirmBtn, error, errorCode } = useSelector( state => state.loginHelper );
 
-    const { name, fatherName, motherName, birthday, email, password, confirm_password, region, city, address = '', phone = '', gender = 'No especificado', onInputChange, formState } = useForm();
+    const { name, fatherName, motherName, birthday, email, password, confirm_password, region, city, address = '', phone = '', biologicalSex = 'No especificado', onInputChange, formState } = useForm();
     // const {  onInputChange, formState } = useForm();
 
     const { isValid, rut, updateRut } = useRut();
@@ -51,7 +51,7 @@ export const RegisterPage = () => {
         console.log('isFormValid: ', isFormValid)
         console.log('isValid: ', isValid)
         if ( isFormValid === true && isValid ){
-            dispatch ( startCreatingUserWithEmailPassword({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, gender }) )
+            dispatch ( startCreatingUserWithEmailPassword({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex }) )
             
         }
         
@@ -215,7 +215,7 @@ export const RegisterPage = () => {
                         </div>
                         <div className="form-item">
                             <label className="input-label">Género</label>
-                            <select className="select-style" name="gender" onChange={ onInputChange }>
+                            <select className="select-style" name="biologicalSex" onChange={ onInputChange }>
                                 <option value="No especificado">Seleccione una opción</option>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>

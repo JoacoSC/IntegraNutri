@@ -95,7 +95,7 @@ export const PatientPage = () => {
         unixBirthday,
         unixCorrectedBirthday,
         unixBiologicalBirthday,
-        gender,
+        biologicalSex,
         age,
         correctedAgeIsSet = null,
         correctedAge = {
@@ -114,32 +114,6 @@ export const PatientPage = () => {
         perimetroCintura,
         presionArterial,
     } = useSelector((state) => state.currentPatient);
-
-    console.log('Patient Data: ', {
-        email,
-        patientName,
-        nextConsultation,
-        anamnesis,
-        physical_exam,
-        diagnosis,
-        indications,
-        weight,
-        stature,
-        imc,
-        unixBirthday,
-        unixCorrectedBirthday,
-        unixBiologicalBirthday,
-        gender,
-        age,
-        correctedAgeIsSet,
-        correctedAge,
-        biologicalAgeIsSet,
-        biologicalAge,
-        tallaDiana,
-        perimetroCefalico,
-        perimetroCintura,
-        presionArterial,
-    })
 
     const [isLoading, setIsLoading] = useState( true );
     
@@ -164,7 +138,7 @@ export const PatientPage = () => {
         lastStature,
         ageForCalcs,
         unixBirthdayForCalcs,
-        gender
+        biologicalSex
     );
 
     // console.log('nutritionalCalification: ', nutritionalCalification)
@@ -811,7 +785,7 @@ export const PatientPage = () => {
                 ]
             })
 
-            if( gender === "Femenino" ){
+            if( biologicalSex === "Femenino" ){
 
                 // Graficos P/E
 
@@ -1041,7 +1015,7 @@ export const PatientPage = () => {
                 }
             }
 
-            if( gender === "Masculino" ){
+            if( biologicalSex === "Masculino" ){
 
                 // Graficos P/E
 
@@ -1299,7 +1273,7 @@ export const PatientPage = () => {
                 ]
             })
 
-            if( gender === "Femenino" ){
+            if( biologicalSex === "Femenino" ){
 
                 // Graficos T/E
 
@@ -1529,7 +1503,7 @@ export const PatientPage = () => {
                 }
             }
 
-            if( gender === "Masculino" ){
+            if( biologicalSex === "Masculino" ){
 
                 // Graficos T/E
 
@@ -1786,7 +1760,7 @@ export const PatientPage = () => {
                 ]
             })
 
-            if( gender === "Femenino" ){
+            if( biologicalSex === "Femenino" ){
 
                 // Graficos P/E
 
@@ -1926,7 +1900,7 @@ export const PatientPage = () => {
                 }
             }
 
-            if( gender === "Masculino" ){
+            if( biologicalSex === "Masculino" ){
 
                 // Graficos P/E
 
@@ -2093,7 +2067,7 @@ export const PatientPage = () => {
                 ]
             })
             
-            if( gender === "Femenino" ){
+            if( biologicalSex === "Femenino" ){
 
                 // Graficos IMC/E
 
@@ -2203,7 +2177,7 @@ export const PatientPage = () => {
                 }
             }
 
-            if( gender === "Masculino" ){
+            if( biologicalSex === "Masculino" ){
 
                 // Graficos IMC/E
 
@@ -2373,7 +2347,7 @@ export const PatientPage = () => {
         'lastStature' : lastStature,
         'imc' : imc,
         'unixBirthday' : unixBirthday,
-        'gender' : gender,
+        'biologicalSex' : biologicalSex,
         'ageForCalcs' : ageForCalcs,
     }
     
@@ -2436,8 +2410,8 @@ export const PatientPage = () => {
                                     <img src={ Nutri_face_scarf } className="patient-primary-card-avatar-img" alt="Icono IntegraNutri"/>
                                     </div>
                                     <div className="patient-name">{patientName}</div>
-                                    <div className="patient-gender"><b>Género: </b>{gender}</div>
-                                    <div className="patient-gender"><b>Fecha de nacimiento: </b>
+                                    <div className="patient-biologicalSex"><b>Género: </b>{biologicalSex}</div>
+                                    <div className="patient-biologicalSex"><b>Fecha de nacimiento: </b>
                                     {   (unixBirthday)
                                         ?   format(fromUnixTime(unixBirthday), "dd/MMM/yyyy")
                                         :   null

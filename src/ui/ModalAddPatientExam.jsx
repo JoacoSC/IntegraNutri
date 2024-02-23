@@ -99,7 +99,7 @@ export const ModalAddPatientExam = ({ uid, patientID }) => {
     return (
                 <>
             
-            <button className="patient-exams-btn" type="button" onClick={() => setOpenModal(true)}>
+            <button className="btn-sm" type="button" onClick={() => setOpenModal(true)}>
                 Agregar examen
             </button>
             <CSSTransition
@@ -125,8 +125,10 @@ export const ModalAddPatientExam = ({ uid, patientID }) => {
                     <div className="patient-exams-container">
                         <div className="patient-exams-wrapper">
                             <div className="patient-exams-item-container">
-                                <div className="patient-exams-title-container">
-                                    <p className="patient-exams-title">Agregar nuevo examen</p>
+                                <div className="patient-exams-header">
+                                    <div className="patient-exams-title-container">
+                                        <p className="patient-exams-title">Agregar nuevo examen</p>
+                                    </div>
                                 </div>
                                 
                                 <div className="exams-container">
@@ -262,7 +264,7 @@ export const ModalAddPatientExam = ({ uid, patientID }) => {
                                         
                                     </div>
                                     <div className="exam-submit-btn-container">
-                                        <button className="exam-submit-btn" type="submit">
+                                        <button className="btn-sm" type="submit">
                                             Guardar nuevo examen
                                         </button>
                                     </div>

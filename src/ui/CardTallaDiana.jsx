@@ -6,7 +6,7 @@ import TallaDianaForAvatar from '../../assets/imgs/patient/talla_diana-for-avata
 
 export const CardTallaDiana = () => {
 
-    const { gender, tallaDiana } = useSelector((state) => state.currentPatient);
+    const { biologicalSex, tallaDiana } = useSelector((state) => state.currentPatient);
 
     return (
         <div className='patient-secondary-card'>
@@ -15,9 +15,9 @@ export const CardTallaDiana = () => {
             </div>
             <div className='patient-secondary-card-content'>
                 {
-                    ( gender === 'Masculino' )
+                    ( biologicalSex === 'Masculino' )
                     ?   <img src={ AvatarMasculino } className='talla-diana-avatar'/>
-                    :   ( gender === 'Femenino' )
+                    :   ( biologicalSex === 'Femenino' )
                         ?   <img src={ AvatarFemenino } className='talla-diana-avatar'/>
                         :   null
                 }
