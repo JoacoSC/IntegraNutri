@@ -24,7 +24,7 @@ En este momento, no se aceptan contribuciones externas al proyecto.
 
 ## Estado del proyecto
 
-El proyecto se encuentra en fase Alpha, con varias funciones completas y otras pendientes de desarrollo.
+El proyecto se encuentra en producción, con varias funciones completas y varias actualizaciones pendientes de desarrollo.
 
 ## Contacto
 
