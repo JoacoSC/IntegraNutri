@@ -5,9 +5,12 @@ import PerimetroCinturaForAvatar from '../../assets/imgs/patient/perimetro_cintu
 import { useEffect, useState } from 'react';
 import { fromUnixTime } from 'date-fns';
 
-export const CardEstadioTanner = () => {
+export const CardEstadioTanner = ({ nutritionalCalification }) => {
 
     const { weight, stature, unixBiologicalBirthday = 0, estadioTanner, biologicalSex } = useSelector((state) => state.currentPatient);
+
+    const weightCalificationResult = nutritionalCalification.weightCalificationResult;
+    
 
     // console.log( estadioTanner )
 
@@ -74,15 +77,27 @@ export const CardEstadioTanner = () => {
 
     const calculateTannerIMC = ( weight, stature ) => {
 
-        const lastWeight = weight[weight?.length - 1].A
-
-        const lastStature = stature[stature?.length - 1].A
-
+        let lastWeight = weight[weight?.length - 1].A;
+        let lastStature = stature[stature?.length - 1].A;
+    
+        // Reemplaza las comas por puntos
+        if (typeof lastWeight === 'string') {
+            lastWeight = parseFloat(lastWeight.replace(',', '.'));
+        }
+        if (typeof lastStature === 'string') {
+            lastStature = parseFloat(lastStature.replace(',', '.'));
+        }
+    
         const IMC = lastWeight / (lastStature/100)**2;
-
+    
+        console.log('lastWeight: ', lastWeight);
+        console.log('lastStature: ', lastStature);
+        console.log('lastStature: ', (lastStature/100));
+    
         return IMC.toFixed(2);
-
+    
     }
+    
 
     useEffect(() => {
         
@@ -107,7 +122,7 @@ export const CardEstadioTanner = () => {
                     <p className='perimetro-cefalico-value'><b>Edad biológica:&nbsp;</b>{ biologicalAgeText }</p>
                     <p className='perimetro-cefalico-value'><b>Estadio Tanner:&nbsp;</b>Grado { estadioTanner }</p>
                     <p className='perimetro-cefalico-value'>
-                        <b>IMC:&nbsp;</b>{ tannerIMC }
+                        <b>IMC:&nbsp;</b>{ `${ tannerIMC } (${ weightCalificationResult })` }
                     </p>
                 </div>
                 {/* <div className="alt-button-info" data-tooltip="Este resultado puede presentar una variabilidad de hasta +-8,5 cm">

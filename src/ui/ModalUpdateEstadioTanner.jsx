@@ -114,6 +114,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
         const unixBiologicalBirthday = null;
         const biologicalAgeIsSet = false;
+        const estadioTanner = null;
 
         dispatch( updateCurrentPatientBiologicalAge( biologicalAge ) );
         dispatch( updateCurrentPatientEstadioTanner( null ) );

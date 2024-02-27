@@ -2586,7 +2586,7 @@ export const PatientPage = () => {
 
                             {
                                 (biologicalAgeIsSet)
-                                ?   <CardEstadioTanner/>
+                                ?   <CardEstadioTanner nutritionalCalification = { nutritionalCalification }/>
                                 :   null
                             }    
                                 
