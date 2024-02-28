@@ -9,6 +9,7 @@ import { calculatorSlice } from './calculator';
 import { shoppingCartSlice } from './shoppingCart';
 import { subscriptionSlice } from './subscription';
 import { buyOrderSlice } from './buyOrder';
+import { reminder24HoursSlice } from './reminder24Hours/reminder24HoursSlice';
 
 export const store = configureStore({
     reducer: {
@@ -22,5 +23,6 @@ export const store = configureStore({
         subscription: subscriptionSlice.reducer,
         shoppingCart: shoppingCartSlice.reducer,
         buyOrder: buyOrderSlice.reducer,
+        reminder24Hours: reminder24HoursSlice.reducer,
     },
 })

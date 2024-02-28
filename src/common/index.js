@@ -1,2 +1,6 @@
 export * from './Tooltip'
 export * from './DangerTooltip'
+export * from './DeleteButton'
+export * from './SmallButton'
+export * from './IconicButton'
+export * from './SmallIconicButton'

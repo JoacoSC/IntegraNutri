@@ -2,6 +2,7 @@ import { async } from "@firebase/util";
 import { doc, getDoc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
 import { setCurrentPatient, updateCurrentPatientExamsHistory, updateCurrentPatientPerimetroCefalico, updateCurrentPatientPerimetroCintura, updateCurrentPatientPresionArterial, updateCurrentPatientTallaDiana } from "./";
+import { setReminder24Hours } from "../reminder24Hours";
 
 
 export const startLoadingCurrentPatient = ( uid, patientID ) => {
@@ -13,6 +14,10 @@ export const startLoadingCurrentPatient = ( uid, patientID ) => {
         const currentPatient = result.data()
         
         dispatch( setCurrentPatient( currentPatient ) )
+
+        if(currentPatient.reminderTable){
+            dispatch( setReminder24Hours( currentPatient.reminderTable ) )
+        }
 
     }
 }

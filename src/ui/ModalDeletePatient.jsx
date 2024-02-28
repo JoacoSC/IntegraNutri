@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { startDeletePatient } from '../store/patients';
+import { DeleteButton } from '../common';
 
 export const ModalDeletePatient = ({ displayName, patientID }) => {
 
@@ -33,9 +34,8 @@ export const ModalDeletePatient = ({ displayName, patientID }) => {
     return (
         <>
             
-            <button className="btn-delete" type="button" onClick={() => setOpenModal(true)}>
-                Eliminar
-            </button>
+            <DeleteButton text="Eliminar" onClick={() => setOpenModal(true)} />
+
             <CSSTransition
                 timeout={300}
                 classNames="overlay"

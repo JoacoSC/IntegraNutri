@@ -73,7 +73,10 @@ import {
 // import IntegraNutri_ellipse from '../../../assets/imgs/navbar/IntegraNutri_ellipse.svg'
 import Nutri_face_scarf from '../../../assets/imgs/navbar/Nutri_face_scarf.svg'
 import Dropdown_arrow from '../../../assets/imgs/patient/dropdown_arrow.svg'
+import AddIcon from '../../../assets/imgs/journal/btn-add.svg';
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
+import { DeleteButton, SmallButton, SmallIconicButton } from "../../common";
+import { startUpdatingReminder24Hours } from "../../store/reminder24Hours";
 
 
 export const PatientPage = () => {
@@ -115,6 +118,8 @@ export const PatientPage = () => {
         perimetroCintura,
         presionArterial,
     } = useSelector((state) => state.currentPatient);
+
+    const { reminderTable } = useSelector((state) => state.reminder24Hours);
 
     const [isLoading, setIsLoading] = useState( true );
     
@@ -219,6 +224,9 @@ export const PatientPage = () => {
             },
         ]
     });
+
+    const [rows, setRows] = useState([{ meal: '', time: '', place: '', food: '', ingredients: '' }]);
+
 
     const updateChart = () => {
 
@@ -2351,6 +2359,32 @@ export const PatientPage = () => {
         'biologicalSex' : biologicalSex,
         'ageForCalcs' : ageForCalcs,
     }
+
+    const handleChange = (event, index, field) => {
+        const newRows = [...rows];
+        newRows[index][field] = event.target.value;
+        setRows(newRows);
+    };
+    
+    const handleRemove = (index) => {
+        const newRows = [...rows];
+        newRows.splice(index, 1);
+        setRows(newRows);
+    };
+
+    const handleUpdateReminder24Hours = ( rows ) => {
+        
+        // console.log('rows: ', rows )
+        dispatch( startUpdatingReminder24Hours( uid, patientID, rows ) )
+    };
+
+    useEffect(() => {
+        if(reminderTable){
+            setRows(reminderTable)
+        }
+    }, [reminderTable])
+    
+      
     
     return (
       <>
@@ -2951,6 +2985,53 @@ export const PatientPage = () => {
                         </div>
                         </div>
                     </div>
+                    </div>
+                    <div className="patient-section">
+                        <div className="table-wrapper">
+                            <p className="table-title">Recordatorio de 24 horas</p>
+                            <div className="table-container">
+                                <table className="table">
+                                    <tbody>
+
+                                        <tr>
+                                            <th>Tiempo de comida</th>
+                                            <th>Hora</th>
+                                            <th>Lugar</th>
+                                            <th>Preparación o alimentos</th>
+                                            <th>Ingredientes (medidas caseras o gramajes)</th>
+                                            <th></th>
+                                        </tr>
+                                        {rows.map((row, index) => (
+                                            <tr key={index}>
+                                                <td><input value={row.meal} onChange={(e) => handleChange(e, index, 'meal')} /></td>
+                                                <td><input value={row.time} onChange={(e) => handleChange(e, index, 'time')} /></td>
+                                                <td><input value={row.place} onChange={(e) => handleChange(e, index, 'place')} /></td>
+                                                <td><input value={row.food} onChange={(e) => handleChange(e, index, 'food')} /></td>
+                                                <td><input value={row.ingredients} onChange={(e) => handleChange(e, index, 'ingredients')} /></td>
+                                                <td>
+                                                    <div className="table-delete-row-btn">
+                                                        <DeleteButton text="Eliminar" onClick={() => handleRemove(index)} />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            ))}
+
+                                    </tbody>
+                                </table>
+                                <div className="table-bottom-btn">
+                                    <SmallIconicButton
+                                        text="Agregar fila"
+                                        onClick={() => setRows([...rows, { meal: '', time: '', place: '', food: '', ingredients: '' }])}
+                                        Icon={ AddIcon }
+                                    />
+                                    <SmallIconicButton
+                                        text="Guardar cambios"
+                                        onClick={ () => handleUpdateReminder24Hours( rows ) }
+                                        Icon={ AddIcon }
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </>
             }

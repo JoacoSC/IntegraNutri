@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { startDeletePatient } from '../store/patients';
 import { ModalDeleteNutritionist } from './ModalDeleteNutritionist';
+import { DeleteButton } from '../common';
 
 export const ModalConfirmDeleteNutritionist = () => {
 
@@ -23,9 +24,8 @@ export const ModalConfirmDeleteNutritionist = () => {
     return (
         <>
             
-            <button className="btn-delete" type="button" onClick={() => setOpenModal(true)}>
-                Eliminar
-            </button>
+            <DeleteButton text="Eliminar" onClick={() => setOpenModal(true)} />
+
             <CSSTransition
                 timeout={300}
                 classNames="overlay"

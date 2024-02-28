@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from "../hooks";
 import { startUpdatingExamsHistory } from "../store/currentPatient";
+import { SmallButton } from "../common";
 
 export const ModalAddPatientExam = ({ uid, patientID }) => {
 
@@ -99,9 +100,8 @@ export const ModalAddPatientExam = ({ uid, patientID }) => {
     return (
                 <>
             
-            <button className="btn-sm" type="button" onClick={() => setOpenModal(true)}>
-                Agregar examen
-            </button>
+            <SmallButton text="Agregar examen" onClick={() => setOpenModal(true)} />
+
             <CSSTransition
                 timeout={300}
                 classNames="overlay"
@@ -264,9 +264,7 @@ export const ModalAddPatientExam = ({ uid, patientID }) => {
                                         
                                     </div>
                                     <div className="exam-submit-btn-container">
-                                        <button className="btn-sm" type="submit">
-                                            Guardar nuevo examen
-                                        </button>
+                                        <SmallButton text="Guardar nuevo examen" type="submit" />
                                     </div>
                                 </div>
                                 

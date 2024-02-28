@@ -5,7 +5,7 @@ import { regiones } from "../../helpers";
 import { useSelector } from "react-redux";
 import { useForm } from "../../hooks";
 import { useRut } from "react-rut-formatter";
-import { Tooltip } from "../../common";
+import { SmallButton, Tooltip } from "../../common";
 
 export const PatientForm = ({ patientFormProps }) => {
 
@@ -163,11 +163,7 @@ export const PatientForm = ({ patientFormProps }) => {
                     </div>
                     <input className="input-text-style" type="text" name="genderIdentity" onChange={ onInputChange } hidden={ !genderInputIsSet }/>
                     <div className="form-item-optional-btn-container">
-                        <button className="btn-sm" type="button" onClick={ handleGenderInputIsSet }>
-                            {
-                                ( !genderInputIsSet ) ? 'Agregar género' : 'Cancelar'
-                            }
-                        </button>
+                        <SmallButton text={( !genderInputIsSet ) ? 'Agregar género' : 'Cancelar'} onClick={handleGenderInputIsSet} />
                     </div>
                 </div>
                 {

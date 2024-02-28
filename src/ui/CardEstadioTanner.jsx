@@ -90,9 +90,9 @@ export const CardEstadioTanner = ({ nutritionalCalification }) => {
     
         const IMC = lastWeight / (lastStature/100)**2;
     
-        console.log('lastWeight: ', lastWeight);
-        console.log('lastStature: ', lastStature);
-        console.log('lastStature: ', (lastStature/100));
+        // console.log('lastWeight: ', lastWeight);
+        // console.log('lastStature: ', lastStature);
+        // console.log('lastStature: ', (lastStature/100));
     
         return IMC.toFixed(2);
     

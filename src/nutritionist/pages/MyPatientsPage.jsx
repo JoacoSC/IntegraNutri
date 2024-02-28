@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { clearCurrentPatient } from '../../store/currentPatient';
 import { ModalDeletePatient } from '../../ui/ModalDeletePatient';
+import { clearReminder24Hours } from '../../store/reminder24Hours';
 
 
 
@@ -32,6 +33,8 @@ export const MyPatientsPage = () => {
     useEffect(() => {
         
         dispatch( clearCurrentPatient() );
+        dispatch( clearReminder24Hours() );
+        
 
     }, [])
     
@@ -53,7 +56,10 @@ export const MyPatientsPage = () => {
                     <h1>Nut. { displayName }</h1>
                 </div>
                 <div className="sub-title">
-                    <ModalNewPatient />
+                    <div className='sub-title-btn-container'>
+                        <ModalNewPatient />
+
+                    </div>
                 </div>
                 <div className="main-patient-list">
                        

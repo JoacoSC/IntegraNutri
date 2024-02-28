@@ -15,6 +15,8 @@ import { startLoadingMyPatients } from "../store/patients";
 import { regiones } from "../helpers";
 import { ComunasSelect, ErrorManager } from "./";
 import { PatientForm } from "./components";
+import AddIcon from '../../assets/imgs/journal/btn-add.svg';
+import { IconicButton } from "../common";
 
 export const ModalNewPatient = () => {
 
@@ -97,9 +99,8 @@ export const ModalNewPatient = () => {
     return (
         <>
             
-            <button className="btn-spontaneous" type="button" onClick={() => setOpenModal(true)}>
-                Agregar paciente
-            </button>
+            <IconicButton text="Agregar paciente" onClick={() => setOpenModal(true)} Icon={ AddIcon } />
+
             <CSSTransition
                 timeout={300}
                 classNames="overlay"
