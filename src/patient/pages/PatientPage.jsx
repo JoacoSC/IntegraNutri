@@ -2381,6 +2381,8 @@ export const PatientPage = () => {
     useEffect(() => {
         if(reminderTable){
             setRows(reminderTable)
+        }else{
+            setRows([{ meal: '', time: '', place: '', food: '', ingredients: '' }])
         }
     }, [reminderTable])
     

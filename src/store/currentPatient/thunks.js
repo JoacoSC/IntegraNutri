@@ -17,6 +17,8 @@ export const startLoadingCurrentPatient = ( uid, patientID ) => {
 
         if(currentPatient.reminderTable){
             dispatch( setReminder24Hours( currentPatient.reminderTable ) )
+        }else{
+            dispatch( setReminder24Hours( null ) )
         }
 
     }
