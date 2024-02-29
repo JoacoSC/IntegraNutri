@@ -119,7 +119,7 @@ export const PatientPage = () => {
         presionArterial,
     } = useSelector((state) => state.currentPatient);
 
-    const { reminderTable } = useSelector((state) => state.reminder24Hours);
+    const { reminderTables } = useSelector((state) => state.reminder24Hours);
 
     const [isLoading, setIsLoading] = useState( true );
     
@@ -226,6 +226,12 @@ export const PatientPage = () => {
     });
 
     const [rows, setRows] = useState([{ meal: '', time: '', place: '', food: '', ingredients: '' }]);
+    const [history, setHistory] = useState([]);
+    const [historyIndex, setHistoryIndex] = useState(0);
+    const [adding, setAdding] = useState(true);
+    const [editing, setEditing] = useState(false);
+    const [editingIndex, setEditingIndex] = useState(null);
+
 
 
     const updateChart = () => {
@@ -2362,9 +2368,10 @@ export const PatientPage = () => {
 
     const handleChange = (event, index, field) => {
         const newRows = [...rows];
-        newRows[index][field] = event.target.value;
+        newRows[index] = { ...newRows[index], [field]: event.target.value };
         setRows(newRows);
-    };
+      };      
+      
     
     const handleRemove = (index) => {
         const newRows = [...rows];
@@ -2372,22 +2379,74 @@ export const PatientPage = () => {
         setRows(newRows);
     };
 
+    const handleEdit = (index) => {
+        setEditing(true);
+        setAdding(false);
+        setEditingIndex(index);
+        setRows(history[index].rows);
+      };
+      
+    const handleDelete = (index) => {
+        const newHistory = [...history];
+        newHistory.splice(index, 1);
+        setHistory(newHistory);
+        dispatch(startUpdatingReminder24Hours(uid, patientID, newHistory));
+    };
+      
+    const handleSaveEdit = () => {
+        const newHistory = [...history];
+        newHistory[editingIndex] = { ...newHistory[editingIndex], rows: rows };
+        setHistory(newHistory);
+        dispatch(startUpdatingReminder24Hours(uid, patientID, newHistory));
+        setEditing(false);
+        setEditingIndex(null);
+      };
+      
+      
+
+    const handleNewTable = () => {
+        setEditing(false);
+        setAdding(true)
+        // Establece una nueva fila vacía
+        setRows([{ meal: '', time: '', place: '', food: '', ingredients: '' }]);
+    };
+
     const handleUpdateReminder24Hours = ( rows ) => {
-        
-        // console.log('rows: ', rows )
-        dispatch( startUpdatingReminder24Hours( uid, patientID, rows ) )
+        // Agrega la tabla al historial
+        const newHistory = [{ rows, timestamp: new Date().toISOString() }, ...history];
+        setHistory(newHistory);
+        setHistoryIndex(0);
+    
+        // Guarda los cambios en la base de datos y en el store de Redux
+        dispatch( startUpdatingReminder24Hours( uid, patientID, newHistory ) )
+    };
+
+    const handleHistoryClick = (index) => {
+        setAdding(false);
+        setEditing(false);
+        // Carga la tabla del historial en la tabla actual
+        setRows(history[index].rows);
+    };
+    
+    const handleNext = () => {
+        setHistoryIndex(historyIndex + 3);
+    };
+    
+    const handlePrev = () => {
+        setHistoryIndex(historyIndex - 3);
     };
 
     useEffect(() => {
-        if(reminderTable){
-            setRows(reminderTable)
+        
+        if(reminderTables){
+            setHistory(reminderTables);
+            setHistoryIndex(0);
         }else{
             setRows([{ meal: '', time: '', place: '', food: '', ingredients: '' }])
         }
-    }, [reminderTable])
+    }, [reminderTables])
     
-      
-    
+
     return (
       <>
         <AppLayout>
@@ -3004,19 +3063,20 @@ export const PatientPage = () => {
                                             <th></th>
                                         </tr>
                                         {rows.map((row, index) => (
-                                            <tr key={index}>
-                                                <td><input value={row.meal} onChange={(e) => handleChange(e, index, 'meal')} /></td>
-                                                <td><input value={row.time} onChange={(e) => handleChange(e, index, 'time')} /></td>
-                                                <td><input value={row.place} onChange={(e) => handleChange(e, index, 'place')} /></td>
-                                                <td><input value={row.food} onChange={(e) => handleChange(e, index, 'food')} /></td>
-                                                <td><input value={row.ingredients} onChange={(e) => handleChange(e, index, 'ingredients')} /></td>
-                                                <td>
-                                                    <div className="table-delete-row-btn">
-                                                        <DeleteButton text="Eliminar" onClick={() => handleRemove(index)} />
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            ))}
+            <tr key={index}>
+                <td><input value={row.meal} onChange={(e) => handleChange(e, index, 'meal')} disabled={!editing && !adding} /></td>
+                <td><input value={row.time} onChange={(e) => handleChange(e, index, 'time')} disabled={!editing && !adding} /></td>
+                <td><input value={row.place} onChange={(e) => handleChange(e, index, 'place')} disabled={!editing && !adding} /></td>
+                <td><input value={row.food} onChange={(e) => handleChange(e, index, 'food')} disabled={!editing && !adding} /></td>
+                <td><input value={row.ingredients} onChange={(e) => handleChange(e, index, 'ingredients')} disabled={!editing && !adding} /></td>
+                <td>
+                <div className="table-delete-row-btn">
+                    <DeleteButton text="Eliminar" onClick={() => handleRemove(index)} disabled={!editing && !adding} />
+                </div>
+                </td>
+            </tr>
+            ))}
+
 
                                     </tbody>
                                 </table>
@@ -3025,12 +3085,31 @@ export const PatientPage = () => {
                                         text="Agregar fila"
                                         onClick={() => setRows([...rows, { meal: '', time: '', place: '', food: '', ingredients: '' }])}
                                         Icon={ AddIcon }
+                                        hidden={!adding}
                                     />
                                     <SmallIconicButton
                                         text="Guardar cambios"
                                         onClick={ () => handleUpdateReminder24Hours( rows ) }
                                         Icon={ AddIcon }
                                     />
+                                    <SmallIconicButton
+                                        text="Nueva tabla"
+                                        onClick={ handleNewTable }
+                                        Icon={ AddIcon }
+                                    />
+                                    {history.slice(historyIndex, historyIndex + 3).map((item, index) => (
+                                    <div>
+                                        <button onClick={() => handleHistoryClick(historyIndex + index)}>
+                                        {new Date(item.timestamp).toLocaleString()}
+                                        </button>
+                                        <button onClick={() => handleEdit(historyIndex + index)}>Editar</button>
+                                        <button onClick={() => handleDelete(historyIndex + index)}>Eliminar</button>
+                                    </div>
+                                    ))}
+                                    {editing && <button onClick={handleSaveEdit}>Guardar cambios</button>}
+
+                                    {historyIndex > 0 && <button onClick={handlePrev}>Anterior</button>}
+                                    {historyIndex + 3 < history.length && <button onClick={handleNext}>Siguiente</button>}
                                 </div>
                             </div>
                         </div>

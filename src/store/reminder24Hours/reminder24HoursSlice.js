@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 export const reminder24HoursSlice = createSlice({
     name: 'reminder24Hours',
     initialState: {
-        reminderTable: null,
+        reminderTables: [],
     },
     reducers: {
         setReminder24Hours: (state, { payload }) => {
-            state.reminderTable = payload;
+            state.reminderTables = payload;
         },
         clearReminder24Hours: (state) => {
-            state.reminderTable = null;
+            state.reminderTables = [];
         },
     }
 });

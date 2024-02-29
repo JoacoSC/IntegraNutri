@@ -4,19 +4,19 @@ import { setReminder24Hours } from "./reminder24HoursSlice";
 
 
 
-export const startUpdatingReminder24Hours = ( uid, patientID, rows ) => {
+export const startUpdatingReminder24Hours = ( uid, patientID, newHistory ) => {
     return async( dispatch ) => {
 
-        const reminderTable = {
-            reminderTable: rows,
+        const reminderTables = {
+            reminderTables: newHistory,
         }
 
         const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
-        await setDoc( docRef, reminderTable, { merge: true });
+        await setDoc( docRef, reminderTables, { merge: true });
         
-        dispatch( setReminder24Hours( rows ) )
+        dispatch( setReminder24Hours( newHistory ) )
 
-        console.log('rows: ',rows)
+        console.log('rows: ',newHistory)
 
     }
 }
