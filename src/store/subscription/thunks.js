@@ -75,7 +75,8 @@ export const startSetSubscription = ( uid ) => {
             currentSubscription.isActive = false;
             message = 'Tu suscripción ha caducado. Por favor, adquiere una nueva.';
         }
-        if( membership === 1 ){
+
+        if( membership === 1 && diffInDays > 0 ){
             message = 'Esta es una prueba gratis de 7 días en IntegraNutri! Esperamos que disfrutes tu experiencia, y si tienes sugerencias, no dudes en comunicarte con nosotros.';
         }
 
