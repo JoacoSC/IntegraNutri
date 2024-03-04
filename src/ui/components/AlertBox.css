@@ -1,4 +1,31 @@
 /* AlertBox.css */
+.success-box {
+    padding: 15px;
+    background-color: #cff6d4; /* color de fondo amarillo claro */
+    color: #3b8a44; /* color de texto marrón */
+    border: 1px solid #3b8a44; /* borde de color amarillo */
+    border-radius: 4px; /* bordes redondeados */
+    position: relative;
+    margin: 2rem 4rem 0 2rem;
+    font-size: 14px; /* tamaño de fuente más pequeño */
+    line-height: 1.5; /* espacio entre líneas */
+}
+
+.success-box button {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0.7; 
+}
+
+.success-box button:hover {
+    opacity: 1; /* botón más oscuro al pasar el ratón */
+}
+
 .alert-box {
     padding: 15px;
     background-color: #fcf8e3; /* color de fondo amarillo claro */

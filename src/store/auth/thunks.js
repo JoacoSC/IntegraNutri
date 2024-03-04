@@ -11,6 +11,13 @@ import { EmailAuthProvider, deleteUser, reauthenticateWithCredential, sendPasswo
 import { deleteJournalFromDB, startCreatingJournal, unsetJournal } from "../journal";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../loginHelper";
 
+// Función para obtener la fecha de término de la suscripción
+function calculateSubscriptionEndDate(startDate, days) {
+    const endDate = new Date(startDate);
+    endDate.setDate(endDate.getDate() + days);
+    return endDate;
+}
+
 export const checkingAuthentication = ( email, password ) => {
     
     return async( dispatch ) => {
@@ -90,10 +97,100 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirth
 
         dispatch( startCreatingJournal( uid ) )
         console.log('Creando agenda...')
+        dispatch( startSubscriptionTrial( uid ) )
+        console.log('Activando prueba gratis...')
         // dispatch( login({ uid, displayName }) )
         dispatch( startLogout() );
         console.log('Redirigiendo al login...')
                 
+    }
+}
+
+export const startSubscriptionTrial = ( uid ) => {
+    return async( dispatch ) => {
+
+        const buyOrder = "O-1"
+
+        const currentDate = new Date();
+
+        // Opciones de formato
+        const dateOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
+        const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+
+        // itemID = 3 es la prueba gratis de 7 días.
+        const itemID = 3;
+
+        const subscriptions = [];
+        
+        console.log('currentDate:', currentDate);
+
+        const collectionRef = collection( FirebaseDB, `subscriptions` );
+        const docs = await getDocs( collectionRef );
+  
+        // Iterar sobre los documentos y guardar los datos en el array subscriptions
+        docs.forEach((document) => {
+            subscriptions.push(document.data());
+        });
+        
+        // Buscar el objeto con el itemID igual al valor de item
+        const selectedSubscription = subscriptions.find((subscription) => subscription.itemID === parseInt(itemID, 10));
+
+        const subscriptionDays = selectedSubscription.subscriptionDays;
+
+        const membership = selectedSubscription.membership;
+
+        // Crear el objeto "subscription"
+        const subscription = {
+            isActive: true,
+            subStart: currentDate.toLocaleDateString('en-US', dateOptions) + ', ' + currentDate.toLocaleTimeString('en-US', timeOptions), // Formato de fecha y hora actual
+            subEnd: calculateSubscriptionEndDate(currentDate, subscriptionDays).toLocaleDateString('en-US', dateOptions) + ', ' + calculateSubscriptionEndDate(currentDate, subscriptionDays).toLocaleTimeString('en-US', timeOptions), // Calcular la fecha de término
+            membership: membership, // Tipo de membresía
+            buyOrder: buyOrder // Orden de compra
+        };
+
+        console.log('subscription: ', subscription);
+
+        try {
+
+            let subscriptionIndex = "S-1";
+
+                try {
+
+                    const userSubscriptionsRef = collection( FirebaseDB, `users/${ uid }/subscription` );
+
+                    let userSubscriptions = [];
+
+                    const docs = await getDocs( userSubscriptionsRef );
+
+                    // Iterar sobre los documentos y guardar los datos en el array subscriptions
+                    docs.forEach((document) => {
+                        userSubscriptions.push(document.data());
+                    });
+                    // console.log('userSubscriptions:',userSubscriptions)
+                    // console.log('userSubscriptions length:',userSubscriptions.length)
+
+                    // let buyOrder = "O-" + Math.floor(Math.random() * 1000000) + 1;
+                    subscriptionIndex = "S-" + (userSubscriptions.length + 1);
+
+                } catch (error) {
+
+                    console.log('error: ', error)
+                    
+                }
+
+            console.log('uid: ', uid)
+
+            const newDoc = doc(collection(FirebaseDB, `users/${ uid }/subscription`), subscriptionIndex);
+
+            await setDoc(newDoc, subscription);
+
+        } catch (error) {
+
+            console.log('error: ', error)
+        
+        }
+        
+        
     }
 }
 

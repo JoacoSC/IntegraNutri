@@ -47,7 +47,7 @@ export const startSetSubscription = ( uid ) => {
 
         const currentSubscription = subscription[subscription.length - 1];
 
-        // console.log('currentSubscription: ',currentSubscription)
+        console.log('currentSubscription: ',currentSubscription)
 
         // Obtén la fecha actual
         let now = new Date();
@@ -61,6 +61,8 @@ export const startSetSubscription = ( uid ) => {
         let diffInDays = Math.ceil((subEnd - now) / (1000 * 60 * 60 * 24));
         // console.log('diffInDays: ',diffInDays)
 
+        let membership = currentSubscription.membership.id;
+
         // Inicializa el mensaje y la constante de estado de la suscripción
         let message = '';
 
@@ -72,6 +74,9 @@ export const startSetSubscription = ( uid ) => {
             // Si la suscripción está activa pero la fecha de finalización ha pasado, cambia el estado de la suscripción a inactivo
             currentSubscription.isActive = false;
             message = 'Tu suscripción ha caducado. Por favor, adquiere una nueva.';
+        }
+        if( membership === 1 ){
+            message = 'Esta es una prueba gratis de 7 días en IntegraNutri! Esperamos que disfrutes tu experiencia, y si tienes sugerencias, no dudes en comunicarte con nosotros.';
         }
 
         currentSubscription.message = message;

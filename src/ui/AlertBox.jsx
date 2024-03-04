@@ -5,7 +5,7 @@ import CloseIcon from '../../assets/imgs/journal/close-icon.svg';
 import './components';
 
 // Componente AlertBox
-export const AlertBox = ({ message }) => {
+export const AlertBox = ({ message, alertClassname }) => {
     const [isVisible, setIsVisible] = useState(true);
 
     if (!isVisible) {
@@ -13,7 +13,7 @@ export const AlertBox = ({ message }) => {
     }
 
     return (
-        <div className="alert-box">
+        <div className={`${alertClassname}-box`}>
             <span>{message}</span>
             <button onClick={() => setIsVisible(false)}>
                 <img src={ CloseIcon } className="close-icon" />

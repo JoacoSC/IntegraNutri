@@ -51,7 +51,7 @@ export const RegisterPage = () => {
         console.log('isFormValid: ', isFormValid)
         console.log('isValid: ', isValid)
         if ( isFormValid === true && isValid ){
-            dispatch ( startCreatingUserWithEmailPassword({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex }) )
+            dispatch( startCreatingUserWithEmailPassword({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex }) )
             
         }
         

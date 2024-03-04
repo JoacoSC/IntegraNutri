@@ -3047,7 +3047,7 @@ export const PatientPage = () => {
                         </div>
                     </div>
                     </div>
-                    <div className="patient-section">
+                    {/* <div className="patient-section">
                         <div className="table-wrapper">
                             <p className="table-title">Recordatorio de 24 horas</p>
                             <div className="table-container">
@@ -3063,21 +3063,19 @@ export const PatientPage = () => {
                                             <th></th>
                                         </tr>
                                         {rows.map((row, index) => (
-            <tr key={index}>
-                <td><input value={row.meal} onChange={(e) => handleChange(e, index, 'meal')} disabled={!editing && !adding} /></td>
-                <td><input value={row.time} onChange={(e) => handleChange(e, index, 'time')} disabled={!editing && !adding} /></td>
-                <td><input value={row.place} onChange={(e) => handleChange(e, index, 'place')} disabled={!editing && !adding} /></td>
-                <td><input value={row.food} onChange={(e) => handleChange(e, index, 'food')} disabled={!editing && !adding} /></td>
-                <td><input value={row.ingredients} onChange={(e) => handleChange(e, index, 'ingredients')} disabled={!editing && !adding} /></td>
-                <td>
-                <div className="table-delete-row-btn">
-                    <DeleteButton text="Eliminar" onClick={() => handleRemove(index)} disabled={!editing && !adding} />
-                </div>
-                </td>
-            </tr>
-            ))}
-
-
+                                            <tr key={index}>
+                                                <td><input value={row.meal} onChange={(e) => handleChange(e, index, 'meal')} disabled={!editing && !adding} /></td>
+                                                <td><input value={row.time} onChange={(e) => handleChange(e, index, 'time')} disabled={!editing && !adding} /></td>
+                                                <td><input value={row.place} onChange={(e) => handleChange(e, index, 'place')} disabled={!editing && !adding} /></td>
+                                                <td><input value={row.food} onChange={(e) => handleChange(e, index, 'food')} disabled={!editing && !adding} /></td>
+                                                <td><input value={row.ingredients} onChange={(e) => handleChange(e, index, 'ingredients')} disabled={!editing && !adding} /></td>
+                                                <td>
+                                                <div className="table-delete-row-btn">
+                                                    <DeleteButton text="Eliminar" onClick={() => handleRemove(index)} disabled={!editing && !adding} />
+                                                </div>
+                                                </td>
+                                            </tr>
+                                        ))}
                                     </tbody>
                                 </table>
                                 <div className="table-bottom-btn">
@@ -3113,7 +3111,7 @@ export const PatientPage = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </>
             }
             </div>

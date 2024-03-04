@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.2] - 2024-03-04
+
+### Corregido
+- Suscripción de prueba automática tras el registro: Ahora, cuando un usuario se registra en la aplicación, se activa automáticamente una suscripción de prueba de 7 días. Esta característica permite a los nuevos usuarios explorar y utilizar todas las funcionalidades de la aplicación durante este periodo de prueba.
+
+
 ## [1.2.1] - 2024-02-27
 
 ### Añadido
