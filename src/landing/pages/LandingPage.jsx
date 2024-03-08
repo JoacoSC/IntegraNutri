@@ -14,6 +14,7 @@ import { texts } from './';
 import { AlertBox } from '../../ui/AlertBox';
 import { ModalLoginCard, ModalSubscription } from '../../ui';
 import { startLogout } from '../../store/auth';
+import { ModalInfo } from '../../ui/components';
 
 // Definición del componente SubscriptionLink
 const SubscriptionLink = ({ to, className, isSubscribed, children }) => {
@@ -107,6 +108,9 @@ export const LandingPage = () => {
         <div className="landing-main-container">
             {
                 <ModalSubscription/>
+            }
+            {
+                <ModalInfo/>
             }
             <button className='btn-scroll-to-top' style={{display: visible ? 'inline' : 'none'}} onClick={() => handleScrollTo(topRef)}>
                 <img src={ Landing_images.Up_icon } alt="Icono IntegraNutri"/>

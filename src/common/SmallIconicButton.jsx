@@ -1,8 +1,8 @@
 
-export const SmallIconicButton = ({ text, onClick, type = "button", Icon }) => {
+export const SmallIconicButton = ({ text, onClick, type = "button", icon, imgStyle = {} }) => {
     return (
         <button className="btn-iconic-sm" type={type} onClick={onClick}>
-            {Icon && <img src={Icon} alt="" className="btn-icon-sm" />}
+            {icon && <img src={icon} alt="" className="btn-icon-sm" style={imgStyle} />}
             {text}
         </button>
     );

@@ -10,6 +10,7 @@ import { startLoadingMyPatients } from "../patients";
 import { EmailAuthProvider, deleteUser, reauthenticateWithCredential, sendPasswordResetEmail, updatePassword } from "firebase/auth";
 import { deleteJournalFromDB, startCreatingJournal, unsetJournal } from "../journal";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../loginHelper";
+import { unsetSubscription } from "../subscription/subscriptionSlice";
 
 // Función para obtener la fecha de término de la suscripción
 function calculateSubscriptionEndDate(startDate, days) {
@@ -340,7 +341,8 @@ export const startLogout = () => {
 
         dispatch( logout() );
         dispatch( wipeUserInfo() );
-        dispatch( unsetJournal() )
+        dispatch( unsetJournal() );
+        dispatch( unsetSubscription() );
 
     }
 }

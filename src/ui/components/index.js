@@ -9,3 +9,5 @@ export * from './PatientSecondaryCard.css'
 export * from './AlertBox.css'
 
 export * from './PatientForm'
+export * from './ModalConfirm'
+export * from './ModalInfo'

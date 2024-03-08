@@ -17,6 +17,13 @@ export const subscriptionSlice = createSlice({
             state.membership = payload.membership;
             state.message = payload.message;
         },
+        unsetSubscription: (state) => {
+            state.isActive = false;
+            state.subStart = null;
+            state.subEnd = null;
+            state.membership = {};
+            state.message = '';
+        },
     }
 });
 
@@ -24,4 +31,5 @@ export const subscriptionSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { 
     setSubscription,
+    unsetSubscription
 } = subscriptionSlice.actions;

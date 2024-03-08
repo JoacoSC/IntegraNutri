@@ -1,10 +1,14 @@
 # Changelog
 
+## [1.3.0] - 2024-03-08
+
+### Añadido
+- **Seguimiento de la alimentación de los pacientes**: Se ha añadido una función que permite a los nutricionistas registrar y editar la alimentación diaria de sus pacientes en tablas interactivas. También se incluye un historial para modificar o borrar registros guardados.
+
 ## [1.2.2] - 2024-03-04
 
 ### Corregido
 - Suscripción de prueba automática tras el registro: Ahora, cuando un usuario se registra en la aplicación, se activa automáticamente una suscripción de prueba de 7 días. Esta característica permite a los nuevos usuarios explorar y utilizar todas las funcionalidades de la aplicación durante este periodo de prueba.
-
 
 ## [1.2.1] - 2024-02-27
 
