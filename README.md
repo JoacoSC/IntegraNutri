@@ -1,6 +1,6 @@
 ﻿# IntegraNutri
 
-[![Estado del proyecto](https://img.shields.io/badge/Release-v1.2.1-green)]()
+[![Estado del proyecto](https://img.shields.io/badge/Release-v1.3.0-green)]()
 
 IntegraNutri es una aplicación web dirigida a nutricionistas, desarrollada en ReactJS con Vite. Proporciona diversas funcionalidades para la gestión de consultas y pacientes.
 
