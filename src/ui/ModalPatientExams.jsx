@@ -141,7 +141,7 @@ export const ModalPatientExams = ({ uid, patientID }) => {
                                                 ?   'Exámenes ingresados'
                                                 :   ( actualExamIndex === examsHistory.length - 1 )
                                                     ?   'Último examen ingresado'
-                                                    :   'Fecha de examen: ' + examsHistory[ actualExamIndex ].exam_date
+                                                    :   'Fecha de examen: ' + (examsHistory[actualExamIndex] ? examsHistory[actualExamIndex].exam_date : 'No disponible')
                                             
                                             }
                                         </p>

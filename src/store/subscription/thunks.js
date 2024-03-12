@@ -47,7 +47,7 @@ export const startSetSubscription = ( uid ) => {
 
         const currentSubscription = subscription[subscription.length - 1];
 
-        console.log('currentSubscription: ',currentSubscription)
+        // console.log('currentSubscription: ',currentSubscription)
 
         // Obtén la fecha actual
         let now = new Date();

@@ -96,7 +96,7 @@ export const TableHistory = ({uid, patientID, history, setHistory, setAdding, ed
             let isViewing = viewing.isViewing;
             let viewingIndex = viewing.viewingIndex;
             return (
-                <div className="table-history-buttons-container">
+                <div key={historyIndex + index} className="table-history-buttons-container">
                     <button className="btn-sm" onClick={() => handleHistoryClick(historyIndex + index)}>
                         <p>{fecha}</p>
                         <p>{hora}</p>
