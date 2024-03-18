@@ -8,7 +8,7 @@ import { Line } from "react-chartjs-2";
 
 import { useHandleChartsSwitch } from '../../hooks';
 
-export const PatientGraphs = ({ ageForCalcs, setLastWeight, setLastStature, nutritionalCalification }) => {
+export const PatientGraphs = ({ ageForCalcs, setLastWeight, setLastStature, nutritionalRating }) => {
     // React imports
     const { weight, stature, imc, biologicalSex } = useSelector((state) => state.currentPatient);
 
@@ -73,14 +73,14 @@ export const PatientGraphs = ({ ageForCalcs, setLastWeight, setLastStature, nutr
                 Gráficos
             </label>
             <div className="accordion-content">
-                <div className="calification-wrapper">
-                    <div className="calification-indicator-container">
-                        <p className="calification-title">Calificación nutricional: </p>
-                        <span className="calification-indicator-chart"><p>{ nutritionalCalification.weightCalificationResult }</p></span>
+                <div className="rating-wrapper">
+                    <div className="rating-indicator-container">
+                        <p className="rating-title">Calificación nutricional: </p>
+                        <span className="rating-indicator-chart"><p>{ nutritionalRating.weightRatingResult }</p></span>
                     </div>
-                    <div className="calification-indicator-container">
-                        <p className="calification-title">Calificación estatural: </p>
-                        <span className="calification-indicator-chart"><p>{ nutritionalCalification.statureCalificationResult }</p></span>
+                    <div className="rating-indicator-container">
+                        <p className="rating-title">Calificación estatural: </p>
+                        <span className="rating-indicator-chart"><p>{ nutritionalRating.statureRatingResult }</p></span>
                     </div>
 
                 </div>

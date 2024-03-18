@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.0] - 2024-03-18
+
+### Añadido
+- **Registro de la frecuencia de consumo de alimentos**: Se ha mejorado la funcionalidad de seguimiento de la alimentación de los pacientes. Ahora, los nutricionistas pueden registrar la frecuencia de consumo de una variedad de alimentos, incluyendo la opción de agregar más alimentos a la lista. Además, se pueden hacer observaciones y mantener un historial de las tablas ingresadas, las cuales también se pueden editar y eliminar.
+
 ## [1.3.1] - 2024-03-12
 
 ### Modificado

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export const AutoResizeTextarea = ({ value, onChange, disabled }) => {
+export const AutoResizeTextarea = ({ value, onChange, disabled, placeholder = '' }) => {
   const textareaRef = useRef(null);
 
   useEffect(() => {
@@ -12,6 +12,7 @@ export const AutoResizeTextarea = ({ value, onChange, disabled }) => {
 
     return (
         <textarea
+        placeholder={placeholder}
         ref={textareaRef}
         value={value}
         onChange={onChange}

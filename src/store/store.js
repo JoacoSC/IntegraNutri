@@ -10,6 +10,7 @@ import { shoppingCartSlice } from './shoppingCart';
 import { subscriptionSlice } from './subscription';
 import { buyOrderSlice } from './buyOrder';
 import { reminder24HoursSlice } from './reminder24Hours/reminder24HoursSlice';
+import { frequencyOfConsumptionSlice } from './frequencyOfConsumption';
 
 export const store = configureStore({
     reducer: {
@@ -24,5 +25,6 @@ export const store = configureStore({
         shoppingCart: shoppingCartSlice.reducer,
         buyOrder: buyOrderSlice.reducer,
         reminder24Hours: reminder24HoursSlice.reducer,
+        frequencyOfConsumption: frequencyOfConsumptionSlice.reducer,
     },
 })

@@ -5,11 +5,11 @@ import PerimetroCinturaForAvatar from '../../assets/imgs/patient/perimetro_cintu
 import { useEffect, useState } from 'react';
 import { fromUnixTime } from 'date-fns';
 
-export const CardEstadioTanner = ({ nutritionalCalification }) => {
+export const CardEstadioTanner = ({ nutritionalRating }) => {
 
     const { weight, stature, unixBiologicalBirthday = 0, estadioTanner, biologicalSex } = useSelector((state) => state.currentPatient);
 
-    const weightCalificationResult = nutritionalCalification.weightCalificationResult;
+    const weightRatingResult = nutritionalRating.weightRatingResult;
     
     const [biologicalAgeText, setBiologicalAgeText] = useState('');
 
@@ -121,7 +121,7 @@ export const CardEstadioTanner = ({ nutritionalCalification }) => {
                     <p className='perimetro-cefalico-value'><b>Edad biológica:&nbsp;</b>{ biologicalAgeText }</p>
                     <p className='perimetro-cefalico-value'><b>Estadio Tanner:&nbsp;</b>Grado { estadioTanner }</p>
                     <p className='perimetro-cefalico-value'>
-                        <b>IMC:&nbsp;</b>{ `${ tannerIMC } (${ weightCalificationResult })` }
+                        <b>IMC:&nbsp;</b>{ `${ tannerIMC } (${ weightRatingResult })` }
                     </p>
                 </div>
             </div>

@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 
 // Local module imports
-import { useForm, useCalificationIndicator, useHandleChartsSwitch } from "../../hooks";
+import { useForm, useRatingIndicator, useHandleChartsSwitch } from "../../hooks";
 import { startLogout } from "../../store/auth";
 import { startLoadingCurrentPatient, startLoadingPatientInfo, startUpdatingCurrentPatientAnamnesis, startUpdatingCurrentPatientDiagnosis, startUpdatingCurrentPatientIndications, startUpdatingCurrentPatientPhysical_exam, updateCurrentPatientAnamnesis, updateCurrentPatientDiagnosis, updateCurrentPatientIndications, updateCurrentPatientPhysical_exam, updateCurrentPatientAge, clearCurrentPatient, updateCurrentPatientCorrectedAge, updateCurrentPatientBiologicalAge } from "../../store/currentPatient";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
@@ -18,7 +18,7 @@ import { AppLayout } from "../../layout/AppLayout";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { CardEstadioTanner, CardPatientExams, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer } from "../../ui";
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
-import { Anamnesis, Diagnosis, Indications, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
+import { Anamnesis, Diagnosis, FrequencyTable, Indications, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
 
 // Asset imports
 /**/
@@ -71,7 +71,7 @@ export const PatientPage = () => {
         }  
   
     // Local hooks
-    const nutritionalCalification = useCalificationIndicator(
+    const nutritionalRating = useRatingIndicator(
       lastWeight,
       lastStature,
       ageForCalcs,
@@ -194,7 +194,7 @@ export const PatientPage = () => {
                         <div className="patient-secondary-card-row">
                             {
                                 (biologicalAgeIsSet)
-                                ?   <CardEstadioTanner nutritionalCalification = { nutritionalCalification }/>
+                                ?   <CardEstadioTanner nutritionalRating = { nutritionalRating }/>
                                 :   null
                             }    
                             {
@@ -257,16 +257,22 @@ export const PatientPage = () => {
                                 ageForCalcs = {ageForCalcs}
                                 setLastWeight = {setLastWeight}
                                 setLastStature = {setLastStature}
-                                nutritionalCalification = {nutritionalCalification}
+                                nutritionalRating = {nutritionalRating}
                             />
                             
                         </div>
                     </div>
                     <div className="patient-section">
-                    <ReminderTable
-                        uid={ uid }
-                        patientID={ patientID }
-                    />
+                        <ReminderTable
+                            uid={ uid }
+                            patientID={ patientID }
+                        />
+                    </div>
+                    <div className="patient-section">
+                        <FrequencyTable
+                            uid={ uid }
+                            patientID={ patientID }
+                        />
                     </div>
                 </>
             }

@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { clearCurrentPatient } from '../../store/currentPatient';
 import { ModalDeletePatient } from '../../ui/ModalDeletePatient';
 import { clearReminder24Hours } from '../../store/reminder24Hours';
+import { clearFrequencyOfConsumption } from '../../store/frequencyOfConsumption';
 
 
 
@@ -34,6 +35,7 @@ export const MyPatientsPage = () => {
         
         dispatch( clearCurrentPatient() );
         dispatch( clearReminder24Hours() );
+        dispatch( clearFrequencyOfConsumption() );
         
 
     }, [])

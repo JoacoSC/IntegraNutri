@@ -2861,12 +2861,12 @@ body{
 
 /* **************** Patient chart ****************** */
 
-.calification-wrapper{
+.rating-wrapper{
     display: flex;
     margin: 1.5rem 3.5rem 0.5rem 2rem;
 
 }
-.calification-indicator-container{
+.rating-indicator-container{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -2881,7 +2881,7 @@ body{
     padding: 1.5rem 0 0.5rem 0;
 }
 
-.calification-title{
+.rating-title{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2891,7 +2891,7 @@ body{
     font-size: 1rem;
 }
 
-.calification-indicator-chart{
+.rating-indicator-chart{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
