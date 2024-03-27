@@ -33,3 +33,6 @@ export * from './ModalLogin';
 export * from './ModalPatientRegister';
 export * from './ModalSubscription';
 export * from './ModalLoginCard';
+export * from './FoodCalculatorTable';
+export * from './MealTimePortionDistribution';
+export * from './CardMealTimePortionDistribution';

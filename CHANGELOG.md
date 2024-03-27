@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.5.0] - 2024-03-27
+
+### Añadido
+- **Registro de la distribución de porciones según la hora de comida**: Se ha añadido una nueva función que permite a los nutricionistas registrar la distribución de porciones de los pacientes según la hora de comida (desayuno, almuerzo, colación, etc.). Los datos se ingresan en una tabla y se adjuntan al perfil del paciente seleccionado. Así, el paciente puede descargar un PDF con su distribución personalizada de porciones creada por su nutricionista.
+
 ## [1.4.0] - 2024-03-18
 
 ### Añadido

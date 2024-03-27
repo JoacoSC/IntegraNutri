@@ -152,6 +152,32 @@ body{
 }
 
 /* ************* Buttons ************** */
+.btn-lg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.7rem;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-lg:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-hover);
+}
+
+.btn-lg:active{
+    transform: scale(0.96);
+    background: var(--clr-btn-secondary-active);
+}
 
 .btn-sm{
     appearance: none;
@@ -275,9 +301,142 @@ body{
     width: 25px;
 }
 
+.button-group{
+    display: flex;
+    gap: 1rem;
+}
+
 /* ************* Buttons ************** */
 
 /* ************* Common ************** */
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.flex-column-reverse{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.gap-1{
+    gap: 1rem;
+}
+.gap-2{
+    gap: 2rem;
+}
+.pl-1{
+    padding-left: 1rem;
+}
+.pr-1{
+    padding-right: 1rem;
+}
+.pl-2{
+    padding-left: 2rem;
+}
+.pr-2{
+    padding-right: 2rem;
+}
+.pt-1{
+    padding-top: 1rem;
+}
+.pt-2{
+    padding-top: 2rem;
+}
+.pb-1{
+    padding-bottom: 1rem;
+}
+.pb-2{
+    padding-bottom: 2rem;
+}
+.p-2{
+    padding: 2rem;
+}
+.h-auto{
+    height: auto;
+}
+.h-400{
+    height: 376px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.font-size-16{
+    font-size: 16px;
+}
+.font-size-14{
+    font-size: 14px;
+}
+.font-size-12{
+    font-size: 12px;
+}
+.font-weight-500{
+    font-weight: 500;
+}
+.font-weight-600{
+    font-weight: 600;
+}
+.text-align-center{
+    text-align: center;
+}
+
+.success-message{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: #cff6d4;
+    border: 1px solid #3b8a44;
+    border-radius: 5px;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #3b8a44;
+}
+
+.error-message{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: rgba(255, 137, 116, 0.5);
+    border: 1.5px solid #9f0000;
+    border-radius: 5px;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #9f0000;
+}
+.input-select{
+    outline: 0;
+    box-shadow: none;
+    border: 0;
+    height: 25px;
+    font-family: "Metropolis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0);
+    transition: 150ms all ease-in;
+}
 
 .tooltip-container{
     display: flex;
@@ -1674,7 +1833,7 @@ body{
 
 /* ************* Nutritionist Page ************** */
 
-.main-welcome{
+.welcome-section{
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -1705,7 +1864,7 @@ body{
     margin-left: auto;
 }
 
-.logout{
+.logout-section{
     margin-top: 1rem;
     margin-left: 2rem;
     display: flex;
@@ -3069,6 +3228,21 @@ body{
 
 /* **************** Calculator page ****************** */
 
+.patient-table-attachment-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 7rem;
+}
+.component-display-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 4rem 3rem 2rem;
+    gap: 2rem;
+
+}
+
 /* .calculator-item-title-container{
     display: flex;
     flex-direction: column;
@@ -3127,12 +3301,9 @@ body{
     gap: 1rem;
 }
 
-/* **************** Calculator page ****************** */
-
 .calculator-main-container{
     display: grid;
     height: auto;
-    margin: 5rem 6rem 2rem 5rem;
     /* background-color: var(--clr-primary); */
     background-color: var(--clr-primary);
     border-radius: 18px;
@@ -3159,16 +3330,7 @@ body{
     text-align: center;
     color: white;
 }
-.flex-start{
-    justify-content: flex-start;
-}
 
-.flex-first-item{
-    min-width: 200px;
-    flex-basis: 200px;
-    flex-grow: 2;
-    flex-shrink: 1;
-}
 
 .portion-input-container input{
     max-width: 50px;
@@ -3180,7 +3342,7 @@ body{
     text-align: center;
 }
 
-.calculator-container{
+.calculator-container-border-radius{
     border-radius: 0 0 20px 20px;
 }
 
@@ -3222,6 +3384,20 @@ th {
     background-color: #5a338d;
     color: white;
 }
+
+/* **************** Calculator page ****************** */
+
+.flex-start{
+    justify-content: flex-start;
+}
+
+.flex-first-item{
+    min-width: 200px;
+    flex-basis: 200px;
+    flex-grow: 2;
+    flex-shrink: 1;
+}
+
 
 .text-align-center{
     text-align: center;

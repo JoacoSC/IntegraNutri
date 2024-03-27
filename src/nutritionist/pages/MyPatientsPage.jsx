@@ -49,12 +49,12 @@ export const MyPatientsPage = () => {
         <AppLayout>
         
             <div className="main">
-                <div className="logout">
+                <div className="logout-section">
                     <button className="btn-logout" type="button" onClick={ onLogout }>
                         Cerrar sesión
                     </button>
                 </div>
-                <div className="main-welcome">
+                <div className="welcome-section">
                     <h1>Nut. { displayName }</h1>
                 </div>
                 <div className="sub-title">

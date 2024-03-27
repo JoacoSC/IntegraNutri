@@ -953,7 +953,7 @@ export const SharePage = () => {
                             <div className="sharepage-logout-container">
                                 {
                                     ( isLogged === true)
-                                    ?   <div className="logout">
+                                    ?   <div className="logout-section">
                                             <button className="btn-logout" type="button" onClick={onLogout}>
                                                 Cerrar sesión
                                             </button>
@@ -962,7 +962,7 @@ export const SharePage = () => {
                                 }
 
                             </div>
-                            <div className="main-welcome">
+                            <div className="welcome-section">
                                 <h1>Agenda de { displayName }</h1>
                             </div>
                             <div className="flex-column">

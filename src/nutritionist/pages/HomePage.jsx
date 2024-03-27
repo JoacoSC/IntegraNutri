@@ -132,17 +132,17 @@ export const HomePage = () => {
                     {/* {
                         (!journalIsSet) ? <ModalWelcome /> : null
                     } */}
-                    <div className="logout">
+                    <div className="logout-section">
                         <button className="btn-logout" type="button" onClick={ onLogout }>
                             Cerrar sesión
                         </button>
                     </div>
-                    {/* <div className="logout">
+                    {/* <div className="logout-section">
                         <button className="btn-logout" type="button" onClick={ onTest }>
                             Test
                         </button>
                     </div> */}
-                    <div className="main-welcome">
+                    <div className="welcome-section">
                         <h1>Nut. { displayName }</h1>
                         <p>Hola nutricionista, echemos un vistazo a sus pacientes de hoy</p>
 

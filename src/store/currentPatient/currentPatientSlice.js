@@ -49,6 +49,7 @@ export const currentPatientSlice = createSlice({
         presionArterial: null,
         examsHistory: [],
         actualExamIndex: null,
+        portionDistribution: null,
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -85,6 +86,7 @@ export const currentPatientSlice = createSlice({
             state.presionArterial = payload.presionArterial;
             state.examsHistory = payload.examsHistory;
             state.actualExamIndex = payload.actualExamIndex;
+            state.portionDistribution = payload.portionDistribution;
         },
 
         updateCurrentPatientAnamnesis: (state,{ payload }) => {
@@ -220,6 +222,7 @@ export const currentPatientSlice = createSlice({
             state.presionArterial = null;
             state.examsHistory = [];
             state.actualExamIndex = null;
+            state.portionDistribution = null;
         },
     }
 });

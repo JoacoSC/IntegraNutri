@@ -16,7 +16,7 @@ import { calculateAgeForCalcsObject, calculateAgeObject } from "../../utils";
 // Component imports
 import { AppLayout } from "../../layout/AppLayout";
 import { LoadingScreen } from "../../ui/LoadingScreen";
-import { CardEstadioTanner, CardPatientExams, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer } from "../../ui";
+import { CardEstadioTanner, CardMealTimePortionDistribution, CardPatientExams, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer } from "../../ui";
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
 import { Anamnesis, Diagnosis, FrequencyTable, Indications, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
 
@@ -26,7 +26,7 @@ import { Anamnesis, Diagnosis, FrequencyTable, Indications, PatientCard, Patient
 export const PatientPage = () => {
     // React imports
     const { uid, displayName, photoURL, isNutritionistStatus } = useSelector(state => state.auth);
-    const { email, patientName, nextConsultation, anamnesis, physical_exam, diagnosis, indications, weight, stature, imc, unixBirthday, unixCorrectedBirthday, unixBiologicalBirthday, biologicalSex, genderIdentity = '', age, correctedAgeIsSet = null, correctedAge = { d: 0, m: 0, y: 0, }, biologicalAgeIsSet, biologicalAge = { d: 0, m: 0, y: 0, }, tallaDiana, perimetroCefalico, perimetroCintura, presionArterial,
+    const { email, patientName, nextConsultation, anamnesis, physical_exam, diagnosis, indications, weight, stature, imc, unixBirthday, unixCorrectedBirthday, unixBiologicalBirthday, biologicalSex, genderIdentity = '', age, correctedAgeIsSet = null, correctedAge = { d: 0, m: 0, y: 0, }, biologicalAgeIsSet, biologicalAge = { d: 0, m: 0, y: 0, }, tallaDiana, perimetroCefalico, perimetroCintura, presionArterial, portionDistribution,
         } = useSelector((state) => state.currentPatient);
     const dispatch = useDispatch();
     const location = useLocation();
@@ -167,7 +167,7 @@ export const PatientPage = () => {
                 ( isLoading )
                 ?   <LoadingScreen isLoading = { isLoading } />
                 : <>
-                    <div className="logout">
+                    <div className="logout-section">
                     <button className="btn-logout" type="button" onClick={onLogout}>
                         Cerrar sesión
                     </button>
@@ -192,6 +192,11 @@ export const PatientPage = () => {
                             <CardPatientExams uid = { uid } patientID = { patientID }/>
                         </div>
                         <div className="patient-secondary-card-row">
+                            {
+                                (portionDistribution)
+                                ?   <CardMealTimePortionDistribution patientID= { patientID } />
+                                :   null
+                            }    
                             {
                                 (biologicalAgeIsSet)
                                 ?   <CardEstadioTanner nutritionalRating = { nutritionalRating }/>
