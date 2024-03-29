@@ -637,7 +637,10 @@ const PDFGenerator = ({ data }) => {
             </View>
           </View>
           <View style={styles.bottomMargin} />
+          <Text style={ styles.tableCellPatientData}>{`Nutricionista: ${data.nutritionistName}`}</Text>
+          <Text style={ styles.tableCellPatientData}>{`Contacto: ${data.nutritionistContact}`}</Text>
           <Text style={ styles.tableCellPatientID}>{`ID: ${data.patientID}`}</Text>
+          {/* TODO: Agregar un apartado "MyNutritionist" en el store usando el store.auth.photoURL para el usuario paciente */}
         </View>
       </Page>
     </Document>

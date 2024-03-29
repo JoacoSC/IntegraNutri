@@ -19,6 +19,7 @@ import { LoadingScreen } from "../../ui/LoadingScreen";
 import { CardEstadioTanner, CardMealTimePortionDistribution, CardPatientExams, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer } from "../../ui";
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
 import { Anamnesis, Diagnosis, FrequencyTable, Indications, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
+import { startLoadingMyNutritionistData } from "../../store/myNutritionist";
 
 // Asset imports
 /**/
@@ -96,6 +97,12 @@ export const PatientPage = () => {
     const onIndicationsSubmit = (event) => onSubmit(event, formIndications, updateCurrentPatientIndications, startUpdatingCurrentPatientIndications);
     
     // useEffect hooks
+    useEffect(() => {
+      if (isNutritionistStatus === false) {
+        dispatch(startLoadingMyNutritionistData(photoURL));
+      }
+    }, [isNutritionistStatus]);
+
     useEffect(() => {
       if (patientID === '') {
         dispatch(clearCurrentPatient());
@@ -194,7 +201,9 @@ export const PatientPage = () => {
                         <div className="patient-secondary-card-row">
                             {
                                 (portionDistribution)
-                                ?   <CardMealTimePortionDistribution patientID= { patientID } />
+                                ?   (isNutritionistStatus)
+                                    ?   <CardMealTimePortionDistribution patientID= { patientID } />
+                                    :   <CardMealTimePortionDistribution patientID= { displayName } />
                                 :   null
                             }    
                             {

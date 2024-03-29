@@ -12,6 +12,7 @@ import { buyOrderSlice } from './buyOrder';
 import { reminder24HoursSlice } from './reminder24Hours/reminder24HoursSlice';
 import { frequencyOfConsumptionSlice } from './frequencyOfConsumption';
 import { mealTimePortionDistributionSlice } from './mealTimePortionDistribution';
+import { myNutritionistSlice } from './myNutritionist/myNutritionistSlice';
 
 export const store = configureStore({
     reducer: {
@@ -28,5 +29,6 @@ export const store = configureStore({
         reminder24Hours: reminder24HoursSlice.reducer,
         frequencyOfConsumption: frequencyOfConsumptionSlice.reducer,
         mealTimePortionDistribution: mealTimePortionDistributionSlice.reducer,
+        myNutritionist: myNutritionistSlice.reducer,
     },
 })

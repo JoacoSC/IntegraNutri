@@ -2,6 +2,8 @@ import { pdf } from '@react-pdf/renderer';
 import { saveAs } from 'file-saver';
 import { degrees, PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import PDFGenerator from './PDFGenerator';  // Asegúrate de cambiar esto a la ruta de tu componente PDFGenerator
+import Nutri_logo_vertical_lg_png from '../../assets/imgs/Nutri_logo_vertical_lg_png.png';
+
 
 async function fetchAsset(url) {
     const response = await fetch(url);
@@ -19,8 +21,7 @@ async function fetchAsset(url) {
 async function PDFWatermarkAdder({ data }) {
 
     // Carga la imagen
-    const imageUrl = '/assets/imgs/Nutri_logo_vertical_lg_png.png';  // Asegúrate de cambiar esto a la ruta de tu imagen
-    const imageBytes = await fetchAsset(imageUrl);
+    const imageBytes = await fetchAsset(Nutri_logo_vertical_lg_png);
   
     // Genera el PDF
     const pdfBlob = await pdf(<PDFGenerator data={data} />).toBlob();

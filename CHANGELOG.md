@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.5.1] - 2024-03-28
+
+### Corregido
+- **Registro de la distribución de porciones según la hora de comida**: Se ha corregido un error que impedía que el botón para generar PDFs funcionara correctamente para los nutricionistas. Además, este botón no aparecía en los perfiles de los pacientes. Ahora, tanto los nutricionistas como los pacientes pueden generar y descargar los PDFs sin problemas.
+
 ## [1.5.0] - 2024-03-27
 
 ### Añadido

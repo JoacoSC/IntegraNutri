@@ -8,12 +8,28 @@ import PDFWatermarkAdder from '../common/PDFWatermarkAdder';
 export const CardMealTimePortionDistribution = ({ patientID }) => {
 
     const { patientName, rut, portionDistribution } = useSelector((state) => state.currentPatient);
+    const { displayName, email, isNutritionistStatus } = useSelector((state) => state.auth);
+    const { nutritionistData } = useSelector((state) => state.myNutritionist);
 
-    const data = {
-        patientID: patientID,
-        patientName: patientName,
-        rut: rut.formatted,
-        tableData: portionDistribution,
+    let data = null;
+    if(isNutritionistStatus){
+        data = {
+            patientID: patientID,
+            patientName: patientName,
+            rut: rut.formatted,
+            tableData: portionDistribution,
+            nutritionistName: displayName,
+            nutritionistContact: email,
+        }
+    }else{
+        data = {
+            patientID: patientID,
+            patientName: patientName,
+            rut: rut.formatted,
+            tableData: portionDistribution,
+            nutritionistName: nutritionistData.displayName,
+            nutritionistContact: '+56 9 ' +nutritionistData.phone,
+        }
     }
 
     const handleDownload = async () => {
