@@ -18,7 +18,7 @@ import { AppLayout } from "../../layout/AppLayout";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { CardEstadioTanner, CardMealTimePortionDistribution, CardPatientExams, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer } from "../../ui";
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
-import { Anamnesis, Diagnosis, FrequencyTable, Indications, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
+import { AdultElderlyPregnantComponent, Anamnesis, Diagnosis, FreeTrialComponent, FrequencyTable, Indications, InfantJuvenileComponent, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
 import { startLoadingMyNutritionistData } from "../../store/myNutritionist";
 
 // Asset imports
@@ -27,81 +27,20 @@ import { startLoadingMyNutritionistData } from "../../store/myNutritionist";
 export const PatientPage = () => {
     // React imports
     const { uid, displayName, photoURL, isNutritionistStatus } = useSelector(state => state.auth);
-    const { email, patientName, nextConsultation, anamnesis, physical_exam, diagnosis, indications, weight, stature, imc, unixBirthday, unixCorrectedBirthday, unixBiologicalBirthday, biologicalSex, genderIdentity = '', age, correctedAgeIsSet = null, correctedAge = { d: 0, m: 0, y: 0, }, biologicalAgeIsSet, biologicalAge = { d: 0, m: 0, y: 0, }, tallaDiana, perimetroCefalico, perimetroCintura, presionArterial, portionDistribution,
-        } = useSelector((state) => state.currentPatient);
+    const { membership } = useSelector(state => state.subscription);
+    const { email } = useSelector((state) => state.currentPatient);
     const dispatch = useDispatch();
     const location = useLocation();
+    const { patientID = '' } = queryString.parse(location.search);
   
     // Local state variables
     const [isLoading, setIsLoading] = useState(true);
-    const [lastWeight, setLastWeight] = useState(0);
-    const [lastStature, setLastStature] = useState(0);
-    const [ageText, setAgeText] = useState('');
-    const [ageForCalcs, setAgeForCalcs] = useState({ d: 0, m: 0, y: 0 });
-    const [unixBirthdayForCalcs, setUnixBirthdayForCalcs] = useState(0);
     
     // Local constants
-    const weightLength = weight?.length;
-    const statureLength = stature?.length;
-    const { patientID = '' } = queryString.parse(location.search);
     
-    const defaultPatient = {
-        unixAge: 0,
-        weight: 0,
-        stature: 0,
-        anamnesis: anamnesis,
-        physical_exam: physical_exam,
-        diagnosis: diagnosis,
-        indications: indications,
-        graphs: "Escribe aquí :)",
-    };
-    const patientObject = {
-        'uid' : uid,
-        'patientID' : patientID,
-        'type': 'peso',
-        'age' : age,
-        'ageText' : ageText,
-        'weight' : weight,
-        'lastWeight' : lastWeight,
-        'stature' : stature,
-        'lastStature' : lastStature,
-        'imc' : imc,
-        'unixBirthday' : unixBirthday,
-        'biologicalSex' : biologicalSex,
-        'ageForCalcs' : ageForCalcs,
-        }  
-  
     // Local hooks
-    const nutritionalRating = useRatingIndicator(
-      lastWeight,
-      lastStature,
-      ageForCalcs,
-      unixBirthdayForCalcs,
-      biologicalSex
-    );
-    const { formAnamnesis, formPhysical_exam, formDiagnosis, formIndications, onInputChange } = useForm(defaultPatient);
-  
-    // Local functions
-    const onLogout = () => {
-      dispatch(startLogout());
-    };
-    const onSubmit = (event, formValue, updateFunc, startUpdatingFunc) => {
-      event.preventDefault();
-      const value = formValue === undefined ? "" : formValue;
-      dispatch(updateFunc({ value }));
-      dispatch(startUpdatingFunc(uid, patientID, value));
-    };
-    const onAnamnesisSubmit = (event) => onSubmit(event, formAnamnesis, updateCurrentPatientAnamnesis, startUpdatingCurrentPatientAnamnesis);
-    const onPhysical_examSubmit = (event) => onSubmit(event, formPhysical_exam, updateCurrentPatientPhysical_exam, startUpdatingCurrentPatientPhysical_exam);
-    const onDiagnosisSubmit = (event) => onSubmit(event, formDiagnosis, updateCurrentPatientDiagnosis, startUpdatingCurrentPatientDiagnosis);
-    const onIndicationsSubmit = (event) => onSubmit(event, formIndications, updateCurrentPatientIndications, startUpdatingCurrentPatientIndications);
     
     // useEffect hooks
-    useEffect(() => {
-      if (isNutritionistStatus === false) {
-        dispatch(startLoadingMyNutritionistData(photoURL));
-      }
-    }, [isNutritionistStatus]);
 
     useEffect(() => {
       if (patientID === '') {
@@ -114,57 +53,13 @@ export const PatientPage = () => {
     }, [patientID]);
 
     useEffect(() => {
-      if (age) {
-        const { utilsAgeForCalcs, utilsUnixBirthdayForCalcs, utilsAgeText } = calculateAgeForCalcsObject(
-          age,
-          biologicalAge,
-          correctedAge,
-          unixBirthday,
-          unixBiologicalBirthday,
-          unixCorrectedBirthday,
-          biologicalAgeIsSet,
-          correctedAgeIsSet
-        );
-        setAgeForCalcs(utilsAgeForCalcs);
-        setUnixBirthdayForCalcs(utilsUnixBirthdayForCalcs);
-        setAgeText(utilsAgeText);
-      }
-    }, [age, unixCorrectedBirthday, unixBiologicalBirthday]);
-
-    useEffect(() => {
-      const result = calculateAgeObject(unixBirthday);
-      dispatch(updateCurrentPatientAge(result));
-    }, [unixBirthday]);
-
-    useEffect(() => {
-      if (correctedAgeIsSet) {
-        const correctedAge = calculateAgeObject(unixCorrectedBirthday);
-        dispatch(updateCurrentPatientCorrectedAge(correctedAge));
-      }
-    }, [correctedAgeIsSet]);
-
-    useEffect(() => {
-      if (biologicalAgeIsSet) {
-        const biologicalAge = calculateAgeObject(unixBiologicalBirthday);
-        dispatch(updateCurrentPatientBiologicalAge(biologicalAge));
-      }
-    }, [biologicalAgeIsSet]);
-    
-    useEffect(() => {
       if (email !== null) {
         setIsLoading(false);
       } else {
         setIsLoading(true);
       }
     }, [email]);
-
-    useEffect(() => {
-      dispatch(switchPatientPasswordChangedSuccesfully(false));
-      dispatch(disableConfirmBtn(false));
-      dispatch(switchError(false));
-      dispatch(setErrorCode(null));
-    }, []);
-  
+      
     // Return statement
     return (
       <>
@@ -174,120 +69,15 @@ export const PatientPage = () => {
                 ( isLoading )
                 ?   <LoadingScreen isLoading = { isLoading } />
                 : <>
-                    <div className="logout-section">
-                    <button className="btn-logout" type="button" onClick={onLogout}>
-                        Cerrar sesión
-                    </button>
-                    </div>
-                    <div className="patient-wrapper">
-
-                        <PatientNavbar patientObject={ patientObject }/>
-
-                        <div className="patient-primary-card-row">
-                            <PatientCard 
-                                patientName={patientName}
-                                biologicalSex={biologicalSex}
-                                genderIdentity={genderIdentity}
-                                unixBirthday={unixBirthday}
-                                ageText={ageText}
-                                correctedAgeIsSet={correctedAgeIsSet}
-                                weightLength={weightLength}
-                                weight={weight}
-                                statureLength={statureLength}
-                                stature={stature}
-                            />
-                            <CardPatientExams uid = { uid } patientID = { patientID }/>
-                        </div>
-                        <div className="patient-secondary-card-row">
-                            {
-                                (portionDistribution)
-                                ?   (isNutritionistStatus)
-                                    ?   <CardMealTimePortionDistribution patientID= { patientID } />
-                                    :   <CardMealTimePortionDistribution patientID= { displayName } />
-                                :   null
-                            }    
-                            {
-                                (biologicalAgeIsSet)
-                                ?   <CardEstadioTanner nutritionalRating = { nutritionalRating }/>
-                                :   null
-                            }    
-                            {
-                                (!!presionArterial && ageForCalcs.y > 0)
-                                ?   <CardPresionArterial/>
-                                :   null
-                            }
-                            {
-                                (!!tallaDiana)
-                                ?   <CardTallaDiana/>
-                                :   null
-                            }
-                            {
-                                (!!perimetroCefalico && ageForCalcs.y < 3)
-                                ?   <CardPerimetroCefalico/>
-                                :   null
-                            }
-                            {
-                                (!!perimetroCintura && ageForCalcs.y > 5)
-                                ?   <CardPerimetroCintura/>
-                                :   null
-                            }
-                            
-                        </div>
-                    </div>
-                    <div className="accordion-container">
-                        <div className="left-container">
-                        {
-                            (isNutritionistStatus)
-                                ?   <Anamnesis 
-                                        defaultPatient = {defaultPatient}
-                                        onInputChange = {onInputChange}
-                                        isNutritionistStatus = {isNutritionistStatus}
-                                        onAnamnesisSubmit = {onAnamnesisSubmit}
-                                    />
-                                :   null
-                        }
-                            <PhysicalExam 
-                                defaultPatient = {defaultPatient}
-                                onInputChange = {onInputChange}
-                                isNutritionistStatus = {isNutritionistStatus}
-                                onPhysical_examSubmit = {onPhysical_examSubmit}
-                            />
-                            <Diagnosis 
-                                defaultPatient = {defaultPatient}
-                                onInputChange = {onInputChange}
-                                isNutritionistStatus = {isNutritionistStatus}
-                                onDiagnosisSubmit = {onDiagnosisSubmit}
-                            />
-                            
-                        </div>
-                        <div className="right-container">
-                            <Indications 
-                                defaultPatient = {defaultPatient}
-                                onInputChange = {onInputChange}
-                                isNutritionistStatus = {isNutritionistStatus}
-                                onIndicationsSubmit = {onIndicationsSubmit}
-                            />
-                            <PatientGraphs 
-                                ageForCalcs = {ageForCalcs}
-                                setLastWeight = {setLastWeight}
-                                setLastStature = {setLastStature}
-                                nutritionalRating = {nutritionalRating}
-                            />
-                            
-                        </div>
-                    </div>
-                    <div className="patient-section">
-                        <ReminderTable
-                            uid={ uid }
-                            patientID={ patientID }
-                        />
-                    </div>
-                    <div className="patient-section">
-                        <FrequencyTable
-                            uid={ uid }
-                            patientID={ patientID }
-                        />
-                    </div>
+                    {
+                        (membership.id === 0)
+                        ? <InfantJuvenileComponent />
+                        : (membership.id === 1)
+                        ? <FreeTrialComponent />
+                        : (membership.id === 2)
+                        ? <AdultElderlyPregnantComponent />
+                        : null
+                    }
                 </>
             }
             </div>
