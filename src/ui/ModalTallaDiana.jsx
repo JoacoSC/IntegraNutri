@@ -37,7 +37,7 @@ export const ModalTallaDiana = ({ patientObject }) => {
             dispatch( startUpdatingCurrentPatientTallaDiana( uid, patientID, tallaDiana ) )
             
         }else{
-            console.log('No c')
+            // console.log('No c')
         }
 
     }

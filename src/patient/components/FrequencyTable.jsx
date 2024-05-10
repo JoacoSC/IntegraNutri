@@ -129,7 +129,7 @@ export const FrequencyTable = ({ uid, patientID }) => {
       
         setHistory(newHistory);
         setHistoryIndex(0);
-        console.log('newHistory: ',newHistory)
+        // console.log('newHistory: ',newHistory)
         // Guarda los cambios en la base de datos y en el store de Redux
         dispatch( startUpdatingFrequencyOfConsumption( uid, patientID, newHistory ) )
       

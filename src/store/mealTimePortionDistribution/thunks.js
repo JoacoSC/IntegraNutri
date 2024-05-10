@@ -7,7 +7,7 @@ import { setMealTimePortionDistribution } from "./mealTimePortionDistributionSli
 export const startUploadingMealTimePortionDistribution = ( uid, patientID, mealTimePortionDistribution ) => {
     return async( dispatch ) => {
 
-        console.log('mealTimePortionDistribution: ',mealTimePortionDistribution)
+        // console.log('mealTimePortionDistribution: ',mealTimePortionDistribution)
         const cleanPortion = {
             portionDistribution: {},
         }

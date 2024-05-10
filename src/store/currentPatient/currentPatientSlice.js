@@ -25,6 +25,7 @@ export const currentPatientSlice = createSlice({
         weight: null,
         stature: null,
         imc: null,
+        imcPregnant: null,
         age: {
             d: 0,
             m: 0,
@@ -75,6 +76,7 @@ export const currentPatientSlice = createSlice({
             state.weight = payload.weight;
             state.stature = payload.stature;
             state.imc = payload.imc;
+            state.imcPregnant = payload.imcPregnant;
             // state.correctedAge = payload.correctedAge;
             // state.biologicalAge = payload.biologicalAge;
             state.estadioTanner = payload.estadioTanner;
@@ -115,6 +117,9 @@ export const currentPatientSlice = createSlice({
 
         updateCurrentPatientIMC: (state,{ payload }) => {
             state.imc = payload;
+        },
+        updateCurrentPatientIMCPregnant: (state,{ payload }) => {
+            state.imcPregnant = payload;
         },
 
         updateCurrentPatientAge: (state,{ payload }) => {
@@ -199,6 +204,7 @@ export const currentPatientSlice = createSlice({
             state.weight = null;
             state.stature = null;
             state.imc = null;
+            state.imcPregnant = null;
             state.age = {
                 d: 0,
                 m: 0,
@@ -238,6 +244,7 @@ export const {
     updateCurrentPatientWeight,
     updateCurrentPatientStature,
     updateCurrentPatientIMC,
+    updateCurrentPatientIMCPregnant,
     updateCurrentPatientAge,
     updateCurrentPatientCorrectedAge,
     updateCurrentPatientUnixCorrectedBirthday,

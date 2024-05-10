@@ -36,3 +36,6 @@ export * from './ModalLoginCard';
 export * from './FoodCalculatorTable';
 export * from './MealTimePortionDistribution';
 export * from './CardMealTimePortionDistribution';
+export * from './CardIMC';
+export * from './ModalPregnantIMC';
+export * from './ModalPregnantIMCHistory';

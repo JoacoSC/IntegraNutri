@@ -43,7 +43,7 @@ export const PatientForm = ({ patientFormProps }) => {
     const handleComunaSeleccionada = (event) => {
         const comuna = event.target.value;
         setComunaSeleccionada(comuna)
-        console.log(`Comuna seleccionada: ${comuna}`);
+        // console.log(`Comuna seleccionada: ${comuna}`);
     };
 
     const handleGenderInputIsSet = () => {

@@ -89,20 +89,20 @@ export const startCreatingUserWithEmailPassword = ({ displayName, rut, unixBirth
         } 
             
 
-        console.log('Registrado con éxito')
+        // console.log('Registrado con éxito')
 
         const newDoc = doc( collection( FirebaseDB, `users/${ uid }/userData` ) );
 
         await setDoc( newDoc, newUser );
-        console.log('Almacenando en la base de datos...')
+        // console.log('Almacenando en la base de datos...')
 
         dispatch( startCreatingJournal( uid ) )
-        console.log('Creando agenda...')
+        // console.log('Creando agenda...')
         dispatch( startSubscriptionTrial( uid ) )
-        console.log('Activando prueba gratis...')
+        // console.log('Activando prueba gratis...')
         // dispatch( login({ uid, displayName }) )
         dispatch( startLogout() );
-        console.log('Redirigiendo al login...')
+        // console.log('Redirigiendo al login...')
                 
     }
 }
@@ -123,7 +123,7 @@ export const startSubscriptionTrial = ( uid ) => {
 
         const subscriptions = [];
         
-        console.log('currentDate:', currentDate);
+        // console.log('currentDate:', currentDate);
 
         const collectionRef = collection( FirebaseDB, `subscriptions` );
         const docs = await getDocs( collectionRef );
@@ -149,7 +149,7 @@ export const startSubscriptionTrial = ( uid ) => {
             buyOrder: buyOrder // Orden de compra
         };
 
-        console.log('subscription: ', subscription);
+        // console.log('subscription: ', subscription);
 
         try {
 
@@ -258,7 +258,7 @@ export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, pa
 
         emailjs.send('service_xueiflu', 'template_lf0jvcb', templateParams, '41EFlO3aJuRq71GVI')
         .then((result) => {
-            console.log(result.text);
+            // console.log(result.text);
         }, (error) => {
             console.log(error.text);
         });
@@ -272,13 +272,13 @@ export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, pa
 export const startCreatingPatientFromEmail = ( email, password, uid, patientUID ) => {
     return async( dispatch ) => {
 
-        console.log( email, password )
+        // console.log( email, password )
         
         const { result_uid, ok, errorMessage, displayName, photoURL } = await registerPatientFromEmail( patientUID, email, password, uid );
 
         if ( !ok ) return dispatch( logout({ errorMessage }) );
 
-        console.log( `Usuario creado con exito: Authentication-UID:${ uid } - patientUID: ${ displayName } - NutriUID: ${ photoURL }` )
+        // console.log( `Usuario creado con exito: Authentication-UID:${ uid } - patientUID: ${ displayName } - NutriUID: ${ photoURL }` )
 
         dispatch( startLogout() );
 
@@ -385,13 +385,13 @@ export const startCreatingPatientSharePage = ({ uid, displayName, rut, unixBirth
             correctedAgeIsSet: false,
         }
 
-        console.log('newUser: ', newUser)
+        // console.log('newUser: ', newUser)
 
         const newDoc = doc( collection( FirebaseDB, `users/${ uid }/patients` ) );
 
         await setDoc( newDoc, newUser );
 
-        console.log('newDoc: ', newDoc)
+        // console.log('newDoc: ', newDoc)
 
         const patientUID = newDoc._key.path.segments[3];
         
@@ -410,7 +410,7 @@ export const startCreatingPatientSharePage = ({ uid, displayName, rut, unixBirth
 
         emailjs.send('service_xueiflu', 'template_lf0jvcb', templateParams, '41EFlO3aJuRq71GVI')
         .then((result) => {
-            console.log(result.text);
+            // console.log(result.text);
         }, (error) => {
             console.log(error.text);
         });
@@ -469,7 +469,7 @@ export const resetPassword = ( email ) => {
 
         await sendPasswordResetEmail( FirebaseAuth, email );
 
-        console.log('Email enviado al correo: ', email)
+        // console.log('Email enviado al correo: ', email)
 
     }
 }
@@ -481,7 +481,7 @@ export const setNewPassword = ( actualPassword, newPassword ) => {
         dispatch( switchError( false ) );
         dispatch( setErrorCode( null ) );
 
-        console.log('reauthenticate')
+        // console.log('reauthenticate')
         
         const user = FirebaseAuth.currentUser;
 

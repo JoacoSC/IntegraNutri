@@ -65,6 +65,10 @@
     --stature-icon: url(../../../assets/imgs/patient/stature_icon.svg);
     --age-icon: url(../../../assets/imgs/patient/age_icon.svg);
 
+    /* Png */
+
+    --imc-indicator: url(../../../assets/imgs/patient/imc_chart.png);
+
 }
 
 *{
@@ -359,7 +363,7 @@ body{
     height: auto;
 }
 .h-400{
-    height: 376px;
+    height: 425px;
 }
 .cursor-pointer{
     cursor: pointer;
@@ -373,6 +377,9 @@ body{
 }
 .font-size-12{
     font-size: 12px;
+}
+.font-size-10{
+    font-size: 10px;
 }
 .font-weight-500{
     font-weight: 500;
@@ -586,6 +593,76 @@ body{
     align-items: center;
     margin: 3rem;
 }
+
+/* ************* CardIMC ************** */
+.imc-card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.indicator{
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    margin: auto auto;
+    /* background-image: var(--imc-indicator);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%; */
+}
+.indicator-img{
+    width: 100%;
+}
+
+.hand {
+    position: absolute;
+    left: calc( 50% - 3px );
+    height: 100px;
+    width: 6px;
+    bottom: 6px;
+    border-left: 3px solid #5f5f5f;
+    border-radius: 25px;
+    transform-origin: bottom;
+    background: grey;
+}
+.hand-base{
+    position: absolute;
+    left: calc( 50% - 14px );
+    height: 28px;
+    width: 28px;
+    bottom: -7px;
+    border-radius: 100%;
+    transform-origin: bottom;
+    background: grey;
+}
+.indicator-result{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: auto auto;
+    padding: 0.5rem 0 0;
+}
+.indicator-result h3{
+    margin: 0.3rem 0;
+}
+.indicator-result p{
+    font-weight: 500;
+}
+.imc-card-btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.8rem 0;
+    gap: 0.5rem;
+}
+
+/* ************* CardIMC ************** */
 
 /* ************* TableHistory ************** */
 

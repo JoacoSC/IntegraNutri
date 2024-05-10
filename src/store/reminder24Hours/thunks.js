@@ -16,7 +16,7 @@ export const startUpdatingReminder24Hours = ( uid, patientID, newHistory ) => {
         
         dispatch( setReminder24Hours( newHistory ) )
 
-        console.log('rows: ',newHistory)
+        // console.log('rows: ',newHistory)
 
     }
 }

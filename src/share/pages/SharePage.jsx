@@ -148,18 +148,18 @@ export const SharePage = () => {
 
         const currentCalendarValue = calendarArray[indexA][indexB];
         
-        console.log('currentDay: ', currentDay)
+        // console.log('currentDay: ', currentDay)
 
-        console.log('isAvailable: ', currentCalendarValue.isAvailable)
+        // console.log('isAvailable: ', currentCalendarValue.isAvailable)
         
         if( currentCalendarValue.isAvailable === true ){
             setIsConsultationSlotAvailable( true )
             setCurrentCalendarValue( calendarArray[indexA][indexB] );
-            console.log('true')
+            // console.log('true')
         }else{
             setIsConsultationSlotAvailable( false )
             setCurrentCalendarValue( calendarArray[indexA][indexB] );
-            console.log('false')
+            // console.log('false')
         }
 
         // const dayObject = {
@@ -283,7 +283,7 @@ export const SharePage = () => {
                                         }
                                     }
 
-                                    console.log('consultationSlotsArray:', dayObject.consultationSlots)
+                                    // console.log('consultationSlotsArray:', dayObject.consultationSlots)
 
                                     if( nextConsultationsArray.length > 0 ){
 

@@ -73,7 +73,7 @@ export const ModalNewPatient = () => {
 
         setRutValidation( isValid )
         
-        console.log('patient: ', { displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation })
+        // console.log('patient: ', { displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation })
         if ( isValid ){
             dispatch ( startCreatingPatient({ displayName, rut, unixBirthday, email, password, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation }) )
             setOpenModal(false)

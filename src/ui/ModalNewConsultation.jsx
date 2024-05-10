@@ -98,7 +98,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
 
         const password = generatePassword( 10 );
 
-        console.log({ displayName, rut, isValid, unixBirthday, email, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation });
+        // console.log({ displayName, rut, isValid, unixBirthday, email, regionSeleccionada, comunaSeleccionada, address, phone, biologicalSex, genderIdentity, nextConsultation });
 
         setRutValidation( isValid )
 
@@ -160,7 +160,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
     const handleComunaSeleccionada = (event) => {
         const comuna = event.target.value;
         setComunaSeleccionada(comuna)
-        console.log(`Comuna seleccionada: ${comuna}`);
+        // console.log(`Comuna seleccionada: ${comuna}`);
     };
 
     const patientFormProps = {

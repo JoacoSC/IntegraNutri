@@ -32,22 +32,22 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
 
     const registerNextConsultation = () => {
 
-        console.log('consultationSlot: ', consultationSlot)
+        // console.log('consultationSlot: ', consultationSlot)
 
         if( isLogged === true ){
             // Registrar el consultationSlot en el nextConsultation del usuario con dispatch( uploadPatientNewConsultation( consultationSlot, patientID ) )
-            console.log('Sesión iniciada, agradecido con el de arriba')
+            // console.log('Sesión iniciada, agradecido con el de arriba')
             if( isNutritionistStatus === false ){
                 // Registrar
                 dispatch( uploadPatientNewConsultationFromSharePage( consultationSlot, patientID, uid ) )
-                console.log('Hora agendada!')
+                // console.log('Hora agendada!')
                 setUploadNewConsultationSuccess( true )
             }else{
                 // No se puede agendar porque el usuario es un nutricionista, ingrese como paciente por favor
             }
         }else{
             // Solicitar Inicio de sesión o Registro
-            console.log('No ha iniciado sesión')
+            // console.log('No ha iniciado sesión')
         }
     }
 
@@ -60,7 +60,7 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
 
     const startLogin = () => {
         
-        console.log('startLogin')
+        // console.log('startLogin')
         setOpenModal(false)
         // const weightFormValidation = weightForm.replace(/,/g, '.')
         // const statureFormValidation = statureForm.replace(/,/g, '.')

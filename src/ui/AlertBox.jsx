@@ -12,9 +12,12 @@ export const AlertBox = ({ message, alertClassname }) => {
         return null;
     }
 
+    // Reemplaza los saltos de línea con el elemento <br />
+    const messageLines = message.split('\n').map((line, index) => <p key={index}>{line}<br /></p>);
+
     return (
         <div className={`${alertClassname}-box`}>
-            <span>{message}</span>
+            <span className="justified-text">{messageLines}</span>
             <button onClick={() => setIsVisible(false)}>
                 <img src={ CloseIcon } className="close-icon" />
             </button>

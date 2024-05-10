@@ -17,6 +17,7 @@ export const useRatingIndicator = ( weight, stature, ageForCalcs, unixBirthdayFo
         age: age,
         stature: stature,
         weight: weight,
+        isAdult: false,
     }
 
     const boysPEfrom0to1 = () => {

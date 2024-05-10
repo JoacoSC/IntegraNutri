@@ -90,7 +90,7 @@ export const ModalAddPatientExam = ({ uid, patientID }) => {
 
         const newExamsHistory = [ ...examsHistory, exam ]
 
-        console.log('patientID: ',patientID)
+        // console.log('patientID: ',patientID)
 
         dispatch(startUpdatingExamsHistory( uid, patientID, newExamsHistory ));
 

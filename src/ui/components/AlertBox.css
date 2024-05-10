@@ -84,3 +84,7 @@
     width: 10px; /* ancho del icono */
     height: 10px; /* altura del icono */
 }
+
+.justified-text {
+    text-align: justify;
+}

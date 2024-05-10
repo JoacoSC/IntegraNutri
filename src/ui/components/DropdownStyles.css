@@ -70,7 +70,7 @@
     gap: 0.5rem;
     top: 2.2rem;
     left: 1rem;
-    /* width: 95%; */
+    width: 100%;
     border-radius: 8px;
     background-color: #581ba9;
     box-shadow: var(--box-shadow);

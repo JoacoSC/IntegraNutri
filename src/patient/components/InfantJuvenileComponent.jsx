@@ -20,11 +20,13 @@ import { CardEstadioTanner, CardMealTimePortionDistribution, CardPatientExams, C
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
 import { Anamnesis, Diagnosis, FrequencyTable, Indications, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
 import { startLoadingMyNutritionistData } from "../../store/myNutritionist";
+import { AlertBox } from "../../ui/AlertBox";
+import CardIMC from "../../ui/CardIMC";
 
 // Asset imports
 /**/
 
-export const InfantJuvenileComponent = () => {
+export const InfantJuvenileComponent = ({ membership }) => {
 
     // React imports
     const { uid, displayName, photoURL, isNutritionistStatus } = useSelector(state => state.auth);
@@ -40,6 +42,8 @@ export const InfantJuvenileComponent = () => {
     const [ageText, setAgeText] = useState('');
     const [ageForCalcs, setAgeForCalcs] = useState({ d: 0, m: 0, y: 0 });
     const [unixBirthdayForCalcs, setUnixBirthdayForCalcs] = useState(0);
+    const [patientIsAdult, setPatientIsAdult] = useState(false);
+    const [message, setMessage] = useState('');
     
     // Local constants
     const weightLength = weight?.length;
@@ -150,6 +154,17 @@ export const InfantJuvenileComponent = () => {
       dispatch(setErrorCode(null));
     }, []);
 
+    useEffect(() => {
+      if (ageForCalcs) {
+        if (ageForCalcs.y > 19 || (ageForCalcs.y === 19 && ageForCalcs.m > 1)) {
+          setPatientIsAdult(true);
+          setMessage(`🚨 ¡Importante! 🚨\n\nEstimado nutricionista,\n\nQueremos informarte que hemos detectado que el paciente en cuestión tiene más de 19 años y 1 mes de edad. Por lo tanto, se clasifica como un adulto según los criterios de nuestra suscripción.\n\nLa suscripción activa actualmente en su cuenta está diseñada específicamente para atender a pacientes niños y jóvenes. Esto significa que los cálculos y mediciones proporcionados por nuestra plataforma en esta suscripción pueden no ser precisos para pacientes mayores de 19 años.\n\nRecomendamos encarecidamente que el nutricionista tenga en cuenta esta limitación al interpretar los resultados y al proporcionar recomendaciones. Siempre es importante adaptar el enfoque nutricional a la etapa de vida y las necesidades específicas del paciente.\n\nSi tienes alguna pregunta adicional o necesitas más información, no dudes en contactarnos. Estamos aquí para ayudarte.\n\n¡Gracias por confiar en nuestro servicio!\n\nAtentamente, El equipo de IntegraNutri`);
+        }else{
+          setPatientIsAdult(false);
+        }
+      }
+    }, [ageForCalcs]);
+
   return (
     <>
       <div className="logout-section">
@@ -157,6 +172,11 @@ export const InfantJuvenileComponent = () => {
             Cerrar sesión
         </button>
         </div>
+        {
+              ( patientIsAdult && membership.id === 0 || patientIsAdult && membership.id === 1 )
+              ? message && <AlertBox message={ message } alertClassname = { 'alert' } />
+              : null
+          }
         <div className="patient-wrapper">
 
             <PatientNavbar patientObject={ patientObject }/>
@@ -182,6 +202,18 @@ export const InfantJuvenileComponent = () => {
                     ?   (isNutritionistStatus)
                         ?   <CardMealTimePortionDistribution patientID= { patientID } />
                         :   <CardMealTimePortionDistribution patientID= { displayName } />
+                    :   null
+                }
+                {
+                    ( biologicalSex === 'Femenino' && ageForCalcs.y > 13 && ageForCalcs.y < 50 )
+                    ?   <CardIMC
+                          patientObject = {patientObject}
+                          nutritionalRating = {nutritionalRating}
+                          ageForCalcs = {ageForCalcs}  
+                          imcPregnant = {imcPregnant}
+                          ageText = {ageText}
+                          biologicalSex = {biologicalSex}
+                        />
                     :   null
                 }    
                 {

@@ -13,7 +13,7 @@ export const startSetBuyOrder = ( buyOrderID ) => {
         
         dispatch( setBuyOrder( buyOrder ) )
 
-        console.log('buyOrder: ',buyOrder)
+        // console.log('buyOrder: ',buyOrder)
 
     }
 }

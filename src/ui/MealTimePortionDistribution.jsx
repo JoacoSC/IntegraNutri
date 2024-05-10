@@ -115,7 +115,7 @@ export const MealTimePortionDistribution = () => {
     const handleAttachTable = async () => {
         const mealTimePortionDistribution = formState;
         const patientID = selectedPatient;
-        console.log('mealTimePortionDistribution: ', mealTimePortionDistribution);
+        // console.log('mealTimePortionDistribution: ', mealTimePortionDistribution);
     
         const message = await dispatch(startUploadingMealTimePortionDistribution( uid, patientID, mealTimePortionDistribution ));
         const messageType = message === "Ocurrió un error." ? 'error' : 'success';

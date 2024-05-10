@@ -28,13 +28,13 @@ export const PatientPasswordReset = () => {
     const onSubmit = ( event ) => {
         event.preventDefault();
 
-        console.log('newPassword: ', newPassword );
-        console.log('password: ', password );
-        console.log('confirm_password: ', confirm_password );
-        console.log('isFormValid: ', isFormValid)
+        // console.log('newPassword: ', newPassword );
+        // console.log('password: ', password );
+        // console.log('confirm_password: ', confirm_password );
+        // console.log('isFormValid: ', isFormValid)
 
         if ( isFormValid === true ){
-            console.log('isFormValid222: ', isFormValid)
+            // console.log('isFormValid222: ', isFormValid)
             dispatch( setNewPassword( password, newPassword ) )
             
         }

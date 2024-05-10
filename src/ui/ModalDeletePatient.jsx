@@ -20,7 +20,7 @@ export const ModalDeletePatient = ({ displayName, patientID }) => {
 
         dispatch( startDeletePatient( patientID ) )
         
-        console.log('Paciente eliminado');
+        // console.log('Paciente eliminado');
     }
 
     const cancelSubmit = ( event ) => {
@@ -28,7 +28,7 @@ export const ModalDeletePatient = ({ displayName, patientID }) => {
 
         setOpenModal(false);
         
-        console.log('No hice nada');
+        // console.log('No hice nada');
     }
 
     return (

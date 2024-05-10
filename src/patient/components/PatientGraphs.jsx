@@ -8,9 +8,9 @@ import { Line } from "react-chartjs-2";
 
 import { useHandleChartsSwitch } from '../../hooks';
 
-export const PatientGraphs = ({ ageForCalcs, setLastWeight, setLastStature, nutritionalRating }) => {
+export const PatientGraphs = ({ ageForCalcs, patientObject, setLastWeight, setLastStature, nutritionalRating }) => {
     // React imports
-    const { weight, stature, imc, biologicalSex } = useSelector((state) => state.currentPatient);
+    const { weight, stature, imc, biologicalSex, imcPregnant } = useSelector((state) => state.currentPatient);
 
     // Local state variables
     const [hideChartButtons, setHideChartButtons] = useState({
@@ -21,7 +21,8 @@ export const PatientGraphs = ({ ageForCalcs, setLastWeight, setLastStature, nutr
     });
     const [showHideReferenceChart, setShowHideReferenceChart] = useState(true);
 
-    // Local constants
+    const [ lastImcPregnant, setLastImcPregnant ] = useState(null)
+    
     const buttonStates = {
         "0-2": { PEButton: false, TEButton: false, PTButton: false, IMCButton: true },
         "2-5": { PEButton: false, TEButton: false, PTButton: false, IMCButton: true },
@@ -60,6 +61,15 @@ export const PatientGraphs = ({ ageForCalcs, setLastWeight, setLastStature, nutr
     useEffect(() => {
         handleHideChartButtons();
       }, [ageForCalcs]);
+
+    useEffect(() => {
+
+        if( imcPregnant !== undefined ){
+            
+            setLastImcPregnant( imcPregnant[imcPregnant.length - 1] )
+        }
+
+}, [imcPregnant])
     return (
         <div className="accordion">
             <input
@@ -74,14 +84,27 @@ export const PatientGraphs = ({ ageForCalcs, setLastWeight, setLastStature, nutr
             </label>
             <div className="accordion-content">
                 <div className="rating-wrapper">
-                    <div className="rating-indicator-container">
-                        <p className="rating-title">Calificación nutricional: </p>
-                        <span className="rating-indicator-chart"><p>{ nutritionalRating.weightRatingResult }</p></span>
-                    </div>
-                    <div className="rating-indicator-container">
-                        <p className="rating-title">Calificación estatural: </p>
-                        <span className="rating-indicator-chart"><p>{ nutritionalRating.statureRatingResult }</p></span>
-                    </div>
+                    
+                    {
+                        (imcPregnant)
+                        ?   <div className="rating-indicator-container">
+                                <p className="rating-title">Calificación nutricional: </p>
+                                <span className="rating-indicator-chart"><p>(Usando IMC gestacional)</p></span>
+                            </div>
+                        :   <div className="rating-indicator-container">
+                                <p className="rating-title">Calificación nutricional: </p>
+                                <span className="rating-indicator-chart"><p>{ nutritionalRating.weightRatingResult }</p></span>
+                            </div>
+                    }
+                        
+                    {
+                        ( !nutritionalRating.isAdult )
+                        ?   <div className="rating-indicator-container">
+                                <p className="rating-title">Calificación estatural: </p>
+                                <span className="rating-indicator-chart"><p>{ nutritionalRating.statureRatingResult }</p></span>
+                            </div>
+                        :   null
+                    }
 
                 </div>
 

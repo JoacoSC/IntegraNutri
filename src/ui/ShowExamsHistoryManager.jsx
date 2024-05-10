@@ -7,7 +7,7 @@ export const ShowExamsHistoryManager = ({ examsHistory }) => {
 
     const onExamHistoryItem = ( index ) => {
         
-        console.log('onExamHistoryItem: ', index)
+        // console.log('onExamHistoryItem: ', index)
         dispatch( updateCurrentPatientActualExamIndex( index ) )
     }
 

@@ -7,7 +7,7 @@ import { setFrequencyOfConsumption } from "./frequencyOfConsumptionSlice";
 export const startUpdatingFrequencyOfConsumption = ( uid, patientID, newHistory ) => {
     return async( dispatch ) => {
 
-        console.log('newHistory: ',newHistory)
+        // console.log('newHistory: ',newHistory)
         const frequencyTables = {
             frequencyTables: newHistory,
         }

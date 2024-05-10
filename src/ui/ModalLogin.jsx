@@ -37,7 +37,7 @@ export const ModalLogin = () => {
 
     const startLogin = () => {
 
-        console.log('consultationSlot: ', consultationSlot)
+        // console.log('consultationSlot: ', consultationSlot)
 
     }
 
@@ -68,7 +68,7 @@ export const ModalLogin = () => {
     const startRegisterNewPatient = ( event ) => {
         
         event.preventDefault();
-        console.log('Submit')
+        // console.log('Submit')
         setOpenModal(false)
         // const weightFormValidation = weightForm.replace(/,/g, '.')
         // const statureFormValidation = statureForm.replace(/,/g, '.')

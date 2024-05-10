@@ -12,7 +12,7 @@ export const PasswordReset = () => {
     const onSubmit = ( event ) => {
         event.preventDefault();
 
-        console.log('first: ', email );
+        // console.log('first: ', email );
         dispatch( resetPassword( email ) );
     }
 

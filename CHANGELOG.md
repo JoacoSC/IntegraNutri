@@ -1,4 +1,11 @@
-# Changelog
+## [1.6.0] - 2024-05-09
+
+### Añadido
+- **Ampliación de la población objetivo**: Se han incorporado nuevos grupos a la población objetivo que los nutricionistas pueden atender utilizando la aplicación. Los grupos añadidos son:
+    - **Adultos**: Personas de 19 años 1 mes a 64 años 11 meses.
+    - **Adultos mayores**: Personas de 65 años y más.
+    - **Gestantes**: Se ha habilitado el seguimiento por IMC para mujeres gestantes desde los 13 años a 50 años.
+  Todos estos grupos tienen la posibilidad de ser clasificados de acuerdo con su Índice de Masa Corporal (IMC).
 
 ## [1.5.1] - 2024-03-28
 

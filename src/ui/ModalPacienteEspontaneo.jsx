@@ -22,7 +22,7 @@ export const ModalPacienteEspontaneo = () => {
 
     const onSubmit = ( event ) => {
         event.preventDefault();
-        console.log({ name, fatherName, motherName, rut, isValid, date, email, region, comuna, address, phone, genero });
+        // console.log({ name, fatherName, motherName, rut, isValid, date, email, region, comuna, address, phone, genero });
 
         // TODO:
         // TODO:
@@ -43,7 +43,7 @@ export const ModalPacienteEspontaneo = () => {
     const handleComunaSeleccionada = (event) => {
         const comuna = event.target.value;
         setComunaSeleccionada(comuna)
-        console.log(`Comuna seleccionada: ${comuna}`);
+        // console.log(`Comuna seleccionada: ${comuna}`);
     };
 
 

@@ -13,7 +13,7 @@ export const PatientActivationPage = () => {
 
     const { email = '', password = '', uid = '', patientUID = '' } = queryString.parse( location.search );
 
-    console.log( email, password, uid, patientUID );
+    // console.log( email, password, uid, patientUID );
 
     dispatch( startCreatingPatientFromEmail( email, password, uid, patientUID ) );
 

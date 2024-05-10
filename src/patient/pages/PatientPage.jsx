@@ -70,12 +70,10 @@ export const PatientPage = () => {
                 ?   <LoadingScreen isLoading = { isLoading } />
                 : <>
                     {
-                        (membership.id === 0)
-                        ? <InfantJuvenileComponent />
-                        : (membership.id === 1)
-                        ? <FreeTrialComponent />
+                        (membership.id === 0 || membership.id === 1 )
+                        ? <InfantJuvenileComponent membership = {membership} />
                         : (membership.id === 2)
-                        ? <AdultElderlyPregnantComponent />
+                        ? <AdultElderlyPregnantComponent membership = {membership} />
                         : null
                     }
                 </>

@@ -438,7 +438,7 @@ export const JournalPage = () => {
                                     minutes: consultationMinutes,
                                   })),
                             }
-                console.log(array[i])
+                // console.log(array[i])
                 
             }
             // console.log('array: ', array)

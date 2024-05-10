@@ -114,7 +114,7 @@ const PDFGenerator = ({ data }) => {
     return portionNames.reduce((total, portionName) => total + Number(data.tableData[portionName] || 0), 0);
   };
 
-  console.log('data: ', data)
+  // console.log('data: ', data)
 
   return (
     <Document>

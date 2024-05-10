@@ -47,14 +47,14 @@ export const startLoadingUserDisplayName = ( uid ) => {
 export const deleteUserDataFromDB = ( uid, udid ) => {
     return async( dispatch ) => {
 
-        console.log(`Borrando datos del usuario ${ uid } de la base de datos...`)
+        // console.log(`Borrando datos del usuario ${ uid } de la base de datos...`)
 
         // await deleteDoc(doc( FirebaseDB, `users/${ uid }/` ));
 
         try {
             // Elimina el documento del usuario en Firestore
             await deleteDoc(doc( FirebaseDB, `users/${ uid }/userData/${ udid }` ));
-            console.log("Datos eliminados con éxito!");
+            // console.log("Datos eliminados con éxito!");
         } catch (error) {
             console.log(error);
             // Maneja el error según tus necesidades

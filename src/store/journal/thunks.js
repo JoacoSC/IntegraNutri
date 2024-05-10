@@ -29,7 +29,7 @@ export const startCreatingJournal = ( uid ) => {
 
         const jid = journal[0].id;
 
-        console.log('jid: ', jid);
+        // console.log('jid: ', jid);
 
         const newJournalID = {
             jid,
@@ -112,14 +112,14 @@ export const startLoadingMyJournal = ( uid ) => {
 export const deleteJournalFromDB = ( uid, jid ) => {
     return async( dispatch ) => {
 
-        console.log(`Borrando journal del usuario ${ uid } de la base de datos...`)
+        // console.log(`Borrando journal del usuario ${ uid } de la base de datos...`)
 
         // await deleteDoc(doc( FirebaseDB, `users/${ uid }/` ));
 
         try {
             // Elimina el documento del usuario en Firestore
             await deleteDoc(doc( FirebaseDB, `users/${ uid }/journal/${ jid }` ));
-            console.log("Journal eliminado con éxito!");
+            // console.log("Journal eliminado con éxito!");
         } catch (error) {
             console.log(error);
             // Maneja el error según tus necesidades
