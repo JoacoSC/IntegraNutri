@@ -1,3 +1,10 @@
+# Changelog
+
+## [1.6.1] - 2024-05-13
+
+### Corregido
+- **Gestión de registros de IMC para gestantes**: Se ha añadido un parche al componente que maneja los registros de IMC para gestantes. Ahora, este componente incluye un botón que permite eliminar el registro de IMC para gestantes y volver a utilizar los parámetros normales de adultos. Esto resuelve un problema que impedía a las mujeres volver a llevar un registro estándar de adulto al finalizar su periodo de gestación.
+
 ## [1.6.0] - 2024-05-09
 
 ### Añadido

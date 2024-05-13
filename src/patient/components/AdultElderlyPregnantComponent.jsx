@@ -215,7 +215,16 @@ export const AdultElderlyPregnantComponent = ({ membership }) => {
                       ageText = {ageText}
                       biologicalSex = {biologicalSex}
                     />
-                  : null
+                  : ( biologicalSex === 'Femenino' && ageForCalcs.y > 13 && ageForCalcs.y < 50 )
+                    ? <CardIMC
+                        patientObject = {patientObject}
+                        nutritionalRating = {nutritionalRating}
+                        ageForCalcs = {ageForCalcs}  
+                        imcPregnant = {imcPregnant}
+                        ageText = {ageText}
+                        biologicalSex = {biologicalSex}
+                      />
+                    : null
                     
                 }
             </div>

@@ -64,9 +64,12 @@ export const PatientGraphs = ({ ageForCalcs, patientObject, setLastWeight, setLa
 
     useEffect(() => {
 
-        if( imcPregnant !== undefined ){
-            
-            setLastImcPregnant( imcPregnant[imcPregnant.length - 1] )
+        if(imcPregnant){
+
+            if( imcPregnant.length > 0 ){
+                
+                setLastImcPregnant( imcPregnant[imcPregnant.length - 1] )
+            }
         }
 
 }, [imcPregnant])
@@ -87,14 +90,20 @@ export const PatientGraphs = ({ ageForCalcs, patientObject, setLastWeight, setLa
                     
                     {
                         (imcPregnant)
-                        ?   <div className="rating-indicator-container">
-                                <p className="rating-title">Calificación nutricional: </p>
-                                <span className="rating-indicator-chart"><p>(Usando IMC gestacional)</p></span>
-                            </div>
+                        ?   (imcPregnant.length > 0)
+                            ?   <div className="rating-indicator-container">
+                                    <p className="rating-title">Calificación nutricional: </p>
+                                    <span className="rating-indicator-chart"><p>(Usando IMC gestacional)</p></span>
+                                </div>
+                            :   <div className="rating-indicator-container">
+                                    <p className="rating-title">Calificación nutricional: </p>
+                                    <span className="rating-indicator-chart"><p>{ nutritionalRating.weightRatingResult }</p></span>
+                                </div>
                         :   <div className="rating-indicator-container">
                                 <p className="rating-title">Calificación nutricional: </p>
                                 <span className="rating-indicator-chart"><p>{ nutritionalRating.weightRatingResult }</p></span>
                             </div>
+                        
                     }
                         
                     {

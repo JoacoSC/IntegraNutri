@@ -39,3 +39,4 @@ export * from './CardMealTimePortionDistribution';
 export * from './CardIMC';
 export * from './ModalPregnantIMC';
 export * from './ModalPregnantIMCHistory';
+export * from './ModalDeletePregnantIMC';

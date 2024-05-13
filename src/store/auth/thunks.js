@@ -219,6 +219,7 @@ export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, pa
             weight: [{}],
             stature: [{}],
             imc: [{}],
+            imcPregnant: [],
             unixCorrectedBirthday: null,
             age: {
                 y: 0,

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AdultIMCChart from '../../assets/imgs/patient/imc_chart_svg_v2.svg';
 import ElderlyIMCChart from '../../assets/imgs/patient/elderly_imc_chart_svg_v2.svg';
 import IMCArrow from '../../assets/imgs/patient/imc_arrow.svg?react';
-import { ModalPregnantIMC, ModalPregnantIMCHistory } from './';
+import { ModalDeletePregnantIMC, ModalPregnantIMC, ModalPregnantIMCHistory } from './';
 
 const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, ageText, biologicalSex }) => {
     
@@ -10,8 +10,7 @@ const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, a
     const [ lastImcPregnant, setLastImcPregnant ] = useState(0)
     const [ patientIsAdult, setPatientIsAdult ] = useState(false)
     const [ patientIsElderly, setPatientIsElderly ] = useState(false)
-    // TODO: Terminar de agregar gráfico para adultos mayores
-    const [ containerHeight, setContainerHeight ] = useState('400')
+    const [ containerHeight, setContainerHeight ] = useState('500')
     const { imc, imcRatingResult } = nutritionalRating;
 
     console.log(nutritionalRating)
@@ -26,10 +25,15 @@ const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, a
     
         // Asegurarse de que el IMC esté dentro del rango permitido
         if(imcPregnant){
-
-            clampedIMC = Math.max(minIMC, Math.min(maxIMC, lastImcPregnant.A));
+            
+            if(imcPregnant.length > 0){
+    
+                clampedIMC = Math.max(minIMC, Math.min(maxIMC, lastImcPregnant.A));
+            }else{
+    
+                clampedIMC = Math.max(minIMC, Math.min(maxIMC, imc));
+            }
         }else{
-
             clampedIMC = Math.max(minIMC, Math.min(maxIMC, imc));
         }
     
@@ -47,10 +51,13 @@ const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, a
 
     useEffect(() => {
 
-        if( imcPregnant !== undefined ){
-            
-            setLastImcPregnant( imcPregnant[ imcPregnant.length -1 ] )
-            
+
+        if(imcPregnant){
+            if( imcPregnant.length > 0 ){
+                
+                setLastImcPregnant( imcPregnant[ imcPregnant.length -1 ] )
+                
+            }
         }
 
     }, [imcPregnant])
@@ -60,27 +67,23 @@ const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, a
 
             setPatientIsAdult(false)
             setContainerHeight('auto')
-            console.log('first')
+            // console.log('first')
         }else if(ageForCalcs.y > 65){
             setPatientIsAdult(true)
             setPatientIsElderly(true)
-            setContainerHeight('400')
-            console.log('second')
+            setContainerHeight('500')
+            // console.log('second')
         }else{
             setPatientIsAdult(true)
             setPatientIsElderly(false)
-            setContainerHeight('400')
-            console.log('third')
+            setContainerHeight('500')
+            // console.log('third')
         }
     }, [ageForCalcs])
     
     // console.log(ageForCalcs)
     // console.log(patientIsAdult)
     // console.log(patientIsElderly)
-
-    // TODO:
-    // Revisar versiones para jovenes, adultos, y prueba gratis
-    
     
     return (
         <div className={`patient-secondary-card h-${containerHeight}`}>
@@ -105,10 +108,6 @@ const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, a
                         
                         :   null
                     }
-                    {/* TODO:
-
-                        Ocultar gráfico cuando imcPregnant sea true
-                     */}
                     <div className='indicator-result'>
                         {
                             (patientIsAdult)
@@ -121,24 +120,33 @@ const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, a
                             
                         {
                             (imcPregnant)
-                            ?   <>
-                                    <p><strong>IMC:</strong> {lastImcPregnant.A}</p>
-                                    <p><strong>Clasificación: </strong>{lastImcPregnant.D}</p>
-                                    <p><strong>Semana de gestación: </strong>{lastImcPregnant.E}</p>
-                                </>
+                            ?   (imcPregnant.length > 0)
+                                ?   <>
+                                        <p><strong>IMC:</strong> {lastImcPregnant.A}</p>
+                                        <p><strong>Clasificación: </strong>{lastImcPregnant.D}</p>
+                                        <p><strong>Semana de gestación: </strong>{lastImcPregnant.E}</p>
+                                    </>
+                                :   <>
+                                        <p><strong>IMC:</strong> {(imc)?imc:'No hay datos'}</p>
+                                        <p><strong>Clasificación: </strong>{(imcRatingResult)?imcRatingResult:'No hay datos'}</p>
+                                    </>
                             :   <>
                                     <p><strong>IMC:</strong> {(imc)?imc:'No hay datos'}</p>
                                     <p><strong>Clasificación: </strong>{(imcRatingResult)?imcRatingResult:'No hay datos'}</p>
                                 </>
+                            
                         }
                     </div>
                     {
-                        ( biologicalSex === 'Femenino' && ageForCalcs.y > 13 || biologicalSex === 'Femenino' && ageForCalcs.y < 50 )
+                        ( biologicalSex === 'Femenino' && ageForCalcs.y > 13 && ageForCalcs.y < 50 )
                         ?   <div className='imc-card-btn-container'>
                                 <ModalPregnantIMC 
                                     patientObject = {patientObject}
                                     imcPregnant = {imcPregnant}
                                     ageText = {ageText}
+                                />
+                                <ModalDeletePregnantIMC 
+                                    patientObject = {patientObject}
                                 />
                                 <ModalPregnantIMCHistory
                                     imcPregnant = {imcPregnant}

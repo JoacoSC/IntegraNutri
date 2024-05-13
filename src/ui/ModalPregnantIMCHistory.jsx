@@ -85,69 +85,71 @@ export const ModalPregnantIMCHistory = ({ imcPregnant }) => {
     }
 
     useEffect(() => {
-    if( imcPregnant !== undefined ){
-
-        // Primero, crea un nuevo conjunto de datos para el paciente
-        let patientData = imcPregnant.map((data) => {
-            return {
-                week: `Semana ${data.E}`,
-                Patient: parseFloat(data.A),
-            };
-        });
+    if(imcPregnant){
+        if( imcPregnant.length > 0 ){
     
-        // Luego, combina los datos del paciente con PregnantIMCReferenceData
-        let combinedData = PregnantIMCReferenceData.map((data, index) => {
-            // Encuentra los datos del paciente para la semana correspondiente
-            let patientWeekData = patientData.find((d) => d.week === data.week);
-    
-            // Si se encontraron datos del paciente, úsalos. Si no, usa el valor original.
-            return {
-                ...data,
-                Patient: patientWeekData ? patientWeekData.Patient : data.Patient,
-            };
-        });
-    
-        // Finalmente, usa combinedData en lugar de PregnantIMCReferenceData
-        setReferenceData({
-            labels: combinedData.map((data) => data.week),
-            datasets: [
-                {
-                label: "Bajo peso",
-                data: PregnantIMCReferenceData.map( (data) => data.UnderWeight ),
-                borderColor: 'rgba(0, 108, 239, 0.2)',
-                backgroundColor: 'rgba(0, 108, 239, 0.2)',
-                pointRadius: 2,
-            },
-            {
-                label: "Normal",
-                data: PregnantIMCReferenceData.map( (data) => data.Normal ),
-                borderColor: 'rgba(49, 255, 45, 0.2)',
-                backgroundColor: 'rgba(49, 255, 45, 0.2)',
-                pointRadius: 2,
-            },
-            {
-                label: "Sobrepeso",
-                data: PregnantIMCReferenceData.map( (data) => data.OverWeight ),
-                borderColor: 'rgba(255, 129, 45, 0.2)',
-                backgroundColor: 'rgba(255, 129, 45, 0.2)',
-                pointRadius: 2,
-            },
-            {
-                label: "Obesidad",
-                data: PregnantIMCReferenceData.map( (data) => data.Obese ),
-                borderColor: 'rgba(255, 60, 45, 0.2)',
-                backgroundColor: 'rgba(255, 60, 45, 0.2)',
-                pointRadius: 2,
-            },
-                {
-                label: "Paciente",
-                data: combinedData.map((data) => data.Patient),
-                borderColor: '#452372',
-                backgroundColor: '#452372',
-                pointRadius: 3,
+            // Primero, crea un nuevo conjunto de datos para el paciente
+            let patientData = imcPregnant.map((data) => {
+                return {
+                    week: `Semana ${data.E}`,
+                    Patient: parseFloat(data.A),
+                };
+            });
+        
+            // Luego, combina los datos del paciente con PregnantIMCReferenceData
+            let combinedData = PregnantIMCReferenceData.map((data, index) => {
+                // Encuentra los datos del paciente para la semana correspondiente
+                let patientWeekData = patientData.find((d) => d.week === data.week);
+        
+                // Si se encontraron datos del paciente, úsalos. Si no, usa el valor original.
+                return {
+                    ...data,
+                    Patient: patientWeekData ? patientWeekData.Patient : data.Patient,
+                };
+            });
+        
+            // Finalmente, usa combinedData en lugar de PregnantIMCReferenceData
+            setReferenceData({
+                labels: combinedData.map((data) => data.week),
+                datasets: [
+                    {
+                    label: "Bajo peso",
+                    data: PregnantIMCReferenceData.map( (data) => data.UnderWeight ),
+                    borderColor: 'rgba(0, 108, 239, 0.2)',
+                    backgroundColor: 'rgba(0, 108, 239, 0.2)',
+                    pointRadius: 2,
                 },
-            ]
-        });
+                {
+                    label: "Normal",
+                    data: PregnantIMCReferenceData.map( (data) => data.Normal ),
+                    borderColor: 'rgba(49, 255, 45, 0.2)',
+                    backgroundColor: 'rgba(49, 255, 45, 0.2)',
+                    pointRadius: 2,
+                },
+                {
+                    label: "Sobrepeso",
+                    data: PregnantIMCReferenceData.map( (data) => data.OverWeight ),
+                    borderColor: 'rgba(255, 129, 45, 0.2)',
+                    backgroundColor: 'rgba(255, 129, 45, 0.2)',
+                    pointRadius: 2,
+                },
+                {
+                    label: "Obesidad",
+                    data: PregnantIMCReferenceData.map( (data) => data.Obese ),
+                    borderColor: 'rgba(255, 60, 45, 0.2)',
+                    backgroundColor: 'rgba(255, 60, 45, 0.2)',
+                    pointRadius: 2,
+                },
+                    {
+                    label: "Paciente",
+                    data: combinedData.map((data) => data.Patient),
+                    borderColor: '#452372',
+                    backgroundColor: '#452372',
+                    pointRadius: 3,
+                    },
+                ]
+            });
+        }
     }
 
     }, [imcPregnant])

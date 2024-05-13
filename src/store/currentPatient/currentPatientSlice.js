@@ -25,7 +25,7 @@ export const currentPatientSlice = createSlice({
         weight: null,
         stature: null,
         imc: null,
-        imcPregnant: null,
+        imcPregnant: [],
         age: {
             d: 0,
             m: 0,
@@ -204,7 +204,7 @@ export const currentPatientSlice = createSlice({
             state.weight = null;
             state.stature = null;
             state.imc = null;
-            state.imcPregnant = null;
+            state.imcPregnant = [];
             state.age = {
                 d: 0,
                 m: 0,
