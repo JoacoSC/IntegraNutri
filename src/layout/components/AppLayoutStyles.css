@@ -356,6 +356,9 @@ body{
     display: flex;
     flex-direction: row;
 }
+.gap-05{
+    gap: 0.5rem;
+}
 .gap-1{
     gap: 1rem;
 }
@@ -3496,6 +3499,25 @@ th {
 }
 
 /* **************** Calculator page ****************** */
+
+/* **************** Exams page ****************** */
+.form-container{
+    display: flex;
+}
+
+.form-section-container{
+
+}
+
+.form-section{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem;
+    max-width: 300px;
+}
+
+/* **************** Exams page ****************** */
 
 .flex-start{
     justify-content: flex-start;

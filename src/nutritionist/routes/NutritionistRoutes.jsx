@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom"
 import { PatientPage } from "../../patient/pages/PatientPage"
 import { PatientRoutes } from "../../patient/routes/PatientRoutes";
-import { CalculatorPage, HomePage, JournalPage, MyPatientsPage, SettingsPage } from "../pages"
+import { CalculatorPage, ExamsPage, HomePage, JournalPage, MyPatientsPage, SettingsPage } from "../pages"
 
 export const NutritionistRoutes = () => {
 
@@ -25,6 +25,7 @@ export const NutritionistRoutes = () => {
         <Route path="/settings" element={ <SettingsPage /> }/>
         <Route path="/calculator" element={ <CalculatorPage /> }/>
         <Route path="/home" element={ <HomePage /> }/>
+        <Route path="/exams" element={ <ExamsPage /> }/>
         {/* <Route path="/patientExams" element={ <PatientExamsPage /> }/> */}
 
         <Route path="/*" element={ <Navigate to="home"/> }/>
