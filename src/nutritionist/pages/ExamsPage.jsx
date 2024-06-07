@@ -4,12 +4,12 @@ import { startLogout } from "../../store/auth";
 
 
 import { AppLayout } from "../../layout/AppLayout"
-import { ExamRequest, Footer, MealTimePortionDistribution } from "../../ui";
+import { ExamRequest, Footer, NutritionalIndications,  } from "../../ui";
 import { useState } from "react";
 
 const components = {
     'Solicitud de Exámenes': ExamRequest,
-    'Indicaciones nutricionales': MealTimePortionDistribution,
+    'Indicaciones nutricionales': NutritionalIndications,
     // Agrega aquí más componentes según sea necesario
   };
 

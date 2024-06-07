@@ -141,6 +141,12 @@ export const MealTimePortionDistribution = () => {
         }
       };
 
+    useEffect(() => {
+        if (patients.length > 0) {
+            setSelectedPatient(patients[0].id);
+        }
+    }, [patients]);
+
     return (
         <div className="calculator-main-container">
             <div className="calculator-wrapper">
