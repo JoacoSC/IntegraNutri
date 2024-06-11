@@ -308,4 +308,79 @@ export const startUpdatingExamsHistory = ( uid, patientID, newExamsHistory ) => 
         dispatch(updateCurrentPatientExamsHistory( newExamsHistory ))
     }
 }
+export const startUpdatingExamRequest = ( uid, patientID, examRequest ) => {
+    return async( dispatch ) => {
 
+        // console.log(examRequest)
+
+        const cleanPortion = {
+            patientExams : { 
+                examRequest: null,
+            }
+        }
+
+        const newPatientInfoToFirestore = {
+            patientExams : { 
+                examRequest: examRequest,
+            }
+        }
+
+        let docRef = '';
+
+        try {
+
+            docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+                await setDoc( docRef, cleanPortion, { merge: true });
+
+            docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+            const resp = await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+
+            return "La tabla ha sido adjuntada al paciente seleccionado correctamente.";
+
+        } catch (error) {
+            // Si algo sale mal, devolvemos un mensaje de error
+            console.error(error);
+            return "Ocurrió un error.";
+        }
+        // console.log('resp: ', resp)
+        // dispatch(updateCurrentPatientPatientExams( examRequest ))
+    }
+}
+export const startUpdatingNutritionalIndications = ( uid, patientID, nutritionalIndications ) => {
+    return async( dispatch ) => {
+
+        // console.log(nutritionalIndications)
+
+        const cleanPortion = {
+            patientExams : { 
+                nutritionalIndications: null,
+            }
+        }
+
+        const newPatientInfoToFirestore = {
+            patientExams : { 
+                nutritionalIndications: nutritionalIndications,
+            }
+        }
+        
+        let docRef = '';
+
+        try {
+
+            docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+                await setDoc( docRef, cleanPortion, { merge: true });
+
+            docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+            const resp = await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+
+            return "La tabla ha sido adjuntada al paciente seleccionado correctamente.";
+
+        } catch (error) {
+            // Si algo sale mal, devolvemos un mensaje de error
+            console.error(error);
+            return "Ocurrió un error.";
+        }
+        // console.log('resp: ', resp)
+        // dispatch(updateCurrentPatientPatientExams( nutritionalIndications ))
+    }
+}

@@ -9,6 +9,7 @@ import {
 import { useForm } from '../hooks';
 import { ConfirmationMessage } from '../common';
 import { format, fromUnixTime } from 'date-fns';
+import { startUpdatingNutritionalIndications } from '../store/currentPatient';
 
 export const NutritionalIndications = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,8 @@ export const NutritionalIndications = () => {
         proteins_contribution_value,
     } = useSelector( state => state.calculator )
 
+    const { uid } = useSelector(state => state.auth);
+
     const { patients } = useSelector(state => state.patients);
 
     const {
@@ -49,9 +52,8 @@ export const NutritionalIndications = () => {
         const patientID = selectedPatient;
         console.log('examRequest: ', examRequest);
         console.log('patientID: ', patientID);
-        const message = '';
     
-        // const message = await dispatch(startUploadingMealTimePortionDistribution( uid, patientID, examRequest ));
+        const message = await dispatch(startUpdatingNutritionalIndications( uid, patientID, examRequest ));
         const messageType = message === "Ocurrió un error." ? 'error' : 'success';
         setConfirmationMessage({ text: message, type: messageType });
       };
@@ -156,7 +158,6 @@ export const NutritionalIndications = () => {
                     </select>
                     <button className='btn-sm' onClick={handleSelectPatient}>Seleccionar paciente</button>
                 </div>
-                <ConfirmationMessage message={confirmationMessage} />
             </div>
             <div className='flex-row w-100 pt-1 gap-2'>
                 <div className='flex-column gap-1 w-100 pt-1'>
@@ -183,6 +184,7 @@ export const NutritionalIndications = () => {
             <div className='flex-row w-100 pt-2'>
                 <button className='btn-sm' onClick={handleAttachTable}>Adjuntar examen al paciente seleccionado</button>
             </div>
+            <ConfirmationMessage message={confirmationMessage} />
         </div>
       </div>
     </div>

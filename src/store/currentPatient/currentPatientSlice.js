@@ -51,9 +51,15 @@ export const currentPatientSlice = createSlice({
         examsHistory: [],
         actualExamIndex: null,
         portionDistribution: null,
+        patientExams : { 
+            examRequest: null,
+            nutritionalIndications: null
+        },
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
+            console.log('payload: ', payload)
+            console.log('payload: ', payload.examRequest)
             state.id = payload.id;
             state.address = payload.address;
             state.city = payload.city;
@@ -89,6 +95,10 @@ export const currentPatientSlice = createSlice({
             state.examsHistory = payload.examsHistory;
             state.actualExamIndex = payload.actualExamIndex;
             state.portionDistribution = payload.portionDistribution;
+            state.patientExams = { 
+                examRequest: payload.patientExams.examRequest,
+                nutritionalIndications: payload.patientExams.nutritionalIndications
+            };
         },
 
         updateCurrentPatientAnamnesis: (state,{ payload }) => {
@@ -229,6 +239,10 @@ export const currentPatientSlice = createSlice({
             state.examsHistory = [];
             state.actualExamIndex = null;
             state.portionDistribution = null;
+            state.patientExams = { 
+                examRequest: null,
+                nutritionalIndications: null
+            };
         },
     }
 });

@@ -14,7 +14,7 @@ import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChan
 import { calculateAgeForCalcsObject, calculateAgeObject } from "../../utils";
 
 // Component imports
-import { CardMealTimePortionDistribution, CardPatientExams } from "../../ui";
+import { CardExamsRequest, CardMealTimePortionDistribution, CardPatientExams } from "../../ui";
 import { Anamnesis, Diagnosis, FrequencyTable, Indications, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
 import { startLoadingMyNutritionistData } from "../../store/myNutritionist";
 import CardIMC from "../../ui/CardIMC";
@@ -27,7 +27,7 @@ export const AdultElderlyPregnantComponent = ({ membership }) => {
 
   // React imports
   const { uid, displayName, photoURL, isNutritionistStatus } = useSelector(state => state.auth);
-  const { patientName, nextConsultation, anamnesis, physical_exam, diagnosis, indications, weight, stature, imc, imcPregnant, unixBirthday, unixCorrectedBirthday, unixBiologicalBirthday, biologicalSex, genderIdentity = '', age, correctedAgeIsSet = null, correctedAge = { d: 0, m: 0, y: 0, }, biologicalAgeIsSet, biologicalAge = { d: 0, m: 0, y: 0, }, tallaDiana, perimetroCefalico, perimetroCintura, presionArterial, portionDistribution,
+  const { patientName, nextConsultation, anamnesis, physical_exam, diagnosis, indications, weight, stature, imc, imcPregnant, unixBirthday, unixCorrectedBirthday, unixBiologicalBirthday, biologicalSex, genderIdentity = '', age, correctedAgeIsSet = null, correctedAge = { d: 0, m: 0, y: 0, }, biologicalAgeIsSet, biologicalAge = { d: 0, m: 0, y: 0, }, tallaDiana, perimetroCefalico, perimetroCintura, presionArterial, portionDistribution, patientExams
       } = useSelector((state) => state.currentPatient);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -203,6 +203,13 @@ export const AdultElderlyPregnantComponent = ({ membership }) => {
                     ?   (isNutritionistStatus)
                         ?   <CardMealTimePortionDistribution patientID= { patientID } />
                         :   <CardMealTimePortionDistribution patientID= { displayName } />
+                    :   null
+                }    
+                {
+                    (patientExams.examRequest)
+                    ?   (isNutritionistStatus)
+                        ?   <CardExamsRequest patientID= { patientID } />
+                        :   <CardExamsRequest patientID= { displayName } />
                     :   null
                 }    
                 {

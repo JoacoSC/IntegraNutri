@@ -9,6 +9,7 @@ import {
 import { useForm } from '../hooks';
 import { ConfirmationMessage } from '../common';
 import { format, fromUnixTime } from 'date-fns';
+import { startUpdatingExamRequest } from '../store/currentPatient';
 
 export const ExamRequest = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,8 @@ export const ExamRequest = () => {
         proteins_contribution_value,
     } = useSelector( state => state.calculator )
 
+    const { uid } = useSelector(state => state.auth);
+
     const { patients } = useSelector(state => state.patients);
 
     const {
@@ -41,6 +44,7 @@ export const ExamRequest = () => {
         plaquetas,
         protrombina,
         ferritina,
+        fierroSérico,
         transferrina,
         vitaminaD,
         vitaminaB12,
@@ -88,9 +92,8 @@ export const ExamRequest = () => {
         const patientID = selectedPatient;
         console.log('examRequest: ', examRequest);
         console.log('patientID: ', patientID);
-        const message = '';
     
-        // const message = await dispatch(startUploadingMealTimePortionDistribution( uid, patientID, examRequest ));
+        const message = await dispatch(startUpdatingExamRequest( uid, patientID, examRequest ));
         const messageType = message === "Ocurrió un error." ? 'error' : 'success';
         setConfirmationMessage({ text: message, type: messageType });
       };
@@ -180,6 +183,10 @@ export const ExamRequest = () => {
                         <label className='flex-row gap-05'>
                             <input type="checkbox" name="ferritina" onChange={onInputChange}/>
                             Ferritina 301026
+                        </label>
+                        <label className='flex-row gap-05'>
+                            <input type="checkbox" name="fierroSérico" onChange={onInputChange}/>
+                            Fierro Sérico 301028
                         </label>
                         <label className='flex-row gap-05'>
                             <input type="checkbox" name="transferrina" onChange={onInputChange}/>
@@ -373,7 +380,6 @@ export const ExamRequest = () => {
                     </select>
                     <button className='btn-sm' onClick={handleSelectPatient}>Seleccionar paciente</button>
                 </div>
-                <ConfirmationMessage message={confirmationMessage} />
             </div>
             <div className='flex-row w-100 pt-1 gap-2'>
                 <div className='flex-column gap-1 w-100 pt-1'>
@@ -400,6 +406,7 @@ export const ExamRequest = () => {
             <div className='flex-row w-100 pt-2'>
                 <button className='btn-sm' onClick={handleAttachTable}>Adjuntar examen al paciente seleccionado</button>
             </div>
+            <ConfirmationMessage message={confirmationMessage} />
         </div>
       </div>
     </div>
