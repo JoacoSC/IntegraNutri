@@ -12,6 +12,171 @@ async function fetchAsset(url) {
     }
     return new Uint8Array(await response.arrayBuffer());
   }
+
+  async function addPatientData(pdfDoc, patientData, nutritionistData, font) {
+    const pages = pdfDoc.getPages();
+    const firstPage = pages[0];
+    const { width, height } = firstPage.getSize();
+
+    // Aquí puedes ajustar las coordenadas y el tamaño del texto según sea necesario
+    const nutritionistX = width * 0.65;
+    const nutritionistY = height * 0.95;
+    const nutritionistSize = 13;
+
+    const nutritionistNameX = width * 0.65;
+    const nutritionistNameY = height * 0.935;
+    const nutritionistNameSize = 13;
+
+    const nutritionistContactX = width * 0.65;
+    const nutritionistContactY = height * 0.92;
+    const nutritionistContactSize = 13;
+
+    const patientNameX = width * 0.22;
+    const patientNameY = height * 0.85;
+    const patientNameSize = 14;
+
+    const patientRutX = width * 0.16;
+    const patientRutY = height * 0.808;
+    const patientRutSize = 14;
+
+    const patientBirthdayX = width * 0.62;
+    const patientBirthdayY = height * 0.808;
+    const patientBirthdaySize = 14;
+    
+    const currentDateX = width * 0.31;
+    const currentDateY = height * 0.03;
+    const currentDateSize = 15;
+
+    const currentMonthX = width * 0.39;
+    const currentMonthY = height * 0.03;
+    const currentMonthSize = 15;
+
+    const currentYearX = width * 0.47;
+    const currentYearY = height * 0.03;
+    const currentYearSize = 15;
+
+    firstPage.drawText(nutritionistData.nutritionist, {
+      x: nutritionistX,
+      y: nutritionistY,
+      size: nutritionistSize,
+      font,
+      color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(nutritionistData.name, {
+      x: nutritionistNameX,
+      y: nutritionistNameY,
+      size: nutritionistNameSize,
+      font,
+      color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(nutritionistData.contact, {
+      x: nutritionistContactX,
+      y: nutritionistContactY,
+      size: nutritionistContactSize,
+      font,
+      color: rgb(0, 0, 0),
+    });
+    
+    firstPage.drawText(patientData.name, {
+      x: patientNameX,
+      y: patientNameY,
+      size: patientNameSize,
+      font,
+      color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(patientData.rut, {
+      x: patientRutX,
+      y: patientRutY,
+      size: patientRutSize,
+      font,
+      color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(patientData.birthday, {
+      x: patientBirthdayX,
+      y: patientBirthdayY,
+      size: patientBirthdaySize,
+      font,
+      color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(patientData.currentDate.d, {
+      x: currentDateX,
+      y: currentDateY,
+      size: currentDateSize,
+      font,
+      color: rgb(0, 0, 0),
+    });
+    firstPage.drawText(patientData.currentDate.m, {
+      x: currentMonthX,
+      y: currentMonthY,
+      size: currentMonthSize,
+      font,
+      color: rgb(0, 0, 0),
+    });
+    firstPage.drawText(patientData.currentDate.y, {
+      x: currentYearX,
+      y: currentYearY,
+      size: currentYearSize,
+      font,
+      color: rgb(0, 0, 0),
+    });
+
+    // Repite este proceso para los demás datos del paciente y del nutricionista
+  }
+  async function addOtherExams(pdfDoc, examRequest, font) {
+    const pages = pdfDoc.getPages();
+    const firstPage = pages[0];
+    const { width, height } = firstPage.getSize();
+  
+    // Aquí puedes ajustar las coordenadas y el tamaño del texto según sea necesario
+    const otherExamsX = width * 0.5; // Este valor determina dónde comienza el texto en el eje X
+    const otherExamsY = height * 0.15; 
+    const otherExamsSize = 14;
+    const lineHeight = otherExamsSize * 1.35; // Ajusta este valor según sea necesario
+  
+    const maxLineWidth = width * 0.4; // Este valor determina cuándo se debe dividir el texto. Ajusta este valor según sea necesario
+  
+    if (typeof examRequest['otherExams'] === 'string') {
+      // Divide el texto en líneas
+      const words = examRequest['otherExams'].split(' ');
+      let line = '';
+      let y = otherExamsY;
+  
+      for (let i = 0; i < words.length; i++) {
+        const testLine = line + words[i] + ' ';
+        const testWidth = font.widthOfTextAtSize(testLine, otherExamsSize);
+  
+        if (testWidth > maxLineWidth && i > 0) {
+          // Dibuja la línea cuando su longitud supera el ancho máximo
+          firstPage.drawText(line, {
+            x: otherExamsX,
+            y: y,
+            size: otherExamsSize,
+            font,
+            color: rgb(0, 0, 0),
+          });
+  
+          line = words[i] + ' ';
+          y -= lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+  
+      // Dibuja la última línea
+      firstPage.drawText(line, {
+        x: otherExamsX,
+        y: y,
+        size: otherExamsSize,
+        font,
+        color: rgb(0, 0, 0),
+      });
+    }
+  }
   
   const xMarks = [
     { key: 'hemograma', top: '72.8%', left: '8.8%', draw: false },
@@ -36,26 +201,26 @@ async function fetchAsset(url) {
     { key: 'electrolitos', top: '22.9%', left: '8.8%', draw: false },
     { key: 'fosforo', top: '20.8%', left: '8.8%', draw: false },
     { key: 'glucosaOral', top: '18.4%', left: '8.8%', draw: false },
-    //TODO: Ordenar desde aquí 
-    { key: 'curvaInsulina', top: '54%', left: '51.4%', draw: false },
-    { key: 'Insulina', top: '56%', left: '56%', draw: false },
-    { key: 'TSH', top: '58%', left: '58%', draw: false },
-    { key: 'T3', top: '60%', left: '60%', draw: false },
-    { key: 'T4', top: '62%', left: '62%', draw: false },
-    { key: 'T4libre', top: '64%', left: '64%', draw: false },
-    { key: 'orinaCompleta', top: '66%', left: '66%', draw: false },
-    { key: 'urocultivo', top: '68%', left: '68%', draw: false },
-    { key: 'proteinuria', top: '70%', left: '70%', draw: false },
-    { key: 'RPR', top: '72%', left: '72%', draw: false },
-    { key: 'VDRL', top: '74%', left: '74%', draw: false },
-    { key: 'hemoglobinaGlicosilada', top: '76%', left: '76%', draw: false },
-    { key: 'nitrógenoUreico', top: '78%', left: '78%', draw: false },
-    { key: 'perfilBioquímico', top: '80%', left: '80%', draw: false },
-    { key: 'perfilLipídico', top: '82%', left: '82%', draw: false },
-    { key: 'perfilHepático', top: '84%', left: '84%', draw: false },
-    { key: 'uremia', top: '86%', left: '86%', draw: false },
-    { key: 'transaminasas', top: '88%', left: '88%', draw: false },
-    { key: 'RAC', top: '90%', left: '90%', draw: false },
+    { key: 'curvaInsulina', top: '72.4%', left: '51.4%', draw: false },
+    { key: 'Insulina', top: '70.2%', left: '51.4%', draw: false },
+    { key: 'TSH', top: '68%', left: '51.4%', draw: false },
+    { key: 'T3', top: '66%', left: '51.4%', draw: false },
+    { key: 'T4', top: '63.8%', left: '51.4%', draw: false },
+    { key: 'T4libre', top: '61.8%', left: '51.4%', draw: false },
+    { key: 'orinaCompleta', top: '56.4%', left: '51.4%', draw: false },
+    { key: 'urocultivo', top: '54.2%', left: '51.4%', draw: false },
+    { key: 'proteinuria', top: '52%', left: '51.4%', draw: false },
+    { key: 'RPR', top: '46.8%', left: '51.4%', draw: false },
+    { key: 'VDRL', top: '44.4%', left: '51.4%', draw: false },
+    { key: 'hemoglobinaGlicosilada', top: '40.4%', left: '51.4%', draw: false },
+    { key: 'nitrógenoUreico', top: '38%', left: '51.4%', draw: false },
+    { key: 'perfilBioquímico', top: '36%', left: '51.4%', draw: false },
+    { key: 'perfilLipídico', top: '33.8%', left: '51.4%', draw: false },
+    { key: 'perfilHepático', top: '31.8%', left: '51.4%', draw: false },
+    { key: 'uremia', top: '29.4%', left: '51.4%', draw: false },
+    { key: 'transaminasas', top: '27.2%', left: '51.4%', draw: false },
+    { key: 'RAC', top: '25%', left: '51.4%', draw: false },
+    { key: 'otherExams', top: '20%', left: '51.4%', draw: false },
   ];
 
 // PDFExamDataAdder.jsx
@@ -135,6 +300,10 @@ async function PDFExamDataAdder({ data }) {
       });
     }
   }
+
+  await addOtherExams(pdfDoc, data.tableData, font);
+
+  await addPatientData(pdfDoc, data.patientData, data.nutritionistData, font);
 
   // Guarda el PDF modificado
   const pdfBytes = await pdfDoc.save();

@@ -5,28 +5,42 @@ import PDFGenerator from '../common/PDFGenerator';
 import './components';
 import PDFWatermarkAdder from '../common/PDFWatermarkAdder';
 import PDFExamDataAdder from '../common/PDFExamDataAdder';
+import { format, fromUnixTime, getDate } from 'date-fns';
 
 export const CardExamsRequest = ({ patientID }) => {
 
-    const { patientName, rut, patientExams } = useSelector((state) => state.currentPatient);
+    const { patientName, rut, patientExams, unixBirthday } = useSelector((state) => state.currentPatient);
     const { displayName, email, isNutritionistStatus } = useSelector((state) => state.auth);
     const { nutritionistData } = useSelector((state) => state.myNutritionist);
 
     let data = null;
     if(isNutritionistStatus){
         data = {
+            patientData: {
+                name: patientName,
+                rut: rut.formatted,
+                birthday: format(fromUnixTime( unixBirthday ), 'dd/MM/yyyy'),
+                currentDate: {
+                    d: new Date().getDate().toString(),
+                    m: (new Date().getMonth() + 1).toString().padStart(2, '0'),
+                    y: new Date().getFullYear().toString(),
+                },
+            },
             patientID: patientID,
-            patientName: patientName,
-            rut: rut.formatted,
             tableData: patientExams.examRequest,
-            nutritionistName: displayName,
-            nutritionistContact: email,
+            nutritionistData: {
+                nutritionist: 'Nutricionista',
+                name: displayName,
+                contact: email,
+            }
         }
     }else{
         data = {
+            patientData: {
+                name: patientName,
+                rut: rut.formatted,
+            },
             patientID: patientID,
-            patientName: patientName,
-            rut: rut.formatted,
             tableData: patientExams.examRequest,
             nutritionistName: nutritionistData.displayName,
             nutritionistContact: '+56 9 ' +nutritionistData.phone,
