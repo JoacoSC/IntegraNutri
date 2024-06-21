@@ -88,10 +88,18 @@ export const ExamRequest = () => {
     };
 
     const handleAttachTable = async () => {
-        const examRequest = formState;
+        const examRequest = {
+                ...formState,
+                examDate: {
+                    d: new Date().getDate().toString(),
+                    m: (new Date().getMonth() + 1).toString().padStart(2, '0'),
+                    y: new Date().getFullYear().toString(),
+                }
+            }
+        // const examRequest = formState;
         const patientID = selectedPatient;
-        console.log('examRequest: ', examRequest);
-        console.log('patientID: ', patientID);
+        // console.log('examRequest: ', examRequest);
+        // console.log('patientID: ', patientID);
     
         const message = await dispatch(startUpdatingExamRequest( uid, patientID, examRequest ));
         const messageType = message === "Ocurrió un error." ? 'error' : 'success';

@@ -1,6 +1,7 @@
 import { pdf } from '@react-pdf/renderer';
 import { saveAs } from 'file-saver';
 import { degrees, PDFDocument, rgb, StandardFonts, PDFFont } from 'pdf-lib';
+import fontkit from '@pdf-lib/fontkit';
 import Exam_Request_png from '../../assets/imgs/exams/examRequest.png';
 import PDFExamRequestGenerator from './PDFExamRequestGenerator';
 
@@ -13,10 +14,12 @@ async function fetchAsset(url) {
     return new Uint8Array(await response.arrayBuffer());
   }
 
-  async function addPatientData(pdfDoc, patientData, nutritionistData, font) {
+  async function addPatientData(pdfDoc, patientData, nutritionistData, examDate, font) {
     const pages = pdfDoc.getPages();
     const firstPage = pages[0];
     const { width, height } = firstPage.getSize();
+
+    // console.log('examDate: ', examDate)
 
     // Aquí puedes ajustar las coordenadas y el tamaño del texto según sea necesario
     const nutritionistX = width * 0.65;
@@ -43,17 +46,17 @@ async function fetchAsset(url) {
     const patientBirthdayY = height * 0.808;
     const patientBirthdaySize = 14;
     
-    const currentDateX = width * 0.31;
-    const currentDateY = height * 0.03;
-    const currentDateSize = 15;
+    const examDateX = width * 0.31;
+    const examDateY = height * 0.03;
+    const examDateSize = 15;
 
-    const currentMonthX = width * 0.39;
-    const currentMonthY = height * 0.03;
-    const currentMonthSize = 15;
+    const examMonthX = width * 0.39;
+    const examMonthY = height * 0.03;
+    const examMonthSize = 15;
 
-    const currentYearX = width * 0.47;
-    const currentYearY = height * 0.03;
-    const currentYearSize = 15;
+    const examYearX = width * 0.47;
+    const examYearY = height * 0.03;
+    const examYearSize = 15;
 
     firstPage.drawText(nutritionistData.nutritionist, {
       x: nutritionistX,
@@ -103,24 +106,24 @@ async function fetchAsset(url) {
       color: rgb(0, 0, 0),
     });
 
-    firstPage.drawText(patientData.currentDate.d, {
-      x: currentDateX,
-      y: currentDateY,
-      size: currentDateSize,
+    firstPage.drawText(examDate.d, {
+      x: examDateX,
+      y: examDateY,
+      size: examDateSize,
       font,
       color: rgb(0, 0, 0),
     });
-    firstPage.drawText(patientData.currentDate.m, {
-      x: currentMonthX,
-      y: currentMonthY,
-      size: currentMonthSize,
+    firstPage.drawText(examDate.m, {
+      x: examMonthX,
+      y: examMonthY,
+      size: examMonthSize,
       font,
       color: rgb(0, 0, 0),
     });
-    firstPage.drawText(patientData.currentDate.y, {
-      x: currentYearX,
-      y: currentYearY,
-      size: currentYearSize,
+    firstPage.drawText(examDate.y, {
+      x: examYearX,
+      y: examYearY,
+      size: examYearSize,
       font,
       color: rgb(0, 0, 0),
     });
@@ -242,8 +245,23 @@ async function PDFExamDataAdder({ data }) {
   // Carga el PDF existente
   const pdfDoc = await PDFDocument.load(arrayBuffer);
 
+
+  pdfDoc.registerFontkit(fontkit);
+
+  // Asume que `fontPath` es la ruta a tu fuente personalizada en el directorio de tu proyecto
+  const fontPath = '/assets/fonts/Metropolis/Metropolis-Medium.ttf';
+
+  // Usa fetch para obtener los datos de la fuente
+  const response = await fetch(fontPath);
+
+  // Convierte la respuesta en un ArrayBuffer
+  const fontBytes = await response.arrayBuffer();
+
+  const font = await pdfDoc.embedFont(fontBytes);
+
+
   // Incrusta la fuente en el documento PDF
-  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  // const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
   // Incrusta la imagen en el PDF
   const image = await pdfDoc.embedPng(imageBytes);
@@ -276,6 +294,9 @@ async function PDFExamDataAdder({ data }) {
     height: imageHeight,
   });
 
+  // Reiniciar todas las marcas a 'draw: false'
+  xMarks.forEach(mark => mark.draw = false);
+
   // Actualiza las marcas que se deben dibujar
   for (let markKey in examRequest) {
     if (examRequest[markKey] === "on") {
@@ -303,7 +324,7 @@ async function PDFExamDataAdder({ data }) {
 
   await addOtherExams(pdfDoc, data.tableData, font);
 
-  await addPatientData(pdfDoc, data.patientData, data.nutritionistData, font);
+  await addPatientData(pdfDoc, data.patientData, data.nutritionistData, data.examDate, font);
 
   // Guarda el PDF modificado
   const pdfBytes = await pdfDoc.save();

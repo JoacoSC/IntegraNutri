@@ -13,7 +13,7 @@ const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, a
     const [ containerHeight, setContainerHeight ] = useState('500')
     const { imc, imcRatingResult } = nutritionalRating;
 
-    console.log(nutritionalRating)
+    // console.log(nutritionalRating)
 
     const calculateChartIndicatorInclination = () => {
         // Rango de IMC y de inclinación

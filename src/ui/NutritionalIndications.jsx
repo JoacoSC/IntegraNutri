@@ -48,12 +48,19 @@ export const NutritionalIndications = () => {
     };
 
     const handleAttachTable = async () => {
-        const examRequest = formState;
+        const nutritionalIndications = {
+            ...formState,
+            indicationsDate: {
+                d: new Date().getDate().toString(),
+                m: (new Date().getMonth() + 1).toString().padStart(2, '0'),
+                y: new Date().getFullYear().toString(),
+            }
+        }
         const patientID = selectedPatient;
-        console.log('examRequest: ', examRequest);
-        console.log('patientID: ', patientID);
+        // console.log('nutritionalIndications: ', nutritionalIndications);
+        // console.log('patientID: ', patientID);
     
-        const message = await dispatch(startUpdatingNutritionalIndications( uid, patientID, examRequest ));
+        const message = await dispatch(startUpdatingNutritionalIndications( uid, patientID, nutritionalIndications ));
         const messageType = message === "Ocurrió un error." ? 'error' : 'success';
         setConfirmationMessage({ text: message, type: messageType });
       };
@@ -109,7 +116,7 @@ export const NutritionalIndications = () => {
   return (
     <div className="calculator-main-container">
       <div className="calculator-wrapper">
-        <p className="calculator-item-title">Solicitud de exámenes</p>
+        <p className="calculator-item-title">Indicaciones nutricionales</p>
         <div className="calculator-container calculator-container-border-radius">
             <form className='form-container w-100 flex-row flex-justify-center'>
                 <div className='form-section-container w-100 flex-row flex-justify-center'>

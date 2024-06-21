@@ -1,15 +1,13 @@
 import { useSelector } from 'react-redux';
 import { PDFDownloadLink, BlobProvider } from '@react-pdf/renderer';
 
-import PDFGenerator from '../common/PDFGenerator';
 import './components';
-import PDFWatermarkAdder from '../common/PDFWatermarkAdder';
-import PDFExamDataAdder from '../common/PDFExamDataAdder';
 import { format, fromUnixTime, getDate } from 'date-fns';
+import PDFNutritionalIndications from '../common/PDFNutritionalIndications';
 
-export const CardExamsRequest = ({ patientID }) => {
+export const CardNutritionalIndications = ({ patientID }) => {
 
-    const { patientName, rut, patientExams, unixBirthday } = useSelector((state) => state.currentPatient);
+    const { patientName, rut, patientExams, imc, weight, stature } = useSelector((state) => state.currentPatient);
     const { displayName, email, isNutritionistStatus } = useSelector((state) => state.auth);
     const { nutritionistData } = useSelector((state) => state.myNutritionist);
 
@@ -19,14 +17,17 @@ export const CardExamsRequest = ({ patientID }) => {
             patientData: {
                 name: patientName,
                 rut: rut.formatted,
-                birthday: format(fromUnixTime( unixBirthday ), 'dd/MM/yyyy'),
+                imc: parseFloat(imc[imc.length - 1]?.A).toFixed(2),
+                weight: parseFloat(weight[weight.length - 1]?.A).toFixed(2) + ' kg',
+                stature: parseFloat(stature[stature.length - 1]?.A).toFixed(2) + ' cm',
+
             },
             patientID: patientID,
-            tableData: patientExams.examRequest,
-            examDate: {
-                    d: patientExams.examRequest.examDate.d,
-                    m: patientExams.examRequest.examDate.m,
-                    y: patientExams.examRequest.examDate.y,
+            tableData: patientExams.nutritionalIndications,
+            indicationsDate: {
+                    d: patientExams.nutritionalIndications.indicationsDate.d,
+                    m: patientExams.nutritionalIndications.indicationsDate.m,
+                    y: patientExams.nutritionalIndications.indicationsDate.y,
                 },
             nutritionistData: {
                 nutritionist: 'Nutricionista',
@@ -41,14 +42,14 @@ export const CardExamsRequest = ({ patientID }) => {
                 rut: rut.formatted,
             },
             patientID: patientID,
-            tableData: patientExams.examRequest,
+            tableData: patientExams.nutritionalIndications,
             nutritionistName: nutritionistData.displayName,
             nutritionistContact: '+56 9 ' +nutritionistData.phone,
         }
     }
 
     const handleDownload = async () => {
-        await PDFExamDataAdder({data});
+        await PDFNutritionalIndications({data});
         // const blob = new Blob([pdfBytes], { type: 'application/pdf' });
         // saveAs(blob, 'Distribución de porciones.pdf');
     }
@@ -56,7 +57,7 @@ export const CardExamsRequest = ({ patientID }) => {
     return (
         <div className='patient-secondary-card'>
             <div className='patient-secondary-card-title'>
-                Solicitudes de exámenes
+                Indicaciones nutricionales
             </div>
             <div className='patient-secondary-card-content'>
             <div className='flex-column'>

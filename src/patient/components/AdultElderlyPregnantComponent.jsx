@@ -19,6 +19,7 @@ import { Anamnesis, Diagnosis, FrequencyTable, Indications, PatientCard, Patient
 import { startLoadingMyNutritionistData } from "../../store/myNutritionist";
 import CardIMC from "../../ui/CardIMC";
 import { AlertBox } from "../../ui/AlertBox";
+import { CardNutritionalIndications } from "../../ui/CardNutritionalIndications";
 
 // Asset imports
 /**/
@@ -206,11 +207,21 @@ export const AdultElderlyPregnantComponent = ({ membership }) => {
                     :   null
                 }    
                 {
-                    (patientExams.examRequest)
+                  (isNutritionistStatus)
+                  ? (patientExams.examRequest)
                     ?   (isNutritionistStatus)
                         ?   <CardExamsRequest patientID= { patientID } />
                         :   <CardExamsRequest patientID= { displayName } />
                     :   null
+                  : null
+                }    
+                { (isNutritionistStatus)
+                  ? (patientExams.nutritionalIndications)
+                    ?   (isNutritionistStatus)
+                        ?   <CardNutritionalIndications patientID= { patientID } />
+                        :   <CardNutritionalIndications patientID= { displayName } />
+                    :   null
+                  : null
                 }    
                 {
                   (patientIsAdult)
@@ -279,18 +290,25 @@ export const AdultElderlyPregnantComponent = ({ membership }) => {
                 
             </div>
         </div>
-        <div className="patient-section">
-            <ReminderTable
-                uid={ uid }
-                patientID={ patientID }
-            />
-        </div>
-        <div className="patient-section">
-            <FrequencyTable
-                uid={ uid }
-                patientID={ patientID }
-            />
-        </div>
+        {
+          (isNutritionistStatus)
+          ? <>
+              <div className="patient-section">
+                <ReminderTable
+                    uid={ uid }
+                    patientID={ patientID }
+                />
+              </div>
+              <div className="patient-section">
+                  <FrequencyTable
+                      uid={ uid }
+                      patientID={ patientID }
+                  />
+              </div>
+            </>
+          : null
+        }
+        
     </>
   )
 }

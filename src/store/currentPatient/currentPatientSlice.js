@@ -58,8 +58,8 @@ export const currentPatientSlice = createSlice({
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
-            console.log('payload: ', payload)
-            console.log('payload: ', payload.examRequest)
+            // console.log('payload: ', payload)
+            // console.log('payload: ', payload.examRequest)
             state.id = payload.id;
             state.address = payload.address;
             state.city = payload.city;
@@ -96,8 +96,8 @@ export const currentPatientSlice = createSlice({
             state.actualExamIndex = payload.actualExamIndex;
             state.portionDistribution = payload.portionDistribution;
             state.patientExams = { 
-                examRequest: payload.patientExams.examRequest,
-                nutritionalIndications: payload.patientExams.nutritionalIndications
+                examRequest: payload.patientExams?.examRequest,
+                nutritionalIndications: payload.patientExams?.nutritionalIndications
             };
         },
 

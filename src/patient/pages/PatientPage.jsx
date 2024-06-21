@@ -72,7 +72,7 @@ export const PatientPage = () => {
                     {
                         (membership.id === 0 || membership.id === 1 )
                         ? <InfantJuvenileComponent membership = {membership} />
-                        : (membership.id === 2)
+                        : (membership.id === 2 || membership.id === undefined)
                         ? <AdultElderlyPregnantComponent membership = {membership} />
                         : null
                     }
