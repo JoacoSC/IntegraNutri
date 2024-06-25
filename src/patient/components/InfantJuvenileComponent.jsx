@@ -173,7 +173,7 @@ export const InfantJuvenileComponent = ({ membership }) => {
         </button>
         </div>
         {
-              ( patientIsAdult && membership.id === 0 || patientIsAdult && membership.id === 1 )
+              ( patientIsAdult && membership.id === 0 )
               ? message && <AlertBox message={ message } alertClassname = { 'alert' } />
               : null
           }

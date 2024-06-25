@@ -40,3 +40,6 @@ export * from './CardIMC';
 export * from './ModalPregnantIMC';
 export * from './ModalPregnantIMCHistory';
 export * from './ModalDeletePregnantIMC';
+export * from './ExamRequest';
+export * from './NutritionalIndications';
+export * from './CardExamsRequest';

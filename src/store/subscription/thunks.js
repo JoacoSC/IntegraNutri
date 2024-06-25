@@ -77,7 +77,7 @@ export const startSetSubscription = ( uid ) => {
         }
 
         if( membership === 1 && diffInDays > 0 ){
-            message = 'Esta es una prueba gratis de 7 días del paquete Infanto Juvenil de IntegraNutri! Esperamos que disfrutes tu experiencia, y si tienes sugerencias, no dudes en comunicarte con nosotros.';
+            message = 'Esta es una prueba gratis de 7 días del paquete "Adultos, Adultos mayores y Gestantes" de IntegraNutri! Esperamos que disfrutes tu experiencia, y si tienes sugerencias, no dudes en comunicarte con nosotros.';
         }
 
         currentSubscription.message = message;

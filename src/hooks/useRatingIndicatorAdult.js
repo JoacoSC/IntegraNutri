@@ -68,7 +68,7 @@ export const useRatingIndicatorAdult = ( weight, stature, ageForCalcs, unixBirth
 
         const IMC = weight / (stature/100)**2
 
-        console.log(IMC)
+        // console.log(IMC)
 
         result.imc = parseFloat(IMC.toFixed(1));
         result.imcRatingResult = elderlyIMCRanking(result.imc);
