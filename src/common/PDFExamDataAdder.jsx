@@ -4,6 +4,7 @@ import { degrees, PDFDocument, rgb, StandardFonts, PDFFont } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import Exam_Request_png from '../../assets/imgs/exams/examRequest.png';
 import PDFExamRequestGenerator from './PDFExamRequestGenerator';
+import MetropolisMedium from '/assets/fonts/Metropolis/Metropolis-Medium.ttf';
 
 
 async function fetchAsset(url) {
@@ -21,18 +22,31 @@ async function fetchAsset(url) {
 
     // console.log('examDate: ', examDate)
 
-    // Aquí puedes ajustar las coordenadas y el tamaño del texto según sea necesario
-    const nutritionistX = width * 0.65;
-    const nutritionistY = height * 0.95;
-    const nutritionistSize = 13;
+    // Coordenadas y tamaño para el nutricionista
+    const nutritionistX = width * 0.63;
+    let nutritionistY = height * 0.95;
+    const nutritionistSize = 11;
 
-    const nutritionistNameX = width * 0.65;
-    const nutritionistNameY = height * 0.935;
-    const nutritionistNameSize = 13;
+    // Coordenadas y tamaño para el nombre del nutricionista
+    const nutritionistNameX = width * 0.63;
+    let nutritionistNameY = height * 0.935;
+    const nutritionistNameSize = 11;
+    const nameLineHeight = nutritionistNameSize * 1.2; // Ajusta según sea necesario
+    const nameMaxWidth = width * 0.32; // Ancho máximo permitido para el nombre
 
-    const nutritionistContactX = width * 0.65;
-    const nutritionistContactY = height * 0.92;
-    const nutritionistContactSize = 13;
+    // Coordenadas y tamaño para el contacto del nutricionista
+    const nutritionistContactX = width * 0.63;
+    let nutritionistContactY = height * 0.92;
+    const nutritionistContactSize = 11;
+    const contactLineHeight = nutritionistContactSize * 1.2; // Ajusta según sea necesario
+    const contactMaxWidth = width * 0.32; // Ancho máximo permitido para el contacto
+
+    // Coordenadas y tamaño para el Rut del nutricionista
+    const nutritionistRutX = width * 0.63;
+    let nutritionistRutY = nutritionistNameY - nameLineHeight; // Posición debajo del nombre
+    const nutritionistRutSize = 11;
+    const rutLineHeight = nutritionistRutSize * 1.2; // Ajusta según sea necesario
+    const rutMaxWidth = width * 0.3; // Ancho máximo permitido para el Rut
 
     const patientNameX = width * 0.22;
     const patientNameY = height * 0.85;
@@ -58,29 +72,59 @@ async function fetchAsset(url) {
     const examYearY = height * 0.03;
     const examYearSize = 15;
 
-    firstPage.drawText(nutritionistData.nutritionist, {
-      x: nutritionistX,
-      y: nutritionistY,
-      size: nutritionistSize,
-      font,
-      color: rgb(0, 0, 0),
-    });
+   // Función para dibujar texto con manejo de saltos de línea
+  const drawTextWithLineBreaks = (text, x, y, size, maxWidth, lineHeight) => {
+    const words = text.split(' ');
+    let line = '';
+    let currentY = y;
 
-    firstPage.drawText(nutritionistData.name, {
-      x: nutritionistNameX,
-      y: nutritionistNameY,
-      size: nutritionistNameSize,
-      font,
-      color: rgb(0, 0, 0),
-    });
+    for (let word of words) {
+      const testLine = line + word + ' ';
+      const testWidth = font.widthOfTextAtSize(testLine, size);
 
-    firstPage.drawText(nutritionistData.contact, {
-      x: nutritionistContactX,
-      y: nutritionistContactY,
-      size: nutritionistContactSize,
-      font,
-      color: rgb(0, 0, 0),
-    });
+      if (testWidth > maxWidth) {
+        firstPage.drawText(line, { x, y: currentY, size, font, color: rgb(0, 0, 0) });
+        line = word + ' ';
+        currentY -= lineHeight;
+      } else {
+        line = testLine;
+      }
+    }
+
+    // Dibuja la última línea
+    firstPage.drawText(line, { x, y: currentY, size, font, color: rgb(0, 0, 0) });
+
+    // Retorna la posición Y final después de dibujar todas las líneas
+    return currentY;
+  };
+
+  // Dibuja el nombre del nutricionista con manejo de saltos de línea
+if (typeof nutritionistData.name === 'string') {
+  nutritionistNameY = drawTextWithLineBreaks(nutritionistData.name, nutritionistNameX, nutritionistNameY, nutritionistNameSize, nameMaxWidth, nameLineHeight);
+
+  // Ajusta la posición Y para el Rut del nutricionista
+  nutritionistRutY = nutritionistNameY - nameLineHeight;
+}
+
+// Dibuja el Rut del nutricionista debajo del nombre
+if (typeof nutritionistData.rut === 'string') {
+  nutritionistRutY = drawTextWithLineBreaks(nutritionistData.rut, nutritionistRutX, nutritionistRutY, nutritionistRutSize, rutMaxWidth, rutLineHeight);
+}
+
+// Dibuja el contacto del nutricionista con manejo de saltos de línea
+if (typeof nutritionistData.contact === 'string') {
+  nutritionistContactY = nutritionistRutY - rutLineHeight; // Ajusta la posición basado en el Rut
+  nutritionistContactY = drawTextWithLineBreaks(nutritionistData.contact, nutritionistContactX, nutritionistContactY, nutritionistContactSize, contactMaxWidth, contactLineHeight);
+}
+
+  // Dibuja el resto de la información (como en el ejemplo original)
+  firstPage.drawText(nutritionistData.nutritionist, {
+    x: nutritionistX,
+    y: nutritionistY,
+    size: nutritionistSize,
+    font,
+    color: rgb(0, 0, 0),
+  });
     
     firstPage.drawText(patientData.name, {
       x: patientNameX,
@@ -135,51 +179,53 @@ async function fetchAsset(url) {
     const firstPage = pages[0];
     const { width, height } = firstPage.getSize();
   
-    // Aquí puedes ajustar las coordenadas y el tamaño del texto según sea necesario
     const otherExamsX = width * 0.5; // Este valor determina dónde comienza el texto en el eje X
     const otherExamsY = height * 0.15; 
     const otherExamsSize = 14;
     const lineHeight = otherExamsSize * 1.35; // Ajusta este valor según sea necesario
-  
     const maxLineWidth = width * 0.4; // Este valor determina cuándo se debe dividir el texto. Ajusta este valor según sea necesario
   
     if (typeof examRequest['otherExams'] === 'string') {
-      // Divide el texto en líneas
-      const words = examRequest['otherExams'].split(' ');
-      let line = '';
+      // Divide el texto en líneas usando saltos de línea explícitos
+      const lines = examRequest['otherExams'].split('\n');
       let y = otherExamsY;
   
-      for (let i = 0; i < words.length; i++) {
-        const testLine = line + words[i] + ' ';
-        const testWidth = font.widthOfTextAtSize(testLine, otherExamsSize);
+      lines.forEach((line) => { // Procesar cada línea por separado
+        const words = line.split(' ');
+        let currentLine = '';
+        words.forEach((word, index) => {
+          const testLine = currentLine + word + ' ';
+          const testWidth = font.widthOfTextAtSize(testLine, otherExamsSize);
   
-        if (testWidth > maxLineWidth && i > 0) {
-          // Dibuja la línea cuando su longitud supera el ancho máximo
-          firstPage.drawText(line, {
-            x: otherExamsX,
-            y: y,
-            size: otherExamsSize,
-            font,
-            color: rgb(0, 0, 0),
-          });
+          if (testWidth > maxLineWidth && index > 0) {
+            // Dibuja la línea cuando su longitud supera el ancho máximo
+            firstPage.drawText(currentLine, {
+              x: otherExamsX,
+              y: y,
+              size: otherExamsSize,
+              font,
+              color: rgb(0, 0, 0),
+            });
+            currentLine = word + ' ';
+            y -= lineHeight;
+          } else {
+            currentLine = testLine;
+          }
+        });
   
-          line = words[i] + ' ';
-          y -= lineHeight;
-        } else {
-          line = testLine;
-        }
-      }
-  
-      // Dibuja la última línea
-      firstPage.drawText(line, {
-        x: otherExamsX,
-        y: y,
-        size: otherExamsSize,
-        font,
-        color: rgb(0, 0, 0),
+        // Dibuja la línea actual
+        firstPage.drawText(currentLine, {
+          x: otherExamsX,
+          y: y,
+          size: otherExamsSize,
+          font,
+          color: rgb(0, 0, 0),
+        });
+        y -= lineHeight;
       });
     }
   }
+  
   
   const xMarks = [
     { key: 'hemograma', top: '72.8%', left: '8.8%', draw: false },
@@ -249,7 +295,7 @@ async function PDFExamDataAdder({ data }) {
   pdfDoc.registerFontkit(fontkit);
 
   // Asume que `fontPath` es la ruta a tu fuente personalizada en el directorio de tu proyecto
-  const fontPath = '/assets/fonts/Metropolis/Metropolis-Medium.ttf';
+  const fontPath = MetropolisMedium;
 
   // Usa fetch para obtener los datos de la fuente
   const response = await fetch(fontPath);

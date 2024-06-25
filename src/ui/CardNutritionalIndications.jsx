@@ -8,6 +8,7 @@ import PDFNutritionalIndications from '../common/PDFNutritionalIndications';
 export const CardNutritionalIndications = ({ patientID }) => {
 
     const { patientName, rut, patientExams, imc, weight, stature } = useSelector((state) => state.currentPatient);
+    const { rut: nutritionistRut } = useSelector((state) => state.userInfo);
     const { displayName, email, isNutritionistStatus } = useSelector((state) => state.auth);
     const { nutritionistData } = useSelector((state) => state.myNutritionist);
 
@@ -33,6 +34,7 @@ export const CardNutritionalIndications = ({ patientID }) => {
                 nutritionist: 'Nutricionista',
                 name: displayName,
                 contact: email,
+                rut: nutritionistRut.formatted,
             }
         }
     }else{
@@ -61,10 +63,10 @@ export const CardNutritionalIndications = ({ patientID }) => {
             </div>
             <div className='patient-secondary-card-content'>
             <div className='flex-column'>
-                <p className='font-size-14 font-weight-500 text-align-center pb-1'>Optimiza tu salud con una distribución equilibrada de porciones. Descarga tu guía personalizada aquí.</p>
+                <p className='font-size-14 font-weight-500 text-align-center pb-1'>Descarga las indicaciones nutricionales del paciente aquí.</p>
                     
                 <button className='btn-sm' onClick={handleDownload}>
-                    Descargar tabla en PDF
+                    Descargar archivo PDF
                 </button>
 
             </div>

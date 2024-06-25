@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.7.0] - 2024-06-25
+
+### Añadido
+- **Creación y adjunto de solicitudes de exámenes / indicaciones nutricionales**: Se ha implementado una nueva funcionalidad que permite a los nutricionistas crear y adjuntar solicitudes de exámenes e indicaciones nutricionales personalizadas para los pacientes. Estas solicitudes se generan en formato PDF, facilitando su descarga, impresión o envío electrónico.
+
 ## [1.6.1] - 2024-05-13
 
 ### Corregido

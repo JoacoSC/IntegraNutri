@@ -91,7 +91,7 @@ export const Navbar = () => {
                                     <div className="btn-ellipse"></div>
                                 </Link>
                             </li>
-                            <li className="nav__item" data-tooltip="Exámenes">
+                            <li className="nav__item" data-tooltip="Exámenes/Indicaciones">
                                 <Link to="../exams">
                                     <img src={ Medical_exams_sm } className="filter-clr" alt="Icono Exámenes"/>
                                     <div className="btn-ellipse"></div>

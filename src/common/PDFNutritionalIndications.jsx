@@ -4,6 +4,7 @@ import { degrees, PDFDocument, rgb, StandardFonts, PDFFont } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import Nutritional_Indications_png from '../../assets/imgs/exams/nutritionalIndications.png';
 import PDFExamRequestGenerator from './PDFExamRequestGenerator';
+import MetropolisMedium from '/assets/fonts/Metropolis/Metropolis-Medium.ttf';
 
 
 async function fetchAsset(url) {
@@ -20,17 +21,28 @@ async function fetchAsset(url) {
     const { width, height } = firstPage.getSize();
 
     // Aquí puedes ajustar las coordenadas y el tamaño del texto según sea necesario
-    const nutritionistX = width * 0.65;
+    const nutritionistX = width * 0.63;
     const nutritionistY = height * 0.95;
-    const nutritionistSize = 13;
+    const nutritionistSize = 11;
 
-    const nutritionistNameX = width * 0.65;
-    const nutritionistNameY = height * 0.935;
-    const nutritionistNameSize = 13;
+    const nutritionistNameX = width * 0.63;
+    let nutritionistNameY = height * 0.935;
+    const nutritionistNameSize = 11;
+    const nameLineHeight = nutritionistNameSize * 1.2; // Ajusta según sea necesario
+    const nameMaxWidth = width * 0.32; // Ancho máximo permitido para el nombre
 
-    const nutritionistContactX = width * 0.65;
-    const nutritionistContactY = height * 0.92;
-    const nutritionistContactSize = 13;
+    const nutritionistContactX = width * 0.63;
+    let nutritionistContactY = height * 0.92;
+    const nutritionistContactSize = 11;
+    const contactLineHeight = nutritionistContactSize * 1.2; // Ajusta según sea necesario
+    const contactMaxWidth = width * 0.32; // Ancho máximo permitido para el contacto
+
+    // Coordenadas y tamaño para el Rut del nutricionista
+    const nutritionistRutX = width * 0.63;
+    let nutritionistRutY = nutritionistNameY - nameLineHeight; // Posición debajo del nombre
+    const nutritionistRutSize = 11;
+    const rutLineHeight = nutritionistRutSize * 1.2; // Ajusta según sea necesario
+    const rutMaxWidth = width * 0.3; // Ancho máximo permitido para el Rut
 
     const patientNameX = width * 0.25;
     const patientNameY = height * 0.85;
@@ -64,29 +76,59 @@ async function fetchAsset(url) {
     const indicationsYearY = height * 0.03;
     const indicationsYearSize = 15;
 
-    firstPage.drawText(nutritionistData.nutritionist, {
-      x: nutritionistX,
-      y: nutritionistY,
-      size: nutritionistSize,
-      font,
-      color: rgb(0, 0, 0),
-    });
+    // Función para dibujar texto con manejo de saltos de línea
+   const drawTextWithLineBreaks = (text, x, y, size, maxWidth, lineHeight) => {
+    const words = text.split(' ');
+    let line = '';
+    let currentY = y;
 
-    firstPage.drawText(nutritionistData.name, {
-      x: nutritionistNameX,
-      y: nutritionistNameY,
-      size: nutritionistNameSize,
-      font,
-      color: rgb(0, 0, 0),
-    });
+    for (let word of words) {
+      const testLine = line + word + ' ';
+      const testWidth = font.widthOfTextAtSize(testLine, size);
 
-    firstPage.drawText(nutritionistData.contact, {
-      x: nutritionistContactX,
-      y: nutritionistContactY,
-      size: nutritionistContactSize,
-      font,
-      color: rgb(0, 0, 0),
-    });
+      if (testWidth > maxWidth) {
+        firstPage.drawText(line, { x, y: currentY, size, font, color: rgb(0, 0, 0) });
+        line = word + ' ';
+        currentY -= lineHeight;
+      } else {
+        line = testLine;
+      }
+    }
+
+    // Dibuja la última línea
+    firstPage.drawText(line, { x, y: currentY, size, font, color: rgb(0, 0, 0) });
+
+    // Retorna la posición Y final después de dibujar todas las líneas
+    return currentY;
+  };
+
+  // Dibuja el nombre del nutricionista con manejo de saltos de línea
+if (typeof nutritionistData.name === 'string') {
+  nutritionistNameY = drawTextWithLineBreaks(nutritionistData.name, nutritionistNameX, nutritionistNameY, nutritionistNameSize, nameMaxWidth, nameLineHeight);
+
+  // Ajusta la posición Y para el Rut del nutricionista
+  nutritionistRutY = nutritionistNameY - nameLineHeight;
+}
+
+// Dibuja el Rut del nutricionista debajo del nombre
+if (typeof nutritionistData.rut === 'string') {
+  nutritionistRutY = drawTextWithLineBreaks(nutritionistData.rut, nutritionistRutX, nutritionistRutY, nutritionistRutSize, rutMaxWidth, rutLineHeight);
+}
+
+// Dibuja el contacto del nutricionista con manejo de saltos de línea
+if (typeof nutritionistData.contact === 'string') {
+  nutritionistContactY = nutritionistRutY - rutLineHeight; // Ajusta la posición basado en el Rut
+  nutritionistContactY = drawTextWithLineBreaks(nutritionistData.contact, nutritionistContactX, nutritionistContactY, nutritionistContactSize, contactMaxWidth, contactLineHeight);
+}
+
+  // Dibuja el resto de la información (como en el ejemplo original)
+  firstPage.drawText(nutritionistData.nutritionist, {
+    x: nutritionistX,
+    y: nutritionistY,
+    size: nutritionistSize,
+    font,
+    color: rgb(0, 0, 0),
+  });
     
     firstPage.drawText(patientData.name, {
       x: patientNameX,
@@ -158,95 +200,95 @@ async function fetchAsset(url) {
     const firstPage = pages[0];
     const { width, height } = firstPage.getSize();
   
-    // Aquí puedes ajustar las coordenadas y el tamaño del texto según sea necesario
-    const nutritionalIndicationsX = width * 0.16; // Este valor determina dónde comienza el texto en el eje X
-    const nutritionalIndicationsY = height * 0.62; 
+    const nutritionalIndicationsX = width * 0.16;
+    const nutritionalIndicationsY = height * 0.62;
     const nutritionalIndicationsSize = 14;
-    const indicationsLineHeight = nutritionalIndicationsSize * 1.35; // Ajusta este valor según sea necesario
+    const indicationsLineHeight = nutritionalIndicationsSize * 1.35;
+    const indicationsMaxLineWidth = width * 0.7;
   
-    const indicationsMaxLineWidth = width * 0.7; // Este valor determina cuándo se debe dividir el texto. Ajusta este valor según sea necesario
-  
-    const nutritionalDiagnosisX = width * 0.5; // Este valor determina dónde comienza el texto en el eje X
-    const nutritionalDiagnosisY = height * 0.71; 
+    const nutritionalDiagnosisX = width * 0.5;
+    const nutritionalDiagnosisY = height * 0.71;
     const nutritionalDiagnosisSize = 14;
-    const diagnosisLineHeight = nutritionalIndicationsSize * 1.24; // Ajusta este valor según sea necesario
-
-    const diagnosisMaxLineWidth = width * 0.45; // Este valor determina cuándo se debe dividir el texto. Ajusta este valor según sea necesario
-
+    const diagnosisLineHeight = nutritionalIndicationsSize * 1.24;
+    const diagnosisMaxLineWidth = width * 0.45;
+  
+    // Modificación: Manejo de saltos de línea en 'nutritionalIndications'
     if (typeof nutritionalIndications['nutritionalIndications'] === 'string') {
-      // Divide el texto en líneas
-      const words = nutritionalIndications['nutritionalIndications'].split(' ');
-      let line = '';
+      const lines = nutritionalIndications['nutritionalIndications'].split('\n'); // Dividir por saltos de línea
       let y = nutritionalIndicationsY;
   
-      for (let i = 0; i < words.length; i++) {
-        const testLine = line + words[i] + ' ';
-        const testWidth = font.widthOfTextAtSize(testLine, nutritionalIndicationsSize);
+      lines.forEach((line) => { // Procesar cada línea por separado
+        const words = line.split(' ');
+        let currentLine = '';
+        words.forEach((word, index) => {
+          const testLine = currentLine + word + ' ';
+          const testWidth = font.widthOfTextAtSize(testLine, nutritionalIndicationsSize);
   
-        if (testWidth > indicationsMaxLineWidth && i > 0) {
-          // Dibuja la línea cuando su longitud supera el ancho máximo
-          firstPage.drawText(line, {
-            x: nutritionalIndicationsX,
-            y: y,
-            size: nutritionalIndicationsSize,
-            font,
-            color: rgb(0, 0, 0),
-          });
+          if (testWidth > indicationsMaxLineWidth && index > 0) {
+            firstPage.drawText(currentLine, {
+              x: nutritionalIndicationsX,
+              y: y,
+              size: nutritionalIndicationsSize,
+              font,
+              color: rgb(0, 0, 0),
+            });
+            currentLine = word + ' ';
+            y -= indicationsLineHeight;
+          } else {
+            currentLine = testLine;
+          }
+        });
   
-          line = words[i] + ' ';
-          y -= indicationsLineHeight;
-        } else {
-          line = testLine;
-        }
-      }
-  
-      // Dibuja la última línea
-      firstPage.drawText(line, {
-        x: nutritionalIndicationsX,
-        y: y,
-        size: nutritionalIndicationsSize,
-        font,
-        color: rgb(0, 0, 0),
+        firstPage.drawText(currentLine, {
+          x: nutritionalIndicationsX,
+          y: y,
+          size: nutritionalIndicationsSize,
+          font,
+          color: rgb(0, 0, 0),
+        });
+        y -= indicationsLineHeight;
       });
     }
-    
+  
+    // Modificación: Manejo de saltos de línea en 'nutritionalDiagnosis'
     if (typeof nutritionalIndications['nutritionalDiagnosis'] === 'string') {
-      // Divide el texto en líneas
-      const words = nutritionalIndications['nutritionalDiagnosis'].split(' ');
-      let line = '';
+      const lines = nutritionalIndications['nutritionalDiagnosis'].split('\n'); // Dividir por saltos de línea
       let y = nutritionalDiagnosisY;
   
-      for (let i = 0; i < words.length; i++) {
-        const testLine = line + words[i] + ' ';
-        const testWidth = font.widthOfTextAtSize(testLine, nutritionalDiagnosisSize);
+      lines.forEach((line) => { // Procesar cada línea por separado
+        const words = line.split(' ');
+        let currentLine = '';
+        words.forEach((word, index) => {
+          const testLine = currentLine + word + ' ';
+          const testWidth = font.widthOfTextAtSize(testLine, nutritionalDiagnosisSize);
   
-        if (testWidth > diagnosisMaxLineWidth && i > 0) {
-          // Dibuja la línea cuando su longitud supera el ancho máximo
-          firstPage.drawText(line, {
-            x: nutritionalDiagnosisX,
-            y: y,
-            size: nutritionalDiagnosisSize,
-            font,
-            color: rgb(0, 0, 0),
-          });
+          if (testWidth > diagnosisMaxLineWidth && index > 0) {
+            firstPage.drawText(currentLine, {
+              x: nutritionalDiagnosisX,
+              y: y,
+              size: nutritionalDiagnosisSize,
+              font,
+              color: rgb(0, 0, 0),
+            });
+            currentLine = word + ' ';
+            y -= diagnosisLineHeight;
+          } else {
+            currentLine = testLine;
+          }
+        });
   
-          line = words[i] + ' ';
-          y -= diagnosisLineHeight;
-        } else {
-          line = testLine;
-        }
-      }
-  
-      // Dibuja la última línea
-      firstPage.drawText(line, {
-        x: nutritionalDiagnosisX,
-        y: y,
-        size: nutritionalDiagnosisSize,
-        font,
-        color: rgb(0, 0, 0),
+        firstPage.drawText(currentLine, {
+          x: nutritionalDiagnosisX,
+          y: y,
+          size: nutritionalDiagnosisSize,
+          font,
+          color: rgb(0, 0, 0),
+        });
+        y -= diagnosisLineHeight;
       });
     }
   }
+  
   
 // PDFNutritionalIndications.jsx
 
@@ -269,7 +311,7 @@ async function PDFNutritionalIndications({ data }) {
   pdfDoc.registerFontkit(fontkit);
 
   // Asume que `fontPath` es la ruta a tu fuente personalizada en el directorio de tu proyecto
-  const fontPath = '/assets/fonts/Metropolis/Metropolis-Medium.ttf';
+  const fontPath = MetropolisMedium;
 
   // Usa fetch para obtener los datos de la fuente
   const response = await fetch(fontPath);
