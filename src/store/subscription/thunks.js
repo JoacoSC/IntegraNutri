@@ -79,11 +79,14 @@ export const startSetSubscription = ( uid ) => {
         if( membership === 1 && diffInDays > 0 ){
             message = 'Esta es una prueba gratis de 7 días del paquete Infanto-juvenil de IntegraNutri! Esperamos que disfrutes tu experiencia, y si tienes sugerencias, no dudes en comunicarte con nosotros.';
         }
-        if( (membership === 1 && diffInDays <= 0) || (membership === 0 && diffInDays <= 0) ){
-            message = 'Esta es una prueba gratis del paquete "Adultos, adultos mayores y gestantes" de IntegraNutri! Esperamos que disfrutes tu experiencia, y si tienes sugerencias, no dudes en comunicarte con nosotros.';
-        }
+        // if( (membership === 1 && diffInDays <= 0) || (membership === 0 && diffInDays <= 0) ){
+        //     message = 'Esta es una prueba gratis del paquete "Adultos, adultos mayores y gestantes" de IntegraNutri! Esperamos que disfrutes tu experiencia, y si tienes sugerencias, no dudes en comunicarte con nosotros.';
+        // }
+
+        const message2 = 'Estamos encantados de anunciar que hemos liberado el paquete ‘Adultos, adultos mayores y gestantes’. Ahora tienes acceso a todas sus funcionalidades mientras seguimos trabajando en su desarrollo. ¡Esperamos que disfrutes explorando lo que ofrecemos!';
 
         currentSubscription.message = message;
+        currentSubscription.message2 = message2;
         // console.log('currentSubscription: ',currentSubscription)
         // console.log('message: ', message);
 

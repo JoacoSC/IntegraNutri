@@ -26,7 +26,7 @@ export const HomePage = () => {
 
     const { patients } = useSelector( state => state.patients )
 
-    const { message, membership } = useSelector( state => state.subscription )
+    const { message, message2, membership } = useSelector( state => state.subscription )
 
     const [isLoading, setIsLoading] = useState( true );
 
@@ -151,6 +151,11 @@ export const HomePage = () => {
                         ( membership.id === 1 )
                         ? message && <AlertBox message={ message } alertClassname = { 'success' } />
                         : message && <AlertBox message={ message } alertClassname = { 'alert' } />
+                    }
+                    {
+                        ( message2 )
+                        ? message2 && <AlertBox message={ message2 } alertClassname = { 'success' } />
+                        : null
                     }
                     
                     <div className="home-container">

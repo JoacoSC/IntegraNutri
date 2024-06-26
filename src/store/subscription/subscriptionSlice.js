@@ -8,6 +8,7 @@ export const subscriptionSlice = createSlice({
         subEnd: null,
         membership: {},
         message: '',
+        message2: '',
     },
     reducers: {
         setSubscription: (state, { payload }) => {
@@ -16,6 +17,7 @@ export const subscriptionSlice = createSlice({
             state.subEnd = payload.subEnd;
             state.membership = payload.membership;
             state.message = payload.message;
+            state.message2 = payload.message2;
         },
         unsetSubscription: (state) => {
             state.isActive = false;
@@ -23,6 +25,7 @@ export const subscriptionSlice = createSlice({
             state.subEnd = null;
             state.membership = {};
             state.message = '';
+            state.message2 = '';
         },
     }
 });
