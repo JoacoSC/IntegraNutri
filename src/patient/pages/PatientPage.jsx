@@ -18,7 +18,7 @@ import { AppLayout } from "../../layout/AppLayout";
 import { LoadingScreen } from "../../ui/LoadingScreen";
 import { CardEstadioTanner, CardMealTimePortionDistribution, CardPatientExams, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana, Dropdown, Footer } from "../../ui";
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
-import { AdultElderlyPregnantComponent, Anamnesis, Diagnosis, FreeTrialComponent, FrequencyTable, Indications, InfantJuvenileComponent, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
+import { AdultElderlyPregnantComponent, Anamnesis, BasePatientComponent, Diagnosis, FreeTrialComponent, FrequencyTable, Indications, InfantJuvenileComponent, PatientCard, PatientGraphs, PatientNavbar, PhysicalExam, ReminderTable } from "../components";
 import { startLoadingMyNutritionistData } from "../../store/myNutritionist";
 
 // Asset imports
@@ -27,7 +27,6 @@ import { startLoadingMyNutritionistData } from "../../store/myNutritionist";
 export const PatientPage = () => {
     // React imports
     const { uid, displayName, photoURL, isNutritionistStatus } = useSelector(state => state.auth);
-    const { membership } = useSelector(state => state.subscription);
     const { email } = useSelector((state) => state.currentPatient);
     const dispatch = useDispatch();
     const location = useLocation();
@@ -68,7 +67,8 @@ export const PatientPage = () => {
             {
                 ( isLoading )
                 ?   <LoadingScreen isLoading = { isLoading } />
-                : <>
+                :   <BasePatientComponent />
+                /* <>
                     {
                         (membership.id === 0)
                         ? <InfantJuvenileComponent membership = {membership} />
@@ -76,7 +76,7 @@ export const PatientPage = () => {
                         ? <AdultElderlyPregnantComponent membership = {membership} />
                         : null
                     }
-                </>
+                </> */
             }
             </div>
             <Footer/>

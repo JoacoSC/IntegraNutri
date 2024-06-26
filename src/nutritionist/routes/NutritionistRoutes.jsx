@@ -12,9 +12,9 @@ export const NutritionistRoutes = () => {
 
   if (isNutritionistStatus === false) return <PatientRoutes />;
 
-  if (!isActive) {
-    return <Navigate to="/home" />;
-}
+//   if (!isActive) {
+//     return <Navigate to="/home" />;
+// }
 
   return (
     <>
