@@ -15,6 +15,7 @@ export const Dropdown = ({ patientObject }) => {
 
     const { membership } = useSelector(state => state.subscription);
     const { age, biologicalSex } = useSelector( state => state.currentPatient )
+    const { ageForCalcs } = patientObject;
 
     // console.log('biologicalSex: ',biologicalSex)
     // console.log('age: ',age)
@@ -60,7 +61,7 @@ export const Dropdown = ({ patientObject }) => {
                 
                 {
                     ( openDropdown )
-                    ?   ( membership.id === 0 ) // Membresía Infanto Juvenil
+                    ?   ( ageForCalcs.y < 19 || (ageForCalcs.y === 19 && ageForCalcs.m <= 1) ) // Pacientes no adultos
                         ?   <>
                                 <div className='dropdown-menu-container'>
                                     <div className='dropdown-item-container'>
@@ -124,72 +125,7 @@ export const Dropdown = ({ patientObject }) => {
                                     </div> */}
                                 </div>
                             </>
-                        :   ( membership.id === 1 ) // Membresía Prueba Gratis
-                        ?   <>
-                                <div className='dropdown-menu-container'>
-                                    <div className='dropdown-item-container'>
-                                        <ModalUpdatePatientValues patientObject={ patientObject } />
-                                        
-                                    </div>
-                                    <div className='dropdown-item-container'>
-                                        <ModalUpdateCorrectedAge patientObject={ patientObject } />
-                                    </div>
-                                    {
-
-                                        ( biologicalSex === 'Femenino' )
-                                        ?   ( age.y >= 8 && age.y <= 14 )
-                                            ?   <div className='dropdown-item-container'>
-                                                    <ModalUpdateEstadioTanner patientObject={ patientObject } />
-                                                </div>
-                                            :   null
-                                        :   null
-                                    }
-                                    {
-                                        ( biologicalSex === 'Masculino' )
-                                        ?   ( age.y >= 10 && age.y <= 15 )
-                                            ?   <div className='dropdown-item-container'>
-                                                    <ModalUpdateEstadioTanner patientObject={ patientObject } />
-                                                </div>
-                                            :   null
-                                        :   null
-
-                                    }
-                                    
-                                    <div className='dropdown-item-container'>
-                                        <ModalTallaDiana patientObject={ patientObject } />
-                                    </div>
-                                    {
-                                        ( age.y < 3 )
-                                        ?   <div className='dropdown-item-container'>
-                                                <ModalPerimetroCefalico patientObject={ patientObject } />
-                                            </div>
-                                        :   null
-                                    }
-                                    {
-                                        ( age.y > 5 && age.y < 20 )
-                                        ?   <div className='dropdown-item-container'>
-                                                <ModalPerimetroCintura patientObject={ patientObject } />
-                                            </div>
-                                        :   null
-                                    }
-                                    {
-                                        ( age.y > 0 && age.y < 18 )
-                                        ?   <div className='dropdown-item-container'>
-                                                <ModalPresionArterial patientObject={ patientObject } />
-                                            </div>
-                                        :   null
-                                    }
-                                    
-                                    
-                                    {/* <div className='dropdown-item-container'>
-                                        <button onClick={ buttonTest } className='dropdown-item-btn'>
-                                            Soy un item
-                                        </button>
-                                    </div> */}
-                                </div>
-                            </>
-                        :   ( membership.id === 2 ) // Membresía Adulto, Adulto Mayor y Gestantes
-                        ?   <>
+                        :   <>  
                                 <div className='dropdown-menu-container'>
                                     <div className='dropdown-item-container'>
                                         <ModalUpdatePatientValues patientObject={ patientObject } />
@@ -202,8 +138,8 @@ export const Dropdown = ({ patientObject }) => {
                                         </button>
                                     </div> */}
                                 </div>
-                            </>
-                        :   null
+                            </> 
+                        
                     :   null
                 }
 
