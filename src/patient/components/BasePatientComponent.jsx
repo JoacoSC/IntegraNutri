@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 
 // Local module imports
-import { useForm, useHandleChartsSwitch, useRatingIndicatorAdult } from "../../hooks";
+import { useForm, useHandleChartsSwitch, useRatingIndicator, useRatingIndicatorAdult } from "../../hooks";
 import { startLogout } from "../../store/auth";
 import { startLoadingCurrentPatient, startLoadingPatientInfo, startUpdatingCurrentPatientAnamnesis, startUpdatingCurrentPatientDiagnosis, startUpdatingCurrentPatientIndications, startUpdatingCurrentPatientPhysical_exam, updateCurrentPatientAnamnesis, updateCurrentPatientDiagnosis, updateCurrentPatientIndications, updateCurrentPatientPhysical_exam, updateCurrentPatientAge, clearCurrentPatient, updateCurrentPatientCorrectedAge, updateCurrentPatientBiologicalAge } from "../../store/currentPatient";
 import { disableConfirmBtn, setErrorCode, switchError, switchPatientPasswordChangedSuccesfully } from "../../store/loginHelper";
@@ -78,13 +78,24 @@ export const BasePatientComponent = () => {
       }
 
   // Local hooks
-  const nutritionalRating = useRatingIndicatorAdult(
-    lastWeight,
-    lastStature,
-    ageForCalcs,
-    unixBirthdayForCalcs,
-    biologicalSex
-  );
+  let nutritionalRating = {};
+  if(ageForCalcs.y < 19 || (ageForCalcs.y === 19 && ageForCalcs.m <= 1)){
+    nutritionalRating = useRatingIndicator(
+      lastWeight,
+      lastStature,
+      ageForCalcs,
+      unixBirthdayForCalcs,
+      biologicalSex
+    );
+  }else{
+    nutritionalRating = useRatingIndicatorAdult(
+      lastWeight,
+      lastStature,
+      ageForCalcs,
+      unixBirthdayForCalcs,
+      biologicalSex
+    );
+  }
   const { formAnamnesis, formPhysical_exam, formDiagnosis, formIndications, onInputChange } = useForm(defaultPatient);
 
   // Local functions
@@ -108,9 +119,8 @@ export const BasePatientComponent = () => {
   );
   
   const shouldRenderAdultElderlyPregnantComponent = (
-    (ageForCalcs.y >= 19 && (ageForCalcs.y > 19 || ageForCalcs.m > 1)) || 
-    (isActive && (membership.id === 0 || membership.id === 1)) || 
-    isInDevelopment
+    (ageForCalcs.y >= 19 && (ageForCalcs.y > 19 || ageForCalcs.m > 1)) && 
+    (isActive && (membership.id === 0 || membership.id === 1)) 
   );
 
   // useEffect hooks
