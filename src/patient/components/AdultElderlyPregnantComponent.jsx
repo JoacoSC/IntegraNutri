@@ -2,6 +2,7 @@
 import { CardExamsRequest, CardMealTimePortionDistribution } from "../../ui";
 import CardIMC from "../../ui/CardIMC";
 import { CardNutritionalIndications } from "../../ui/CardNutritionalIndications";
+import { CardPresionArterial } from "../../ui/CardPresionArterial";
 
 // Asset imports
 /**/
@@ -21,10 +22,15 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
     imcPregnant,
     ageText,
     biologicalSex,
+    presionArterial,
   } = commonProps;
 
   return (
     <>
+      {/* Renderización de CardPresionArterial */}
+      {!!presionArterial && (
+        <CardPresionArterial />
+      )}
       {/* Renderización de CardMealTimePortionDistribution */}
       {portionDistribution && (
         <CardMealTimePortionDistribution

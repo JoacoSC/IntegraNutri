@@ -17,13 +17,17 @@ export const CardPresionArterial = () => {
                 </div>
                 <div className='perimetro-cefalico-value-container flex-column pr-2'>
                     <p className='perimetro-cefalico-value'><b>Medición:&nbsp;</b>{ presionArterial.PAMedicion } mmHg</p>
-                    <p className='perimetro-cefalico-value'>
-                        <b>Percentil:&nbsp;</b> {
-                                ( presionArterial.PARegistro === '95plus12' )
-                                ?   '95 + 12 mmHg'
-                                :   presionArterial.PARegistro
-                            }
-                    </p>
+                    {
+                        (!!presionArterial.PARegistro)
+                        ?   <p className='perimetro-cefalico-value'>
+                                <b>Percentil:&nbsp;</b> {
+                                        ( presionArterial.PARegistro === '95plus12' )
+                                        ?   '95 + 12 mmHg'
+                                        :   presionArterial.PARegistro
+                                    }
+                            </p>
+                        :   null
+                    }
                     <p className='perimetro-cefalico-value'><b>Clasificación:&nbsp;</b>{ presionArterial.PAClasificacion }</p>
                 </div>
                 {/* <div className="alt-button-info" data-tooltip="Este resultado puede presentar una variabilidad de hasta +-8,5 cm">

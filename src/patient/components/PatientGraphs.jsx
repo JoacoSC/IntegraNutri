@@ -73,8 +73,8 @@ export const PatientGraphs = ({ ageForCalcs, patientObject, setLastWeight, setLa
         }
     }, [imcPregnant])
 
-    console.log('nutritionalRating: ', nutritionalRating)
-    console.log('userData: ', userData)
+    // console.log('nutritionalRating: ', nutritionalRating)
+    // console.log('userData: ', userData)
     return (
         <div className="accordion">
             <input

@@ -120,7 +120,7 @@ export const BasePatientComponent = () => {
   
   const shouldRenderAdultElderlyPregnantComponent = (
     (ageForCalcs.y >= 19 && (ageForCalcs.y > 19 || ageForCalcs.m > 1)) && 
-    (isActive && (membership.id === 0 || membership.id === 1)) 
+    (membership.id === 0 || membership.id === 1)
   );
 
   // useEffect hooks
@@ -256,45 +256,7 @@ export const BasePatientComponent = () => {
                     {shouldRenderAdultElderlyPregnantComponent && (
                         <AdultElderlyPregnantComponent commonProps={commonProps} />
                     )}
-                    {/* {
-                    (isNutritionistStatus)
-                    ? (patientExams.examRequest)
-                        ?   (isNutritionistStatus)
-                            ?   <CardExamsRequest patientID= { patientID } />
-                            :   <CardExamsRequest patientID= { displayName } />
-                        :   null
-                    : null
-                    }     */}
-                    {/* { (isNutritionistStatus)
-                    ? (patientExams.nutritionalIndications)
-                        ?   (isNutritionistStatus)
-                            ?   <CardNutritionalIndications patientID= { patientID } />
-                            :   <CardNutritionalIndications patientID= { displayName } />
-                        :   null
-                    : null
-                    }     */}
-                    {/* {
-                    (patientIsAdult)
-                    ? <CardIMC
-                        patientObject = {patientObject}
-                        nutritionalRating = {nutritionalRating}
-                        ageForCalcs = {ageForCalcs}  
-                        imcPregnant = {imcPregnant}
-                        ageText = {ageText}
-                        biologicalSex = {biologicalSex}
-                        />
-                    : ( biologicalSex === 'Femenino' && ageForCalcs.y > 13 && ageForCalcs.y < 50 )
-                        ? <CardIMC
-                            patientObject = {patientObject}
-                            nutritionalRating = {nutritionalRating}
-                            ageForCalcs = {ageForCalcs}  
-                            imcPregnant = {imcPregnant}
-                            ageText = {ageText}
-                            biologicalSex = {biologicalSex}
-                        />
-                        : null
-                        
-                    } */}
+                    
                 </div>
             </div>
             <div className="accordion-container">

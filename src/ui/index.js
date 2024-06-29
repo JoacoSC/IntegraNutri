@@ -43,3 +43,4 @@ export * from './ModalDeletePregnantIMC';
 export * from './ExamRequest';
 export * from './NutritionalIndications';
 export * from './CardExamsRequest';
+export * from './ModalPresionArterialAdultos';
