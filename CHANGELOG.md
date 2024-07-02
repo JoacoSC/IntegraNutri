@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.8.0] - 2024-07-01
+
+### Añadido
+- **Evaluación de presión arterial**: Se ha implementado una nueva funcionalidad que permite a los nutricionistas ingresar y registrar las evaluaciones de presión arterial de los pacientes. Esta mejora facilita el monitoreo de la salud cardiovascular de los pacientes, proporcionando datos clave para un análisis más completo.
+
 ## [1.7.0] - 2024-06-25
 
 ### Añadido
