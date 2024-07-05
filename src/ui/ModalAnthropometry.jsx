@@ -14,6 +14,8 @@ export const ModalAnthropometry = ({ patientObject }) => {
     const { biologicalSex } = useSelector(state => state.currentPatient);
 
     const [openModal, setOpenModal] = useState(false);
+    const [CircunferenciaCintura, setCircunferenciaCintura] = useState('');
+    const [CircunferenciaCadera, setCircunferenciaCadera] = useState('');
     const [CCMINSALClasificacion, setCCMINSALClasificacion] = useState('Sin clasificación');
     const [CCOMSClasificacion, setCCOMSClasificacion] = useState('Sin clasificación');
     const [ICCResultado, setICCResultado] = useState('Sin resultado');
@@ -25,11 +27,8 @@ export const ModalAnthropometry = ({ patientObject }) => {
     const Talla = statureLength > 0 ? stature[statureLength - 1].A : '';
 
     const {
-        CCMINSALMedicion,
-        CCOMSMedicion,
-        CinturaMedicion,
-        CaderaMedicion,
-        CinturaMedicionKoch,
+        InputCircunferenciaCintura,
+        InputCircunferenciaCadera,
         onInputChange
     } = useForm();
 
@@ -49,9 +48,6 @@ export const ModalAnthropometry = ({ patientObject }) => {
 
         console.log(submitObject);
 
-        // TODO: Se puede optimizar el componente agregando una tarjeta al inicio en la que se pueda ingresar directamente los valores de 
-        // circunferencia de cintura y de cadera. Luego a partir de esos valores se harían todos los cálculos automáticamente.
-
         // dispatch(startUpdatingCurrentPatientAnthropometry(uid, patientID, submitObject));
     };
 
@@ -65,24 +61,32 @@ export const ModalAnthropometry = ({ patientObject }) => {
     };
 
     useEffect(() => {
+        setCircunferenciaCintura(InputCircunferenciaCintura);
+    }, [InputCircunferenciaCintura]);
+    
+    useEffect(() => {
+        setCircunferenciaCadera(InputCircunferenciaCadera);
+    }, [InputCircunferenciaCadera]);
+
+    useEffect(() => {
         const thresholds = biologicalSex === 'Masculino' ? { high: 90, highLabel: 'Obesidad abdominal', lowLabel: 'Sin riesgo de obesidad abdominal' } :
             { high: 80, highLabel: 'Obesidad abdominal', lowLabel: 'Sin riesgo de obesidad abdominal' };
-        setCCMINSALClasificacion(classifyValue(CCMINSALMedicion, thresholds));
-    }, [CCMINSALMedicion, biologicalSex]);
+        setCCMINSALClasificacion(classifyValue(InputCircunferenciaCintura, thresholds));
+    }, [InputCircunferenciaCintura, biologicalSex]);
 
     useEffect(() => {
         const thresholds = biologicalSex === 'Masculino' ? { high: 90, highLabel: 'Riesgo cardiovascular', lowLabel: 'Sin riesgo cardiovascular' } :
             { high: 85, highLabel: 'Riesgo cardiovascular', lowLabel: 'Sin riesgo cardiovascular' };
-        setCCOMSClasificacion(classifyValue(CCOMSMedicion, thresholds));
-    }, [CCOMSMedicion, biologicalSex]);
+        setCCOMSClasificacion(classifyValue(InputCircunferenciaCintura, thresholds));
+    }, [InputCircunferenciaCintura, biologicalSex]);
 
     const calculateRatio = (numerator, denominator) => {
         return !isNaN(numerator) && !isNaN(denominator) ? (parseFloat(numerator) / parseFloat(denominator)).toFixed(2) : '';
     };
 
     useEffect(() => {
-        setICCResultado(calculateRatio(CinturaMedicion, CaderaMedicion));
-    }, [CinturaMedicion, CaderaMedicion]);
+        setICCResultado(calculateRatio(InputCircunferenciaCintura, InputCircunferenciaCadera));
+    }, [InputCircunferenciaCintura, InputCircunferenciaCadera]);
 
     useEffect(() => {
         const classifyICC = (resultado, sex) => {
@@ -97,8 +101,8 @@ export const ModalAnthropometry = ({ patientObject }) => {
     }, [ICCResultado, biologicalSex]);
 
     useEffect(() => {
-        setICAResultado(calculateRatio(CinturaMedicionKoch, Talla));
-    }, [CinturaMedicionKoch, Talla]);
+        setICAResultado(calculateRatio(InputCircunferenciaCintura, Talla));
+    }, [InputCircunferenciaCintura, Talla]);
 
     useEffect(() => {
         const classifyICA = (resultado) => {
@@ -127,14 +131,15 @@ export const ModalAnthropometry = ({ patientObject }) => {
                     ariaHideApp={false}
                     className="modal-perimetro-cefalico-container"
                 >
+                    <div className="modal-header">
+                        <p>Evaluación Antropométrica</p>
+                    </div>
                     <div className="btn-modal-close" onClick={onModalClose}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
                             <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
                         </svg>
                     </div>
-                    <h1 className="modal-header">
-                        Evaluación Antropométrica
-                    </h1>
+                    {/* TODO: Actualizar aspecto de los modal. Disminuir tamaño del header, fijar header y footer, acortar scrollbar al contenido del modal sin header ni footer */}
 
                     <form onSubmit={onSubmit}>
                         <div className="modal-perimetro-cefalico-container-form" onSubmit={onSubmit}>
@@ -148,12 +153,29 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                     {Talla + 'cm'}
                                 </div>
                             </div>
+                            <div className='modal-content-row modal-content-row-background'>
+                                <div className='modal-content-row-title'>
+                                    <h3>Ingresar medidas antropométricas*</h3>
+                                    <h6>*A continuación se realizarán los cálculos automáticamente</h6>
+                                </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Circunferencia de <b>cintura</b> (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputCircunferenciaCintura" placeholder='80' onChange={onInputChange} />
+                                </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Circunferencia de <b>cadera</b> (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputCircunferenciaCadera" placeholder='90' onChange={onInputChange} />
+                                </div>
 
-                            <div>
-                                <div className='modal-chart-info-container'>
-                                    <div className='modal-chart-info'>
-                                        <b>Circunferencia de Cintura</b>
-                                    </div>
+                            </div>
+
+                            <div className='modal-content-row modal-content-row-background'>
+                                <div className='modal-content-row-title'>
+                                    <b>Circunferencia de Cintura</b>
                                 </div>
 
                                 <div className="form-group">
@@ -161,13 +183,13 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Medición (cm)
                                         </label>
-                                        <input className="input-text-style h-2" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ CircunferenciaCintura } readOnly />
                                     </div>
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
                                             Clasificación
                                         </label>
-                                        <input className="input-text-style h-2" type="text" name="CCMINSALClasificacion" value={CCMINSALClasificacion} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALClasificacion" value={CCMINSALClasificacion} readOnly />
                                     </div>
                                 </div>
                                 <label className="input-label">
@@ -175,11 +197,9 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                 </label>
                             </div>
                             
-                            <div>
-                                <div className='modal-chart-info-container'>
-                                    <div className='modal-chart-info'>
-                                        <b>Circunferencia de Cintura</b>
-                                    </div>
+                            <div className='modal-content-row modal-content-row-background'>
+                                <div className='modal-content-row-title'>
+                                    <b>Circunferencia de Cintura</b>
                                 </div>
 
                                 <div className="form-group">
@@ -187,13 +207,13 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Medición (cm)
                                         </label>
-                                        <input className="input-text-style h-2" type="text" step=".01" name="CCOMSMedicion" placeholder='80' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCOMSMedicion" placeholder='80' value={ CircunferenciaCintura } readOnly/>
                                     </div>
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
                                             Clasificación
                                         </label>
-                                        <input className="input-text-style h-2" type="text" name="CCOMSClasificacion" value={CCOMSClasificacion} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCOMSClasificacion" value={CCOMSClasificacion} readOnly />
                                     </div>
                                 </div>
                                 <label className="input-label">
@@ -201,25 +221,23 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                 </label>
                             </div>
                             
-                            <div>
-                                <div className='modal-chart-info-container'>
-                                    <div className='modal-chart-info'>
-                                        <b>Índice Cintura-Cadera</b>
-                                    </div>
+                            <div className='modal-content-row modal-content-row-background'>
+                                <div className='modal-content-row-title'>
+                                    <b>Índice Cintura-Cadera</b>
                                 </div>
 
                                 <div className="form-group">
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
-                                            Medición de circunferencia de cintura (cm)
+                                            Circunferencia de cintura (cm)
                                         </label>
-                                        <input className="input-text-style h-2" type="text" step=".01" name="CinturaMedicion" placeholder='80' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CinturaMedicion" placeholder='80' value={ CircunferenciaCintura } readOnly/>
                                     </div>
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
-                                            Medición de circunferencia de cadera (cm)
+                                            Circunferencia de cadera (cm)
                                         </label>
-                                        <input className="input-text-style h-2" type="text" step=".01" name="CaderaMedicion" placeholder='95' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CaderaMedicion" placeholder='95' value={ CircunferenciaCadera } readOnly/>
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -227,13 +245,13 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Resultado
                                         </label>
-                                        <input className="input-text-style h-2" type="text" name="ICCResultado" value={ICCResultado} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICCResultado" value={ICCResultado} readOnly />
                                     </div>
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
                                             Clasificación
                                         </label>
-                                        <input className="input-text-style h-2" type="text" name="ICCClasificacion" value={ICCClasificacion} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICCClasificacion" value={ICCClasificacion} readOnly />
                                     </div>
                                 </div>
                                 <label className="input-label">
@@ -241,25 +259,23 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                 </label>
                             </div>
                             
-                            <div>
-                                <div className='modal-chart-info-container'>
-                                    <div className='modal-chart-info'>
-                                        <b>Índice Cintura-Altura</b>
-                                    </div>
+                            <div className='modal-content-row modal-content-row-background'>
+                                <div className='modal-content-row-title'>
+                                    <b>Índice Cintura-Altura</b>
                                 </div>
 
                                 <div className="form-group">
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
-                                            Medición de circunferencia de cintura (cm)
+                                            Circunferencia de cintura (cm)
                                         </label>
-                                        <input className="input-text-style h-2" type="text" step=".01" name="CinturaMedicionKoch" placeholder='80' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CinturaMedicionKoch" placeholder='80' value={ CircunferenciaCintura } readOnly/>
                                     </div>
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
-                                            Altura (cm)
+                                            Estatura (cm)
                                         </label>
-                                        <input className="input-text-style h-2" type="text" step=".01" name="Talla" placeholder='95' value={Talla} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="Talla" placeholder='95' value={Talla} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -267,13 +283,13 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Resultado
                                         </label>
-                                        <input className="input-text-style h-2" type="text" name="ICAResultado" value={ICAResultado} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICAResultado" value={ICAResultado} readOnly />
                                     </div>
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
                                             Clasificación
                                         </label>
-                                        <input className="input-text-style h-2" type="text" name="ICAClasificacion" value={ICAClasificacion} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICAClasificacion" value={ICAClasificacion} readOnly />
                                     </div>
                                 </div>
                                 <label className="input-label">
