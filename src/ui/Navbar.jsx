@@ -85,12 +85,6 @@ export const Navbar = () => {
                                     <div className="btn-ellipse"></div>
                                 </a>
                             </li>
-                            <li className="nav__item" data-tooltip="Calendario">
-                                <Link to="../journal">
-                                    <img src={ Calendar_sm } className="filter-clr" alt="Icono Calendario"/>
-                                    <div className="btn-ellipse"></div>
-                                </Link>
-                            </li>
                             <li className="nav__item" data-tooltip="Exámenes/Indicaciones">
                                 <Link to="../exams">
                                     <img src={ Medical_exams_sm } className="filter-clr" alt="Icono Exámenes"/>
