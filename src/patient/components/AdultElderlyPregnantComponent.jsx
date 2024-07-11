@@ -1,5 +1,5 @@
 // Component imports
-import { CardExamsRequest, CardMealTimePortionDistribution } from "../../ui";
+import { CardAnthropometry, CardExamsRequest, CardMealTimePortionDistribution } from "../../ui";
 import CardIMC from "../../ui/CardIMC";
 import { CardNutritionalIndications } from "../../ui/CardNutritionalIndications";
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
@@ -23,10 +23,15 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
     ageText,
     biologicalSex,
     presionArterial,
+    anthropometry
   } = commonProps;
 
   return (
     <>
+      {/* Renderización de CardAnthropometry */}
+      {!!anthropometry && (
+        <CardAnthropometry />
+      )}
       {/* Renderización de CardPresionArterial */}
       {!!presionArterial && (
         <CardPresionArterial />

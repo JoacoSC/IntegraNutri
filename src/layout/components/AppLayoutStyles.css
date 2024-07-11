@@ -766,6 +766,85 @@ body{
 
 /* ************* CardIMC ************** */
 
+/* ************* CardAnthropometry ************** */
+
+.anthropometry-skills {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.anthropometry-skills ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+}
+
+.anthropometry-skills li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.anthropometry-skills h3 {
+    margin-bottom: 5px;
+    color: black; /* Ajustar según tu diseño */
+}
+.bar-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+    
+}
+.bar {
+    position: relative;
+    display: block;
+    width: 90%;
+    height: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+}
+
+.bar:hover {
+    transform: scale(1.01);
+}
+
+.bar-background {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #76b729 33%, #ffd000 33%, #ffd000 66%, #e32c2c 66%);
+}
+
+.tooltip-anthropometry {
+    position: absolute;
+    top: -40px;
+    /* left: 0; */
+    line-height: 20px;
+    width: fit-content;
+    background-color: black;
+    color: white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+}
+.tooltip-anthropometry::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    top: 25px;
+    left: calc(50% - 5px);
+    transform: rotate(45deg);
+}
+
+
+/* ************* CardAnthropometry ************** */
+
 /* ************* TableHistory ************** */
 
 .table-wrapper{

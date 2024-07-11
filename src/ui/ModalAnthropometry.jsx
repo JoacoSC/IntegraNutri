@@ -6,6 +6,7 @@ import { useForm } from '../hooks';
 import './components';
 
 import HeartIconWhite from '../../assets/imgs/patient/heart_icon_white.svg'
+import { startUpdatingCurrentPatientAnthropometry } from '../store/currentPatient';
 // import { startUpdatingCurrentPatientPresionArterial } from '../store/currentPatient'; // Uncomment if necessary
 
 export const ModalAnthropometry = ({ patientObject }) => {
@@ -16,12 +17,13 @@ export const ModalAnthropometry = ({ patientObject }) => {
     const [openModal, setOpenModal] = useState(false);
     const [CircunferenciaCintura, setCircunferenciaCintura] = useState('');
     const [CircunferenciaCadera, setCircunferenciaCadera] = useState('');
-    const [CCMINSALClasificacion, setCCMINSALClasificacion] = useState('Sin clasificación');
-    const [CCOMSClasificacion, setCCOMSClasificacion] = useState('Sin clasificación');
-    const [ICCResultado, setICCResultado] = useState('Sin resultado');
-    const [ICCClasificacion, setICCClasificacion] = useState('Sin clasificación');
-    const [ICAResultado, setICAResultado] = useState('Sin resultado');
-    const [ICAClasificacion, setICAClasificacion] = useState('Sin clasificación');
+    const [CCMINSALResult, setCCMINSALResult] = useState('Sin clasificación');
+    const [CCMINSALRating, setCCMINSALRating] = useState('Sin clasificación');
+    const [CCOMSRating, setCCOMSRating] = useState('Sin clasificación');
+    const [ICCResult, setICCResult] = useState('Sin resultado');
+    const [ICCRating, setICCRating] = useState('Sin clasificación');
+    const [ICAResult, setICAResult] = useState('Sin resultado');
+    const [ICARating, setICARating] = useState('Sin clasificación');
 
     const statureLength = stature?.length;
     const Talla = statureLength > 0 ? stature[statureLength - 1].A : '';
@@ -38,17 +40,17 @@ export const ModalAnthropometry = ({ patientObject }) => {
         event.preventDefault();
 
         const submitObject = {
-            CCMINSALClasificacion,
-            CCOMSClasificacion,
-            ICCResultado,
-            ICCClasificacion,
-            ICAResultado,
-            ICAClasificacion,
+            CCMINSALResult,
+            CCMINSALRating,
+            ICCResult,
+            ICCRating,
+            ICAResult,
+            ICARating,
         };
 
         console.log(submitObject);
 
-        // dispatch(startUpdatingCurrentPatientAnthropometry(uid, patientID, submitObject));
+        dispatch(startUpdatingCurrentPatientAnthropometry(uid, patientID, submitObject));
     };
 
     const onModalClose = () => {
@@ -71,21 +73,22 @@ export const ModalAnthropometry = ({ patientObject }) => {
     useEffect(() => {
         const thresholds = biologicalSex === 'Masculino' ? { high: 90, highLabel: 'Obesidad abdominal', lowLabel: 'Sin riesgo de obesidad abdominal' } :
             { high: 80, highLabel: 'Obesidad abdominal', lowLabel: 'Sin riesgo de obesidad abdominal' };
-        setCCMINSALClasificacion(classifyValue(InputCircunferenciaCintura, thresholds));
+        setCCMINSALResult(InputCircunferenciaCintura);
+        setCCMINSALRating(classifyValue(InputCircunferenciaCintura, thresholds));
     }, [InputCircunferenciaCintura, biologicalSex]);
 
-    useEffect(() => {
-        const thresholds = biologicalSex === 'Masculino' ? { high: 90, highLabel: 'Riesgo cardiovascular', lowLabel: 'Sin riesgo cardiovascular' } :
-            { high: 85, highLabel: 'Riesgo cardiovascular', lowLabel: 'Sin riesgo cardiovascular' };
-        setCCOMSClasificacion(classifyValue(InputCircunferenciaCintura, thresholds));
-    }, [InputCircunferenciaCintura, biologicalSex]);
+    // useEffect(() => {
+    //     const thresholds = biologicalSex === 'Masculino' ? { high: 90, highLabel: 'Riesgo cardiovascular', lowLabel: 'Sin riesgo cardiovascular' } :
+    //         { high: 85, highLabel: 'Riesgo cardiovascular', lowLabel: 'Sin riesgo cardiovascular' };
+    //     setCCOMSRating(classifyValue(InputCircunferenciaCintura, thresholds));
+    // }, [InputCircunferenciaCintura, biologicalSex]);
 
     const calculateRatio = (numerator, denominator) => {
         return !isNaN(numerator) && !isNaN(denominator) ? (parseFloat(numerator) / parseFloat(denominator)).toFixed(2) : '';
     };
 
     useEffect(() => {
-        setICCResultado(calculateRatio(InputCircunferenciaCintura, InputCircunferenciaCadera));
+        setICCResult(calculateRatio(InputCircunferenciaCintura, InputCircunferenciaCadera));
     }, [InputCircunferenciaCintura, InputCircunferenciaCadera]);
 
     useEffect(() => {
@@ -97,19 +100,19 @@ export const ModalAnthropometry = ({ patientObject }) => {
             }
             return 'Sin clasificación';
         };
-        setICCClasificacion(ICCResultado ? classifyICC(parseFloat(ICCResultado), biologicalSex) : 'Sin clasificación');
-    }, [ICCResultado, biologicalSex]);
+        setICCRating(ICCResult ? classifyICC(parseFloat(ICCResult), biologicalSex) : 'Sin clasificación');
+    }, [ICCResult, biologicalSex]);
 
     useEffect(() => {
-        setICAResultado(calculateRatio(InputCircunferenciaCintura, Talla));
+        setICAResult(calculateRatio(InputCircunferenciaCintura, Talla));
     }, [InputCircunferenciaCintura, Talla]);
 
     useEffect(() => {
         const classifyICA = (resultado) => {
             return resultado < 0.50 ? 'Mínimo' : resultado < 0.55 ? 'Moderado' : 'Alto';
         };
-        setICAClasificacion(ICAResultado ? classifyICA(parseFloat(ICAResultado)) : 'Sin clasificación');
-    }, [ICAResultado]);
+        setICARating(ICAResult ? classifyICA(parseFloat(ICAResult)) : 'Sin clasificación');
+    }, [ICAResult]);
 
     return (
         <>
@@ -189,7 +192,7 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Clasificación
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALClasificacion" value={CCMINSALClasificacion} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALRating" value={CCMINSALRating} readOnly />
                                     </div>
                                 </div>
                                 <label className="input-label">
@@ -197,7 +200,7 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                 </label>
                             </div>
                             
-                            <div className='modal-content-row modal-content-row-background'>
+                            {/* <div className='modal-content-row modal-content-row-background'>
                                 <div className='modal-content-row-title'>
                                     <b>Circunferencia de Cintura</b>
                                 </div>
@@ -213,13 +216,13 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Clasificación
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCOMSClasificacion" value={CCOMSClasificacion} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCOMSRating" value={CCOMSRating} readOnly />
                                     </div>
                                 </div>
                                 <label className="input-label">
                                     Referencia: OMS 2008
                                 </label>
-                            </div>
+                            </div> */}
                             
                             <div className='modal-content-row modal-content-row-background'>
                                 <div className='modal-content-row-title'>
@@ -245,13 +248,13 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Resultado
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICCResultado" value={ICCResultado} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICCResult" value={ICCResult} readOnly />
                                     </div>
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
                                             Clasificación
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICCClasificacion" value={ICCClasificacion} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICCRating" value={ICCRating} readOnly />
                                     </div>
                                 </div>
                                 <label className="input-label">
@@ -283,13 +286,13 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Resultado
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICAResultado" value={ICAResultado} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICAResult" value={ICAResult} readOnly />
                                     </div>
                                     <div className="form-item w-50 pr-8">
                                         <label className="input-label">
-                                            Clasificación
+                                            Riesgo cardiovascular
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICAClasificacion" value={ICAClasificacion} readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICARating" value={ICARating} readOnly />
                                     </div>
                                 </div>
                                 <label className="input-label">

@@ -45,3 +45,4 @@ export * from './NutritionalIndications';
 export * from './CardExamsRequest';
 export * from './ModalPresionArterialAdultos';
 export * from './ModalAnthropometry';
+export * from './CardAnthropometry';

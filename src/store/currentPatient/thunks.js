@@ -1,7 +1,7 @@
 import { async } from "@firebase/util";
 import { doc, getDoc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
-import { setCurrentPatient, updateCurrentPatientExamsHistory, updateCurrentPatientIMCPregnant, updateCurrentPatientPerimetroCefalico, updateCurrentPatientPerimetroCintura, updateCurrentPatientPresionArterial, updateCurrentPatientTallaDiana } from "./";
+import { setCurrentPatient, updateCurrentPatientExamsHistory, updateCurrentPatientIMCPregnant, updateCurrentPatientPerimetroCefalico, updateCurrentPatientPerimetroCintura, updateCurrentPatientPresionArterial, updateCurrentPatientTallaDiana, updateCurrentPatientAnthropometry } from "./";
 import { setReminder24Hours } from "../reminder24Hours";
 import { setFrequencyOfConsumption } from "../frequencyOfConsumption";
 
@@ -289,6 +289,24 @@ export const startUpdatingCurrentPatientPresionArterial = ( uid, patientID, pres
         await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
 
         dispatch(updateCurrentPatientPresionArterial( presionArterial ))
+    }
+}
+
+export const startUpdatingCurrentPatientAnthropometry = ( uid, patientID, anthropometry ) => {
+    return async( dispatch ) => {
+
+        // console.log(anthropometry)
+
+        const newPatientInfoToFirestore = {
+            anthropometry,
+        }
+
+        // console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
+
+        const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+        await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+
+        dispatch(updateCurrentPatientAnthropometry( anthropometry ))
     }
 }
 

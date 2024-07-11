@@ -55,6 +55,7 @@ export const currentPatientSlice = createSlice({
             examRequest: null,
             nutritionalIndications: null
         },
+        anthropometry : null
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -99,6 +100,14 @@ export const currentPatientSlice = createSlice({
                 examRequest: payload.patientExams?.examRequest,
                 nutritionalIndications: payload.patientExams?.nutritionalIndications
             };
+            state.anthropometry = { 
+                CCMINSALResult: payload.anthropometry.CCMINSALResult,
+                CCMINSALRating: payload.anthropometry.CCMINSALRating,
+                ICCResult: payload.anthropometry.ICCResult,
+                ICCRating: payload.anthropometry.ICCRating,
+                ICAResult: payload.anthropometry.ICAResult,
+                ICARating: payload.anthropometry.ICARating,
+            }
         },
 
         updateCurrentPatientAnamnesis: (state,{ payload }) => {
@@ -191,6 +200,16 @@ export const currentPatientSlice = createSlice({
         updateCurrentPatientActualExamIndex: (state,{ payload }) => {
             state.actualExamIndex = payload;
         },
+        updateCurrentPatientAnthropometry: (state,{ payload }) => {
+            state.anthropometry = { 
+                CCMINSALResult: payload.CCMINSALResult,
+                CCMINSALRating: payload.CCMINSALRating,
+                ICCResult: payload.ICCResult,
+                ICCRating: payload.ICCRating,
+                ICAResult: payload.ICAResult,
+                ICARating: payload.ICARating,
+            }
+        },
 
         clearCurrentPatient: ( state ) => {
             state.id = null;
@@ -243,6 +262,7 @@ export const currentPatientSlice = createSlice({
                 examRequest: null,
                 nutritionalIndications: null
             };
+            state.anthropometry = null
         },
     }
 });
@@ -271,6 +291,7 @@ export const {
     updateCurrentPatientPresionArterial,
     updateCurrentPatientExamsHistory,
     updateCurrentPatientActualExamIndex,
+    updateCurrentPatientAnthropometry,
     clearCurrentPatient,
 
 } = currentPatientSlice.actions;
