@@ -100,13 +100,17 @@ export const currentPatientSlice = createSlice({
                 examRequest: payload.patientExams?.examRequest,
                 nutritionalIndications: payload.patientExams?.nutritionalIndications
             };
-            state.anthropometry = { 
-                CCMINSALResult: payload.anthropometry.CCMINSALResult,
-                CCMINSALRating: payload.anthropometry.CCMINSALRating,
-                ICCResult: payload.anthropometry.ICCResult,
-                ICCRating: payload.anthropometry.ICCRating,
-                ICAResult: payload.anthropometry.ICAResult,
-                ICARating: payload.anthropometry.ICARating,
+            if (payload.anthropometry) {
+                state.anthropometry = {
+                    CCMINSALResult: payload.anthropometry.CCMINSALResult !== undefined ? payload.anthropometry.CCMINSALResult : null,
+                    CCMINSALRating: payload.anthropometry.CCMINSALRating !== undefined ? payload.anthropometry.CCMINSALRating : null,
+                    ICCResult: payload.anthropometry.ICCResult !== undefined ? payload.anthropometry.ICCResult : null,
+                    ICCRating: payload.anthropometry.ICCRating !== undefined ? payload.anthropometry.ICCRating : null,
+                    ICAResult: payload.anthropometry.ICAResult !== undefined ? payload.anthropometry.ICAResult : null,
+                    ICARating: payload.anthropometry.ICARating !== undefined ? payload.anthropometry.ICARating : null,
+                };
+            } else {
+                state.anthropometry = {};
             }
         },
 

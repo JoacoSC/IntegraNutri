@@ -784,7 +784,21 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 0;
+    gap: 0.4rem;
+    border: 2px solid #ECEDED;
+    border-radius: 10px;
+    margin: 0.4rem 0;
+    padding: 0.5rem 1rem;
+}
+
+.anthropometry-skills p {
+    color: black; /* Ajustar según tu diseño */
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.anthropometry-skills h2 {
+    color: black; /* Ajustar según tu diseño */
 }
 
 .anthropometry-skills h3 {
@@ -802,7 +816,7 @@ body{
 .bar {
     position: relative;
     display: block;
-    width: 90%;
+    width: 94%;
     height: 20px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 10px;
@@ -810,24 +824,65 @@ body{
     transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
 }
 
-.bar:hover {
-    transform: scale(1.01);
-}
-
 .bar-background {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #76b729 33%, #ffd000 33%, #ffd000 66%, #e32c2c 66%);
+}
+
+.bar-explanation-text-icc{
+    position: relative;
+    width: 100%;
+    height: 16px;
+}
+
+.bar-explanation-text-icc-start{
+    position: absolute;
+    left: 0%;
+}
+.bar-explanation-text-icc-cutoff-first{
+    position: absolute;
+    left: 32%;
+}
+.bar-explanation-text-icc-cutoff-second{
+    position: absolute;
+    left: 52%;
+}
+.bar-explanation-text-icc-end{
+    position: absolute;
+    right: 1%;
+}
+
+.bar-explanation-text-ica{
+    position: relative;
+    width: 100%;
+    height: 16px;
+}
+
+.bar-explanation-text-ica-start{
+    position: absolute;
+    left: 0%;
+}
+.bar-explanation-text-ica-cutoff-first{
+    position: absolute;
+}
+.bar-explanation-text-ica-cutoff-second{
+    position: absolute;
+}
+.bar-explanation-text-ica-end{
+    position: absolute;
+    right: 1%;
 }
 
 .tooltip-anthropometry {
     position: absolute;
-    top: -40px;
-    /* left: 0; */
+    top: -45px;
     line-height: 20px;
     width: fit-content;
-    background-color: black;
-    color: white;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
     padding: 0.3rem 0.5rem;
     border-radius: 5px;
 }
@@ -836,12 +891,14 @@ body{
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: black;
-    top: 25px;
+    background-color: white;
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+    top: 26px;
     left: calc(50% - 5px);
     transform: rotate(45deg);
 }
-
 
 /* ************* CardAnthropometry ************** */
 

@@ -29,7 +29,7 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
   return (
     <>
       {/* Renderización de CardAnthropometry */}
-      {!!anthropometry && (
+      {Object.keys(anthropometry).length > 0 && (
         <CardAnthropometry />
       )}
       {/* Renderización de CardPresionArterial */}
