@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.9.0] - 2024-07-16
+
+### Añadido
+- **Evaluación antropométrica**: Se ha incorporado una nueva funcionalidad que permite a los nutricionistas realizar evaluaciones antropométricas detalladas. Ahora, se pueden registrar y monitorear los siguientes parámetros:
+  - **Circunferencia de cintura**: Basado en las referencias del MINSAL 2014, esta medida evalúa la obesidad abdominal, un indicador clave del riesgo de enfermedades cardiovasculares y metabólicas.
+  - **Índice Cintura Cadera (ICC)**: De acuerdo con los estudios de Girolami 2015, este índice evalúa la distribución de grasa corporal. Una proporción alta puede indicar un mayor riesgo de enfermedades cardiovasculares.
+  - **Índice Cintura Altura (ICA)**: Siguiendo las recomendaciones de Koch 2008, este índice evalúa el riesgo de enfermedades crónicas mediante la relación entre la circunferencia de cintura y la altura del paciente. Es una herramienta eficaz para identificar riesgos asociados a la distribución de grasa en el cuerpo.
+
+  Esta mejora en la evaluación antropométrica proporciona a los nutricionistas herramientas adicionales para un análisis más completo y personalizado de la salud de sus pacientes, mejorando la precisión en la detección de posibles riesgos y la planificación de intervenciones nutricionales específicas.
+
 ## [1.8.0] - 2024-07-01
 
 ### Añadido
