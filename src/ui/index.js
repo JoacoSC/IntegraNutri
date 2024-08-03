@@ -46,3 +46,4 @@ export * from './CardExamsRequest';
 export * from './ModalPresionArterialAdultos';
 export * from './ModalAnthropometry';
 export * from './CardAnthropometry';
+export * from './ModalAnthropometryResults';

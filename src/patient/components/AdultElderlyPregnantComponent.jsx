@@ -10,6 +10,7 @@ import { CardPresionArterial } from "../../ui/CardPresionArterial";
 export const AdultElderlyPregnantComponent = ({ commonProps }) => {
 
   const {
+    uid,
     isNutritionistStatus,
     patientID,
     displayName,
@@ -30,7 +31,9 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
     <>
       {/* Renderización de CardAnthropometry */}
       {Object.keys(anthropometry).length > 0 && (
-        <CardAnthropometry />
+        <CardAnthropometry 
+          commonProps={commonProps}
+        />
       )}
       {/* Renderización de CardPresionArterial */}
       {!!presionArterial && (

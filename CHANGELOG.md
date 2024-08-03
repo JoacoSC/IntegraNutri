@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.10.0] - 2024-08-02
+
+### Añadido
+- **Evaluación antropométrica ampliada**: Ahora los nutricionistas pueden registrar pliegues cutáneos, perímetros y diámetros corporales, lo que permite calcular masas grasas, musculares, residuales y óseas (en kg y %), así como perímetros corregidos y datos para la somatocarta. Estas mejoras proporcionan un análisis más detallado y personalizado de la salud de los pacientes.
+
+### Actualizado
+- **Evaluación antropométrica existente**: Se ha optimizado la funcionalidad de Circunferencia de Cintura, Índice Cintura Cadera (ICC) e Índice Cintura Altura (ICA) para mejorar la consistencia y exactitud de los datos.
+
 ## [1.9.0] - 2024-07-16
 
 ### Añadido

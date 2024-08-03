@@ -190,6 +190,7 @@ export const BasePatientComponent = () => {
   }, []);
 
   const commonProps = {
+    uid,
     isNutritionistStatus,
     patientID,
     displayName,

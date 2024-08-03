@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import './components';
+import { ModalAnthropometryResults } from './ModalAnthropometryResults';
 
-export const CardAnthropometry = () => {
+export const CardAnthropometry = ({ commonProps }) => {
     const { anthropometry, biologicalSex } = useSelector((state) => state.currentPatient);
     
     const {
@@ -116,7 +117,7 @@ export const CardAnthropometry = () => {
     const cutoffPositions = getCutoffPositions(biologicalSex);
 
     return (
-        <div className='patient-secondary-card h-500'>
+        <div className='patient-secondary-card h-600'>
             <div className='patient-secondary-card-title'>
                 Evaluación Antropométrica
             </div>
@@ -168,6 +169,8 @@ export const CardAnthropometry = () => {
                                 <p className='bar-explanation-text-ica-end'>0.7</p>
                             </div>
                         </li>
+                            <div className='mt-1'></div>
+                            <ModalAnthropometryResults commonProps={commonProps}/>
                     </ul>
                 </div>
             </div>
