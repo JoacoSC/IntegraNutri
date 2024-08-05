@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.10.0] - 2024-08-02
+## [1.10.0] - 2024-08-05
 
 ### Añadido
 - **Evaluación antropométrica ampliada**: Ahora los nutricionistas pueden registrar pliegues cutáneos, perímetros y diámetros corporales, lo que permite calcular masas grasas, musculares, residuales y óseas (en kg y %), así como perímetros corregidos y datos para la somatocarta. Estas mejoras proporcionan un análisis más detallado y personalizado de la salud de los pacientes.
