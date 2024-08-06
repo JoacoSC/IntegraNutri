@@ -857,7 +857,7 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                 <div className="form-group gap-1">
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
-                                            Muñeca (cm)
+                                            Biestiloideo (cm)
                                         </label>
                                         <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroMuneca" placeholder='90' onChange={onInputChange} />
                                     </div>
