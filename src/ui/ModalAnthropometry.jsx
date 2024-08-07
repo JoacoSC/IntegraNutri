@@ -5,6 +5,10 @@ import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
 import './components';
 
+// Third-party library imports
+import { Chart as ChartJS } from "chart.js/auto";
+import { Scatter } from "react-chartjs-2";
+
 import HeartIconWhite from '../../assets/imgs/patient/heart_icon_white.svg'
 import { startUpdatingCurrentPatientAnthropometry } from '../store/currentPatient';
 // import { startUpdatingCurrentPatientPresionArterial } from '../store/currentPatient'; // Uncomment if necessary
@@ -46,6 +50,47 @@ export const ModalAnthropometry = ({ patientObject }) => {
     const [ICCRating, setICCRating] = useState('Sin clasificación');
     const [ICAResult, setICAResult] = useState('Sin resultado');
     const [ICARating, setICARating] = useState('Sin clasificación');
+    const [options, setOptions] = useState({
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false, // Oculta la leyenda
+            },
+            title: {
+                display: true,
+                text: 'Somatocarta',
+            },
+        },
+        scales: {
+            x: {
+                type: 'linear',
+                position: 'bottom',
+                min: -9,
+                max: 9,
+                ticks: {
+                  stepSize: 1,
+                },
+            },
+            y: {
+                type: 'linear',
+                position: 'left',
+                min: -10,
+                max: 16,
+                ticks: {
+                  stepSize: 2,
+                },
+            },
+        },
+    });
+    const [userData, setUserData] = useState({
+        datasets: [{
+            label: 'Somatocarta:    ',
+            data: [],
+            borderColor: '#FF0000',
+            backgroundColor: '#FF0000',
+        }]
+    });
 
     const statureLength = stature?.length;
     const Talla = statureLength > 0 ? stature[statureLength - 1].A : '';
@@ -135,6 +180,17 @@ export const ModalAnthropometry = ({ patientObject }) => {
         if (isNaN(value) || value === '') return 'Sin clasificación';
         return value >= thresholds.high ? thresholds.highLabel : thresholds.lowLabel;
     };
+
+    const updateChart = () => {
+        setUserData({
+            datasets: [{
+                label: 'Somatocarta: ',
+                data: [{ x: SomatocartaX, y: SomatocartaY }],
+                borderColor: '#FF0000',
+                backgroundColor: '#FF0000',
+            }]
+        });
+    }
 
     useEffect(() => {
         setCircunferenciaCintura(InputPerimetroCintura);
@@ -618,6 +674,10 @@ export const ModalAnthropometry = ({ patientObject }) => {
 
         setMOKG(formulaResult);
     }, [Talla, InputDiametroMuneca, InputDiametroFemur]);
+
+    useEffect(() => {
+        updateChart();
+    }, [SomatocartaX, SomatocartaY]);
     
     return (
         <>
@@ -857,7 +917,7 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                 <div className="form-group gap-1">
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
-                                            Muñeca (cm)
+                                            Biestiloideo (cm)
                                         </label>
                                         <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroMuneca" placeholder='90' onChange={onInputChange} />
                                     </div>
@@ -903,6 +963,11 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                             Y
                                         </label>
                                         <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ SomatocartaY } readOnly />
+                                    </div>
+                                </div>
+                                <div className="canvas-anthropometry-container">
+                                    <div className="canvas-anthropometry">
+                                        <Scatter data={userData} options={options} />
                                     </div>
                                 </div>
                                 <div className="form-group gap-1">

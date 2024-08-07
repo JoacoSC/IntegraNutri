@@ -30,10 +30,10 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
             x: {
                 type: 'linear',
                 position: 'bottom',
-                min: -8,
-                max: 8,
+                min: -9,
+                max: 9,
                 ticks: {
-                  stepSize: 2,
+                  stepSize: 1,
                 },
             },
             y: {
@@ -376,7 +376,7 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
                             <div className="form-group gap-1">
                                 <div className="modal-content-row-input">
                                     <label className="input-label">
-                                        Muñeca
+                                        Biestiloideo
                                     </label>
                                     <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroMuneca" placeholder='90' value={InputDiametroMuneca + ' cm'} readOnly />
                                 </div>
