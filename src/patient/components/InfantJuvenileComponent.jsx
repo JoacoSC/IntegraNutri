@@ -21,44 +21,52 @@ export const InfantJuvenileComponent = ({ commonProps }) => {
 
   return (
     <>
-      {/* Renderización de CardIMC */}
-      {(biologicalSex === 'Femenino' && ageForCalcs.y > 13 && ageForCalcs.y < 50) && (
-        <CardIMC
-          patientObject={patientObject}
-          nutritionalRating={nutritionalRating}
-          ageForCalcs={ageForCalcs}
-          imcPregnant={imcPregnant}
-          ageText={ageText}
-          biologicalSex={biologicalSex}
-        />
-      )}
-  
-      {/* Renderización de CardEstadioTanner */}
-      {biologicalAgeIsSet && (
-        <CardEstadioTanner
-          nutritionalRating={nutritionalRating}
-        />
-      )}
-  
-      {/* Renderización de CardPresionArterial */}
-      {!!presionArterial && ageForCalcs.y > 0 && (
-        <CardPresionArterial />
-      )}
-  
-      {/* Renderización de CardTallaDiana */}
-      {!!tallaDiana && (
-        <CardTallaDiana />
-      )}
-  
-      {/* Renderización de CardPerimetroCefalico */}
-      {!!perimetroCefalico && ageForCalcs.y < 3 && (
-        <CardPerimetroCefalico />
-      )}
-  
-      {/* Renderización de CardPerimetroCintura */}
-      {!!perimetroCintura && ageForCalcs.y > 5 && (
-        <CardPerimetroCintura />
-      )}
+      <div className="patient-secondary-card-row">
+        {/* Renderización de CardIMC */}
+        {(biologicalSex === 'Femenino' && ageForCalcs.y > 13 && ageForCalcs.y < 50) && (
+          <CardIMC
+            patientObject={patientObject}
+            nutritionalRating={nutritionalRating}
+            ageForCalcs={ageForCalcs}
+            imcPregnant={imcPregnant}
+            ageText={ageText}
+            biologicalSex={biologicalSex}
+          />
+        )}
+        
+      </div>
+      <div className="patient-secondary-card-row">
+        {/* Renderización de CardTallaDiana */}
+        {!!tallaDiana && (
+          <CardTallaDiana />
+        )}
+    
+        {/* Renderización de CardPerimetroCefalico */}
+        {!!perimetroCefalico && ageForCalcs.y < 3 && (
+          <CardPerimetroCefalico />
+        )}
+      </div>
+      <div className="patient-secondary-card-row">
+        {/* Renderización de CardPresionArterial */}
+        {!!presionArterial && ageForCalcs.y > 0 && (
+          <CardPresionArterial />
+        )}
+    
+        
+    
+        {/* Renderización de CardPerimetroCintura */}
+        {!!perimetroCintura && ageForCalcs.y > 5 && (
+          <CardPerimetroCintura />
+        )}
+      </div>
+      <div className="patient-secondary-card-row">
+        {/* Renderización de CardEstadioTanner */}
+        {biologicalAgeIsSet && (
+          <CardEstadioTanner
+            nutritionalRating={nutritionalRating}
+          />
+        )}
+      </div>    
     </>
   );
   
