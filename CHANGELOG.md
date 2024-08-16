@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.11.0] - 2024-08-13
+
+### Añadido
+- **Gráfico de Somatocarta**: Se ha añadido una nueva funcionalidad que permite representar visualmente los valores obtenidos en la somatocarta. Este gráfico facilita a los nutricionistas la interpretación y el análisis de la composición corporal de los pacientes, proporcionando una herramienta visual poderosa para evaluar y planificar intervenciones nutricionales de manera más efectiva.
+
 ## [1.10.0] - 2024-08-05
 
 ### Añadido

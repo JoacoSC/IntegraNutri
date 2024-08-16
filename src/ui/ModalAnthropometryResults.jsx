@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from 'react-modal';
 import { CSSTransition } from "react-transition-group";
@@ -6,9 +6,55 @@ import { useForm } from "../hooks";
 import { startUpdatingExamsHistory } from "../store/currentPatient";
 import { SmallButton } from "../common";
 
+// Third-party library imports
+import { Chart as ChartJS } from "chart.js/auto";
+import { Scatter } from "react-chartjs-2";
+
 export const ModalAnthropometryResults = ({ commonProps }) => {
     
     const [openModal, setOpenModal] = useState(false);
+
+    const [options, setOptions] = useState({
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false, // Oculta la leyenda
+            },
+            title: {
+                display: true,
+                text: 'Somatocarta',
+            },
+        },
+        scales: {
+            x: {
+                type: 'linear',
+                position: 'bottom',
+                min: -9,
+                max: 9,
+                ticks: {
+                  stepSize: 1,
+                },
+            },
+            y: {
+                type: 'linear',
+                position: 'left',
+                min: -10,
+                max: 16,
+                ticks: {
+                  stepSize: 2,
+                },
+            },
+        },
+    });
+    const [userData, setUserData] = useState({
+        datasets: [{
+            label: 'Somatocarta:    ',
+            data: [],
+            borderColor: '#FF0000',
+            backgroundColor: '#FF0000',
+        }]
+    });
 
     const {
         biologicalSex,
@@ -78,9 +124,25 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
     const IMCLength = imc?.length;
     const IMC = IMCLength > 0 ? imc[IMCLength - 1].A.toFixed(2) : '';
 
+    const updateChart = () => {
+        setUserData({
+            datasets: [{
+                label: 'Somatocarta: ',
+                data: [{ x: SomatocartaX, y: SomatocartaY }],
+                borderColor: '#FF0000',
+                backgroundColor: '#FF0000',
+            }]
+        });
+    }
+
     const onModalClose = () => {
         setOpenModal(false);
     };
+
+    useEffect(() => {
+        updateChart();
+    }, [SomatocartaX, SomatocartaY]);
+    
 
     return (
         <>
@@ -360,6 +422,11 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
                                         Y
                                     </label>
                                     <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="SomatocartaY" placeholder='80'  value={SomatocartaY} readOnly />
+                                </div>
+                            </div>
+                            <div className="canvas-anthropometry-container">
+                                <div className="canvas-anthropometry">
+                                    <Scatter data={userData} options={options} />
                                 </div>
                             </div>
                             <div className="form-group gap-1">

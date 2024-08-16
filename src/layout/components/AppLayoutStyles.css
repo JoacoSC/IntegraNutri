@@ -65,6 +65,8 @@
     --stature-icon: url(../../../assets/imgs/patient/stature_icon.svg);
     --age-icon: url(../../../assets/imgs/patient/age_icon.svg);
 
+    --somatocarta: url(../../../assets/imgs/patient/somatocarta.svg);
+
     /* Png */
 
     --imc-indicator: url(../../../assets/imgs/patient/imc_chart.png);
@@ -957,6 +959,25 @@ body{
     top: 26px;
     left: calc(50% - 5px);
     transform: rotate(45deg);
+}
+
+.canvas-anthropometry-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-right: 2rem;
+}
+
+.canvas-anthropometry{
+    background-image: var(--somatocarta);
+    background-repeat: no-repeat;
+    background-position-x: 61%;
+    background-position-y: 103%;
+    background-size: 79%;
+    height: 500px;
+    width: 600px;
 }
 
 /* ************* CardAnthropometry ************** */
