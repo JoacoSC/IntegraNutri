@@ -251,6 +251,7 @@ export const BasePatientComponent = () => {
                             :   <CardMealTimePortionDistribution patientID= { displayName } />
                         :   null
                     }
+                </div>
                     {shouldRenderInfantJuvenileComponent && (
                         <InfantJuvenileComponent commonProps={commonProps} />
                     )}
@@ -259,7 +260,6 @@ export const BasePatientComponent = () => {
                         <AdultElderlyPregnantComponent commonProps={commonProps} />
                     )}
                     
-                </div>
             </div>
             <div className="accordion-container">
                 <div className="left-container">

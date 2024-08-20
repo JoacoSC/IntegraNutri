@@ -35,6 +35,11 @@
     padding: 0 1rem 1rem 1rem;
 }
 
+.full-width-card{
+    width: 832px !important;
+    height: 100% !important;
+}
+
 /* TALLA DIANA */
 
 .talla-diana-avatar{

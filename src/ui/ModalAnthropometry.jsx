@@ -98,6 +98,10 @@ export const ModalAnthropometry = ({ patientObject }) => {
     const weightLength = weight?.length;
     const Peso = weightLength > 0 ? weight[weightLength - 1].A : '';
 
+    const imcValue = imc.length > 0 && imc[imc.length - 1]?.A !== undefined
+    ? imc[imc.length - 1].A.toFixed(2)
+    : '';
+
     const {
         InputEtnia,
         InputPliegueTricipital,
@@ -121,20 +125,43 @@ export const ModalAnthropometry = ({ patientObject }) => {
         formState
     } = useForm();
 
+    const handleCommaToPointChange = (event) => {
+        const { name, value } = event.target;
+    
+        // Reemplazar comas con puntos
+        const formattedValue = value.replace(',', '.');
+    
+        // Llamar a la función original onInputChange con el valor formateado
+        onInputChange({
+            target: {
+                name,
+                value: formattedValue,
+            }
+        });
+    };    
+
     const dispatch = useDispatch();
 
     const onSubmit = (event) => {
         event.preventDefault();
-
+    
         // Obtener la fecha actual
         const date = new Date();
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0'); // Los meses son indexados desde 0
         const year = date.getFullYear();
         const formattedDate = `${day}/${month}/${year}`;
-
+    
+        // Convertir las comas en puntos en todos los campos del formState
+        const convertedFormState = Object.fromEntries(
+            Object.entries(formState).map(([key, value]) => [
+                key,
+                typeof value === 'string' ? value.replace(',', '.') : value,
+            ])
+        );
+    
         const submitObject = {
-            ...formState,
+            ...convertedFormState,
             CircunferenciaCintura,
             CircunferenciaCadera,
             SomatocartaX,
@@ -168,9 +195,10 @@ export const ModalAnthropometry = ({ patientObject }) => {
             Fecha: formattedDate,
             Edad: ageText,
         };
-
+    
         dispatch(startUpdatingCurrentPatientAnthropometry(uid, patientID, submitObject));
     };
+    
 
     const onModalClose = () => {
         setOpenModal(false);
@@ -769,7 +797,7 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             IMC
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" value={ imc[imc.length - 1].A.toFixed(2) } readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" value={ imcValue } readOnly />
                                     </div>
                                 </div>
 
@@ -787,19 +815,19 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Tricipital (mm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueTricipital" placeholder='80' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueTricipital" placeholder='80' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Subescapular (mm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueSubescapular" placeholder='80' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueSubescapular" placeholder='80' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Crestailiaca (mm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueCrestailiaca" placeholder='80' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueCrestailiaca" placeholder='80' onChange={handleCommaToPointChange}  />
                                     </div>
                                 </div>
                                 <div className="form-group gap-1">
@@ -807,19 +835,19 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Bicipital (mm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueBicipital" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueBicipital" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Supraespinal (mm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueSupraespinal" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueSupraespinal" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Abdominal (mm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueAbdominal" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueAbdominal" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                 </div>
                                 <div className="form-group gap-1">
@@ -827,13 +855,13 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Muslo (mm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueMuslo" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueMuslo" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input w-50">
                                         <label className="input-label">
                                             Pierna (mm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPlieguePierna" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPlieguePierna" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                 </div>
 
@@ -848,19 +876,19 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Brazo relajado (cm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroBrazoRelajado" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroBrazoRelajado" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Brazo contraído (cm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroBrazoContraido" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroBrazoContraido" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Pierna (cm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroPierna" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroPierna" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                 </div>
                                 <div className="form-group gap-1">
@@ -868,19 +896,19 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Muslo (cm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroMuslo" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroMuslo" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Cintura (cm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Cadera (cm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCadera" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCadera" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                 </div>
                                 
@@ -919,19 +947,19 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Biestiloideo (cm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroMuneca" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroMuneca" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Húmero (cm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroHumero" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroHumero" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Femur (cm)
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroFemur" placeholder='90' onChange={onInputChange} />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroFemur" placeholder='90' onChange={handleCommaToPointChange}  />
                                     </div>
                                 </div>
                             </div>

@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.12.0] - 2024-08-20
+
+### Añadido
+- **Representación gráfica de la composición corporal**: Se ha implementado una nueva funcionalidad que permite visualizar gráficamente la composición corporal de los pacientes, incluyendo masas grasas, musculares, residuales y óseas. Esta herramienta ofrece una visión clara y detallada para facilitar el análisis y la evaluación de la salud de los pacientes.
+
+### Corregido
+- **Acceso a la página del paciente**: Se ha solucionado un problema que impedía el ingreso a la página del paciente, mejorando la navegación y la experiencia del usuario.
+
 ## [1.11.0] - 2024-08-13
 
 ### Añadido
