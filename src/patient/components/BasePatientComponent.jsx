@@ -28,12 +28,14 @@ export const BasePatientComponent = () => {
 
     // React imports
     const { uid, displayName, photoURL, isNutritionistStatus } = useSelector(state => state.auth);
-    const { patientName, nextConsultation, anamnesis, physical_exam, diagnosis, indications, weight, stature, imc, imcPregnant, unixBirthday, unixCorrectedBirthday, unixBiologicalBirthday, biologicalSex, genderIdentity = '', age, correctedAgeIsSet = null, correctedAge = { d: 0, m: 0, y: 0, }, biologicalAgeIsSet, biologicalAge = { d: 0, m: 0, y: 0, }, tallaDiana, perimetroCefalico, perimetroCintura, presionArterial, portionDistribution, patientExams, anthropometry
+    const { patientName, nextConsultation, anamnesis, physical_exam, diagnosis, indications, weight, stature, imc, imcPregnant, unixBirthday, unixCorrectedBirthday, unixBiologicalBirthday, biologicalSex, genderIdentity = '', age, correctedAgeIsSet = null, correctedAge = { d: 0, m: 0, y: 0, }, biologicalAgeIsSet, biologicalAge = { d: 0, m: 0, y: 0, }, tallaDiana, perimetroCefalico, perimetroCintura, presionArterial, portionDistribution, patientExams, anthropometry: anthropometryHistory
       } = useSelector((state) => state.currentPatient);
     const { membership, isActive } = useSelector(state => state.subscription);
     const dispatch = useDispatch();
     const location = useLocation();
     const { patientID = '' } = queryString.parse(location.search);
+
+    const anthropometry = anthropometryHistory[anthropometryHistory.length - 1];
   
   // Local state variables
   const [lastWeight, setLastWeight] = useState(0);
@@ -208,7 +210,8 @@ export const BasePatientComponent = () => {
     tallaDiana,
     perimetroCefalico,
     perimetroCintura,
-    anthropometry
+    anthropometry,
+    anthropometryHistory,
     };
 
     return (
@@ -226,7 +229,10 @@ export const BasePatientComponent = () => {
 
             <div className="patient-wrapper">
 
-                <PatientNavbar patientObject={ patientObject }/>
+                <PatientNavbar 
+                  patientObject={ patientObject }
+                  commonProps={ commonProps }
+                />
 
                 <div className="patient-primary-card-row">
                     <PatientCard 

@@ -57,11 +57,12 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
     });
 
     const {
+        anthropometry,
         biologicalSex,
         ageText,
     } = commonProps;
 
-    const { anthropometry, weight, stature, imc } = useSelector( state => state.currentPatient )
+    const { weight, stature, imc } = useSelector( state => state.currentPatient )
 
     const {
         BrazoRelajadoCorregido,

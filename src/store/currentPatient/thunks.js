@@ -292,21 +292,19 @@ export const startUpdatingCurrentPatientPresionArterial = ( uid, patientID, pres
     }
 }
 
-export const startUpdatingCurrentPatientAnthropometry = ( uid, patientID, anthropometry ) => {
-    return async( dispatch ) => {
-
-        // console.log(anthropometry)
-
+export const startUpdatingCurrentPatientAnthropometry = (uid, patientID, anthropometry) => {
+    return async(dispatch) => {
+        
         const newPatientInfoToFirestore = {
-            anthropometry,
-        }
+            anthropometry: anthropometry,
+        };
 
-        // console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
+        console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
 
-        const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
-        await setDoc( docRef, newPatientInfoToFirestore, { merge: true });
+        const docRef = doc(FirebaseDB, `users/${ uid }/patients/${ patientID }`);
+        await setDoc(docRef, newPatientInfoToFirestore, { merge: true });
 
-        dispatch(updateCurrentPatientAnthropometry( anthropometry ))
+        dispatch(updateCurrentPatientAnthropometry(anthropometry));
     }
 }
 

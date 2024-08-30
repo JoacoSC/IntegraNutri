@@ -13,9 +13,10 @@ import HeartIconWhite from '../../assets/imgs/patient/heart_icon_white.svg'
 import { startUpdatingCurrentPatientAnthropometry } from '../store/currentPatient';
 // import { startUpdatingCurrentPatientPresionArterial } from '../store/currentPatient'; // Uncomment if necessary
 
-export const ModalAnthropometry = ({ patientObject }) => {
+export const ModalAnthropometry = ({ patientObject, commonProps }) => {
 
     const { uid, patientID, stature, ageText, weight, imc, ageForCalcs } = patientObject;
+    const { anthropometryHistory } = commonProps;
     const { biologicalSex } = useSelector(state => state.currentPatient);
     // const biologicalSex = "Femenino";
 
@@ -148,7 +149,7 @@ export const ModalAnthropometry = ({ patientObject }) => {
         // Obtener la fecha actual
         const date = new Date();
         const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Los meses son indexados desde 0
+        const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = date.getFullYear();
         const formattedDate = `${day}/${month}/${year}`;
     
@@ -160,7 +161,8 @@ export const ModalAnthropometry = ({ patientObject }) => {
             ])
         );
     
-        const submitObject = {
+        // Crear la nueva evaluación
+        const newEvaluation = {
             ...convertedFormState,
             CircunferenciaCintura,
             CircunferenciaCadera,
@@ -196,9 +198,14 @@ export const ModalAnthropometry = ({ patientObject }) => {
             Edad: ageText,
         };
     
-        dispatch(startUpdatingCurrentPatientAnthropometry(uid, patientID, submitObject));
-    };
+        // Asegurar que anthropometryHistory sea un array
+        const updatedAnthropometryHistory = Array.isArray(anthropometryHistory) 
+            ? [...anthropometryHistory, newEvaluation]
+            : [newEvaluation];
     
+        // Hacer dispatch del array completo con todas las evaluaciones
+        dispatch(startUpdatingCurrentPatientAnthropometry(uid, patientID, updatedAnthropometryHistory));
+    };
 
     const onModalClose = () => {
         setOpenModal(false);
@@ -758,7 +765,7 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Género
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" value={ biologicalSex } readOnly/>
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="biologicalSex" value={ biologicalSex } readOnly/>
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
@@ -776,7 +783,7 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Edad
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" value={ ageText } readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="ageText" value={ ageText } readOnly />
                                     </div>
 
                                 </div>
@@ -785,19 +792,19 @@ export const ModalAnthropometry = ({ patientObject }) => {
                                         <label className="input-label">
                                             Peso
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" value={ Peso } readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="weight" value={ Peso } readOnly />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             Talla
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" value={ stature[stature.length - 1].A } readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="stature" value={ stature[stature.length - 1].A } readOnly />
                                     </div>
                                     <div className="modal-content-row-input">
                                         <label className="input-label">
                                             IMC
                                         </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" value={ imcValue } readOnly />
+                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="imc" value={ imcValue } readOnly />
                                     </div>
                                 </div>
 

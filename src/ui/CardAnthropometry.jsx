@@ -3,7 +3,12 @@ import './components';
 import { ModalAnthropometryResults } from './ModalAnthropometryResults';
 
 export const CardAnthropometry = ({ commonProps }) => {
-    const { anthropometry, biologicalSex } = useSelector((state) => state.currentPatient);
+
+    const { biologicalSex } = useSelector((state) => state.currentPatient);
+
+    const {
+        anthropometry,
+      } = commonProps
     
     const {
         CCMINSALResult = 90,

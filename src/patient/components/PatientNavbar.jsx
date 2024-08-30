@@ -7,7 +7,7 @@ import { add, format, fromUnixTime } from "date-fns";
 // Component imports
 import { Dropdown } from "../../ui";
 
-export const PatientNavbar = ({ patientObject }) => {
+export const PatientNavbar = ({ patientObject, commonProps }) => {
     
     // React imports
     const { isNutritionistStatus } = useSelector(state => state.auth);
@@ -41,7 +41,8 @@ export const PatientNavbar = ({ patientObject }) => {
             {
                 (isNutritionistStatus)
                 ?   <Dropdown
-                        patientObject = { patientObject }
+                        patientObject={ patientObject }
+                        commonProps={ commonProps }
                     />
                 :   null
             }

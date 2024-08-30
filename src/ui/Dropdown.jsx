@@ -7,7 +7,7 @@ import { ModalUpdatePatientValues, ModalUpdateCorrectedAge, ModalPerimetroCefali
 import { ModalTallaDiana } from './ModalTallaDiana';
 import { useSelector } from 'react-redux';
 
-export const Dropdown = ({ patientObject }) => {
+export const Dropdown = ({ patientObject, commonProps }) => {
 
     const [openDropdown, setOpenDropdown] = useState(false);
 
@@ -109,7 +109,10 @@ export const Dropdown = ({ patientObject }) => {
                                         ( ageForCalcs.y > 19 || (ageForCalcs.y === 19 && ageForCalcs.m > 1)
                                     )
                                         ?   <div className='dropdown-item-container'>
-                                                <ModalAnthropometry patientObject={ patientObject } />
+                                                <ModalAnthropometry 
+                                                    patientObject={ patientObject }
+                                                    commonProps={ commonProps }
+                                                />
                                             </div>
                                         :   null
                                     }

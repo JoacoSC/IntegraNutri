@@ -4,10 +4,17 @@ import { useSelector } from 'react-redux';
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar, Doughnut, Line, Scatter } from 'react-chartjs-2';
 import { useEffect, useState } from 'react';
+import { ComparisonComponent } from './components';
 
-export const CardBodyComposition = ({ patientID }) => {
+export const CardBodyComposition = ({ commonProps }) => {
 
-    const { anthropometry } = useSelector((state) => state.currentPatient);
+    const {
+        anthropometry,
+        anthropometryHistory,
+      } = commonProps
+
+      console.log('anthropometry: ', anthropometry)
+      console.log('anthropometryHistory: ', anthropometryHistory)
 
     const { MGCarterKG, MMLeeKG, MRKG, MOKG, MGCarterPercent, MMLeePercent, MRPercent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, SomatocartaX, SomatocartaY } = anthropometry;
 
@@ -37,6 +44,17 @@ export const CardBodyComposition = ({ patientID }) => {
 
     const skinFoldsYMax = Math.ceil((maxSkinFoldsValue + 20) / 20) * 20;
     const perimetersYMax = Math.ceil((maxPerimetersValue + 20) / 20) * 20;
+
+    const [firstRecord, setFirstRecord] = useState(null);
+    const [secondRecord, setSecondRecord] = useState(null);
+
+    const handleSelectionChange = (selector, record) => {
+        if (selector === 'first') {
+            setFirstRecord(record);
+        } else {
+            setSecondRecord(record);
+        }
+    };
 
     const [somatocartaOptions, setSomatocartaOptions] = useState({
         maintainAspectRatio: false,
@@ -278,102 +296,165 @@ export const CardBodyComposition = ({ patientID }) => {
         setSomatocartaData({
             datasets: [{
                 label: 'Somatocarta: ',
-                data: [{ x: SomatocartaX, y: SomatocartaY }],
-                borderColor: '#FF0000',
-                backgroundColor: '#FF0000',
+                data: [
+                    { x: firstRecord?.SomatocartaX, y: firstRecord?.SomatocartaY },
+                    { x: secondRecord?.SomatocartaX, y: secondRecord?.SomatocartaY },
+                ].filter(record => record.x !== undefined && record.y !== undefined),
+                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+                backgroundColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
             }]
         });
     }
-
+    
+// rgba(54, 162, 235, 0.7)
+// rgba(255, 99, 132, 0.7)
     const updateBodyCompositionKGBarChart = () => {
         setBodyCompositionKGData({
-          labels: ['MG(Carter)', 'MM(Lee 2000)', 'MR', 'MO'],
-          datasets: [
-            {
-              label: 'Composición corporal',
-              data: [MGCarterKG, MMLeeKG, MRKG, MOKG],
-              backgroundColor: 'rgba(54, 162, 235, 0.7)',
-              borderColor: 'rgba(54, 162, 235, 1)',
-              borderWidth: 1,
-            },
-          ],
+            labels: ['MG(Carter)', 'MM(Lee 2000)', 'MR', 'MO'],
+            datasets: [
+                {
+                    label: 'Primera selección',
+                    data: [firstRecord?.MGCarterKG, firstRecord?.MMLeeKG, firstRecord?.MRKG, firstRecord?.MOKG],
+                    backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                },
+                {
+                    label: 'Segunda selección',
+                    data: [secondRecord?.MGCarterKG, secondRecord?.MMLeeKG, secondRecord?.MRKG, secondRecord?.MOKG],
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                },
+            ],
         });
-      };
+    }
+    
     
     const updateSkinFoldsLineChart = () => {
         setSkinFoldsData({
-        labels: skinFoldsArray.map( (data) => data.label ),
-        datasets: [
-            {
-                label: 'Medida del pliegue (mm)',
-                data: skinFoldsArray.map( (data) => data.value ),
-                backgroundColor: 'rgba(0,174,239, 0.5)',
-                borderColor: 'rgba(0,174,239, 1)',
-                pointRadius: 4,
-            },
-        ]
+            labels: skinFoldsArray.map(data => data.label),
+            datasets: [
+                {
+                    label: 'Primera selección',
+                    data: [
+                        firstRecord?.InputPliegueTricipital, firstRecord?.InputPliegueSubescapular, firstRecord?.InputPliegueCrestailiaca, 
+                        firstRecord?.InputPliegueBicipital, firstRecord?.InputPliegueSupraespinal, firstRecord?.InputPliegueAbdominal, 
+                        firstRecord?.InputPliegueMuslo, firstRecord?.InputPlieguePierna
+                    ],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    pointRadius: 4,
+                },
+                {
+                    label: 'Segunda selección',
+                    data: [
+                        secondRecord?.InputPliegueTricipital, secondRecord?.InputPliegueSubescapular, secondRecord?.InputPliegueCrestailiaca, 
+                        secondRecord?.InputPliegueBicipital, secondRecord?.InputPliegueSupraespinal, secondRecord?.InputPliegueAbdominal, 
+                        secondRecord?.InputPliegueMuslo, secondRecord?.InputPlieguePierna
+                    ],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    pointRadius: 4,
+                },
+            ],
         });
-    };
+    }
+    
 
     const updatePerimetersLineChart = () => {
         setPerimetersData({
-        labels: perimetersArray.map( (data) => data.label ),
-        datasets: [
-            {
-                label: 'Perímetros (cm)',
-                data: perimetersArray.map( (data) => data.value ),
-                backgroundColor: 'rgba(233, 87, 147, 0.5)',
-                borderColor: 'rgba(233, 87, 147, 1)',
-                pointRadius: 4,
-            },
-        ]
+            labels: perimetersArray.map(data => data.label),
+            datasets: [
+                {
+                    label: 'Primera selección',
+                    data: [
+                        firstRecord?.InputPerimetroBrazoRelajado, firstRecord?.InputPerimetroBrazoContraido, 
+                        firstRecord?.InputPerimetroPierna, firstRecord?.InputPerimetroMuslo, 
+                        firstRecord?.InputPerimetroCintura, firstRecord?.InputPerimetroCadera
+                    ],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    pointRadius: 4,
+                },
+                {
+                    label: 'Segunda selección',
+                    data: [
+                        secondRecord?.InputPerimetroBrazoRelajado, secondRecord?.InputPerimetroBrazoContraido, 
+                        secondRecord?.InputPerimetroPierna, secondRecord?.InputPerimetroMuslo, 
+                        secondRecord?.InputPerimetroCintura, secondRecord?.InputPerimetroCadera
+                    ],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    pointRadius: 4,
+                },
+            ],
         });
-    };
+    }
+    
     
     const updateBodyCompositionPercentDoughnutChart = () => {
         setBodyCompositionPercentData({
-        labels: ['MG(Carter)', 'MM(Lee 2000)', 'MR', 'MO'],
-        datasets: [
-            {
-            label: 'Composición corporal',
-            data: [MGCarterPercent, MMLeePercent, MRPercent, MOPercent],
-            backgroundColor: [
-                'rgba(54, 162, 235, 0.7)', // Azul
-                'rgba(255, 159, 64, 0.7)', // Naranja
-                'rgba(75, 192, 192, 0.7)', // Gris
-                'rgba(255, 205, 86, 0.7)', // Amarillo
+            labels: ['MG(Carter)', 'MM(Lee 2000)', 'MR', 'MO'],
+            datasets: [
+                {
+                    label: 'Primera selección',
+                    data: [firstRecord?.MGCarterPercent, firstRecord?.MMLeePercent, firstRecord?.MRPercent, firstRecord?.MOPercent],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(255, 205, 86, 0.7)',
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 205, 86, 1)',
+                    ],
+                    borderWidth: 1,
+                },
+                {
+                    label: 'Segunda selección',
+                    data: [secondRecord?.MGCarterPercent, secondRecord?.MMLeePercent, secondRecord?.MRPercent, secondRecord?.MOPercent],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(255, 205, 86, 0.7)',
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 205, 86, 1)',
+                    ],
+                    borderWidth: 1,
+                },
             ],
-            borderColor: [
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(255, 205, 86, 1)',
-            ],
-            borderWidth: 1,
-            },
-        ],
         });
-    };
+    }
+    
 
     useEffect(() => {
         updateSomatocartaChart();
-    }, [SomatocartaX, SomatocartaY]);
-
+    }, [firstRecord, secondRecord]);
+    
     useEffect(() => {
         updateBodyCompositionKGBarChart();
-    }, [MGCarterKG, MMLeeKG, MRKG, MOKG]);
-
+    }, [firstRecord, secondRecord]);
+    
     useEffect(() => {
         updateBodyCompositionPercentDoughnutChart();
-    }, [MGCarterPercent, MMLeePercent, MRPercent, MOPercent]);
-
+    }, [firstRecord, secondRecord]);
+    
     useEffect(() => {
         updateSkinFoldsLineChart();
-    }, [InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna]);
-
+    }, [firstRecord, secondRecord]);
+    
     useEffect(() => {
         updatePerimetersLineChart();
-    }, [InputPerimetroBrazoContraido, InputPerimetroBrazoRelajado, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCintura, ]);
+    }, [firstRecord, secondRecord]);    
     
     return (
         <div className='patient-secondary-card full-width-card'>
@@ -381,6 +462,10 @@ export const CardBodyComposition = ({ patientID }) => {
                 Composición corporal
             </div>
             <div className='patient-secondary-card-content flex-column gap-2'>
+                <ComparisonComponent 
+                    anthropometryHistory={anthropometryHistory} 
+                    onSelectionChange={handleSelectionChange} 
+                />
                 <div className='flex-row h-100 mt-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
                     <div className="canvas-chart">
                         <Bar data={bodyCompositionKGData} options={bodyCompositionKGOptions} />

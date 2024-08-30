@@ -31,7 +31,7 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
     <>
       <div className="patient-secondary-card-row">
         {/* Renderización de CardAnthropometry */}
-        {Object.keys(anthropometry).length > 0 && (
+        {anthropometry && Object.keys(anthropometry).length > 0 && (
           <CardAnthropometry 
             commonProps={commonProps}
           />
@@ -51,8 +51,10 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
       </div>
       <div className="patient-secondary-card-row">
         {/* Renderización de CardPresionArterial */}
-        {Object.keys(anthropometry).length > 0 && (
-          <CardBodyComposition />
+        {anthropometry && Object.keys(anthropometry).length > 0 && (
+          <CardBodyComposition
+            commonProps={commonProps}
+          />
         )}
       </div>
       <div className="patient-secondary-card-row">
