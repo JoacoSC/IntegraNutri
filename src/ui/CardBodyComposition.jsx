@@ -13,9 +13,6 @@ export const CardBodyComposition = ({ commonProps }) => {
         anthropometryHistory,
       } = commonProps
 
-      console.log('anthropometry: ', anthropometry)
-      console.log('anthropometryHistory: ', anthropometryHistory)
-
     const { MGCarterKG, MMLeeKG, MRKG, MOKG, MGCarterPercent, MMLeePercent, MRPercent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, SomatocartaX, SomatocartaY } = anthropometry;
 
     const skinFoldsArray = [

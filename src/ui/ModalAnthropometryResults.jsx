@@ -9,10 +9,18 @@ import { SmallButton } from "../common";
 // Third-party library imports
 import { Chart as ChartJS } from "chart.js/auto";
 import { Scatter } from "react-chartjs-2";
+import { parse } from "date-fns";
 
 export const ModalAnthropometryResults = ({ commonProps }) => {
     
+    const {
+        anthropometryHistory,
+        biologicalSex,
+        ageText,
+    } = commonProps;
+
     const [openModal, setOpenModal] = useState(false);
+    const [selectedDateIndex, setSelectedDateIndex] = useState(anthropometryHistory.length - 1); // Por defecto, última fecha
 
     const [options, setOptions] = useState({
         maintainAspectRatio: false,
@@ -56,15 +64,14 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
         }]
     });
 
-    const {
-        anthropometry,
-        biologicalSex,
-        ageText,
-    } = commonProps;
-
-    const { weight, stature, imc } = useSelector( state => state.currentPatient )
+    const selectedAnthropometry = anthropometryHistory[selectedDateIndex];
 
     const {
+        weight, stature, imc
+    } = useSelector( state => state.currentPatient );
+
+    // Actualización de gráficos y otros datos basados en la fecha seleccionada
+    const { 
         BrazoRelajadoCorregido,
         CCMINSALResult,
         CCMINSALRating,
@@ -114,16 +121,122 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
         MOPercent,
         Fecha,
         Edad,
-    } = anthropometry;
+     } = selectedAnthropometry;
 
-    const statureLength = stature?.length;
-    const Talla = statureLength > 0 ? stature[statureLength - 1].A : '';
+    const handleDateChange = (e) => {
+        setSelectedDateIndex(e.target.value); // Actualiza el índice de la fecha seleccionada
+    };
 
-    const weightLength = weight?.length;
-    const Peso = weightLength > 0 ? weight[weightLength - 1].A : '';
+    // const {
+    //     BrazoRelajadoCorregido,
+    //     CCMINSALResult,
+    //     CCMINSALRating,
+    //     CircunferenciaCadera,
+    //     CircunferenciaCintura,
+    //     Ectomorfia,
+    //     Endomorfia,
+    //     ICCResult,
+    //     ICCRating,
+    //     ICAResult,
+    //     ICARating,
+    //     InputDiametroFemur,
+    //     InputEtnia,
+    //     InputPliegueTricipital,
+    //     InputPliegueSubescapular,
+    //     InputPliegueCrestailiaca,
+    //     InputPliegueBicipital,
+    //     InputPliegueSupraespinal,
+    //     InputPliegueAbdominal,
+    //     InputPliegueMuslo,
+    //     InputPlieguePierna,
+    //     InputPerimetroBrazoRelajado,
+    //     InputPerimetroBrazoContraido,
+    //     InputPerimetroPierna,
+    //     InputPerimetroMuslo,
+    //     InputDiametroMuneca,
+    //     InputDiametroHumero,
+    //     InputPerimetroCintura,
+    //     InputPerimetroCadera,
+    //     SomatocartaX,
+    //     SomatocartaY,
+    //     SomatocartaIP,
+    //     Mesomorfia,
+    //     MusloCorregido,
+    //     PiernaCorregido,
+    //     MGCarterKG,
+    //     MGCarterPercent,
+    //     MGFaulknerKG,
+    //     MGFaulknerPercent,
+    //     MMLeeKG,
+    //     MMLeePercent,
+    //     MRKG,
+    //     MRPercent,
+    //     MRV2KG,
+    //     MRV2Percent,
+    //     MOKG,
+    //     MOPercent,
+    //     Fecha,
+    //     Edad,
+    // } = anthropometry;
 
-    const IMCLength = imc?.length;
-    const IMC = IMCLength > 0 ? imc[IMCLength - 1].A.toFixed(2) : '';
+    // Función para obtener el peso más cercano a la fecha seleccionada
+    const getWeightByDate = (selectedDate) => {
+        // Convertir la fecha seleccionada a un formato comparable
+        const parsedSelectedDate = parse(selectedDate, 'dd/MM/yyyy', new Date());
+        
+        // Filtrar los pesos que fueron registrados antes o en la misma fecha que la evaluación seleccionada
+        const filteredWeights = weight.filter(w => {
+            const weightDate = parse(w.C, 'dd/MM/yyyy', new Date());
+            return weightDate <= parsedSelectedDate;
+        });
+
+        // Si existen registros filtrados, retornamos el más reciente (último en la lista)
+        if (filteredWeights.length > 0) {
+            return filteredWeights[filteredWeights.length - 1].A;
+        }
+
+        // Si no se encuentra un peso registrado antes o en la fecha, retornamos un valor por defecto
+        return 'No disponible';
+    };
+
+    // Función para obtener el IMC más cercano a la fecha seleccionada
+    const getIMCByDate = (selectedDate) => {
+        const parsedSelectedDate = parse(selectedDate, 'dd/MM/yyyy', new Date());
+        const filteredIMCs = imc.filter(i => {
+            const imcDate = parse(i.C, 'dd/MM/yyyy', new Date());
+            return imcDate <= parsedSelectedDate;
+        });
+        if (filteredIMCs.length > 0) {
+            return filteredIMCs[filteredIMCs.length - 1].A.toFixed(1); // Retorna el IMC con dos decimales
+        }
+        return 'No disponible';
+    };
+    // Función para obtener la Talla más cercana a la fecha seleccionada
+    const getStatureByDate = (selectedDate) => {
+        const parsedSelectedDate = parse(selectedDate, 'dd/MM/yyyy', new Date());
+        const filteredStatures = stature.filter(i => {
+            const statureDate = parse(i.C, 'dd/MM/yyyy', new Date());
+            return statureDate <= parsedSelectedDate;
+        });
+        if (filteredStatures.length > 0) {
+            return filteredStatures[filteredStatures.length - 1].A;
+        }
+        return 'No disponible';
+    };
+
+    const Peso = getWeightByDate(Fecha); // Obtener el peso según la fecha seleccionada
+    const IMC = getIMCByDate(Fecha);     // Obtener el IMC según la fecha seleccionada
+    const Talla = getStatureByDate(Fecha);     // Obtener el IMC según la fecha seleccionada
+
+
+    // const statureLength = stature?.length;
+    // const Talla = statureLength > 0 ? stature[statureLength - 1].A : '';
+
+    // const weightLength = weight?.length;
+    // const Peso = weightLength > 0 ? weight[weightLength - 1].A : '';
+
+    // const IMCLength = imc?.length;
+    // const IMC = IMCLength > 0 ? imc[IMCLength - 1].A.toFixed(2) : '';
 
     const updateChart = () => {
         setUserData({
@@ -172,10 +285,14 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
                     <div className="modal-perimetro-cefalico-container-form">
                         <div className='modal-content-row modal-content-row-background'>
                             <div className='modal-content-row-title'>
-                                <h2>Fecha de los datos:</h2>
+                                <h3>Seleccione la fecha de los datos:</h3>
                             </div>
                             <div className='modal-content-row-title'>
-                                <h3>{Fecha}</h3>
+                                <select className="input-select border-clr-secondary px-05" value={selectedDateIndex} onChange={handleDateChange}>
+                                    {anthropometryHistory.map((item, index) => (
+                                        <option key={index} value={index}>{item.Fecha}</option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
 

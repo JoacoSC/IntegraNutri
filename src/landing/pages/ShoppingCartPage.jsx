@@ -37,6 +37,7 @@ export const ShoppingCartPage = () => {
     const [monthlyPrice, setMonthlyPrice] = useState(0);
     const [subscriptionDiscount, setSubscriptionDiscount] = useState(0);
     const [subscriptionMonths, setSubscriptionMonths] = useState(0);
+    const [subscriptionDescription, setSubscriptionDescription] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
     const [visible, setVisible] = useState(false)
@@ -94,19 +95,15 @@ export const ShoppingCartPage = () => {
     }, [])
 
     useEffect(() => {
-        // console.log('subscriptions.length:',subscriptions.length)
-        if( subscriptions.length > 0 ){
-            if ( item == 0) {
-                dispatch( setSelectedSubscription( subscriptions[0] ) )
-            }
-            if ( item == 1) {
-                dispatch( setSelectedSubscription( subscriptions[1] ) )
-            }
-            if ( item == 2) {
-                dispatch( setSelectedSubscription( subscriptions[2] ) )
+        if (subscriptions.length > 0) {
+            
+            const selectedSubscription = subscriptions.find(sub => Number(sub.itemID) === Number(item));
+            
+            if (selectedSubscription) {
+                dispatch(setSelectedSubscription(selectedSubscription));
             }
         }
-    }, [ subscriptions ])
+    }, [subscriptions, item]);
 
     useEffect(() => {
         if( data !== null ){
@@ -120,8 +117,6 @@ export const ShoppingCartPage = () => {
             setIsLoading(false);
         }
     }, [data])
-    
-    
     
     window.addEventListener('scroll', toggleVisible);
 
