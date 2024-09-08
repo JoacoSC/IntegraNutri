@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.13.0] - 2024-09-07
+
+### Añadido
+- **Historial de evaluaciones antropométricas**: Se ha implementado un historial de evaluaciones antropométricas que puede consultarse desde el botón "Más detalles" en la tarjeta de evaluaciones.
+- **Comparación de evaluaciones antropométricas**: Se ha añadido la posibilidad de comparar dos evaluaciones en la tarjeta de composición corporal. Los gráficos muestran los datos de una sola evaluación o combinan los datos de dos evaluaciones para facilitar la comparación.
+
 ## [1.12.0] - 2024-08-20
 
 ### Añadido
