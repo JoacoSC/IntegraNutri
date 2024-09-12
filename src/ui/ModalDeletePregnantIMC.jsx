@@ -9,6 +9,7 @@ import PregnantIMC from '../../assets/imgs/patient/pregnantIMC.png'
 import { useForm } from '../hooks';
 import { format } from 'date-fns';
 import { startUpdatingCurrentPatientIMCPregnant } from '../store/currentPatient';
+import { ModalWrapper } from './components';
 
 export const ModalDeletePregnantIMC = ({ patientObject }) => {
 
@@ -53,24 +54,14 @@ export const ModalDeletePregnantIMC = ({ patientObject }) => {
                 Eliminar IMC para gestantes
             </button>
 
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Cambio de cálculo de IMC"
+                footerButtons={[
+                    { text: "Confirmar", onClick: onDelete, className: "btn-modal-action-alt" }
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-auto-height-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Cambio de cálculo de IMC
-                </h1>
 
                 <form ref={form}>
                     <div className="modal-auto-height-container-form">
@@ -82,18 +73,9 @@ export const ModalDeletePregnantIMC = ({ patientObject }) => {
                                 </label>
                             </div>
                         </div>
-                        <div className="form-btn-group">
-                            <button className="btn-modal-submit" type="submit" onClick={ closeModal }>
-                                Cancelar
-                            </button>
-                            <button className="btn-modal-alt" onClick={ onDelete }>
-                                Confirmar
-                            </button>
-                        </div>
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

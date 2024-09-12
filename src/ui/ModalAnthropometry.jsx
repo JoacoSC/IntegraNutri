@@ -11,6 +11,7 @@ import { Scatter } from "react-chartjs-2";
 
 import HeartIconWhite from '../../assets/imgs/patient/heart_icon_white.svg'
 import { startUpdatingCurrentPatientAnthropometry } from '../store/currentPatient';
+import { ModalWrapper } from './components';
 // import { startUpdatingCurrentPatientPresionArterial } from '../store/currentPatient'; // Uncomment if necessary
 
 export const ModalAnthropometry = ({ patientObject, commonProps }) => {
@@ -205,6 +206,8 @@ export const ModalAnthropometry = ({ patientObject, commonProps }) => {
     
         // Hacer dispatch del array completo con todas las evaluaciones
         dispatch(startUpdatingCurrentPatientAnthropometry(uid, patientID, updatedAnthropometryHistory));
+
+        setOpenModal(false);
     };
 
     const onModalClose = () => {
@@ -724,524 +727,509 @@ export const ModalAnthropometry = ({ patientObject, commonProps }) => {
                     Evaluación Antropométrica&nbsp;
                 </p>
             </button>
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Evaluación antropométrica"
+                footerButtons={[
+                    { text: "Guardar", onClick: onSubmit, className: "btn-modal-action" }
+                ]}
             >
-                <Modal
-                    closeTimeoutMS={500}
-                    isOpen={openModal}
-                    ariaHideApp={false}
-                    className="modal-perimetro-cefalico-container"
-                >
-                    <div className="modal-header">
-                        <p>Evaluación Antropométrica</p>
-                    </div>
-                    <div className="btn-modal-close" onClick={onModalClose}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
-                            <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                        </svg>
-                    </div>
-                    {/* TODO: Actualizar aspecto de los modal. Disminuir tamaño del header, fijar header y footer, acortar scrollbar al contenido del modal sin header ni footer */}
 
-                    <form onSubmit={onSubmit}>
-                        <div className="modal-perimetro-cefalico-container-form" onSubmit={onSubmit}>
+                <form onSubmit={onSubmit}>
+                    <div className="modal-perimetro-cefalico-container-form" onSubmit={onSubmit}>
 
-                            {/* <div className='modal-chart-info-container'>
-                                <div className='modal-chart-info'>
-                                    <b>Sexo Biológico: </b>{biologicalSex}
+                        {/* <div className='modal-chart-info-container'>
+                            <div className='modal-chart-info'>
+                                <b>Sexo Biológico: </b>{biologicalSex}
+                            </div>
+                            <div className='modal-chart-info'>
+                                <b>Estatura: </b>
+                                {Talla + 'cm'}
+                            </div>
+                        </div> */}
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <h3>Datos del paciente</h3>
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Género
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="biologicalSex" value={ biologicalSex } readOnly/>
                                 </div>
-                                <div className='modal-chart-info'>
-                                    <b>Estatura: </b>
-                                    {Talla + 'cm'}
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Etnia
+                                    </label>
+                                    <select className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputEtnia" placeholder='80' onChange={onInputChange}>
+                                        <option value=''>Seleccione una opción</option>
+                                        <option value='Asiatico'>Asiático</option>
+                                        <option value='Afroamericano'>Afroamericano</option>
+                                        <option value='Caucasico'>Caucásico</option>
+                                        <option value='Hispanico'>Hispanico</option>
+                                    </select>
                                 </div>
-                            </div> */}
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <h3>Datos del paciente</h3>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Género
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="biologicalSex" value={ biologicalSex } readOnly/>
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Etnia
-                                        </label>
-                                        <select className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputEtnia" placeholder='80' onChange={onInputChange}>
-                                            <option value=''>Seleccione una opción</option>
-                                            <option value='Asiatico'>Asiático</option>
-                                            <option value='Afroamericano'>Afroamericano</option>
-                                            <option value='Caucasico'>Caucásico</option>
-                                            <option value='Hispanico'>Hispanico</option>
-                                        </select>
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Edad
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="ageText" value={ ageText } readOnly />
-                                    </div>
-
-                                </div>
-                                <div className="form-group gap-1">
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Peso
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="weight" value={ Peso } readOnly />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Talla
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="stature" value={ stature[stature.length - 1].A } readOnly />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            IMC
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="imc" value={ imcValue } readOnly />
-                                    </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Edad
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="ageText" value={ ageText } readOnly />
                                 </div>
 
                             </div>
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <h3>Ingresar medidas antropométricas*</h3>
-                                    <h6>*A continuación se realizarán los cálculos automáticamente</h6>
+                            <div className="form-group gap-1">
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Peso
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="weight" value={ Peso } readOnly />
                                 </div>
-                                <div className='modal-content-row-title'>
-                                    <h4>Pliegues</h4>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Talla
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="stature" value={ stature[stature.length - 1].A } readOnly />
                                 </div>
-                                <div className="form-group gap-1">
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Tricipital (mm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueTricipital" placeholder='80' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Subescapular (mm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueSubescapular" placeholder='80' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Crestailiaca (mm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueCrestailiaca" placeholder='80' onChange={handleCommaToPointChange}  />
-                                    </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        IMC
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="imc" value={ imcValue } readOnly />
                                 </div>
-                                <div className="form-group gap-1">
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Bicipital (mm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueBicipital" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Supraespinal (mm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueSupraespinal" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Abdominal (mm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueAbdominal" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <div className="modal-content-row-input w-50">
-                                        <label className="input-label">
-                                            Muslo (mm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueMuslo" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input w-50">
-                                        <label className="input-label">
-                                            Pierna (mm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPlieguePierna" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                </div>
-
                             </div>
 
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <h4>Perimetros</h4>
+                        </div>
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <h3>Ingresar medidas antropométricas*</h3>
+                                <h6>*A continuación se realizarán los cálculos automáticamente</h6>
+                            </div>
+                            <div className='modal-content-row-title'>
+                                <h4>Pliegues</h4>
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Tricipital (mm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueTricipital" placeholder='80' onChange={handleCommaToPointChange}  />
                                 </div>
-                                <div className="form-group gap-1">
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Brazo relajado (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroBrazoRelajado" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Brazo contraído (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroBrazoContraido" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Pierna (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroPierna" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Subescapular (mm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueSubescapular" placeholder='80' onChange={handleCommaToPointChange}  />
                                 </div>
-                                <div className="form-group gap-1">
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Muslo (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroMuslo" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Cintura (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Cadera (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCadera" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Crestailiaca (mm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueCrestailiaca" placeholder='80' onChange={handleCommaToPointChange}  />
                                 </div>
-                                
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Bicipital (mm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueBicipital" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Supraespinal (mm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueSupraespinal" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Abdominal (mm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueAbdominal" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="modal-content-row-input w-50">
+                                    <label className="input-label">
+                                        Muslo (mm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPliegueMuslo" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                                <div className="modal-content-row-input w-50">
+                                    <label className="input-label">
+                                        Pierna (mm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPlieguePierna" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <h4>Perimetros</h4>
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Brazo relajado (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroBrazoRelajado" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Brazo contraído (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroBrazoContraido" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Pierna (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroPierna" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Muslo (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroMuslo" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Cintura (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCintura" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Cadera (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputPerimetroCadera" placeholder='90' onChange={handleCommaToPointChange}  />
+                                </div>
                             </div>
                             
-                            {/* <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <b>Circunferencia de Cintura</b>
-                                </div>
-
-                                <div className="form-group gap-1">
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Medición (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCOMSMedicion" placeholder='80' value={ CircunferenciaCintura } readOnly/>
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Clasificación
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCOMSRating" value={CCOMSRating} readOnly />
-                                    </div>
-                                </div>
-                                <label className="input-label">
-                                    Referencia: OMS 2008
-                                </label>
-                            </div> */}
-                            
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <h4>Diámetros</h4>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Biestiloideo (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroMuneca" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Húmero (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroHumero" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                    <div className="modal-content-row-input">
-                                        <label className="input-label">
-                                            Femur (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroFemur" placeholder='90' onChange={handleCommaToPointChange}  />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <h2>Resultados</h2>
-                                </div>
+                        </div>
+                        
+                        {/* <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <b>Circunferencia de Cintura</b>
                             </div>
 
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <b>Somatocarta</b>
+                            <div className="form-group gap-1">
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Medición (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCOMSMedicion" placeholder='80' value={ CircunferenciaCintura } readOnly/>
                                 </div>
-                                <div className="form-group gap-1">
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            IP
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ SomatocartaIP } readOnly />
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            X
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ SomatocartaX } readOnly />
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Y
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ SomatocartaY } readOnly />
-                                    </div>
-                                </div>
-                                <div className="canvas-anthropometry-container">
-                                    <div className="canvas-anthropometry">
-                                        <Scatter data={userData} options={options} />
-                                    </div>
-                                </div>
-                                <div className="form-group gap-1">
-                                        
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Endomorfia
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALRating" value={ Endomorfia } readOnly />
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Mesomorfia
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALRating" value={ Mesomorfia } readOnly />
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Ectomorfia
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALRating" value={ Ectomorfia } readOnly />
-                                    </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Clasificación
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" name="CCOMSRating" value={CCOMSRating} readOnly />
                                 </div>
                             </div>
-
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <b>Perímetros corregidos</b>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Brazo relajado
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="BrazoRelajadoCorregido" placeholder='80' value={ BrazoRelajadoCorregido } readOnly />
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Muslo
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MusloCorregido" placeholder='80' value={ MusloCorregido } readOnly />
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Pierna
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="PiernaCorregido" placeholder='80' value={ PiernaCorregido } readOnly />
-                                    </div>
-                                </div>
+                            <label className="input-label">
+                                Referencia: OMS 2008
+                            </label>
+                        </div> */}
+                        
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <h4>Diámetros</h4>
                             </div>
-
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <b>Composición corporal</b>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <label className="input-label w-min-10">
-                                        Masa Grasa (Carter)
+                            <div className="form-group gap-1">
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Biestiloideo (cm)
                                     </label>
-                                    <div className='flex-row flex-end gap-1 w-100'>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MGCarterKG" placeholder='80' value={ MGCarterKG + ' kg' } readOnly />
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MGCarterPercent" placeholder='80' value={ MGCarterPercent + ' %' } readOnly />
-                                    </div>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroMuneca" placeholder='90' onChange={handleCommaToPointChange}  />
                                 </div>
-                                <div className="form-group gap-1">
-                                    <label className="input-label w-min-10">
-                                        Masa Muscular (Lee 2000)
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Húmero (cm)
                                     </label>
-                                    <div className='flex-row flex-end gap-1 w-100'>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MMLeeKG" placeholder='80' value={ MMLeeKG + ' kg' } readOnly />
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MMLeePercent" placeholder='80' value={ MMLeePercent + ' %' } readOnly />
-                                    </div>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroHumero" placeholder='90' onChange={handleCommaToPointChange}  />
                                 </div>
-                                <div className="form-group gap-1">
-                                    <label className="input-label w-min-10">
-                                        Masa Residual
+                                <div className="modal-content-row-input">
+                                    <label className="input-label">
+                                        Femur (cm)
                                     </label>
-                                    <div className='flex-row flex-end gap-1 w-100'>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MRKG" placeholder='80' value={ MRKG + ' kg' } readOnly />
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MRPercent" placeholder='80' value={ MRPercent + ' %' } readOnly />
-                                    </div>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="InputDiametroFemur" placeholder='90' onChange={handleCommaToPointChange}  />
                                 </div>
-                                <div className="form-group gap-1">
-                                    <label className="input-label w-min-10">
-                                        Masa Ósea
-                                    </label>
-                                    <div className='flex-row flex-end gap-1 w-100'>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MOKG" placeholder='80' value={ MOKG + ' kg' } readOnly />
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MOPercent" placeholder='80' value={ MOPercent + ' %' } readOnly />
-                                    </div>
-                                </div>
-                                <hr></hr>
-                                <div className="form-group gap-1">
-                                    <label className="input-label w-min-10">
-                                        Masa Grasa (Faulkner)
-                                    </label>
-                                    <div className='flex-row flex-end gap-1 w-100'>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MGFaulknerKG" placeholder='80' value={ MGFaulknerKG + ' kg' } readOnly />
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MGFaulknerPercent" placeholder='80' value={ MGFaulknerPercent + ' %' } readOnly />
-                                    </div>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <label className="input-label w-min-10">
-                                        Masa Muscular (Lee 2000)
-                                    </label>
-                                    <div className='flex-row flex-end gap-1 w-100'>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MMLeeKG" placeholder='80' value={ MMLeeKG + ' kg' } readOnly />
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MMLeePercent" placeholder='80' value={ MMLeePercent + ' %' } readOnly />
-                                    </div>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <label className="input-label w-min-10">
-                                        Masa Residual
-                                    </label>
-                                    <div className='flex-row flex-end gap-1 w-100'>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MRV2KG" placeholder='80' value={ MRV2KG + ' kg' } readOnly />
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MRV2Percent" placeholder='80' value={ MRV2Percent + ' %' } readOnly />
-                                    </div>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <label className="input-label w-min-10">
-                                        Masa Ósea
-                                    </label>
-                                    <div className='flex-row flex-end gap-1 w-100'>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MOKG" placeholder='80' value={ MOKG + ' kg' } readOnly />
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MOPercent" placeholder='80' value={ MOPercent + ' %' } readOnly />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <b>Circunferencia de Cintura</b>
-                                </div>
-
-                                <div className="form-group gap-1">
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Medición (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ CircunferenciaCintura } readOnly />
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Clasificación
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALRating" value={CCMINSALRating} readOnly />
-                                    </div>
-                                </div>
-                                <label className="input-label">
-                                    Referencia: MINSAL 2014
-                                </label>
-                            </div>
-
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <b>Índice Cintura-Cadera</b>
-                                </div>
-
-                                <div className="form-group gap-1">
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Circunferencia de cintura (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CinturaMedicion" placeholder='80' value={ CircunferenciaCintura } readOnly/>
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Circunferencia de cadera (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CaderaMedicion" placeholder='95' value={ CircunferenciaCadera } readOnly/>
-                                    </div>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Resultado
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICCResult" value={ICCResult} readOnly />
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Clasificación
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICCRating" value={ICCRating} readOnly />
-                                    </div>
-                                </div>
-                                <label className="input-label">
-                                    Referencia: GIROLAMI 2015
-                                </label>
-                            </div>
-                            
-                            <div className='modal-content-row modal-content-row-background'>
-                                <div className='modal-content-row-title'>
-                                    <b>Índice Cintura-Altura</b>
-                                </div>
-
-                                <div className="form-group gap-1">
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Circunferencia de cintura (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CinturaMedicionKoch" placeholder='80' value={ CircunferenciaCintura } readOnly/>
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Estatura (cm)
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="Talla" placeholder='95' value={Talla} readOnly />
-                                    </div>
-                                </div>
-                                <div className="form-group gap-1">
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Resultado
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICAResult" value={ICAResult} readOnly />
-                                    </div>
-                                    <div className="form-item w-50 pr-8">
-                                        <label className="input-label">
-                                            Riesgo cardiovascular
-                                        </label>
-                                        <input className="input-text-style h-2 text-align-center" type="text" name="ICARating" value={ICARating} readOnly />
-                                    </div>
-                                </div>
-                                <label className="input-label">
-                                    Referencia: Koch 2008
-                                </label>
-                            </div>
-                            
-                            <div className="form-btn">
-                                <button className="btn-modal-submit" type="submit" onClick={() => setOpenModal(false)}>
-                                    Guardar
-                                </button>
                             </div>
                         </div>
-                    </form>
-                </Modal>
-            </CSSTransition>
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <h2>Resultados</h2>
+                            </div>
+                        </div>
+
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <b>Somatocarta</b>
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        IP
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ SomatocartaIP } readOnly />
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        X
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ SomatocartaX } readOnly />
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Y
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ SomatocartaY } readOnly />
+                                </div>
+                            </div>
+                            <div className="canvas-anthropometry-container">
+                                <div className="canvas-anthropometry">
+                                    <Scatter data={userData} options={options} />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                    
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Endomorfia
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALRating" value={ Endomorfia } readOnly />
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Mesomorfia
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALRating" value={ Mesomorfia } readOnly />
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Ectomorfia
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALRating" value={ Ectomorfia } readOnly />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <b>Perímetros corregidos</b>
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Brazo relajado
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="BrazoRelajadoCorregido" placeholder='80' value={ BrazoRelajadoCorregido } readOnly />
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Muslo
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MusloCorregido" placeholder='80' value={ MusloCorregido } readOnly />
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Pierna
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="PiernaCorregido" placeholder='80' value={ PiernaCorregido } readOnly />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <b>Composición corporal</b>
+                            </div>
+                            <div className="form-group gap-1">
+                                <label className="input-label w-min-10">
+                                    Masa Grasa (Carter)
+                                </label>
+                                <div className='flex-row flex-end gap-1 w-100'>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MGCarterKG" placeholder='80' value={ MGCarterKG + ' kg' } readOnly />
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MGCarterPercent" placeholder='80' value={ MGCarterPercent + ' %' } readOnly />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <label className="input-label w-min-10">
+                                    Masa Muscular (Lee 2000)
+                                </label>
+                                <div className='flex-row flex-end gap-1 w-100'>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MMLeeKG" placeholder='80' value={ MMLeeKG + ' kg' } readOnly />
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MMLeePercent" placeholder='80' value={ MMLeePercent + ' %' } readOnly />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <label className="input-label w-min-10">
+                                    Masa Residual
+                                </label>
+                                <div className='flex-row flex-end gap-1 w-100'>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MRKG" placeholder='80' value={ MRKG + ' kg' } readOnly />
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MRPercent" placeholder='80' value={ MRPercent + ' %' } readOnly />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <label className="input-label w-min-10">
+                                    Masa Ósea
+                                </label>
+                                <div className='flex-row flex-end gap-1 w-100'>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MOKG" placeholder='80' value={ MOKG + ' kg' } readOnly />
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MOPercent" placeholder='80' value={ MOPercent + ' %' } readOnly />
+                                </div>
+                            </div>
+                            <hr></hr>
+                            <div className="form-group gap-1">
+                                <label className="input-label w-min-10">
+                                    Masa Grasa (Faulkner)
+                                </label>
+                                <div className='flex-row flex-end gap-1 w-100'>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MGFaulknerKG" placeholder='80' value={ MGFaulknerKG + ' kg' } readOnly />
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MGFaulknerPercent" placeholder='80' value={ MGFaulknerPercent + ' %' } readOnly />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <label className="input-label w-min-10">
+                                    Masa Muscular (Lee 2000)
+                                </label>
+                                <div className='flex-row flex-end gap-1 w-100'>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MMLeeKG" placeholder='80' value={ MMLeeKG + ' kg' } readOnly />
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MMLeePercent" placeholder='80' value={ MMLeePercent + ' %' } readOnly />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <label className="input-label w-min-10">
+                                    Masa Residual
+                                </label>
+                                <div className='flex-row flex-end gap-1 w-100'>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MRV2KG" placeholder='80' value={ MRV2KG + ' kg' } readOnly />
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MRV2Percent" placeholder='80' value={ MRV2Percent + ' %' } readOnly />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <label className="input-label w-min-10">
+                                    Masa Ósea
+                                </label>
+                                <div className='flex-row flex-end gap-1 w-100'>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MOKG" placeholder='80' value={ MOKG + ' kg' } readOnly />
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="MOPercent" placeholder='80' value={ MOPercent + ' %' } readOnly />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <b>Circunferencia de Cintura</b>
+                            </div>
+
+                            <div className="form-group gap-1">
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Medición (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CCMINSALMedicion" placeholder='80' value={ CircunferenciaCintura } readOnly />
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Clasificación
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" name="CCMINSALRating" value={CCMINSALRating} readOnly />
+                                </div>
+                            </div>
+                            <label className="input-label">
+                                Referencia: MINSAL 2014
+                            </label>
+                        </div>
+
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <b>Índice Cintura-Cadera</b>
+                            </div>
+
+                            <div className="form-group gap-1">
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Circunferencia de cintura (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CinturaMedicion" placeholder='80' value={ CircunferenciaCintura } readOnly/>
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Circunferencia de cadera (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CaderaMedicion" placeholder='95' value={ CircunferenciaCadera } readOnly/>
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Resultado
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" name="ICCResult" value={ICCResult} readOnly />
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Clasificación
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" name="ICCRating" value={ICCRating} readOnly />
+                                </div>
+                            </div>
+                            <label className="input-label">
+                                Referencia: GIROLAMI 2015
+                            </label>
+                        </div>
+                        
+                        <div className='modal-content-row modal-content-row-background'>
+                            <div className='modal-content-row-title'>
+                                <b>Índice Cintura-Altura</b>
+                            </div>
+
+                            <div className="form-group gap-1">
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Circunferencia de cintura (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="CinturaMedicionKoch" placeholder='80' value={ CircunferenciaCintura } readOnly/>
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Estatura (cm)
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" step=".01" name="Talla" placeholder='95' value={Talla} readOnly />
+                                </div>
+                            </div>
+                            <div className="form-group gap-1">
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Resultado
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" name="ICAResult" value={ICAResult} readOnly />
+                                </div>
+                                <div className="form-item w-50 pr-8">
+                                    <label className="input-label">
+                                        Riesgo cardiovascular
+                                    </label>
+                                    <input className="input-text-style h-2 text-align-center" type="text" name="ICARating" value={ICARating} readOnly />
+                                </div>
+                            </div>
+                            <label className="input-label">
+                                Referencia: Koch 2008
+                            </label>
+                        </div>
+                        
+                    </div>
+                </form>
+            </ModalWrapper>
+            
         </>
     );
 };

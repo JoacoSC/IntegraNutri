@@ -7,6 +7,7 @@ import { startUpdatingCurrentPatientTallaDiana } from '../store/currentPatient';
 import './components';
 
 import TallaDianaIcon from '../../assets/imgs/patient/talla_diana_icon.svg'
+import { ModalWrapper } from './components';
 
 export const ModalTallaDiana = ({ patientObject }) => {
 
@@ -40,6 +41,8 @@ export const ModalTallaDiana = ({ patientObject }) => {
             // console.log('No c')
         }
 
+        setOpenModal(false);
+
     }
 
     return (
@@ -62,27 +65,17 @@ export const ModalTallaDiana = ({ patientObject }) => {
                 </svg>
 
             </div> */}
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Calcular Talla Diana"
+                footerButtons={[
+                    { text: "Calcular", onClick: onSubmit, className: "btn-modal-action" }
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-talla-diana-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Calcular Talla Diana
-                </h1>
 
                 <form onSubmit={ onSubmit }>
-                    <div className="weight-stature-container-form" onSubmit={ onSubmit }>
+                    <div className="" onSubmit={ onSubmit }>
 
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
@@ -99,15 +92,9 @@ export const ModalTallaDiana = ({ patientObject }) => {
                             </div>            
                         </div>
                         
-                        <div className="form-btn">
-                            <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) }>
-                                Calcular
-                            </button>
-                        </div>
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

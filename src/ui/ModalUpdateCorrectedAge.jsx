@@ -9,6 +9,7 @@ import './components';
 
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
 import CorrectedAgeIcon from '../../assets/imgs/patient/corrected_age_icon.svg'
+import { ModalWrapper } from './components';
 
 export const ModalUpdateCorrectedAge = ({ patientObject }) => {
 
@@ -264,27 +265,17 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
                     <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M4.948 12.917A5.833 5.833 0 0 1 10 4.167"/>
                 </svg>
             </div> */}
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Actualizar edad corregida"
+                footerButtons={[
+                    { text: "Actualizar", onClick: updatePatientValues, className: "btn-modal-action" },
+                    { text: "Eliminar edad corregida", onClick: deleteCorrectedAge, className: "btn-modal-action-alt" },
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-weight-stature-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Actualizar edad corregida
-                </h1>
-
                 <form onSubmit={ onSubmit }>
-                    <div className="weight-stature-container-form" onSubmit={ onSubmit }>
+                    <div className="" onSubmit={ onSubmit }>
 
                         <div className="form-group">
                             <div className="form-item w-50 pl-8">
@@ -297,20 +288,9 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
                             </div>
                         </div>
                         
-                        <div className="form-btn-group">
-                            <button className="btn-modal-primary" type="submit" onClick={ () => updatePatientValues() }>
-                                Actualizar
-                            </button>
-                            <button className="btn-modal-alt" type="submit" onClick={ () => deleteCorrectedAge() }>
-                                Eliminar edad corregida
-                            </button>
-                        </div>
-                        
-                        
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

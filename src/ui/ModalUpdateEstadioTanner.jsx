@@ -12,6 +12,7 @@ import CorrectedAgeIcon from '../../assets/imgs/patient/corrected_age_icon.svg'
 import Tanner_masculino from '../../assets/imgs/patient/estadios_tanner/estadios_tanner_masculino.jpg'
 import Tanner_femenino from '../../assets/imgs/patient/estadios_tanner/estadios_tanner_femenino.jpg'
 import { Tooltip } from '../common';
+import { ModalWrapper } from './components';
 
 export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
@@ -69,6 +70,13 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     const dispatch = useDispatch();
 
+    let isMasculine = null;
+
+    if( biologicalSex === 'Masculino'){
+        isMasculine = true;
+    }else{
+        isMasculine = false;
+    }
 
     const onSubmit = ( event ) => {
         event.preventDefault();
@@ -337,6 +345,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         }
 
         if( biologicalSex === 'Masculino' ){
+            setDisableMesesMenarquia( true )
             if( estadioTanner === 'I' ){
                 setBiologicalAgeText('< 12 años')
                 setBiologicalAge(null)
@@ -552,25 +561,15 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                     <path stroke="#fff" strokeLinecap="round" strokeWidth="2" d="M4.948 12.917A5.833 5.833 0 0 1 10 4.167"/>
                 </svg>
             </div> */}
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Estadíos de Tanner"
+                footerButtons={[
+                    { text: "Guardar", onClick: updatePatientValues, className: "btn-modal-action" },
+                    { text: "Eliminar edad corregida", onClick: deleteCorrectedAge, className: "btn-modal-action-alt" },
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-estadio-tanner-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Actualizar edad corregida
-                </h1>
-
                 <form onSubmit={ onSubmit }>
                     <div className="modal-perimetro-cefalico-container-form " onSubmit={ onSubmit }>
 
@@ -621,20 +620,25 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                 }
                                 </div>
                             </div>
-                            <div className="form-item w-50 pr-8 align-items-center">
-                                <label className="input-label text-align-center">
-                                    Meses transcurridos desde su menarquia (opcional)
-                                </label>
-                                <div className='flex-direction-row'>
-                                    <input
-                                        className="input-text-style input-text-width h-2"
-                                        type="text"
-                                        name="mesesMenarquia"
-                                        disabled={ disableMesesMenarquia }
-                                        onChange={ onInputChange }/>
-                                    
-                                </div>
-                            </div>            
+                            {
+                                (isMasculine)
+                                ?   null    
+                                :   <div className="form-item w-50 pr-8 align-items-center">
+                                        <label className="input-label text-align-center">
+                                            Meses transcurridos desde su menarquia (opcional)
+                                        </label>
+                                        <div className='flex-direction-row'>
+                                            <input
+                                                className="input-text-style input-text-width h-2"
+                                                type="text"
+                                                name="mesesMenarquia"
+                                                disabled={ disableMesesMenarquia }
+                                                onChange={ onInputChange }/>
+                                            
+                                        </div>
+                                    </div>        
+                            }
+                            
                         </div>
                         <div className="modal-chart-container">
                             {
@@ -677,28 +681,9 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                     :   null
                             }
                         </div>
-                        
-                        <div className="form-btn-group">
-                            <button
-                                className={ btnModalPrimaryClassname }
-                                type="submit"
-                                onClick={ () => updatePatientValues() }
-                                disabled={ disableSubmitBtn }
-                            >
-                                Actualizar
-                            </button>
-                            <button
-                                className="btn-modal-alt"
-                                type="submit"
-                                onClick={ () => deleteCorrectedAge() }
-                            >
-                                Eliminar edad corregida
-                            </button>
-                        </div>
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

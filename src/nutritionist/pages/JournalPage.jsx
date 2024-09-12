@@ -1103,9 +1103,9 @@ export const JournalPage = () => {
             : <>
 
             <div className="main">
-                    {
+                    {/* {
                         (!journalIsSet) ? <ModalWelcome /> : null
-                    }
+                    } */}
                     <div className="logout-section">
                         <button className="btn-logout" type="button" onClick={ onLogout }>
                             Cerrar sesión

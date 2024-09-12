@@ -16,7 +16,7 @@ import { isAddingNewConsultation, startLoadingMyJournal } from "../store/journal
 import { regiones } from "../helpers";
 import { ComunasSelect } from "./ComunasSelect";
 import { ErrorManager } from "./ErrorManager";
-import { PatientForm } from "./components";
+import { ModalWrapper, PatientForm } from "./components";
 
 export const ModalNewConsultation = ({ consultationSlot }) => {
 
@@ -185,25 +185,12 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                     Hora disponible
                 </div>
             </div>
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title={`Agendar consulta: ${ format( fromUnixTime(consultationSlot.startTime), "dd-MM-yyyy HH:mm") }`}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Agendar consulta: { format( fromUnixTime(consultationSlot.startTime), "dd-MM-yyyy HH:mm") }
-                </h1>
-
+                
                 <form onSubmit={ onRutSubmit }>
                     <div className="container-new-consultation">
 
@@ -303,8 +290,7 @@ export const ModalNewConsultation = ({ consultationSlot }) => {
                         </div>
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

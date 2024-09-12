@@ -15,6 +15,7 @@ import { uploadPatientNewConsultationFromSharePage } from '../store/patients';
 import passwordVisible from "../../assets/imgs/auth/show_password.svg"
 import passwordHidden from "../../assets/imgs/auth/hide_password.svg"
 import { startLoginWithEmailPassword } from '../store/auth';
+import { ModalWrapper } from './components';
 
 export const ModalLogin = () => {
 
@@ -110,25 +111,14 @@ export const ModalLogin = () => {
                 </svg>
 
             </div> */}
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Iniciar sesión"
+                footerButtons={[
+                    { text: "Iniciar sesión", onClick: onSubmit, className: "btn-modal-action" }
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-login-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-
-                <h1 className="modal-header">
-                    Iniciar Sesión
-                </h1>
 
                 <form onSubmit={ onSubmit }>
                     <div className="weight-stature-container-form">
@@ -166,7 +156,7 @@ export const ModalLogin = () => {
                             </div>
                             : null
                         }
-                        <div className="form-btn">
+                        {/* <div className="form-btn">
                             <button
                                 className="btn-submit"
                                 type="submit"
@@ -174,7 +164,7 @@ export const ModalLogin = () => {
                             >
                                 Iniciar Sesión
                             </button>
-                        </div>
+                        </div> */}
                         <Link to="/auth/passwordReset" className="link-no-decoration">
                             <div className="form-link">
                                     Olvidé mi contraseña
@@ -182,8 +172,7 @@ export const ModalLogin = () => {
                         </Link>
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

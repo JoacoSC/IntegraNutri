@@ -10,6 +10,7 @@ import { SmallButton } from "../common";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Scatter } from "react-chartjs-2";
 import { parse } from "date-fns";
+import { ModalWrapper } from "./components";
 
 export const ModalAnthropometryResults = ({ commonProps }) => {
     
@@ -261,27 +262,11 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
     return (
         <>
             <SmallButton text="Más detalles" onClick={() => setOpenModal(true)} />
-
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Evaluación antropométrica"
             >
-                <Modal
-                    closeTimeoutMS={500}
-                    isOpen={openModal}
-                    ariaHideApp={false}
-                    className="modal-perimetro-cefalico-container"
-                >
-                    <div className="modal-header">
-                        <p>Evaluación Antropométrica</p>
-                    </div>
-                    <div className="btn-modal-close" onClick={onModalClose}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
-                            <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                        </svg>
-                    </div>
-                    {/* TODO: Actualizar aspecto de los modal. Disminuir tamaño del header, fijar header y footer, acortar scrollbar al contenido del modal sin header ni footer */}
-
                     <div className="modal-perimetro-cefalico-container-form">
                         <div className='modal-content-row modal-content-row-background'>
                             <div className='modal-content-row-title'>
@@ -779,8 +764,7 @@ export const ModalAnthropometryResults = ({ commonProps }) => {
                             
                         </div>
                     </div>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>   
         </>
     );
 }

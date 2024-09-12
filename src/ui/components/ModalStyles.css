@@ -214,15 +214,16 @@
     display: grid;
     grid-template-rows: auto auto;
     position: absolute;
-    width: 70vw;
-    height: 90vh;
+    width: 55vw;
+    height: fit-content;
+    max-height: 90vh;
     top: 50%;
-    left: 55%;
+    left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     background-color: #EFF3FC;
-    border-radius: 20px 8px 8px 20px;
+    border-radius: 20px 20px 20px 20px;
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
     overflow-y: auto;
     transition: all 500ms ease;
@@ -231,8 +232,8 @@
 
 .btn-modal-close{
     position: absolute;
-    right: 0.8rem;
-    top: 0.8rem;
+    right: 1rem;
+    top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -258,18 +259,26 @@
     background: rgba(226, 225, 225, 0.324);
 }
 
-.modal-header{
+.modal-header {
+    position: sticky;
+    top: 0;
     background-color: var(--clr-primary);
+    padding: 1rem;
+    z-index: 1;
+    border-bottom: 1px solid #ccc;
     color: white;
-    display: flex;
-    justify-content: center;
-    padding: 1.2rem 0;
-    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .modal-header p{
     font-size: 18px;
     font-weight: 600;
+}
+
+.modal-content {
+    flex: 1;
+    overflow-y: auto; /* Scrollbar para el contenido */
+    padding: 2rem 1rem;
 }
 
 .btn-modal-submit{
@@ -388,6 +397,84 @@
 .form-btn-group{
     display: flex;
     gap: 2rem;
+}
+
+.modal-footer {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--clr-primary);
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;
+}
+.btn-modal-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    width: fit-content;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: var(--clr-btn-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-modal-action:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-secondary-hover);
+}
+
+.btn-modal-action-alt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    width: fit-content;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: var(--clr-btn-alt);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-modal-action-alt:hover{
+    transform: scale(0.98);
+    background: var(--clr-btn-alt-hover);
+}
+
+.btn-modal-cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    width: fit-content;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.btn-modal-cancel:hover{
+    transform: scale(0.98);
+    background: white;
 }
 
 .ReactModal__Overlay {
@@ -1249,7 +1336,6 @@
     display: flex;
     justify-content: center;
     text-wrap: wrap;
-    padding-top: 1.5rem;
 }
 
 .new-consultation-label{

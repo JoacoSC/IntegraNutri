@@ -9,6 +9,7 @@ import PC_masculino from '../../assets/imgs/patient/perimetro_cintura_masculino_
 import PC_femenino from '../../assets/imgs/patient/perimetro_cintura_femenino_v2.svg'
 import PerimetroCinturaIcon from '../../assets/imgs/patient/perimetro_cintura-for-avatar-icon.svg'
 import './components';
+import { ModalWrapper } from './components';
 
 export const ModalPerimetroCintura = ({ patientObject }) => {
 
@@ -38,7 +39,7 @@ export const ModalPerimetroCintura = ({ patientObject }) => {
         }
 
         dispatch( startUpdatingCurrentPatientPerimetroCintura( uid, patientID, perimetroCintura ) )
-
+        onModalClose()
     }
 
     const onModalClose = () => {
@@ -71,24 +72,14 @@ export const ModalPerimetroCintura = ({ patientObject }) => {
                     Calcular Perímetro de Cintura&nbsp;
                 </p>
             </button>
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Calcular Perímetro de Cintura"
+                footerButtons={[
+                    { text: "Guardar", onClick: onSubmit, className: "btn-modal-action" }
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-perimetro-cefalico-container"
-                >
-                <div className="btn-modal-close" onClick={ () => onModalClose() }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Calcular Perímetro de Cintura
-                </h1>
 
                 <form onSubmit={ onSubmit }>
                     <div className="modal-perimetro-cefalico-container-form" onSubmit={ onSubmit }>
@@ -162,16 +153,9 @@ export const ModalPerimetroCintura = ({ patientObject }) => {
                                     :   null
                             }
                         </div>
-                        
-                        <div className="form-btn">
-                            <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) }>
-                                Guardar
-                            </button>
-                        </div>
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

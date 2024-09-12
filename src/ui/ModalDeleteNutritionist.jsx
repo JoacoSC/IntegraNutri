@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
 import { startDeleteAccount } from '../store/auth';
+import { ModalWrapper } from './components';
 
 export const ModalDeleteNutritionist = () => {
 
@@ -40,24 +41,14 @@ export const ModalDeleteNutritionist = () => {
             <button className="btn-modal-alt" type="button" onClick={() => setOpenModal(true)}>
                 Eliminar
             </button>
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Eliminar cuenta"
+                footerButtons={[
+                    { text: "Eliminar", onClick: deleteAccountSubmit, className: "btn-modal-action-alt" }
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-delete-nutritionist-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Eliminar cuenta
-                </h1>
 
                 <form ref={form}>
                     <div className="modal-delete-nutritionist-container-form">
@@ -84,17 +75,16 @@ export const ModalDeleteNutritionist = () => {
                         }
 
                         <div className="form-btn-group">
-                            <button className="btn-modal-alt" type="submit" onClick={ deleteAccountSubmit } disabled= { disableConfirmBtn }>
+                            {/* <button className="btn-modal-alt" type="submit" onClick={ deleteAccountSubmit } disabled= { disableConfirmBtn }>
                                 Eliminar
                             </button>
                             <button className="btn-modal-primary" onClick={ cancelSubmit }>
                                 Cancelar
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

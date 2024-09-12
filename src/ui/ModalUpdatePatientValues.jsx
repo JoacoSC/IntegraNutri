@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from "react-transition-group";
 import { useForm } from '../hooks';
 import { startUpdatingCurrentPatientIMC ,startUpdatingCurrentPatientStature, startUpdatingCurrentPatientWeight, updateCurrentPatientIMC, updateCurrentPatientStature, updateCurrentPatientWeight } from '../store/currentPatient';
+import { ModalWrapper } from "./components";
 import './components';
 
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
@@ -28,6 +29,7 @@ export const ModalUpdatePatientValues = ({ patientObject }) => {
         event.preventDefault();
         
         updatePatientValues();
+        onCloseModal();
 
     }
 
@@ -77,27 +79,17 @@ export const ModalUpdatePatientValues = ({ patientObject }) => {
                 </svg>
 
             </div> */}
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Actualizar peso/talla"
+                footerButtons={[
+                    { text: "Actualizar", onClick: onSubmit, className: "btn-modal-action" }
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-weight-stature-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Actualizar peso/talla
-                </h1>
 
                 <form onSubmit={ onSubmit }>
-                    <div className="weight-stature-container-form" onSubmit={ onSubmit }>
+                    <div className="" onSubmit={ onSubmit }>
 
                         <div className="form-group">
                             <div className="form-item w-50 pr-8">
@@ -118,16 +110,9 @@ export const ModalUpdatePatientValues = ({ patientObject }) => {
                                 <input className="input-text-style" type="text" name="ageText" defaultValue={ ageText } readOnly/>
                             </div>                
                         </div>
-                        
-                        <div className="form-btn">
-                            <button className="btn-modal-submit" type="submit" onClick={ onCloseModal }>
-                                Actualizar
-                            </button>
-                        </div>
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

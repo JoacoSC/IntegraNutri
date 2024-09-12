@@ -7,6 +7,7 @@ import { useForm } from "../hooks";
 import { isEditingJournal, newJournalIsSet, setNewJournal, startCreatingNewJournal, startEditJournal } from "../store/journal";
 
 import './components';
+import { ModalWrapper } from "./components";
 
 export const ModalEditJournal = () => {
 
@@ -196,6 +197,8 @@ export const ModalEditJournal = () => {
         // console.log('newJournal: ', newJournal)
 
         dispatch( startCreatingNewJournal( journalID, newJournal ) )
+
+        onModalClose();
         
     }
 
@@ -548,26 +551,15 @@ export const ModalEditJournal = () => {
     return (
         <>
             <button className="btn-edit" type="button" onClick={ () => onModalOpen() }></button>
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Editar agenda de consultas"
+                footerButtons={[
+                    { text: "Aplicar", onClick: onSubmit, className: "btn-modal-action" }
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-container"
-                >
-                <div className="btn-modal-close" onClick={ () => onModalClose() }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Editar agenda de consultas
-                </h1>
-
-                <form onSubmit={ onSubmit }>
+                <form>
                     <div className="modal-edit-journal-container-form">
                     <div className="flex-column width-100">
                         <div className="journal-row-container">
@@ -1284,11 +1276,11 @@ export const ModalEditJournal = () => {
                                 </select>
                             </div>       */}
                         </div>
-                        <div className="form-btn">
+                        {/* <div className="form-btn">
                             <button className="btn-modal-submit" type="submit" onClick={ () => setOpenModal(false) }>
                                 Aplicar
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     {/* <div className="container-form" onSubmit={ onSubmit }>
 
@@ -1405,8 +1397,7 @@ export const ModalEditJournal = () => {
                         </div>
                     </div> */}
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

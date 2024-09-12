@@ -13,6 +13,7 @@ import './components';
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
 import { uploadPatientNewConsultationFromSharePage } from '../store/patients';
 import { ModalLogin, ModalPatientRegister } from './';
+import { ModalWrapper } from './components';
 
 export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
 
@@ -43,6 +44,7 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
                 // console.log('Hora agendada!')
                 setUploadNewConsultationSuccess( true )
             }else{
+                console.log('No se puede agendar porque el usuario es un nutricionista, ingrese como paciente por favor')
                 // No se puede agendar porque el usuario es un nutricionista, ingrese como paciente por favor
             }
         }else{
@@ -100,97 +102,73 @@ export const ModalNewConsultationSharePage = ({ consultationSlot }) => {
                 </svg>
 
             </div> */}
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
-            >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-new-consultation-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
+            {
+                ( isLogged === true )
+                ?   <ModalWrapper
+                        isOpen={openModal}
+                        onClose={() => setOpenModal(false)}
+                        title="Agendar consulta"
+                        footerButtons={
+                            (!uploadNewConsultationSuccess)
+                            ?   [{ text: "Aceptar", onClick: registerNextConsultation, className: "btn-modal-action" }]
+                            :   null
+                        }
+                    >
 
-                {
-                    ( isLogged === true )
-                    ?   <>
-                            <h1 className="modal-header">
-                                Agendar consulta
-                            </h1>
+                        <form onSubmit={ onSubmit }>
+                            
+                                {
+                                    ( !uploadNewConsultationSuccess )
+                                    ?   <div className="new-consultation-form">
+                                            <label className="new-consultation-label">
+                                                ¿Está seguro de agendar una consulta para el <b>{ format( fromUnixTime( consultationSlot ), 'dd/MM/yyyy' )}</b> a las <b>{ format( fromUnixTime( consultationSlot ), 'HH:mm' ) + '?' }</b>
+                                            </label>
+                                        </div>
+                                    :   null
+                                }
 
-                            <form onSubmit={ onSubmit }>
-                                <div className="new-consultation-container-form">
+                                {
+                                    ( uploadNewConsultationSuccess )
+                                    ?   <div className="password-change-successful-message">
+                                            Consulta agendada correctamente
+                                        </div>
+                                    :   null
+                                }
+                        </form>
 
-                                    {
-                                        ( !uploadNewConsultationSuccess )
-                                        ?   <div className="new-consultation-form">
+                    </ModalWrapper>
+                :   <ModalWrapper
+                        isOpen={openModal}
+                        onClose={() => setOpenModal(false)}
+                        title="Iniciar sesión"
+                    >
+                        <form onSubmit={ onSubmit }>
+                            <div className="new-consultation-container-form">
+
+                                {
+                                    ( registeredPatientUID === null )
+                                    ?   <>
+                                            <div className="new-consultation-form">
                                                 <label className="new-consultation-label">
-                                                    ¿Está seguro de agendar una consulta para el <b>{ format( fromUnixTime( consultationSlot ), 'dd/MM/yyyy' )}</b> a las <b>{ format( fromUnixTime( consultationSlot ), 'HH:mm' ) + '?' }</b>
+                                                    Por favor inicie sesión o cree una cuenta para agendar una hora. 
                                                 </label>
                                             </div>
-                                        :   null
-                                    }
-
-                                    {
-                                        ( uploadNewConsultationSuccess )
-                                        ?   <div className="password-change-successful-message">
-                                                Consulta agendada correctamente
+                                            
+                                            <div className="new-consultation-btn">
+                                                <ModalLogin />
+                                                <ModalPatientRegister/>
                                             </div>
-                                        :   null
-                                    }
-                                    {
-                                        ( !uploadNewConsultationSuccess )
-                                        ?   <div className="new-consultation-btn">
-                                                <button className="btn-modal-submit" type="submit" onClick={ registerNextConsultation }>
-                                                    Aceptar
-                                                </button>
-                                                <button className="btn-modal-alt" onClick={ onCloseModal }>
-                                                    Cancelar
-                                                </button>
-                                            </div>
-                                        :   null
-                                    }
-                                </div>
-                            </form>
-                        </>
-                    :   <>
-                            <h1 className="modal-header">
-                                Iniciar sesión
-                            </h1>
-
-                            <form onSubmit={ onSubmit }>
-                                <div className="new-consultation-container-form">
-
-                                    {
-                                        ( registeredPatientUID === null )
-                                        ?   <>
-                                                <div className="new-consultation-form">
-                                                    <label className="new-consultation-label">
-                                                        Por favor inicie sesión o cree una cuenta para agendar una hora. 
-                                                    </label>
-                                                </div>
-                                                
-                                                <div className="new-consultation-btn">
-                                                    <ModalLogin />
-                                                    <ModalPatientRegister/>
-                                                </div>
-                                            </>
-                                        :   <div className="password-change-successful-message">
-                                                Cuenta creada correctamente, por favor revise su correo electrónico, active su cuenta y luego inicie sesión para poder agendar una hora.
-                                            </div>
-                                    }
-                                    
-                                </div>
-                            </form>
-                        </>
-                }
-                </Modal>
-            </CSSTransition>
+                                        </>
+                                    :   <div className="password-change-successful-message">
+                                            Cuenta creada correctamente, por favor revise su correo electrónico, active su cuenta y luego inicie sesión para poder agendar una hora.
+                                        </div>
+                                }
+                                
+                            </div>
+                        </form>
+                    </ModalWrapper>
+            }
+            
         </>
     )
 }

@@ -16,7 +16,7 @@ import { useEffect } from "react";
 import { startLoadingMyPatients } from "../store/patients";
 import { regiones } from "../helpers";
 import { ComunasSelect, ErrorManager } from "./";
-import { PatientForm } from "./components";
+import { ModalWrapper, PatientForm } from "./components";
 
 export const ModalPatientRegister = () => {
 
@@ -103,28 +103,14 @@ export const ModalPatientRegister = () => {
             <button className="btn-modal-submit" onClick={ () => setOpenModal(true) }>
                 Crear cuenta
             </button>
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="Crear cuenta"
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-register-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    Crear cuenta
-                </h1>
 
                 <PatientForm patientFormProps={ patientFormProps }/>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }

@@ -9,6 +9,7 @@ import PregnantIMC from '../../assets/imgs/patient/pregnantIMC.png'
 import { useForm } from '../hooks';
 import { format } from 'date-fns';
 import { startUpdatingCurrentPatientIMCPregnant } from '../store/currentPatient';
+import { ModalWrapper } from './components';
 
 export const ModalPregnantIMC = ({ patientObject, imcPregnant, ageText }) => {
 
@@ -42,7 +43,7 @@ export const ModalPregnantIMC = ({ patientObject, imcPregnant, ageText }) => {
 
         dispatch( startUpdatingCurrentPatientIMCPregnant( uid, patientID, newImcPregnant ) )
 
-        setOpenModal(false)
+        setOpenModal(false);
 
     }
 
@@ -59,24 +60,14 @@ export const ModalPregnantIMC = ({ patientObject, imcPregnant, ageText }) => {
                 Ingresar IMC para gestantes
             </button>
 
-            <CSSTransition
-                timeout={300}
-                classNames="overlay"
+            <ModalWrapper
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+                title="IMC según semana gestacional"
+                footerButtons={[
+                    { text: "Guardar", onClick: onSubmit, className: "btn-modal-action" }
+                ]}
             >
-                <Modal
-                closeTimeoutMS={500}
-                isOpen={ openModal }
-                ariaHideApp={false}
-                className="modal-auto-height-container"
-                >
-                <div className="btn-modal-close" onClick={ () => setOpenModal(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
-                    </svg>
-                </div>
-                <h1 className="modal-header">
-                    IMC según semana gestacional
-                </h1>
 
                 <form ref={form}>
                     <div className="modal-auto-height-container-form">
@@ -116,18 +107,9 @@ export const ModalPregnantIMC = ({ patientObject, imcPregnant, ageText }) => {
 
                         <img src={ PregnantIMC } className='modal-chart'/>
 
-                        <div className="form-btn-group">
-                            <button className="btn-modal-alt" onClick={ closeModal }>
-                                Cerrar
-                            </button>
-                            <button className="btn-modal-submit" type="submit" onClick={ onSubmit }>
-                                Guardar
-                            </button>
-                        </div>
                     </div>
                 </form>
-                </Modal>
-            </CSSTransition>
+            </ModalWrapper>
         </>
     )
 }
