@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.13.1] - 2024-09-07
+
+### Modificado
+- **Cambio de diseño de ventanas emergentes**: Se ha implementado una actualización del aspecto visual de las ventanas emergentes. Ahora los botones para generar acciones en las ventanas emergentes son visibles en todo momento.
+
 ## [1.13.0] - 2024-09-07
 
 ### Añadido
