@@ -19,7 +19,8 @@ export const AutoResizeTextarea = ({ value, onChange, disabled, placeholder = ''
         disabled={disabled}
         style={{
             padding: '8px 10px',
-            textAlign: 'justify'
+            textAlign: 'justify',
+            width: '100%'
             }}
         />
     );

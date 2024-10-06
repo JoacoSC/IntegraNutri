@@ -1,0 +1,70 @@
+
+.tabs-list {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    background-color: rgba(102, 51, 153, 0.1);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+  }
+  
+  .tab-trigger {
+    flex: 1;
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #663399;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .tab-trigger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .tab-trigger.active {
+    background-color: #fff;
+    color: #663399;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .tab-trigger:not(:last-child) {
+    margin-right: 2px;
+  }
+  
+  .tabs-content {
+    width: fit-content;
+    max-width: fit-content;
+    min-width: 740px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .tabs-content > div {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 480px) {
+    .tabs-list {
+      flex-direction: column;
+    }
+
+    .tab-trigger {
+      border-radius: 0;
+    }
+
+    .tab-trigger:first-child {
+      border-radius: 8px 8px 0 0;
+    }
+  }
