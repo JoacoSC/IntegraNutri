@@ -64,13 +64,7 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
         )}
       </div>
       <div className="patient-secondary-card-row">
-        {/* Renderización de CardMealTimePortionDistribution */}
-        {portionDistribution && (
-          <CardMealTimePortionDistribution
-            patientID={isNutritionistStatus ? patientID : displayName}
-          />
-        )}
-    
+        
         {/* Renderización de CardExamsRequest */}
         {isNutritionistStatus && patientExams.examRequest && (
           <CardExamsRequest

@@ -1,12 +1,18 @@
 
-import { CardEstadioTanner, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana } from "../../ui";
+import { CardEstadioTanner, CardExamsRequest, CardMealTimePortionDistribution, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana } from "../../ui";
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
 import CardIMC from "../../ui/CardIMC";
+import { CardNutritionalIndications } from "../../ui/CardNutritionalIndications";
 
 export const InfantJuvenileComponent = ({ commonProps }) => {
 
   const {
     patientObject,
+    isNutritionistStatus,
+    patientID,
+    displayName,
+    portionDistribution,
+    patientExams,
     nutritionalRating,
     ageForCalcs,
     imcPregnant,
@@ -64,6 +70,22 @@ export const InfantJuvenileComponent = ({ commonProps }) => {
         {biologicalAgeIsSet && (
           <CardEstadioTanner
             nutritionalRating={nutritionalRating}
+          />
+        )}
+      </div>
+      <div className="patient-secondary-card-row">
+        
+        {/* Renderización de CardExamsRequest */}
+        {isNutritionistStatus && patientExams.examRequest && (
+          <CardExamsRequest
+            patientID={isNutritionistStatus ? patientID : displayName}
+          />
+        )}
+    
+        {/* Renderización de CardNutritionalIndications */}
+        {isNutritionistStatus && patientExams.nutritionalIndications && (
+          <CardNutritionalIndications
+            patientID={isNutritionistStatus ? patientID : displayName}
           />
         )}
       </div>    
