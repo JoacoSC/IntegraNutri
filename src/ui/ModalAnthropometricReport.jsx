@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     header: { fontSize: 16, marginBottom: 10, fontWeight: 'bold', textAlign: 'center' }, // FontSize más pequeño
     subHeader: { fontSize: 14, marginTop: 10, marginBottom: 15, fontWeight: 'bold' },
     text: { marginBottom: 5, fontSize: 10, width: '50%' }, // Asegúrate de que el texto sea más pequeño
+    observations: { marginTop: 40, marginLeft: 'auto', marginRight: 'auto', fontSize: 12, width: '90%', lineHeight: '1.8' },
     table: { display: "table", width: "100%", marginBottom: 10 },
     tableRow: { display: "flex", flexDirection: "row", marginBottom: 5, justifyContent: "space-between" },
     tableCell: { padding: 5, borderBottom: '1px solid black', flexGrow: 1, textAlign: 'center', fontSize: 10, width: '10%' }, // Tamaño de la celda reducido
@@ -43,9 +44,8 @@ const styles = StyleSheet.create({
     somatocarta: { width: '360px', marginLeft: 'auto', marginRight: 'auto' },
     perimetros: { width: '180px', marginLeft: 'auto', marginRight: 'auto' },
     pliegues: { width: '180px', marginLeft: 'auto', marginRight: 'auto' },
-    composicionCorporalKg: { width: '180px', marginLeft: 'auto', marginRight: 'auto' },
-    composicionCorporalPercent: { width: '180px', marginLeft: 'auto', marginRight: 'auto' },
-    pliegues: { width: '180px', marginLeft: 'auto', marginRight: 'auto' },
+    composicionCorporalKg: { width: '180px', marginLeft: 'auto', marginRight: 'auto', marginBottom: 180 },
+    composicionCorporalPercent: { width: '180px', marginLeft: 'auto', marginRight: 'auto', marginBottom: 180 },
     flex: { display: 'flex', flexDirection: 'row', marginTop: 40, marginBottom: 40 },
   });
   
@@ -183,13 +183,13 @@ const styles = StyleSheet.create({
         </View>
         
         <View style={styles.flex}>
-            <Image src={bodyCompositionKgImage} style={styles.pliegues} />
-            <Image src={bodyCompositionPercentImage} style={styles.perimetros} />
+            <Image src={bodyCompositionKgImage} style={styles.composicionCorporalKg} />
+            <Image src={bodyCompositionPercentImage} style={styles.composicionCorporalPercent} />
         </View>
   
         {/* Observaciones del Nutricionista */}
-        <Text style={styles.subHeader}>Observaciones</Text>
-        <Text style={styles.text}>{data.observations}</Text>
+        <Text style={[styles.subHeader, styles.topOffset]}>Observaciones</Text>
+        <Text style={styles.observations}>{data.observations}</Text>
         
       </Page>
     </Document>
@@ -1005,24 +1005,24 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                             </div>
                             <div className='flex-row h-100 mt-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
                                 <div className="canvas-chart">
-                                    <Bar ref={bodyCompositionKgRef} data={bodyCompositionKGData} options={bodyCompositionKGOptions} />
+                                    <Bar data={bodyCompositionKGData} options={bodyCompositionKGOptions} />
                                 </div>
                                 <div className="canvas-chart">
-                                    <Doughnut ref={bodyCompositionPercentRef} data={bodyCompositionPercentData} options={bodyCompositionPercentOptions} />
+                                    <Doughnut data={bodyCompositionPercentData} options={bodyCompositionPercentOptions} />
                                 </div>
                             </div>
                             <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
                                 <div className="canvas-chart">
-                                    <Line ref={perimetrosRef} data={perimetersData} options={perimetersDataOptions} />
+                                    <Line data={perimetersData} options={perimetersDataOptions} />
                                 </div>
                                 <div className="canvas-chart">
-                                    <Line ref={plieguesRef} data={skinFoldsData} options={skinFoldsDataOptions} />
+                                    <Line data={skinFoldsData} options={skinFoldsDataOptions} />
                                 </div>
                             </div>
                             <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
                                 <div className="canvas-anthropometry-container">
                                     <div className="canvas-anthropometry">
-                                        <Scatter ref={somatocartaRef} data={somatocartaData} options={somatocartaOptions} />
+                                        <Scatter data={somatocartaData} options={somatocartaOptions} />
                                     </div>
                                 </div>
                             </div>
@@ -1211,6 +1211,45 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                         </div>
                     </TabTrigger>
                 </Tabs>
+                <div
+                    className='patient-secondary-card-content flex-column gap-2'
+                    style={{ 
+                        visibility: 'hidden', 
+                        position: 'absolute', 
+                        left: '-9999px'
+                    }}>
+                    <div hidden={true}>
+                        <ComparisonComponent 
+                            anthropometryHistory={anthropometryHistory} 
+                            onSelectionChange={handleSelectionChange} 
+                        />
+
+                    </div>
+                    <div className='flex-row h-100 mt-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                        <div className="canvas-chart">
+                            <Bar ref={bodyCompositionKgRef} data={bodyCompositionKGData} options={bodyCompositionKGOptions} />
+                        </div>
+                        <div className="canvas-chart">
+                            <Doughnut ref={bodyCompositionPercentRef} data={bodyCompositionPercentData} options={bodyCompositionPercentOptions} />
+                        </div>
+                    </div>
+                    <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                        <div className="canvas-chart">
+                            <Line ref={perimetrosRef} data={perimetersData} options={perimetersDataOptions} />
+                        </div>
+                        <div className="canvas-chart">
+                            <Line ref={plieguesRef} data={skinFoldsData} options={skinFoldsDataOptions} />
+                        </div>
+                    </div>
+                    <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                        <div className="canvas-anthropometry-container">
+                            <div className="canvas-anthropometry">
+                                <Scatter ref={somatocartaRef} data={somatocartaData} options={somatocartaOptions} />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 
             </ModalWrapper>
         </>
