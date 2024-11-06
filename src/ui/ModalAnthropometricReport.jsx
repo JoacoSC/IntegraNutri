@@ -7,6 +7,7 @@ import { saveAs } from 'file-saver';
 import { PDFDocument, rgb } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import emailjs from "@emailjs/browser";
 
 import HeartIconWhite from '../../assets/imgs/patient/heart_icon_white.svg'
 import { Bar, Doughnut, Line, Scatter } from 'react-chartjs-2';
@@ -344,7 +345,32 @@ const styles = StyleSheet.create({
   
     const pdfBytes = await pdfDoc.save();
     const downloadBlob = new Blob([pdfBytes], { type: 'application/pdf' });
-    saveAs(downloadBlob, 'Informe_Antropometrico.pdf');
+    // saveAs(downloadBlob, 'Informe_Antropometrico.pdf');
+
+    return downloadBlob;  // Retorna el Blob para usarlo en el envío por correo electrónico
+};
+
+const uploadPDF = async (pdfBlob) => {
+    const formData = new FormData();
+    formData.append('pdf', pdfBlob, 'Informe_Antropometrico.pdf');
+
+    try {
+        const response = await fetch('http://localhost:3000/upload', {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error);
+        }
+
+        const data = await response.json();
+        console.log('Enlace de descarga:', data.downloadLink);
+        return data.downloadLink;
+    } catch (error) {
+        console.error('Error al subir el PDF:', error.message);
+    }
 };
 
 export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
@@ -366,7 +392,38 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
     const { email: nutritionistEmail } = useSelector((state) => state.auth);
     const { displayName: nutritionistName, phone: nutritionistPhone, rut: nutritionistRut } = useSelector((state) => state.userInfo);
 
-    const onSubmit = async ( event ) => {
+    // const generatePDFBlob = async () => {
+
+    //     const somatocartaImage = await combineSomatocartaImages();
+    //     const perimetrosImage = await extractPerimetrosImage();
+    //     const plieguesImage = await extractPlieguesImage();
+    //     const bodyCompositionKgImage = await extractBodyCompositionKgImage();
+    //     const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
+
+    //     const data = {
+    //         observations, patientName, email, phone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+    //         nutritionistData: {
+    //             nutritionist: 'Nutricionista',
+    //             name: nutritionistName,
+    //             phone: nutritionistPhone,
+    //             email: nutritionistEmail,
+    //             rut: nutritionistRut.formatted,
+    //         }
+    //     }
+
+    //     const pdfBlob = await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
+
+    //     return pdfBlob;
+        
+    //     const downloadLink = await uploadPDF(pdfBlob);  // Sube el PDF a Google Cloud
+
+    //     console.log('downloadLink: ', downloadLink)
+
+    //     setOpenModal(false);
+
+    // }
+
+    const downloadPDF = async (event) => {
         event.preventDefault();
 
         const somatocartaImage = await combineSomatocartaImages();
@@ -386,11 +443,60 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
             }
         }
 
-        await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
+        const pdfBlob = await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
 
-        setOpenModal(false);
+        saveAs(pdfBlob, 'Informe_Antropometrico.pdf');
 
-    }
+        console.log('PDF descargado');
+    };
+
+    const uploadPDFToDrive = async () => {
+        
+        event.preventDefault();
+
+        const somatocartaImage = await combineSomatocartaImages();
+        const perimetrosImage = await extractPerimetrosImage();
+        const plieguesImage = await extractPlieguesImage();
+        const bodyCompositionKgImage = await extractBodyCompositionKgImage();
+        const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
+
+        const data = {
+            observations, patientName, email, phone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+            nutritionistData: {
+                nutritionist: 'Nutricionista',
+                name: nutritionistName,
+                phone: nutritionistPhone,
+                email: nutritionistEmail,
+                rut: nutritionistRut.formatted,
+            }
+        }
+
+        const pdfBlob = await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
+
+        const downloadLink = await uploadPDF(pdfBlob);  // Sube el PDF a Google Cloud
+
+        const templateParams = {
+            patientName: 'Francesco',
+            nutritionistName,
+            nutritionistPhone,
+            nutritionistEmail,
+            to_email: 'salinascastillojoaquin@gmail.com',
+            to_cc: 'salinas_joaquin96@outlook.com',
+            downloadLink,
+        }
+
+        console.log( templateParams )
+
+        emailjs.send('service_xueiflu', 'template_2frvu2e', templateParams, 'asDnh4x8KafmDnhuW')
+        .then((result) => {
+            console.log(result.text);
+            console.log('Email enviado!');
+        }, (error) => {
+            console.log(error.text);
+        });
+        
+        console.log('downloadLink: ', downloadLink);
+    };
 
     const combineSomatocartaImages = async () => {
 
@@ -988,7 +1094,8 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                 onClose={() => setOpenModal(false)}
                 title="Informe de mediciones antropométricas"
                 footerButtons={[
-                    { text: "Generar PDF", onClick: onSubmit, className: "btn-modal-action" },
+                    { text: "Descargar PDF", onClick: downloadPDF, className: "btn-modal-action" },
+                    { text: "Enviar al email del paciente", onClick: uploadPDFToDrive, className: "btn-modal-action" },
                 ]}
             >
 
