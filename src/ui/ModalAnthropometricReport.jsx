@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         </View>
         <View style={styles.inlineGroup}>
           <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Email: </Text>{data.email}</Text>
-          <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Teléfono: </Text>{data.phone}</Text>
+          <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Teléfono: </Text>{data.patientPhone}</Text>
         </View>
         <View style={styles.inlineGroup}>
           <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Fecha de Nacimiento: </Text>{new Date(data.unixBirthday).toLocaleDateString()}</Text>
@@ -376,6 +376,7 @@ const uploadPDF = async (pdfBlob) => {
 export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
 
     const [openModal, setOpenModal] = useState(false);
+    const [downloadLink, setDownloadLink] = useState(null);
 
     const dispatch = useDispatch();
 
@@ -433,7 +434,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
         const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
 
         const data = {
-            observations, patientName, email, phone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+            observations, patientName, email, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
             nutritionistData: {
                 nutritionist: 'Nutricionista',
                 name: nutritionistName,
@@ -454,26 +455,34 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
         
         event.preventDefault();
 
-        const somatocartaImage = await combineSomatocartaImages();
-        const perimetrosImage = await extractPerimetrosImage();
-        const plieguesImage = await extractPlieguesImage();
-        const bodyCompositionKgImage = await extractBodyCompositionKgImage();
-        const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
+        let generatedLink = undefined;
 
-        const data = {
-            observations, patientName, email, phone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
-            nutritionistData: {
-                nutritionist: 'Nutricionista',
-                name: nutritionistName,
-                phone: nutritionistPhone,
-                email: nutritionistEmail,
-                rut: nutritionistRut.formatted,
+        if (!downloadLink) {
+
+            const somatocartaImage = await combineSomatocartaImages();
+            const perimetrosImage = await extractPerimetrosImage();
+            const plieguesImage = await extractPlieguesImage();
+            const bodyCompositionKgImage = await extractBodyCompositionKgImage();
+            const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
+    
+            const data = {
+                observations, patientName, email, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+                nutritionistData: {
+                    nutritionist: 'Nutricionista',
+                    name: nutritionistName,
+                    phone: nutritionistPhone,
+                    email: nutritionistEmail,
+                    rut: nutritionistRut.formatted,
+                }
             }
+
+            // Genera el PDF
+            const pdfBlob = await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
+            
+            // Sube el PDF y guarda el enlace en el estado
+            generatedLink = await uploadPDF(pdfBlob);
+            setDownloadLink(generatedLink);
         }
-
-        const pdfBlob = await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
-
-        const downloadLink = await uploadPDF(pdfBlob);  // Sube el PDF a Google Cloud
 
         const templateParams = {
             patientName: 'Francesco',
@@ -482,8 +491,8 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
             nutritionistEmail,
             to_email: 'salinascastillojoaquin@gmail.com',
             to_cc: 'salinas_joaquin96@outlook.com',
-            downloadLink,
-        }
+            downloadLink: downloadLink || generatedLink,
+        };
 
         console.log( templateParams )
 
@@ -494,9 +503,45 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
         }, (error) => {
             console.log(error.text);
         });
-        
-        console.log('downloadLink: ', downloadLink);
     };
+
+    const sendPDFViaWhatsApp = async () => {
+
+        let generatedLink = undefined;
+
+        if (!downloadLink) {
+
+            const somatocartaImage = await combineSomatocartaImages();
+            const perimetrosImage = await extractPerimetrosImage();
+            const plieguesImage = await extractPlieguesImage();
+            const bodyCompositionKgImage = await extractBodyCompositionKgImage();
+            const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
+    
+            const data = {
+                observations, patientName, email, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+                nutritionistData: {
+                    nutritionist: 'Nutricionista',
+                    name: nutritionistName,
+                    phone: nutritionistPhone,
+                    email: nutritionistEmail,
+                    rut: nutritionistRut.formatted,
+                }
+            }
+
+            // Genera el PDF
+            const pdfBlob = await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
+            
+            // Sube el PDF y guarda el enlace en el estado
+            generatedLink = await uploadPDF(pdfBlob);
+            setDownloadLink(generatedLink);
+        }
+
+        const message = `Hola! Aquí tienes el enlace de descarga de tu informe antropométrico: ${downloadLink || generatedLink}`;
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/+569${patientPhone}?text=${encodedMessage}`;
+        window.open(whatsappURL, '_blank');
+    };
+    
 
     const combineSomatocartaImages = async () => {
 
@@ -665,7 +710,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
     const {
         patientName,
         email,
-        phone,
+        phone: patientPhone,
         unixBirthday,
         ageText,
         weight,
@@ -1096,6 +1141,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                 footerButtons={[
                     { text: "Descargar PDF", onClick: downloadPDF, className: "btn-modal-action" },
                     { text: "Enviar al email del paciente", onClick: uploadPDFToDrive, className: "btn-modal-action" },
+                    { text: "Enviar al Whatsapp del paciente", onClick: sendPDFViaWhatsApp, className: "btn-modal-action" },
                 ]}
             >
 
@@ -1146,7 +1192,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                             </div>
                             <div className='flex-row'>
                                 <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Email: </strong>{email}</div>
-                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Teléfono: </strong>{phone}</div>
+                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Teléfono: </strong>{patientPhone}</div>
                             </div>
                             <div className='flex-row'>
                                 <div className='flex-row' style={{ gap: '0.5rem' }}><strong>Fecha de Nacimiento: </strong>{format(unixBirthday, 'dd/MM/yyyy')}</div>
