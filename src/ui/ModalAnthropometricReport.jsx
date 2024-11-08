@@ -18,6 +18,7 @@ import { useForm } from '../hooks';
 import Nutri_logo_vertical_lg_png from '../../assets/imgs/Nutri_logo_vertical_lg_png.png';
 import MetropolisMedium from '/assets/fonts/Metropolis/Metropolis-Medium.ttf';
 import SomatocartaImage from '../../assets/imgs/patient/somatocarta.svg'
+import { AlertBoxJSX } from './AlertBoxJSX';
 
 async function fetchAsset(url) {
     const response = await fetch(url);
@@ -366,7 +367,6 @@ const uploadPDF = async (pdfBlob) => {
         }
 
         const data = await response.json();
-        console.log('Enlace de descarga:', data.downloadLink);
         return data.downloadLink;
     } catch (error) {
         console.error('Error al subir el PDF:', error.message);
@@ -377,6 +377,10 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
 
     const [openModal, setOpenModal] = useState(false);
     const [downloadLink, setDownloadLink] = useState(null);
+    const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+    const [confirmationMessage, setConfirmationMessage] = useState(null);
+    const [isSending, setIsSending] = useState(false);
+    const [observations, setObservations] = useState('');
 
     const dispatch = useDispatch();
 
@@ -388,67 +392,84 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
     const bodyCompositionV2Ref = useRef(null);
     const textareaRef = useRef(null);
 
-    const { observations, onInputChange } = useForm();
+    // Función para manejar cambios en el textarea
+    const handleObservationChange = (e) => {
+        setObservations(e.target.value);
+    };
 
     const { email: nutritionistEmail } = useSelector((state) => state.auth);
     const { displayName: nutritionistName, phone: nutritionistPhone, rut: nutritionistRut } = useSelector((state) => state.userInfo);
 
-    // const generatePDFBlob = async () => {
-
-    //     const somatocartaImage = await combineSomatocartaImages();
-    //     const perimetrosImage = await extractPerimetrosImage();
-    //     const plieguesImage = await extractPlieguesImage();
-    //     const bodyCompositionKgImage = await extractBodyCompositionKgImage();
-    //     const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
-
-    //     const data = {
-    //         observations, patientName, email, phone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
-    //         nutritionistData: {
-    //             nutritionist: 'Nutricionista',
-    //             name: nutritionistName,
-    //             phone: nutritionistPhone,
-    //             email: nutritionistEmail,
-    //             rut: nutritionistRut.formatted,
-    //         }
-    //     }
-
-    //     const pdfBlob = await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
-
-    //     return pdfBlob;
-        
-    //     const downloadLink = await uploadPDF(pdfBlob);  // Sube el PDF a Google Cloud
-
-    //     console.log('downloadLink: ', downloadLink)
-
-    //     setOpenModal(false);
-
-    // }
-
     const downloadPDF = async (event) => {
         event.preventDefault();
+        setIsSending(true); // Deshabilita botones
+        try{
+            const somatocartaImage = await combineSomatocartaImages();
+            const perimetrosImage = await extractPerimetrosImage();
+            const plieguesImage = await extractPlieguesImage();
+            const bodyCompositionKgImage = await extractBodyCompositionKgImage();
+            const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
 
-        const somatocartaImage = await combineSomatocartaImages();
-        const perimetrosImage = await extractPerimetrosImage();
-        const plieguesImage = await extractPlieguesImage();
-        const bodyCompositionKgImage = await extractBodyCompositionKgImage();
-        const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
-
-        const data = {
-            observations, patientName, email, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
-            nutritionistData: {
-                nutritionist: 'Nutricionista',
-                name: nutritionistName,
-                phone: nutritionistPhone,
-                email: nutritionistEmail,
-                rut: nutritionistRut.formatted,
+            const data = {
+                observations, patientName, email, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+                nutritionistData: {
+                    nutritionist: 'Nutricionista',
+                    name: nutritionistName,
+                    phone: nutritionistPhone,
+                    email: nutritionistEmail,
+                    rut: nutritionistRut.formatted,
+                }
             }
+
+            const pdfBlob = await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
+
+            saveAs(pdfBlob, 'Informe_Antropometrico.pdf');
+        }catch(error){
+            console.error('Error al enviar el email:', error);
+        }finally{
+            setIsSending(false); // Rehabilita botones
         }
 
-        const pdfBlob = await PDFReportWithWatermark(data, somatocartaImage, perimetrosImage, plieguesImage, bodyCompositionKgImage, bodyCompositionPercentImage);
-
-        saveAs(pdfBlob, 'Informe_Antropometrico.pdf');
+        
 
         console.log('PDF descargado');
+    };
+
+    const handleEmailSend = async () => {
+        setIsSending(true); // Deshabilita botones
+        console.log('clic')
+        try {
+            await uploadPDFToDrive();
+            setConfirmationMessage(
+                <>
+                    <p>¡Informe enviado exitosamente por email!</p>
+                    <p>El paciente recibirá su informe en su bandeja de entrada.</p>
+                </>
+            );
+            setShowConfirmationModal(true);
+        } catch (error) {
+            console.error('Error al enviar el email:', error);
+        } finally {
+            setIsSending(false); // Rehabilita botones
+        }
+    };
+
+    const handleWhatsAppSend = async () => {
+        setIsSending(true); // Deshabilita botones
+        try {
+            await sendPDFViaWhatsApp();
+            setConfirmationMessage(
+                <>
+                    <p>¡Informe enviado exitosamente por WhatsApp!</p>
+                    <p>El paciente puede acceder a su informe desde el enlace enviado.</p>
+                </>
+            );
+            setShowConfirmationModal(true);
+        } catch (error) {
+            console.error('Error al enviar por WhatsApp:', error);
+        } finally {
+            setIsSending(false); // Rehabilita botones
+        }
     };
 
     const uploadPDFToDrive = async () => {
@@ -493,8 +514,6 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
             to_cc: 'salinas_joaquin96@outlook.com',
             downloadLink: downloadLink || generatedLink,
         };
-
-        console.log( templateParams )
 
         emailjs.send('service_xueiflu', 'template_2frvu2e', templateParams, 'asDnh4x8KafmDnhuW')
         .then((result) => {
@@ -1124,7 +1143,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
 
     return (
         <>
-            
+
             <button onClick={() => setOpenModal(true)} className='dropdown-item-btn'>
                 <label className='dropdown-item-img'>
                     <img src={HeartIconWhite} />
@@ -1139,11 +1158,21 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                 onClose={() => setOpenModal(false)}
                 title="Informe de mediciones antropométricas"
                 footerButtons={[
-                    { text: "Descargar PDF", onClick: downloadPDF, className: "btn-modal-action" },
-                    { text: "Enviar al email del paciente", onClick: uploadPDFToDrive, className: "btn-modal-action" },
-                    { text: "Enviar al Whatsapp del paciente", onClick: sendPDFViaWhatsApp, className: "btn-modal-action" },
+                    { text: "Descargar PDF", onClick: downloadPDF, className: "btn-modal-action", disabled: isSending },
+                    { text: "Enviar al email del paciente", onClick: handleEmailSend, className: "btn-modal-action", disabled: isSending },
+                    { text: "Enviar al Whatsapp del paciente", onClick: handleWhatsAppSend, className: "btn-modal-action", disabled: isSending },
                 ]}
             >
+                {showConfirmationModal && (
+                    <div style={{margin: '0 20px 30px'}}>
+                    <AlertBoxJSX 
+                        message={confirmationMessage} 
+                        alertClassname="success" 
+                        setShowConfirmationModal={setShowConfirmationModal} 
+                    />  
+                        
+                    </div>
+                )}
 
                 {/* Componente Tabs */}
                 <Tabs>
@@ -1350,7 +1379,8 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                                     className='standard-font' 
                                     name='observations'
                                     ref={textareaRef}
-                                    onChange={onInputChange}
+                                    value={observations}
+                                    onChange={handleObservationChange}
                                     placeholder='Observaciones:' 
                                     style={{
                                         width: '100%',

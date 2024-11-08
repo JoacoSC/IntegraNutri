@@ -2,6 +2,7 @@ import Modal from 'react-modal';
 import { CSSTransition } from "react-transition-group";
 import { SmallButton } from '../../common';
 import { ModalActionButton } from './ModalActionButton';
+import { LoadingButton } from './';
 
 export const ModalWrapper = ({ isOpen, onClose, title, children, footerButtons }) => {
     return (
@@ -38,20 +39,14 @@ export const ModalWrapper = ({ isOpen, onClose, title, children, footerButtons }
                 {/* Espacio opcional en el pie del modal */}
                 {footerButtons && (
                     <div className="modal-footer">
-                        
-
-                        
-                        <ModalActionButton 
-                            className="btn-modal-cancel"
-                            text="Cancelar"
-                            onClick={onClose}
-                        />
+                        <ModalActionButton className="btn-modal-cancel" text="Cancelar" onClick={onClose} />
                         {footerButtons.map((button, index) => (
-                            <ModalActionButton
+                            <LoadingButton
                                 key={index}
                                 className={button.className}
                                 text={button.text}
                                 onClick={button.onClick}
+                                disabled={button.disabled} // Mostrará la animación si `disabled` es `true`
                             />
                         ))}
                     </div>

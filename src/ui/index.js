@@ -1,4 +1,5 @@
 
+export * from './AlertBoxJSX';
 export * from './CardAnthropometry';
 export * from './CardBodyComposition';
 export * from './CardEstadioTanner';

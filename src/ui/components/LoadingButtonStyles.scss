@@ -1,0 +1,65 @@
+$clr-light: #c8a2fa;
+$clr-med: #8c46e8;
+$clr-dark: #6d22d0;
+$clr-gray100: #f0f7f8;
+$clr-gray200: #cfd8dc;
+$clr-gray300: #a7b7be;
+$clr-gray400: #6b7e86;
+$clr-gray500: #425a65;
+$clr-gray600: #263238;
+
+/*   border radius */
+$radius: 0.2rem;
+
+$animation: cubic-bezier(0.45, 0, 0.55, 1);
+
+.loading-button-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loading__dot {
+    height: 7px;
+    width: 7px;
+    margin: 0 2px;
+    border-radius: 50%;
+    animation: loading 1s $animation infinite;
+  }
+}
+
+
+@keyframes loading {
+  0%,
+  100% {
+    transform: translatey(-0.1rem);
+    background-color: $clr-light;
+  }
+  50% {
+    transform: translatey(0.1rem);
+    background-color: $clr-light;
+  }
+}
+
+@for $i from 1 through 3 {
+  .loading div:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.1}s;
+  }
+}
+
+@keyframes loading-button-animation {
+  0%,
+  100% {
+    transform: translatey(-0.1rem);
+    background-color: $clr-light;
+  }
+  50% {
+    transform: translatey(0.1rem);
+    background-color: $clr-light;
+  }
+}
+
+@for $i from 1 through 3 {
+  .loading-button-animation div:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.1}s;
+  }
+}

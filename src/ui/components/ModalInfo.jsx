@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import CloseIcon from '../../../assets/imgs/journal/close-icon.svg';
 import { CSSTransition } from "react-transition-group";
 
-export const ModalInfo = () => {
+export const ModalInfo = ({ message }) => {
 
     const customStyles = {
         overlay: {
@@ -44,9 +44,10 @@ export const ModalInfo = () => {
                 >
                 <div className="modal-info">
                     <span style={{ textAlign: 'center' }}>
-                        <p>¡Bienvenido a nuestra aplicación!</p>
-                        <p>¿Quieres probar todas nuestras funciones premium? ¡Regístrate ahora y obtén <strong>7 días de prueba gratis</strong>! 🎉</p>
-                        <p>¡Esperamos que disfrutes de la experiencia! 😊</p>
+                        {/* Renderiza el mensaje en base a si es un array o JSX */}
+                        {Array.isArray(message)
+                            ? message.map((paragraph, index) => <p key={index}>{paragraph}</p>)
+                            : message}
                     </span>
                     <button onClick={() => setIsOpen(false)}>
                         <img src={CloseIcon} className="close-icon" alt="Close icon" />

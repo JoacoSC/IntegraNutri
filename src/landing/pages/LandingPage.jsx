@@ -110,7 +110,13 @@ export const LandingPage = () => {
                 <ModalSubscription/>
             }
             {
-                <ModalInfo/>
+                <ModalInfo message={
+                    <>
+                        <p>¡Bienvenido a nuestra aplicación!</p>
+                        <p>¿Quieres probar todas nuestras funciones premium? ¡Regístrate ahora y obtén <strong>7 días de prueba gratis</strong>! 🎉</p>
+                        <p>¡Esperamos que disfrutes de la experiencia! 😊</p>
+                    </>
+                } />
             }
             <button className='btn-scroll-to-top' style={{display: visible ? 'inline' : 'none'}} onClick={() => handleScrollTo(topRef)}>
                 <img src={ Landing_images.Up_icon } alt="Icono IntegraNutri"/>
