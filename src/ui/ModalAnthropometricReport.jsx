@@ -356,7 +356,7 @@ const uploadPDF = async (pdfBlob) => {
     formData.append('pdf', pdfBlob, 'Informe_Antropometrico.pdf');
 
     try {
-        const response = await fetch('http://localhost:3000/upload', {
+        const response = await fetch('http://testintegranutri.netlify.app/upload', {
             method: 'POST',
             body: formData,
         });
