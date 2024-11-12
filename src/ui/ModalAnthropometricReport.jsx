@@ -9,7 +9,7 @@ import fontkit from '@pdf-lib/fontkit';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import emailjs from "@emailjs/browser";
 
-import HeartIconWhite from '../../assets/imgs/patient/heart_icon_white.svg'
+import AnthropometricReport from '../../assets/imgs/patient/anthropometric_report.svg'
 import { Bar, Doughnut, Line, Scatter } from 'react-chartjs-2';
 import { format } from 'date-fns';
 import { AutoResizeTextarea } from '../common';
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
           <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Nombre: </Text>{data.patientName}</Text>
         </View>
         <View style={styles.inlineGroup}>
-          <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Email: </Text>{data.email}</Text>
+          <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Email: </Text>{data.patientEmail}</Text>
           <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Teléfono: </Text>{data.patientPhone}</Text>
         </View>
         <View style={styles.inlineGroup}>
@@ -356,7 +356,7 @@ const uploadPDF = async (pdfBlob) => {
     formData.append('pdf', pdfBlob, 'Informe_Antropometrico.pdf');
 
     try {
-        const response = await fetch('http://testintegranutri.netlify.app/upload', {
+        const response = await fetch('https://integranutri-drive-upload.onrender.com/upload', {
             method: 'POST',
             body: formData,
         });
@@ -411,7 +411,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
             const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
 
             const data = {
-                observations, patientName, email, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+                observations, patientName, patientEmail, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
                 nutritionistData: {
                     nutritionist: 'Nutricionista',
                     name: nutritionistName,
@@ -487,7 +487,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
             const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
     
             const data = {
-                observations, patientName, email, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+                observations, patientName, patientEmail, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
                 nutritionistData: {
                     nutritionist: 'Nutricionista',
                     name: nutritionistName,
@@ -506,12 +506,12 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
         }
 
         const templateParams = {
-            patientName: 'Francesco',
+            patientName,
             nutritionistName,
             nutritionistPhone,
             nutritionistEmail,
-            to_email: 'salinascastillojoaquin@gmail.com',
-            to_cc: 'salinas_joaquin96@outlook.com',
+            to_email: patientEmail,
+            to_cc: nutritionistEmail,
             downloadLink: downloadLink || generatedLink,
         };
 
@@ -537,7 +537,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
             const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
     
             const data = {
-                observations, patientName, email, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+                observations, patientName, patientEmail, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
                 nutritionistData: {
                     nutritionist: 'Nutricionista',
                     name: nutritionistName,
@@ -728,7 +728,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
 
     const {
         patientName,
-        email,
+        email: patientEmail,
         phone: patientPhone,
         unixBirthday,
         ageText,
@@ -1146,7 +1146,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
 
             <button onClick={() => setOpenModal(true)} className='dropdown-item-btn'>
                 <label className='dropdown-item-img'>
-                    <img src={HeartIconWhite} />
+                    <img style={{ padding: '0.1rem' }} src={AnthropometricReport} />
                 </label>
                 <p>
                     Generar informe&nbsp;
@@ -1220,7 +1220,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                                 <div className='flex-row' style={{ gap: '0.5rem' }}><strong>Nombre: </strong>{patientName}</div>
                             </div>
                             <div className='flex-row'>
-                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Email: </strong>{email}</div>
+                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Email: </strong>{patientEmail}</div>
                                 <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Teléfono: </strong>{patientPhone}</div>
                             </div>
                             <div className='flex-row'>

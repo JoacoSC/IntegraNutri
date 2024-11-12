@@ -9,7 +9,7 @@ import './components';
 import { Chart as ChartJS } from "chart.js/auto";
 import { Scatter } from "react-chartjs-2";
 
-import HeartIconWhite from '../../assets/imgs/patient/heart_icon_white.svg'
+import Anthropometry from '../../assets/imgs/patient/anthropometry.svg'
 import { startUpdatingCurrentPatientAnthropometry } from '../store/currentPatient';
 import { ModalWrapper } from './components';
 // import { startUpdatingCurrentPatientPresionArterial } from '../store/currentPatient'; // Uncomment if necessary
@@ -721,7 +721,7 @@ export const ModalAnthropometry = ({ patientObject, commonProps }) => {
         <>
             <button onClick={() => setOpenModal(true)} className='dropdown-item-btn'>
                 <label className='dropdown-item-img'>
-                    <img src={HeartIconWhite} />
+                    <img style={{ padding: '0.1rem' }} src={Anthropometry} />
                 </label>
                 <p>
                     Evaluación Antropométrica&nbsp;
