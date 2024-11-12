@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.14.0] - 2024-10-29
+
+### Añadido
+- **Generación de informes antropométricos en PDF**: Ahora se generan informes en formato PDF, facilitando el almacenamiento y la revisión de las evaluaciones.
+- **Envío de informes por correo y WhatsApp**: Es posible enviar los informes antropométricos directamente al correo electrónico o al WhatsApp del paciente, permitiendo acceso rápido desde dispositivos móviles.
+
+### Mejorado
+- **Optimización de generación de informes**: Se ha mejorado el proceso de generación de informes en PDF, haciéndolo más eficiente y reduciendo el tiempo de espera.
+
+### Corregido
+- **Corrección en la visualización de gráficos comparativos**: Se ha resuelto un problema que causaba que los gráficos de comparación de evaluaciones mostraran datos incorrectos en algunas resoluciones de pantalla.
+
 ## [1.13.1] - 2024-09-12
 
 ### Modificado
