@@ -299,7 +299,7 @@ export const startUpdatingCurrentPatientAnthropometry = (uid, patientID, anthrop
             anthropometry: anthropometry,
         };
 
-        console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
+        // console.log('newPatientInfoToFirestore: ', newPatientInfoToFirestore)
 
         const docRef = doc(FirebaseDB, `users/${ uid }/patients/${ patientID }`);
         await setDoc(docRef, newPatientInfoToFirestore, { merge: true });

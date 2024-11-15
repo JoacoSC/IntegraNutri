@@ -11,7 +11,7 @@ import emailjs from "@emailjs/browser";
 
 import AnthropometricReport from '../../assets/imgs/patient/anthropometric_report.svg'
 import { Bar, Doughnut, Line, Scatter } from 'react-chartjs-2';
-import { format } from 'date-fns';
+import { format, fromUnixTime } from 'date-fns';
 import { AutoResizeTextarea } from '../common';
 import { useForm } from '../hooks';
 
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
           <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Teléfono: </Text>{data.patientPhone}</Text>
         </View>
         <View style={styles.inlineGroup}>
-          <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Fecha de Nacimiento: </Text>{new Date(data.unixBirthday).toLocaleDateString()}</Text>
+          <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Fecha de Nacimiento: </Text>{data.birthday}</Text>
         </View>
         <View style={styles.inlineGroup}>
           <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Edad: </Text>{data.ageText}</Text>
@@ -409,9 +409,10 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
             const plieguesImage = await extractPlieguesImage();
             const bodyCompositionKgImage = await extractBodyCompositionKgImage();
             const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
+            const birthday = format(fromUnixTime(unixBirthday), "dd/MMM/yyyy");
 
             const data = {
-                observations, patientName, patientEmail, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+                observations, patientName, patientEmail, patientPhone, birthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
                 nutritionistData: {
                     nutritionist: 'Nutricionista',
                     name: nutritionistName,
@@ -432,12 +433,12 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
 
         
 
-        console.log('PDF descargado');
+        // console.log('PDF descargado');
     };
 
     const handleEmailSend = async () => {
         setIsSending(true); // Deshabilita botones
-        console.log('clic')
+        // console.log('clic')
         try {
             await uploadPDFToDrive();
             setConfirmationMessage(
@@ -485,9 +486,10 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
             const plieguesImage = await extractPlieguesImage();
             const bodyCompositionKgImage = await extractBodyCompositionKgImage();
             const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
+            const birthday = format(fromUnixTime(unixBirthday), "dd/MMM/yyyy");
     
             const data = {
-                observations, patientName, patientEmail, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+                observations, patientName, patientEmail, patientPhone, birthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
                 nutritionistData: {
                     nutritionist: 'Nutricionista',
                     name: nutritionistName,
@@ -517,8 +519,8 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
 
         emailjs.send('service_xueiflu', 'template_2frvu2e', templateParams, 'asDnh4x8KafmDnhuW')
         .then((result) => {
-            console.log(result.text);
-            console.log('Email enviado!');
+            // console.log(result.text);
+            // console.log('Email enviado!');
         }, (error) => {
             console.log(error.text);
         });
@@ -535,9 +537,10 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
             const plieguesImage = await extractPlieguesImage();
             const bodyCompositionKgImage = await extractBodyCompositionKgImage();
             const bodyCompositionPercentImage = await extractBodyCompositionPercentImage();
+            const birthday = format(fromUnixTime(unixBirthday), "dd/MMM/yyyy");
     
             const data = {
-                observations, patientName, patientEmail, patientPhone, unixBirthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
+                observations, patientName, patientEmail, patientPhone, birthday, ageText, weightLastEntry, statureLastEntry, imcLastEntry, biologicalSex, Endomorfia, Mesomorfia, Ectomorfia, MGCarterKG, MGFaulknerKG, MMLeeKG, MRKG, MRV2KG, MOKG, MGCarterPercent, MGFaulknerPercent, MMLeePercent, MRPercent, MRV2Percent, MOPercent, InputPliegueTricipital, InputPliegueSubescapular, InputPliegueCrestailiaca, InputPliegueBicipital, InputPliegueSupraespinal, InputPliegueAbdominal, InputPliegueMuslo, InputPlieguePierna, InputPerimetroBrazoRelajado, InputPerimetroBrazoContraido, InputPerimetroPierna, InputPerimetroMuslo, InputPerimetroCintura, InputPerimetroCadera, InputDiametroFemur, InputDiametroMuneca, InputDiametroHumero, SomatocartaX, SomatocartaY, Peso, Talla,
                 nutritionistData: {
                     nutritionist: 'Nutricionista',
                     name: nutritionistName,
@@ -1224,7 +1227,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                                 <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Teléfono: </strong>{patientPhone}</div>
                             </div>
                             <div className='flex-row'>
-                                <div className='flex-row' style={{ gap: '0.5rem' }}><strong>Fecha de Nacimiento: </strong>{format(unixBirthday, 'dd/MM/yyyy')}</div>
+                                <div className='flex-row' style={{ gap: '0.5rem' }}><strong>Fecha de Nacimiento: </strong>{format(fromUnixTime(unixBirthday), "dd/MMM/yyyy")}</div>
                             </div>
                             <div style={{borderTop: 'solid 2px #ECEDED'}}></div>
                             <div className='flex-row'>

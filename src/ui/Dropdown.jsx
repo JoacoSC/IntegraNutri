@@ -14,7 +14,7 @@ export const Dropdown = ({ patientObject, commonProps }) => {
     const dropdownMenu = useRef();
 
     const { membership } = useSelector(state => state.subscription);
-    const { age, biologicalSex } = useSelector( state => state.currentPatient )
+    const { age, biologicalSex, anthropometry } = useSelector( state => state.currentPatient )
     const { ageForCalcs } = patientObject;
 
     const buttonTest = () => {
@@ -116,17 +116,14 @@ export const Dropdown = ({ patientObject, commonProps }) => {
                                             </div>
                                         :   null
                                     }
-                                    {
-                                        ( ageForCalcs.y > 19 || (ageForCalcs.y === 19 && ageForCalcs.m > 1)
-                                    )
-                                        ?   <div className='dropdown-item-container'>
-                                                <ModalAnthropometricReport
-                                                    patientObject={ patientObject }
-                                                    commonProps={ commonProps }
-                                                />
-                                            </div>
-                                        :   null
-                                    }
+                                    { (ageForCalcs.y > 19 || (ageForCalcs.y === 19 && ageForCalcs.m > 1)) && anthropometry.length > 0 && (
+                                        <div className='dropdown-item-container'>
+                                            <ModalAnthropometricReport
+                                                patientObject={patientObject}
+                                                commonProps={commonProps}
+                                            />
+                                        </div>
+                                    )}
                                     {/* <div className='dropdown-item-container'>
                                         <button onClick={ buttonTest } className='dropdown-item-btn'>
                                             Soy un item

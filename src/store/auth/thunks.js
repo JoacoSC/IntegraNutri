@@ -179,7 +179,7 @@ export const startSubscriptionTrial = ( uid ) => {
                     
                 }
 
-            console.log('uid: ', uid)
+            // console.log('uid: ', uid)
 
             const newDoc = doc(collection(FirebaseDB, `users/${ uid }/subscription`), subscriptionIndex);
 
@@ -255,7 +255,7 @@ export const startCreatingPatient = ({ displayName, rut, unixBirthday, email, pa
 
         }
 
-        console.log( templateParams )
+        // console.log( templateParams )
 
         emailjs.send('service_xueiflu', 'template_lf0jvcb', templateParams, 'asDnh4x8KafmDnhuW')
         .then((result) => {
