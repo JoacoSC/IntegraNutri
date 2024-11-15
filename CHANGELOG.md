@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.14.0] - 2024-10-29
+## [1.14.0] - 2024-11-15
 
 ### Añadido
 - **Generación de informes antropométricos en PDF**: Ahora se generan informes en formato PDF, facilitando el almacenamiento y la revisión de las evaluaciones.
