@@ -1,3 +1,6 @@
+.dark-tabs{
+
+}
 
 .tabs-list {
     width: 100%;
@@ -49,6 +52,30 @@
   .tabs-content > div {
     animation: fadeIn 0.3s ease-in-out;
   }
+
+  .dark-tabs .tabs-list {
+    background-color: rgba(102, 51, 153, 0.2); /* Más oscuro que el original */
+  }
+  
+  .dark-tabs .tab-trigger {
+    background-color: white; /* Fondo oscuro */
+    color: #663399; /* Texto claro */
+  }
+  
+  .dark-tabs .tab-trigger:hover {
+    background-color: #f0f0f0; /* Hover oscuro */
+  }
+  
+  .dark-tabs .tab-trigger.active {
+    background-color: #452372; /* Fondo activo con el color principal */
+    color: white; /* Texto claro */
+  }
+  
+  .dark-tabs .tabs-content {
+    background-color: #452372; /* Fondo oscuro pero suave */
+    padding: 0;
+  }
+  
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
