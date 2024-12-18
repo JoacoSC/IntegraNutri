@@ -49,4 +49,6 @@ export * from './Navbar';
 export * from './NutritionalIndications';
 export * from './ShowExamsHistoryManager';
 export * from './ShowExamsManager';
-export * from './PediatricCalculator';
+export * from './PediatricEnergyRequirementsCalculator';
+export * from './CustomEnergyRequirementsCalculator';
+export * from './CardEnergyRequirements';

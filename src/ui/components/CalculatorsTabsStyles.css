@@ -2,17 +2,16 @@
 
 }
 
-.tabs-list {
+.calculator-tabs-list {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
     display: flex;
-    background-color: rgba(102, 51, 153, 0.1);
     border-radius: 8px 8px 0 0;
     overflow: hidden;
   }
   
-  .tab-trigger {
+  .calculator-tab-trigger {
     flex: 1;
     padding: 10px 15px;
     background: none;
@@ -26,55 +25,49 @@
     font-size: 0.9rem;
     font-weight: 600;
   }
-  .tab-trigger:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  .tab-trigger.active {
-    background-color: #fff;
-    color: #663399;
+
+  .calculator-tab-trigger.active {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* filter: brightness(1.08); */
   }
-  .tab-trigger:not(:last-child) {
+  .calculator-tab-trigger:not(:last-child) {
     margin-right: 2px;
   }
   
-  .tabs-content {
+  .calculator-tabs-content {
     width: fit-content;
     max-width: fit-content;
     min-width: 740px;
     margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .tabs-content > div {
+  .calculator-tabs-content > div {
     animation: fadeIn 0.3s ease-in-out;
   }
 
-  .dark-tabs .tabs-list {
-    background-color: rgba(102, 51, 153, 0.2); /* Más oscuro que el original */
+  .normal-tab{
+    background-color: #40206a;
+    color: white;
   }
   
-  .dark-tabs .tab-trigger {
-    background-color: #5a338d; /* Fondo oscuro */
-    color: white; /* Texto claro */
+  .normal-tab:hover{
+    background-color: #452372;
   }
-  
-  .dark-tabs .tab-trigger:hover {
-    background-color: #452372; /* Hover oscuro */
+
+  .custom-pediatric-tab {
+    background-color: #09d170;
+    color: white;
   }
-  
-  .dark-tabs .tab-trigger.active {
-    background-color: #452372; /* Fondo activo con el color principal */
-    color: white; /* Texto claro */
-  }
-  
-  .dark-tabs .tabs-content {
-    background-color: #452372; /* Fondo oscuro pero suave */
-    padding: 0;
-  }
+
+.custom-pediatric-tab:hover {
+    background-color: #05cb6b; /* Un poco más oscuro que #cce7ff */
+}
+
+  .custom-pediatric-content {
+    background-color: #cff6d4;
+  }  
   
 
   @keyframes fadeIn {

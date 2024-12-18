@@ -4,9 +4,10 @@ import { startLogout } from "../../store/auth";
 
 
 import { AppLayout } from "../../layout/AppLayout"
-import { FoodCalculatorTable, Footer, MealTimePortionDistribution, PediatricCalculator } from "../../ui";
+import { FoodCalculatorTable, Footer, MealTimePortionDistribution } from "../../ui";
 import { useState } from "react";
-import { Tabs, TabTrigger } from "../../ui/components";
+import { CalculatorsTabs, CalculatorsTabTrigger } from "../../ui/components";
+import { PediatricEnergyRequirementsCalculator, CustomEnergyRequirementsCalculator } from "../../ui";
   
 export const CalculatorPage = () => {
 
@@ -34,17 +35,40 @@ export const CalculatorPage = () => {
               <h1>Nut. {displayName}</h1>
             </div>
             <div className="tabs-section" style={{marginTop: '50px'}}>
-              <Tabs customClass={tabClass}>
-                <TabTrigger value="foodCalc" label="Calculadora de Alimentos">
+              <CalculatorsTabs>
+                <CalculatorsTabTrigger
+                  value="foodCalc"
+                  label="Calculadora de Alimentos"
+                  customTabClass="normal-tab"
+                  customContentClass="normal-tab-content"
+                >
                   <FoodCalculatorTable />
-                </TabTrigger>
-                <TabTrigger value="portionDist" label="Distribución de Porciones">
+                </CalculatorsTabTrigger>
+                <CalculatorsTabTrigger
+                  value="portionDist"
+                  label="Distribución de Porciones"
+                  customTabClass="normal-tab"
+                  customContentClass="normal-tab-content"
+                >
                   <MealTimePortionDistribution />
-                </TabTrigger>
-                <TabTrigger value="pediatricCalc" label="Requerimientos Energéticos - Infantil">
-                  <PediatricCalculator />
-                </TabTrigger>
-              </Tabs>
+                </CalculatorsTabTrigger>
+                <CalculatorsTabTrigger
+                  value="pediatricCalc"
+                  label="Requerimientos Energéticos - Infantil"
+                  customTabClass="custom-pediatric-tab"
+                  customContentClass="custom-pediatric-content"
+                >
+                  <PediatricEnergyRequirementsCalculator />
+                </CalculatorsTabTrigger>
+                <CalculatorsTabTrigger
+                  value="customCalc"
+                  label="Requerimientos Energéticos - Personalizado"
+                  customTabClass="custom-pediatric-tab"
+                  customContentClass="custom-pediatric-content"
+                >
+                  <CustomEnergyRequirementsCalculator />
+                </CalculatorsTabTrigger>
+              </CalculatorsTabs>
             </div>
           </div>
           <Footer />

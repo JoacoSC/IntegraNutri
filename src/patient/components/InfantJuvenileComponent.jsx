@@ -1,5 +1,5 @@
 
-import { CardEstadioTanner, CardExamsRequest, CardMealTimePortionDistribution, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana } from "../../ui";
+import { CardEnergyRequirements, CardEstadioTanner, CardExamsRequest, CardMealTimePortionDistribution, CardPerimetroCefalico, CardPerimetroCintura, CardTallaDiana } from "../../ui";
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
 import CardIMC from "../../ui/CardIMC";
 import { CardNutritionalIndications } from "../../ui/CardNutritionalIndications";
@@ -23,6 +23,7 @@ export const InfantJuvenileComponent = ({ commonProps }) => {
     tallaDiana,
     perimetroCefalico,
     perimetroCintura,
+    energyRequirements
   } = commonProps
 
   return (
@@ -70,6 +71,12 @@ export const InfantJuvenileComponent = ({ commonProps }) => {
         {biologicalAgeIsSet && (
           <CardEstadioTanner
             nutritionalRating={nutritionalRating}
+          />
+        )}
+        {/* Renderización de CardEnergyRequirements */}
+        {energyRequirements && (
+          <CardEnergyRequirements
+            energyRequirements={energyRequirements}
           />
         )}
       </div>

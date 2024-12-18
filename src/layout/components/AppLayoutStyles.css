@@ -215,6 +215,36 @@ body{
     background: var(--clr-btn-secondary-active);
 }
 
+.btn-sm-green{
+    appearance: none;
+    position: relative;
+    min-height: 29px;
+    height: fit-content;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: #00a555;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+    transition: all 150ms ease;
+    white-space: nowrap;
+}
+
+
+.btn-sm-green:hover{
+    transform: scale(0.98);
+    background: #00b25c;
+}
+
+.btn-sm-green:active{
+    transform: scale(0.96);
+    background: #00ae5a;
+}
+
 .btn-sm-alt{
     appearance: none;
     position: relative;
@@ -3824,18 +3854,36 @@ body{
     margin: 0;
 }
 
-tr:hover {
+.calculator-table tr:hover {
     background-color: #efe1ff;
     font-weight: 500;
 }
 
-th, td {
+.calculator-table th, td {
     border: 1px solid black;
     padding: 8px;
     text-align: center;
 }
 
-th {
+.calculator-table th {
+    /* background-color: #f2f2f2; */
+    /* background-color: white; */
+    background-color: #5a338d;
+    color: white;
+}
+
+.table tr:hover {
+    background-color: #efe1ff;
+    font-weight: 500;
+}
+
+.table th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.table th {
     /* background-color: #f2f2f2; */
     /* background-color: white; */
     background-color: #5a338d;

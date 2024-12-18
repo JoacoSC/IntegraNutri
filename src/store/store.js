@@ -13,6 +13,7 @@ import { reminder24HoursSlice } from './reminder24Hours/reminder24HoursSlice';
 import { frequencyOfConsumptionSlice } from './frequencyOfConsumption';
 import { mealTimePortionDistributionSlice } from './mealTimePortionDistribution';
 import { myNutritionistSlice } from './myNutritionist/myNutritionistSlice';
+import { energyRequirementsSlice } from './energyRequirements/energyRequirementsSlice';
 
 export const store = configureStore({
     reducer: {
@@ -30,5 +31,6 @@ export const store = configureStore({
         frequencyOfConsumption: frequencyOfConsumptionSlice.reducer,
         mealTimePortionDistribution: mealTimePortionDistributionSlice.reducer,
         myNutritionist: myNutritionistSlice.reducer,
+        energyRequirements: energyRequirementsSlice.reducer,
     },
 })
