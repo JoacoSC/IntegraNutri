@@ -68,6 +68,19 @@
   .custom-pediatric-content {
     background-color: #cff6d4;
   }  
+
+  .custom-adult-tab {
+    background-color: #007BFF;
+    color: white;
+  }
+
+.custom-adult-tab:hover {
+    background-color: #00b8FF; /* Un poco más oscuro que #cce7ff */
+}
+
+  .custom-adult-content {
+    background-color: #88ddFF;
+  }  
   
 
   @keyframes fadeIn {

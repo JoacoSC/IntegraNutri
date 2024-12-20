@@ -111,17 +111,6 @@ export const PediatricEnergyRequirementsCalculator = () => {
         : { table: requirementsTable_M18, image: RE_M_18A };
     }
   };
-
-  // const getLatestWeight = (weights) => {
-  //   if (weights.length > 1) {
-  //     const validWeights = weights.filter((entry) => entry.A);
-  //     if (validWeights.length > 0) {
-  //       const latestEntry = validWeights[validWeights.length - 1];
-  //       return parseFloat(latestEntry.A);
-  //     }
-  //   }
-  //   return null;
-  // };
   
   const calculateRequeriments = () => {
     if (!selectedPatient) {
