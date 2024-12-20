@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.0] - 2024-12-18
+
+### Añadido
+- **Calculadora de requerimientos energéticos para pacientes pediátricos**: Se ha añadido una calculadora que permite calcular los requerimientos energéticos diarios para pacientes de 0 meses a 18 años registrados por el nutricionista. Utilizando datos oficiales de la OMS y otras fuentes confiables, calcula automáticamente las calorías por kilogramo de peso corporal por día y, en consecuencia, el requerimiento calórico diario total para el paciente seleccionado.
+- **Calculadora personalizada de requerimientos energéticos**: Se ha implementado una calculadora que permite personalizar los cálculos de requerimientos energéticos. El nutricionista puede ingresar manualmente la cantidad de calorías por kilogramo de peso corporal por día que considere adecuada, generando automáticamente el requerimiento diario total.
+- **Tarjeta de requerimientos energéticos en la página del paciente**: Los requerimientos energéticos calculados, ya sea mediante la calculadora pediátrica o la personalizada, pueden ser vinculados al paciente correspondiente. Al hacerlo, se mostrará una tarjeta en la página del paciente, que servirá para consultar y recordar sus requerimientos energéticos en cualquier momento.
+
 ## [1.14.0] - 2024-11-15
 
 ### Añadido
