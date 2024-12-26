@@ -4,7 +4,7 @@ import { startLogout } from "../../store/auth";
 
 
 import { AppLayout } from "../../layout/AppLayout"
-import { AdultEnergyRequirementsCalculator, FoodCalculatorTable, Footer, MealTimePortionDistribution } from "../../ui";
+import { AdultCustomEnergyRequirementsCalculator, AdultEnergyRequirementsCalculator, FoodCalculatorTable, Footer, MealTimePortionDistribution } from "../../ui";
 import { useState } from "react";
 import { CalculatorsTabs, CalculatorsTabTrigger } from "../../ui/components";
 import { PediatricEnergyRequirementsCalculator, CustomEnergyRequirementsCalculator } from "../../ui";
@@ -75,6 +75,14 @@ export const CalculatorPage = () => {
                   customContentClass="custom-adult-content"
                 >
                   <AdultEnergyRequirementsCalculator />
+                </CalculatorsTabTrigger>
+                <CalculatorsTabTrigger
+                  value="adultCustomCalc"
+                  label="Requerimientos Energéticos - Personalizado"
+                  customTabClass="custom-adult-tab"
+                  customContentClass="custom-adult-content"
+                >
+                  <AdultCustomEnergyRequirementsCalculator />
                 </CalculatorsTabTrigger>
               </CalculatorsTabs>
             </div>

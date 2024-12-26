@@ -52,4 +52,6 @@ export * from './ShowExamsManager';
 export * from './PediatricEnergyRequirementsCalculator';
 export * from './CustomEnergyRequirementsCalculator';
 export * from './CardEnergyRequirements';
+export * from './CardAdultEnergyRequirements';
 export * from './AdultEnergyRequirementsCalculator';
+export * from './AdultCustomEnergyRequirementsCalculator';

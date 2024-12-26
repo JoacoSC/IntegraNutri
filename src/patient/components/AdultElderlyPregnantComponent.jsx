@@ -1,5 +1,5 @@
 // Component imports
-import { CardAnthropometry, CardBodyComposition, CardExamsRequest, CardMealTimePortionDistribution } from "../../ui";
+import { CardAnthropometry, CardBodyComposition, CardExamsRequest, CardAdultEnergyRequirements } from "../../ui";
 import CardIMC from "../../ui/CardIMC";
 import { CardNutritionalIndications } from "../../ui/CardNutritionalIndications";
 import { CardPresionArterial } from "../../ui/CardPresionArterial";
@@ -24,7 +24,8 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
     ageText,
     biologicalSex,
     presionArterial,
-    anthropometry
+    anthropometry,
+    adultEnergyRequirements
   } = commonProps;
 
   return (
@@ -76,6 +77,12 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
         {isNutritionistStatus && patientExams.nutritionalIndications && (
           <CardNutritionalIndications
             patientID={isNutritionistStatus ? patientID : displayName}
+          />
+        )}
+        {/* Renderización de CardEnergyRequirements */}
+        {adultEnergyRequirements && (
+          <CardAdultEnergyRequirements
+            energyRequirements={adultEnergyRequirements}
           />
         )}
       </div>

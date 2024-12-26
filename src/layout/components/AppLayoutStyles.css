@@ -244,6 +244,35 @@ body{
     transform: scale(0.96);
     background: #00ae5a;
 }
+.btn-sm-blue{
+    appearance: none;
+    position: relative;
+    min-height: 29px;
+    height: fit-content;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+    transition: all 150ms ease;
+    white-space: nowrap;
+}
+
+
+.btn-sm-blue:hover{
+    transform: scale(0.98);
+    background: #1180f7;
+}
+
+.btn-sm-blue:active{
+    transform: scale(0.96);
+    background: #1f87f5;
+}
 
 .btn-sm-alt{
     appearance: none;

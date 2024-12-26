@@ -57,6 +57,7 @@ export const currentPatientSlice = createSlice({
         },
         anthropometry: [],
         energyRequirements: null,
+        adultEnergyRequirements: null,
     },
     reducers: {
         setCurrentPatient: (state,{ payload }) => {
@@ -163,6 +164,7 @@ export const currentPatientSlice = createSlice({
             }
 
             state.energyRequirements = payload.energyRequirements;
+            state.adultEnergyRequirements = payload.adultEnergyRequirements;
         },
 
         updateCurrentPatientAnamnesis: (state,{ payload }) => {
@@ -312,6 +314,7 @@ export const currentPatientSlice = createSlice({
             };
             state.anthropometry = null
             state.energyRequirements = null
+            state.adultEnergyRequirements = null
         },
     }
 });

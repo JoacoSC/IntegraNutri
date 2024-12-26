@@ -4,6 +4,7 @@ export const energyRequirementsSlice = createSlice({
     name: 'energyRequirements',
     initialState: {
         pediatricEnergyRequirements: {},
+        adultEnergyRequirements: {},
     },
     reducers: {
         setPediatricEnergyRequirements: (state, { payload }) => {
@@ -11,6 +12,12 @@ export const energyRequirementsSlice = createSlice({
         },
         clearPediatricEnergyRequirements: (state) => {
             state.pediatricEnergyRequirements = [];
+        },
+        setAdultEnergyRequirements: (state, { payload }) => {
+            state.adultEnergyRequirements = payload;
+        },
+        clearAdultEnergyRequirements: (state) => {
+            state.adultEnergyRequirements = [];
         },
     }
 });
@@ -20,4 +27,6 @@ export const energyRequirementsSlice = createSlice({
 export const { 
     setPediatricEnergyRequirements,
     clearPediatricEnergyRequirements,
+    setAdultEnergyRequirements,
+    clearAdultEnergyRequirements,
 } = energyRequirementsSlice.actions;

@@ -5,9 +5,9 @@ import PerimetroCinturaForAvatar from '../../assets/imgs/patient/perimetro_cintu
 import { useEffect, useState } from 'react';
 import { fromUnixTime } from 'date-fns';
 
-export const CardEnergyRequirements = ({energyRequirements}) => {
+export const CardAdultEnergyRequirements = ({energyRequirements}) => {
 
-    const {totalKcal = '', age = '', weight = '', kcalPerKg = ''} = energyRequirements;
+    const {totalKcal = '', age = '', weight = '', kcalPerKg = '', factorial = ''} = energyRequirements;
 
     return (
         <div className='patient-secondary-card'>
@@ -24,6 +24,7 @@ export const CardEnergyRequirements = ({energyRequirements}) => {
                 <div className='perimetro-cefalico-value-container flex-column padding-left-none'>
                     <p className='perimetro-cefalico-value'><b>Kcal/kg/día:&nbsp;</b>{ kcalPerKg } kcal</p>
                     <p className='perimetro-cefalico-value'><b>Kcal al día:&nbsp;</b>{ totalKcal } kcal</p>
+                    <p className='perimetro-cefalico-value'><b>Tipo de dieta:&nbsp;</b>{ factorial }</p>
                 </div>
             </div>
         </div>
