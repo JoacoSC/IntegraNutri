@@ -33,13 +33,19 @@ export const startUploadingAdultEnergyRequirements = ( uid, patientID, energyReq
         console.log('energyRequirements: ',energyRequirements)
         try {
             
+            const cleanData = {
+                adultEnergyRequirements: {},
+            }
+    
+            const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
+            
+            await setDoc( docRef, cleanData, { merge: true });
+            
             const data = {
                 adultEnergyRequirements: energyRequirements,
             }
     
-            const docRef = doc( FirebaseDB, `users/${ uid }/patients/${ patientID }` );
             await setDoc( docRef, data, { merge: true });
-            
             
             dispatch( setAdultEnergyRequirements( energyRequirements ) )
     

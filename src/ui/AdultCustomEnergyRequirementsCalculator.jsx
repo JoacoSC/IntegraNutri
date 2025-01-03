@@ -9,6 +9,8 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
   const [customWeight, setCustomWeight] = useState('');
   const [customKcalPerKg, setCustomKcalPerKg] = useState('');
   const [customTotalKcal, setCustomTotalKcal] = useState('');
+  const [hydrationMax, setHydrationMax] = useState('');
+  const [hydrationMin, setHydrationMin] = useState('');
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [attachmentMessage, setAttachmentMessage] = useState({ text: '', type: '' });
   const [factorial, setFactorial] = useState('');
@@ -23,7 +25,14 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
       setCustomTotalKcal('');
       return;
     }
-    setCustomTotalKcal((customWeight * customKcalPerKg).toFixed(0));
+    const eta = 1.1; //Efecto térmico de los alimentos
+
+    const totalKcal = (customWeight * customKcalPerKg * eta).toFixed(0);
+
+    setHydrationMin(( totalKcal * 1).toFixed(0));
+    setHydrationMax(( totalKcal * 1.2).toFixed(0));
+    setCustomTotalKcal( totalKcal );
+
     if(customKcalPerKg < 25){
         setFactorial('Hipocalórica')
     }
@@ -45,8 +54,9 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
 
     const kcalPerKg = customKcalPerKg;
     const totalKcal = customTotalKcal;
+    const method = 'Factorial';
 
-    const energyRequirement = { kcalPerKg, totalKcal, factorial };
+    const energyRequirement = { kcalPerKg, totalKcal, hydrationMin, hydrationMax, factorial, method };
     const patientID = selectedPatient;
 
     try {
@@ -99,6 +109,14 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
                     <span style={{ color: 'gray' }}>
                         {factorial ? ` (Dieta ${factorial})` : ''}
                     </span>
+                </p>
+            )}</td>
+                </tr>
+                <tr>
+                <th style={{ width: '50%', backgroundColor: '#00b8FF', color: 'white',border: '1px solid #007BFF',padding: '8px' }}>Requerimiento hídrico</th>
+                <td style={{borderColor: '#007BFF',padding: '8px'}}>{hydrationMin && hydrationMax && (
+                <p style={{ color: 'green', fontWeight: 'bold', marginTop: '10px' }}>
+                {hydrationMin} - {hydrationMax} ml/día
                 </p>
             )}</td>
                 </tr>

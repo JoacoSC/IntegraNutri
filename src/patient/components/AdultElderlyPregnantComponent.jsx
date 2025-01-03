@@ -79,6 +79,9 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
             patientID={isNutritionistStatus ? patientID : displayName}
           />
         )}
+      </div>
+      <div className="patient-secondary-card-row">
+        
         {/* Renderización de CardEnergyRequirements */}
         {adultEnergyRequirements && (
           <CardAdultEnergyRequirements
