@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.16.0] - 2025-01-04
+
+### Añadido
+- **Calculadora de requerimientos energéticos e hídricos para pacientes adultos**: Se ha implementado una calculadora que permite estimar los requerimientos energéticos e hídricos diarios para pacientes adultos. Esta herramienta utiliza tres metodologías reconocidas: Harris-Benedict, Mifflin-St Jeor y FAO/OMS, permitiendo calcular de forma precisa las calorías y la ingesta hídrica recomendadas según cada método. Además, incluye la opción de especificar el nivel de actividad física del paciente, ajustando los cálculos en función de este parámetro.
+- **Calculadora personalizada de requerimientos para adultos**: Se ha añadido una calculadora que permite personalizar los cálculos de requerimientos energéticos e hídricos. Esta herramienta utiliza un enfoque basado en factoriales (Hipocalórico, Normocalórico, Hipercalórico), proporcionando flexibilidad para que el nutricionista ajuste los cálculos según necesidades específicas. También considera el efecto térmico de los alimentos en los resultados finales.
+
 ## [1.15.0] - 2024-12-18
 
 ### Añadido

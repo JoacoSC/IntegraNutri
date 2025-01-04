@@ -11,7 +11,7 @@ export const AdultEnergyRequirementsCalculator = () => {
     const [age, setAge] = useState('');
     const [weight, setWeight] = useState('');
     const [height, setHeight] = useState('');
-    const [activityLevel, setActivityLevel] = useState(1.4); // Valor por defecto
+    const [activityLevel, setActivityLevel] = useState(undefined); // Valor por defecto
     const [selectedPatient, setSelectedPatient] = useState(null);
     const [results, setResults] = useState(null);
     const [calculationMessage, setCalculationMessage] = useState({ text: '', type: '' });
@@ -94,6 +94,14 @@ export const AdultEnergyRequirementsCalculator = () => {
             } else if (age >= 60) {
                 faoWho = (9.082 * latestWeight) + 658.5;
             }
+        }
+
+        if (!inputValue && !activityLevel) {
+            setCalculationMessage({
+                text: "Nivel de actividad no ingresado para el paciente seleccionado.",
+                type: "error",
+            });
+            return;
         }
 
         const actualActivityLevel = inputValue || activityLevel; // Usa input o el valor por defecto
@@ -216,7 +224,7 @@ export const AdultEnergyRequirementsCalculator = () => {
                                                 className="input-select"
                                                 value={inputValue}
                                                 style={{ marginRight: 'auto', paddingTop: '0.2rem' }}
-                                                placeholder='1.4 - 2.4'
+                                                placeholder='Nivel de actividad (1.4 a 2.4)'
                                                 onChange={(e) => setInputValue(Number(e.target.value))}
                                             />
                                         </div>
