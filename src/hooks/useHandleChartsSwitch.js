@@ -108,13 +108,12 @@ export const useHandleChartsSwitch = (biologicalSex, ageForCalcs, weight, statur
 
         updateChart();        
         if( weight !== null && stature !== null ){
-            // tt = tt.replace(/,/g, '.')
-            setLastWeight( weight[weight.length - 1].A?.replace(/,/g, '.') )
-            setLastStature( stature[stature.length - 1].A?.replace(/,/g, '.') )
+            setLastWeight( String(weight[weight.length - 1].A).replace(/,/g, '.') );
+            setLastStature( String(stature[stature.length - 1].A).replace(/,/g, '.') );
             
             // console.log(lastWeight)
         }
-
+    
     }, [weight, stature])
 
     const handleChartsSwitch = (event) => {

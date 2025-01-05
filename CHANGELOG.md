@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.16.1] - 2025-01-04
+
+### Corregido
+- **Validación de entrada para peso y talla**: Se ha corregido un error que ocurría al ingresar valores con más de un punto decimal (ejemplo: "7..5") al actualizar el peso y la talla de los pacientes. Ahora se han añadido validadores para evitar estos casos, mostrando mensajes de error claros en caso de ingreso inválido.
+- **Sincronización de peso y talla en calculadoras**: Se resolvió un problema en el que los cambios de peso y talla actualizados en la página del paciente no se reflejaban inmediatamente en la página de calculadoras. Ahora, cualquier actualización en el peso o talla de un paciente se sincroniza de forma automática y sin necesidad de recargar la página.
+
 ## [1.16.0] - 2025-01-04
 
 ### Añadido

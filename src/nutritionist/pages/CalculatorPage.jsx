@@ -5,9 +5,10 @@ import { startLogout } from "../../store/auth";
 
 import { AppLayout } from "../../layout/AppLayout"
 import { AdultCustomEnergyRequirementsCalculator, AdultEnergyRequirementsCalculator, FoodCalculatorTable, Footer, MealTimePortionDistribution } from "../../ui";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CalculatorsTabs, CalculatorsTabTrigger } from "../../ui/components";
 import { PediatricEnergyRequirementsCalculator, CustomEnergyRequirementsCalculator } from "../../ui";
+import { startLoadingMyPatients } from "../../store/patients";
   
 export const CalculatorPage = () => {
 
@@ -22,6 +23,10 @@ export const CalculatorPage = () => {
         dispatch( startLogout() );
 
     }
+
+    useEffect(() => {
+      dispatch ( startLoadingMyPatients( uid ) );
+    }, []);
 
     return (
         <AppLayout>

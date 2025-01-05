@@ -9,6 +9,7 @@ import { ModalWrapper } from "./components";
 import './components';
 
 import UpdateValues from '../../assets/imgs/patient/refresh_icon.svg'
+import { ConfirmationMessage } from '../common';
 
 export const ModalUpdatePatientValues = ({ patientObject }) => {
 
@@ -16,6 +17,7 @@ export const ModalUpdatePatientValues = ({ patientObject }) => {
 
     const [openModal, setOpenModal] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(false);
+    const [calculationMessage, setCalculationMessage] = useState({ text: '', type: '' });
 
     const { 
         weightForm = lastWeight,
@@ -27,30 +29,53 @@ export const ModalUpdatePatientValues = ({ patientObject }) => {
 
     const onSubmit = ( event ) => {
         event.preventDefault();
+
+        setCalculationMessage({
+            text: "",
+            type: "",
+        });
         
         updatePatientValues();
-        onCloseModal();
+        
 
     }
-
+    
     const updatePatientValues = () => {
+    
+        const weightFormValidation = parseFloat(weightForm.replace(/,/g, '.').replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));
+        const statureFormValidation = parseFloat(statureForm.replace(/,/g, '.').replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));
+    
+        const invalidWeight = weightForm.includes('..') || weightForm.includes(',') || weightForm.split('.').length > 2;
+        const invalidStature = statureForm.includes('..') || statureForm.includes(',') || statureForm.split('.').length > 2;
         
-        const weightFormValidation = weightForm.replace(/,/g, '.')
-        const statureFormValidation = statureForm.replace(/,/g, '.')
+        if (isNaN(weightFormValidation) || isNaN(statureFormValidation) || invalidWeight || invalidStature) {
+            // Handle invalid input
+            setCalculationMessage({
+                text: "Ingresó un valor inválido para peso o talla (por favor utilice un punto '.' como separador de decimales).",
+                type: "error",
+            });
+            return;
+        }
+    
         const newWeight = [ ...weight, { A: weightFormValidation, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ];
         const newStature = [ ...stature, { A: statureFormValidation, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ];
         const IMCValue = weightFormValidation / (statureFormValidation/100)**2
-
+    
         const newIMC = [ ...imc, { A: IMCValue, B: ageText, C: format( new Date(), "dd/MM/yyyy") } ]
-
+    
         dispatch( updateCurrentPatientWeight( newWeight ) );
         dispatch( startUpdatingCurrentPatientWeight( uid, patientID, newWeight ) );
-
+    
         dispatch( updateCurrentPatientStature( newStature ) );
         dispatch( startUpdatingCurrentPatientStature( uid, patientID, newStature ) );
-
+    
         dispatch( updateCurrentPatientIMC( newIMC ) );
         dispatch( startUpdatingCurrentPatientIMC( uid, patientID, newIMC ) );
+
+        setCalculationMessage({
+            text: "Peso y talla actualizados correctamente. Puede cerrar esta ventana.",
+            type: "success",
+        });
     }
 
     const onCloseModal = () => {
@@ -110,6 +135,7 @@ export const ModalUpdatePatientValues = ({ patientObject }) => {
                                 <input className="input-text-style" type="text" name="ageText" defaultValue={ ageText } readOnly/>
                             </div>                
                         </div>
+                            <ConfirmationMessage message={calculationMessage} />
                     </div>
                 </form>
             </ModalWrapper>
