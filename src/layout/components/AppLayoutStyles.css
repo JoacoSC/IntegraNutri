@@ -405,6 +405,18 @@ body{
 
 /* ************* Common ************** */
 
+.grid{
+    display: grid 
+}
+
+.grid-cols-1{
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+}
+
+.gap-6{
+    gap: 1.5rem;
+}
+
 .flex-column{
     display: flex;
     flex-direction: column;
@@ -4104,4 +4116,9 @@ body{
         padding: 0.4rem;
         margin: 0;
     }
+}
+@media (min-width: 1024px) { 
+    .grid-cols-1{ 
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+   }
 }
