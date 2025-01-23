@@ -89,7 +89,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ConfirmationMessage } from '../common';
 import { startUploadingAdultEnergyRequirements } from '../store/energyRequirements/thunks';
 import { LoadingButton, MoleculeDistribution } from './components';
-import './components/newCalculatorStyles.css';
+import './components/NewCalculatorStyles.css';
 
 
 export const AdultCustomEnergyRequirementsCalculator = () => {
@@ -135,39 +135,57 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
     }
   };
 
+  const validateMacros = () => {
+    const totalPercentage = Number(proteins) + Number(lipids) + Number(cho);
+    // console.log('Total:', totalPercentage);
+    return totalPercentage === 100;
+  };
+
   const handleAttachTable = async () => {
     setIsSending(true);
+    setAttachmentMessage({ text: '', type: '' }); // Limpia el mensaje de error antes de realizar un nuevo intento
+    // console.log('Selected Patient:', selectedPatient);
+    
     if (!selectedPatient) {
       setAttachmentMessage({ text: 'Ningún paciente seleccionado.', type: 'error' });
       setIsSending(false); // Rehabilita botones
       return;
     }
-
+  
+    if (!validateMacros()) {
+      setAttachmentMessage({ text: 'Los porcentajes de proteínas, lípidos y CHO deben sumar 100%.', type: 'error' });
+      setIsSending(false); // Rehabilita botones
+      return;
+    }
+  
     const kcalPerKg = customKcalPerKg;
     const totalKcal = customTotalKcal;
     const method = 'Factorial';
-
-    const energyRequirement = { kcalPerKg, totalKcal, hydrationMin, hydrationMax, factorial, method };
+  
+    const energyRequirement = { kcalPerKg, totalKcal, hydrationMin, hydrationMax, factorial, method, proteins, lipids, cho };
     const patientID = selectedPatient;
-
+  
     try {
+      // console.log('Enviando datos:', energyRequirement);
+      // console.log('Paciente:', patientID);
+      // console.log('Usuario:', uid);
       const message = await dispatch(
         startUploadingAdultEnergyRequirements(uid, patientID, energyRequirement)
       );
       const messageType = message === 'Ocurrió un error.' ? 'error' : 'success';
       setAttachmentMessage({ text: message, type: messageType });
     } catch (error) {
+      console.error('Error:', error);
       setAttachmentMessage({ text: 'Error al adjuntar datos al paciente.', type: 'error' });
     } finally {
       setIsSending(false); // Rehabilita botones
-  }
+    }
   };
 
-  const calculateMacroGrams = (percentage) => {
+  const calculateMacroGrams = (percentage, type) => {
     if (!customTotalKcal || !percentage) return 0;
-    return ((customTotalKcal * (parseFloat(percentage) / 100)) / 4).toFixed(
-      1,
-    );
+    const divisor = type === 'lipids' ? 9 : 4;
+    return ((customTotalKcal * (parseFloat(percentage) / 100)) / divisor).toFixed(1);
   };
   
   return (
@@ -269,7 +287,7 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
                         placeholder="%"
                       />
                       <span className="new-calculator-distribution-grams">
-                        {calculateMacroGrams(proteins)}g
+                        {calculateMacroGrams(proteins, 'proteins')}g
                       </span>
                     </div>
                   </div>
@@ -300,7 +318,7 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
                         placeholder="%"
                       />
                       <span className="new-calculator-distribution-grams">
-                        {calculateMacroGrams(lipids)}g
+                        {calculateMacroGrams(lipids, 'lipids')}g
                       </span>
                     </div>
                   </div>
@@ -331,7 +349,7 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
                         placeholder="%"
                       />
                       <span className="new-calculator-distribution-grams">
-                        {calculateMacroGrams(cho)}g
+                        {calculateMacroGrams(cho, 'cho')}g
                       </span>
                     </div>
                   </div>
@@ -346,6 +364,7 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
             </div>
 
             </div>
+            <ConfirmationMessage message={attachmentMessage} />
             <div className="new-calculator-footer-container">
               <select className='input-select' style={{border: 'solid 1px #e4e4e4'}} onChange={(e) => setSelectedPatient(e.target.value)}>
                 <option value="">Seleccionar paciente</option>
@@ -362,9 +381,12 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
               >
                 Calcular requerimiento
               </button>
-              <button className="btn-sm-green">
-                Adjuntar al paciente
-              </button>
+              <LoadingButton
+                  className='btn-sm-green'
+                  text='Adjuntar al paciente'
+                  onClick={handleAttachTable}
+                  disabled={isSending} // Mostrará la animación si `disabled` es `true`
+                />
             </div>
           </div>
 
