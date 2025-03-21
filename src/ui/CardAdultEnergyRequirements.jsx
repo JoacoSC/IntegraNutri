@@ -12,6 +12,13 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
 
     const {totalKcal = '', age = '', weight = '', kcalPerKg = '', factorial = '', method = '', hydrationMin = '', hydrationMax = '', proteins = '', lipids = '', cho = ''} = energyRequirements;
 
+    const methodNames = {
+        harrisBenedict: "Harris y Benedict",
+        mifflin: "Mifflin - St. Jeor",
+        fao: "FAO/OMS",
+        factorial: "Factorial"
+    };
+
     const data = {
         labels: ['Proteínas', 'Lípidos', 'Carbohidratos'],
         datasets: [
@@ -81,14 +88,20 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
         //     </div>
         // </div>
         
-        <div className="card-energy-requirements-container">
+        <div className="card-energy-requirements-container" style={{width: '832px'}}>
             
             <div className="patient-secondary-card-title flex justify-between items-center">
                 <h2 className="card-energy-requirements-title">
                 Requerimiento energético
                 </h2>
                 <div className="flex items-center gap-2">
-                <span className="text-sm">Dieta {factorial}</span>
+                {
+                    method === 'Factorial' ? (
+                      <span className="text-sm">Dieta {factorial}</span>
+                    )
+                    : null
+                }
+                
                 </div>
             </div>
             <div className="p-6">
@@ -97,7 +110,7 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
                 <div className="bg-slate-50 rounded-lg p-4">
                     <div className="flex items-baseline">
                     <span className="text-4xl font-bold text-slate-800">
-                        {totalKcal}
+                        {totalKcal.toFixed(0)}
                     </span>
                     <span className="ml-2 text-slate-600">kcal/día</span>
                     </div>
@@ -120,7 +133,7 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
                     <h3 className="text-sm text-slate-500" style={{marginBottom: '0.5rem'}}>
                     Método de cálculo
                     </h3>
-                    <p className="text-slate-700 font-medium">{method}</p>
+                    <p className="text-slate-700 font-medium">{methodNames[method]}</p>
                 </div>
                 </div>
                 <div className="col-span-3 bg-slate-50 rounded-lg p-6">

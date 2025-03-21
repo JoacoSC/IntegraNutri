@@ -274,6 +274,64 @@ body{
     background: #1f87f5;
 }
 
+.btn-sm-green-secondary {
+    appearance: none;
+    position: relative;
+    min-height: 29px;
+    height: fit-content;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: white;
+    color: #00a555;
+    border: 2px solid #00a555;
+    border-radius: 20px;
+    padding: 0.2rem 1rem;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+    transition: all 150ms ease;
+    white-space: nowrap;
+}
+
+.btn-sm-green-secondary:hover {
+    transform: scale(0.98);
+    background: #f0fff5;
+}
+
+.btn-sm-green-secondary:active {
+    transform: scale(0.96);
+    background: #e6ffee;
+}
+
+.btn-sm-blue-secondary {
+    appearance: none;
+    position: relative;
+    min-height: 29px;
+    height: fit-content;
+    font-family: "Metropolis", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: white;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+    border-radius: 20px;
+    padding: 0.2rem 1rem;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+    transition: all 150ms ease;
+    white-space: nowrap;
+}
+
+.btn-sm-blue-secondary:hover {
+    transform: scale(0.98);
+    background: #f0f8ff;
+}
+
+.btn-sm-blue-secondary:active {
+    transform: scale(0.96);
+    background: #e6f3ff;
+}
+
 .btn-sm-alt{
     appearance: none;
     position: relative;
@@ -405,13 +463,7 @@ body{
 
 /* ************* Common ************** */
 
-.grid{
-    display: grid 
-}
 
-.grid-cols-1{
-    grid-template-columns: repeat(1, minmax(0, 1fr)); 
-}
 
 .gap-6{
     gap: 1.5rem;
@@ -609,6 +661,9 @@ body{
 .mt-1{
     margin-top: 1rem;
 }
+.mt-15{
+    margin-top: 1.5rem;
+}
 .mt-2{
     margin-top: 2rem;
 }
@@ -685,6 +740,18 @@ body{
 }
 .border-radius-20{
     border-radius: 20px;
+}
+.border-radius-10{
+    border-radius: 10px;
+}
+.t-border-radius-10{
+    border-radius: 10px 10px 0 0;
+}
+.t-border-radius-20{
+    border-radius: 20px 20px 0 0;
+}
+.border-none{
+    border: none;
 }
 
 .success-message{

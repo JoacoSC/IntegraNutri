@@ -550,6 +550,9 @@
     gap: 0;
 }
 
+.font-metropolis{
+    font-family: "Metropolis", sans-serif;
+}
 .font-metropolis-08{
     font-family: "Metropolis", sans-serif;
     font-size: 0.8rem;

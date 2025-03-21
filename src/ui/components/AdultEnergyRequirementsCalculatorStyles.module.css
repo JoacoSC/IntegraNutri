@@ -1,0 +1,148 @@
+
+.mainContainer{
+    width: 100%; 
+min-height: 100vh; 
+background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); 
+background-color: #EFF6FF; 
+background-color: #DBEAFE; 
+}
+.mainHeader{
+    padding-top: 1rem;
+padding-bottom: 1rem; 
+padding-left: 1.5rem;
+padding-right: 1.5rem; 
+width: 100%; 
+color: #ffffff; 
+background-color: #1E3A8A; 
+}
+.mainTitle{
+    max-width: 80rem; 
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    font-weight: 700;     
+}
+.mainContent{
+    padding: 1.5rem; 
+    max-width: 80rem; 
+}
+.patientSelectionContainer{
+    display: grid ;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    gap: 1.5rem; 
+
+}  
+.patientSelectionSpacer{
+    margin-top: 1.5rem; 
+ 
+}
+.patientSelectionBackground{
+    padding: 1.5rem; 
+    border-radius: 0.75rem; 
+    background-color: #ffffff; 
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
+}
+.spaceY6{
+    margin-top: 1.5rem; 
+}
+.patientSelectionTitle{
+
+}
+.patientSelectionDropdown{
+
+}
+.patientInfoGrid{
+
+}
+.patientInfoItem{
+
+}
+.patientInfoLabel{
+
+}
+.patientInfoValue{
+
+}
+.calculationFormContainer{
+
+}
+.calculationFormTitle{
+
+}
+.calculationFormGroup{
+
+}
+.calculationFormLabel{
+
+}
+.calculationFormInput{
+
+}
+.calculationFormButton{
+
+}
+.calculationFormMessage{
+
+}
+.resultsContainer{
+
+}
+.resultsTitle{
+
+}
+.resultsTable{
+
+}
+.resultsTableHeader{
+
+}
+.resultsTableRow{
+
+}
+.resultsTableCell{
+
+}
+.resultsEnergy{
+
+}
+.resultsHydration{
+
+}
+.preferredMethodContainer{
+
+}
+.preferredMethodTitle{
+
+}
+.preferredMethodOptions{
+
+}
+.preferredMethodOption{
+
+}
+.preferredMethodLabel{
+
+}
+.preferredMethodRadio{
+
+}
+.preferredMethodSelected{
+
+}
+.attachmentContainer{
+
+}
+.attachmentButton{
+
+}
+.attachmentMessage{
+
+}
+
+@media (min-width: 1024px) { 
+    .patientSelectionContainer{
+        grid-template-columns: repeat(12, minmax(0, 1fr)); 
+    }
+    .patientSelectionSpacer{
+        grid-column: span 5 / span 5; 
+    }
+   }

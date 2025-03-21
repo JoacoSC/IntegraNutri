@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { format, fromUnixTime, differenceInMonths, differenceInDays, addMonths } from 'date-fns';
+import { format, fromUnixTime, differenceInMonths, differenceInDays, addMonths, differenceInYears } from 'date-fns';
 import { ConfirmationMessage } from '../common';
 
 import RE_H_1A from '../../assets/imgs/patient/requerimientos_energeticos/hombres/menores_1_año.svg';
@@ -8,13 +8,20 @@ import RE_M_1A from '../../assets/imgs/patient/requerimientos_energeticos/mujere
 import RE_H_18A from '../../assets/imgs/patient/requerimientos_energeticos/hombres/mayores_1_año.svg';
 import RE_M_18A from '../../assets/imgs/patient/requerimientos_energeticos/mujeres/mayores_1_año.svg';
 import { startUploadingEnergyRequirements } from '../store/energyRequirements/thunks';
-import { LoadingButton } from './components';
+import { LoadingButton, ModalWrapper } from './components';
+import styles from './components/AdultEnergyRequirementsCalculatorStyles.module.css';
+import { Minus, Plus } from "lucide-react";
 
 export const PediatricEnergyRequirementsCalculator = () => {
   const [age, setAge] = useState('');
   const [weight, setWeight] = useState('');
-  const [kcalPerKg, setKcalPerKg] = useState('');
-  const [totalKcal, setTotalKcal] = useState('');
+  const [height, setHeight] = useState('');
+  const [kcalPerKg, setKcalPerKg] = useState(0);
+  const [totalKcal, setTotalKcal] = useState(0); // Base total kcal/day
+  const [proteins, setProteins] = useState(0);
+  const [lipids, setLipids] = useState(0);
+  const [cho, setCho] = useState(0);
+  const [getAdjustment, setGetAdjustment] = useState(0);
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [currentImage, setCurrentImage] = useState(RE_H_1A); // Imagen por defecto
   const [calculationMessage, setCalculationMessage] = useState({ text: '', type: '' }); // Mensaje de cálculo
@@ -23,6 +30,8 @@ export const PediatricEnergyRequirementsCalculator = () => {
   const [idealWeight, setIdealWeight] = useState(null); // Nuevo estado
   const [activityLevel, setActivityLevel] = useState('moderate');
   const [isSending, setIsSending] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [adjustedGet, setAdjustedGet] = useState(0); // Adjusted total kcal/day
   const { uid } = useSelector((state) => state.auth);
   const { patients } = useSelector((state) => state.patients);
   const dispatch = useDispatch();
@@ -98,6 +107,59 @@ export const PediatricEnergyRequirementsCalculator = () => {
     "17-18": { light: 37, moderate: 44, intense: 51, },
   };
 
+  const handlePatientSelection = (patientId) => {
+      setCalculationMessage({
+        text: "",
+        type: "",
+      });
+      
+      const patient = patients.find((p) => p.id === patientId);
+
+      if (!patient) {
+          setCalculationMessage({
+              text: "Paciente no encontrado.",
+              type: "error",
+          });
+          return;
+      }
+
+      const { weight: patientWeight, stature: patientHeight, unixBirthday } = patient;
+
+      const currentDate = new Date();
+      const patientBirthday = new Date(unixBirthday * 1000);
+      const age = differenceInYears(currentDate, patientBirthday);
+
+      if (age > 18) {
+          setCalculationMessage({
+              text: "El paciente debe ser menor de 18 años.",
+              type: "error",
+          });
+          return;
+      }
+
+      const latestWeight = patientWeight ? patientWeight[patientWeight.length - 1]?.A : null;
+      const latestHeight = patientHeight ? patientHeight[patientHeight.length - 1]?.A : null;
+
+      if (!latestWeight || !latestHeight) {
+          setCalculationMessage({
+              text: "Peso o altura no disponibles para el paciente seleccionado.",
+              type: "error",
+          });
+          return;
+      }
+
+      setAge(age);
+      setWeight(latestWeight);
+      setHeight(latestHeight);
+      setSelectedPatient(patientId);
+    //   console.log("age", age);
+    //   console.log("weight", latestWeight);
+  };
+
+  const handleImageClick = () => {
+    setOpenModal(true);
+  };
+
   const getTableAndImage = (age, gender, isUnderOneYear) => {
     if (isUnderOneYear) {
       // Menores de 1 año (edad en meses)
@@ -112,7 +174,7 @@ export const PediatricEnergyRequirementsCalculator = () => {
     }
   };
   
-  const calculateRequeriments = () => {
+  const calculateRequirements = () => {
     if (!selectedPatient) {
       setCalculationMessage({
         text: "Por favor, selecciona un paciente.",
@@ -149,7 +211,7 @@ export const PediatricEnergyRequirementsCalculator = () => {
   
     // Calcular la edad en años si no es menor de 1 año
     const ageInYears = Math.floor(totalAgeInMonths / 12) + 1;
-    // const ageInYears = Math.ceil(totalAgeInMonths / 12) - 1;
+// const ageInYears = Math.ceil(totalAgeInMonths / 12) - 1;
   
     // Obtener la tabla y la imagen correspondientes
     const { table, image } = getTableAndImage(
@@ -209,13 +271,17 @@ export const PediatricEnergyRequirementsCalculator = () => {
       return;
     }
   
-    setAge(range);
+    const calculatedTotalKcal = latestWeight * kcal;
     setWeight(latestWeight);
     setKcalPerKg(kcal);
-    setIdealWeight(idealWeight);
-    setTotalKcal((latestWeight * kcal).toFixed(0));
+    setTotalKcal(calculatedTotalKcal);
+    setAdjustedGet(calculatedTotalKcal + getAdjustment);
     setCalculationMessage({ text: "", type: "" });
   };
+
+  useEffect(() => {
+    setAdjustedGet(totalKcal + getAdjustment);
+  }, [totalKcal, getAdjustment]);
 
   const handleAttachTable = async () => {
     setIsSending(true);
@@ -224,10 +290,22 @@ export const PediatricEnergyRequirementsCalculator = () => {
       setIsSending(false); // Rehabilita botones
       return;
     }
-
-    const energyRequirement = { age, weight, kcalPerKg, totalKcal };
+  
+    if (!validateMacros()) {
+      setAttachmentMessage({ text: 'La suma de macromoléculas debe ser igual a 100%.', type: 'error' });
+      setIsSending(false); // Rehabilita botones
+      return;
+    }
+  
+    const energyRequirement = {
+      kcalPerKg: isNaN(kcalPerKg) ? 0 : kcalPerKg, // Validación de NaN
+      totalKcal: adjustedGet,
+      proteins,
+      lipids,
+      cho,
+    };
     const patientID = selectedPatient;
-
+  
     try {
       const message = await dispatch(
         startUploadingEnergyRequirements(uid, patientID, energyRequirement)
@@ -235,114 +313,283 @@ export const PediatricEnergyRequirementsCalculator = () => {
       const messageType = message === 'Ocurrió un error.' ? 'error' : 'success';
       setAttachmentMessage({ text: message, type: messageType });
     } catch (error) {
-      setAttachmentMessage({ text: 'Error al adjuntar datos al paciente.', type: 'error' });
+        console.error("Error al adjuntar datos al paciente:", error);
+        setAttachmentMessage({ text: 'Error al adjuntar datos al paciente.', type: 'error' });
     } finally {
       setIsSending(false); // Rehabilita botones
   }
   };
 
-  return (
-    <div className="calculator-main-container" style={{backgroundColor: '#00BF62'}}>
-      <div className="calculator-wrapper">
-        <p className="calculator-item-title" style={{color: 'white'}}>Requerimientos energéticos para población infantil</p>
-        <div className="calculator-container" style={{flexDirection: 'column'}}>
-          <table style={{borderCollapse: 'collapse', width: '100%', fontWeight: '400', fontSize: '0.8rem'}}>
-            <tbody>
-              <tr>
-                <th colSpan="2" style={{backgroundColor: '#cff6d4',border: '1px solid #30bb34',padding: '8px'}}>
-                  <div style={{ margin: "15px" }}>
-                    <div className="flex-row gap-1" style={{ margin: '0 10% 0 10%' }}>
-                      <select
-                        className="input-select"
-                        onChange={(e) => setSelectedPatient(e.target.value)}
-                      >
-                        <option value="">Seleccionar paciente</option>
-                        {patients.map((patient) => (
-                          <option key={patient.id} value={patient.id}>
-                            {patient.displayName}
-                          </option>
-                        ))}
-                      </select>
-                      <button className="btn-sm-green" style={{marginRight: '0'}} onClick={calculateRequeriments}>
-                        Calcular requerimientos
-                      </button>
-                    </div>
-                      {!isUnderOneYear && (
-                        <div className="flex-row" style={{ margin: '1rem 10% 0 10%' }}>
-                          <select
-                            className="input-select"
-                            value={activityLevel}
-                            style={{marginRight: 'auto'}}
-                            onChange={(e) => setActivityLevel(e.target.value)}
-                          >
-                            <option value="light">Nivel de actividad ligera</option>
-                            <option value="moderate">Nivel de actividad moderada</option>
-                            <option value="intense">Nivel de actividad intensa</option>
-                          </select>
-                          <button className='btn-sm-green' style={{marginRight: '0'}} onClick={calculateRequeriments}>Confirmar nivel de actividad</button>
-                        </div>
-                      )}
-                    <ConfirmationMessage message={calculationMessage} />
-                    <div className="modal-chart-container" style={{ width: '90%', maxWidth: '1000px', margin: '30px auto 20px' }}>
-                      <img src={currentImage} className="modal-chart" alt="Requerimientos Energéticos" />
-                    </div>
-                  </div>
-                </th>
-              </tr>
-              <tr>
-                {/* Encabezado dinámico */}
-                <th style={{ width: '50%', backgroundColor: '#09d170', color: 'white',borderColor: '#30bb34',padding: '8px' }}>Edad</th>
-                {/* Mostrar la edad con su unidad en la celda */}
-                <td style={{borderColor: '#30bb34',padding: '8px'}}>
-                  {age && (
-                    <>
-                      {age} {isUnderOneYear
-                        ? age === 1
-                          ? "mes"
-                          : "meses"
-                        : age === 1
-                          ? "año"
-                          : "años"}
-                    </>
-                  )}
-                </td>
-              </tr>
+  const calculateMacroGrams = (percentage, type) => {
+    if (!adjustedGet || isNaN(adjustedGet) || !percentage || percentage < 0) return 0; // Validación mejorada
+    const divisor = type === 'lipids' ? 9 : 4;
+    return ((adjustedGet * (parseFloat(percentage) / 100)) / divisor).toFixed(1);
+  };
 
-              <tr>
-                <th style={{ width: '50%', backgroundColor: '#09d170', color: 'white',border: '1px solid #30bb34',padding: '8px' }}>Peso (kg)</th>
-                <td style={{borderColor: '#30bb34',padding: '8px'}}>
-                  {weight ? weight + ' kg' : ''}
-                  {isUnderOneYear && idealWeight && (
-                    <span style={{ color: 'gray' }}> ({idealWeight} kg ideal)</span>
-                  )}
-                </td>
-              </tr>
-              <tr>
-                <th style={{ width: '50%', backgroundColor: '#09d170', color: 'white',border: '1px solid #30bb34',padding: '8px' }}>Calorías por kilo al día</th>
-                <td style={{borderColor: '#30bb34',padding: '8px'}}>{kcalPerKg ? kcalPerKg + ' Kcal/kg/día' : ''}</td>
-              </tr>
-              <tr>
-                <th style={{ width: '50%', backgroundColor: '#09d170', color: 'white',border: '1px solid #30bb34',padding: '8px' }}>Requerimiento energético</th>
-                <td style={{ color: 'green', fontWeight: 'bold',borderColor: '#30bb34',padding: '8px' }}>{totalKcal ? totalKcal + ' Kcal/día' : ''}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className='patient-table-attachment-container'>
-            <div className='flex-row gap-1'>
-                {/* <button className='btn-sm' onClick={handleAttachTable}>Adjuntar al paciente seleccionado</button> */}
-                <LoadingButton
-                  className='btn-sm-green'
-                  text='Adjuntar al paciente seleccionado'
-                  onClick={handleAttachTable}
-                  disabled={isSending} // Mostrará la animación si `disabled` es `true`
-                />
+  const validateMacros = () => {
+      const totalPercentage = Number(proteins) + Number(lipids) + Number(cho);
+      // console.log('Total:', totalPercentage);
+      return Math.abs(totalPercentage - 100) < 0.01; // Added tolerance
+  };
+
+//   console.log("adjustedGet", adjustedGet);
+
+  return (
+    <div className="w-full bg-white border-radius-20">
+            <div className="w-full bg-00bf62 text-white text-center px-6 py-6 t-border-radius-20">
+                <h1 className="text-2xl font-bold max-w-7xl mx-auto">
+                    Calculadora de requerimientos energéticos
+                </h1>
+            </div>
+            <div className="max-w-7xl mx-auto px-6">
+                <div className={styles.patientSelectionContainer}>
+                    <div className={styles.patientSelectionSpacer}>
+                        <div className="bg-f9fafb rounded-xl shadow-sm p-6">
+                            <div className="space-y-6">
+                                <div>
+                                    <h2 className="text-lg font-semibold text-green-900 mb-4">
+                                        Selección de Paciente
+                                    </h2>
+                                    <select className='input-select' style={{ border: 'solid 1px #e4e4e4', maxWidth: '100%' }} onChange={(e) => handlePatientSelection(e.target.value)}>
+                                        <option value="">Seleccionar paciente</option>
+                                        {patients.map((patient) => (
+                                            <option key={patient.id} value={patient.id}>
+                                                {patient.displayName}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4 mt-15">
+                                    <div className="bg-white rounded-lg p-3">
+                                        <p className="new-calculator-label">Peso</p>
+                                        <p className="text-lg font-medium">{weight !== '' ? `${weight} kg` : ''}</p>
+                                    </div>
+                                    <div className="bg-white rounded-lg p-3">
+                                        <p className="new-calculator-label">Altura</p>
+                                        <p className="text-lg font-medium">{height !== '' ? `${height} cm` : ''}</p>
+                                    </div>
+                                    <div className="bg-white rounded-lg p-3">
+                                        <p className="new-calculator-label">Edad</p>
+                                        <p className="text-lg font-medium">{age !== '' ? `${age} años` : ''}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-f9fafb rounded-xl shadow-sm p-6 mt-15">
+                            <h2 className="text-lg font-semibold text-green-900 mb-4">
+                                Nivel de Actividad Física
+                            </h2>
+                            <div className="flex items-center space-x-4">
+                                <select
+                                    value={activityLevel}
+                                    onChange={(e) => setActivityLevel(e.target.value)}
+                                    className="input-select"
+                                    style={{ border: 'solid 1px #e4e4e4', maxWidth: '100%' }}
+                                >
+                                    <option value="light">Actividad Liviana</option>
+                                    <option value="moderate">Actividad Moderada</option>
+                                    <option value="intense">Actividad Severa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="bg-f9fafb rounded-xl shadow-sm p-6 mt-15">
+                            <h2 className="text-lg font-semibold text-green-900 mb-4">
+                                Distribución de Macronutrientes
+                            </h2>
+                            <div className="space-y-4">
+                                {/* Proteínas */}
+                                <div className="new-calculator-distribution-card">
+                                    <div className="new-calculator-distribution-row">
+                                        <div className="new-calculator-distribution-label">
+                                        <div
+                                            className="new-calculator-distribution-dot"
+                                            style={{ backgroundColor: "#f57c0b" }}></div>
+                                        <span style={{ fontWeight: 500 }}>Proteínas</span>
+                                        </div>
+                                        <div className="new-calculator-distribution-input-container">
+                                        <input
+                                            type="number"
+                                            value={proteins}
+                                            onChange={(e) => setProteins(e.target.value)}
+                                            className="new-calculator-distribution-input"
+                                            placeholder="%"
+                                        />
+                                        <span className="new-calculator-distribution-grams">
+                                            {calculateMacroGrams(proteins, 'proteins')}g
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div className="new-calculator-distribution-bar-container">
+                                        <div
+                                        className="new-calculator-distribution-bar new-calculator-protein-bar"
+                                        style={{ width: `${proteins}%` }}
+                                        ></div>
+                                    </div>
+                                </div>
+                                {/* Lípidos */}
+                                <div className="new-calculator-distribution-card">
+                                    <div className="new-calculator-distribution-row">
+                                        <div className="new-calculator-distribution-label">
+                                        <div
+                                            className="new-calculator-distribution-dot"
+                                            style={{ backgroundColor: "#f5d20b" }}
+                                        ></div>
+                                        <span style={{ fontWeight: 500 }}>Lípidos</span>
+                                        </div>
+                                        <div className="new-calculator-distribution-input-container">
+                                        <input
+                                            type="number"
+                                            value={lipids}
+                                            onChange={(e) => setLipids(e.target.value)}
+                                            className="new-calculator-distribution-input"
+                                            placeholder="%"
+                                        />
+                                        <span className="new-calculator-distribution-grams">
+                                            {calculateMacroGrams(lipids, 'lipids')}g
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div className="new-calculator-distribution-bar-container">
+                                        <div
+                                        className="new-calculator-distribution-bar new-calculator-lipid-bar"
+                                        style={{ width: `${lipids}%` }}
+                                        ></div>
+                                    </div>
+                                </div>
+
+                                {/* CHO */}
+                                <div className="new-calculator-distribution-card">
+                                    <div className="new-calculator-distribution-row">
+                                        <div className="new-calculator-distribution-label">
+                                        <div
+                                            className="new-calculator-distribution-dot"
+                                            style={{ backgroundColor: "#EF4444" }}
+                                        ></div>
+                                        <span style={{ fontWeight: 500 }}>CHO</span>
+                                        </div>
+                                        <div className="new-calculator-distribution-input-container">
+                                        <input
+                                            type="number"
+                                            value={cho}
+                                            onChange={(e) => setCho(e.target.value)}
+                                            className="new-calculator-distribution-input"
+                                            placeholder="%"
+                                        />
+                                        <span className="new-calculator-distribution-grams">
+                                            {calculateMacroGrams(cho, 'cho')}g
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div className="new-calculator-distribution-bar-container">
+                                        <div
+                                        className="new-calculator-distribution-bar new-calculator-cho-bar"
+                                        style={{ width: `${cho}%` }}
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-span-7 space-y-6">
+                      <div className="bg-f9fafb rounded-xl shadow-sm p-6 mt-15">
+                          <h2 className="text-lg font-semibold text-green-900 mb-4">
+                              Requerimientos energéticos sugeridos
+                          </h2>
+                          <img src={currentImage} style={{ cursor: 'zoom-in' }} className="modal-chart" alt="Requerimientos Energéticos" onClick={handleImageClick} />
+                      </div>
+                      <div className="bg-green-50 rounded-xl shadow-sm p-6 mt-15">
+                      <div className="flex items-center justify-between mb-6">
+                          <h2 className="text-lg font-semibold text-green-900">
+                              Resultados del Cálculo
+                          </h2>
+                      </div>
+                          <div className="space-y-6">
+                              <div className="">
+                                  <div className="bg-white rounded-lg p-4">
+                                      <div className="flex items-center justify-between mb-2">
+                                          <p className="text-sm font-medium text-green-700">
+                                              Gasto Energético Total (GET)
+                                          </p>
+                                          <div className="flex items-center space-x-2">
+                                              <button
+                                                  onClick={() => setGetAdjustment((prev) => prev - 100)}
+                                                  className="flex justify-center align-items-center border-none p-1 rounded bg-green-200 text-green-700"
+                                              >
+                                                  <Minus size={14} />
+                                              </button>
+                                              <input
+                                                  type="number"
+                                                  value={getAdjustment}
+                                                  onChange={(e) =>
+                                                      setGetAdjustment(Number(e.target.value))
+                                                  }
+                                                  className="new-calculator-input"
+                                                  style={{ width: "100px" }}
+                                              />
+                                              <button
+                                                  onClick={() => setGetAdjustment((prev) => prev + 100)}
+                                                  className="flex justify-center align-items-center border-none p-1 rounded bg-green-200 text-green-700"
+                                              >
+                                                  <Plus size={14} />
+                                              </button>
+                                          </div>
+                                      </div>
+                                      <div className="flex items-baseline space-x-2">
+                                          <p className="text-2xl font-semibold text-green-900">
+                                              {adjustedGet}
+                                          </p>
+                                          <p className="text-green-700">kcal/día</p>
+                                          {getAdjustment !== 0 && (
+                                              <p className="text-sm text-green-600">
+                                                  (Ajustado desde{" "}
+                                                  {totalKcal})
+                                              </p>
+                                          )}
+                                      </div>
+                                      <div className="flex items-baseline space-x-2 mt-1">
+                                          <p className="text-lg font-semibold text-green-900">
+                                              {kcalPerKg==='NaN' ? 0 : kcalPerKg}
+                                          </p>
+                                          <p className="text-sm font-medium text-green-700">
+                                              kcal/kg/día
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
             </div>
             <ConfirmationMessage message={attachmentMessage} />
+            <ConfirmationMessage message={calculationMessage} />
+                <div
+                    className="new-calculator-footer-container px-6 py-6"
+                >
+                    <div style={{ width: '100%'}}>
+                    </div>
+                <div className="new-calculator-footer-buttons-container">
+                    <button
+                    onClick={calculateRequirements}
+                    className="btn-sm-green-secondary"
+                    >
+                    Calcular requerimiento
+                    </button>
+                    <LoadingButton
+                        className='btn-sm-green'
+                        text='Adjuntar al paciente'
+                        onClick={handleAttachTable}
+                        disabled={isSending} // Mostrará la animación si `disabled` es `true`
+                    />
+                </div>
+            </div>
+            <ModalWrapper
+            isOpen={openModal}
+            onClose={() => setOpenModal(false)}
+            title="Requerimientos energéticos"
+        >
+            <img src={currentImage} className="modal-chart" alt="Requerimientos Energéticos" />
+        </ModalWrapper>
         </div>
-        
-
-      </div>
-    </div>
   );
 };
