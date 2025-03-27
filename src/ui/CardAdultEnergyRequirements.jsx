@@ -57,9 +57,10 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
       };
 
       const calculateMacroGrams = (percentage, type) => {
-        if (!totalKcal || !percentage) return 0;
+        if (isNaN(Number(totalKcal)) || isNaN(Number(percentage))) return 0;
         const divisor = type === 'lipids' ? 9 : 4;
-        return ((totalKcal * (parseFloat(percentage) / 100)) / divisor).toFixed(1);
+        const grams = (Number(totalKcal) * (parseFloat(percentage) / 100)) / divisor;
+        return !isNaN(grams) ? grams.toFixed(1) : '0.0';
       };
 
     return (
@@ -110,7 +111,7 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
                 <div className="bg-slate-50 rounded-lg p-4">
                     <div className="flex items-baseline">
                     <span className="text-4xl font-bold text-slate-800">
-                        {totalKcal.toFixed(0)}
+                        {!isNaN(Number(totalKcal)) ? Number(totalKcal).toFixed(0) : 'N/A'}
                     </span>
                     <span className="ml-2 text-slate-600">kcal/día</span>
                     </div>

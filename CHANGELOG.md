@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.17.0] - 2025-03-27  
+
+### Añadido  
+- **Distribución de macronutrientes en calculadoras**: Se ha incorporado una nueva funcionalidad que permite definir la distribución de macronutrientes para cada paciente. Los nutricionistas ahora pueden establecer el porcentaje de proteínas, lípidos y carbohidratos en la dieta, facilitando la personalización del plan nutricional de acuerdo con los objetivos del paciente.  
+
+### Mejorado  
+- **Renovación visual de calculadoras y tarjeta de requerimientos**: Se ha actualizado el diseño de todas las calculadoras de requerimientos energéticos e hídricos, así como la tarjeta de información en la página del paciente. La nueva interfaz mejora la legibilidad y la organización de los datos, facilitando su interpretación.  
+- **Incorporación de gráficos**: Ahora, las calculadoras y la tarjeta de información presentan gráficos visuales que permiten analizar de manera más intuitiva la distribución de los requerimientos y la composición nutricional recomendada.  
+
 ## [1.16.1] - 2025-01-04
 
 ### Corregido

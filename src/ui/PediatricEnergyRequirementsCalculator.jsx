@@ -123,10 +123,12 @@ export const PediatricEnergyRequirementsCalculator = () => {
           return;
       }
 
-      const { weight: patientWeight, stature: patientHeight, unixBirthday } = patient;
+      const { weight: patientWeight, stature: patientHeight, unixBirthday, unixBiologicalBirthday, unixCorrectedBirthday } = patient;
 
       const currentDate = new Date();
-      const patientBirthday = new Date(unixBirthday * 1000);
+      const patientBirthday = new Date(
+        (unixBiologicalBirthday || unixCorrectedBirthday || unixBirthday) * 1000
+    );
       const age = differenceInYears(currentDate, patientBirthday);
 
       if (age > 18) {
