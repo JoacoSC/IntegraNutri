@@ -27,10 +27,17 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
 
     const [unixCorrectedBirthday, setUnixCorrectedBirthday] = useState()
 
+    const [isModified, setIsModified] = useState(false); // Track if the form has been modified
+
     const {
         birthdayForm,
         onInputChange
     } = useForm();
+
+    const onInputChangeWithTracking = (event) => {
+        onInputChange(event); // Call the existing input change handler
+        setIsModified(true); // Mark the form as modified
+    };
 
     const dispatch = useDispatch();
 
@@ -41,24 +48,18 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
     }
 
     const updatePatientValues = () => {
-        
-        setOpenModal(false)
+        if (!isModified) return; // Prevent updating if no changes were made
 
-        // const correctedUnixBirthday = birthdayForm;
+        setOpenModal(false);
 
-        const correctedAge = calculateAgeObject( unixCorrectedBirthday );
-
+        const correctedAge = calculateAgeObject(unixCorrectedBirthday);
         const correctedAgeIsSet = true;
 
-        // console.log('correctedAge111: ', correctedAge)
-        
-        dispatch( updateCurrentPatientCorrectedAge( correctedAge ) );
-        // dispatch( startUpdatingCurrentPatientCorrectedAge( uid, patientID, correctedAge, correctedAgeIsSet ) );
+        dispatch(updateCurrentPatientCorrectedAge(correctedAge));
+        dispatch(updateCurrentPatientUnixCorrectedBirthday({ unixCorrectedBirthday, correctedAgeIsSet }));
+        dispatch(startUpdatingCurrentPatientUnixCorrectedBirthday(uid, patientID, unixCorrectedBirthday, correctedAgeIsSet));
 
-        dispatch( updateCurrentPatientUnixCorrectedBirthday({ unixCorrectedBirthday, correctedAgeIsSet }) );
-        dispatch( startUpdatingCurrentPatientUnixCorrectedBirthday( uid, patientID, unixCorrectedBirthday, correctedAgeIsSet )  );
-
-
+        setIsModified(false); // Reset modification state after update
     }
     
     const deleteCorrectedAge = () => {
@@ -239,10 +240,10 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
     }, [unixBirthday])
 
     useEffect(() => {
-        
-        setUnixCorrectedBirthday( getUnixTime(addDays( set( new Date( birthdayForm ), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0} ), 1 )) )
-        setCorrectedAge( calculateCorrectedAge( unixCorrectedBirthday ) );
-        
+        setUnixCorrectedBirthday(
+            getUnixTime(addDays(set(new Date(birthdayForm), { hours: 0, minutes: 0, seconds: 0, miliseconds: 0 }), 1))
+        );
+        setCorrectedAge(calculateCorrectedAge(unixCorrectedBirthday));
     }, [onInputChange])
     
     return (
@@ -270,7 +271,7 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
                 onClose={() => setOpenModal(false)}
                 title="Actualizar edad corregida"
                 footerButtons={[
-                    { text: "Actualizar", onClick: updatePatientValues, className: "btn-modal-action" },
+                    { text: "Actualizar", onClick: updatePatientValues, className: "btn-modal-action", disabled: !isModified },
                     { text: "Eliminar edad corregida", onClick: deleteCorrectedAge, className: "btn-modal-action-alt" },
                 ]}
             >
@@ -280,7 +281,7 @@ export const ModalUpdateCorrectedAge = ({ patientObject }) => {
                         <div className="form-group">
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Fecha de Nacimiento Corregida</label>
-                                <input className="input-text-style" type="date" name="birthdayForm" defaultValue={ birthday } onChange={ onInputChange }/>
+                                <input className="input-text-style" type="date" name="birthdayForm" defaultValue={ birthday } onChange={ onInputChangeWithTracking }/>
                             </div>
                             <div className="form-item w-50 pl-8">
                                 <label className="input-label">Edad Corregida</label>

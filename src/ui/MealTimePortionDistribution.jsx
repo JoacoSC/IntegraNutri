@@ -148,499 +148,501 @@ export const MealTimePortionDistribution = () => {
     }, [patients]);
 
     return (
-        <div className="calculator-main-container">
-            <div className="calculator-wrapper">
-                <p className="calculator-item-title">Distribución de porciones por tiempo de comida</p>
-                <div className="calculator-container">
-                    <table className="calculator-table">
-                        <tbody>
+        <div className="calculator-content-wrapper">
+            <div className="calculator-main-container">
+                <div className="calculator-wrapper">
+                    <p className="calculator-item-title">Distribución de porciones por tiempo de comida</p>
+                    <div className="calculator-container">
+                        <table className="calculator-table">
+                            <tbody>
 
-                            <tr>
-                                <th colSpan="2">Grupo de alimentos</th>
-                                <th>Total Porciones</th>
-                                <th>Desayuno</th>
-                                <th>Colación</th>
-                                <th>Almuerzo</th>
-                                <th>Colación</th>
-                                <th>Once</th>
-                                <th>Cena</th>
-                                <th>Colación</th>
-                            </tr>
-                            <tr>
-                                <th colSpan="2">Cereales, papas y legumbres frescas</th>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'cerealBreakfastPortion',
-                                        'cerealFirstSnackPortion',
-                                        'cerealLunchPortion',
-                                        'cerealSecondSnackPortion',
-                                        'cerealOncePortion',
-                                        'cerealDinnerPortion',
-                                        'cerealThirdSnackPortion'
-                                    ])}
-                                </td>
+                                <tr>
+                                    <th colSpan="2">Grupo de alimentos</th>
+                                    <th>Total Porciones</th>
+                                    <th>Desayuno</th>
+                                    <th>Colación</th>
+                                    <th>Almuerzo</th>
+                                    <th>Colación</th>
+                                    <th>Once</th>
+                                    <th>Cena</th>
+                                    <th>Colación</th>
+                                </tr>
+                                <tr>
+                                    <th colSpan="2">Cereales, papas y legumbres frescas</th>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'cerealBreakfastPortion',
+                                            'cerealFirstSnackPortion',
+                                            'cerealLunchPortion',
+                                            'cerealSecondSnackPortion',
+                                            'cerealOncePortion',
+                                            'cerealDinnerPortion',
+                                            'cerealThirdSnackPortion'
+                                        ])}
+                                    </td>
 
-                                <td className="portion-input-container">
-                                    <input name="cerealBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="cerealFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="cerealLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="cerealSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="cerealOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="cerealDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="cerealThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th rowSpan="2">Verduras</th>
-                                <td>En general</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'generalVeggieBreakfastPortion',
-                                        'generalVeggieFirstSnackPortion',
-                                        'generalVeggieLunchPortion',
-                                        'generalVeggieSecondSnackPortion',
-                                        'generalVeggieOncePortion',
-                                        'generalVeggieDinnerPortion',
-                                        'generalVeggieThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="generalVeggieBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="generalVeggieFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="generalVeggieLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="generalVeggieSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="generalVeggieOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="generalVeggieDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="generalVeggieThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Libre consumo</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'freeVeggieBreakfastPortion',
-                                        'freeVeggieFirstSnackPortion',
-                                        'freeVeggieLunchPortion',
-                                        'freeVeggieSecondSnackPortion',
-                                        'freeVeggieOncePortion',
-                                        'freeVeggieDinnerPortion',
-                                        'freeVeggieThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="freeVeggieBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="freeVeggieFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="freeVeggieLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="freeVeggieSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="freeVeggieOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="freeVeggieDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="freeVeggieThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colSpan="2">Frutas</th>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'fruitBreakfastPortion',
-                                        'fruitFirstSnackPortion',
-                                        'fruitLunchPortion',
-                                        'fruitSecondSnackPortion',
-                                        'fruitOncePortion',
-                                        'fruitDinnerPortion',
-                                        'fruitThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="fruitBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="fruitFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="fruitLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="fruitSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="fruitOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="fruitDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="fruitThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th rowSpan="3">Carnes, huevos, y legumbres secas</th>
-                                <td>Alta en grasas</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'highFatMeatBreakfastPortion',
-                                        'highFatMeatFirstSnackPortion',
-                                        'highFatMeatLunchPortion',
-                                        'highFatMeatSecondSnackPortion',
-                                        'highFatMeatOncePortion',
-                                        'highFatMeatDinnerPortion',
-                                        'highFatMeatThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatMeatBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatMeatFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatMeatLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatMeatSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatMeatOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatMeatDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatMeatThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Baja en grasas</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'lowFatMeatBreakfastPortion',
-                                        'lowFatMeatFirstSnackPortion',
-                                        'lowFatMeatLunchPortion',
-                                        'lowFatMeatSecondSnackPortion',
-                                        'lowFatMeatOncePortion',
-                                        'lowFatMeatDinnerPortion',
-                                        'lowFatMeatThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatMeatBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatMeatFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatMeatLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatMeatSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatMeatOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatMeatDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatMeatThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Leguminosas</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'legumeMeatBreakfastPortion',
-                                        'legumeMeatFirstSnackPortion',
-                                        'legumeMeatLunchPortion',
-                                        'legumeMeatSecondSnackPortion',
-                                        'legumeMeatOncePortion',
-                                        'legumeMeatDinnerPortion',
-                                        'legumeMeatThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="legumeMeatBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="legumeMeatFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="legumeMeatLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="legumeMeatSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="legumeMeatOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="legumeMeatDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="legumeMeatThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th rowSpan="3">Lácteos</th>
-                                <td>Altos en grasas</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'highFatDairyBreakfastPortion',
-                                        'highFatDairyFirstSnackPortion',
-                                        'highFatDairyLunchPortion',
-                                        'highFatDairySecondSnackPortion',
-                                        'highFatDairyOncePortion',
-                                        'highFatDairyDinnerPortion',
-                                        'highFatDairyThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatDairyBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatDairyFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatDairyLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatDairySecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatDairyOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatDairyDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="highFatDairyThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Medios en grasas</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'midFatDairyBreakfastPortion',
-                                        'midFatDairyFirstSnackPortion',
-                                        'midFatDairyLunchPortion',
-                                        'midFatDairySecondSnackPortion',
-                                        'midFatDairyOncePortion',
-                                        'midFatDairyDinnerPortion',
-                                        'midFatDairyThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="midFatDairyBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="midFatDairyFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="midFatDairyLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="midFatDairySecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="midFatDairyOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="midFatDairyDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="midFatDairyThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Bajos en grasas</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'lowFatDairyBreakfastPortion',
-                                        'lowFatDairyFirstSnackPortion',
-                                        'lowFatDairyLunchPortion',
-                                        'lowFatDairySecondSnackPortion',
-                                        'lowFatDairyOncePortion',
-                                        'lowFatDairyDinnerPortion',
-                                        'lowFatDairyThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatDairyBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatDairyFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatDairyLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatDairySecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatDairyOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatDairyDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lowFatDairyThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th rowSpan="2">Aceites y grasas</th>
-                                <td>Aceites y grasas</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'oilAndFatBreakfastPortion',
-                                        'oilAndFatFirstSnackPortion',
-                                        'oilAndFatLunchPortion',
-                                        'oilAndFatSecondSnackPortion',
-                                        'oilAndFatOncePortion',
-                                        'oilAndFatDinnerPortion',
-                                        'oilAndFatThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="oilAndFatBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="oilAndFatFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="oilAndFatLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="oilAndFatSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="oilAndFatOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="oilAndFatDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="oilAndFatThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Alimentos altos en lípidos</td>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'lipidRichFoodBreakfastPortion',
-                                        'lipidRichFoodFirstSnackPortion',
-                                        'lipidRichFoodLunchPortion',
-                                        'lipidRichFoodSecondSnackPortion',
-                                        'lipidRichFoodOncePortion',
-                                        'lipidRichFoodDinnerPortion',
-                                        'lipidRichFoodThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lipidRichFoodBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lipidRichFoodFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lipidRichFoodLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lipidRichFoodSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lipidRichFoodOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lipidRichFoodDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="lipidRichFoodThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colSpan="2">Azúcares y otros</th>
-                                <td>
-                                    {calculateTotalPortions([
-                                        'sugarAndOthersBreakfastPortion',
-                                        'sugarAndOthersFirstSnackPortion',
-                                        'sugarAndOthersLunchPortion',
-                                        'sugarAndOthersSecondSnackPortion',
-                                        'sugarAndOthersOncePortion',
-                                        'sugarAndOthersDinnerPortion',
-                                        'sugarAndOthersThirdSnackPortion'
-                                    ])}
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="sugarAndOthersBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="sugarAndOthersFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="sugarAndOthersLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="sugarAndOthersSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="sugarAndOthersOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="sugarAndOthersDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                                <td className="portion-input-container">
-                                    <input name="sugarAndOthersThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div className='patient-table-attachment-container'>
-                    <div className='flex-row gap-1'>
-                        <select className='input-select' onChange={handlePatientChange}>
-                        {patients.map((patient) => (
-                            <option key={patient.id} value={patient.id}>
-                            {patient.displayName}
-                            </option>
-                        ))}
-                        </select>
-                        <button className='btn-sm' onClick={handleAttachTable}>Adjuntar tabla al paciente seleccionado</button>
+                                    <td className="portion-input-container">
+                                        <input name="cerealBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="cerealFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="cerealLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="cerealSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="cerealOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="cerealDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="cerealThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th rowSpan="2">Verduras</th>
+                                    <td>En general</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'generalVeggieBreakfastPortion',
+                                            'generalVeggieFirstSnackPortion',
+                                            'generalVeggieLunchPortion',
+                                            'generalVeggieSecondSnackPortion',
+                                            'generalVeggieOncePortion',
+                                            'generalVeggieDinnerPortion',
+                                            'generalVeggieThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="generalVeggieBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="generalVeggieFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="generalVeggieLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="generalVeggieSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="generalVeggieOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="generalVeggieDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="generalVeggieThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Libre consumo</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'freeVeggieBreakfastPortion',
+                                            'freeVeggieFirstSnackPortion',
+                                            'freeVeggieLunchPortion',
+                                            'freeVeggieSecondSnackPortion',
+                                            'freeVeggieOncePortion',
+                                            'freeVeggieDinnerPortion',
+                                            'freeVeggieThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="freeVeggieBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="freeVeggieFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="freeVeggieLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="freeVeggieSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="freeVeggieOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="freeVeggieDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="freeVeggieThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colSpan="2">Frutas</th>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'fruitBreakfastPortion',
+                                            'fruitFirstSnackPortion',
+                                            'fruitLunchPortion',
+                                            'fruitSecondSnackPortion',
+                                            'fruitOncePortion',
+                                            'fruitDinnerPortion',
+                                            'fruitThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="fruitBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="fruitFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="fruitLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="fruitSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="fruitOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="fruitDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="fruitThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th rowSpan="3">Carnes, huevos, y legumbres secas</th>
+                                    <td>Alta en grasas</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'highFatMeatBreakfastPortion',
+                                            'highFatMeatFirstSnackPortion',
+                                            'highFatMeatLunchPortion',
+                                            'highFatMeatSecondSnackPortion',
+                                            'highFatMeatOncePortion',
+                                            'highFatMeatDinnerPortion',
+                                            'highFatMeatThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatMeatBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatMeatFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatMeatLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatMeatSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatMeatOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatMeatDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatMeatThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Baja en grasas</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'lowFatMeatBreakfastPortion',
+                                            'lowFatMeatFirstSnackPortion',
+                                            'lowFatMeatLunchPortion',
+                                            'lowFatMeatSecondSnackPortion',
+                                            'lowFatMeatOncePortion',
+                                            'lowFatMeatDinnerPortion',
+                                            'lowFatMeatThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatMeatBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatMeatFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatMeatLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatMeatSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatMeatOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatMeatDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatMeatThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Leguminosas</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'legumeMeatBreakfastPortion',
+                                            'legumeMeatFirstSnackPortion',
+                                            'legumeMeatLunchPortion',
+                                            'legumeMeatSecondSnackPortion',
+                                            'legumeMeatOncePortion',
+                                            'legumeMeatDinnerPortion',
+                                            'legumeMeatThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="legumeMeatBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="legumeMeatFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="legumeMeatLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="legumeMeatSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="legumeMeatOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="legumeMeatDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="legumeMeatThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th rowSpan="3">Lácteos</th>
+                                    <td>Altos en grasas</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'highFatDairyBreakfastPortion',
+                                            'highFatDairyFirstSnackPortion',
+                                            'highFatDairyLunchPortion',
+                                            'highFatDairySecondSnackPortion',
+                                            'highFatDairyOncePortion',
+                                            'highFatDairyDinnerPortion',
+                                            'highFatDairyThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatDairyBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatDairyFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatDairyLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatDairySecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatDairyOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatDairyDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="highFatDairyThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Medios en grasas</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'midFatDairyBreakfastPortion',
+                                            'midFatDairyFirstSnackPortion',
+                                            'midFatDairyLunchPortion',
+                                            'midFatDairySecondSnackPortion',
+                                            'midFatDairyOncePortion',
+                                            'midFatDairyDinnerPortion',
+                                            'midFatDairyThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="midFatDairyBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="midFatDairyFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="midFatDairyLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="midFatDairySecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="midFatDairyOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="midFatDairyDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="midFatDairyThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Bajos en grasas</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'lowFatDairyBreakfastPortion',
+                                            'lowFatDairyFirstSnackPortion',
+                                            'lowFatDairyLunchPortion',
+                                            'lowFatDairySecondSnackPortion',
+                                            'lowFatDairyOncePortion',
+                                            'lowFatDairyDinnerPortion',
+                                            'lowFatDairyThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatDairyBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatDairyFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatDairyLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatDairySecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatDairyOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatDairyDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lowFatDairyThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th rowSpan="2">Aceites y grasas</th>
+                                    <td>Aceites y grasas</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'oilAndFatBreakfastPortion',
+                                            'oilAndFatFirstSnackPortion',
+                                            'oilAndFatLunchPortion',
+                                            'oilAndFatSecondSnackPortion',
+                                            'oilAndFatOncePortion',
+                                            'oilAndFatDinnerPortion',
+                                            'oilAndFatThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="oilAndFatBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="oilAndFatFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="oilAndFatLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="oilAndFatSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="oilAndFatOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="oilAndFatDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="oilAndFatThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Alimentos altos en lípidos</td>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'lipidRichFoodBreakfastPortion',
+                                            'lipidRichFoodFirstSnackPortion',
+                                            'lipidRichFoodLunchPortion',
+                                            'lipidRichFoodSecondSnackPortion',
+                                            'lipidRichFoodOncePortion',
+                                            'lipidRichFoodDinnerPortion',
+                                            'lipidRichFoodThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lipidRichFoodBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lipidRichFoodFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lipidRichFoodLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lipidRichFoodSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lipidRichFoodOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lipidRichFoodDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="lipidRichFoodThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colSpan="2">Azúcares y otros</th>
+                                    <td>
+                                        {calculateTotalPortions([
+                                            'sugarAndOthersBreakfastPortion',
+                                            'sugarAndOthersFirstSnackPortion',
+                                            'sugarAndOthersLunchPortion',
+                                            'sugarAndOthersSecondSnackPortion',
+                                            'sugarAndOthersOncePortion',
+                                            'sugarAndOthersDinnerPortion',
+                                            'sugarAndOthersThirdSnackPortion'
+                                        ])}
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="sugarAndOthersBreakfastPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="sugarAndOthersFirstSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="sugarAndOthersLunchPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="sugarAndOthersSecondSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="sugarAndOthersOncePortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="sugarAndOthersDinnerPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                    <td className="portion-input-container">
+                                        <input name="sugarAndOthersThirdSnackPortion" type="number" placeholder="0" onChange={ onInputChange } step="0.1" onBlur={handleBlur}/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <ConfirmationMessage message={confirmationMessage} />
+                    <div className='patient-table-attachment-container'>
+                        <div className='flex-row gap-1'>
+                            <select className='input-select' onChange={handlePatientChange}>
+                            {patients.map((patient) => (
+                                <option key={patient.id} value={patient.id}>
+                                {patient.displayName}
+                                </option>
+                            ))}
+                            </select>
+                            <button className='btn-sm' onClick={handleAttachTable}>Adjuntar tabla al paciente seleccionado</button>
+                        </div>
+                        <ConfirmationMessage message={confirmationMessage} />
+                    </div>
                 </div>
             </div>
         </div>

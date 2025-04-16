@@ -3821,6 +3821,11 @@ body{
 /* **************** Settings page ****************** */
 
 /* **************** Calculator page ****************** */
+.calculator-content-wrapper{
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 0 8px 8px 8px;
+}
 
 .patient-table-attachment-container{
     display: flex;
@@ -3909,16 +3914,19 @@ body{
     /* padding: 0rem 0.5rem 0.5rem 0.5rem ; */
     overflow-x: auto;
 }
-.calculator-container{
+/* .calculator-container{
     display: flex;
     justify-content: center;
-    /* padding: 1rem; */
     background-color: white;
-    /* border-radius: 20px; */
     font-weight: 500;
     font-size: 0.9rem;
     overflow-x: auto;
-}
+} */
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 6rem;
+  }
 .calculator-item-title{
     margin: 1rem 1rem 1rem 1rem;
     font-weight: 600;

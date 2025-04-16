@@ -9,10 +9,13 @@ import { useEffect, useState } from "react";
 import { CalculatorsTabs, CalculatorsTabTrigger } from "../../ui/components";
 import { PediatricEnergyRequirementsCalculator, CustomEnergyRequirementsCalculator } from "../../ui";
 import { startLoadingMyPatients } from "../../store/patients";
+import { CalculatorSelector } from "../../ui/components";
   
 export const CalculatorPage = () => {
 
     const dispatch = useDispatch();
+
+    const [selectedCalculator, setSelectedCalculator] = useState("foodCalc");
 
     const { uid, displayName } = useSelector( state => state.auth )
 
@@ -24,75 +27,51 @@ export const CalculatorPage = () => {
 
     }
 
+    const renderCalculator = () => {
+      switch (selectedCalculator) {
+        case "foodCalc":
+          return <FoodCalculatorTable />;
+        case "portionDist":
+          return <MealTimePortionDistribution />;
+        case "pediatricCalc":
+          return <PediatricEnergyRequirementsCalculator />;
+        case "customCalc":
+          return <CustomEnergyRequirementsCalculator />;
+        case "adultCalc":
+          return <AdultEnergyRequirementsCalculator />;
+        case "adultCustomCalc":
+          return <AdultCustomEnergyRequirementsCalculator />;
+        default:
+          return <FoodCalculatorTable />;
+      }
+    };
+
     useEffect(() => {
       dispatch ( startLoadingMyPatients( uid ) );
     }, []);
 
     return (
-        <AppLayout>
-          <div className="main">
-            <div className="logout-section">
-              <button className="btn-logout" type="button" onClick={onLogout}>
-                Cerrar sesión
-              </button>
-            </div>
-            <div className="welcome-section">
-              <h1>Nut. {displayName}</h1>
-            </div>
-            <div className="tabs-section" style={{marginTop: '50px'}}>
-              <CalculatorsTabs>
-                <CalculatorsTabTrigger
-                  value="foodCalc"
-                  label="Calculadora de Alimentos"
-                  customTabClass="normal-tab"
-                  customContentClass="normal-tab-content"
-                >
-                  <FoodCalculatorTable />
-                </CalculatorsTabTrigger>
-                <CalculatorsTabTrigger
-                  value="portionDist"
-                  label="Distribución de Porciones"
-                  customTabClass="normal-tab"
-                  customContentClass="normal-tab-content"
-                >
-                  <MealTimePortionDistribution />
-                </CalculatorsTabTrigger>
-                <CalculatorsTabTrigger
-                  value="pediatricCalc"
-                  label="Requerimientos Energéticos - Infantil"
-                  customTabClass="custom-pediatric-tab"
-                  customContentClass="custom-pediatric-content"
-                >
-                  <PediatricEnergyRequirementsCalculator />
-                </CalculatorsTabTrigger>
-                <CalculatorsTabTrigger
-                  value="customCalc"
-                  label="Requerimientos Energéticos - Personalizado"
-                  customTabClass="custom-pediatric-tab"
-                  customContentClass="custom-pediatric-content"
-                >
-                  <CustomEnergyRequirementsCalculator />
-                </CalculatorsTabTrigger>
-                <CalculatorsTabTrigger
-                  value="adultCalc"
-                  label="Requerimientos Energéticos - Adultos"
-                  customTabClass="custom-adult-tab"
-                  customContentClass="custom-adult-content"
-                >
-                  <AdultEnergyRequirementsCalculator />
-                </CalculatorsTabTrigger>
-                <CalculatorsTabTrigger
-                  value="adultCustomCalc"
-                  label="Requerimientos Energéticos - Personalizado"
-                  customTabClass="custom-adult-tab"
-                  customContentClass="custom-adult-content"
-                >
-                  <AdultCustomEnergyRequirementsCalculator />
-                </CalculatorsTabTrigger>
-              </CalculatorsTabs>
-            </div>
+      <AppLayout>
+        <div className="main">
+          <div className="logout-section">
+            <button className="btn-logout" type="button" onClick={onLogout}>
+              Cerrar sesión
+            </button>
           </div>
-          <Footer />
-        </AppLayout>
+          <div className="welcome-section">
+            <h1>Nut. {displayName}</h1>
+          </div>
+          <div className="calculator-container">
+            <div className="calculator-selector">
+              <CalculatorSelector
+                selectedCalculator={selectedCalculator}
+                onSelectCalculator={setSelectedCalculator}
+              />
+            </div>
+            <div className="calculator-content" style={{maxWidth: '70%', width: '70%'}}>{renderCalculator()}</div>
+          </div>
+        </div>
+        <Footer />
+      </AppLayout>
       );
 }
