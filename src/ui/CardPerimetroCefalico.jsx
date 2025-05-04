@@ -14,7 +14,7 @@ export const CardPerimetroCefalico = () => {
                 Perímetro Cefálico
             </div>
             <div className='patient-secondary-card-content'>
-                <div className='flex-column pl-2'>
+                <div className='custom-flex-column custom-pl-2'>
                     <img src={ PerimetroCefalicoForAvatar } className='perimetro-cefalico-measure'/>
                     {
                         ( biologicalSex === 'Masculino' )
@@ -25,7 +25,7 @@ export const CardPerimetroCefalico = () => {
                     }
 
                 </div>
-                <div className='perimetro-cefalico-value-container flex-column pr-2'>
+                <div className='perimetro-cefalico-value-container custom-flex-column custom-pr-2'>
                     <p className='perimetro-cefalico-value'><b>Medición:&nbsp;</b>{ perimetroCefalico.PCeMedicion } cm</p>
                     <p className='perimetro-cefalico-value'><b>Registro:&nbsp;</b>{ perimetroCefalico.PCeRegistro }</p>
                     <p className='perimetro-cefalico-value'><b>Clasificación:&nbsp;</b>{ perimetroCefalico.PCeClasificacion }</p>

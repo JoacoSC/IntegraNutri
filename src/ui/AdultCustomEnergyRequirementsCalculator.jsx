@@ -164,7 +164,7 @@ export const AdultCustomEnergyRequirementsCalculator = () => {
                           Requerimiento energético:
                         </span>
                       </div>
-                      <div className="new-calculator-result-value flex-column">
+                      <div className="new-calculator-result-value custom-flex-column">
                         {customTotalKcal
                           ? `${customTotalKcal} Kcal/día`
                           : "-"}

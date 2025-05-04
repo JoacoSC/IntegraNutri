@@ -33,10 +33,10 @@ export const ComparisonComponent = ({ anthropometryHistory, onSelectionChange })
     }, []);
 
     return (
-        <div className='flex-row flex-align-center h-100 mt-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+        <div className='custom-flex-row custom-flex-align-center custom-h-100 custom-mt-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
             <h4>Comparación de evaluaciones antropométricas:</h4>
             <select 
-                className='input-select border-clr-secondary px-05'
+                className='input-select border-clr-secondary custom-px-05'
                 value={firstSelectValue}
                 onChange={handleFirstSelectChange}
             >
@@ -57,7 +57,7 @@ export const ComparisonComponent = ({ anthropometryHistory, onSelectionChange })
             </select>
 
             <select 
-                className='input-select border-clr-secondary px-05'
+                className='input-select border-clr-secondary custom-px-05'
                 value={secondSelectValue}
                 onChange={handleSecondSelectChange}
             >

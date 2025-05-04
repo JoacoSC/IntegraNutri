@@ -122,7 +122,7 @@ export const CardAnthropometry = ({ commonProps }) => {
     const cutoffPositions = getCutoffPositions(biologicalSex);
 
     return (
-        <div className='patient-secondary-card h-600'>
+        <div className='patient-secondary-card' style={{ height: '625px' }}>
             <div className='patient-secondary-card-title'>
                 Evaluación Antropométrica
             </div>
@@ -174,7 +174,7 @@ export const CardAnthropometry = ({ commonProps }) => {
                                 <p className='bar-explanation-text-ica-end'>0.7</p>
                             </div>
                         </li>
-                            <div className='mt-1'></div>
+                            <div className='custom-mt-1'></div>
                             <ModalAnthropometryResults commonProps={commonProps}/>
                     </ul>
                 </div>

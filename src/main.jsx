@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 // import { RegisterPage } from './auth/pages/RegisterPage'
 import { NutritionistApp } from './NutritionistApp'
 import { store } from './store'
+import './styles.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   

@@ -119,13 +119,13 @@ export const LandingPage = () => {
                 } />
             }
             <button className='btn-scroll-to-top' style={{display: visible ? 'inline' : 'none'}} onClick={() => handleScrollTo(topRef)}>
-                <img src={ Landing_images.Up_icon } alt="Icono IntegraNutri"/>
+                <img src={ Landing_images.Up_icon } style={{marginLeft: 'auto', marginRight: 'auto'}} alt="Icono IntegraNutri"/>
             </button>
             <div ref={ topRef } className="landing-header">
-                <div className="landing-logo-container">
-                    <Link to='../home'>
+                <div className="landing-logo-container" style={{  }}>
+                    <Link className='flex flex-row items-center' to='../home'>
                         <img src={ IntegraNutri_ellipse } className="landing-logo-img" alt="Icono IntegraNutri"/>
-                        <img src={ IntegraNutri_texto } className="landing-logo-text" alt="Icono IntegraNutri"/>
+                        <img src={ IntegraNutri_texto } className="landing-logo-text" style={{ marginTop: '1rem'}} alt="Icono IntegraNutri"/>
                     </Link>
                 </div>
                 <div className="landing-nav">
@@ -159,7 +159,7 @@ export const LandingPage = () => {
                             ?   <>
                                     <li className="landing-nav-item-login" data-tooltip="Inicio">
                                         <Link to="../nutritionist" className="link-no-decoration">
-                                            <div className="landing-btn-login">
+                                            <div className="landing-btn-login" style={{}}>
                                                     Ir a IntegraNutri
                                             </div>
                                         </Link>
@@ -185,16 +185,16 @@ export const LandingPage = () => {
                 <div className="landing-img-container">
                     <div className="landing-title-container">
                         {/* { message && <AlertBox message={ message }/> } */}
-                        <h1 className='landing-title'>Bienvenido a IntegraNutri!</h1>
+                        <h1 className='landing-title text-4xl font-bold leading-tight my-4'>Bienvenido a IntegraNutri!</h1>
                         <p className='landing-description'>Potencia tu atención nutricional con IntegraNutri: Una herramienta integral para nutricionistas modernos.</p>
                         <button className='btn-action' onClick={() => handleScrollTo(membershipsRef)}>Suscribirme</button>
                     </div>
                     <div className="landing-img-stack">
                         <div className="landing-img-1">
-                            <img src={ Landing_images.Webapp_example_1 } className="" alt="Icono IntegraNutri"/>
+                            <img src={ Landing_images.Webapp_example_1 } style={{width: '100%'}} className="" alt="Icono IntegraNutri"/>
                         </div>
                         <div className="landing-img-2">
-                            <img src={ Landing_images.Webapp_example_2 } className="" alt="Icono IntegraNutri"/>
+                            <img src={ Landing_images.Webapp_example_2 } style={{width: '100%'}} className="" alt="Icono IntegraNutri"/>
                         </div>
 
                     </div>
@@ -208,7 +208,7 @@ export const LandingPage = () => {
             </div>
             <div ref={ infoRef } className="landing-section">
                 <div className="landing-info">
-                    <h1 className='landing-title'>Información sobre IntegraNutri</h1>
+                    <h1 className='landing-title text-4xl font-bold leading-tight my-4'>Información sobre IntegraNutri</h1>
                     <div className='info-card-container'>
                         {texts.infoCards.map((card, index) => (
                             <InfoCard 
@@ -227,7 +227,7 @@ export const LandingPage = () => {
             </div>
             <div ref={ benefitsRef } className="landing-section">
                 <div className="landing-benefits">
-                <h1 className='landing-title'>Beneficios</h1>
+                <h1 className='landing-title text-4xl font-bold leading-tight my-4'>Beneficios</h1>
                     <div className='benefits-card-container'>
                         <div className='benefits-card'>
                             {texts.benefitItems_1.map((item, index) => (
@@ -259,29 +259,29 @@ export const LandingPage = () => {
             </div>
             <div ref={ membershipsRef } className="landing-section">
                 <div className="landing-memberships">
-                    <h1 className='landing-title'>Membresías</h1>
+                    <h1 className='landing-title text-4xl font-bold leading-tight my-4'>Membresías</h1>
                     <div className='memberships-card-container'>
                         <div className='memberships-card text-align-center'>
                             <img src={ IntegraNutri_ellipse } className="memberships-card-img" alt="Icono Paquete Infanto Juvenil"/>
-                            <h1>Paquete Infanto Juvenil</h1>
+                            <h1 className='text-4xl font-bold leading-tight my-4'>Paquete Infanto Juvenil</h1>
                             <p>Te damos la bienvenida a Integranutri, la plataforma líder en apoyo nutricional profesional. Con nuestro paquete "Infanto Juvenil", brindamos opciones flexibles para que puedas aprovechar al máximo nuestros servicios.
                             <br/><br/>Para hacer aún más accesible la excelencia en nutrición, ofrecemos un <b>descuento del 50% en todas las membresías</b>. Este descuento se aplicará automáticamente al realizar la compra.
                             </p>
-                            <ul className='text-align-left w-90'>
-                                <b><h3 className='text-align-center'>Beneficios Incluidos:</h3></b>
+                            <ul className='text-align-left custom-w-90'>
+                                <b><h3 className='text-align-center text-2xl'>Beneficios Incluidos:</h3></b>
                                 <br/>
                                 <li>
-                                    Pacientes activos ilimitados
+                                    - Pacientes activos ilimitados
                                 </li>	
-                                <li>Almacenamiento ilimitado</li>
-                                <li>Conexión paciente nutricionista</li>
-                                <li>No más Excel</li>
-                                <li>Automatización de resultados</li>
-                                <li>Link de agenda para RRSS</li>
-                                <li>Historial de atenciones</li>
-                                <li>Progreso mediante curvas</li>
-                                <li>Descuento Exclusivo: 50% en Todas las Membresías</li>
-                                <li>Mucho más</li>
+                                <li>- Almacenamiento ilimitado</li>
+                                <li>- Conexión paciente nutricionista</li>
+                                <li>- No más Excel</li>
+                                <li>- Automatización de resultados</li>
+                                <li>- Link de agenda para RRSS</li>
+                                <li>- Historial de atenciones</li>
+                                <li>- Progreso mediante curvas</li>
+                                <li>- Descuento Exclusivo: 50% en Todas las Membresías</li>
+                                <li>- Mucho más</li>
                             </ul>
                                 <b><h3 className='text-align-center'>Opciones de Membresía:</h3></b>
                             <div className='subscriptions-container'>

@@ -110,14 +110,14 @@ export const CardEstadioTanner = ({ nutritionalRating }) => {
             <div className='patient-secondary-card-title'>
                 Estadio de Tanner
             </div>
-            <div className='patient-secondary-card-content pl-2'>
-                <div className='perimetro-cintura-avatar-container flex-column'>
+            <div className='patient-secondary-card-content custom-pl-2'>
+                <div className='perimetro-cintura-avatar-container custom-flex-column'>
                     {
                         <img src={ BiologicalAge } className='perimetro-cintura-avatar'/>
                         
                     }
                 </div>
-                <div className='perimetro-cefalico-value-container flex-column padding-left-none'>
+                <div className='perimetro-cefalico-value-container custom-flex-column padding-left-none'>
                     <p className='perimetro-cefalico-value'><b>Edad biológica:&nbsp;</b>{ biologicalAgeText }</p>
                     <p className='perimetro-cefalico-value'><b>Estadio Tanner:&nbsp;</b>Grado { estadioTanner }</p>
                     <p className='perimetro-cefalico-value'>

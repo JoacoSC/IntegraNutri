@@ -45,16 +45,16 @@ export const CardPatientExams = ({ uid, patientID }) => {
     } = useSelector( state => state.currentPatient )
 
     return (
-        <div className='patient-secondary-card h-400'>
+        <div className='patient-secondary-card custom-h-400'>
             <div className='patient-secondary-card-title'>
                 Exámenes
             </div>
-            <div className='patient-secondary-card-content pb-1 pt-1'>
+            <div className='patient-secondary-card-content custom-pb-1 custom-pt-1'>
                 <div className='perimetro-cintura-avatar-container'>
                     <img src={ ExamIcon } className='perimetro-cintura-avatar'/>
                 </div>
-                <div className='perimetro-cefalico-value-container flex-column pl-1'>
-                    <p className='perimetro-cefalico-value flex-column'>
+                <div className='perimetro-cefalico-value-container custom-flex-column custom-pl-1'>
+                    <p className='perimetro-cefalico-value custom-flex-column'>
                         <b>Glicemia en ayunas&nbsp;</b>
                         {
                             ( examsHistory && examsHistory.length > 0 && examsHistory[examsHistory.length - 1].glicemia_ayunas !== '' )
@@ -62,7 +62,7 @@ export const CardPatientExams = ({ uid, patientID }) => {
                             :   'No hay datos'
                         }
                     </p>
-                    <p className='perimetro-cefalico-value flex-column'>
+                    <p className='perimetro-cefalico-value custom-flex-column'>
                         <b>Colesterol total&nbsp;</b>
                         {
                             ( examsHistory && examsHistory.length > 0 && examsHistory[examsHistory.length - 1].colesterol_total !== '' )
@@ -70,7 +70,7 @@ export const CardPatientExams = ({ uid, patientID }) => {
                             :   'No hay datos'
                         }
                     </p>
-                    <p className='perimetro-cefalico-value flex-column'>
+                    <p className='perimetro-cefalico-value custom-flex-column'>
                         <b>Colesterol HDL&nbsp;</b>
                         {
                             ( examsHistory && examsHistory.length > 0 && examsHistory[examsHistory.length - 1].colesterol_hdl !== '' )
@@ -78,7 +78,7 @@ export const CardPatientExams = ({ uid, patientID }) => {
                             :   'No hay datos'
                         }
                     </p>
-                    <p className='perimetro-cefalico-value flex-column'>
+                    <p className='perimetro-cefalico-value custom-flex-column'>
                         <b>Trigliceridos&nbsp;</b>
                         {
                             ( examsHistory && examsHistory.length > 0 && examsHistory[examsHistory.length - 1].trigliceridos !== '' )
@@ -86,7 +86,7 @@ export const CardPatientExams = ({ uid, patientID }) => {
                             :   'No hay datos'
                         }
                     </p>
-                    <p className='perimetro-cefalico-value flex-column'>
+                    <p className='perimetro-cefalico-value custom-flex-column'>
                         <b>Colesterol LDL&nbsp;</b>
                         {
                             ( examsHistory && examsHistory.length > 0 && examsHistory[examsHistory.length - 1].colesterol_ldl !== '' )

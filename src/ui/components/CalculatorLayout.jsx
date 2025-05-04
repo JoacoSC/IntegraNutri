@@ -53,8 +53,8 @@ export const CalculatorLayout = () => {
           <h1 className="text-2xl font-semibold">
             Nut. Joaquin Salinas Castillo
           </h1>
-          <button className="bg-[#7e22ce] hover:bg-[#6b21a8] text-white py-2 px-4 rounded-md flex items-center">
-            <LogOutIcon size={18} className="mr-2" />
+          <button className="bg-[#7e22ce] hover:bg-[#6b21a8] text-white custom-py-2 px-4 rounded-md flex items-center">
+            <LogOutIcon size={18} className="custom-mr-2" />
             Cerrar sesión
           </button>
         </div>

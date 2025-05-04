@@ -151,7 +151,12 @@ export const MealTimePortionDistribution = () => {
         <div className="calculator-content-wrapper">
             <div className="calculator-main-container">
                 <div className="calculator-wrapper">
-                    <p className="calculator-item-title">Distribución de porciones por tiempo de comida</p>
+                    <div className="w-full text-white text-center px-6 py-6">
+                        <h1 className="new-calculator-title">
+                        Distribución de porciones por tiempo de comida
+                        </h1>
+                    </div>
+                    {/* <p className="calculator-item-title">Distribución de porciones por tiempo de comida</p> */}
                     <div className="calculator-container">
                         <table className="calculator-table">
                             <tbody>
@@ -631,7 +636,7 @@ export const MealTimePortionDistribution = () => {
                         </table>
                     </div>
                     <div className='patient-table-attachment-container'>
-                        <div className='flex-row gap-1'>
+                        <div className='custom-flex-row custom-gap-1'>
                             <select className='input-select' onChange={handlePatientChange}>
                             {patients.map((patient) => (
                                 <option key={patient.id} value={patient.id}>

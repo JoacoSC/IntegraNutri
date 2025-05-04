@@ -59,16 +59,16 @@ export const CalculatorPage = () => {
             </button>
           </div>
           <div className="welcome-section">
-            <h1>Nut. {displayName}</h1>
+            <h1 className="text-4xl custom-font-bold leading-tight my-4">Nut. {displayName}</h1>
           </div>
-          <div className="calculator-container">
+          <div className="calculator-container" style={{marginTop: '3rem'}}>
             <div className="calculator-selector">
               <CalculatorSelector
                 selectedCalculator={selectedCalculator}
                 onSelectCalculator={setSelectedCalculator}
               />
             </div>
-            <div className="calculator-content" style={{maxWidth: '70%', width: '70%'}}>{renderCalculator()}</div>
+            <div className="calculator-content" style={{maxWidth: '70%'}}>{renderCalculator()}</div>
           </div>
         </div>
         <Footer />

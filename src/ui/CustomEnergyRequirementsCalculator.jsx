@@ -85,7 +85,7 @@ export const CustomEnergyRequirementsCalculator = () => {
   return (
     <div className="new-calculator-wrapper">
             <div className="new-calculator-container">
-              <div className="w-full bg-00bf62 text-white text-center px-6 py-6 t-border-radius-20">
+              <div className="w-full bg-00bf62 text-white text-center px-6 py-6">
                 <h1 className="new-calculator-title">
                   Cálculo personalizado de requerimientos energéticos
                 </h1>
@@ -130,7 +130,7 @@ export const CustomEnergyRequirementsCalculator = () => {
                               Requerimiento energético:
                             </span>
                           </div>
-                          <div className="new-calculator-result-value flex-column">
+                          <div className="new-calculator-result-value custom-flex-column">
                             {customTotalKcal
                               ? `${customTotalKcal} Kcal/día`
                               : "-"}

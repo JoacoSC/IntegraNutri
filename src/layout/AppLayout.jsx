@@ -1,5 +1,6 @@
 import { Navbar } from "../ui"
-import './components';
+
+import './components/AppLayout.css';
 
 export const AppLayout = ({ children }) => {
   return (

@@ -114,15 +114,15 @@ export const NutritionalIndications = () => {
     
   // Retorna la tabla
   return (
-    <div className="calculator-main-container">
+    <div className="calculator-main-container" style={{ borderRadius: '18px' }}>
       <div className="calculator-wrapper">
         <p className="calculator-item-title">Indicaciones nutricionales</p>
-        <div className="calculator-container calculator-container-border-radius">
-            <form className='form-container w-100 flex-row flex-justify-center'>
-                <div className='form-section-container w-100 flex-row flex-justify-center'>
-                    <div className='form-section w-max-none w-100 gap-1 px-2 py-1'>
+        <div className="calculator-container calculator-container-border-radius" style={{ padding: '0 7rem' }}>
+            <form className='form-container custom-w-100 custom-flex-row custom-flex-justify-center'>
+                <div className='form-section-container custom-w-100 custom-flex-row custom-flex-justify-center'>
+                    <div className='form-section custom-w-max-none custom-w-100 custom-gap-1 custom-px-2 custom-py-1'>
                         <h2>Diagnóstico Nutricional</h2>
-                        <label className='flex-row w-100'>
+                        <label className='custom-flex-row custom-w-100'>
                         <input
                             className='form-section-input-text'
                             type='text'
@@ -132,7 +132,7 @@ export const NutritionalIndications = () => {
                         ></input>
                         </label>
                         <h2>Indicaciones</h2>
-                        <label className='flex-row w-100'>
+                        <label className='custom-flex-row custom-w-100'>
                         <textarea
                             className='form-section-input-text'
                             ref={textareaRef}
@@ -154,8 +154,8 @@ export const NutritionalIndications = () => {
             </form>
         </div>
         <div className='patient-table-attachment-container'>
-            <div className='w-100'>
-                <div className='flex-row gap-1'>
+            <div className='custom-w-100'>
+                <div className='custom-flex-row custom-gap-1'>
                     <select className='input-select' onChange={handlePatientChange}>
                     {patients.map((patient) => (
                         <option key={patient.id} value={patient.id}>
@@ -166,29 +166,29 @@ export const NutritionalIndications = () => {
                     <button className='btn-sm' onClick={handleSelectPatient}>Seleccionar paciente</button>
                 </div>
             </div>
-            <div className='flex-row w-100 pt-1 gap-2'>
-                <div className='flex-column gap-1 w-100 pt-1'>
-                    <h3 className='color-white'>Nombre del paciente</h3>
-                    <label className='flex-row gap-05 w-100'>
-                        <input type='text' className='input-select w-100 cursor-pointer-auto' value={ displayName } readOnly/>
+            <div className='custom-flex-row custom-w-100 custom-pt-1 custom-gap-2'>
+                <div className='custom-flex-column custom-gap-1 custom-w-100 custom-pt-1'>
+                    <h3 className='custom-color-white'>Nombre del paciente</h3>
+                    <label className='custom-flex-row custom-gap-05 custom-w-100'>
+                        <input type='text' className='input-select custom-w-100 custom-cursor-pointer-auto' value={ displayName } readOnly/>
                     </label>
                 </div>
             </div>
-            <div className='flex-row w-100 pt-1 gap-2'>
-                <div className='flex-column gap-1 w-50 pt-1'>
-                    <h3 className='color-white'>RUT</h3>
-                    <label className='flex-row gap-05 w-100'>
-                        <input type='text' className='input-select w-100 cursor-pointer-auto' value={ rut } readOnly/>
+            <div className='custom-flex-row custom-w-100 custom-pt-1 custom-gap-2'>
+                <div className='custom-flex-column custom-gap-1 w-50 custom-pt-1'>
+                    <h3 className='custom-color-white'>RUT</h3>
+                    <label className='custom-flex-row custom-gap-05 custom-w-100'>
+                        <input type='text' className='input-select custom-w-100 custom-cursor-pointer-auto' value={ rut } readOnly/>
                     </label>
                 </div>
-                <div className='flex-column gap-1 w-50 pt-1'>
-                    <h3 className='color-white'>Fecha de nacimiento</h3>
-                    <label className='flex-row gap-05 w-100'>
-                        <input type='text' className='input-select w-100 cursor-pointer-auto' value={ birthday } readOnly/>
+                <div className='custom-flex-column custom-gap-1 w-50 custom-pt-1'>
+                    <h3 className='custom-color-white'>Fecha de nacimiento</h3>
+                    <label className='custom-flex-row custom-gap-05 custom-w-100'>
+                        <input type='text' className='input-select custom-w-100 custom-cursor-pointer-auto' value={ birthday } readOnly/>
                     </label>
                 </div>
             </div>
-            <div className='flex-row w-100 pt-2'>
+            <div className='custom-flex-row custom-w-100 custom-pt-2'>
                 <button className='btn-sm' onClick={handleAttachTable}>Adjuntar examen al paciente seleccionado</button>
             </div>
             <ConfirmationMessage message={confirmationMessage} />

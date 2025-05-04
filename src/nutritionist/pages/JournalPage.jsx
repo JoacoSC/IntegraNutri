@@ -1117,7 +1117,7 @@ export const JournalPage = () => {
                         </button>
                     </div> */}
                     <div className="welcome-section">
-                        <h1>Nut. { displayName }</h1>
+                        <h1 className='text-4xl custom-font-bold leading-tight my-4'>Nut. { displayName }</h1>
                         <p>Hola nutricionista, echemos un vistazo a sus pacientes de hoy</p>
 
                     </div>

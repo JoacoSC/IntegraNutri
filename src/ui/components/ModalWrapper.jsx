@@ -22,7 +22,7 @@ export const ModalWrapper = ({ isOpen, onClose, title, children, footerButtons }
             >
                 
                 {title && <div className="modal-header">
-                    <h1>
+                    <h1 className='text-2xl custom-font-bold leading-tight my-4'>
                         {title}
                     </h1>
                     <div className="btn-modal-close" onClick={onClose}>

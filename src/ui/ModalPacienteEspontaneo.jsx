@@ -67,7 +67,7 @@ export const ModalPacienteEspontaneo = () => {
                         <path stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
                     </svg>
                 </div>
-                <h1 className="modal-header">
+                <h1 className="modal-header text-4xl custom-font-bold leading-tight my-4">
                     Agregar paciente espontáneo
                 </h1>
 

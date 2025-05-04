@@ -1180,7 +1180,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                 {/* Componente Tabs */}
                 <Tabs>
                     <TabTrigger value="graphs" label="Gráficos">
-                        <div className='patient-secondary-card-content flex-column gap-2'>
+                        <div className='patient-secondary-card-content custom-flex-column custom-gap-2'>
                             <div hidden={true}>
                                 <ComparisonComponent 
                                     anthropometryHistory={anthropometryHistory} 
@@ -1188,7 +1188,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                                 />
 
                             </div>
-                            <div className='flex-row h-100 mt-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                            <div className='custom-flex-row custom-h-100 custom-mt-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
                                 <div className="canvas-chart">
                                     <Bar data={bodyCompositionKGData} options={bodyCompositionKGOptions} />
                                 </div>
@@ -1196,7 +1196,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                                     <Doughnut data={bodyCompositionPercentData} options={bodyCompositionPercentOptions} />
                                 </div>
                             </div>
-                            <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                            <div className='custom-flex-row custom-h-100 custom-mb-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
                                 <div className="canvas-chart">
                                     <Line data={perimetersData} options={perimetersDataOptions} />
                                 </div>
@@ -1204,7 +1204,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                                     <Line data={skinFoldsData} options={skinFoldsDataOptions} />
                                 </div>
                             </div>
-                            <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                            <div className='custom-flex-row custom-h-100 custom-mb-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
                                 <div className="canvas-anthropometry-container">
                                     <div className="canvas-anthropometry">
                                         <Scatter data={somatocartaData} options={somatocartaOptions} />
@@ -1219,27 +1219,27 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                         
                         <div className="section standard-font" style={{ display: 'flex', flexDirection: 'column', background: '#fff', margin: '10px 0', padding: '30px', borderRadius: '20px', gap: '1rem', border: 'solid 2px #ECEDED' }}>
                             <h2 style={{ paddingBottom: '1.5rem' }}>Datos del Paciente</h2>
-                            <div className='flex-row'>
-                                <div className='flex-row' style={{ gap: '0.5rem' }}><strong>Nombre: </strong>{patientName}</div>
+                            <div className='custom-flex-row'>
+                                <div className='custom-flex-row' style={{ gap: '0.5rem' }}><strong>Nombre: </strong>{patientName}</div>
                             </div>
-                            <div className='flex-row'>
-                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Email: </strong>{patientEmail}</div>
-                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Teléfono: </strong>{patientPhone}</div>
+                            <div className='custom-flex-row'>
+                                <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Email: </strong>{patientEmail}</div>
+                                <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Teléfono: </strong>{patientPhone}</div>
                             </div>
-                            <div className='flex-row'>
-                                <div className='flex-row' style={{ gap: '0.5rem' }}><strong>Fecha de Nacimiento: </strong>{format(fromUnixTime(unixBirthday), "dd/MMM/yyyy")}</div>
+                            <div className='custom-flex-row'>
+                                <div className='custom-flex-row' style={{ gap: '0.5rem' }}><strong>Fecha de Nacimiento: </strong>{format(fromUnixTime(unixBirthday), "dd/MMM/yyyy")}</div>
                             </div>
                             <div style={{borderTop: 'solid 2px #ECEDED'}}></div>
-                            <div className='flex-row'>
-                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Edad: </strong>{ageText}</div>
-                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Sexo biológico: </strong>{biologicalSex}</div>
+                            <div className='custom-flex-row'>
+                                <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Edad: </strong>{ageText}</div>
+                                <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Sexo biológico: </strong>{biologicalSex}</div>
                             </div>
-                            <div className='flex-row'>
-                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Peso: </strong>{weightLastEntry} Kg</div>
-                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Talla: </strong>{statureLastEntry} Cm</div>
+                            <div className='custom-flex-row'>
+                                <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Peso: </strong>{weightLastEntry} Kg</div>
+                                <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Talla: </strong>{statureLastEntry} Cm</div>
                             </div>
-                            <div className='flex-row'>
-                                <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>IMC: </strong>{imcLastEntry}</div>
+                            <div className='custom-flex-row'>
+                                <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>IMC: </strong>{imcLastEntry}</div>
                             </div>
                         </div>
 
@@ -1248,57 +1248,57 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                             <h2 style={{ paddingBottom: '1.5rem' }}>Medidas Antropométricas</h2>
                             <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
                                 <h3>Somatotipo</h3>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Endomorfo:</strong>{Endomorfia}</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Mesomorfo:</strong>{Mesomorfia}</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Ectomorfo:</strong>{Ectomorfia}</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Endomorfo:</strong>{Endomorfia}</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Mesomorfo:</strong>{Mesomorfia}</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Ectomorfo:</strong>{Ectomorfia}</div>
                                 </div>
                             </div>
                             <div style={{paddingTop: '0.5rem'}}></div>
                             <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
                                 <h3>Pliegues</h3>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Tricipital:</strong>{InputPliegueTricipital} mm</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Subescapular:</strong>{InputPliegueSubescapular} mm</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Tricipital:</strong>{InputPliegueTricipital} mm</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Subescapular:</strong>{InputPliegueSubescapular} mm</div>
                                 </div>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Cresta Ilíaca:</strong>{InputPliegueCrestailiaca} mm</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Bicipital:</strong>{InputPliegueBicipital} mm</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Cresta Ilíaca:</strong>{InputPliegueCrestailiaca} mm</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Bicipital:</strong>{InputPliegueBicipital} mm</div>
                                 </div>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Supraespinal:</strong>{InputPliegueSupraespinal} mm</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Abdominal:</strong>{InputPliegueAbdominal} mm</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Supraespinal:</strong>{InputPliegueSupraespinal} mm</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Abdominal:</strong>{InputPliegueAbdominal} mm</div>
                                 </div>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Muslo:</strong>{InputPliegueMuslo} mm</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Pierna:</strong>{InputPlieguePierna} mm</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Muslo:</strong>{InputPliegueMuslo} mm</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Pierna:</strong>{InputPlieguePierna} mm</div>
                                 </div>
                             </div>
                             <div style={{paddingTop: '0.5rem'}}></div>
                             <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
                                 <h3>Perímetros</h3>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Brazo Relajado:</strong>{InputPerimetroBrazoRelajado} cm</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Brazo Contraído:</strong>{InputPerimetroBrazoContraido} cm</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Brazo Relajado:</strong>{InputPerimetroBrazoRelajado} cm</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Brazo Contraído:</strong>{InputPerimetroBrazoContraido} cm</div>
                                 </div>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Pierna:</strong>{InputPerimetroPierna} cm</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Muslo:</strong>{InputPerimetroMuslo} cm</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Pierna:</strong>{InputPerimetroPierna} cm</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Muslo:</strong>{InputPerimetroMuslo} cm</div>
                                 </div>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Cintura:</strong>{InputPerimetroCintura} cm</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Cadera:</strong>{InputPerimetroCadera} cm</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Cintura:</strong>{InputPerimetroCintura} cm</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Cadera:</strong>{InputPerimetroCadera} cm</div>
                                 </div>
                             </div>
                             <div style={{paddingTop: '0.5rem'}}></div>
                             <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
                                 <h3>Diámetros</h3>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Femur:</strong>{InputDiametroFemur} cm</div>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Biestiloideo:</strong>{InputDiametroMuneca} cm</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Femur:</strong>{InputDiametroFemur} cm</div>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Biestiloideo:</strong>{InputDiametroMuneca} cm</div>
                                 </div>
-                                <div className='flex-row'>
-                                    <div className='flex-row w-50' style={{ gap: '0.5rem' }}><strong>Humero:</strong>{InputDiametroHumero} cm</div>
+                                <div className='custom-flex-row'>
+                                    <div className='custom-flex-row w-50' style={{ gap: '0.5rem' }}><strong>Humero:</strong>{InputDiametroHumero} cm</div>
                                 </div>
                             </div>
                         </div>
@@ -1398,7 +1398,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                     </TabTrigger>
                 </Tabs>
                 <div
-                    className='patient-secondary-card-content flex-column gap-2'
+                    className='patient-secondary-card-content custom-flex-column custom-gap-2'
                     style={{ 
                         visibility: 'hidden', 
                         position: 'absolute', 
@@ -1411,7 +1411,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                         />
 
                     </div>
-                    <div className='flex-row h-100 mt-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                    <div className='custom-flex-row custom-h-100 custom-mt-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
                         <div className="canvas-chart">
                             <Bar ref={bodyCompositionKgRef} data={bodyCompositionKGData} options={bodyCompositionKGOptions} />
                         </div>
@@ -1419,7 +1419,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                             <Doughnut ref={bodyCompositionPercentRef} data={bodyCompositionPercentData} options={bodyCompositionPercentOptions} />
                         </div>
                     </div>
-                    <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                    <div className='custom-flex-row custom-h-100 custom-mb-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
                         <div className="canvas-chart">
                             <Line ref={perimetrosRef} data={perimetersData} options={perimetersDataOptions} />
                         </div>
@@ -1427,7 +1427,7 @@ export const ModalAnthropometricReport = ({ patientObject, commonProps }) => {
                             <Line ref={plieguesRef} data={skinFoldsData} options={skinFoldsDataOptions} />
                         </div>
                     </div>
-                    <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                    <div className='custom-flex-row custom-h-100 custom-mb-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
                         <div className="canvas-anthropometry-container">
                             <div className="canvas-anthropometry">
                                 <Scatter ref={somatocartaRef} data={somatocartaData} options={somatocartaOptions} />

@@ -67,7 +67,7 @@ export const ModalDeletePregnantIMC = ({ patientObject }) => {
                     <div className="modal-auto-height-container-form">
                         <div className="form-group">
                             <div className="form-item pr-8">
-                                <label className="input-label text-align-center">
+                                <label className="input-label custom-text-align-center">
                                     Está a punto de eliminar el historial de Índice de Masa Corporal (IMC) específico para gestantes. ¿Desea continuar?
                                     <br/><br/>Al confirmar esta acción, la aplicación dejará de utilizar los parámetros de IMC diseñados específicamente para gestantes y retomará el cálculo estándar de IMC basado en los parámetros generales para adultos.
                                 </label>

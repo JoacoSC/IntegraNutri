@@ -458,12 +458,12 @@ export const CardBodyComposition = ({ commonProps }) => {
             <div className='patient-secondary-card-title'>
                 Composición corporal
             </div>
-            <div className='patient-secondary-card-content flex-column gap-2'>
+            <div className='patient-secondary-card-content custom-flex-column custom-gap-2'>
                 <ComparisonComponent 
                     anthropometryHistory={anthropometryHistory} 
                     onSelectionChange={handleSelectionChange} 
                 />
-                <div className='flex-row h-100 mt-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                <div className='custom-flex-row custom-h-100 custom-mt-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
                     <div className="canvas-chart">
                         <Bar data={bodyCompositionKGData} options={bodyCompositionKGOptions} />
                     </div>
@@ -471,7 +471,7 @@ export const CardBodyComposition = ({ commonProps }) => {
                         <Doughnut data={bodyCompositionPercentData} options={bodyCompositionPercentOptions} />
                     </div>
                 </div>
-                <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                <div className='custom-flex-row custom-h-100 custom-mb-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
                     <div className="canvas-chart">
                         <Line data={perimetersData} options={perimetersDataOptions} />
                     </div>
@@ -479,7 +479,7 @@ export const CardBodyComposition = ({ commonProps }) => {
                         <Line data={skinFoldsData} options={skinFoldsDataOptions} />
                     </div>
                 </div>
-                <div className='flex-row h-100 mb-1 gap-2 border-2 border-color-gray border-radius-20 p-2'>
+                <div className='custom-flex-row custom-h-100 custom-mb-1 custom-gap-2 custom-border-2 custom-border-color-gray custom-border-radius-20 custom-p-2'>
                     <div className="canvas-anthropometry-container">
                         <div className="canvas-anthropometry">
                             <Scatter data={somatocartaData} options={somatocartaOptions} />

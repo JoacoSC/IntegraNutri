@@ -8,7 +8,7 @@ export const AuthLayout = ({ children, title, btnTitle, url}) => {
     <>
         <section className="wrapper-main">
             <div id="background" className="background">
-                <h1 className="background-title">
+                <h1 className="background-title text-4xl custom-font-bold leading-tight my-4">
                     Bienvenido al portal de consulta nutricional                
                 </h1>
             </div>
@@ -35,7 +35,7 @@ export const AuthLayout = ({ children, title, btnTitle, url}) => {
                     </ul>
                 </div>
                 <div className="header">
-                    <h1 className="">{ title }</h1>
+                    <h1 className="text-4xl custom-font-bold leading-tight my-4">{ title }</h1>
                 </div>
 
                 { children }

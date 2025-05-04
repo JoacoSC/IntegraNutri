@@ -21,7 +21,7 @@ export const PatientActivationPage = () => {
     <>
         <div className="activation-background">
             <div className="activation-container">
-                <h1>Activando su cuenta...</h1>
+                <h1 className="text-4xl custom-font-bold leading-tight my-4">Activando su cuenta...</h1>
             </div>
         </div>
     </>

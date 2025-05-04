@@ -61,8 +61,8 @@ export const CardExamsRequest = ({ patientID }) => {
                 Solicitudes de exámenes
             </div>
             <div className='patient-secondary-card-content'>
-            <div className='flex-column'>
-                <p className='font-size-14 font-weight-500 text-align-center pb-1'>Descarga la solicitud de exámenes del paciente aquí.</p>
+            <div className='custom-flex-column'>
+                <p className='custom-font-size-14 custom-font-weight-500 custom-text-align-center custom-pb-1'>Descarga la solicitud de exámenes del paciente aquí.</p>
                     
                 <button className='btn-sm' onClick={handleDownload}>
                     Descargar archivo PDF

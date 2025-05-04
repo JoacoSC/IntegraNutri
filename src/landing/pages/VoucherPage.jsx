@@ -208,7 +208,7 @@ export const VoucherPage = () => {
                                     ?   null
                                     :   <>
                                             <div className='voucher-details'>
-                                                <h1>Comprobante de pago</h1>
+                                                <h1 className='text-4xl custom-font-bold leading-tight my-4'>Comprobante de pago</h1>
                                             </div>
                                             <br/>
                                             <div className='voucher-details'>

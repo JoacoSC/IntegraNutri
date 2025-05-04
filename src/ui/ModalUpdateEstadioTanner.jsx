@@ -48,7 +48,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
 
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
 
-    const [inputTextStyleClassname, setInputTextStyleClassname] = useState('input-text-style input-text-width-w-icon h-2 mr-05');
+    const [inputTextStyleClassname, setInputTextStyleClassname] = useState('input-text-style input-text-width-w-icon h-2 custom-mr-05');
 
     const [btnModalPrimaryClassname, setBtnModalPrimaryClassname] = useState('btn-modal-primary');
 
@@ -519,17 +519,17 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
         if( ageDifferenceDateObject.y === 0 && ageDifferenceDateObject.m === 0 && ageDifferenceDateObject.d === 0 ){   
 
             setDisableSubmitBtn( true )
-            setInputTextStyleClassname( 'input-text-style input-text-width-w-icon h-2 mr-05' )
+            setInputTextStyleClassname( 'input-text-style input-text-width-w-icon h-2 custom-mr-05' )
             setBtnModalPrimaryClassname( 'btn-modal-primary-disabled' )
 
         }else{
             if( ageDifferenceDateObject.y < 1 ){
                 setDisableSubmitBtn( true )
-                setInputTextStyleClassname( 'input-text-danger-style input-text-width-w-icon h-2 mr-05' )
+                setInputTextStyleClassname( 'input-text-danger-style input-text-width-w-icon h-2 custom-mr-05' )
                 setBtnModalPrimaryClassname( 'btn-modal-primary-disabled' )
             }else{
                 setDisableSubmitBtn( false )
-                setInputTextStyleClassname( 'input-text-success-style input-text-width h-2 mr-05' )
+                setInputTextStyleClassname( 'input-text-success-style input-text-width h-2 custom-mr-05' )
                 setBtnModalPrimaryClassname( 'btn-modal-primary' )
             }
 
@@ -573,9 +573,9 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                 <form onSubmit={ onSubmit }>
                     <div className="modal-perimetro-cefalico-container-form " onSubmit={ onSubmit }>
 
-                        <div className="form-group wrap justify-content-center">
+                        <div className="form-group wrap custom-justify-content-center">
                             
-                            <div className="form-item w-50 pr-8 align-items-center">
+                            <div className="form-item w-50 pr-8 custom-align-items-center">
                                 <label className="input-label">
                                     Registro
                                 </label>
@@ -588,7 +588,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                         <option value='V'>Grado V</option>
                                     </select>
                             </div>            
-                            <div className="form-item w-50 pr-8 align-items-center">
+                            <div className="form-item w-50 pr-8 custom-align-items-center">
                                 <label className="input-label">
                                     Edad Biológica
                                 </label>
@@ -597,7 +597,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                     
                                 </div>
                             </div>            
-                            <div className="form-item w-50 pr-8 align-items-center">
+                            <div className="form-item w-50 pr-8 custom-align-items-center">
                                 <label className="input-label">
                                     Edad Cronológica
                                 </label>
@@ -606,7 +606,7 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                                     
                                 </div>
                             </div>            
-                            <div className="form-item w-50 pr-8 align-items-center">
+                            <div className="form-item w-50 pr-8 custom-align-items-center">
                                 <label className="input-label">
                                     Diferencia
                                 </label>
@@ -623,8 +623,8 @@ export const ModalUpdateEstadioTanner = ({ patientObject }) => {
                             {
                                 (isMasculine)
                                 ?   null    
-                                :   <div className="form-item w-50 pr-8 align-items-center">
-                                        <label className="input-label text-align-center">
+                                :   <div className="form-item w-50 pr-8 custom-align-items-center">
+                                        <label className="input-label custom-text-align-center">
                                             Meses transcurridos desde su menarquia (opcional)
                                         </label>
                                         <div className='flex-direction-row'>

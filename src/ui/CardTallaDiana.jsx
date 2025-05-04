@@ -27,7 +27,7 @@ export const CardTallaDiana = () => {
                 
                 <img src={ TallaDianaForAvatar } className='talla-diana-measure'/>
                 
-                <p className='talla-diana-value mr-05'><b>Medición:&nbsp;</b>{ tallaDiana } cm</p>
+                <p className='talla-diana-value custom-mr-05'><b>Medición:&nbsp;</b>{ tallaDiana } cm</p>
 
                 <Tooltip tooltipMessage = { tooltipMessage }/>
             </div>

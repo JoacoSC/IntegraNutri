@@ -158,7 +158,7 @@ export const PatientForm = ({ patientFormProps }) => {
                 </div>
                 <div className="form-item">
                     <div className='input-label-container'>
-                        <label className="input-label mr-05">Identidad de género</label>
+                        <label className="input-label custom-mr-05">Identidad de género</label>
                         <Tooltip tooltipMessage={ tooltipMessage }/>
                     </div>
                     <input className="input-text-style" type="text" name="genderIdentity" onChange={ onInputChange } hidden={ !genderInputIsSet }/>

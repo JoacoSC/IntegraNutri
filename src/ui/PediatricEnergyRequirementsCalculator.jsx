@@ -337,9 +337,9 @@ export const PediatricEnergyRequirementsCalculator = () => {
 //   console.log("adjustedGet", adjustedGet);
 
   return (
-    <div className="w-full bg-white border-radius-20">
-            <div className="w-full bg-00bf62 text-white text-center px-6 py-6 t-border-radius-20">
-                <h1 className="text-2xl font-bold max-w-7xl mx-auto">
+    <div className="w-full bg-white" style={{borderRadius: '0 18px 18px 0'}}>
+            <div className="w-full bg-00bf62 text-white text-center px-6 py-6" style={{borderRadius: '0 18px 0 0'}}>
+                <h1 className="text-2xl custom-font-bold max-w-7xl mx-auto">
                     Calculadora de requerimientos energéticos
                 </h1>
             </div>
@@ -361,7 +361,7 @@ export const PediatricEnergyRequirementsCalculator = () => {
                                         ))}
                                     </select>
                                 </div>
-                                <div className="grid grid-cols-2 gap-4 mt-15">
+                                <div className="grid grid-cols-2 gap-4 custom-mt-15">
                                     <div className="bg-white rounded-lg p-3">
                                         <p className="new-calculator-label">Peso</p>
                                         <p className="text-lg font-medium">{weight !== '' ? `${weight} kg` : ''}</p>
@@ -377,7 +377,7 @@ export const PediatricEnergyRequirementsCalculator = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-f9fafb rounded-xl shadow-sm p-6 mt-15">
+                        <div className="bg-f9fafb rounded-xl shadow-sm p-6 custom-mt-15">
                             <h2 className="text-lg font-semibold text-green-900 mb-4">
                                 Nivel de Actividad Física
                             </h2>
@@ -394,7 +394,7 @@ export const PediatricEnergyRequirementsCalculator = () => {
                                 </select>
                             </div>
                         </div>
-                        <div className="bg-f9fafb rounded-xl shadow-sm p-6 mt-15">
+                        <div className="bg-f9fafb rounded-xl shadow-sm p-6 custom-mt-15">
                             <h2 className="text-lg font-semibold text-green-900 mb-4">
                                 Distribución de Macronutrientes
                             </h2>
@@ -493,13 +493,13 @@ export const PediatricEnergyRequirementsCalculator = () => {
                         </div>
                     </div>
                     <div className="col-span-7 space-y-6">
-                      <div className="bg-f9fafb rounded-xl shadow-sm p-6 mt-15">
+                      <div className="bg-f9fafb rounded-xl shadow-sm p-6 custom-mt-15">
                           <h2 className="text-lg font-semibold text-green-900 mb-4">
                               Requerimientos energéticos sugeridos
                           </h2>
                           <img src={currentImage} style={{ cursor: 'zoom-in' }} className="modal-chart" alt="Requerimientos Energéticos" onClick={handleImageClick} />
                       </div>
-                      <div className="bg-green-50 rounded-xl shadow-sm p-6 mt-15">
+                      <div className="bg-green-50 rounded-xl shadow-sm p-6 custom-mt-15">
                       <div className="flex items-center justify-between mb-6">
                           <h2 className="text-lg font-semibold text-green-900">
                               Resultados del Cálculo
@@ -508,14 +508,14 @@ export const PediatricEnergyRequirementsCalculator = () => {
                           <div className="space-y-6">
                               <div className="">
                                   <div className="bg-white rounded-lg p-4">
-                                      <div className="flex items-center justify-between mb-2">
+                                      <div className="flex items-center justify-between custom-mb-2">
                                           <p className="text-sm font-medium text-green-700">
                                               Gasto Energético Total (GET)
                                           </p>
                                           <div className="flex items-center space-x-2">
                                               <button
                                                   onClick={() => setGetAdjustment((prev) => prev - 100)}
-                                                  className="flex justify-center align-items-center border-none p-1 rounded bg-green-200 text-green-700"
+                                                  className="flex justify-center custom-align-items-center custom-border-none p-1 rounded bg-green-200 text-green-700"
                                               >
                                                   <Minus size={14} />
                                               </button>
@@ -530,7 +530,7 @@ export const PediatricEnergyRequirementsCalculator = () => {
                                               />
                                               <button
                                                   onClick={() => setGetAdjustment((prev) => prev + 100)}
-                                                  className="flex justify-center align-items-center border-none p-1 rounded bg-green-200 text-green-700"
+                                                  className="flex justify-center custom-align-items-center custom-border-none p-1 rounded bg-green-200 text-green-700"
                                               >
                                                   <Plus size={14} />
                                               </button>
@@ -548,7 +548,7 @@ export const PediatricEnergyRequirementsCalculator = () => {
                                               </p>
                                           )}
                                       </div>
-                                      <div className="flex items-baseline space-x-2 mt-1">
+                                      <div className="flex items-baseline space-x-2 custom-mt-1">
                                           <p className="text-lg font-semibold text-green-900">
                                               {kcalPerKg==='NaN' ? 0 : kcalPerKg}
                                           </p>

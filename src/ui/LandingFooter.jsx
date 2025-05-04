@@ -55,7 +55,7 @@ export const LandingFooter = () => {
                 
             </div>
         </div>
-        <div className='footer-bottom margin-left-0 pl-0'>
+        <div className='footer-bottom margin-left-0 custom-pl-0'>
             <img className="footer-logo" src={ Logo } alt="Logo de App_Nutricionista"/>
             <p className='footer-text-bold'>IntegraNutri v{import.meta.env.VITE_APP_VERSION}</p>
             <br/>

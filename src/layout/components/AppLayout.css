@@ -73,11 +73,6 @@
 
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 /* ===== Scrollbar CSS ===== */
 /* Chrome */
@@ -190,6 +185,7 @@ body{
     position: relative;
     min-height: 29px;
     height: fit-content;
+    max-height: 30px;
     font-family: "Metropolis", sans-serif;
     font-size: 0.8rem;
     font-weight: 500;
@@ -197,7 +193,7 @@ body{
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1rem;
     margin: 0 auto 0 auto;
     cursor: pointer;
     transition: all 150ms ease;
@@ -227,7 +223,7 @@ body{
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1rem;
     margin: 0 auto 0 auto;
     cursor: pointer;
     transition: all 150ms ease;
@@ -256,7 +252,7 @@ body{
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1rem;
     margin: 0 auto 0 auto;
     cursor: pointer;
     transition: all 150ms ease;
@@ -344,7 +340,7 @@ body{
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1rem;
     margin: 0 auto 0 auto;
     cursor: pointer;
     transition: all 150ms ease;
@@ -465,233 +461,233 @@ body{
 
 
 
-.gap-6{
+.custom-gap-6{
     gap: 1.5rem;
 }
 
-.flex-column{
+.custom-flex-column{
     display: flex;
     flex-direction: column;
 }
-.flex-column-reverse{
+.custom-flex-column-reverse{
     display: flex;
     flex-direction: column-reverse;
 }
-.flex-row{
+.custom-flex-row{
     display: flex;
     flex-direction: row;
 }
-.flex-justify-center{
+.custom-flex-justify-center{
     justify-content: center;
 }
-.flex-align-center{
+.custom-flex-align-center{
     align-items: center;
 }
-.flex-start{
-    justify-content: flex-start;
+.custom-flex-start{
+    justify-content: custom-flex-start;
 }
-.flex-end{
-    justify-content: flex-end;
+.custom-flex-end{
+    justify-content: custom-flex-end;
 }
 
-.flex-first-item{
+.custom-flex-first-item{
     min-width: 200px;
     flex-basis: 200px;
     flex-grow: 2;
     flex-shrink: 1;
 }
-.cursor-pointer-auto{
+.custom-cursor-pointer-auto{
     cursor: auto !important;
 }
-.text-align-center{
+.custom-text-align-center{
     text-align: center;
 }
-.text-align-left{
+.custom-text-align-left{
     text-align: left;
 }
-.text-align-center{
+.custom-text-align-center{
     text-align: center;
 }
-.w-100{
+.custom-w-100{
     width: 100%;
 }
-.w-90{
+.custom-w-90{
     width: 90%;
 }
-.w-min-10{
+.custom-w-min-10{
     min-width: 10rem !important;
 }
-.w-max-none{
+.custom-w-max-none{
     max-width: none !important;
 }
-.h-100{
+.custom-h-100{
     height: 100%;
 }
-.h-90{
+.custom-h-90{
     height: 90%;
 }
-.h-min-10{
+.custom-h-min-10{
     min-height: 10rem !important;
 }
-.h-max-none{
+.custom-h-max-none{
     max-height: none !important;
 }
-.gap-05{
+.custom-gap-05{
     gap: 0.5rem !important;
 }
-.gap-1{
+.custom-gap-1{
     gap: 1rem !important;
 }
-.gap-2{
+.custom-gap-2{
     gap: 2rem !important;
 }
-.px-0{
+.custom-px-0{
     padding-left: 0;
     padding-right: 0;
 }
-.px-05{
+.custom-px-05{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
-.px-1{
+.custom-px-1{
     padding-left: 1rem;
     padding-right: 1rem;
 }
-.px-2{
+.custom-px-2{
     padding-left: 2rem;
     padding-right: 2rem;
 }
-.py-0{   
+.custom-py-0{   
     padding-top: 0;
     padding-bottom: 0;
 }
-.py-05{   
+.custom-py-05{   
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
-.py-1{
+.custom-py-1{
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
-.py-2{
+.custom-py-2{
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
-.pl-0{
+.custom-pl-0{
     padding-left: 0rem;
 }
-.pl-1{
+.custom-pl-1{
     padding-left: 1rem;
 }
-.pr-0{
+.custom-pr-0{
     padding-right: 0rem;
 }
-.pr-1{
+.custom-pr-1{
     padding-right: 1rem;
 }
-.pl-2{
+.custom-pl-2{
     padding-left: 2rem;
 }
-.pr-2{
+.custom-pr-2{
     padding-right: 2rem;
 }
-.pt-0{
+.custom-pt-0{
     padding-top: 0;
 }
-.pt-05{
+.custom-pt-05{
     padding-top: 0.5rem;
 }
-.pt-1{
+.custom-pt-1{
     padding-top: 1rem;
 }
-.pt-2{
+.custom-pt-2{
     padding-top: 2rem;
 }
-.pb-0{
+.custom-pb-0{
     padding-bottom: 0;
 }
-.pb-05{
+.custom-pb-05{
     padding-bottom: 0.5rem;
 }
-.pb-1{
+.custom-pb-1{
     padding-bottom: 1rem;
 }
-.pb-2{
+.custom-pb-2{
     padding-bottom: 2rem;
 }
-.p-0{
+.custom-p-0{
     padding: 0;
 }
-.p-2{
+.custom-p-2{
     padding: 2rem;
 }
-.mx-1{
+.custom-mx-1{
     margin-left: 1rem;
     margin-right: 1rem;
 }
-.mx-2{
+.custom-mx-2{
     margin-left: 2rem;
     margin-right: 2rem;
 }
-.my-1{
+.custom-my-1{
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-.my-2{
+.custom-my-2{
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
-.ml-1{
+.custom-ml-1{
     margin-left: 1rem;
 }
-.mr-1{
+.custom-mr-1{
     margin-right: 1rem;
 }
-.ml-2{
+.custom-ml-2{
     margin-left: 2rem;
 }
-.mr-2{
+.custom-mr-2{
     margin-right: 2rem;
 }
-.mt-05{
+.custom-mt-05{
     margin-top: 0.5rem;
 }
-.mt-1{
+.custom-mt-1{
     margin-top: 1rem;
 }
-.mt-15{
+.custom-mt-15{
     margin-top: 1.5rem;
 }
-.mt-2{
+.custom-mt-2{
     margin-top: 2rem;
 }
-.mb-05{
+.custom-mb-05{
     margin-bottom: 0.5rem;
 }
-.mb-1{
+.custom-mb-1{
     margin-bottom: 1rem;
 }
-.mb-2{
+.custom-mb-2{
     margin-bottom: 2rem;
 }
-.m-2{
+.custom-m-2{
     padding: 2rem;
 }
-.h-auto{
+.custom-h-auto{
     height: auto;
 }
-.h-400{
+.custom-h-400{
     height: 425px;
 }
-.h-500{
+.custom-h-500{
     height: 525px;
 }
-.h-600{
+.custom-h-600{
     height: 600px;
 }
-.cursor-pointer{
+.custom-cursor-pointer{
     cursor: pointer;
 }
 .standard-font{
@@ -699,58 +695,58 @@ body{
     font-weight: 500;
     font-size: 1rem;
 }
-.font-size-16{
+.custom-font-size-16{
     font-size: 16px;
 }
-.font-size-14{
+.custom-font-size-14{
     font-size: 14px;
 }
-.font-size-12{
+.custom-font-size-12{
     font-size: 12px;
 }
-.font-size-10{
+.custom-font-size-10{
     font-size: 10px;
 }
-.font-weight-500{
+.custom-font-weight-500{
     font-weight: 500;
 }
-.font-weight-600{
+.custom-font-weight-600{
     font-weight: 600;
 }
-.text-align-center{
+.custom-text-align-center{
     text-align: center;
 }
-.color-white{
+.custom-color-white{
     color: white;
 }
-.color-black{
+.custom-color-black{
     color: black;
 }
-.border-1{
+.custom-border-1{
     border: solid 1px;
 }
-.border-2{
+.custom-border-2{
     border: solid 2px;
 }
-.border-color-gray{
+.custom-border-color-gray{
     border-color: #ECEDED;
 }
 .border-clr-secondary{
     border: 1px solid var(--clr-btn-secondary) !important;
 }
-.border-radius-20{
+.custom-border-radius-20{
     border-radius: 20px;
 }
-.border-radius-10{
+.custom-border-radius-10{
     border-radius: 10px;
 }
-.t-border-radius-10{
+.t-custom-border-radius-10{
     border-radius: 10px 10px 0 0;
 }
-.t-border-radius-20{
+.t-custom-border-radius-20{
     border-radius: 20px 20px 0 0;
 }
-.border-none{
+.custom-border-none{
     border: none;
 }
 
@@ -939,11 +935,11 @@ body{
     top: calc(50% + 1.8rem);
 }
 
-.mr-1{
+.custom-mr-1{
     margin-right: 1rem;
 }
 
-.mr-05{
+.custom-mr-05{
     margin-right: 0.5rem;
 }
 
@@ -1210,9 +1206,6 @@ body{
     background-color: var(--clr-primary);
 }
 
-.table-container{
-
-}
 
 .table {
     border-collapse: collapse;
@@ -1230,6 +1223,7 @@ body{
     font-size: 1rem;
     font-weight: 500;
     text-align: center;
+    border: var(--clr-primary) 1px solid;
 }
 .table textarea{
     height: fit-content;
@@ -1237,6 +1231,7 @@ body{
     font-family: "Metropolis", sans-serif;
     font-size: 1rem;
     font-weight: 500;
+    border: var(--clr-primary) 1px solid;
 }
 
 .table-bottom-btn{
@@ -1446,7 +1441,7 @@ body{
     text-decoration: none;
 }
 .landing-btn-login{
-    padding: 1rem;
+    padding: 0.8rem;
     text-align: center;
     background-color: rgb(255, 255, 255);
     border: none;
@@ -1470,7 +1465,7 @@ body{
 }
 
 .landing-btn-logout{
-    padding: 1rem;
+    padding: 0.8rem;
     text-align: center;
     background-color: rgb(255, 255, 255);
     border: none;
@@ -1540,22 +1535,19 @@ body{
 }
 
 .landing-img-stack{
-    display: grid;
-
-    grid-template-columns: repeat(8, 1fr);
     
     position: relative;
 
     width: 50vw;
+    height: 50vh;
+    padding-left: 3rem;
 }
 .landing-img-1{
     /* From https://css.glass */
-    grid-column: 2 /span 2;
-    grid-row: 1;
-    z-index: 1;
-    margin: 5rem 4rem 2rem auto;
-    padding: 2rem;
-    width: fit-content;
+    position: absolute;
+    margin: 5rem auto 2rem auto;
+    padding: 1rem;
+    width: 60%;
     height: fit-content;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 16px;
@@ -1564,19 +1556,20 @@ body{
     -webkit-backdrop-filter: blur(3px);
     border: 1px solid rgba(255, 255, 255, 0.35);
 }
-.landing-img-1 img{
-    max-height: 20vw;
+/* .landing-img-1 img{
+    height: 20vh;
+    width: 20vw;
     border-radius: 5px;
     box-shadow: 0 0 15px 5px white;
-}
+} */
 
 .landing-img-2{
     /* From https://css.glass */
-    grid-column: 5;
-    grid-row: 1;
-    margin: 2rem 4rem 2rem 0;
-    padding: 2rem;
-    width: fit-content;
+    position: absolute;
+    z-index: 1;
+    margin: 8rem 4rem 2rem 7rem;
+    padding: 1rem;
+    width: 60%;
     height: fit-content;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 16px;
@@ -1585,11 +1578,13 @@ body{
     -webkit-backdrop-filter: blur(3px);
     border: 1px solid rgba(255, 255, 255, 0.35);
 }
-.landing-img-2 img{
-    max-height: 20vw;
+/* .landing-img-2 img{
+    max-height: 20vh;
+    min-height: 25vh;
+    min-width: 20vw;
     border-radius: 5px;
     box-shadow: 0 0 15px 5px white;
-}
+} */
 
 .btn-action{
     appearance: none;
@@ -1790,7 +1785,7 @@ body{
 }
 
 .info-card-img img{
-    width: 60%;
+    width: 50%;
 }
 
 .landing-benefits{
@@ -1863,7 +1858,7 @@ body{
 
 
 .benefits-card-img img{
-    width: 60%;
+    width: 50%;
 }
 
 .landing-memberships{
@@ -1925,10 +1920,6 @@ body{
     width: 6rem;
 }
 
-.memberships-card p{
-    
-}
-
 .btn-action-memberships-card{
     appearance: none;
     text-decoration: none;
@@ -1958,7 +1949,7 @@ body{
     margin-left: 0;
 }
 
-.pl-0{
+.custom-pl-0{
     padding-left: 0;
 }
 
@@ -2078,9 +2069,7 @@ body{
 /* ************* Landing Page ************** */
 
 /* ************* SharePage ************** */
-.sharepage-main-content{
 
-}
 
 .food-background{
     height: max-content;
@@ -2098,7 +2087,7 @@ body{
 .sharepage-logout-container div{
     margin-left: auto;
 }
-.min-height-100vh{
+.custom-min-height-100vh{
     min-height: 100vh;
 }
 
@@ -2315,7 +2304,7 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin: 2rem 1rem 1rem;
+    margin: 1rem 1rem 1rem;
     padding-bottom: 1rem;
     color: white;
 }
@@ -2450,7 +2439,7 @@ body{
     align-items: center;
     margin-left: 3rem;
     margin-right: 3rem;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     color: white;
 }
 
@@ -2473,7 +2462,7 @@ body{
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 0.9rem;
+    padding: 0.7rem;
     padding-left: 2.8rem;
     margin-left: auto;
     margin-right: 3rem;
@@ -2799,7 +2788,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 90%;
-    margin-top: 2rem;;
+    margin-top: 2rem;
     padding: 1rem 0 1rem 1rem;
     background-color: white;
     color: black;
@@ -2821,7 +2810,7 @@ body{
     margin-right: 2rem;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: custom-flex-end;
     align-items: center;
     gap: 2rem;
 }
@@ -2860,7 +2849,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 2rem;;
+    margin-top: 2rem;
     padding: 1rem 2rem 1rem 1rem;
     background-color: white;
     color: black;
@@ -2937,7 +2926,7 @@ body{
     display: flex;
     gap: 2rem;
     width: 100%;
-    margin-top: 2rem;;
+    margin-top: 2rem;
     padding: 1rem;
     background-color: white;
     border-radius: 50px;
@@ -2966,7 +2955,7 @@ body{
 .patient-consultation-time-container{
     display: flex;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1rem;
     border-radius: 20px;
     background-color: var(--clr-primary);
     color: white;
@@ -3276,7 +3265,7 @@ body{
 
 .stature{
     display: flex;
-    align-items: flex-end;
+    align-items: custom-flex-end;
     margin-top: 0.7rem;
 }
 
@@ -3400,7 +3389,7 @@ body{
 
 .age{
     display: flex;
-    align-items: flex-end;
+    align-items: custom-flex-end;
     margin-top: 0.7rem;
 }
 
@@ -3496,7 +3485,7 @@ body{
     display: block;
     background-color: var(--clr-primary);
     border-radius: 20px;
-    padding: 1.2rem 2rem;
+    padding: 1rem 2rem;
     font-family: "Metropolis", sans-serif;
     font-size: 1.3rem;
     font-weight: 500;
@@ -3787,7 +3776,7 @@ body{
 
 .settings-options-container{
     display: flex;
-    justify-content: flex-start;
+    justify-content: custom-flex-start;
     padding: 1rem 1.5rem;
     border: 2px solid #55367F;
     border-radius: 10px;
@@ -3822,9 +3811,8 @@ body{
 
 /* **************** Calculator page ****************** */
 .calculator-content-wrapper{
-    padding: 20px;
     background-color: #fff;
-    border-radius: 0 8px 8px 8px;
+    border-radius: 0 8px 8px 0;
 }
 
 .patient-table-attachment-container{
@@ -3905,7 +3893,7 @@ body{
     height: auto;
     /* background-color: var(--clr-primary); */
     background-color: var(--clr-primary);
-    border-radius: 18px;
+    border-radius: 0 18px 18px 0;
     box-shadow: var(--box-shadow);
 }
 .calculator-wrapper{
@@ -3925,7 +3913,6 @@ body{
 .calculator-container {
     display: flex;
     justify-content: center;
-    padding-top: 6rem;
   }
 .calculator-item-title{
     margin: 1rem 1rem 1rem 1rem;
@@ -3955,11 +3942,9 @@ body{
     width: 100%;
     font-weight: 400;
     font-size: 0.8rem;
+    background-color: white;
 }
 
-.calculator-table tbody{
-
-}
 
 .portion-input-container input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -4012,11 +3997,11 @@ body{
 /* **************** Exams page ****************** */
 .form-container{
     display: flex;
+    background-color: white;
+    padding: 0.2rem;
+    border-radius: 10px;
 }
 
-.form-section-container{
-
-}
 
 .form-section{
     display: flex;
@@ -4032,6 +4017,7 @@ body{
     font-family: "Metropolis", sans-serif;
     font-size: 0.8rem;
     font-weight: 500;
+    border: var(--clr-primary) 1px solid;
 }
 
 /* **************** Exams page ****************** */
@@ -4069,11 +4055,20 @@ body{
     .landing-title-container{
         width: 80vw;
     }
+    .landing-img-stack{
+        display: flex;
+        justify-content: center;
+        width: 80vw;
+    }
     .landing-img-1{
         padding: 1rem;
+        width: 40vw;
+        margin: 5rem 0 1rem 0;
     }
     .landing-img-2{
         padding: 1rem;
+        width: 40vw;
+        margin: 10rem 0 1rem 5rem;
     }
     .landing-nav-list{
         gap: 1rem;
@@ -4101,6 +4096,23 @@ body{
 }
 
 @media screen and (max-width: 768px) {
+
+    .landing-img-stack{
+        display: flex;
+        justify-content: center;
+        width: 90vw;
+    }
+    .landing-img-1{
+        padding: 1rem;
+        width: 60vw;
+        margin: 5rem 0 1rem -4rem;
+    }
+    .landing-img-2{
+        padding: 1rem;
+        width: 60vw;
+        margin: 10rem 0 1rem 1rem;
+    }
+
     .landing-nav {
       flex-direction: column; /* Cambia la dirección de la flexbox para apilar elementos */
       align-items: center; /* Centra los elementos en la columna */
@@ -4178,22 +4190,23 @@ body{
         padding-bottom: 2rem;
     }
     .landing-img-stack{
-        grid-template-columns: repeat(4,1fr);
-        width: auto;
+        display: flex;
+        justify-content: center;
+        width: 90vw;
     }
     .landing-img-1{
-        grid-column: 0 /span 1;
-        padding: 0.4rem;
-        margin: 1rem 0 0;
+        padding: 1rem;
+        width: 60vw;
+        margin: 5rem 0 1rem -4rem;
     }
     .landing-img-2{
-        grid-column: 3;
-        padding: 0.4rem;
-        margin: 0;
+        padding: 1rem;
+        width: 60vw;
+        margin: 10rem 0 1rem 1rem;
     }
 }
 @media (min-width: 1024px) { 
-    .grid-cols-1{ 
+    /* .grid-cols-1{ 
         grid-template-columns: repeat(3, minmax(0, 1fr)); 
-   }
+   } */
 }

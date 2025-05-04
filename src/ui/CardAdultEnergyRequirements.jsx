@@ -68,14 +68,14 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
         //     <div className='patient-secondary-card-title'>
         //         {`Requerimiento energético - ${ method }`}
         //     </div>
-        //     <div className='patient-secondary-card-content pl-2' style={{gap: '1.8rem'}}>
-        //         <div className='perimetro-cintura-avatar-container flex-column'>
+        //     <div className='patient-secondary-card-content custom-pl-2' style={{gap: '1.8rem'}}>
+        //         <div className='perimetro-cintura-avatar-container custom-flex-column'>
         //             {
         //                 <img src={ EnergyRequirementsIcon } className='perimetro-cintura-avatar'/>
                         
         //             }
         //         </div>
-        //         <div className='perimetro-cefalico-value-container flex-column padding-left-none' style={{gap: '0.5rem'}}>
+        //         <div className='perimetro-cefalico-value-container custom-flex-column padding-left-none' style={{gap: '0.5rem'}}>
                     
         //             <p className='perimetro-cefalico-value' style={{fontSize: '0.9rem'}}><b>Kcal al día:&nbsp;</b>{ totalKcal } kcal</p>
         //             <p className='perimetro-cefalico-value' style={{fontSize: '0.9rem'}}><b>Agua al día:&nbsp;</b>{ hydrationMin } - { hydrationMax } ml</p>
@@ -95,7 +95,7 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
                 <h2 className="card-energy-requirements-title">
                 Requerimiento energético
                 </h2>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center custom-gap-2">
                 {
                     method === 'Factorial' ? (
                       <span className="text-sm">Dieta {factorial}</span>
@@ -106,14 +106,14 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
                 </div>
             </div>
             <div className="p-6">
-            <div className="grid grid-cols-5 gap-6">
+            <div className="grid grid-cols-5 custom-gap-6">
                 <div className="col-span-2">
                 <div className="bg-slate-50 rounded-lg p-4">
                     <div className="flex items-baseline">
-                    <span className="text-4xl font-bold text-slate-800">
+                    <span className="text-4xl custom-font-bold text-slate-800">
                         {!isNaN(Number(totalKcal)) ? Number(totalKcal).toFixed(0) : 'N/A'}
                     </span>
-                    <span className="ml-2 text-slate-600">kcal/día</span>
+                    <span className="custom-ml-2 text-slate-600">kcal/día</span>
                     </div>
                     <div className="mt-4">
                     <div className="flex justify-between text-sm" style={{marginBottom: '0.5rem'}}>
@@ -145,8 +145,8 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
                     <div className="w-36 h-36 mx-auto">
                     <Doughnut data={data} options={options} />
                     </div>
-                    <div className="flex flex-col justify-center space-y-4 gap-1">
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-col justify-center space-y-4 custom-gap-1">
+                    <div className="flex items-center custom-gap-2">
                         <span className="w-3 h-3 rounded-full bg-protein"></span>
                         <div className="flex-1">
                         <div className="flex justify-between">
@@ -156,7 +156,7 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
                         <div className="text-sm text-slate-500">{calculateMacroGrams(proteins, 'proteins')}g</div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center custom-gap-2">
                         <span className="w-3 h-3 rounded-full bg-lipid"></span>
                         <div className="flex-1">
                         <div className="flex justify-between">
@@ -166,7 +166,7 @@ export const CardAdultEnergyRequirements = ({energyRequirements}) => {
                         <div className="text-sm text-slate-500">{calculateMacroGrams(lipids, 'lipids')}g</div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center custom-gap-2">
                         <span className="w-3 h-3 rounded-full bg-cho"></span>
                         <div className="flex-1">
                         <div className="flex justify-between">

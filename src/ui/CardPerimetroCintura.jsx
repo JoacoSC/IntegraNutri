@@ -13,8 +13,8 @@ export const CardPerimetroCintura = () => {
             <div className='patient-secondary-card-title'>
                 Perímetro Cintura
             </div>
-            <div className='patient-secondary-card-content pl-2'>
-                <div className='perimetro-cintura-avatar-container flex-column'>
+            <div className='patient-secondary-card-content custom-pl-2'>
+                <div className='perimetro-cintura-avatar-container custom-flex-column'>
                     {
                         ( biologicalSex === 'Masculino' )
                         ?   <img src={ AvatarMasculino } className='perimetro-cintura-avatar'/>
@@ -25,7 +25,7 @@ export const CardPerimetroCintura = () => {
                     <img src={ PerimetroCinturaForAvatar } className='perimetro-cintura-measure'/>
 
                 </div>
-                <div className='perimetro-cefalico-value-container flex-column'>
+                <div className='perimetro-cefalico-value-container custom-flex-column'>
                     <p className='perimetro-cefalico-value'><b>Medición:&nbsp;</b>{ perimetroCintura.PCMedicion } cm</p>
                     <p className='perimetro-cefalico-value'>
                         <b>Registro:&nbsp;</b>

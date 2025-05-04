@@ -36,10 +36,10 @@ export const TermsPage = () => {
                 <img src={ Up_icon } alt="Icono IntegraNutri"/>
             </button>
             <div ref={ topRef } className="landing-header">
-                <div className="landing-logo-container">
-                    <Link to='../home'>
+                <div className="landing-logo-container" style={{  }}>
+                    <Link className='flex flex-row items-center' to='../home'>
                         <img src={ IntegraNutri_ellipse } className="landing-logo-img" alt="Icono IntegraNutri"/>
-                        <img src={ IntegraNutri_texto } className="landing-logo-text" alt="Icono IntegraNutri"/>
+                        <img src={ IntegraNutri_texto } className="landing-logo-text" style={{ marginTop: '1rem'}} alt="Icono IntegraNutri"/>
                     </Link>
                 </div>
                 <div className="landing-nav">
@@ -55,7 +55,7 @@ export const TermsPage = () => {
                 <div className="terms-background">
                     <div className='terms-card-container'>
                         <div className='terms-card'>
-                        <h1>TÉRMINOS Y CONDICIONES DE USO DE LA PLATAFORMA WEB</h1>
+                        <h1 className='text-4xl custom-font-bold leading-tight my-4'>TÉRMINOS Y CONDICIONES DE USO DE LA PLATAFORMA WEB</h1>
 
                         <p><strong>Fecha de última actualización:</strong> 27 de Diciembre de 2023</p>
 
@@ -249,7 +249,7 @@ export const TermsPage = () => {
                         
                     </div>
                 </div>
-                <div className='footer-bottom margin-left-0 pl-0'>
+                <div className='footer-bottom margin-left-0 custom-pl-0'>
                     <img className="footer-logo" src={ Logo } alt="Logo de App_Nutricionista"/>
                     <p className='footer-text-bold'>IntegraNutri v1.2.0</p>
                     <br/>

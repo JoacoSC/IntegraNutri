@@ -173,7 +173,7 @@ export const ShoppingCartPage = () => {
                                 </div>
                             :   <div className='cart-detail'>
                                     {/* <h1>Resumen de tu suscripción: { ( item === '1' ) ? '1 Mes' : ( item === '2' ) ? '3 Meses' : ( item === '3' ) ? '6 Meses' : 'N/A'}</h1> */}
-                                    <h1>Resumen de tu suscripción</h1>
+                                    <h1 className='text-4xl custom-font-bold leading-tight my-4'>Resumen de tu suscripción</h1>
                                     <br/>
                                     <div className='cart-subscription-details'>
                                         <h3>{ selectedSubscription.subscriptionDescription }</h3>

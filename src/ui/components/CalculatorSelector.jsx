@@ -14,6 +14,8 @@ import {
   Apple,
   Brain,
   Gauge,
+  ChefHat,
+  ListTree,
 } from 'lucide-react'
 
 export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) => {
@@ -26,12 +28,12 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
       id: 'food',
       label: 'Calculadoras de Alimentos',
       color: '#4a2a82',
-      icon: <Apple size={20} />,
+      icon: <ChefHat size={20} />,
       calculators: [
         {
           id: 'foodCalc', // Cambiado de 'food' a 'foodCalc'
           label: 'Calculadora de Alimentos',
-          icon: <Calculator size={20} />,
+          icon: <Apple size={20} />,
         },
         {
           id: 'portionDist', // Cambiado de 'portion' a 'portionDist'
@@ -44,7 +46,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
       id: 'children',
       label: 'Requerimientos Infantiles',
       color: '#4a2a82',
-      icon: <Brain size={20} />,
+      icon: <Baby size={20} />,
       calculators: [
         {
           id: 'pediatricCalc', // Cambiado de 'energy-children' a 'pediatricCalc'
@@ -54,7 +56,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
         {
           id: 'customCalc', // Cambiado de 'energy-personalized' a 'customCalc'
           label: 'Requerimientos Personalizados',
-          icon: <UserCircle size={20} />,
+          icon: <PieChart size={20} />,
         },
       ],
     },
@@ -62,7 +64,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
       id: 'adults',
       label: 'Requerimientos Adultos',
       color: '#4a2a82',
-      icon: <Gauge size={20} />,
+      icon: <Users size={20} />,
       calculators: [
         {
           id: 'adultCalc', // Cambiado de 'energy-adults' a 'adultCalc'
@@ -80,7 +82,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
       id: 'other',
       label: 'Otras Calculadoras',
       color: '#4a2a82',
-      icon: <div size={20} />,
+      icon: <ListTree size={20} />,
       calculators: [
         {
           id: 'height', // Sin cambios
@@ -167,8 +169,8 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
   )
 
   return (
-    <div className="w-full h-full flex flex-col bg-white">
-      <div className="p-4 border-b border-gray-200 bg-gradient-to-b from-white to-purple-50">
+    <div className="w-full h-full flex flex-col bg-white border-purple-900 border-l-2 border-t-2 border-b-2" style={{borderRadius: '18px 0 0 18px'}}>
+      <div className="px-6 border-b border-gray-200 flex items-center border-r" style={{height: '80px'}}>
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Search className="text-gray-400" size={18} />
@@ -177,8 +179,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
             type="text"
             placeholder="Buscar calculadora..."
             className="w-full pl-10 pr-10 py-2.5 border border-gray-200 rounded-lg text-sm 
-              focus:outline-none focus:ring-2 focus:ring-[#4a2a82] focus:border-transparent
-              transition-shadow duration-200 shadow-sm hover:shadow-md"
+              focus:outline-none focus:ring-2 focus:ring-[#4a2a82] duration-200"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -195,7 +196,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
           )}
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto bg-gradient-to-b from-purple-50/30 to-transparent">
+      <div className="flex-1 overflow-y-auto">
         {isSearching ? (
           renderSearchResults()
         ) : (
@@ -207,7 +208,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
                     setOpenCategory(openCategory === category.id ? null : category.id)
                   }
                   className={`w-full px-4 py-3.5 flex items-center justify-between transition-all duration-200
-                    ${openCategory === category.id ? 'bg-gradient-to-r from-purple-50 to-transparent border-l-4 border-[#4a2a82]' : 'hover:bg-purple-50 group-hover:bg-purple-50/50'}`}
+                    ${openCategory === category.id ? ' border-l-4 border-[#4a2a82]' : 'hover:bg-purple-50 group-hover:bg-purple-50/50'}`}
                 >
                   <div className="flex items-center space-x-3">
                     <span

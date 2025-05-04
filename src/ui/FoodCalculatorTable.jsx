@@ -121,9 +121,13 @@ export const FoodCalculatorTable = () => {
   return (
     <div className="calculator-content-wrapper">
         <div className="calculator-main-container">
-        <div className="calculator-wrapper">
-            <p className="calculator-item-title">Calculadora de alimentos</p>
-            <div className="calculator-container calculator-container-border-radius">
+        <div className="calculator-wrapper" style={{ borderRadius: '0 18px 18px 0'}}>
+            <div className="w-full text-white text-center px-6 py-6">
+                <h1 className="new-calculator-title">
+                Calculadora de alimentos
+                </h1>
+            </div>
+            <div className="calculator-container">
                 <table className="calculator-table">
                     <tbody>
 

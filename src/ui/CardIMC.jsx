@@ -86,7 +86,7 @@ const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, a
     // console.log(patientIsElderly)
     
     return (
-        <div className={`patient-secondary-card h-${containerHeight}`}>
+        <div className={`patient-secondary-card`} style={{ height: '500px' }}>
             <div className='patient-secondary-card-title'>
                 IMC
             </div>
@@ -112,7 +112,7 @@ const CardIMC = ({ patientObject, nutritionalRating, ageForCalcs, imcPregnant, a
                         {
                             (patientIsAdult)
                             ?   <>
-                                    <strong className='font-size-10'>*Gráfico no aplica en caso de gestantes</strong>
+                                    <strong className='custom-font-size-10'>*Gráfico no aplica en caso de gestantes</strong>
                                     <h3>Resultados</h3>
                                 </>
                             :   null

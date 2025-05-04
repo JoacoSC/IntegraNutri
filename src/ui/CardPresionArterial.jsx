@@ -15,7 +15,7 @@ export const CardPresionArterial = () => {
                 <div className='perimetro-cintura-avatar-container'>
                     <img src={ HeartIcon } className='perimetro-cintura-avatar'/>
                 </div>
-                <div className='perimetro-cefalico-value-container flex-column pr-2'>
+                <div className='perimetro-cefalico-value-container custom-flex-column custom-pr-2'>
                     <p className='perimetro-cefalico-value'><b>Medición:&nbsp;</b>{ presionArterial.PAMedicion } mmHg</p>
                     {
                         (!!presionArterial.PARegistro)

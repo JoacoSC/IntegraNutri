@@ -943,12 +943,12 @@ export const SharePage = () => {
     // console.log('calendarArray: ', calendarArray)
 
     return (
-        <div className="flex-column min-height-100vh">
+        <div className="custom-flex-column custom-min-height-100vh">
             {
                 ( isLoading )
                 ?   <LoadingScreen isLoading = { isLoading } />
                 :   <>
-                        <div className="food-background flex-column align-items-center p-2">
+                        <div className="food-background custom-flex-column custom-align-items-center custom-p-2">
 
                             <div className="sharepage-logout-container">
                                 {
@@ -963,11 +963,11 @@ export const SharePage = () => {
 
                             </div>
                             <div className="welcome-section">
-                                <h1>Agenda de { displayName }</h1>
+                                <h1 className="text-4xl custom-font-bold leading-tight my-4">Agenda de { displayName }</h1>
                             </div>
-                            <div className="flex-column">
+                            <div className="custom-flex-column">
                                 <div className="calendar-container">
-                                    <div className="calendar flex-column align-items-center">
+                                    <div className="calendar custom-flex-column custom-align-items-center">
                                         <div className="month-year-container">
                                             <div className="calendar-next-prev-day-ellipse" onClick={ () => handlePrevMonth() }><p>{ "<" }</p></div>
                                             {
@@ -1008,8 +1008,8 @@ export const SharePage = () => {
                                 </div>
                                 {
                                     ( isConsultationSlotAvailable )
-                                    ?   <div className="flex-column align-items-center">
-                                            <div className="calendar-extension-container flex-column">
+                                    ?   <div className="custom-flex-column custom-align-items-center">
+                                            <div className="calendar-extension-container custom-flex-column">
                                                 <div>
                                                     <p className="calendar-extension-title">{capitalizeFirst( format( currentDay, 'iiii' ) + ' ' + format( currentDay, 'dd' ) + ' de ' + format( currentDay, 'MMMM' ) )}</p>
                                                 </div>

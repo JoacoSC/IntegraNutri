@@ -62,8 +62,8 @@ export const CardNutritionalIndications = ({ patientID }) => {
                 Indicaciones nutricionales
             </div>
             <div className='patient-secondary-card-content'>
-            <div className='flex-column'>
-                <p className='font-size-14 font-weight-500 text-align-center pb-1'>Descarga las indicaciones nutricionales del paciente aquí.</p>
+            <div className='custom-flex-column'>
+                <p className='custom-font-size-14 custom-font-weight-500 custom-text-align-center custom-pb-1'>Descarga las indicaciones nutricionales del paciente aquí.</p>
                     
                 <button className='btn-sm' onClick={handleDownload}>
                     Descargar archivo PDF

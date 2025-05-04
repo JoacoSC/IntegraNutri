@@ -12,10 +12,10 @@ export const ShowExamsHistoryManager = ({ examsHistory }) => {
     }
 
     return (
-        <div className="exams-container flex-column-reverse">
+        <div className="exams-container custom-flex-column-reverse">
         
             {examsHistory.map((exam, index) => (
-                <div className="exam-item cursor-pointer" key={ index } onClick={ () => onExamHistoryItem( index ) }>
+                <div className="exam-item custom-cursor-pointer" key={ index } onClick={ () => onExamHistoryItem( index ) }>
                     <p><b>Fecha de realización de batería de exámen</b></p>
                     <input
                         className="input-text-style input-date"

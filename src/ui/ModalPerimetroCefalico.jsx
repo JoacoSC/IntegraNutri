@@ -117,7 +117,7 @@ export const ModalPerimetroCefalico = ({ patientObject }) => {
                                     Clasificación
                                 </label>
                                 <div className='flex-direction-row'>
-                                    <input className="input-text-style h-2 mr-05" type="text" name="PCeClasificacion" value={ PCeClasificacion } readOnly/>
+                                    <input className="input-text-style h-2 custom-mr-05" type="text" name="PCeClasificacion" value={ PCeClasificacion } readOnly/>
                                     {
                                         (PCeClasificacion === 'Macrocefalia')
                                         ?   <DangerTooltip tooltipMessage = { tooltipMessage }/>
