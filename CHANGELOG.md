@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.18.0] - 2025-05-26
+
+### Añadido
+- **Calculadora de estimación de altura**: Se ha incorporado una nueva calculadora en la sección de calculadoras que permite estimar la estatura de pacientes que no pueden ser medidos de forma tradicional. A partir de la medición de la longitud de rodilla, el sistema entrega una estimación de altura junto con desviaciones posibles al alza y a la baja, facilitando el trabajo clínico en casos especiales.
+- **Tarjeta de estimación de altura en la página del paciente**: Se ha añadido una nueva tarjeta que muestra los datos utilizados y los resultados calculados por la herramienta de estimación de altura. Esta tarjeta se visualiza en el perfil de cada paciente, permitiendo un acceso rápido y ordenado a esta información complementaria.
+
 ## [1.17.0] - 2025-03-27  
 
 ### Añadido  
