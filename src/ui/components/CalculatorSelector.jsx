@@ -79,14 +79,19 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
       ],
     },
     {
-      id: 'other',
-      label: 'Otras Calculadoras',
+      id: 'estimations',
+      label: 'Estimaciones',
       color: '#4a2a82',
       icon: <ListTree size={20} />,
       calculators: [
         {
-          id: 'height', // Sin cambios
+          id: 'heightEstimation', // Sin cambios
           label: 'Estimación de Altura',
+          icon: <Ruler size={20} />,
+        },
+        {
+          id: 'weightEstimation', // Sin cambios
+          label: 'Estimación de Peso',
           icon: <Ruler size={20} />,
           comingSoon: true,
         },
@@ -170,7 +175,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
 
   return (
     <div className="w-full h-full flex flex-col bg-white border-purple-900 border-l-2 border-t-2 border-b-2" style={{borderRadius: '18px 0 0 18px'}}>
-      <div className="px-6 border-b border-gray-200 flex items-center border-r" style={{height: '80px'}}>
+      <div className="px-6 border-b border-gray-200 flex items-center border-r" style={{height: '78px'}}>
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Search className="text-gray-400" size={18} />
@@ -207,7 +212,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
                   onClick={() =>
                     setOpenCategory(openCategory === category.id ? null : category.id)
                   }
-                  className={`w-full px-4 py-3.5 flex items-center justify-between transition-all duration-200
+                  className={`w-full px-4 py-3.5 flex items-center justify-between transition-all duration-200 cursor-pointer
                     ${openCategory === category.id ? ' border-l-4 border-[#4a2a82]' : 'hover:bg-purple-50 group-hover:bg-purple-50/50'}`}
                 >
                   <div className="flex items-center space-x-3">
@@ -241,7 +246,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
                         }
                         className={`w-full pl-11 pr-4 py-3 flex items-center text-sm transition-all duration-200
                           ${selectedCalculator === calc.id ? 'bg-white border-l-4 border-[#4a2a82]' : 'hover:bg-white'} 
-                          ${calc.comingSoon ? 'opacity-60 cursor-not-allowed' : ''}`}
+                          ${calc.comingSoon ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
                         disabled={calc.comingSoon}
                       >
                         <span

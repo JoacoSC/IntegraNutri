@@ -14,6 +14,7 @@ import { frequencyOfConsumptionSlice } from './frequencyOfConsumption';
 import { mealTimePortionDistributionSlice } from './mealTimePortionDistribution';
 import { myNutritionistSlice } from './myNutritionist/myNutritionistSlice';
 import { energyRequirementsSlice } from './energyRequirements/energyRequirementsSlice';
+import { estimationsSlice } from './estimations/estimationsSlice';
 
 export const store = configureStore({
     reducer: {

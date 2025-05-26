@@ -28,7 +28,7 @@ export const BasePatientComponent = () => {
 
     // React imports
     const { uid, displayName, photoURL, isNutritionistStatus } = useSelector(state => state.auth);
-    const { patientName, email, phone, nextConsultation, anamnesis, physical_exam, diagnosis, indications, weight, stature, imc, imcPregnant, unixBirthday, unixCorrectedBirthday, unixBiologicalBirthday, biologicalSex, genderIdentity = '', age, correctedAgeIsSet = null, correctedAge = { d: 0, m: 0, y: 0, }, biologicalAgeIsSet, biologicalAge = { d: 0, m: 0, y: 0, }, tallaDiana, perimetroCefalico, perimetroCintura, presionArterial, portionDistribution, patientExams, anthropometry: anthropometryHistory, energyRequirements = '', adultEnergyRequirements = ''
+    const { patientName, email, phone, nextConsultation, anamnesis, physical_exam, diagnosis, indications, weight, stature, imc, imcPregnant, unixBirthday, unixCorrectedBirthday, unixBiologicalBirthday, biologicalSex, genderIdentity = '', age, correctedAgeIsSet = null, correctedAge = { d: 0, m: 0, y: 0, }, biologicalAgeIsSet, biologicalAge = { d: 0, m: 0, y: 0, }, tallaDiana, perimetroCefalico, perimetroCintura, presionArterial, portionDistribution, patientExams, anthropometry: anthropometryHistory, energyRequirements = '', adultEnergyRequirements = '', estimations = ''
       } = useSelector((state) => state.currentPatient);
     const { membership, isActive } = useSelector(state => state.subscription);
     const dispatch = useDispatch();
@@ -216,7 +216,8 @@ export const BasePatientComponent = () => {
     anthropometry,
     anthropometryHistory,
     energyRequirements,
-    adultEnergyRequirements
+    adultEnergyRequirements,
+    estimations
     };
 
     return (
