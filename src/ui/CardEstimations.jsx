@@ -11,6 +11,22 @@ export function CardEstimations({ estimations }) {
     const [activeTab, setActiveTab] = useState('height')
     const { heightEstimation, weightEstimation } = estimations;
 
+    // Si no hay heightEstimation, muestra un mensaje o retorna null
+    if (!heightEstimation) {
+        return (
+            <div className="w-[400px] rounded-lg shadow-md overflow-hidden bg-white mt-8">
+                <div className="patient-secondary-card-title flex justify-between items-center">
+                    <h2 className="card-energy-requirements-title">
+                        Estimaciones
+                    </h2>
+                </div>
+                <div className="p-6 text-center text-slate-500">
+                    No hay datos de estimación de altura disponibles.
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="w-[400px] rounded-lg shadow-md overflow-hidden bg-white mt-8">
         <div className="patient-secondary-card-title flex justify-between items-center">

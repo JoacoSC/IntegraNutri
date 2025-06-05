@@ -290,15 +290,17 @@ export const HeightEstimationCalculator = () => {
               Resultados de la estimación
             </h2>
             <div className="space-y-8">
-              <div className="bg-white rounded-lg p-4">
+              {/* Mostrar solo el cuadro correspondiente según la edad */}
+              {patientAge >= 19 && patientAge <= 59 && (
+                <div className="bg-white rounded-lg p-4">
                   <p className="text-sm text-blue-700">
-                      Adultos (19-59 años)
+                    Adultos (19-59 años)
                   </p>
                   <div className="flex flex-col items-center mb-8">
                     <p className="text-sm text-gray-500 mb-1">Altura estimada</p>
                     <p className="text-3xl font-bold text-blue-800">
                       {results.youngAdult.height !== null
-                        ? `${results.youngAdult.height} cm`
+                        ? `${results.youngAdult.height.toFixed(2)} cm`
                         : '-'}
                     </p>
                   </div>
@@ -328,7 +330,7 @@ export const HeightEstimationCalculator = () => {
                       </div>
                       <p className="text-xl font-semibold text-blue-800 pl-8">
                         {results.youngAdult.negDeviation !== null
-                          ? `${results.youngAdult.negDeviation} cm`
+                          ? `${results.youngAdult.negDeviation.toFixed(2)} cm`
                           : '-'}
                       </p>
                     </div>
@@ -357,170 +359,91 @@ export const HeightEstimationCalculator = () => {
                       </div>
                       <p className="text-xl font-semibold text-blue-800 pl-8">
                         {results.youngAdult.posDeviation !== null
-                          ? `${results.youngAdult.posDeviation} cm`
+                          ? `${results.youngAdult.posDeviation.toFixed(2)} cm`
                           : '-'}
                       </p>
                     </div>
                   </div>
-                  {/* <p className="text-2xl font-semibold text-blue-900">
-                      {results[selectedMethod].geb.toFixed(2)}
-                      <span className="text-base font-normal text-blue-700 custom-ml-1">
-                          kcal/día
-                      </span>
-                  </p> */}
               </div>
-              {/* <div className="bg-white rounded-lg border">
-                <div className="px-4 py-3 border-b bg-gradient-to-r from-blue-50 to-white">
-                  <h3 className="font-medium text-blue-800">
-                    Adultos (19-59 años)
-                  </h3>
-                </div>
-                <div className="p-6">
-                  <div className="flex flex-col items-center mb-8">
-                    <p className="text-sm text-gray-500 mb-1">Altura estimada</p>
-                    <p className="text-3xl font-bold text-blue-800">
-                      {results.youngAdult.height !== null
-                        ? `${results.youngAdult.height} cm`
-                        : '-'}
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4 mt-4">
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <div className="flex items-center mb-2">
-                        <div className="h-6 w-6 rounded bg-blue-100 flex items-center justify-center mr-2">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-blue-600"
-                          >
-                            <path d="m5 12 7 7 7-7"></path>
-                            <path d="M12 19V5"></path>
-                          </svg>
-                        </div>
-                        <p className="text-sm text-gray-600">
-                          Variación inferior
-                        </p>
-                      </div>
-                      <p className="text-xl font-semibold text-blue-800 pl-8">
-                        {results.youngAdult.negDeviation !== null
-                          ? `${results.youngAdult.negDeviation} cm`
-                          : '-'}
-                      </p>
-                    </div>
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <div className="flex items-center mb-2">
-                        <div className="h-6 w-6 rounded bg-blue-100 flex items-center justify-center mr-2">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-blue-600"
-                          >
-                            <path d="m19 12-7-7-7 7"></path>
-                            <path d="M12 5v14"></path>
-                          </svg>
-                        </div>
-                        <p className="text-sm text-gray-600">
-                          Variación superior
-                        </p>
-                      </div>
-                      <p className="text-xl font-semibold text-blue-800 pl-8">
-                        {results.youngAdult.posDeviation !== null
-                          ? `${results.youngAdult.posDeviation} cm`
-                          : '-'}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-              <div className="bg-white rounded-lg p-4">
+              )}
+              
+              {patientAge >= 60 && patientAge <= 80 && (
+                <div className="bg-white rounded-lg p-4">
                   <p className="text-sm text-blue-700">
                     Adultos mayores (60-80 años)
                   </p>
-                <div className="p-6">
-                  <div className="flex flex-col items-center mb-8">
-                    <p className="text-sm text-gray-500 mb-1">Altura estimada</p>
-                    <p className="text-3xl font-bold text-blue-800">
-                      {results.elderly.height !== null
-                        ? `${results.elderly.height} cm`
-                        : '-'}
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4 mt-4">
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <div className="flex items-center mb-2">
-                        <div className="h-6 w-6 rounded bg-blue-100 flex items-center justify-center mr-2">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-blue-600"
-                          >
-                            <path d="m5 12 7 7 7-7"></path>
-                            <path d="M12 19V5"></path>
-                          </svg>
-                        </div>
-                        <p className="text-sm text-gray-600">
-                          Variación inferior
-                        </p>
-                      </div>
-                      <p className="text-xl font-semibold text-blue-800 pl-8">
-                        {results.elderly.negDeviation !== null
-                          ? `${results.elderly.negDeviation} cm`
+                  <div className="p-6">
+                    <div className="flex flex-col items-center mb-8">
+                      <p className="text-sm text-gray-500 mb-1">Altura estimada</p>
+                      <p className="text-3xl font-bold text-blue-800">
+                        {results.elderly.height !== null
+                          ? `${results.elderly.height.toFixed(2)} cm`
                           : '-'}
                       </p>
                     </div>
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <div className="flex items-center mb-2">
-                        <div className="h-6 w-6 rounded bg-blue-100 flex items-center justify-center mr-2">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-blue-600"
-                          >
-                            <path d="m19 12-7-7-7 7"></path>
-                            <path d="M12 5v14"></path>
-                          </svg>
+                    <div className="grid grid-cols-2 gap-4 mt-4">
+                      <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                        <div className="flex items-center mb-2">
+                          <div className="h-6 w-6 rounded bg-blue-100 flex items-center justify-center mr-2">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="text-blue-600"
+                            >
+                              <path d="m5 12 7 7 7-7"></path>
+                              <path d="M12 19V5"></path>
+                            </svg>
+                          </div>
+                          <p className="text-sm text-gray-600">
+                            Variación inferior
+                          </p>
                         </div>
-                        <p className="text-sm text-gray-600">
-                          Variación superior
+                        <p className="text-xl font-semibold text-blue-800 pl-8">
+                          {results.elderly.negDeviation !== null
+                            ? `${results.elderly.negDeviation.toFixed(2)} cm`
+                            : '-'}
                         </p>
                       </div>
-                      <p className="text-xl font-semibold text-blue-800 pl-8">
-                        {results.elderly.posDeviation !== null
-                          ? `${results.elderly.posDeviation} cm`
-                          : '-'}
-                      </p>
+                      <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                        <div className="flex items-center mb-2">
+                          <div className="h-6 w-6 rounded bg-blue-100 flex items-center justify-center mr-2">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="text-blue-600"
+                            >
+                              <path d="m19 12-7-7-7 7"></path>
+                              <path d="M12 5v14"></path>
+                            </svg>
+                          </div>
+                          <p className="text-sm text-gray-600">
+                            Variación superior
+                          </p>
+                        </div>
+                        <p className="text-xl font-semibold text-blue-800 pl-8">
+                          {results.elderly.posDeviation !== null
+                            ? `${results.elderly.posDeviation.toFixed(2)} cm`
+                            : '-'}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
           

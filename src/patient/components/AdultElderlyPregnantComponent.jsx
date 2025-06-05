@@ -93,7 +93,7 @@ export const AdultElderlyPregnantComponent = ({ commonProps }) => {
       <div className="patient-secondary-card-row">
         
         {/* Renderización de CardEstimations */}
-        {estimations && (
+        {estimations && (estimations.heightEstimation !== null || estimations.weightEstimation !== null) && (
           <CardEstimations
             estimations={estimations}
           />

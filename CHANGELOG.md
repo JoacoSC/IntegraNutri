@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.18.1] - 2025-06-05
+
+### Corregido
+- **Error en la renderización de CardEstimations**: Se solucionó un problema que ocasionaba una pantalla en blanco al abrir la página de algunos pacientes. El error se debía a un fallo en la renderización del componente `CardEstimations`, el cual ahora funciona correctamente en todos los casos.
+
 ## [1.18.0] - 2025-05-26
 
 ### Añadido
