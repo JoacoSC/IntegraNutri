@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.19.0] - 2025-06-27
+
+### Añadido
+- **Calculadora de estimación de peso**: Se ha incorporado una nueva calculadora que permite estimar el peso corporal de pacientes que no pueden ser pesados directamente. Esta herramienta utiliza fórmulas clínicas basadas en medidas corporales específicas, facilitando el trabajo en contextos donde no es posible realizar una medición directa del peso.
+- **Integración en la tarjeta de estimaciones**: Los resultados de la estimación de peso ahora se visualizan en una pestaña independiente dentro de la tarjeta de estimaciones en el perfil del paciente. Esta nueva organización permite acceder tanto a la estimación de altura como a la de peso desde un mismo componente, manteniendo un diseño claro y ordenado.
+
 ## [1.18.1] - 2025-06-05
 
 ### Corregido
