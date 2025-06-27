@@ -56,4 +56,5 @@ export * from './CardAdultEnergyRequirements';
 export * from './AdultEnergyRequirementsCalculator';
 export * from './AdultCustomEnergyRequirementsCalculator';
 export * from './HeightEstimationCalculator';
+export * from './WeightEstimationCalculator';
 export * from './CardEstimations';

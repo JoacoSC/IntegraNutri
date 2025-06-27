@@ -93,7 +93,7 @@ export const CalculatorSelector = ({ selectedCalculator, onSelectCalculator }) =
           id: 'weightEstimation', // Sin cambios
           label: 'Estimación de Peso',
           icon: <Ruler size={20} />,
-          comingSoon: true,
+          // comingSoon: true,
         },
       ],
     },

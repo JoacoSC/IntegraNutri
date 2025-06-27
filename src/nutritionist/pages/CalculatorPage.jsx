@@ -4,7 +4,7 @@ import { startLogout } from "../../store/auth";
 
 
 import { AppLayout } from "../../layout/AppLayout"
-import { AdultCustomEnergyRequirementsCalculator, AdultEnergyRequirementsCalculator, FoodCalculatorTable, Footer, HeightEstimationCalculator, MealTimePortionDistribution } from "../../ui";
+import { AdultCustomEnergyRequirementsCalculator, AdultEnergyRequirementsCalculator, FoodCalculatorTable, Footer, HeightEstimationCalculator, MealTimePortionDistribution, WeightEstimationCalculator } from "../../ui";
 import { useEffect, useState } from "react";
 import { CalculatorsTabs, CalculatorsTabTrigger } from "../../ui/components";
 import { PediatricEnergyRequirementsCalculator, CustomEnergyRequirementsCalculator } from "../../ui";
@@ -43,6 +43,8 @@ export const CalculatorPage = () => {
           return <AdultCustomEnergyRequirementsCalculator />;
         case "heightEstimation":
           return <HeightEstimationCalculator />;
+        case "weightEstimation":
+          return <WeightEstimationCalculator />;
         default:
           return <FoodCalculatorTable />;
       }

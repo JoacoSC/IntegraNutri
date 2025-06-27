@@ -300,7 +300,7 @@ export const HeightEstimationCalculator = () => {
                     <p className="text-sm text-gray-500 mb-1">Altura estimada</p>
                     <p className="text-3xl font-bold text-blue-800">
                       {results.youngAdult.height !== null
-                        ? `${results.youngAdult.height.toFixed(2)} cm`
+                        ? `${results.youngAdult.height.toFixed(1)} cm`
                         : '-'}
                     </p>
                   </div>
@@ -330,7 +330,7 @@ export const HeightEstimationCalculator = () => {
                       </div>
                       <p className="text-xl font-semibold text-blue-800 pl-8">
                         {results.youngAdult.negDeviation !== null
-                          ? `${results.youngAdult.negDeviation.toFixed(2)} cm`
+                          ? `${results.youngAdult.negDeviation.toFixed(1)} cm`
                           : '-'}
                       </p>
                     </div>
@@ -359,7 +359,7 @@ export const HeightEstimationCalculator = () => {
                       </div>
                       <p className="text-xl font-semibold text-blue-800 pl-8">
                         {results.youngAdult.posDeviation !== null
-                          ? `${results.youngAdult.posDeviation.toFixed(2)} cm`
+                          ? `${results.youngAdult.posDeviation.toFixed(1)} cm`
                           : '-'}
                       </p>
                     </div>
